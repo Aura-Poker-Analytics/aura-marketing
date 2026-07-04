@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aura · carrossel-slide</title>
+<script>
+/* ============================================================
+   CARROSSEL — SLIDE INTERNO · 1080×1350
+   Título + corpo. Edite apenas o CONFIG.
+   ============================================================ */
+const CONFIG = {
+  // número do slide (ghost no canto) e indicador do rodapé
+  slideNumber: "02",
+  slideIndicator: "2 / 6",
+
+  // kicker pequeno (tema do carrossel)
+  kicker: "MDF in 60 seconds",
+
+  // título em CAPS. Use <em>…</em> para amber.
+  titleHtml: "The pool doesn't defend <em>enough</em>",
+
+  // parágrafos do corpo (sentence case). Use <b>…</b> para negrito amber.
+  bodyHtml: [
+    "MDF says BB must defend around <b>62%</b> vs a 33% c-bet to stay unexploitable.",
+    "Real pools defend far less — which turns every small bet into instant profit before the flop even connects.",
+  ],
+
+  // handle do rodapé
+  handle: "@aurapokeranalytics",
+};
+</script>
+<style>
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Variable-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: block;
+}
+:root {
+  --bg: #020617;
+  --surface: #0F172A;
+  --surface-2: #1E293B;
+  --blue-2: #223559;
+  --amber: #FBBF24;
+  --gold: #D4A418;
+  --ink: #FFFFFF;
+  --ink-soft: #CBD5E1;
+  --ink-dim: #64748B;
+  --pad: 84px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 100vh; overflow: hidden; }
+body {
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1300px 900px at 50% -12%, rgba(34, 53, 89, 0.5), transparent 62%),
+    var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: var(--pad);
+  position: relative;
+}
+.ghost-number {
+  position: absolute;
+  top: 44px;
+  right: 64px;
+  font-size: 300px;
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 3px rgba(251, 191, 36, 0.28);
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 900px;
+}
+.kicker {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 40px;
+}
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 56px;
+  height: 5px;
+  background: var(--amber);
+  vertical-align: middle;
+  margin-right: 24px;
+  border-radius: 3px;
+}
+.title {
+  font-size: 82px;
+  font-weight: 900;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 54px;
+}
+.title em { font-style: normal; color: var(--amber); }
+.body p {
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 40px;
+}
+.body p:last-child { margin-bottom: 0; }
+.body b { color: var(--amber); font-weight: 800; }
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgba(30, 41, 59, 0.9);
+  padding-top: 34px;
+}
+.handle {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+}
+.handle .logo { width: 44px; height: 36px; opacity: 0.9; }
+.indicator {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink-dim);
+  letter-spacing: 0.18em;
+  font-variant-numeric: tabular-nums;
+}
+</style>
+</head>
+<body>
+
+<div class="ghost-number" id="ghostNumber"></div>
+
+<div class="content">
+  <div class="kicker" id="kicker"></div>
+  <h1 class="title" id="title"></h1>
+  <div class="body" id="body"></div>
+</div>
+
+<footer>
+  <div class="handle"><div class="logo" data-logo></div><span id="handle"></span></div>
+  <div class="indicator" id="indicator"></div>
+</footer>
+
+<script>
+const LOGO_ICON = `<svg viewBox="0 0 60 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.86165 44.898C-5.49315 30.408 0.312736 8.78736 17.5518 1.99342C24.4945 -0.786314 32.5783 -0.656823 39.4165 2.36894C53.1363 8.26508 59.687 24.4384 54.0901 38.1515C53.1232 40.5643 51.8035 42.8347 50.2094 44.8936L49.874 44.6347C50.1658 44.0476 50.4577 43.4736 50.7277 42.8909C54.5649 34.7459 54.4429 24.8226 49.8784 17.1481C42.8921 5.2091 27.6609 0.935911 15.5352 7.87661C3.92345 14.5022 -0.305745 28.8843 4.59855 41.1298C4.81633 41.7039 5.0733 42.3427 5.33899 42.8952C5.60903 43.4779 5.90085 44.052 6.19267 44.639L5.85729 44.898H5.86165Z" fill="#D4A418"/>
+<path d="M28.0486 8.56287C22.2601 20.394 16.4717 32.2251 10.6788 44.0562C12.3905 42.8477 14.9734 41.2895 18.3837 40.1456C19.612 39.7312 22.0293 39.0147 25.2219 38.7212C25.5964 38.5529 26.093 38.2637 26.5285 37.7759C27.012 37.2364 27.1949 36.7055 27.3604 36.2005C27.4519 35.9285 27.5521 35.5573 27.613 35.0998C27.6479 34.8279 27.2777 34.6941 27.1122 34.9185C26.8595 35.2681 26.498 35.635 25.9884 35.9199C25.714 36.071 25.0215 36.4465 24.0807 36.3688C23.031 36.2868 22.3647 35.6955 22.173 35.5228C21.132 34.5775 21.1059 33.2869 21.1016 32.933C21.0798 31.7028 21.6591 30.6885 23.0093 29.0526C24.0894 27.7404 25.7315 25.975 28.0268 24.1017C30.3439 25.975 31.9903 27.7447 33.0748 29.0526C34.4294 30.6928 35.0043 31.7115 34.9825 32.933C34.9782 33.2869 34.9521 34.5775 33.9111 35.5228C33.7238 35.6955 33.0531 36.2825 32.0034 36.3688C31.0626 36.4422 30.3744 36.071 30.0957 35.9199C29.5861 35.635 29.2246 35.2725 28.9719 34.9185C28.8108 34.6941 28.4362 34.8279 28.4711 35.0998C28.532 35.5573 28.6366 35.9285 28.7237 36.2005C28.8936 36.7055 29.0765 37.2364 29.5556 37.7759C29.9911 38.2637 30.4877 38.5529 30.8622 38.7212C34.0548 39.0147 36.4678 39.7356 37.6917 40.1456C41.1064 41.2938 43.6936 42.8477 45.4053 44.0606C39.6168 32.2294 33.8283 20.3983 28.0355 8.56718L28.0486 8.56287Z" fill="#D4A418"/>
+</svg>`;
+
+document.querySelectorAll("[data-logo]").forEach(el => el.innerHTML = LOGO_ICON);
+
+document.getElementById("ghostNumber").textContent = CONFIG.slideNumber;
+document.getElementById("kicker").textContent = CONFIG.kicker;
+document.getElementById("title").innerHTML = CONFIG.titleHtml;
+document.getElementById("handle").textContent = CONFIG.handle;
+document.getElementById("indicator").textContent = CONFIG.slideIndicator;
+
+const body = document.getElementById("body");
+CONFIG.bodyHtml.forEach(html => {
+  const p = document.createElement("p");
+  p.innerHTML = html;
+  body.appendChild(p);
+});
+</script>
+</body>
+</html>

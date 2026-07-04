@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "templates",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3999", "instagram/templates"],
+      "port": 3999
+    }
+  ]
+}
