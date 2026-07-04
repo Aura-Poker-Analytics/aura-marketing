@@ -4,6 +4,18 @@ Repositório de **marketing e identidade de marca** do Aura Poker Analytics.
 
 **Contexto completo:** ver `aura-context/AGENTS.md`
 
+## Onboarding obrigatório (ler ANTES de qualquer trabalho)
+
+1. `docs/00-strategy/plano-marketing-launch-2.0.md` — plano, pilares, calendário, compliance, regra de ouro dos números.
+2. `brand/brand-kit.md` — paleta, tipografia, logos, tom de voz, compliance visual.
+
+## Papéis das threads
+
+- **QG estratégico**: estratégia, calendário, aprovações, review semanal. Só lê este repo.
+- **Fábrica de posts**: dona do dia-a-dia deste repo (templates, copy, renders, commits).
+- **Mídia paga**: escreve APENAS em `docs/02-paid/`.
+- **Rafael (PO)**: aprova tudo, publica tudo. Nenhum agente publica ou gasta dinheiro, nunca.
+
 ## Regras específicas
 
 - Repo **standalone** — sem código de app, API ou ETL.
