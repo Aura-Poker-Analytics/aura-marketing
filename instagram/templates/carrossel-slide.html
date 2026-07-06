@@ -6,26 +6,74 @@
 <script>
 /* ============================================================
    CARROSSEL — SLIDE INTERNO · 1080×1350
-   Título + corpo. Edite apenas o CONFIG.
+   Título + painel de UI (mock fiel do app ou print real) + corpo.
+   CONFIG.mock: "postflop" | "preflop" | "hotspot" | "image" | "none"
    ============================================================ */
 const CONFIG = {
-  // número do slide (ghost no canto) e indicador do rodapé
   slideNumber: "02",
   slideIndicator: "2 / 6",
 
-  // kicker pequeno (tema do carrossel)
-  kicker: "MDF in 60 seconds",
+  kicker: "Postflop Analysis",
 
-  // título em CAPS. Use <em>…</em> para amber.
-  titleHtml: "The pool doesn't defend <em>enough</em>",
+  // título em CAPS — <em> vira gradient amber
+  titleHtml: "See the pool's <em>response</em> to every line",
 
-  // parágrafos do corpo (sentence case). Use <b>…</b> para negrito amber.
+  // parágrafo(s) abaixo do painel — <b> vira amber
   bodyHtml: [
-    "MDF says BB must defend around <b>62%</b> vs a 33% c-bet to stay unexploitable.",
-    "Real pools defend far less — which turns every small bet into instant profit before the flop even connects.",
+    "Pick the spot, pick the sizing — Aura shows how the field actually reacts, with the MDF reference right on the bar.",
   ],
 
-  // handle do rodapé
+  // tipo de painel central
+  mock: "postflop",
+
+  // se mock === "image": caminho do print real (relativo a templates/)
+  imageSrc: "",
+
+  // dados do mock postflop
+  postflop: {
+    streets: ["Flop", "Turn", "River"],
+    activeStreet: 0,
+    context: "IP — BTN (RFI)",
+    actions: [
+      { name: "Bet 33% pot", pct: 62 },
+      { name: "Bet 66% pot", pct: 24 },
+      { name: "Check", pct: 14 },
+    ],
+    reactionTitle: "Pool reaction vs Bet 33% pot",
+    reactions: [
+      { name: "Fold", pct: 48, kind: "fold" },
+      { name: "Call", pct: 41, kind: "call" },
+      { name: "Raise", pct: 11, kind: "raise" },
+    ],
+    mdfPct: 62,
+    sample: "480k hands · $22–$109",
+  },
+
+  // dados do mock preflop
+  preflop: {
+    header: "Total Global",
+    subheader: "referência para todas as comparações",
+    posLabel: "BTN",
+    stackLabel: "RFI · 40–60bb",
+    cols: ["Total", "CO", "BTN", "SB"],
+    rows: [
+      { name: "RFI",   values: ["24%", "31%", "44%", "38%"], trend: [0, 1, 1, -1] },
+      { name: "3-Bet", values: ["8.1%", "7.4%", "9.2%", "11%"], trend: [0, -1, 1, 1] },
+      { name: "Call",  values: ["12%", "14%", "18%", "9%"],  trend: [0, 1, 1, -1] },
+    ],
+  },
+
+  // dados do mock hotspot
+  hotspot: {
+    section: "Overfolds",
+    spots: "12 spots",
+    badge: "Overfold",
+    title: "BB vs BTN · Flop · Bet 33% pot",
+    poolPct: 48,
+    mdfPct: 62,
+    meta: "Desvio do MDF · <b>−14 pts</b> · Confiança alta · 480k mãos",
+  },
+
   handle: "@aurapokeranalytics",
 };
 </script>
@@ -39,13 +87,19 @@ const CONFIG = {
 :root {
   --bg: #020617;
   --surface: #0F172A;
-  --surface-2: #1E293B;
-  --blue-2: #223559;
+  --surface2: #1E293B;
   --amber: #FBBF24;
+  --amber3: #FCD34D;
+  --amber6: #D97706;
   --gold: #D4A418;
   --ink: #FFFFFF;
   --ink-soft: #CBD5E1;
   --ink-dim: #64748B;
+  --app-bg: #0B1424;
+  --app-border: #1E293B;
+  --app-fold: #3B82F6;
+  --app-call: #10B981;
+  --app-raise: #EF4444;
   --pad: 84px;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,132 +108,282 @@ body {
   font-family: "Montserrat", "Segoe UI", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(1300px 900px at 50% -12%, rgba(34, 53, 89, 0.5), transparent 62%),
+    radial-gradient(1300px 900px at 50% -14%, rgba(34, 53, 89, 0.55), transparent 62%),
+    radial-gradient(900px 700px at -6% 110%, rgba(212, 164, 24, 0.09), transparent 58%),
     var(--bg);
-  display: flex;
-  flex-direction: column;
-  padding: var(--pad);
   position: relative;
-}
-.ghost-number {
-  position: absolute;
-  top: 44px;
-  right: 64px;
-  font-size: 300px;
-  font-weight: 900;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 3px rgba(251, 191, 36, 0.28);
-  letter-spacing: -0.02em;
-  pointer-events: none;
-  font-variant-numeric: tabular-nums;
-}
-
-.content {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 900px;
+  padding: 64px var(--pad);
 }
-.kicker {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 40px;
+.suits { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.suits span { position: absolute; font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: rgba(251, 191, 36, 0.035); user-select: none; }
+.ghost {
+  position: absolute; top: 30px; right: 60px;
+  font-size: 250px; font-weight: 900; line-height: 1;
+  color: transparent; -webkit-text-stroke: 3px rgba(251, 191, 36, 0.2);
+  pointer-events: none; font-variant-numeric: tabular-nums;
 }
-.kicker::before {
-  content: "";
-  display: inline-block;
-  width: 56px;
-  height: 5px;
-  background: var(--amber);
-  vertical-align: middle;
-  margin-right: 24px;
-  border-radius: 3px;
-}
-.title {
-  font-size: 82px;
-  font-weight: 900;
-  line-height: 1.14;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 54px;
-}
-.title em { font-style: normal; color: var(--amber); }
-.body p {
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  margin-bottom: 40px;
-}
-.body p:last-child { margin-bottom: 0; }
-.body b { color: var(--amber); font-weight: 800; }
 
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 2px solid rgba(30, 41, 59, 0.9);
-  padding-top: 34px;
+header { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 3; }
+.lockup { display: flex; align-items: center; gap: 20px; }
+.lockup .icon { width: 56px; height: 46px; color: var(--gold); }
+.lockup .icon svg, .lockup .wm svg { width: 100%; height: 100%; display: block; }
+.lockup .wm { width: 168px; color: var(--gold); }
+.indicator { font-size: 25px; font-weight: 700; color: var(--ink-dim); letter-spacing: 0.2em; font-variant-numeric: tabular-nums; }
+
+.head-block { position: relative; z-index: 3; margin-top: 48px; }
+.kicker {
+  font-size: 25px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--amber);
 }
-.handle {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--ink-dim);
-  letter-spacing: 0.04em;
+.kicker::before { content: ""; display: inline-block; width: 52px; height: 4px; background: var(--amber); border-radius: 2px; vertical-align: middle; margin-right: 22px; }
+.title { margin-top: 26px; font-size: 66px; font-weight: 900; line-height: 1.12; text-transform: uppercase; max-width: 900px; }
+.title em {
+  font-style: normal;
+  background: linear-gradient(180deg, var(--amber3) 0%, var(--amber) 45%, var(--amber6) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.handle .logo { width: 44px; height: 36px; opacity: 0.9; }
-.indicator {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--ink-dim);
-  letter-spacing: 0.18em;
-  font-variant-numeric: tabular-nums;
+
+/* ---------- painel central ---------- */
+.panel-wrap { position: relative; z-index: 3; margin-top: 44px; }
+.panel-glow { position: absolute; inset: auto 80px -26px; height: 90px; background: radial-gradient(50% 100% at 50% 100%, rgba(251, 191, 36, 0.14), transparent); }
+.panel {
+  position: relative;
+  background: linear-gradient(180deg, #0D1526 0%, var(--app-bg) 100%);
+  border: 1.5px solid rgba(251, 191, 36, 0.2);
+  border-radius: 26px;
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.65), 0 0 70px rgba(212, 164, 24, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 36px 44px;
+  min-height: 480px;
 }
+.panel img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; }
+
+/* postflop mock */
+.pf-head { display: flex; align-items: center; justify-content: space-between; }
+.tabs { display: inline-flex; gap: 6px; background: rgba(2, 6, 23, 0.7); border: 1px solid var(--app-border); border-radius: 16px; padding: 7px; }
+.tabs span { font-size: 21px; font-weight: 600; color: var(--ink-dim); padding: 12px 30px; border-radius: 11px; }
+.tabs span.on { color: #0F1526; font-weight: 800; background: linear-gradient(135deg, var(--amber3), var(--amber6)); box-shadow: 0 6px 22px rgba(245, 158, 11, 0.35); }
+.ctx-chip { font-size: 20px; font-weight: 700; color: var(--amber); background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 999px; padding: 10px 24px; }
+.act-rows { margin-top: 30px; display: flex; flex-direction: column; gap: 18px; }
+.act { display: flex; align-items: center; gap: 22px; }
+.act .name { width: 220px; font-size: 22px; font-weight: 600; color: #E2E8F0; }
+.act .track { flex: 1; height: 16px; background: rgba(30, 41, 59, 0.6); border-radius: 999px; overflow: hidden; }
+.act .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #F59E0B, var(--amber)); }
+.act .pct { width: 84px; text-align: right; font-size: 23px; font-weight: 800; color: #F8FAFC; font-variant-numeric: tabular-nums; }
+.rx { margin-top: 30px; background: rgba(15, 23, 42, 0.65); border: 1px solid var(--app-border); border-radius: 18px; padding: 24px 28px; }
+.rx-title { font-size: 19px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 20px; }
+.rx .act .name { width: 110px; font-size: 20px; }
+.rx .act { gap: 18px; margin-bottom: 12px; }
+.rx .act:last-child { margin-bottom: 0; }
+.rx .track { position: relative; height: 14px; overflow: visible; }
+.rx .fill { border-radius: 999px; }
+.rx .fold .fill { background: linear-gradient(90deg, #2563EB, var(--app-fold)); }
+.rx .call .fill { background: linear-gradient(90deg, #059669, var(--app-call)); }
+.rx .raise .fill { background: linear-gradient(90deg, #DC2626, var(--app-raise)); }
+.rx .fold .name { color: #93C5FD; } .rx .call .name { color: #6EE7B7; } .rx .raise .name { color: #FCA5A5; }
+.rx .pct { width: 70px; font-size: 20px; }
+.mdf-mark { position: absolute; top: -7px; bottom: -7px; width: 3.5px; background: var(--amber); border-radius: 2px; box-shadow: 0 0 10px rgba(251, 191, 36, 0.8); }
+.mdf-mark::after { content: "MDF"; position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--amber); }
+.sample-chip { margin-top: 26px; display: inline-block; font-size: 18px; font-weight: 600; color: var(--ink-dim); border: 1px solid var(--app-border); border-radius: 999px; padding: 8px 20px; }
+
+/* preflop mock */
+.pre { display: flex; gap: 40px; align-items: center; height: 100%; }
+.felt-box { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.felt {
+  position: relative; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(ellipse at 40% 38%, #1A5C3A, #0D3B24 70%);
+  border: 6px solid rgba(251, 191, 36, 0.35);
+  box-shadow: inset 0 6px 26px rgba(0, 0, 0, 0.6), 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+.felt .icon-c { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.felt .icon-c svg { width: 74px; height: 61px; color: rgba(251, 191, 36, 0.35); }
+.seat {
+  position: absolute; width: 62px; height: 62px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 800;
+  background: #1E293B; border: 3px solid #334155; color: #94A3B8;
+  transform: translate(-50%, -50%);
+}
+.seat.on { background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-color: var(--amber); color: #0F1526; box-shadow: 0 0 26px rgba(251, 191, 36, 0.55); }
+.felt-label { font-size: 20px; font-weight: 700; color: var(--ink-soft); letter-spacing: 0.06em; }
+.pre-table { flex: 1; }
+.pre-head { padding: 20px 26px; background: rgba(30, 41, 59, 0.8); border: 1px solid var(--app-border); border-bottom: none; border-radius: 18px 18px 0 0; }
+.pre-head .t { font-size: 24px; font-weight: 800; color: #F1F5F9; }
+.pre-head .s { font-size: 18px; color: var(--ink-dim); margin-top: 4px; }
+table.stats { width: 100%; border-collapse: collapse; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--app-border); border-radius: 0 0 18px 18px; overflow: hidden; }
+table.stats th, table.stats td { padding: 18px 20px; text-align: right; font-size: 21px; }
+table.stats th:first-child, table.stats td:first-child { text-align: left; }
+table.stats th { font-weight: 600; color: var(--ink-dim); font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--app-border); }
+table.stats th.pos { color: var(--amber); }
+table.stats td { color: #E2E8F0; font-weight: 600; border-bottom: 1px solid rgba(30, 41, 59, 0.5); font-variant-numeric: tabular-nums; }
+table.stats tr:last-child td { border-bottom: none; }
+table.stats td .up { color: #34D399; } table.stats td .down { color: #F87171; }
+table.stats td small { font-size: 14px; vertical-align: 2px; margin-left: 6px; }
+
+/* hotspot mock */
+.xc-section { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
+.xc-section .warn { color: var(--app-raise); font-size: 24px; }
+.xc-section .name { font-size: 24px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: #F87171; }
+.xc-section .count { font-size: 20px; color: var(--ink-dim); font-weight: 600; }
+.xc-card { background: rgba(15, 23, 42, 0.72); border: 1px solid rgba(153, 27, 27, 0.35); border-radius: 20px; padding: 32px 36px; }
+.xc-head { display: flex; align-items: center; gap: 20px; }
+.xc-badge { font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #FCA5A5; background: rgba(239, 68, 68, 0.14); border: 1px solid rgba(239, 68, 68, 0.32); border-radius: 999px; padding: 10px 22px; }
+.xc-title { font-size: 27px; font-weight: 700; color: #E2E8F0; flex: 1; }
+.xc-bar { position: relative; height: 42px; margin-top: 34px; background: #0B1220; border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 999px; }
+.xc-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: linear-gradient(90deg, #B91C1C, var(--app-raise)); }
+.xc-mdf { position: absolute; top: -10px; bottom: -10px; width: 4px; background: var(--amber); border-radius: 2px; box-shadow: 0 0 12px rgba(251, 191, 36, 0.8); }
+.xc-mdf::after { content: "MDF"; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 17px; font-weight: 800; letter-spacing: 0.1em; color: var(--amber); }
+.xc-bartext { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; color: #fff; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); }
+.xc-labels { display: flex; justify-content: space-between; margin-top: 14px; font-size: 20px; color: var(--ink-dim); font-weight: 600; }
+.xc-meta { margin-top: 22px; font-size: 22px; color: #94A3B8; }
+.xc-meta b { color: var(--app-raise); font-weight: 800; }
+
+.body-text { position: relative; z-index: 3; margin-top: 40px; flex: 1; }
+.body-text p { font-size: 33px; font-weight: 500; line-height: 1.5; color: var(--ink-soft); max-width: 900px; margin-bottom: 24px; }
+.body-text b { color: var(--amber); font-weight: 800; }
+
+footer { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; border-top: 2px solid rgba(30, 41, 59, 0.9); padding-top: 30px; }
+.handle { display: flex; align-items: center; gap: 16px; font-size: 24px; font-weight: 600; color: var(--ink-dim); letter-spacing: 0.05em; }
+.handle .icon { width: 42px; height: 34px; color: var(--gold); opacity: 0.95; }
+.handle .icon svg { width: 100%; height: 100%; }
+.age { font-size: 22px; font-weight: 800; color: var(--ink-dim); border: 3px solid var(--ink-dim); border-radius: 11px; padding: 6px 12px; }
 </style>
 </head>
 <body>
 
-<div class="ghost-number" id="ghostNumber"></div>
+<div class="suits" id="suits"></div>
+<div class="ghost" id="ghost"></div>
 
-<div class="content">
+<header>
+  <div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div>
+  <span class="indicator" id="indicator"></span>
+</header>
+
+<div class="head-block">
   <div class="kicker" id="kicker"></div>
   <h1 class="title" id="title"></h1>
-  <div class="body" id="body"></div>
 </div>
 
+<div class="panel-wrap">
+  <div class="panel-glow"></div>
+  <div class="panel" id="panel"></div>
+</div>
+
+<div class="body-text" id="body"></div>
+
 <footer>
-  <div class="handle"><div class="logo" data-logo></div><span id="handle"></span></div>
-  <div class="indicator" id="indicator"></div>
+  <div class="handle"><span class="icon" data-icon></span><span id="handle"></span></div>
+  <span class="age">18+</span>
 </footer>
 
 <script>
-const LOGO_ICON = `<svg viewBox="0 0 60 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.86165 44.898C-5.49315 30.408 0.312736 8.78736 17.5518 1.99342C24.4945 -0.786314 32.5783 -0.656823 39.4165 2.36894C53.1363 8.26508 59.687 24.4384 54.0901 38.1515C53.1232 40.5643 51.8035 42.8347 50.2094 44.8936L49.874 44.6347C50.1658 44.0476 50.4577 43.4736 50.7277 42.8909C54.5649 34.7459 54.4429 24.8226 49.8784 17.1481C42.8921 5.2091 27.6609 0.935911 15.5352 7.87661C3.92345 14.5022 -0.305745 28.8843 4.59855 41.1298C4.81633 41.7039 5.0733 42.3427 5.33899 42.8952C5.60903 43.4779 5.90085 44.052 6.19267 44.639L5.85729 44.898H5.86165Z" fill="#D4A418"/>
-<path d="M28.0486 8.56287C22.2601 20.394 16.4717 32.2251 10.6788 44.0562C12.3905 42.8477 14.9734 41.2895 18.3837 40.1456C19.612 39.7312 22.0293 39.0147 25.2219 38.7212C25.5964 38.5529 26.093 38.2637 26.5285 37.7759C27.012 37.2364 27.1949 36.7055 27.3604 36.2005C27.4519 35.9285 27.5521 35.5573 27.613 35.0998C27.6479 34.8279 27.2777 34.6941 27.1122 34.9185C26.8595 35.2681 26.498 35.635 25.9884 35.9199C25.714 36.071 25.0215 36.4465 24.0807 36.3688C23.031 36.2868 22.3647 35.6955 22.173 35.5228C21.132 34.5775 21.1059 33.2869 21.1016 32.933C21.0798 31.7028 21.6591 30.6885 23.0093 29.0526C24.0894 27.7404 25.7315 25.975 28.0268 24.1017C30.3439 25.975 31.9903 27.7447 33.0748 29.0526C34.4294 30.6928 35.0043 31.7115 34.9825 32.933C34.9782 33.2869 34.9521 34.5775 33.9111 35.5228C33.7238 35.6955 33.0531 36.2825 32.0034 36.3688C31.0626 36.4422 30.3744 36.071 30.0957 35.9199C29.5861 35.635 29.2246 35.2725 28.9719 34.9185C28.8108 34.6941 28.4362 34.8279 28.4711 35.0998C28.532 35.5573 28.6366 35.9285 28.7237 36.2005C28.8936 36.7055 29.0765 37.2364 29.5556 37.7759C29.9911 38.2637 30.4877 38.5529 30.8622 38.7212C34.0548 39.0147 36.4678 39.7356 37.6917 40.1456C41.1064 41.2938 43.6936 42.8477 45.4053 44.0606C39.6168 32.2294 33.8283 20.3983 28.0355 8.56718L28.0486 8.56287Z" fill="#D4A418"/>
-</svg>`;
+const ICON_PATHS = `<path d="M5.86165 44.898C-5.49315 30.408 0.312736 8.78736 17.5518 1.99342C24.4945 -0.786314 32.5783 -0.656823 39.4165 2.36894C53.1363 8.26508 59.687 24.4384 54.0901 38.1515C53.1232 40.5643 51.8035 42.8347 50.2094 44.8936L49.874 44.6347C50.1658 44.0476 50.4577 43.4736 50.7277 42.8909C54.5649 34.7459 54.4429 24.8226 49.8784 17.1481C42.8921 5.2091 27.6609 0.935911 15.5352 7.87661C3.92345 14.5022 -0.305745 28.8843 4.59855 41.1298C4.81633 41.7039 5.0733 42.3427 5.33899 42.8952C5.60903 43.4779 5.90085 44.052 6.19267 44.639L5.85729 44.898H5.86165Z"/>
+<path d="M28.0486 8.56287C22.2601 20.394 16.4717 32.2251 10.6788 44.0562C12.3905 42.8477 14.9734 41.2895 18.3837 40.1456C19.612 39.7312 22.0293 39.0147 25.2219 38.7212C25.5964 38.5529 26.093 38.2637 26.5285 37.7759C27.012 37.2364 27.1949 36.7055 27.3604 36.2005C27.4519 35.9285 27.5521 35.5573 27.613 35.0998C27.6479 34.8279 27.2777 34.6941 27.1122 34.9185C26.8595 35.2681 26.498 35.635 25.9884 35.9199C25.714 36.071 25.0215 36.4465 24.0807 36.3688C23.031 36.2868 22.3647 35.6955 22.173 35.5228C21.132 34.5775 21.1059 33.2869 21.1016 32.933C21.0798 31.7028 21.6591 30.6885 23.0093 29.0526C24.0894 27.7404 25.7315 25.975 28.0268 24.1017C30.3439 25.975 31.9903 27.7447 33.0748 29.0526C34.4294 30.6928 35.0043 31.7115 34.9825 32.933C34.9782 33.2869 34.9521 34.5775 33.9111 35.5228C33.7238 35.6955 33.0531 36.2825 32.0034 36.3688C31.0626 36.4422 30.3744 36.071 30.0957 35.9199C29.5861 35.635 29.2246 35.2725 28.9719 34.9185C28.8108 34.6941 28.4362 34.8279 28.4711 35.0998C28.532 35.5573 28.6366 35.9285 28.7237 36.2005C28.8936 36.7055 29.0765 37.2364 29.5556 37.7759C29.9911 38.2637 30.4877 38.5529 30.8622 38.7212C34.0548 39.0147 36.4678 39.7356 37.6917 40.1456C41.1064 41.2938 43.6936 42.8477 45.4053 44.0606C39.6168 32.2294 33.8283 20.3983 28.0355 8.56718L28.0486 8.56287Z"/>`;
+const ICON_SVG = `<svg viewBox="0 0 60 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${ICON_PATHS}</svg>`;
+const AURA_LETTERS = `<path d="M32.1505 332.237H1C10.1627 314.156 19.2624 296.062 28.2992 277.98C37.4619 259.899 46.6245 241.804 55.7872 223.723C56.6431 222.262 57.6751 220.915 58.9085 219.694C60.1294 218.598 61.4761 217.679 62.9361 216.949C67.4545 214.871 71.91 212.793 76.3151 210.716C80.8335 208.638 85.289 206.624 89.6941 204.672C103.249 233.028 123.651 275.55 150.888 332.25H119.561C112.236 316.611 104.898 301.023 97.573 285.51C90.2479 269.871 82.8473 254.232 75.4089 238.581C68.1971 254.22 60.9978 269.871 53.786 285.51C46.5742 301.035 39.375 316.611 32.1631 332.25L32.1505 332.237Z"/>
+<path d="M283.683 207.769V281.279C283.683 292.763 280.877 302.244 275.251 309.698C269.511 317.027 261.935 322.592 252.533 326.382C247.398 328.334 241.847 329.807 235.856 330.777C229.865 331.759 223.635 332.237 217.166 332.237C198.35 332.237 182.907 328.019 170.811 319.583C158.716 311.146 152.675 298.379 152.675 281.267V212.529C159.144 210.691 168.798 208.072 181.623 204.647V281.267C181.623 290.194 184.669 296.477 190.785 300.141C196.764 303.931 205.989 305.82 218.45 305.82C230.91 305.82 240.186 303.931 245.938 300.141C251.677 296.238 254.547 289.942 254.547 281.267V207.757H283.683V207.769Z"/>
+<path d="M306.766 264.784H384.095C387.141 264.784 389.709 264.054 391.785 262.581C393.862 261.12 395.448 258.853 396.555 255.794C397.046 254.572 397.411 253.351 397.65 252.13C397.889 250.782 398.015 249.448 398.015 248.1C398.015 244.801 397.462 241.993 396.367 239.664C395.272 237.221 393.623 235.269 391.42 233.796C390.325 233.066 389.155 232.575 387.934 232.336C386.713 231.97 385.429 231.782 384.083 231.782H299.429C300.889 226.896 303.091 219.618 306.024 209.973C306.515 208.386 307.37 207.102 308.591 206.12C309.938 205.138 311.461 204.659 313.173 204.659H384.448C392.264 204.659 399.224 206.07 405.34 208.877C411.445 211.811 416.706 216.092 421.098 221.708C424.144 225.864 426.41 230.258 427.882 234.904C429.468 239.425 430.261 244.31 430.261 249.573C430.261 255.806 429.166 261.485 426.963 266.622C424.887 271.634 421.765 276.154 417.612 280.184C415.409 282.261 413.031 284.1 410.463 285.686C407.895 287.147 405.152 288.381 402.219 289.35C409.305 298.882 419.865 313.186 433.923 332.25H398.015C391.911 323.335 382.685 309.887 370.351 291.919H329.673V332.25H299.441V272.314C299.441 270.236 300.171 268.461 301.644 267C303.104 265.54 304.815 264.797 306.779 264.797L306.766 264.784Z"/>
+<path d="M476.263 332.237H445.112C454.275 314.156 463.374 296.062 472.411 277.98C481.574 259.899 490.737 241.804 499.899 223.723C500.755 222.262 501.787 220.915 503.021 219.694C504.241 218.598 505.588 217.679 507.048 216.949C511.567 214.871 516.022 212.793 520.427 210.716C524.946 208.638 529.401 206.624 533.806 204.672C547.361 233.028 567.763 275.55 595 332.25H563.673C556.348 316.611 549.01 301.023 541.685 285.51C534.36 269.871 526.959 254.232 519.521 238.581C512.309 254.22 505.11 269.871 497.898 285.51C490.686 301.035 483.487 316.611 476.275 332.25L476.263 332.237Z"/>`;
+const WORDMARK_SVG = `<svg viewBox="1 204 594 129" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${AURA_LETTERS}</svg>`;
 
-document.querySelectorAll("[data-logo]").forEach(el => el.innerHTML = LOGO_ICON);
+document.querySelectorAll("[data-icon]").forEach(el => el.innerHTML = ICON_SVG);
+document.querySelectorAll("[data-wordmark]").forEach(el => el.innerHTML = WORDMARK_SVG);
 
-document.getElementById("ghostNumber").textContent = CONFIG.slideNumber;
+(function () {
+  const host = document.getElementById("suits");
+  const suits = ["♠", "♣", "♦", "♥"];
+  const step = 168;
+  let i = 0;
+  for (let y = -40; y < 1500; y += step) {
+    for (let x = -40; x < 1160; x += step) {
+      const s = document.createElement("span");
+      s.textContent = suits[i % 4];
+      s.style.left = (x + ((Math.floor(y / step) % 2) ? step / 2 : 0)) + "px";
+      s.style.top = y + "px";
+      s.style.fontSize = (34 + (i * 29) % 18) + "px";
+      s.style.transform = `rotate(${(i * 53) % 40 - 20}deg)`;
+      host.appendChild(s);
+      i++;
+    }
+  }
+})();
+
+document.getElementById("ghost").textContent = CONFIG.slideNumber;
+document.getElementById("indicator").textContent = CONFIG.slideIndicator;
 document.getElementById("kicker").textContent = CONFIG.kicker;
 document.getElementById("title").innerHTML = CONFIG.titleHtml;
 document.getElementById("handle").textContent = CONFIG.handle;
-document.getElementById("indicator").textContent = CONFIG.slideIndicator;
 
 const body = document.getElementById("body");
-CONFIG.bodyHtml.forEach(html => {
-  const p = document.createElement("p");
-  p.innerHTML = html;
-  body.appendChild(p);
-});
+CONFIG.bodyHtml.forEach(h => { const p = document.createElement("p"); p.innerHTML = h; body.appendChild(p); });
+
+/* ---------- monta o painel ---------- */
+const panel = document.getElementById("panel");
+
+function bar(kind, name, pct, mdf) {
+  return `<div class="act ${kind || ""}">
+    <span class="name">${name}</span>
+    <span class="track"><span class="fill" style="width:${pct}%; display:block; height:100%"></span>${mdf ? `<span class="mdf-mark" style="left:${mdf}%"></span>` : ""}</span>
+    <span class="pct">${pct}%</span>
+  </div>`;
+}
+
+if (CONFIG.mock === "postflop") {
+  const p = CONFIG.postflop;
+  panel.innerHTML = `
+    <div class="pf-head">
+      <div class="tabs">${p.streets.map((s, i) => `<span class="${i === p.activeStreet ? "on" : ""}">${s}</span>`).join("")}</div>
+      <span class="ctx-chip">${p.context}</span>
+    </div>
+    <div class="act-rows">${p.actions.map(a => bar("", a.name, a.pct)).join("")}</div>
+    <div class="rx">
+      <div class="rx-title">${p.reactionTitle}</div>
+      ${p.reactions.map(r => bar(r.kind, r.name, r.pct, r.kind === "fold" ? p.mdfPct : null)).join("")}
+    </div>
+    <span class="sample-chip">${p.sample}</span>`;
+} else if (CONFIG.mock === "preflop") {
+  const p = CONFIG.preflop;
+  const seatNames = ["EP", "MP", "CO", "BTN", "SB", "BB"];
+  const seats = seatNames.map((n, i) => {
+    const ang = -90 + i * 60;
+    const x = 150 + 138 * Math.cos(ang * Math.PI / 180);
+    const y = 150 + 138 * Math.sin(ang * Math.PI / 180);
+    return `<span class="seat ${n === p.posLabel ? "on" : ""}" style="left:${x}px; top:${y}px">${n}</span>`;
+  }).join("");
+  panel.innerHTML = `
+    <div class="pre">
+      <div class="felt-box">
+        <div class="felt"><span class="icon-c">${ICON_SVG}</span>${seats}</div>
+        <span class="felt-label">${p.stackLabel}</span>
+      </div>
+      <div class="pre-table">
+        <div class="pre-head"><div class="t">${p.header}</div><div class="s">${p.subheader}</div></div>
+        <table class="stats">
+          <tr><th>Action</th>${p.cols.map(c => `<th class="${["Total"].includes(c) ? "" : "pos"}">${c}</th>`).join("")}</tr>
+          ${p.rows.map(r => `<tr><td>${r.name}</td>${r.values.map((v, i) => {
+            const t = r.trend[i];
+            const arrow = t > 0 ? `<small class="up">▲</small>` : t < 0 ? `<small class="down">▼</small>` : "";
+            return `<td>${v}${arrow}</td>`;
+          }).join("")}</tr>`).join("")}
+        </table>
+      </div>
+    </div>`;
+} else if (CONFIG.mock === "hotspot") {
+  const h = CONFIG.hotspot;
+  panel.innerHTML = `
+    <div class="xc-section"><span class="warn">▲</span><span class="name">${h.section}</span><span class="count">${h.spots}</span></div>
+    <div class="xc-card">
+      <div class="xc-head"><span class="xc-badge">${h.badge}</span><span class="xc-title">${h.title}</span></div>
+      <div class="xc-bar"><div class="xc-fill" style="width:${h.poolPct}%"></div><div class="xc-mdf" style="left:${h.mdfPct}%"></div><span class="xc-bartext">${h.poolPct}% vs ${h.mdfPct}%</span></div>
+      <div class="xc-labels"><span>Defesa do pool</span><span>MDF</span></div>
+      <div class="xc-meta">${h.meta}</div>
+    </div>`;
+} else if (CONFIG.mock === "image" && CONFIG.imageSrc) {
+  panel.style.padding = "14px";
+  panel.innerHTML = `<img src="${CONFIG.imageSrc}">`;
+} else {
+  panel.style.display = "none";
+}
 </script>
 </body>
 </html>
