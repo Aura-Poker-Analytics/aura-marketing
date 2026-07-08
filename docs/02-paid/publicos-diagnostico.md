@@ -73,11 +73,16 @@ O connector `mcp.facebook.com/ads` está conectado, porém autorizado pelo **log
 - Viewer autorizado: `61584288455982` → única conta visível: `1599312301063044` (**vazia** — 0 públicos, 0 datasets, sem nome, sem método de pagamento).
 - Conta real **Aura Business `1598770224460932`** → **DENY_RULE de privacidade**: esse viewer não tem acesso.
 
-**Correção (ação do Rafael — envolve OAuth/permissão, o agente não faz):**
-- **Opção A (recomendada):** desconectar e reconectar o connector, **logando na conta Meta que administra o BM Aura Poker Analytics** (a mesma do Business Suite), e **selecionar a conta Aura Business `1598770224460932`** na tela de autorização do connector.
-- **Opção B:** manter esta conexão e, em Configurações da empresa → Contas de anúncios → Aura Business → Atribuir pessoas, **conceder acesso ao usuário `61584288455982`**. Depois a conta aparece em `ads_get_ad_accounts`.
+**Causa-raiz (confirmada 08/07):** o connector autentica **por Facebook Login** e exige um **perfil de Facebook** admin de um Business Portfolio. O negócio da Aura é **Instagram-first** — o Rafael entra no Business Suite pela identidade **Meta/Instagram** (@aurapokeranalytics), e o BM **não tem perfil de Facebook admin** (nem Página FB). Por isso, logar no connector com a "conta certa" (identidade Instagram) é **rejeitado** ("Não é possível se conectar ao ads MCP server com essa conta"), e o único perfil FB que conecta (`61584288455982`) está fora do business.
 
-Enquanto não corrigir, seguir puxando dados desta conta via Chrome.
+**Correção (ação do Rafael — envolve permissão/OAuth, o agente não faz):**
+1. No Business Suite (logado como identidade Instagram atual) → Configurações da empresa → **Usuários → Pessoas → Convidar pessoas** → convidar o **perfil de Facebook** a usar no MCP (provavelmente `61584288455982`), com **controle total** e acesso à conta de anúncios Aura Business `1598770224460932`.
+2. Aceitar o convite no perfil de Facebook.
+3. **Reconectar** o connector no Claude via Facebook Login com esse perfil; selecionar o portfólio **Aura Poker Analytics**.
+
+**Alternativa se o connector logar mas a Aura Business vier como "não habilitada":** é o rollout gradual por conta de anúncios da Meta (sem fix self-service) — nesse caso, seguir via Chrome.
+
+Enquanto não corrigir, seguir puxando dados desta conta via Chrome (funciona 100%).
 
 ### Checklist do agente (após reautorizar com a conta certa)
 
