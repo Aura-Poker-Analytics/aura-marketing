@@ -3,7 +3,7 @@
 **Autor:** thread Mídia Paga · **Data:** 2026-07-08 · **Fonte:** inspeção direta do Gerenciador de Anúncios (Chrome logado, somente leitura — nada alterado)
 **Para:** uso futuro do agente de mídia paga. Este doc é o inventário vivo dos públicos + o que está errado + o plano. Reler antes de montar qualquer conjunto de anúncios.
 
-> **Nota de método:** o MCP oficial da Meta (`mcp.facebook.com/ads`) **ainda não estava conectado a esta sessão** no momento da coleta — os dados abaixo vieram da navegação no Gerenciador. Quando o MCP subir, revalidar tamanhos e capturar os **IDs numéricos** de cada público (a UI não expõe fácil; a API sim). Ver §5.
+> **Nota de método:** os dados abaixo vieram da navegação no Gerenciador (Chrome logado). O MCP oficial da Meta (`mcp.facebook.com/ads`) foi conectado depois (08/07), **mas com o login Meta errado** — autorizado como viewer `61584288455982`, que só enxerga uma conta vazia (`1599312301063044`) e recebe DENY_RULE de privacidade ao tentar ler a Aura Business `1598770224460932`. Até o connector ser reautorizado com a conta que administra o BM (ver §5), a API NÃO substitui o Chrome para esta conta.
 
 Conta: **Aura Business** `1598770224460932` (BRL) · Dataset/Pixel `1405949840871947` · IG @aurapokeranalytics (710 seguidores).
 
@@ -67,7 +67,19 @@ Sem custom audience de visitantes da landing e sem audience de "já criou conta 
 - **F1 frio BR:** interesses de poker + Advantage+ broad (P2/P3); lookalike #2 como teste secundário. Excluir convertidos.
 - **F2 frio EN:** interesse/broad até ter semente EN (P8).
 
-## 5. Quando o MCP da Meta conectar — checklist do agente
+## 5. Estado do MCP da Meta (08/07) e como corrigir
+
+O connector `mcp.facebook.com/ads` está conectado, porém autorizado pelo **login Meta errado**:
+- Viewer autorizado: `61584288455982` → única conta visível: `1599312301063044` (**vazia** — 0 públicos, 0 datasets, sem nome, sem método de pagamento).
+- Conta real **Aura Business `1598770224460932`** → **DENY_RULE de privacidade**: esse viewer não tem acesso.
+
+**Correção (ação do Rafael — envolve OAuth/permissão, o agente não faz):**
+- **Opção A (recomendada):** desconectar e reconectar o connector, **logando na conta Meta que administra o BM Aura Poker Analytics** (a mesma do Business Suite), e **selecionar a conta Aura Business `1598770224460932`** na tela de autorização do connector.
+- **Opção B:** manter esta conexão e, em Configurações da empresa → Contas de anúncios → Aura Business → Atribuir pessoas, **conceder acesso ao usuário `61584288455982`**. Depois a conta aparece em `ads_get_ad_accounts`.
+
+Enquanto não corrigir, seguir puxando dados desta conta via Chrome.
+
+### Checklist do agente (após reautorizar com a conta certa)
 
 1. Listar todos os públicos com **ID numérico, tamanho estimado atualizado e status de entrega** (a UI esconde os IDs; a API não).
 2. Confirmar tamanho real da semente #1 (a UI diz "<1.000" — pegar o número).
