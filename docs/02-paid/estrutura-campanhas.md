@@ -5,6 +5,11 @@
 
 Conta: **Aura Business** `1598770224460932` (BRL) · Pixel/dataset `1405949840871947` · IG @aurapokeranalytics.
 
+**Addendums (2026-07-08):** este doc é o hub da estrutura; frentes detalhadas em docs próprios:
+- [launch-hero-trafego.md](launch-hero-trafego.md) — tráfego do post de lançamento (reveal). Introduz uma fase **BOOST** (topo de funil, alcance/engajamento) que antecede a RTG.
+- [publicos-build-spec.md](publicos-build-spec.md) — passo a passo de criação dos públicos novos (semente P1, salvo limpo P3, visitantes, exclusão de convertidos).
+- [readiness-dia10.md](readiness-dia10.md) — painel go/no-go dos pré-requisitos até 10/07.
+
 ---
 
 ## 0. Princípios (herdados do plano de marketing)
