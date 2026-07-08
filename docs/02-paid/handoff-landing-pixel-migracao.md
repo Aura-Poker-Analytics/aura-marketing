@@ -64,7 +64,7 @@ A landing nova fica em **`aurapoker.com`** — o **mesmo domínio do site atual*
 > - **Zero segredo no código/repo** — tokens em env var / Azure Key Vault.
 >
 > **Faseamento (decisão do PO 08/07 — pode lançar rápido):**
-> - **FASE 1 — mínima, pro dia 10 (barata, ~15 min, sem backend):** só a **frente 1** (pixel browser + `PageView`). Opcional: **frente 2 só no browser** (`CompleteRegistration` com `eventID`, sem server/dedup ainda). Sem CAPI, sem segredo, sem webhook. Objetivo: não deixar `aurapoker.com` cego no cutover e começar a acumular público de retargeting.
+> - **FASE 1 — mínima, pro dia 10 (barata, ~15 min, sem backend):** **frente 1** (pixel browser + `PageView`) **+ `CompleteRegistration` só no browser** na tela de sucesso do cadastro (`fbq('track','CompleteRegistration', {content_name:'free_account'}, {eventID:'reg_<user_id>'})` — já com `eventID` determinístico pra deduplicar quando a CAPI entrar na Fase 2). Sem CAPI, sem segredo, sem webhook. Objetivo: não deixar `aurapoker.com` cego no cutover, ter sinal de cadastro desde o dia 1 e já acumular públicos de retargeting **e de convertidos** (pra exclusão).
 > - **FASE 2 — antes do 1º real de mídia paga (não do dia 10):** frentes 3 (CAPI server + dedup), 4 (Subscribe via Stripe), 5 (UTM persistido), 6 (consentimento). É aqui que a medição fica precisa.
 >
 > **Frentes a implementar:**
