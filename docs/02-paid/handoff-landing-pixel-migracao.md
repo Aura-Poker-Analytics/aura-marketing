@@ -3,6 +3,8 @@
 **Autor:** thread Mídia Paga · **Data:** 2026-07-08 · **Para:** o agente da landing page (+ Rafael/dev)
 **Base:** [pixel-capi-spec.md](pixel-capi-spec.md) continua sendo o contrato de eventos canônico. Este doc adiciona a camada da migração e traz o **prompt pronto** pro agente da landing (§6).
 
+> ⚠️ **Correção de arquitetura (08/07):** o **cadastro e a assinatura são no APP (novofront), não na landing**. Então: **landing = pixel + PageView**; **app = PageView + CompleteRegistration + Subscribe + CAPI**; UTM/fbclid atravessam landing→app. O prompt §6 abaixo cobre a parte da **landing**; a parte de **conversão (app)** segue o mesmo contrato mas é instrumentada no repo do novofront. Modelo completo + definição de pronto: [definicao-pronto-tracking.md](definicao-pronto-tracking.md).
+
 ---
 
 ## 1. Contexto da migração

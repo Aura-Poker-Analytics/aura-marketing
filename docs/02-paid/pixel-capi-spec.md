@@ -5,7 +5,7 @@
 
 ---
 
-> **Addendum migração (2026-07-08):** a landing 2.0 saiu do WordPress e virou uma **Azure Static Web App** (`Aura-Landing-Page`) com API própria (`aura-api-production`) e Postgres. O contrato de eventos abaixo continua válido; a adaptação à arquitetura Azure, os riscos de dataset e o prompt do dev estão em [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md). **Domínio final confirmado (08/07): `aurapoker.com`** — mesmo domínio do site atual, então é cutover (o WP sai, a landing Azure entra) e o pixel mantém continuidade.
+> **Addendum migração (2026-07-08):** a landing 2.0 saiu do WordPress e virou uma **Azure Static Web App** (`Aura-Landing-Page`) com API própria (`aura-api-production`) e Postgres. O contrato de eventos abaixo continua válido; a adaptação à arquitetura Azure, os riscos de dataset e o prompt do dev estão em [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md). **Domínio final confirmado (08/07): `aurapoker.com`** — mesmo domínio do site atual, então é cutover (o WP sai, a landing Azure entra) e o pixel mantém continuidade. **Correção de arquitetura (08/07): o cadastro/assinatura acontece no APP (novofront), NÃO na landing.** Onde este doc fala "tela/rota de sucesso do cadastro", leia como sendo **no app**. O funil cruza dois domínios (landing → app) e o UTM/fbclid tem que atravessar — modelo corrigido + definição de pronto em [definicao-pronto-tracking.md](definicao-pronto-tracking.md).
 
 ## 0. O que já existe (auditado em 04/07)
 
