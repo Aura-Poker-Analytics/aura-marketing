@@ -32,14 +32,17 @@ Hierarquia de argumentos (usar nessa ordem):
 
 | # | Pilar | O que é | Formato |
 |---|---|---|---|
-| L1 | **Reveal 2.0** | teaser + anúncio: "o mesmo jogo — novas informações" | hero card + story countdown |
+| L1 | **Reveal 2.0** | anúncio de lançamento: "o mesmo jogo — novas informações" + CTA conta grátis | hero card (feed) + story |
 | L2 | **Module tour** | 1 carrossel por módulo: PreFlop Analysis, Postflop Analysis, Hotspot | carrossel 5–7 (capa → 3-4 telas/valor → CTA) |
 | L3 | **"Você consegue responder…"** | pergunta de estudo real → a tela da Aura que responde | card único com UI + pergunta |
 | L4 | **Feature/filtro em destaque** | estágio de torneio, buy-in, Mystery/KO, IP/OOP, sizing %pot, amostra | spotlight card |
 | L5 | **CTA free** | plano grátis permanente, sem cartão, link na bio | CTA card / slide final |
 
-Cadência teaser (06–09/07): L1 diário (countdown D-4…D-1) + 1 L3 como aperitivo.
-Launch week (10–17/07): D0 = L1 reveal + L2 Hotspot; depois alternar L2/L3/L4, fechar sempre com L5.
+**Decisão 2026-07-08 (PO): sem fase de teaser/countdown.** Entramos direto com posts de lançamento
+— o hero L1 já é o anúncio "no ar" com CTA de conta grátis (não mais D-4…D-1).
+
+Cadência: **D0 = L1 reveal (hero) + L2 Hotspot**; dias seguintes alternam L2/L3/L4, fechando sempre
+com L5. O ritmo do arco de launch (~1 post/dia até 17/07) segue o plano macro; sustentação 18/07+.
 
 ## 4. Sistema visual v2 ("mais capricho")
 
