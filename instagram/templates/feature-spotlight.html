@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="deck.js"></script>
 <title>Aura · feature-spotlight</title>
 <script>
 /* ============================================================
@@ -37,6 +38,7 @@ const CONFIG = {
 
   footerNote: "aura.poker",
 };
+(function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
 </script>
 <style>
 @font-face {

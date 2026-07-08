@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="deck.js"></script>
 <title>Aura · carrossel-cta</title>
 <script>
 /* ============================================================
@@ -27,6 +28,7 @@ const CONFIG = {
   tagline: "O mesmo jogo — novas informações.",
   handle: "@aurapokeranalytics",
 };
+(function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
 </script>
 <style>
 @font-face {
