@@ -7,7 +7,7 @@
 
 ## 1. Contexto da migração
 
-- **Site velho** (`aurapoker.com`, WordPress na **Hostinger**): WooCommerce + Subscriptions + Stripe atendendo os **clientes antigos** (~51 customers). **Fica** rodando, só pros legados.
+- **Site velho** (`aurapoker.com`, WordPress na **Hostinger**): WooCommerce + Subscriptions + Stripe. **Vai ser aposentado** (esclarecimento do dev, 08/07) — o WooCommerce era só o **intermediário pro Stripe**; no fluxo novo **a cobrança é Stripe direto**. O WP/WooCommerce não some fisicamente, mas **não recebe mais nada** (sem tráfego/venda novos). Os ~51 clientes legados são **migrados** (adoção das assinaturas que já existem no Stripe) ou, no pior caso, cancelam e re-assinam (o dev prefere não). **Nada disso bloqueia o launch** (confirmado pelo dev).
 - **Landing 2.0 nova**: **Azure Static Web App** `Aura-Landing-Page` (verificado via Azure MCP), mesmo resource group da API (`aura-api-production`, App Service) e do banco (`aura-production`, PostgreSQL). Front estático + API própria + Postgres — **não é mais WordPress**.
 - **Decisão do PO:** reaproveitar o **mesmo pixel/dataset `1405949840871947`** na landing nova (mantém histórico de PageView e os públicos que dependem dele).
 - **Pendente (Rafael decide):** o **domínio final** da landing nova e onde fica a loja. Enquanto não decidir, o pixel-capi-spec fica com `aurapoker.com` marcado como "confirmar".
@@ -24,12 +24,15 @@
 | Consentimento | Cookie Notice (Hu-manity.co) | **Não migra** pro Azure — a landing nova precisa do próprio mecanismo de consentimento |
 | Pagamento | WooCommerce Subscriptions + Stripe (+ CoinPayments) | Assinatura dos legados |
 
-## 3. Dois riscos da migração a resolver
+## 3. Riscos da migração (revisados após esclarecimento do dev)
 
-**R1 — Poluição do dataset (o mais importante).** Se a landing nova reusa o pixel `1405949840871947` **e** a loja WooCommerce antiga continua disparando nele (PixelYourSite/Meta-for-WooCommerce), o dataset mistura dois funis: venda legada + cadastro SaaS do launch. Isso suja públicos ("todos os visitantes" vira loja+landing), atribuição e otimização.
-→ **Recomendação:** na loja antiga, apontar PixelYourSite/Meta-for-WooCommerce para um **pixel separado** (ou desligar os eventos Meta de lá). A landing nova fica sozinha no `1405949840871947`, limpa pro funil de cadastro. *(Ação no WordPress velho — não é o agente da landing; é Rafael/dev do WP.)*
+Com o WooCommerce **aposentado** (não é uma loja viva em paralelo), o risco de poluição do dataset **se resolve sozinho** — a loja velha para de gerar eventos porque para de receber tráfego/venda. O que sobra é cuidado de **cutover**, não de arquitetura:
 
-**R2 — Evento duplicado já hoje.** PixelYourSite **e** Meta for WooCommerce ativos ao mesmo tempo podem duplicar eventos Meta. Se a loja antiga vai continuar, escolher **um** deles como fonte de verdade do Meta e desativar o outro.
+**R1 — Cutover limpo do pixel (o que importa agora).** Hoje quem dispara o pixel `1405949840871947` é o **PixelYourSite** (+ Meta for WooCommerce) no WP. Quando o domínio de produção apontar pra landing Azure, é preciso garantir que **só a landing nova** dispare — que o pixel do WP **pare** (WP fora do domínio de produção, ou os plugins Meta desativados). Senão, na janela de overlap, os dois disparam e duplicam. Eventos históricos já no dataset (AddToCart/InitiateCheckout antigos) são **inofensivos** — é dado velho, não polui o futuro.
+
+**R2 — Cobrança agora é Stripe direto.** `Subscribe` deve vir do **webhook do Stripe** (sem intermédio do WooCommerce). Importante: **não** disparar `Subscribe` para os clientes **legados migrados** (eles não são conversão de mídia nova) — só para assinaturas **criadas pelo funil novo**. Migração de legado ≠ evento de conversão.
+
+**R3 — Duplo disparo pré-existente no WP.** PixelYourSite **e** Meta for WooCommerce estão ativos juntos hoje — já pode estar duplicando. Como o WP vai sair de cena, isso morre no cutover; só cuidar pra não deixar os dois vivos no domínio de produção durante a transição.
 
 ## 4. Onde pixel e CAPI entram na arquitetura Azure
 
@@ -74,4 +77,31 @@ Qualquer que seja o domínio final da landing nova, ele precisa: (a) entrar no *
 
 - Quando o domínio final for definido: atualizar [pixel-capi-spec.md](pixel-capi-spec.md) §0/§6 (hoje assume `aurapoker.com`) e [publicos-build-spec.md](publicos-build-spec.md) P4 (visitantes de site) com o domínio certo.
 - [readiness-dia10.md](readiness-dia10.md): o item 🔴 "pixel/CAPI na landing" agora tem dono e arquitetura claros (Azure SWA + API). Segue sendo o único bloqueio real do dia 10.
-- A decisão de R1 (pixel separado pra loja legada) deve ser registrada quando o Rafael/dev do WP executar.
+- A decisão de R1 virou "cutover limpo" (não "pixel separado") — registrar quando o cutover de domínio acontecer.
+
+---
+
+## 8. Passos pra deixar correto (checklist por dono)
+
+**A. Tracking / pixel — pré e durante o cutover** *(Mídia Paga + agente da landing)*
+- [ ] Definir o **domínio final** da landing nova (bloqueio pendente do Rafael).
+- [ ] Agente da landing instrumenta o pixel `1405949840871947` na Azure SWA conforme §6 (PageView, CompleteRegistration dedup, Subscribe via Stripe).
+- [ ] No cutover, **desligar o disparo do pixel no WP velho** (desativar PixelYourSite + Meta for WooCommerce, ou tirar o WP do domínio de produção) — evitar duplo disparo.
+- [ ] Allowlist do domínio no Diagnóstico do dataset + **verificar domínio no Business Manager**.
+- [ ] Validar no Events Manager: PageView do domínio novo, CompleteRegistration "Processado (deduplicado)", Subscribe chegando do Stripe.
+
+**B. Cobrança Stripe direto** *(dev; Mídia Paga só depende do evento)*
+- [ ] Assinatura nova cobrada **direto no Stripe**; `Subscribe` (CAPI) dispara no **webhook do Stripe**, uma vez por assinatura.
+- [ ] **Não** disparar `Subscribe` para legados migrados (só funil novo).
+- [ ] (Se quiser que eu audite produtos/preços/webhooks do Stripe, **autorizar o MCP do Stripe** — hoje está conectado mas pedindo autenticação; sem isso não consigo ler o Stripe.)
+
+**C. Migração dos clientes legados** *(dev — Betiato; NÃO bloqueia o launch)*
+- [ ] Tentar **adotar as assinaturas que já existem no Stripe** (criadas via WooCommerce) no app novo — casar por Stripe customer/email e liberar acesso **sem re-assinar**.
+- [ ] Fallback (último caso): cancelar + pedir re-assinatura.
+- [ ] Rodar essa frente **em paralelo** ao launch — o dev já preparou com o Cursor os passos de repontar beta→oficial.
+
+**D. Desativação graciosa do WP velho** *(dev do WP)*
+- [ ] Manter os dados do WooCommerce (não apagar), mas ele não recebe mais nada.
+- [ ] Garantir que nada no WP velho continua disparando pixel/CAPI no domínio de produção após o cutover.
+
+**Não bloqueia o dia 10:** só o item **A** (pixel na landing nova) está no caminho crítico do launch — e é o mesmo 🔴 do [readiness-dia10.md](readiness-dia10.md). B, C e D correm em paralelo, sem travar o lançamento.
