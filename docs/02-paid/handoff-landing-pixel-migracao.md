@@ -11,6 +11,7 @@
 - **Landing 2.0 nova**: **Azure Static Web App** `Aura-Landing-Page` (verificado via Azure MCP), mesmo resource group da API (`aura-api-production`, App Service) e do banco (`aura-production`, PostgreSQL). Front estático + API própria + Postgres — **não é mais WordPress**.
 - **Decisão do PO:** reaproveitar o **mesmo pixel/dataset `1405949840871947`** na landing nova (mantém histórico de PageView e os públicos que dependem dele).
 - **Pendente (Rafael decide):** o **domínio final** da landing nova e onde fica a loja. Enquanto não decidir, o pixel-capi-spec fica com `aurapoker.com` marcado como "confirmar".
+- **Oferta (auditado no Stripe MCP, 08/07):** conta `acct_1PX6SEIsnKTRWBVc` (AURA ANALYTICS, livemode). Produto único **"AURA Plano Individual"** com 3 preços, **todos em USD**: **$29/mês** (default), **$149/6 meses**, **$259/ano**. → O evento `Subscribe` sai em **USD**, e a otimização por valor/LTV usa esses números ([medicao-otimizacao.md](medicao-otimizacao.md)). Assinaturas recorrentes **ativas** no Stripe hoje: ~1 (a busca retornou 1) — ou seja, os ~51 "customers" do WooCommerce são majoritariamente compra única/expirados; **a migração de legado é bem menor do que parecia** (dev confirmar contagem exata no dashboard).
 
 ## 2. Estado atual do tracking no site velho (auditado via WordPress MCP)
 
@@ -51,23 +52,26 @@ Qualquer que seja o domínio final da landing nova, ele precisa: (a) entrar no *
 
 ## 6. PROMPT PRO AGENTE DA LANDING (copy-paste)
 
-> **Contexto:** você trabalha na landing 2.0 da Aura, uma **Azure Static Web App** (`Aura-Landing-Page`, resource group `Aura-resource-group`), com API própria (`aura-api-production`, App Service) e banco PostgreSQL (`aura-production`). Estamos migrando de um WordPress/WooCommerce antigo (Hostinger, `aurapoker.com`) que fica só pros clientes legados. Sua tarefa é instrumentar o rastreamento de marketing da landing nova.
+> **Contexto:** você trabalha no repo da landing 2.0 da Aura — uma **Azure Static Web App** (`Aura-Landing-Page`, resource group `Aura-resource-group`), com API própria (`aura-api-production`, App Service) e banco PostgreSQL (`aura-production`). O WordPress/WooCommerce antigo (Hostinger) está sendo **aposentado** (cobrança nova é Stripe direto). Sua tarefa: instrumentar todo o rastreamento de marketing + o evento de assinatura da landing nova.
 >
-> **Fonte da verdade dos eventos:** `aura-marketing/docs/02-paid/pixel-capi-spec.md` — leia e siga o contrato (eventos, dedup, UTM, consentimento). Este prompt adapta aquilo à arquitetura Azure.
+> **Setup de trabalho:**
+> - Crie uma **branch nova a partir da `main`** (ex.: `feat/marketing-tracking`). Não faça merge sozinho — abra **PR** no final pra revisão.
+> - **Paralelize com subagentes mais baratos** (Sonnet/Haiku): as frentes 1–5 abaixo são independentes o bastante pra rodar em paralelo.
+> - **Zero segredo no código/repo** — tokens em env var / Azure Key Vault.
 >
-> **Requisitos:**
-> 1. **Reusar o pixel/dataset Meta `1405949840871947`** (não criar novo). Instalar o `fbq` base + `PageView` em todas as páginas do front.
-> 2. **`CompleteRegistration`** (conta free criada): disparar no browser na tela de sucesso do cadastro, com `eventID` determinístico (`reg_<user_id>`), **e** no server (CAPI) quando o backend confirmar a criação da conta — mesmo `event_id` para deduplicar.
-> 3. **`Subscribe`** (assinatura paga): disparar **server-side** no webhook de pagamento confirmado (Stripe), uma vez por assinatura, `event_id` = `sub_<subscription_id>`, com `value` e `currency`.
-> 4. **CAPI**: implementar o endpoint server-side numa Azure Function da Static Web App (managed API) **ou** em rota da `aura-api-production`. `POST https://graph.facebook.com/v23.0/1405949840871947/events`. Token da CAPI em **env var / Key Vault**, nunca no código/repo. Enviar `em` (sha256 do email), `client_ip_address`, `client_user_agent`, `fbp`, `fbc`.
-> 5. **UTM**: capturar `utm_source/medium/campaign/content` no primeiro acesso (first-touch, não sobrescrever), persistir no registro do usuário no Postgres, e incluir na CAPI. Garantir que os params sobrevivem a redirects (www↔apex, http→https).
-> 6. **Consentimento (LGPD)**: a landing nova precisa do próprio banner/CMP (o Cookie Notice do WP antigo não migra). Sem consentimento de marketing, não disparar o pixel browser.
-> 7. **NÃO** disparar eventos de e-commerce da loja legada (AddToCart/Purchase de WooCommerce) neste pixel — a landing nova é só funil de cadastro/assinatura. (A loja antiga será separada num pixel próprio.)
+> **Frentes a implementar:**
+> 1. **Pixel Meta (browser)** — reusar o pixel/dataset `1405949840871947` (NÃO criar novo). `fbq` base + `PageView` em todas as páginas. Capturar cookies `_fbp`/`_fbc`.
+> 2. **CompleteRegistration** (conta free criada): browser na tela de sucesso do cadastro com `eventID` = `reg_<user_id>`, **e** server (CAPI) quando o backend confirma a conta — mesmo `event_id` pra deduplicar.
+> 3. **Conversions API (server-side)** — endpoint em Azure Function (managed API da SWA) ou rota da `aura-api-production`. `POST https://graph.facebook.com/v23.0/1405949840871947/events`. `user_data`: `em` (sha256 do email), `client_ip_address`, `client_user_agent`, `fbp`, `fbc`. Token em env/Key Vault.
+> 4. **Subscribe via Stripe direto** — conta **`acct_1PX6SEIsnKTRWBVc`** (AURA ANALYTICS, livemode). Produto **"AURA Plano Individual"** (`prod_Uq1tafUe0H12h4`), preços em **USD**: `price_1TqLpgIsnKTRWBVcebHjviGn` = **$29/mês** (default), `price_1TqLpgIsnKTRWBVcXwXa6cgY` = **$149/6 meses**, `price_1TqLpgIsnKTRWBVcHKFLaKf4` = **$259/ano**. Configurar **webhook do Stripe** (`checkout.session.completed` / `invoice.paid` do 1º ciclo): (a) provisionar acesso do usuário; (b) disparar `Subscribe` (CAPI) com `value` = valor do 1º ciclo, `currency` = `"usd"`, `event_id` = `sub_<subscription_id>`, **uma vez por assinatura**. **NÃO** disparar `Subscribe` para clientes legados migrados — só funil novo.
+> 5. **UTM** — capturar `utm_source/medium/campaign/content` no 1º acesso (first-touch, não sobrescrever), persistir no registro do usuário (Postgres), incluir na CAPI. Garantir que sobrevivem a redirects (www↔apex, http→https). É o que liga o gasto de mídia ao KPI (conta free via UTM).
+> 6. **Consentimento (LGPD)** — banner/CMP próprio (o Cookie Notice do WP não migra). Sem consentimento de marketing, não dispara pixel browser.
+> 7. **NÃO** disparar eventos de e-commerce da loja WooCommerce antiga neste pixel — a landing nova é só funil de cadastro/assinatura.
 >
-> **Reportar de volta pra thread de Mídia Paga:**
-> - O **domínio final** da landing (pra allowlist do dataset + verificação no BM).
+> **Reportar de volta pra thread de Mídia Paga (no PR):**
+> - **Domínio final** da landing (pra allowlist do dataset + verificação no BM).
 > - Onde a CAPI roda (Azure Function da SWA vs. `aura-api-production`).
-> - Confirmação item a item do checklist de aceite do `pixel-capi-spec.md` §6 (PageView, CompleteRegistration dedup "Processado", Subscribe, `_fbp/_fbc` persistidos, UTM gravado na conta, token fora do git).
+> - Checklist de aceite: `PageView` do domínio novo; `CompleteRegistration` "Processado (deduplicado)" no Events Manager; `Subscribe` chegando do Stripe; `_fbp`/`_fbc` persistidos; UTM gravado na conta; token fora do git.
 >
 > **Regra:** nada aqui gasta mídia; é instrumentação. Ativação de campanha é só do Rafael.
 

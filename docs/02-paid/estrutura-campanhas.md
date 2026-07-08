@@ -9,6 +9,8 @@ Conta: **Aura Business** `1598770224460932` (BRL) · Pixel/dataset `140594984087
 - [launch-hero-trafego.md](launch-hero-trafego.md) — tráfego do post de lançamento (reveal). Introduz uma fase **BOOST** (topo de funil, alcance/engajamento) que antecede a RTG.
 - [publicos-build-spec.md](publicos-build-spec.md) — passo a passo de criação dos públicos novos (semente P1, salvo limpo P3, visitantes, exclusão de convertidos).
 - [readiness-dia10.md](readiness-dia10.md) — painel go/no-go dos pré-requisitos até 10/07.
+- [medicao-otimizacao.md](medicao-otimizacao.md) — funil, KPIs, valor/LTV (oferta USD) e regras de decisão pra otimizar.
+- [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md) — pixel/CAPI na landing Azure + prompt do dev + Stripe direto.
 
 ---
 
