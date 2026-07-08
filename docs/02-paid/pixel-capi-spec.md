@@ -5,6 +5,8 @@
 
 ---
 
+> **Addendum migração (2026-07-08):** a landing 2.0 saiu do WordPress e virou uma **Azure Static Web App** (`Aura-Landing-Page`) com API própria (`aura-api-production`) e Postgres. O contrato de eventos abaixo continua válido; a adaptação à arquitetura Azure, os riscos de dataset e o prompt do dev estão em [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md). Domínio final ainda a confirmar.
+
 ## 0. O que já existe (auditado em 04/07)
 
 - **Dataset/Pixel existente:** `Aura – Website Data Set` — **ID `1405949840871947`** — no BM Aura Poker Analytics (830069129552748), integração "Pixel da Meta" (browser only), site `aurapoker.com`.
