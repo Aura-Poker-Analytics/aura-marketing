@@ -44,9 +44,13 @@ Com o WooCommerce **aposentado** (não é uma loja viva em paralelo), o risco de
 - **Token da CAPI:** em variável de ambiente / Azure Key Vault — **nunca no código nem no repo**.
 - **UTM:** capturar no primeiro acesso (first-touch), persistir no registro do usuário no Postgres, e mandar no `user_data`/`custom_data` da CAPI. É o que liga o gasto de mídia ao KPI (conta free via UTM).
 
-## 5. Domínio (bloqueio pendente do Rafael)
+## 5. Domínio — CONFIRMADO: `aurapoker.com` (08/07)
 
-Qualquer que seja o domínio final da landing nova, ele precisa: (a) entrar no **allowlist do dataset** (Diagnóstico do Events Manager) e (b) ser **verificado no Business Manager** (Adequação e segurança → Domínios). O agente da landing deve **reportar o domínio final** assim que definido pra Mídia Paga atualizar o pixel-capi-spec e o Rafael verificar no BM.
+A landing nova fica em **`aurapoker.com`** — o **mesmo domínio do site atual**. Implicações:
+- **É cutover, não domínio novo:** o WordPress sai de `aurapoker.com` e a Azure SWA entra. Continuidade pro pixel (o histórico de PageView já é desse domínio).
+- **Cuidado do cutover (R1):** no momento do repoint, garantir que o WP pare de servir/disparar em `aurapoker.com` — senão os dois disparam o mesmo pixel e duplicam. Como é o mesmo domínio, isso se resolve com o repoint (só um serve por vez), desde que o WP não fique acessível no domínio de produção.
+- **Ações do Rafael no BM (destravadas):** (a) aceitar o alerta "confirme o domínio" no Diagnóstico do dataset; (b) verificar `aurapoker.com` em Adequação e segurança → Domínios. Como já é o domínio do site, é confirmar, não trocar.
+- O agente da landing ainda reporta **onde a CAPI roda** no PR.
 
 ---
 

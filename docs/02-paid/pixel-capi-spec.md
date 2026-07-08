@@ -5,7 +5,7 @@
 
 ---
 
-> **Addendum migração (2026-07-08):** a landing 2.0 saiu do WordPress e virou uma **Azure Static Web App** (`Aura-Landing-Page`) com API própria (`aura-api-production`) e Postgres. O contrato de eventos abaixo continua válido; a adaptação à arquitetura Azure, os riscos de dataset e o prompt do dev estão em [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md). Domínio final ainda a confirmar.
+> **Addendum migração (2026-07-08):** a landing 2.0 saiu do WordPress e virou uma **Azure Static Web App** (`Aura-Landing-Page`) com API própria (`aura-api-production`) e Postgres. O contrato de eventos abaixo continua válido; a adaptação à arquitetura Azure, os riscos de dataset e o prompt do dev estão em [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md). **Domínio final confirmado (08/07): `aurapoker.com`** — mesmo domínio do site atual, então é cutover (o WP sai, a landing Azure entra) e o pixel mantém continuidade.
 
 ## 0. O que já existe (auditado em 04/07)
 
@@ -117,4 +117,4 @@ Implementação (é o que liga o gasto ao KPI norte — conta free atribuída):
 - [ ] Token CAPI em env var, fora do git
 - [ ] Events Manager → Diagnóstico sem erros novos
 
-\* **Pendência que o Rafael resolve no Business Manager (não é código):** confirmar o domínio final da landing; se for `aurapoker.com`, (a) aceitar o alerta "confirme o domínio" no Diagnóstico do dataset e (b) verificar o domínio no BM (Adequação e segurança → Domínios). Se a landing for em outro domínio/subdomínio, me avisar — muda o allowlist e a verificação.
+\* **Domínio confirmado (08/07): `aurapoker.com`.** Ação do Rafael no Business Manager (não é código): (a) aceitar o alerta "confirme o domínio" no Diagnóstico do dataset e (b) verificar o domínio `aurapoker.com` no BM (Adequação e segurança → Domínios). Como é o mesmo domínio do site atual, o allowlist/diagnóstico já apontam pra ele — é confirmar, não trocar.
