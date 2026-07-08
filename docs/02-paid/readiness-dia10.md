@@ -14,7 +14,7 @@ Nenhum item de mídia paga bloqueia o launch da landing. O único ponto realment
 
 | Item | Status atual | Dono | O que destrava | Fonte |
 |---|---|---|---|---|
-| **Pixel base (browser) na landing** | Dataset existe e recebe `PageView` (`aurapoker.com`, últimas 5h antes da auditoria de 04/07). Falta confirmar que o código do pixel está na landing NOVA (não só na antiga) | Dev da landing | Sem isso, a landing sobe sem NENHUMA medição — nem PageView | [pixel-capi-spec.md §1](pixel-capi-spec.md) |
+| **Pixel base (browser) na landing — FASE 1 mínima** | Decisão do PO (08/07): lançar sem a integração completa pra agilizar. O mínimo pro dia 10 é só o **pixel browser + PageView** (~15 min, sem backend/CAPI/segredo). Sem ele, no cutover o `aurapoker.com` fica **cego** (o pixel do WP velho some e nada entra) e você deixa de acumular público de retargeting | Dev da landing | Adicionar o snippet `fbq` + PageView no front da SWA. CAPI/Subscribe/UTM ficam pra Fase 2 (antes do pago) — ver [handoff §6](handoff-landing-pixel-migracao.md) |
 
 Tudo o mais abaixo (§🟠 e §🟡) é sobre a **conta de anúncios**, não sobre a landing existir e publicar no ar. A landing pode e deve subir no dia 10 mesmo que a conta Meta continue zerada — o launch não depende de ads (orgânico é o canal principal, ver [compliance-meta.md §4](compliance-meta.md)).
 
@@ -51,7 +51,7 @@ Ordem mínima para chegar no dia 10 com a **landing no ar medindo cadastros** (K
 
 ### Imprescindível ATÉ 10/07
 
-1. **Dev implementa a spec de pixel/CAPI** ([pixel-capi-spec.md](pixel-capi-spec.md)) — sem isso não há medição nenhuma, nem PageView confiável na landing nova. Rodar o checklist de aceite (§6 do doc) antes do ar.
+1. **Dev coloca a FASE 1 mínima do pixel** (browser + PageView) na landing nova — ~15 min, sem backend. Só pra não deixar `aurapoker.com` cego no cutover e começar a acumular público. A integração completa (CAPI/Subscribe/UTM) é **Fase 2, antes do 1º real de mídia paga**, não pré-requisito do dia 10 ([handoff §6](handoff-landing-pixel-migracao.md)).
 2. **Domínio confirmado (08/07): `aurapoker.com`** — mesmo domínio do site atual (cutover WP→Azure). O dev instrumenta o pixel/CAPI em `aurapoker.com`; no repoint, o WP para de disparar nesse domínio.
 3. **Rafael aceita o alerta do Diagnóstico do dataset** (`aurapoker.com`) e **verifica o domínio no BM** (Adequação e segurança → Domínios) — poucos minutos.
 

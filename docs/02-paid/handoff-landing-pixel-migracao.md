@@ -63,6 +63,10 @@ A landing nova fica em **`aurapoker.com`** — o **mesmo domínio do site atual*
 > - **Paralelize com subagentes mais baratos** (Sonnet/Haiku): as frentes 1–5 abaixo são independentes o bastante pra rodar em paralelo.
 > - **Zero segredo no código/repo** — tokens em env var / Azure Key Vault.
 >
+> **Faseamento (decisão do PO 08/07 — pode lançar rápido):**
+> - **FASE 1 — mínima, pro dia 10 (barata, ~15 min, sem backend):** só a **frente 1** (pixel browser + `PageView`). Opcional: **frente 2 só no browser** (`CompleteRegistration` com `eventID`, sem server/dedup ainda). Sem CAPI, sem segredo, sem webhook. Objetivo: não deixar `aurapoker.com` cego no cutover e começar a acumular público de retargeting.
+> - **FASE 2 — antes do 1º real de mídia paga (não do dia 10):** frentes 3 (CAPI server + dedup), 4 (Subscribe via Stripe), 5 (UTM persistido), 6 (consentimento). É aqui que a medição fica precisa.
+>
 > **Frentes a implementar:**
 > 1. **Pixel Meta (browser)** — reusar o pixel/dataset `1405949840871947` (NÃO criar novo). `fbq` base + `PageView` em todas as páginas. Capturar cookies `_fbp`/`_fbc`.
 > 2. **CompleteRegistration** (conta free criada): browser na tela de sucesso do cadastro com `eventID` = `reg_<user_id>`, **e** server (CAPI) quando o backend confirma a conta — mesmo `event_id` pra deduplicar.
