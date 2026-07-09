@@ -94,19 +94,28 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 [feed render existe se quiser reaproveitar depois](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero.png)
 
 > **PT-BR**
-> A Aura 2.0 está no ar. 🎯
+> A Aura 2.0 tá no ar. E ela não é tracker nem solver. ♠️
 >
-> O mesmo jogo — novas informações. A Aura não é tracker nem solver: é inteligência do *field*. A estratégia
-> real da população de MTT, medida em 500M+ mãos e filtrada por posição, stack, buy-in e estágio do torneio.
-> Solvers te mostram o equilíbrio. A Aura te mostra o adversário.
+> Solver te mostra o equilíbrio teórico. Tracker te mostra as SUAS mãos. A Aura te mostra o que o field de
+> MTT realmente faz — a estratégia da população inteira, medida em 500M+ mãos auditadas de 7 salas.
 >
-> Crie sua conta grátis — link na bio. Sem cartão.
+> São 3 módulos:
+> • Preflop — como o field abre, dá 3-bet e defende, por posição e stack
+> • Postflop — a reação do pool a cada sizing e street, com o MDF na barra
+> • Hotspot — os leaks do field ranqueados, do mais explorável pro menos
+>
+> Fatie qualquer spot por 20+ filtros (buy-in, estágio, textura de board, tipo de vilão…). O módulo Hotspot
+> inteiro é grátis, sem cartão.
+>
+> Para de decorar o equilíbrio. Começa a explorar o field. 👉 Conta grátis no link da bio.
 >
 > —— EN ——
-> Aura 2.0 is live. Not a tracker, not a solver — field intelligence: the real strategy of the MTT
-> population, across 500M+ hands. Create your free account — link in bio.
+> Aura 2.0 is live — not a tracker, not a solver. Field intelligence: what the MTT population actually does,
+> across 500M+ audited hands from 7 sites. Three modules — Preflop, Postflop, Hotspot — sliceable by 20+
+> filters. The full Hotspot module is free, no card. Stop memorizing equilibrium; start exploiting the field.
+> Link in bio.
 >
-> #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #pokertraining #maisqueumjogo #pokerlife
+> #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #pokertraining #mttpoker #pokerlife
 > 18+ · poker é jogo de habilidade e estudo
 
 **Compliance:** ✅ sem promessa de lucro ✅ sem dinheiro/luxo ✅ 18+ ✅ sem dado de cliente ✅ sem concorrente nominal · nº: n/a (sem stat).

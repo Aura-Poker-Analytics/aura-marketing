@@ -123,9 +123,9 @@ window.DECK = {
         meta: "Fold 59% · Call 31% · Raise 10% · 210k mãos" },
     ],
     bullets: [
-      "<b>Every line</b> — fold / call / raise for each sizing.",
-      "<b>MDF reference</b> — spot over- and under-defense instantly.",
-      "<b>Filter it</b> — by stake, position and tournament stage.",
+      "<b>Every line</b> — fold / call / raise, every sizing, every street.",
+      "<b>MDF on the bar</b> — over- and under-defense at a glance.",
+      "<b>20+ filters</b> — buy-in, stage, stack, board texture, reg vs fish.",
     ],
     footerNote: "aura.poker",
   },
