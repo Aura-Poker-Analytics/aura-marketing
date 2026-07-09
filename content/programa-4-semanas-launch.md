@@ -3,10 +3,11 @@
 **Owner:** Rafael (aprova e publica tudo) · **Autor:** Fábrica de posts · **Início:** L = 08/07/2026
 **Status:** proposta completa para autenticação. Nenhum post é publicado por agente — você publica/agenda.
 
-**⚠️ Realinhado em 09/07 (Rafael confirmou: o launch real foi 08/07, cutover da landing já no ar).**
-Todas as datas abaixo deslizaram **-2 dias** vs a v1 (que assumia L=10/07). **P1 ficou 1 dia atrasado**
-(era pra sair 08/07, hoje é 09/07) — publicar assim que possível, o texto é evergreen (não referencia
-data). **P2 é o post de hoje (D+1).**
+**⚠️ Realinhado em 09/07 (2ª vez).** No dia do launch (08/07), o Rafael publicou **P2** (carrossel
+"Meet Aura 2.0") em vez de **P1** (hero reveal) — inversão de ordem, sem prejuízo real (P2 já cobre o
+essencial da mensagem de lançamento). Efeito prático: **P1 não vai mais pro feed** — publicar como
+**Story hoje** (reforço "estamos no ar" pra quem não viu, sem competir/repetir o carrossel de ontem no
+feed). O slot de feed de hoje passa a ser **P3**, e P4–P13 deslizam **-2 dias** para preencher o espaço.
 
 Segue a pegada visual v2 (arco da aura, naipes, logos oficiais, mocks fiéis da UI). Todos os criativos já
 renderizados em `instagram/output/` (caminhos por post abaixo). Editáveis via `instagram/templates/` +
@@ -67,19 +68,19 @@ dados de exemplo — não são stats puxados do banco. Por isso as legendas fala
 
 | # | Data | Semana | Pilar | Formato | Criativo (deck id) | Render |
 |---|---|---|---|---|---|---|
-| P1 | ~~08/07~~ **atrasado → publicar hoje** | 1 | L1 Reveal | Card + Story | `w1-hero` | [semana-1/w1-p1-hero.png](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero.png) |
-| P2 | **09/07 (HOJE · D+1)** | 1 | L2 Module tour | Carrossel 5 | `meet-*` | [2026-07-10-carrossel-lancamento/](../instagram/output/2026-07-10-carrossel-lancamento/) |
-| P3 | 11/07 | 1 | L4 Feature | Card | `w1-spot-hotspot` | [semana-1/w1-p3-spot-hotspot.png](../instagram/output/programa-4-semanas/semana-1/w1-p3-spot-hotspot.png) |
-| P4 | 13/07 | 1 | L4 Feature | Card | `w1-spot-postflop` | [semana-1/w1-p4-spot-postflop.png](../instagram/output/programa-4-semanas/semana-1/w1-p4-spot-postflop.png) |
-| P5 | 15/07 | 2 | L2 Module tour | Carrossel 4 | `w2-pre-*` | [semana-2/](../instagram/output/programa-4-semanas/semana-2/) |
-| P6 | 18/07 | 2 | L3 Pergunta | Card | `w2-l3-defend` | [semana-2/w2-p6-l3-defend.png](../instagram/output/programa-4-semanas/semana-2/w2-p6-l3-defend.png) |
-| P7 | 20/07 | 2 | L4 Feature/filtro | Card | `w2-spot-stage` | [semana-2/w2-p7-spot-stage.png](../instagram/output/programa-4-semanas/semana-2/w2-p7-spot-stage.png) |
-| P8 | 22/07 | 3 | L2 Module tour | Carrossel 4 | `w3-post-*` | [semana-3/](../instagram/output/programa-4-semanas/semana-3/) |
-| P9 | 25/07 | 3 | L3 Pergunta | Card | `w3-l3-rfi` | [semana-3/w3-p9-l3-rfi.png](../instagram/output/programa-4-semanas/semana-3/w3-p9-l3-rfi.png) |
-| P10 | 27/07 | 3 | L5 CTA | Card | `meet-cta` | [semana-3/w3-p10-cta.png](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) |
-| P11 | 29/07 | 4 | L2 How-to | Carrossel 4 | `w4-hs-*` | [semana-4/](../instagram/output/programa-4-semanas/semana-4/) |
-| P12 | 01/08 | 4 | L4 Feature | Card | `w4-spot-preflop` | [semana-4/w4-p12-spot-preflop.png](../instagram/output/programa-4-semanas/semana-4/w4-p12-spot-preflop.png) |
-| P13 | 03/08 | 4 | L5 CTA | Card | `meet-cta` | [semana-3/w3-p10-cta.png](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) |
+| P1 | **Story hoje (09/07)** — não vai mais pro feed | 1 | L1 Reveal | Story | `w1-hero` | [story](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero-story.png) |
+| P2 | ✅ **publicado 08/07** (fora de ordem — serviu de post de launch) | 1 | L2 Module tour | Carrossel 5 | `meet-*` | [2026-07-10-carrossel-lancamento/](../instagram/output/2026-07-10-carrossel-lancamento/) |
+| P3 | **09/07 (HOJE · feed)** | 1 | L4 Feature | Card | `w1-spot-hotspot` | [semana-1/w1-p3-spot-hotspot.png](../instagram/output/programa-4-semanas/semana-1/w1-p3-spot-hotspot.png) |
+| P4 | 11/07 | 1 | L4 Feature | Card | `w1-spot-postflop` | [semana-1/w1-p4-spot-postflop.png](../instagram/output/programa-4-semanas/semana-1/w1-p4-spot-postflop.png) |
+| P5 | 13/07 | 2 | L2 Module tour | Carrossel 4 | `w2-pre-*` | [semana-2/](../instagram/output/programa-4-semanas/semana-2/) |
+| P6 | 16/07 | 2 | L3 Pergunta | Card | `w2-l3-defend` | [semana-2/w2-p6-l3-defend.png](../instagram/output/programa-4-semanas/semana-2/w2-p6-l3-defend.png) |
+| P7 | 18/07 | 2 | L4 Feature/filtro | Card | `w2-spot-stage` | [semana-2/w2-p7-spot-stage.png](../instagram/output/programa-4-semanas/semana-2/w2-p7-spot-stage.png) |
+| P8 | 20/07 | 3 | L2 Module tour | Carrossel 4 | `w3-post-*` | [semana-3/](../instagram/output/programa-4-semanas/semana-3/) |
+| P9 | 23/07 | 3 | L3 Pergunta | Card | `w3-l3-rfi` | [semana-3/w3-p9-l3-rfi.png](../instagram/output/programa-4-semanas/semana-3/w3-p9-l3-rfi.png) |
+| P10 | 25/07 | 3 | L5 CTA | Card | `meet-cta` | [semana-3/w3-p10-cta.png](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) |
+| P11 | 27/07 | 4 | L2 How-to | Carrossel 4 | `w4-hs-*` | [semana-4/](../instagram/output/programa-4-semanas/semana-4/) |
+| P12 | 30/07 | 4 | L4 Feature | Card | `w4-spot-preflop` | [semana-4/w4-p12-spot-preflop.png](../instagram/output/programa-4-semanas/semana-4/w4-p12-spot-preflop.png) |
+| P13 | 01/08 | 4 | L5 CTA | Card | `meet-cta` | [semana-3/w3-p10-cta.png](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) |
 
 Ritmo: semana de launch mais densa (4), depois 3/semana (alinhado à "sustentação" do plano). Stories: repostar
 cada card no story no dia (o hero tem variante 9:16 pronta).
@@ -88,8 +89,9 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 
 ## SEMANA 1 — Launch
 
-### P1 · ~~08/07~~ ATRASADO — publicar hoje (09/07) · L1 Reveal — hero "Now live"
-`w1-hero` · feed + story · [feed](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero.png) · [story](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero-story.png)
+### P1 · STORY hoje (09/07) — não vai mais pro feed · L1 Reveal — hero "Now live"
+`w1-hero` · **apenas Story** (P2 já cobriu o feed do launch) · [story](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero-story.png) ·
+[feed render existe se quiser reaproveitar depois](../instagram/output/programa-4-semanas/semana-1/w1-p1-hero.png)
 
 > **PT-BR**
 > A Aura 2.0 está no ar. 🎯
@@ -111,7 +113,7 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 
 ---
 
-### P2 · 09/07 · HOJE (D+1) · L2 Module tour — CARROSSEL "Meet Aura 2.0" (5 slides)
+### P2 · ✅ PUBLICADO 08/07 (fora de ordem, serviu de post de launch) · L2 Module tour — CARROSSEL "Meet Aura 2.0" (5 slides)
 `meet-capa → meet-preflop → meet-postflop → meet-hotspot → meet-cta` · [pasta](../instagram/output/2026-07-10-carrossel-lancamento/)
 
 Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (ações+reações+MDF) · 04 Hotspot (leak card) · 05 CTA grátis.
@@ -138,7 +140,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P3 · 11/07 · L4 Feature — Hotspot spotlight
+### P3 · 09/07 · HOJE (feed) · L4 Feature — Hotspot spotlight
 `w1-spot-hotspot` · [render](../instagram/output/programa-4-semanas/semana-1/w1-p3-spot-hotspot.png)
 
 > **PT-BR**
@@ -161,7 +163,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P4 · 13/07 · L4 Feature — Postflop spotlight
+### P4 · 11/07 · L4 Feature — Postflop spotlight
 `w1-spot-postflop` · [render](../instagram/output/programa-4-semanas/semana-1/w1-p4-spot-postflop.png)
 
 > **PT-BR**
@@ -186,7 +188,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ## SEMANA 2
 
-### P5 · 15/07 · L2 — CARROSSEL "Preflop in 60s" (4 slides)
+### P5 · 13/07 · L2 — CARROSSEL "Preflop in 60s" (4 slides)
 `w2-pre-capa → w2-pre-slide1 → w2-pre-slide2 → w2-pre-cta` · [pasta](../instagram/output/programa-4-semanas/semana-2/)
 
 > **PT-BR**
@@ -208,7 +210,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P6 · 18/07 · L3 Pergunta — "Quanto o BB realmente defende?"
+### P6 · 16/07 · L3 Pergunta — "Quanto o BB realmente defende?"
 `w2-l3-defend` · [render](../instagram/output/programa-4-semanas/semana-2/w2-p6-l3-defend.png)
 
 > **PT-BR**
@@ -231,7 +233,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P7 · 20/07 · L4 Feature/filtro — Estágio de torneio
+### P7 · 18/07 · L4 Feature/filtro — Estágio de torneio
 `w2-spot-stage` · [render](../instagram/output/programa-4-semanas/semana-2/w2-p7-spot-stage.png)
 
 > **PT-BR**
@@ -256,7 +258,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ## SEMANA 3
 
-### P8 · 22/07 · L2 — CARROSSEL "Postflop — read the pool" (4 slides)
+### P8 · 20/07 · L2 — CARROSSEL "Postflop — read the pool" (4 slides)
 `w3-post-capa → w3-post-slide1 → w3-post-slide2 → w3-post-cta` · [pasta](../instagram/output/programa-4-semanas/semana-3/)
 
 > **PT-BR**
@@ -279,7 +281,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P9 · 25/07 · L3 Pergunta — "Seu pool abre demais o CO?"
+### P9 · 23/07 · L3 Pergunta — "Seu pool abre demais o CO?"
 `w3-l3-rfi` · [render](../instagram/output/programa-4-semanas/semana-3/w3-p9-l3-rfi.png)
 
 > **PT-BR**
@@ -302,7 +304,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P10 · 27/07 · L5 CTA — "Study the field. Free."
+### P10 · 25/07 · L5 CTA — "Study the field. Free."
 `meet-cta` · [render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png)
 
 > **PT-BR**
@@ -326,7 +328,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ## SEMANA 4
 
-### P11 · 29/07 · L2 How-to — CARROSSEL "From leak to line" (4 slides)
+### P11 · 27/07 · L2 How-to — CARROSSEL "From leak to line" (4 slides)
 `w4-hs-capa → w4-hs-slide1 → w4-hs-slide2 → w4-hs-cta` · [pasta](../instagram/output/programa-4-semanas/semana-4/)
 
 > **PT-BR**
@@ -348,7 +350,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P12 · 01/08 · L4 Feature — Preflop grid
+### P12 · 30/07 · L4 Feature — Preflop grid
 `w4-spot-preflop` · [render](../instagram/output/programa-4-semanas/semana-4/w4-p12-spot-preflop.png)
 
 > **PT-BR**
@@ -370,7 +372,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 
 ---
 
-### P13 · 03/08 · L5 CTA — reforço grátis (fim do mês)
+### P13 · 01/08 · L5 CTA — reforço grátis (fim do mês)
 `meet-cta` (mesmo criativo de P10) · [render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png)
 
 > **PT-BR**
