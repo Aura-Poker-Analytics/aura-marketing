@@ -10,15 +10,19 @@ documentado em `aura-context` e a landing em `aura-landing`. Fontes citadas por 
 
 ## 1. Sumário executivo — as 10 jogadas, por impacto
 
+> **Atualizado 09/07 com correções do PO:** Stripe está LIVE (não é `#TODO` — §3 corrigida); os
+> depoimentos da landing são fictícios (removê-los virou o item nº 1); número-herói fechado em **500M+**
+> e já propagado no lote (arte + legendas); "7 sites cobertos" é verdade e fica. Tabela reordenada.
+
 | # | Jogada | Impacto | Esforço | Quem |
 |---|---|---|---|---|
-| 1 | **Consertar integridade de claims** (7 sites / 500M vs bilhões / depoimentos) | 🔴 crítico — confiança é a base de toda persuasão | baixo | Fábrica + dev landing |
-| 2 | **Destravar o checkout** (UpgradeModal é `#TODO`) ou ponte concierge | 🔴 crítico — hoje não há como COMPRAR | médio | Dev (fora deste repo; cobrar) |
+| 1 | **Remover os 3 depoimentos falsos da landing** (PO confirmou não-reais) | 🔴 crítico — depoimento inventado desarma toda a persuasão | baixo | Dev/landing (fora deste repo) |
+| 2 | **Alinhar número-herói: 500M+ em tudo** (arte, legenda, bio, landing, ads) | alto — coerência de claim | baixo | Fábrica ✅ feito no lote |
 | 3 | **Reenquadrar o free: "Hotspot completo grátis"** como headline da oferta | alto | baixo | Fábrica + landing |
 | 4 | **Ancorar o anual: "menos que um buy-in de $22 por mês"** | alto | baixo | Landing/pricing copy |
-| 5 | **Win-back da base morta** (157 contas travadas + ~23 churned Woo) | alto | médio | Precisa de e-mail (gap) |
-| 6 | **Comment-to-DM funnel no IG** ("comenta FIELD") | alto | baixo | Rafael opera / ManyChat |
-| 7 | **Prova social real** (Discord, marcos de uso, case do leak report) | alto | médio | Fábrica + Rafael |
+| 5 | **Prova social real** (Discord, marcos de uso, case do leak report) — preencher o vazio dos depoimentos | alto | médio | Fábrica + Rafael |
+| 6 | **Win-back da base morta** (157 contas travadas + ~23 churned Woo) | alto | médio | Precisa de e-mail (gap) |
+| 7 | **Comment-to-DM funnel no IG** ("comenta FIELD") | alto | baixo | Rafael opera / ManyChat |
 | 8 | **Rebalancear copy IG: outcome > feature** + save/share prompts | médio | baixo | Fábrica (deck.js) |
 | 9 | **Nurture mínimo de 4 e-mails** (free→paid não pode ser 100% mudo) | médio | médio | Precisa de e-mail (gap) |
 | 10 | **Bio do IG + destaque fixado** como mini-landing | médio | trivial | Fábrica escreve, Rafael aplica |
@@ -30,44 +34,44 @@ documentado em `aura-context` e a landing em `aura-landing`. Fontes citadas por 
 Persuasão se apoia em credibilidade. Hoje há três rachaduras que um prospect atento (e o ICP é
 grinder analítico — o público MAIS atento que existe) encontra em 2 cliques:
 
-**2.1 "7 sites cobertos" no hero da landing** (`aura-landing/src/content/siteContent.ts:357`).
-O próprio doc de produto proíbe: o lake é ~89% família PokerStars e **GG/Party/888 = 0 mãos**
-(`aura-context/docs/01-product/landing-positioning.md:9`; parsers prontos ≠ dado carregado,
-ADR-010). Um usuário de GG assina, filtra, não acha o field dele, e vira detrator no Discord.
-→ **Trocar por claim verdadeiro e ainda forte:** "Milhões de torneios da maior sala do mundo"
-ou "+500M mãos auditadas · novas redes a cada trimestre" (cobertura como roadmap, não fato).
-Mesma correção vale pro anúncio do Discord se for reaproveitado em post.
+**2.1 "7 sites cobertos" — VERDADE (PO confirmou 09/07). Mantido.** Nota de reconciliação: o doc
+`aura-context/docs/01-product/landing-positioning.md:9` (auditoria 05/07) ainda diz "GG/Party/888 =
+0 mãos" — está **desatualizado** vs a realidade atual (a carga multi-site entrou). A thread de
+produto/contexto deve corrigir esse doc pra não gerar ressalva falsa em revisões futuras. Do lado do
+marketing, "7 sites cobertos" fica no ar — é bom argumento de escala e representatividade do field.
 
-**2.2 "Bilhões" (IG) vs "+500M" (landing).** As legendas do programa dizem "bilhões de mãos";
-o hero da landing diz "+500M mãos auditadas". O clique sai do post e cai numa página que
-contradiz o post — dissonância que custa conversão. → **Regra do número-herói: UM número,
-verificado no banco, usado EM TODO LUGAR** (bio, arte, legenda, landing, ads). Ação: puxar o
-total real na fonte (regra de ouro) e padronizar. Se o verificado for ~500M, "meio bilhão de
-mãos" é honesto e soa grande; "bilhões" sem lastro é passivo de confiança.
+**2.2 Número-herói padronizado: 500M+ (PO confirmou 09/07). ✅ Corrigido no lote.** As legendas do IG
+diziam "bilhões de mãos" — overclaim (500M ≠ bilhão) e incoerente com o hero da landing ("+500M mãos
+auditadas"). Já ajustei a arte (deck.js + defaults dos templates) e todas as legendas do programa para
+**500M+**. Regra de ouro: UM número, verificado, em TODO lugar (bio, arte, legenda, landing, ads).
+Pendência: `docs/02-paid/launch-hero-trafego.md:196` cita a sub antiga ("billions") — a thread de mídia
+paga deve sincronizar pra 500M+.
 
-**2.3 Depoimentos da landing** (Lucas M., Ana P., "Rafael C. — Head Coach de Stable").
-⚠️ Se não forem pessoas reais com autorização, é o risco nº 1 da página: depoimento inventado é
-violação de CDC/puffery e, pior, o nicho é pequeno — alguém vai perguntar "quem é Lucas M.?".
-→ **Confirmar autenticidade com o PO.** Se não forem reais: remover já e substituir por prova
-real (§6). Uma landing sem depoimento é neutra; uma landing com depoimento falso desarma tudo.
+**2.3 Depoimentos da landing são FICTÍCIOS (PO confirmou 09/07 — não são reais). Item nº 1.** Lucas M.,
+Ana P., "Rafael C." em `aura-landing/src/content/siteContent.ts` (seção de depoimentos) precisam ser
+**removidos com urgência**: depoimento inventado é violação de CDC/puffery e, num nicho pequeno, alguém
+pergunta "quem é Lucas M.?" e a credibilidade evapora. → **Ação (thread landing/dev — fora deste repo):**
+remover os 3 já; deixar a seção vazia até existir prova real (§6). Landing sem depoimento é neutra; com
+depoimento falso, desarma toda a persuasão.
 
 **2.4 Higiene interna:** o plano cita "710 users"; a reconciliação de billing de 09/07 mostra
 **229 contas** em `AuraBusiness.tbl_user` e **0 assinantes Stripe reais** (~8 pagantes legados
 Woo). Nenhum desses números vai pra público, mas as decisões de funil (tamanho de retargeting,
 metas) devem usar os reais.
 
-## 3. O funil tem um buraco no caixa
+## 3. O caixa está aberto (Stripe LIVE — PO confirmou 09/07)
 
-- O fluxo de upgrade in-app termina num **placeholder `#TODO-checkout`**
-  (`aura-landing/.../UpgradeModal.tsx`, spec de gating Inc 5). Assinantes Stripe reais: **0**.
-- Tradução de vendas: todo o marketing empurra tráfego para uma compra **que não pode ser
-  concluída self-serve**. Cada dia de conteúdo antes disso constrói audiência, não receita.
-- **Ação imediata (ponte, custo zero):** enquanto o checkout não liga, o botão de upgrade e a
-  seção de planos apontam para um canal concierge ("Assine pelo Discord/WhatsApp — resposta em
-  minutos"). Vender manualmente 10 assinaturas > mostrar um modal quebrado. Bônus: as conversas
-  de venda manuais são pesquisa de objeções de graça.
-- **Cobrar do dev** a ligação Stripe (a camada `getTier()` já existe como seam — spec
-  trial-gating Inc 4/5). É o item de maior ROI de todo o ecossistema de marketing.
+**Correção da v1 desta revisão:** disse que o checkout era um `#TODO` e que havia 0 assinantes — **errado.**
+As fontes que enganaram a análise foram um comentário `#TODO-checkout` no `UpgradeModal.tsx` (código,
+provável resíduo) e o `aura-context/.../2026-07-09-billing-state-reconciliation.md` (reportou 0 assinantes
+Stripe nativos num recorte do dia). Na prática o **Stripe está ligado e processando** — o funil converte
+self-serve.
+
+**Implicação de vendas (o oposto da v1):** o gargalo NÃO é o caixa, é o **topo e o meio** — tráfego
+qualificado (§5/§8), prova que dá confiança pra comprar (§5), e o empurrão free→paid (§4, §6/§7). Com o
+checkout funcionando, cada ponto de conversão que a gente arruma vira **receita de verdade**, não audiência
+parada — o que torna as jogadas de §4–§10 diretamente monetizáveis, não preparatórias. As duas docs-fonte
+acima (código + reconciliação) devem ser limpas pelas threads donas pra não re-enganar auditorias futuras.
 
 ## 4. Oferta: o free está mal contado e o anual está mal ancorado
 

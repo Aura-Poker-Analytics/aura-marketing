@@ -95,14 +95,14 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 > A Aura 2.0 está no ar. 🎯
 >
 > O mesmo jogo — novas informações. A Aura não é tracker nem solver: é inteligência do *field*. A estratégia
-> real da população de MTT, medida em bilhões de mãos e filtrada por posição, stack, buy-in e estágio do torneio.
+> real da população de MTT, medida em 500M+ mãos e filtrada por posição, stack, buy-in e estágio do torneio.
 > Solvers te mostram o equilíbrio. A Aura te mostra o adversário.
 >
 > Crie sua conta grátis — link na bio. Sem cartão.
 >
 > —— EN ——
 > Aura 2.0 is live. Not a tracker, not a solver — field intelligence: the real strategy of the MTT
-> population, across billions of hands. Create your free account — link in bio.
+> population, across 500M+ hands. Create your free account — link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #pokertraining #maisqueumjogo #pokerlife
 > 18+ · poker é jogo de habilidade e estudo
@@ -308,13 +308,13 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > **PT-BR**
 > Estude o field. De graça. ♠️
 >
-> Plano grátis pra sempre, sem cartão. Hotspot (leaks ranqueados) + Preflop inclusos, sobre bilhões de mãos
+> Plano grátis pra sempre, sem cartão. Hotspot (leaks ranqueados) + Preflop inclusos, sobre 500M+ mãos
 > reais de MTT. O upgrade acontece dentro do produto, quando você quiser mais profundidade.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> Study the field. Free. Forever free plan, no card — Hotspot + Preflop included, over billions of real MTT
+> Study the field. Free. Forever free plan, no card — Hotspot + Preflop included, over 500M+ real MTT
 > hands. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokertips #maisqueumjogo
@@ -376,7 +376,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > **PT-BR**
 > Um mês de Aura 2.0. Já criou a sua conta? ♠️
 >
-> Plano grátis pra sempre, sem cartão — Hotspot + Preflop sobre bilhões de mãos reais de MTT. Se você ainda tá
+> Plano grátis pra sempre, sem cartão — Hotspot + Preflop sobre 500M+ mãos reais de MTT. Se você ainda tá
 > decorando o equilíbrio em vez de explorar o field, tá deixando dinheiro na mesa.
 >
 > Crie sua conta grátis — link na bio.

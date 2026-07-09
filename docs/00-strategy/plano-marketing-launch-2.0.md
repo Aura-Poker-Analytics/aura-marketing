@@ -8,7 +8,7 @@
 ## A. Estratégico (horizonte 90 dias)
 
 **Posicionamento:** *Solvers te mostram o equilíbrio. A Aura te mostra o adversário.*
-Ferramenta do jogador explorador — dados reais de bilhões de mãos do pool, não teoria.
+Ferramenta do jogador explorador — dados reais de 500M+ mãos do pool, não teoria.
 Tagline de launch (herdada da apresentação de marca 2024): **"O MESMO JOGO — NOVAS INFORMAÇÕES."**
 
 **Objetivo do trimestre:** funil mensurável IG → landing → **plano free** → assinatura.

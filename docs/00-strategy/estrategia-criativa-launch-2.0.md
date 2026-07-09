@@ -17,12 +17,12 @@ prints/vídeos da ferramenta, apelo comercial direto. O produto é a estrela; o 
 ## 2. Mensagem-mestra do launch
 
 > **Solvers te mostram o equilíbrio. A Aura te mostra o adversário.**
-> Aura 2.0: a estratégia real do field de MTT, medida em bilhões de mãos — filtrada por posição,
+> Aura 2.0: a estratégia real do field de MTT, medida em 500M+ mãos — filtrada por posição,
 > stack, buy-in e estágio do torneio. Conta grátis, sem cartão.
 
 Hierarquia de argumentos (usar nessa ordem):
 1. **Categoria nova** — não é tracker, não é solver: é inteligência do FIELD.
-2. **Escala** — bilhões de mãos de MTT real (nunca citar sites não cobertos; sem prometer GG).
+2. **Escala** — 500M+ mãos de MTT real, 7 sites cobertos (número-herói verificado; ver revisão-persuasão-vendas §2).
 3. **Acionável** — filtros que respondem perguntas de estudo reais em cliques.
 4. **Grátis** — plano free permanente (Hotspot vitrine + preflop limitado), upgrade quando bater nas travas.
 

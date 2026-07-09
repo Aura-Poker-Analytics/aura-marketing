@@ -14,7 +14,7 @@ window.DECK = {
     topRight: "Now live",
     versionBadge: "2.0",
     headlineHtml: "The same game.<br><em>New information.</em>",
-    sub: "Field intelligence for MTT grinders — the pool's real strategy, measured across billions of hands.",
+    sub: "Field intelligence for MTT grinders — the pool's real strategy, measured across 500M+ hands.",
     cta: "Create free account",
     ctaSub: "aura.poker · link in bio",
     showCards: true,
@@ -25,7 +25,7 @@ window.DECK = {
   "meet-capa": {
     kicker: "Launch · Aura 2.0",
     hookHtml: "Meet <em>Aura 2.0</em>",
-    sub: "Not a tracker. Not a solver. The pool's real strategy — across billions of MTT hands.",
+    sub: "Not a tracker. Not a solver. The pool's real strategy — across 500M+ MTT hands.",
     swipe: "Swipe →",
     handle: "@aurapokeranalytics",
     ui: {
@@ -78,7 +78,7 @@ window.DECK = {
     bullets: [
       "Free plan, forever — no card required",
       "Hotspot + Preflop included",
-      "Billions of real MTT hands",
+      "500M+ real MTT hands",
     ],
     ctaLabel: "Create free account",
     ctaSub: "link in bio",
@@ -156,7 +156,7 @@ window.DECK = {
   },
   "w2-pre-cta": {
     headlineHtml: "See your pool. <em>Free.</em>",
-    bullets: ["Preflop grid in the free plan", "Billions of real MTT hands", "No card required"],
+    bullets: ["Preflop grid in the free plan", "500M+ real MTT hands", "No card required"],
     ctaLabel: "Create free account", ctaSub: "link in bio",
     tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
