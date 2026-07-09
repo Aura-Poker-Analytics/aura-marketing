@@ -117,7 +117,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > Três módulos, uma ideia: te mostrar o que a população de MTT REALMENTE faz — não o que o solver diz.
 > • Preflop: como o field abre, dá 3-bet e defende por posição e stack.
 > • Postflop: a reação do pool a cada linha e sizing, com a linha de MDF na barra.
-> • Hotspot: os leaks explora­veis do field, ranqueados pra você.
+> • Hotspot: os leaks exploráveis do field, ranqueados pra você.
 > Tudo começa no plano grátis.
 >
 > Crie sua conta grátis — link na bio.

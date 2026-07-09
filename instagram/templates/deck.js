@@ -114,11 +114,13 @@ window.DECK = {
     screenshotSrc: "",
     frameUrl: "beta.aura.poker",
     activeNav: "Postflop",
+    /* cards alinhados com w1-spot-hotspot (mesmos 2 leaks, lente Postflop):
+       poolPct = defesa do pool (call+raise) → Fold = 100-poolPct, split Call/Raise ilustrativo */
     cards: [
       { badge: "Overfold", title: "BB vs BTN · Flop · Bet 33% pot", poolPct: 48, mdfPct: 62,
-        meta: "Fold 48% · Call 41% · Raise 11% · 480k mãos" },
-      { badge: "Overfold", title: "BB vs BTN · Turn · Bet 66% pot", poolPct: 44, mdfPct: 58,
-        meta: "Fold 44% · Call 43% · Raise 13% · 260k mãos" },
+        meta: "Fold 52% · Call 39% · Raise 9% · 480k mãos" },
+      { badge: "Overfold", title: "SB vs CO · Turn · Bet 66% pot", poolPct: 41, mdfPct: 55,
+        meta: "Fold 59% · Call 31% · Raise 10% · 210k mãos" },
     ],
     bullets: [
       "<b>Every line</b> — fold / call / raise for each sizing.",
