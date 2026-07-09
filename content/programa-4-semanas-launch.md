@@ -52,7 +52,9 @@ dados de exemplo — não são stats puxados do banco. Por isso as legendas fala
 - **Set A — global/EN:** `#poker #mtt #pokerstrategy #tournamentpoker #pokertraining #onlinepoker #pokertips #gtostrategy #pokerlife #cardplayer`
 - **Set B — BR/nicho:** `#pokerbrasil #pokeronline #torneiodepoker #estudodepoker #pokerbr #mttpoker #jogadordepoker #pokercoaching #pokermindset #maisqueumjogo`
 
-**CTA padrão:** "Crie sua conta grátis — link na bio" / EN "Create your free account — link in bio".
+**CTA padrão:** na **arte** é EN ("Create free account", pra bater com a arte 100% EN); na **legenda** é PT-BR
+("Crie sua conta grátis — link na bio"), onde a conversão da base BR acontece. EN condensado na legenda:
+"Create your free account — link in bio".
 
 ---
 
@@ -115,7 +117,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > Três módulos, uma ideia: te mostrar o que a população de MTT REALMENTE faz — não o que o solver diz.
 > • Preflop: como o field abre, dá 3-bet e defende por posição e stack.
 > • Postflop: a reação do pool a cada linha e sizing, com a linha de MDF na barra.
-> • Hotspot: seus leaks explora­veis, ranqueados pra você.
+> • Hotspot: os leaks explora­veis do field, ranqueados pra você.
 > Tudo começa no plano grátis.
 >
 > Crie sua conta grátis — link na bio.
@@ -135,7 +137,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 `w1-spot-hotspot` · [render](../instagram/output/programa-4-semanas/semana-1/w1-p3-spot-hotspot.png)
 
 > **PT-BR**
-> Seus leaks, ranqueados. 🔥
+> Os leaks do field, ranqueados. 🔥
 >
 > O módulo Hotspot varre o field e te entrega os spots onde a população é mais explorável — com a defesa do
 > pool contra o MDF na mesma barra. Você vê na hora onde o field folda demais e onde dá pra atacar. Incluído no
@@ -144,7 +146,7 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> Your leaks, ranked. Hotspot surfaces the field's most exploitable spots — pool defense vs MDF on one bar.
+> The field's leaks, ranked. Hotspot surfaces the pool's most exploitable spots — pool defense vs MDF on one bar.
 > Included in the free plan. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #estudodepoker #pokerbrasil #pokeronline #pokercoaching #mttpoker #pokermindset

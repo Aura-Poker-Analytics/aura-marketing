@@ -15,8 +15,8 @@ window.DECK = {
     versionBadge: "2.0",
     headlineHtml: "The same game.<br><em>New information.</em>",
     sub: "Field intelligence for MTT grinders — the pool's real strategy, measured across billions of hands.",
-    cta: "Crie sua conta grátis",
-    ctaSub: "aura.poker · link na bio",
+    cta: "Create free account",
+    ctaSub: "aura.poker · link in bio",
     showCards: true,
     footerLeft: "aura.poker",
   },
@@ -66,7 +66,7 @@ window.DECK = {
     slideNumber: "04",
     slideIndicator: "4 / 5",
     kicker: "Hotspot Analysis",
-    titleHtml: "Your leaks, <em>ranked</em>",
+    titleHtml: "The field's leaks, <em>ranked</em>",
     bodyHtml: [
       "The spots where the field is most exploitable, sorted for you — <b>free to explore</b> in the free plan.",
     ],
@@ -77,12 +77,12 @@ window.DECK = {
     headlineHtml: "Study the field. <em>Free.</em>",
     bullets: [
       "Free plan, forever — no card required",
-      "Hotspot leaks + preflop included",
+      "Hotspot + Preflop included",
       "Billions of real MTT hands",
     ],
-    ctaLabel: "Crie sua conta grátis",
-    ctaSub: "link na bio",
-    tagline: "O mesmo jogo — novas informações.",
+    ctaLabel: "Create free account",
+    ctaSub: "link in bio",
+    tagline: "The same game. New information.",
     handle: "@aurapokeranalytics",
   },
 
@@ -155,8 +155,8 @@ window.DECK = {
   "w2-pre-cta": {
     headlineHtml: "See your pool. <em>Free.</em>",
     bullets: ["Preflop grid in the free plan", "Billions of real MTT hands", "No card required"],
-    ctaLabel: "Crie sua conta grátis", ctaSub: "link na bio",
-    tagline: "O mesmo jogo — novas informações.", handle: "@aurapokeranalytics",
+    ctaLabel: "Create free account", ctaSub: "link in bio",
+    tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
 
   /* L3 card: "Can you answer…?" (feature-spotlight, nav Postflop) */
@@ -227,8 +227,8 @@ window.DECK = {
   "w3-post-cta": {
     headlineHtml: "Attack the field. <em>Free.</em>",
     bullets: ["Postflop reads in the free plan", "MDF on every bar", "No card required"],
-    ctaLabel: "Crie sua conta grátis", ctaSub: "link na bio",
-    tagline: "O mesmo jogo — novas informações.", handle: "@aurapokeranalytics",
+    ctaLabel: "Create free account", ctaSub: "link in bio",
+    tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
 
   /* L3 card: "Can you answer…?" preflop */
@@ -280,8 +280,8 @@ window.DECK = {
   "w4-hs-cta": {
     headlineHtml: "Find your spots. <em>Free.</em>",
     bullets: ["Ranked exploit cards, free", "MDF vs pool on every card", "No card required"],
-    ctaLabel: "Crie sua conta grátis", ctaSub: "link na bio",
-    tagline: "O mesmo jogo — novas informações.", handle: "@aurapokeranalytics",
+    ctaLabel: "Create free account", ctaSub: "link in bio",
+    tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
 
   /* Feature spotlight: Preflop grid */
