@@ -4,8 +4,9 @@
     {
       "name": "templates",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3999", "instagram/templates"],
-      "port": 3999
+      "runtimeArgs": ["serve", "instagram/templates"],
+      "port": 3999,
+      "autoPort": true
     }
   ]
 }

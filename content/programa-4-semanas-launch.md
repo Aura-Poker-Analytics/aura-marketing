@@ -80,7 +80,7 @@ dados de exemplo — não são stats puxados do banco. Por isso as legendas fala
 | P10 | 25/07 | 3 | L5 CTA | Card | `meet-cta` | [semana-3/w3-p10-cta.png](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) |
 | P11 | 27/07 | 4 | L2 How-to | Carrossel 4 | `w4-hs-*` | [semana-4/](../instagram/output/programa-4-semanas/semana-4/) |
 | P12 | 30/07 | 4 | L4 Feature | Card | `w4-spot-preflop` | [semana-4/w4-p12-spot-preflop.png](../instagram/output/programa-4-semanas/semana-4/w4-p12-spot-preflop.png) |
-| P13 | 01/08 | 4 | L5 CTA | Card | `meet-cta` | [semana-3/w3-p10-cta.png](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) |
+| P13 | 01/08 | 4 | L5 CTA | Card | `w4-cta-month` | [semana-4/w4-p13-cta-month.png](../instagram/output/programa-4-semanas/semana-4/w4-p13-cta-month.png) *(pendente render)* |
 
 Ritmo: semana de launch mais densa (4), depois 3/semana (alinhado à "sustentação" do plano). Stories: repostar
 cada card no story no dia (o hero tem variante 9:16 pronta).
@@ -125,27 +125,46 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 ### P2 · ✅ PUBLICADO 08/07 (fora de ordem, serviu de post de launch) · L2 Module tour — CARROSSEL "Meet Aura 2.0" (5 slides)
 `meet-capa → meet-preflop → meet-postflop → meet-hotspot → meet-cta` · [pasta](../instagram/output/2026-07-10-carrossel-lancamento/)
 
-Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (ações+reações+MDF) · 04 Hotspot (leak card) · 05 CTA grátis.
+**⚠️ Reescrito em 09/07 (correção pós-publicação):** slide 02 (Preflop) estava subvendendo o módulo — só
+citava 3 ações (RFI/3-bet/defesa) e 2 dimensões (posição/stack), quando o produto cobre RFI, 3-bet, 4-bet,
+squeeze, cold call e a família steal, por posição, stack, buy-in, estágio, formato e arquétipo de vilão.
+Slide 04 (Hotspot) não gritava o diferenciador real: Hotspot é **completo e grátis, sem trava de filtros**
+— o ativo de oferta mais forte do produto. Slide 05 (CTA) tinha gating errado ("Hotspot + Preflop
+included", implicando os dois completos e grátis) — corrigido para Hotspot completo grátis + Preflop/
+Postflop como amostra grátis, com "500M+ audited" no lugar de "500M+ real MTT hands". Fonte de verdade:
+`instagram/templates/deck.js` (chaves `meet-*`), já atualizado.
+
+Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela, leque completo de ações/dimensões) · 03 Postflop
+(bet/check/raise/fold por street, IP vs OOP, MDF) · 04 Hotspot (leak card, "completo e grátis, sem trava de
+filtro") · 05 CTA (gating correto: Hotspot completo grátis + Preflop/Postflop amostra grátis).
 
 > **PT-BR**
 > Conheça a Aura 2.0 por dentro. 👉 arrasta.
 >
-> Três módulos, uma ideia: te mostrar o que a população de MTT REALMENTE faz — não o que o solver diz.
-> • Preflop: como o field abre, dá 3-bet e defende por posição e stack.
-> • Postflop: a reação do pool a cada linha e sizing, com a linha de MDF na barra.
-> • Hotspot: os leaks exploráveis do field, ranqueados pra você.
-> Tudo começa no plano grátis.
+> Três módulos, uma ideia: o que a população de MTT REALMENTE faz, medido em 500M+ mãos auditadas — não o
+> que o solver diz.
+> • Preflop: RFI, 3-bet, 4-bet, squeeze, cold call e steal — por posição, stack, buy-in, estágio e tipo de
+> torneio.
+> • Postflop: bet, check, raise e fold do pool, street a street (flop/turn/river), com a linha de MDF na
+> barra.
+> • Hotspot: TODOS os leaks do field, sem trava de filtro — 100% grátis, sempre.
+>
+> Hotspot completo e grátis pra sempre. Preflop e Postflop têm amostra grátis pra começar.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> Meet Aura 2.0. Three modules, one idea: what the MTT field actually does, not what the solver says.
-> Preflop, Postflop, Hotspot — start free. Link in bio.
+> Meet Aura 2.0. Three modules, one idea: what the MTT field actually does — not what the solver says.
+> Full Hotspot, free forever, zero filter lock. Preflop + Postflop, free sample to start. 500M+ audited
+> hands. Link in bio.
 >
-> #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokertips
+> #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #estudodepoker #mttpoker #pokercoaching #pokermindset
 > 18+ · jogo de habilidade/estudo
 
-**Compliance:** ✅ tudo ok · números nos slides = **ilustrativos (mock de UI)**; legenda não afirma stat.
+**Compliance:** ✅ sem promessa de lucro ✅ sem dinheiro/luxo ✅ 18+ ✅ sem dado de cliente ✅ sem concorrente
+nominal · números nos slides = **ilustrativos (mock de UI)**; legenda não afirma stat de banco. Gating
+corrigido conforme verdade canônica: Hotspot completo e grátis (regra oficial do dono); Preflop/Postflop =
+amostra grátis (buy-in ≤$22, Vanilla, Early Game), não "included".
 
 ---
 
@@ -153,22 +172,26 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 `w1-spot-hotspot` · [render](../instagram/output/programa-4-semanas/semana-1/w1-p3-spot-hotspot.png)
 
 > **PT-BR**
-> Os leaks do field, ranqueados. 🔥
+> Hotspot: completo e grátis. Sem trava, sem pegadinha. 🔥
 >
-> O módulo Hotspot varre o field e te entrega os spots onde a população é mais explorável — com a defesa do
-> pool contra o MDF na mesma barra. Você vê na hora onde o field folda demais e onde dá pra atacar. Incluído no
-> plano grátis.
+> O módulo Hotspot varre o field inteiro e ranqueia os spots mais exploráveis por street (flop/turn/river).
+> Cada card mostra a defesa real do pool vs o MDF, o desvio em pontos e um selo de confiança pelo tamanho da
+> amostra — e ainda dá pra recortar por posição e textura de board sem sair da tela. Diferente do Preflop e
+> do Postflop, aqui não tem amostra limitada: o módulo Hotspot é seu inteiro, sem trava de filtro, no plano
+> grátis.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> The field's leaks, ranked. Hotspot surfaces the pool's most exploitable spots — pool defense vs MDF on one bar.
-> Included in the free plan. Link in bio.
+> Hotspot: full and free, no lock. It scans the whole field and ranks the pool's most exploitable spots by
+> street, with real defense vs MDF, deviation in points, and a sample-size confidence badge on every card —
+> plus drill-down by position and board texture. The entire module is free, no filter lock. Link in bio.
 >
-> #poker #mtt #pokerstrategy #tournamentpoker #estudodepoker #pokerbrasil #pokeronline #pokercoaching #mttpoker #pokermindset
+> #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #mttpoker #cardplayer
 > 18+ · jogo de habilidade/estudo
 
-**Compliance:** ✅ tudo ok · nº ilustrativo (mock de UI).
+**Compliance:** ✅ tudo ok · nº ilustrativo (mock de UI) · reforça claim aprovada "Hotspot completo e grátis,
+sem trava de filtros" (verdade canônica §2/§9). ⚠️ Ver pendência operacional abaixo antes de publicar.
 
 ---
 
@@ -201,21 +224,29 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 `w2-pre-capa → w2-pre-slide1 → w2-pre-slide2 → w2-pre-cta` · [pasta](../instagram/output/programa-4-semanas/semana-2/)
 
 > **PT-BR**
-> O field abre demais. Em 60 segundos, veja onde. 👉
+> O range do pool não é segredo. Em 60 segundos, veja como ele realmente joga. 👉
 >
-> O módulo Preflop mostra como a população abre, dá 3-bet e defende — com os deltas (mais largo/mais tight que
-> a referência) em verde e vermelho. É a sua primeira leitura antes do flop, e você filtra por stack e estágio.
+> O módulo Preflop cobre RFI, 3-bet, 4-bet, squeeze e steal — por posição, stack, buy-in, estágio do torneio
+> (do early ao mesa final) e formato (Vanilla, KO, Mystery Bounty). Cruza tudo com o arquétipo de quem age:
+> reg agressivo, reg tight ou fish.
+>
+> Amostra grátis pra sempre: buy-in até $22, Vanilla, Early Game. Já o Hotspot é completo e grátis, sem
+> trava de filtro nenhuma.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> The field opens too much — see where, in 60s. Preflop shows how the pool opens/3-bets/defends, with deltas
-> vs reference. Filter by stack & stage. Link in bio.
+> The pool's range isn't a secret. Preflop covers RFI, 3-bet, 4-bet, squeeze & steal — by position, stack,
+> buy-in, tournament stage (early to final table) and format (Vanilla/KO/Mystery), crossed with reg vs fish.
+> Free sample: ≤$22 buy-in, Vanilla, Early Game. Hotspot? Full & free, no filter lock. Link in bio.
 >
-> #poker #mtt #pokerstrategy #tournamentpoker #estudodepoker #pokerbrasil #pokeronline #mttpoker #pokercoaching #pokertips
+> Set A: #poker #mtt #mttpoker #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #pokertips #pokertraining
+> Set B (rotação): #poker #mtt #mttpoker #pokerstrategy #pokerranges #icmpoker #pokerbrasil #estudodepoker #pokercoaching #tournamentpoker
 > 18+ · jogo de habilidade/estudo
 
-**Compliance:** ✅ tudo ok · nº ilustrativo (mock de UI).
+**Compliance:** ✅ hook trocado (era vago: "field opens too much"); CTA corrigida — deixa claro que é amostra
+grátis (buy-in ≤$22, Vanilla, Early Game) e que o Hotspot é o item completo e grátis; puxa estágio/ICM,
+formato de torneio e arquétipo de vilão como diferenciadores · nº ilustrativo (mock de UI) · sem concorrente nominal.
 
 ---
 
@@ -314,24 +345,36 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 ---
 
 ### P10 · 25/07 · L5 CTA — "Study the field. Free."
-`meet-cta` · [render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png)
+`meet-cta` (criativo corrigido — Hotspot é o módulo completo/grátis; Preflop citado só como amostra) ·
+[render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) *(pendente re-render)*
 
 > **PT-BR**
-> Estude o field. De graça. ♠️
+> Estude o field. De graça — sem letra miúda. ♠️
 >
-> Plano grátis pra sempre, sem cartão. Hotspot (leaks ranqueados) + Preflop inclusos, sobre 500M+ mãos
-> reais de MTT. O upgrade acontece dentro do produto, quando você quiser mais profundidade.
+> Plano grátis pra sempre, sem cartão. O Hotspot Analysis vem completo nesse plano: os leaks mais
+> exploráveis do pool, por street, sem trava de filtro — sobre 500M+ mãos reais e auditadas de MTT.
+> Preflop e Postflop entram com amostra grátis pra você sentir o produto; a profundidade total (todos
+> os buy-ins, formatos e estágios) fica no plano pago, quando você quiser.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> Study the field. Free. Forever free plan, no card — Hotspot + Preflop included, over 500M+ real MTT
-> hands. Link in bio.
+> Study the field. Free — no fine print. Forever-free plan, no card. Hotspot Analysis is complete in
+> it: every exploitable leak, by street, no filter lock, across 500M+ audited MTT hands. Preflop and
+> Postflop start free-to-sample; full depth unlocks on the paid plan. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokertips #maisqueumjogo
 > 18+ · jogo de habilidade/estudo
+>
+> **Set B (rotação — repost/story):** #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #pokermindset #mttpoker
 
-**Compliance:** ✅ tudo ok · sem stat.
+**Compliance:** ✅ corrigido 09/07 — a versão anterior dizia "Hotspot + Preflop included", o que implicava
+acesso completo ao Preflop no grátis (banido — Preflop grátis é só amostra: buy-in ≤$22, Vanilla, Early
+Game). Agora a arte (`meet-cta`) cita só o Hotspot como módulo 100% completo/grátis nos bullets; a legenda
+menciona Preflop/Postflop como "amostra grátis" explicitamente. "500M+ mãos reais e auditadas" (não
+"bilhões"). Sem promessa de lucro, sem dinheiro/luxo, sem concorrente nominal, 18+. Caption distinta de
+P13 (gancho e estrutura diferentes; P13 tem criativo `w4-cta-month` próprio). Nº ilustrativo: n/a (arte
+sem stat solto).
 
 ---
 
@@ -344,13 +387,14 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > De leak a linha: como usar um exploit card. 👉
 >
 > 1) Leia a carta: a barra de defesa do pool aquém da marca de MDF = o field folda demais ali. 2) Tome a
-> linha: contra um field que superfolda, um c-bet pequeno lucra. A carta te diz onde; você traz a agressão.
+> linha: contra um field que superfolda, um c-bet pequeno e frequente ataca esse gap. A carta te diz onde;
+> você traz a agressão.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
 > From leak to line: how to use an exploit card. Read the card (defense below MDF = the field over-folds),
-> then take the line (small c-bet prints vs an over-folding field). Link in bio.
+> then attack that gap with a small, frequent c-bet. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokercoaching
 > 18+ · jogo de habilidade/estudo
@@ -365,41 +409,63 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 > **PT-BR**
 > O field inteiro, numa tela. 🗺️
 >
-> RFI, 3-bet e defesa por posição — com os deltas (mais largo/mais tight que a referência) já embutidos e
-> coloridos. É a leitura de preflop da população em um lugar só. Incluído no plano grátis.
+> RFI, 3-bet e defesa por posição, com os deltas (mais largo/mais tight que a referência) já embutidos e
+> coloridos — e mais de 20 filtros combináveis: posição, stack, buy-in, estágio do torneio, formato
+> (Vanilla/KO/Mystery Bounty) e até o arquétipo do vilão (reg agressivo, reg tight, fish).
+>
+> Amostra grátis para sempre: buy-in até $22, torneios Vanilla, fase Early Game. O range completo (todos os
+> buy-ins, formatos e estágios) é do plano pago — mas o Hotspot Analysis já vem completo e grátis, sem trava
+> de filtro nenhuma.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> The whole field, one screen. RFI, 3-bet and defense by position, with deltas vs reference built in and
-> color-coded. Free tier. Link in bio.
+> The whole field, one screen. RFI, 3-bet and defense by position, deltas built in, plus 20+ stackable
+> filters — position, stack, buy-in, stage, format, villain type.
+>
+> Free sample up to $22 buy-in, Vanilla, Early Game; full range is paid. Hotspot Analysis stays fully free,
+> no filter caps.
+>
+> Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #estudodepoker #pokerbrasil #pokeronline #mttpoker #pokertips #pokercoaching
 > 18+ · jogo de habilidade/estudo
+>
+> **Set B (rotação — repost/story):** #poker #mtt #pokertraining #onlinepoker #cardplayer #torneiodepoker #pokerbr #jogadordepoker #pokermindset #maisqueumjogo
 
-**Compliance:** ✅ tudo ok · nº ilustrativo (mock de UI).
+**Compliance:** ✅ corrigido 09/07 — antes underselava (sem citar os 20+ filtros) e a linha "Incluído no plano
+grátis" implicava acesso completo ao Preflop no grátis. Agora: menciona os 20+ filtros combináveis e deixa
+explícito que o Preflop grátis é **amostra** (buy-in ≤$22, Vanilla, Early Game — resto é pago), com o Hotspot
+citado como o módulo que É completo e grátis. Nº ilustrativo (mock de UI). Sem concorrente nominal, sem
+promessa de lucro.
 
 ---
 
-### P13 · 01/08 · L5 CTA — reforço grátis (fim do mês)
-`meet-cta` (mesmo criativo de P10) · [render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png)
+### P13 · 01/08 · L5 CTA — "1 mês de Aura 2.0 no ar" (criativo novo, distinto de P10)
+`w4-cta-month` (criativo próprio — **não** reaproveita `meet-cta` de P10) · [render](../instagram/output/programa-4-semanas/semana-4/w4-p13-cta-month.png) *(pendente gerar — deck já configurado)*
 
 > **PT-BR**
-> Um mês de Aura 2.0. Já criou a sua conta? ♠️
+> Um mês de Aura 2.0 no ar. ♠️
 >
-> Plano grátis pra sempre, sem cartão — Hotspot + Preflop sobre 500M+ mãos reais de MTT. Se você ainda tá
-> decorando o equilíbrio em vez de explorar o field, tá deixando dinheiro na mesa.
+> Hotspot completo e grátis pra sempre — os leaks mais fortes do field, por street, sem trava de filtro.
+> Preflop e Postflop têm amostra grátis pra sempre (buy-in até $22, torneios Vanilla, fase Early Game); o
+> resto do field é liberado no plano pago. Tudo sobre 500M+ mãos reais e auditadas de MTT, em 7 salas
+> cobertas. Se ainda não criou sua conta, esse mês inteiro já tinha field pra explorar.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> One month of Aura 2.0 — created your account yet? Forever free plan, no card. Stop memorizing equilibrium
-> and start exploiting the field. Link in bio.
+> One month of Aura 2.0, live. Hotspot: full leak board, free forever. Preflop + Postflop: free sample to
+> start (buy-in ≤$22, Vanilla, Early Game) — full field on the paid plan. 500M+ audited hands, 7 rooms
+> covered. Link in bio.
 >
-> #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokermindset #maisqueumjogo
+> #poker #mtt #tournamentpoker #pokertraining #gtostrategy #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokermindset
 > 18+ · jogo de habilidade/estudo
 
-**Compliance:** ✅ tudo ok · sem stat.
+**Compliance:** ✅ sem promessa de lucro (removida a linha "deixando dinheiro na mesa" da v. anterior — reframe
+para "field pra explorar") ✅ gating correto (Hotspot completo/grátis · Preflop+Postflop = amostra grátis, não
+"incluído" de graça inteiro) ✅ "500M+ auditadas" (não "bilhões") ✅ sem dinheiro/luxo ✅ 18+ ✅ sem dado de
+cliente ✅ sem concorrente nominal · nº: n/a (sem stat solto, só claims aprovadas).
 
 ---
 
@@ -412,3 +478,9 @@ Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela) · 03 Postflop (aç�
 - **Ordem/datas** são sugestão; realoco fácil. Se quiser mais/menos posts por semana, eu ajusto o deck e re-renderizo.
 - **Autenticação:** me diga "aprovado" (ou aponte ajustes por post/id) e o lote está pronto pra você agendar no
   Meta Business Suite. Eu nunca publico.
+- **⚠️ Pendência operacional — Hotspot "completo e grátis, sem trava":** P3 e P12 agora afirmam isso na legenda
+  (aprovado pelo dono, é LEI de marketing). Mas em 09/07 o código em produção (`entitlements.ts`, commit
+  2026-07-06) e a landing (`pricing.ts`, commit 2026-07-07) ainda mostravam um Hotspot "teased" — 2 exploit
+  cards por bucket no grátis + filtros de buy-in/formato/estágio travados. Antes de publicar P3, confirme
+  que engenharia já ajustou `getModuleAccess('hotspot')`/`HOTSPOT_FREE_VISIBLE_LIMIT` para refletir "full",
+  ou reconfirme a regra olhando o produto ao vivo — senão a legenda promete algo que o app ainda não entrega.

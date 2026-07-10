@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="deck.js"></script>
+<title>Aura · solver-vs-field</title>
+<script>
+/* ============================================================
+   SOLVER VS FIELD — pilar L3 (posicionamento)
+   1080×1350 · split de 2 colunas: equilíbrio teórico x pool real.
+   Edite apenas o CONFIG. Números default = mesmo spot canônico
+   usado no resto do deck (BB vs BTN · Flop · Bet 33% pot).
+   ============================================================ */
+const CONFIG = {
+  topRight: "L3 · Positioning",
+  handle: "@aurapokeranalytics",
+
+  kicker: "Solver vs Field",
+  titleHtml: "Balanced on paper.<br><em>Not at the table.</em>",
+
+  // chip central com o spot em comum aos dois lados
+  spotLabel: "BB vs BTN · Flop · Bet 33% pot",
+
+  // referência de equilíbrio (a mesma para os dois lados — é o que o solver manda)
+  mdf: 62,
+
+  // lado esquerdo — equilíbrio teórico
+  solver: {
+    label: "Solver",
+    sub: "Theoretical equilibrium",
+    fold: 38, call: 44, raise: 18,
+    note: "No solver runs live at the table — it's a fixed reference point.",
+  },
+
+  // lado direito — o que a Aura mede no pool real
+  field: {
+    label: "Field",
+    sub: "What the pool actually does",
+    fold: 52, call: 39, raise: 9,
+    note: "Measured across 480k real hands — audited, not simulated.",
+  },
+
+  gapValue: "−14 pts",
+  gapLabel: "Field defense vs MDF",
+  gapNote: "The pool over-folds this spot — a gap no solver output shows you.",
+
+  // exatamente 3 chips curtos
+  bullets: [
+    "<b>Same spot</b>, two references side by side.",
+    "<b>MDF line</b> exposes the exact gap.",
+    "<b>500M+ hands</b> audited, every quarter.",
+  ],
+
+  footerLeft: "aura.poker",
+};
+(function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
+</script>
+<style>
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Variable-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: block;
+}
+:root {
+  --bg: #020617;
+  --navy: #0F1526;
+  --surface: #0F172A;
+  --surface2: #1E293B;
+  --amber: #FBBF24;
+  --amber3: #FCD34D;
+  --amber6: #D97706;
+  --gold: #D4A418;
+  --fold: #015A6B;
+  --call: #348A5D;
+  --raise: #AD2C34;
+  --ink: #FFFFFF;
+  --ink-soft: #CBD5E1;
+  --ink-dim: #64748B;
+  --pad: 84px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 100vh; overflow: hidden; }
+body {
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 820px at 14% -10%, rgba(100, 116, 139, 0.22), transparent 60%),
+    radial-gradient(1200px 820px at 86% -10%, rgba(212, 164, 24, 0.16), transparent 60%),
+    radial-gradient(1000px 700px at 50% 116%, rgba(212, 164, 24, 0.08), transparent 60%),
+    var(--bg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 56px var(--pad);
+}
+
+/* ------- camadas de fundo ------- */
+.suits { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.suits span { position: absolute; font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; user-select: none; }
+.suits span.left { color: rgba(148, 163, 184, 0.05); }
+.suits span.right { color: rgba(251, 191, 36, 0.05); }
+.vcenter-fade {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 340px; transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(2, 6, 23, 0.55), transparent);
+  pointer-events: none;
+}
+
+/* ------- topo ------- */
+.topbar { position: relative; z-index: 4; display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand .icon { width: 34px; height: 28px; color: var(--gold); }
+.brand .icon svg, .brand .wm svg { width: 100%; height: 100%; display: block; }
+.brand .wm { width: 100px; color: var(--gold); }
+.chip {
+  font-size: 21px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-dim); border: 2px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.55); border-radius: 999px; padding: 10px 24px;
+}
+
+/* ------- conteúdo central ------- */
+.content { position: relative; z-index: 4; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.kicker { font-size: 24px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); text-align: center; }
+.kicker::before, .kicker::after { content: ""; display: inline-block; width: 44px; height: 3px; background: var(--amber); border-radius: 2px; vertical-align: middle; opacity: 0.7; }
+.kicker::before { margin-right: 20px; }
+.kicker::after { margin-left: 20px; }
+
+.title {
+  margin-top: 14px; text-align: center;
+  font-size: 50px; font-weight: 900; line-height: 1.14; text-transform: uppercase; letter-spacing: 0.005em;
+}
+.title em {
+  font-style: normal;
+  background: linear-gradient(180deg, var(--amber3) 0%, var(--amber) 45%, var(--amber6) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.spotchip-row { margin-top: 16px; display: flex; justify-content: center; }
+.spotchip {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 21px; font-weight: 700; letter-spacing: 0.03em; color: var(--ink-soft);
+  border: 2px solid rgba(148, 163, 184, 0.28); background: rgba(15, 23, 42, 0.65);
+  border-radius: 999px; padding: 10px 28px;
+}
+.spotchip .suit { color: var(--amber); font-size: 24px; }
+
+/* ------- colunas ------- */
+.columns { position: relative; margin-top: 20px; display: flex; align-items: stretch; }
+.col { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 18px 26px 16px; border-radius: 28px; text-align: center; }
+.col.solver { background: rgba(30, 41, 59, 0.32); border: 1.5px solid rgba(148, 163, 184, 0.2); margin-right: 17px; }
+.col.field {
+  background: linear-gradient(165deg, rgba(217, 119, 6, 0.16), rgba(15, 23, 42, 0.62));
+  border: 1.5px solid rgba(251, 191, 36, 0.42);
+  box-shadow: 0 26px 70px rgba(217, 119, 6, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  margin-left: 17px;
+}
+
+.col .label {
+  font-size: 22px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  border-radius: 999px; padding: 9px 26px;
+}
+.col.solver .label { color: var(--ink-soft); background: rgba(148, 163, 184, 0.14); border: 1.5px solid rgba(148, 163, 184, 0.3); }
+.col.field .label { color: var(--navy); background: linear-gradient(180deg, var(--amber3), var(--amber6)); }
+.col .sub { margin-top: 8px; font-size: 17px; font-weight: 600; color: var(--ink-dim); letter-spacing: 0.02em; }
+
+.stackbar-wrap { position: relative; margin-top: 16px; }
+.stackbar {
+  position: relative; width: 140px; height: 240px;
+  display: flex; flex-direction: column-reverse;
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(2, 6, 23, 0.5);
+}
+.seg { width: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+.seg span { font-size: 17px; font-weight: 800; color: rgba(255, 255, 255, 0.92); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+.seg.fold { background: linear-gradient(180deg, #026C80, var(--fold)); }
+.seg.call { background: linear-gradient(180deg, #3EA46E, var(--call)); }
+.seg.raise { background: linear-gradient(180deg, #C93745, var(--raise)); }
+
+.mdfline {
+  position: absolute; left: -10px; right: -10px; height: 0;
+  border-top: 3px dashed var(--amber);
+}
+.mdfline .tag {
+  position: absolute; right: -6px; top: -30px;
+  font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: var(--amber);
+  background: rgba(2, 6, 23, 0.85); border-radius: 6px; padding: 3px 8px;
+  white-space: nowrap;
+}
+.leakzone {
+  position: absolute; left: -10px; right: -10px;
+  background: repeating-linear-gradient(135deg, rgba(239, 68, 68, 0.28) 0 8px, rgba(239, 68, 68, 0.12) 8px 16px);
+  border-top: 2px solid rgba(239, 68, 68, 0.6);
+  border-bottom: 2px dashed var(--amber);
+}
+
+.legend { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
+.legend .row { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--ink-soft); }
+.legend .dot { width: 12px; height: 12px; border-radius: 4px; flex: none; }
+.legend .dot.fold { background: var(--fold); }
+.legend .dot.call { background: var(--call); }
+.legend .dot.raise { background: var(--raise); }
+
+.col .note { margin-top: 12px; font-size: 14.5px; line-height: 1.36; color: var(--ink-dim); max-width: 260px; }
+
+/* divisor central */
+.divider {
+  position: absolute; top: 6px; bottom: 6px; left: 50%; width: 2px; transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent, rgba(212, 164, 24, 0.5) 15%, rgba(212, 164, 24, 0.5) 85%, transparent);
+}
+.divider .vs {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 66px; height: 66px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy); border: 2px solid rgba(212, 164, 24, 0.55);
+  font-size: 19px; font-weight: 900; letter-spacing: 0.05em; color: var(--amber);
+  box-shadow: 0 0 0 8px rgba(2, 6, 23, 0.9), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ------- gap callout ------- */
+.gapcallout {
+  margin-top: 18px; display: flex; align-items: center; gap: 24px;
+  background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(251, 191, 36, 0.22);
+  border-left: 6px solid var(--amber); border-radius: 0 20px 20px 0; padding: 16px 30px;
+}
+.gapcallout .value { font-size: 44px; font-weight: 900; color: var(--amber); line-height: 1; white-space: nowrap; }
+.gapcallout .text { display: flex; flex-direction: column; gap: 3px; }
+.gapcallout .glabel { font-size: 17px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+.gapcallout .gnote { font-size: 18px; font-weight: 500; color: var(--ink-dim); line-height: 1.36; }
+
+/* ------- bullets ------- */
+.bullets { margin-top: 16px; display: flex; gap: 16px; }
+.bchip {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+  background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 16px; padding: 14px 14px;
+}
+.bchip .marker { color: var(--amber); font-size: 20px; }
+.bchip .txt { font-size: 18px; font-weight: 500; line-height: 1.34; color: var(--ink-soft); }
+.bchip .txt b { color: var(--ink); font-weight: 800; }
+
+/* ------- footer ------- */
+footer { position: relative; z-index: 4; display: flex; align-items: center; justify-content: space-between; border-top: 2px solid rgba(30, 41, 59, 0.9); padding-top: 20px; margin-top: 14px; }
+.note-foot { display: flex; align-items: center; gap: 16px; font-size: 24px; font-weight: 600; color: var(--ink-dim); letter-spacing: 0.05em; }
+.note-foot .icon { width: 42px; height: 34px; color: var(--gold); opacity: 0.95; }
+.note-foot .icon svg { width: 100%; height: 100%; }
+.age { font-size: 22px; font-weight: 800; color: var(--ink-dim); border: 3px solid var(--ink-dim); border-radius: 11px; padding: 6px 12px; }
+</style>
+</head>
+<body>
+
+<div class="suits" id="suits"></div>
+<div class="vcenter-fade"></div>
+
+<div class="topbar">
+  <div class="brand"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div>
+  <span class="chip" id="topRight"></span>
+</div>
+
+<div class="content">
+  <div class="kicker" id="kicker"></div>
+  <h1 class="title" id="title"></h1>
+
+  <div class="spotchip-row">
+    <span class="spotchip"><span class="suit">&#9824;</span><span id="spotLabel"></span></span>
+  </div>
+
+  <div class="columns" id="columns">
+    <div class="divider"><div class="vs">VS</div></div>
+  </div>
+
+  <div class="gapcallout">
+    <div class="value" id="gapValue"></div>
+    <div class="text">
+      <div class="glabel" id="gapLabel"></div>
+      <div class="gnote" id="gapNote"></div>
+    </div>
+  </div>
+
+  <div class="bullets" id="bullets"></div>
+</div>
+
+<footer>
+  <div class="note-foot"><span class="icon" data-icon></span><span id="footerLeft"></span></div>
+  <div class="age">18+</div>
+</footer>
+
+<script>
+/* ---- logos oficiais (vetor, recoloríveis via currentColor) ---- */
+const ICON_PATHS = `<path d="M5.86165 44.898C-5.49315 30.408 0.312736 8.78736 17.5518 1.99342C24.4945 -0.786314 32.5783 -0.656823 39.4165 2.36894C53.1363 8.26508 59.687 24.4384 54.0901 38.1515C53.1232 40.5643 51.8035 42.8347 50.2094 44.8936L49.874 44.6347C50.1658 44.0476 50.4577 43.4736 50.7277 42.8909C54.5649 34.7459 54.4429 24.8226 49.8784 17.1481C42.8921 5.2091 27.6609 0.935911 15.5352 7.87661C3.92345 14.5022 -0.305745 28.8843 4.59855 41.1298C4.81633 41.7039 5.0733 42.3427 5.33899 42.8952C5.60903 43.4779 5.90085 44.052 6.19267 44.639L5.85729 44.898H5.86165Z"/>
+<path d="M28.0486 8.56287C22.2601 20.394 16.4717 32.2251 10.6788 44.0562C12.3905 42.8477 14.9734 41.2895 18.3837 40.1456C19.612 39.7312 22.0293 39.0147 25.2219 38.7212C25.5964 38.5529 26.093 38.2637 26.5285 37.7759C27.012 37.2364 27.1949 36.7055 27.3604 36.2005C27.4519 35.9285 27.5521 35.5573 27.613 35.0998C27.6479 34.8279 27.2777 34.6941 27.1122 34.9185C26.8595 35.2681 26.498 35.635 25.9884 35.9199C25.714 36.071 25.0215 36.4465 24.0807 36.3688C23.031 36.2868 22.3647 35.6955 22.173 35.5228C21.132 34.5775 21.1059 33.2869 21.1016 32.933C21.0798 31.7028 21.6591 30.6885 23.0093 29.0526C24.0894 27.7404 25.7315 25.975 28.0268 24.1017C30.3439 25.975 31.9903 27.7447 33.0748 29.0526C34.4294 30.6928 35.0043 31.7115 34.9825 32.933C34.9782 33.2869 34.9521 34.5775 33.9111 35.5228C33.7238 35.6955 33.0531 36.2825 32.0034 36.3688C31.0626 36.4422 30.3744 36.071 30.0957 35.9199C29.5861 35.635 29.2246 35.2725 28.9719 34.9185C28.8108 34.6941 28.4362 34.8279 28.4711 35.0998C28.532 35.5573 28.6366 35.9285 28.7237 36.2005C28.8936 36.7055 29.0765 37.2364 29.5556 37.7759C29.9911 38.2637 30.4877 38.5529 30.8622 38.7212C34.0548 39.0147 36.4678 39.7356 37.6917 40.1456C41.1064 41.2938 43.6936 42.8477 45.4053 44.0606C39.6168 32.2294 33.8283 20.3983 28.0355 8.56718L28.0486 8.56287Z"/>`;
+const ICON_SVG = `<svg viewBox="0 0 60 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${ICON_PATHS}</svg>`;
+const AURA_LETTERS = `<path d="M32.1505 332.237H1C10.1627 314.156 19.2624 296.062 28.2992 277.98C37.4619 259.899 46.6245 241.804 55.7872 223.723C56.6431 222.262 57.6751 220.915 58.9085 219.694C60.1294 218.598 61.4761 217.679 62.9361 216.949C67.4545 214.871 71.91 212.793 76.3151 210.716C80.8335 208.638 85.289 206.624 89.6941 204.672C103.249 233.028 123.651 275.55 150.888 332.25H119.561C112.236 316.611 104.898 301.023 97.573 285.51C90.2479 269.871 82.8473 254.232 75.4089 238.581C68.1971 254.22 60.9978 269.871 53.786 285.51C46.5742 301.035 39.375 316.611 32.1631 332.25L32.1505 332.237Z"/>
+<path d="M283.683 207.769V281.279C283.683 292.763 280.877 302.244 275.251 309.698C269.511 317.027 261.935 322.592 252.533 326.382C247.398 328.334 241.847 329.807 235.856 330.777C229.865 331.759 223.635 332.237 217.166 332.237C198.35 332.237 182.907 328.019 170.811 319.583C158.716 311.146 152.675 298.379 152.675 281.267V212.529C159.144 210.691 168.798 208.072 181.623 204.647V281.267C181.623 290.194 184.669 296.477 190.785 300.141C196.764 303.931 205.989 305.82 218.45 305.82C230.91 305.82 240.186 303.931 245.938 300.141C251.677 296.238 254.547 289.942 254.547 281.267V207.757H283.683V207.769Z"/>
+<path d="M306.766 264.784H384.095C387.141 264.784 389.709 264.054 391.785 262.581C393.862 261.12 395.448 258.853 396.555 255.794C397.046 254.572 397.411 253.351 397.65 252.13C397.889 250.782 398.015 249.448 398.015 248.1C398.015 244.801 397.462 241.993 396.367 239.664C395.272 237.221 393.623 235.269 391.42 233.796C390.325 233.066 389.155 232.575 387.934 232.336C386.713 231.97 385.429 231.782 384.083 231.782H299.429C300.889 226.896 303.091 219.618 306.024 209.973C306.515 208.386 307.37 207.102 308.591 206.12C309.938 205.138 311.461 204.659 313.173 204.659H384.448C392.264 204.659 399.224 206.07 405.34 208.877C411.445 211.811 416.706 216.092 421.098 221.708C424.144 225.864 426.41 230.258 427.882 234.904C429.468 239.425 430.261 244.31 430.261 249.573C430.261 255.806 429.166 261.485 426.963 266.622C424.887 271.634 421.765 276.154 417.612 280.184C415.409 282.261 413.031 284.1 410.463 285.686C407.895 287.147 405.152 288.381 402.219 289.35C409.305 298.882 419.865 313.186 433.923 332.25H398.015C391.911 323.335 382.685 309.887 370.351 291.919H329.673V332.25H299.441V272.314C299.441 270.236 300.171 268.461 301.644 267C303.104 265.54 304.815 264.797 306.779 264.797L306.766 264.784Z"/>
+<path d="M476.263 332.237H445.112C454.275 314.156 463.374 296.062 472.411 277.98C481.574 259.899 490.737 241.804 499.899 223.723C500.755 222.262 501.787 220.915 503.021 219.694C504.241 218.598 505.588 217.679 507.048 216.949C511.567 214.871 516.022 212.793 520.427 210.716C524.946 208.638 529.401 206.624 533.806 204.672C547.361 233.028 567.763 275.55 595 332.25H563.673C556.348 316.611 549.01 301.023 541.685 285.51C534.36 269.871 526.959 254.232 519.521 238.581C512.309 254.22 505.11 269.871 497.898 285.51C490.686 301.035 483.487 316.611 476.275 332.25L476.263 332.237Z"/>`;
+const WORDMARK_SVG = `<svg viewBox="1 204 594 129" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${AURA_LETTERS}</svg>`;
+
+document.querySelectorAll("[data-icon]").forEach(el => el.innerHTML = ICON_SVG);
+document.querySelectorAll("[data-wordmark]").forEach(el => el.innerHTML = WORDMARK_SVG);
+
+/* ---- marca d'água de naipes — tingida diferente à esquerda (solver) e à direita (field) ---- */
+(function () {
+  const host = document.getElementById("suits");
+  const suits = ["♠", "♣", "♦", "♥"];
+  const step = 168;
+  let i = 0;
+  for (let y = -40; y < 1450; y += step) {
+    for (let x = -40; x < 1160; x += step) {
+      const s = document.createElement("span");
+      s.textContent = suits[i % 4];
+      s.className = x < 540 ? "left" : "right";
+      const jitter = (i * 53) % 40 - 20;
+      s.style.left = (x + ((Math.floor(y / step) % 2) ? step / 2 : 0)) + "px";
+      s.style.top = y + "px";
+      s.style.fontSize = (34 + (i * 29) % 18) + "px";
+      s.style.transform = `rotate(${jitter}deg)`;
+      host.appendChild(s);
+      i++;
+    }
+  }
+})();
+
+/* ---- monta uma coluna (Solver | Field) ---- */
+const BARH = 240;
+function buildCol(side, data, mdf) {
+  const total = data.fold + data.call + data.raise;
+  const fH = Math.round((data.fold / total) * BARH);
+  const cH = Math.round((data.call / total) * BARH);
+  const rH = BARH - fH - cH;
+
+  // linha de MDF: altura máxima de fold permitida antes de violar a defesa mínima
+  const mdfFoldMax = 100 - mdf;
+  const mdfY = Math.round((mdfFoldMax / 100) * BARH);
+  const overshoot = Math.max(0, fH - mdfY);
+
+  const el = document.createElement("div");
+  el.className = "col " + side;
+  el.innerHTML = `
+    <div class="label">${data.label}</div>
+    <div class="sub">${data.sub}</div>
+    <div class="stackbar-wrap">
+      <div class="stackbar">
+        <div class="seg fold" style="height:${fH}px"><span>${data.fold}%</span></div>
+        <div class="seg call" style="height:${cH}px"><span>${data.call}%</span></div>
+        <div class="seg raise" style="height:${rH}px"><span>${data.raise}%</span></div>
+        ${overshoot > 0 ? `<div class="leakzone" style="bottom:${mdfY}px;height:${overshoot}px"></div>` : ""}
+        <div class="mdfline" style="bottom:${mdfY}px"><span class="tag">MDF ${mdf}%</span></div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="row"><span class="dot fold"></span>Fold ${data.fold}%</div>
+      <div class="row"><span class="dot call"></span>Call ${data.call}%</div>
+      <div class="row"><span class="dot raise"></span>Raise ${data.raise}%</div>
+    </div>
+    <div class="note">${data.note}</div>
+  `;
+  return el;
+}
+
+const columns = document.getElementById("columns");
+columns.insertBefore(buildCol("solver", CONFIG.solver, CONFIG.mdf), columns.firstChild);
+columns.appendChild(buildCol("field", CONFIG.field, CONFIG.mdf));
+
+/* ---- bullets ---- */
+const bullets = document.getElementById("bullets");
+CONFIG.bullets.forEach(b => {
+  const d = document.createElement("div");
+  d.className = "bchip";
+  d.innerHTML = `<span class="marker">&#9824;</span><span class="txt">${b}</span>`;
+  bullets.appendChild(d);
+});
+
+/* ---- aplica CONFIG (texto simples) ---- */
+document.getElementById("topRight").textContent = CONFIG.topRight;
+document.getElementById("kicker").textContent = CONFIG.kicker;
+document.getElementById("title").innerHTML = CONFIG.titleHtml;
+document.getElementById("spotLabel").textContent = CONFIG.spotLabel;
+document.getElementById("gapValue").textContent = CONFIG.gapValue;
+document.getElementById("gapLabel").textContent = CONFIG.gapLabel;
+document.getElementById("gapNote").textContent = CONFIG.gapNote;
+document.getElementById("footerLeft").textContent = CONFIG.footerLeft;
+</script>
+</body>
+</html>

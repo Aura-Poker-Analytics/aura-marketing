@@ -14,7 +14,7 @@ window.DECK = {
     topRight: "Now live",
     versionBadge: "2.0",
     headlineHtml: "The same game.<br><em>New information.</em>",
-    sub: "Field intelligence for MTT grinders — the pool's real strategy, measured across 500M+ hands.",
+    sub: "Field intelligence for MTT grinders — the pool's real strategy, measured across 500M+ audited hands.",
     cta: "Create free account",
     ctaSub: "aura.poker · link in bio",
     showCards: true,
@@ -25,7 +25,7 @@ window.DECK = {
   "meet-capa": {
     kicker: "Launch · Aura 2.0",
     hookHtml: "Meet <em>Aura 2.0</em>",
-    sub: "Not a tracker. Not a solver. The pool's real strategy — across 500M+ MTT hands.",
+    sub: "Not a tracker. Not a solver. The pool's real strategy — 500M+ audited hands, 7 rooms.",
     swipe: "Swipe →",
     handle: "@aurapokeranalytics",
     ui: {
@@ -44,9 +44,9 @@ window.DECK = {
     slideNumber: "02",
     slideIndicator: "2 / 5",
     kicker: "Preflop Analysis",
-    titleHtml: "Every position, <em>vs the field</em>",
+    titleHtml: "Every action, <em>every angle</em>",
     bodyHtml: [
-      "How the pool opens, 3-bets and defends by position and stack — not solver theory, what players <b>actually do</b>.",
+      "RFI, 3-bet, 4-bet, squeeze, cold call, steal — every preflop action, sliced by position, stack, buy-in, tournament stage, format and villain type. What the field <b>actually does</b>.",
     ],
     mock: "preflop",
     handle: "@aurapokeranalytics",
@@ -55,9 +55,9 @@ window.DECK = {
     slideNumber: "03",
     slideIndicator: "3 / 5",
     kicker: "Postflop Analysis",
-    titleHtml: "The pool's <em>response</em> to every line",
+    titleHtml: "The pool's <em>reaction</em>, every street",
     bodyHtml: [
-      "Pick the spot and sizing. Aura shows the field's fold / call / raise — with the <b>MDF line</b> right on the bar.",
+      "Bet, check, raise or fold — flop to river, IP vs OOP, bet sizing in <b>% pot</b>, with the MDF line marking over- and under-defense on every bar.",
     ],
     mock: "postflop",
     handle: "@aurapokeranalytics",
@@ -66,9 +66,9 @@ window.DECK = {
     slideNumber: "04",
     slideIndicator: "4 / 5",
     kicker: "Hotspot Analysis",
-    titleHtml: "The field's leaks, <em>ranked</em>",
+    titleHtml: "All leaks. <em>Zero limits.</em>",
     bodyHtml: [
-      "The spots where the field is most exploitable, sorted for you — <b>free to explore</b> in the free plan.",
+      "Every exploit card, every street — flop, turn and river — unlocked in the <b>free plan</b>. No card limit, no filter lock. The full Hotspot, not a preview.",
     ],
     mock: "hotspot",
     handle: "@aurapokeranalytics",
@@ -77,8 +77,8 @@ window.DECK = {
     headlineHtml: "Study the field. <em>Free.</em>",
     bullets: [
       "Free plan, forever — no card required",
-      "Hotspot + Preflop included",
-      "500M+ real MTT hands",
+      "<b>Hotspot</b>: complete, free — no filter lock",
+      "Preflop & Postflop: free sample · 500M+ audited",
     ],
     ctaLabel: "Create free account",
     ctaSub: "link in bio",
@@ -100,9 +100,9 @@ window.DECK = {
         meta: "Desvio do MDF · <b>−14 pts</b> · Confiança média · 210k mãos" },
     ],
     bullets: [
-      "<b>Ranked leaks</b> — the field's worst spots, sorted by exploitability.",
-      "<b>MDF on the bar</b> — see how far the pool is from minimum defense.",
-      "<b>Free tier</b> — Hotspot is included in the free plan.",
+      "<b>Ranked leaks</b> — the field's most exploitable spots.",
+      "<b>MDF on the bar</b> — pool's defense vs minimum.",
+      "<b>100% free</b> — full Hotspot, no filter lock, ever.",
     ],
     footerNote: "aura.poker",
   },
@@ -135,28 +135,28 @@ window.DECK = {
   /* Carrossel "Preflop in 60s" */
   "w2-pre-capa": {
     kicker: "Preflop in 60s",
-    hookHtml: "The field <em>opens too much</em>",
-    sub: "A 60-second tour of what Aura's Preflop module shows you.",
+    hookHtml: "The field's <em>range</em>, exposed",
+    sub: "RFI, 3-bet, steal — how the pool really opens, filtered by position, stack and stage.",
     swipe: "Swipe →",
     handle: "@aurapokeranalytics",
   },
   "w2-pre-slide1": {
     slideNumber: "02", slideIndicator: "2 / 4",
     kicker: "Preflop Analysis",
-    titleHtml: "RFI by position, <em>vs the pool</em>",
-    bodyHtml: ["The green/red deltas show where the field opens wider or tighter than your reference — your first read before the flop."],
+    titleHtml: "RFI & 3-bet, <em>by position</em>",
+    bodyHtml: ["See how the pool opens and 3-bets by seat — reg vs fish, stack and buy-in included."],
     mock: "preflop", handle: "@aurapokeranalytics",
   },
   "w2-pre-slide2": {
     slideNumber: "03", slideIndicator: "3 / 4",
     kicker: "Preflop Analysis",
-    titleHtml: "Filter by <em>stack & stage</em>",
-    bodyHtml: ["Short stacks, bubble, deep early — the field plays each differently. Aura slices preflop by all of it."],
+    titleHtml: "Stage, ICM & <em>tournament type</em>",
+    bodyHtml: ["Six stages, early game to the ICM bubble and final table — Vanilla, KO or Mystery Bounty."],
     mock: "preflop", handle: "@aurapokeranalytics",
   },
   "w2-pre-cta": {
-    headlineHtml: "See your pool. <em>Free.</em>",
-    bullets: ["Preflop grid in the free plan", "500M+ real MTT hands", "No card required"],
+    headlineHtml: "Try Preflop. <em>Free.</em>",
+    bullets: ["Free sample — ≤$22, Vanilla, Early Game", "Hotspot Analysis — full & free", "500M+ real MTT hands"],
     ctaLabel: "Create free account", ctaSub: "link in bio",
     tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
@@ -199,11 +199,11 @@ window.DECK = {
 
   /* ========== SEMANA 3 ========== */
 
-  /* Carrossel "Postflop — read the pool" */
+  /* Carrossel "Postflop — read the pool" (P8) */
   "w3-post-capa": {
     kicker: "Module tour · Postflop",
-    hookHtml: "Read the pool, <em>not the solver</em>",
-    sub: "How Aura's Postflop module turns raw frequencies into a read.",
+    hookHtml: "Read the pool, <em>sizing by sizing</em>",
+    sub: "Fold, call, raise — for every bet size, in % of pot, the solver's convention.",
     swipe: "Swipe →", handle: "@aurapokeranalytics",
     ui: {
       section: "Overfolds", spots: "9 spots", badge: "Overfold",
@@ -215,20 +215,58 @@ window.DECK = {
   "w3-post-slide1": {
     slideNumber: "02", slideIndicator: "2 / 4",
     kicker: "Postflop Analysis",
-    titleHtml: "Pick the <em>sizing</em>",
-    bodyHtml: ["33%, 66%, overbet — the field reacts differently to each. Aura splits the pool's response by every sizing you use."],
-    mock: "postflop", handle: "@aurapokeranalytics",
+    titleHtml: "Pick the <em>sizing</em>, get the read",
+    bodyHtml: ["33%, 66%, overbet — each sizing gets its own fold / call / raise, in <b>% of pot</b>, the solver convention."],
+    mock: "postflop",
+    postflop: {
+      streets: ["Flop", "Turn", "River"],
+      activeStreet: 0,
+      context: "IP — BTN (RFI)",
+      actions: [
+        { name: "Bet 33% pot", pct: 62 },
+        { name: "Bet 66% pot", pct: 24 },
+        { name: "Check", pct: 14 },
+      ],
+      reactionTitle: "Pool reaction vs Bet 33% pot",
+      reactions: [
+        { name: "Fold", pct: 52, kind: "fold" },
+        { name: "Call", pct: 39, kind: "call" },
+        { name: "Raise", pct: 9, kind: "raise" },
+      ],
+      mdfPct: 62,
+      sample: "480k hands · $22–$109",
+    },
+    handle: "@aurapokeranalytics",
   },
   "w3-post-slide2": {
     slideNumber: "03", slideIndicator: "3 / 4",
     kicker: "Postflop Analysis",
-    titleHtml: "The <em>MDF line</em> does the work",
-    bodyHtml: ["When the pool's defense bar falls short of the MDF marker, that gap is your exploit — visible at a glance."],
-    mock: "postflop", handle: "@aurapokeranalytics",
+    titleHtml: "Stack <em>20+ filters</em>, no cap",
+    bodyHtml: ["Buy-in, stage, board texture, stack depth, villain type — stack as many filters as you like. No 3-filter cap."],
+    mock: "postflop",
+    postflop: {
+      streets: ["Flop", "Turn", "River"],
+      activeStreet: 1,
+      context: "OOP — SB vs CO · Turn",
+      actions: [
+        { name: "Bet 66% pot", pct: 55 },
+        { name: "Bet 33% pot", pct: 20 },
+        { name: "Check", pct: 25 },
+      ],
+      reactionTitle: "Pool reaction vs Bet 66% pot",
+      reactions: [
+        { name: "Fold", pct: 59, kind: "fold" },
+        { name: "Call", pct: 31, kind: "call" },
+        { name: "Raise", pct: 10, kind: "raise" },
+      ],
+      mdfPct: 55,
+      sample: "210k hands · Bubble stage",
+    },
+    handle: "@aurapokeranalytics",
   },
   "w3-post-cta": {
     headlineHtml: "Attack the field. <em>Free.</em>",
-    bullets: ["Postflop reads in the free plan", "MDF on every bar", "No card required"],
+    bullets: ["Hotspot Analysis — complete, free forever", "Postflop: free sample, unlock full filters", "500M+ real hands — no card required"],
     ctaLabel: "Create free account", ctaSub: "link in bio",
     tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
@@ -269,14 +307,14 @@ window.DECK = {
     slideNumber: "02", slideIndicator: "2 / 4",
     kicker: "Read the card",
     titleHtml: "Pool defends <em>48%</em>, MDF says 62%",
-    bodyHtml: ["The bar shorter than the MDF mark = the field folds too much here. That 14-point gap is money left on the table."],
+    bodyHtml: ["The bar falling short of the MDF mark = the field folds too much here. That 14-point gap is the exploit."],
     mock: "hotspot", handle: "@aurapokeranalytics",
   },
   "w4-hs-slide2": {
     slideNumber: "03", slideIndicator: "3 / 4",
     kicker: "Take the line",
     titleHtml: "So you <em>bet more, cheaper</em>",
-    bodyHtml: ["Against an over-folding field, a small c-bet prints. The card tells you where; you bring the aggression."],
+    bodyHtml: ["Against an over-folding field, a small, frequent c-bet attacks that gap. The card shows you where; you bring the aggression."],
     mock: "hotspot", handle: "@aurapokeranalytics",
   },
   "w4-hs-cta": {
@@ -284,6 +322,20 @@ window.DECK = {
     bullets: ["Ranked exploit cards, free", "MDF vs pool on every card", "No card required"],
     ctaLabel: "Create free account", ctaSub: "link in bio",
     tagline: "The same game. New information.", handle: "@aurapokeranalytics",
+  },
+
+  /* L5 CTA — "1 month live" milestone (post P13, distinct creative from meet-cta/P10) */
+  "w4-cta-month": {
+    headlineHtml: "One month <em>live</em>.",
+    bullets: [
+      "Hotspot: full leak board, <b>free forever</b>",
+      "Preflop + Postflop: <b>free sample to start</b>",
+      "500M+ hands audited, <b>7 rooms covered</b>",
+    ],
+    ctaLabel: "Create free account",
+    ctaSub: "link in bio",
+    tagline: "The same game. New information.",
+    handle: "@aurapokeranalytics",
   },
 
   /* Feature spotlight: Preflop grid */
@@ -298,9 +350,9 @@ window.DECK = {
         meta: "Opens <b>44%</b> vs 47% ref · −3 pts · 1.1M mãos" },
     ],
     bullets: [
-      "<b>Every seat</b> — RFI, 3-bet, defense by position.",
-      "<b>Deltas built in</b> — wider/tighter than reference, color-coded.",
-      "<b>Free tier</b> — preflop is in the free plan.",
+      "<b>Every seat</b> — RFI, 3-bet, defense, deltas built in.",
+      "<b>20+ filters</b> — stack, buy-in, stage, format, villain type.",
+      "<b>Free to $22</b> — Hotspot stays fully free.",
     ],
     footerNote: "aura.poker",
   },
