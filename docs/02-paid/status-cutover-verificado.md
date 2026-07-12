@@ -43,6 +43,8 @@ Motivos:
 
 ## 6. Gaps que restam (não bloqueiam nada, mas ficam registrados)
 
-- ⚠️ **CTA "Start for free" NÃO propaga UTM/fbclid.** Aponta pra `https://aura.poker/Login?tab=signup` sem nenhum query param. É o elo cross-domain que faz a atribuição sobreviver — ver [definicao-pronto-tracking.md](definicao-pronto-tracking.md) §1. Ainda não implementado.
+- ✅ **RESOLVIDO (agente da landing, ~2026-07-12):** o CTA **agora propaga `utm_*+fbclid`** (`buildAppUrl` nos 8 CTAs) — PR #3 mergeado + deploy live. Meu check de "não propaga" era de ANTES desse trabalho. **Nuance:** o CTA carrega + o app captura em estado (Fase 1), mas **persistir no banco no cadastro segue Fase 2** (é a última milha que fecha "conta free via UTM" no AuraBusiness).
+- ➕ **GA4 (novo, não-Meta):** landing live com `G-82QPEX5EJS`; app `G-KL9K2FYVV2` pendente do merge do PR #19. Analytics suplementar — fonte de verdade do KPI de mídia continua Meta pixel + UTM.
+- ⏳ **App (novofront) PR #19 ainda aberto** — PageView + CompleteRegistration + GA4 do app não estão live até o Betiato mergear + deploy.
 - ⏳ **Diagnóstico do dataset:** ainda mostra o alerta pendente "confirme o domínio" pra `aurapoker.com` — ação do Rafael no BM (não fiz essa ação, é clique de permissão).
 - ❓ Não confirmado quais eventos exatos disparam em `www.aura.poker`/`beta.aura.poker` — verificar se já inclui `CompleteRegistration` com `eventID`.
