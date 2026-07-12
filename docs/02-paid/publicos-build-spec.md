@@ -17,7 +17,11 @@
 > - **`1598770224460932` "Aura Business"** — nome + cobrança (CNPJ) + as 3 campanhas antigas. **SEM pixel/IG conectado.**
 > - **`1210943484403967`** (sem nome, provável auto-criada pelo fluxo "Turbinar" do Instagram) — tem **pixel `1405949840871947` + dataset + Instagram conectados**.
 >
-> **DECISÃO DO PO (2026-07-12): conta oficial = `1598770224460932` "Aura Business".** (nome + cobrança já prontos; é a que os docs referenciam.)
+> **DECISÃO DO PO (2026-07-12): conta oficial = `1598770224460932` "Aura Business".** (nome + cobrança já prontos; é a que os docs referenciam.) ✅ **RESOLVIDO 2026-07-12:** pixel conectado à conta oficial + duplicada `1210943484403967` renomeada "Não usar".
+>
+> ✅ **PÚBLICOS JÁ CRIADOS (2026-07-12, verificados na conta oficial):**
+> - `Aura | Site Visitantes 30d` (P4) · `Aura | Site Visitantes 7d` (P4) · `Aura | Convertidos CompleteRegistration 180d` (P5) · `Aura | IG Engajadores 365d` (P1). Todos "Em preenchimento · Disponível para usar".
+> - **Faltam:** salvo de interesse BR (P3) + interesse EN — são **targeting defs** (não acumulam); melhor definir no build da campanha, não como objeto avulso. Lookalike novo (P2/P7) e conversão personalizada (P6) seguem o cronograma original (§6/§1).
 >
 > **Correção pendente (~1 min, config — não gasta):** conectar o pixel `1405949840871947` + Instagram à conta oficial. Caminho: Configurações da empresa → **Fontes de dados → Conjuntos de dados e pixels** → `Aura – Website Data Set` → **Contas de anúncios** → **Adicionar** `Aura Business 1598770224460932`. O pixel pode ficar nas duas contas sem perder dado. Depois, **abandonar/renomear a `1210943484403967`** ("NÃO USAR") pra não confundir.
 >
