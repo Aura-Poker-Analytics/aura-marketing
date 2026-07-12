@@ -9,7 +9,10 @@
 ## 0. Estado atual (verificado no GitHub 2026-07-12) — LEIA PRIMEIRO
 
 - ✅ **Fase 1 no ar:** landing (pixel+PageView+utm/fbclid nos CTAs+GA4) e app (pixel+PageView+CompleteRegistration) — ambos no `main`.
-- ⚠️ **O código Fase 2 está LOCAL, não pushado.** O agente disse "parkada na branch `feat/marketing-tracking`" — mas essa branch **não existe no remote** de novofront nem de landing. Ou seja: só existe na máquina de quem trabalhou. **1º passo: recuperar/pushar esse trabalho** (ou reimplementar se perdido). Risco real de perda.
+- ✅ **Código Fase 2 preservado no remote (backup feito 2026-07-12).** Estava só local (nesta máquina, num worktree) — agora pushado, sem PR/merge:
+  - `aura-landing:feat/marketing-tracking` @ `335d4cd` — **consent gate LGPD** (`ConsentBanner.tsx`, `consent.ts`, `privacidade.html`, `useConsentRefresh.ts`) + UTM first-touch (`attribution.ts`, `appUrl.ts`, `metaPixel.ts`).
+  - `aura-novofront:feat/marketing-tracking` @ `62f0a5f` — captura/persistência de UTM (`marketingAttribution.ts`, `AuthContext.tsx`, `MinhaConta.tsx`, `requests.ts`) + Login/index.
+  - ⚠️ **Ainda falta CAPI server + Subscribe/webhook** — não estão nessas branches de front; provavelmente vivem (ou precisam ser feitos) no backend `aura_api`. Confirmar.
 - ⚠️ **Migração de colunas UTM já em prod (inerte)** — segundo o agente, o banco já tem as colunas pra persistir UTM (não estão sendo preenchidas ainda).
 - 🔴 **Lição do PR #24 (não repetir):** branches antigas (`feat/pixel-fase1`) estão **muito atrás do main** — mergear a branch inteira reverteria i18n/componentes. **Não mergear branch stale: rebase/cherry-pick sobre o `main` atual** e conferir o diff (deve tocar só nos arquivos de tracking).
 
