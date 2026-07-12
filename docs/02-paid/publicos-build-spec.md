@@ -13,12 +13,18 @@
 
 ## 0. Onde criar (caminho na UI)
 
-> 🔴 **PRÉ-REQUISITO DESCOBERTO AO VIVO (2026-07-12):** o dataset/pixel `1405949840871947` **NÃO está conectado à conta de anúncios `1598770224460932`** (verificado em Configurações → Contas de anúncios → Aura Business → **Ativos conectados: "Nenhum ativo conectado"**). Enquanto isso não for corrigido:
-> - **Não dá pra criar público de SITE** (visitantes P4, convertidos P5) nessa conta — a UI só oferece criar um pixel NOVO (o que fragmentaria os dados — NÃO fazer).
-> - **Campanhas não conseguem otimizar** pelos eventos do pixel (CompleteRegistration/Subscribe). Isso bloqueia o funil pago inteiro, não só os públicos.
-> - **Públicos que NÃO dependem do pixel** (IG engajadores P1; salvos de interesse P3/EN) **podem ser criados mesmo assim.**
+> 🔴 **PRÉ-REQUISITO — DUAS CONTAS DE ANÚNCIOS (descoberto ao vivo 2026-07-12):** o BM tem **2 contas** e a infra estava dividida:
+> - **`1598770224460932` "Aura Business"** — nome + cobrança (CNPJ) + as 3 campanhas antigas. **SEM pixel/IG conectado.**
+> - **`1210943484403967`** (sem nome, provável auto-criada pelo fluxo "Turbinar" do Instagram) — tem **pixel `1405949840871947` + dataset + Instagram conectados**.
 >
-> **Correção (ação de config — ~1 min):** Configurações da empresa → **Fontes de dados → Conjuntos de dados e pixels** → selecionar `Aura – Website Data Set` → aba **Contas de anúncios** (ou "Conectar ativos") → **Adicionar** a conta `Aura Business 1598770224460932`. *(Alternativa: na conta de anúncios → Ativos conectados → Conectar fonte de dados.)* É atribuição de ativo (não gasta), mas mexe em config da conta — feito pelo Rafael, ou por mim com um "go" explícito.
+> **DECISÃO DO PO (2026-07-12): conta oficial = `1598770224460932` "Aura Business".** (nome + cobrança já prontos; é a que os docs referenciam.)
+>
+> **Correção pendente (~1 min, config — não gasta):** conectar o pixel `1405949840871947` + Instagram à conta oficial. Caminho: Configurações da empresa → **Fontes de dados → Conjuntos de dados e pixels** → `Aura – Website Data Set` → **Contas de anúncios** → **Adicionar** `Aura Business 1598770224460932`. O pixel pode ficar nas duas contas sem perder dado. Depois, **abandonar/renomear a `1210943484403967`** ("NÃO USAR") pra não confundir.
+>
+> **Enquanto o pixel não estiver na conta oficial:**
+> - Público de SITE (visitantes P4, convertidos P5) na conta oficial fica **travado** (a UI só oferece pixel novo — NÃO criar).
+> - Públicos que **não dependem do pixel** (IG engajadores P1; salvos de interesse P3/EN) **podem ser criados já** na conta oficial.
+> - ⚠️ **NÃO** criar públicos na `1210943484403967` (a duplicada) — senão a fragmentação continua.
 
 Business Manager **Aura Poker Analytics** (`830069129552748`) → conta de anúncios **Aura Business** (`1598770224460932`) → **Gerenciador de Públicos** (Events Manager / Ads Manager → Públicos) → botão **Criar público** → escolher o tipo (Personalizado / Semelhante / Salvo).
 

@@ -11,7 +11,7 @@
 |---|---|---|
 | **Business Manager** | ✅ Existe | "Aura Poker Analytics", ID `830069129552748`. Rafael único admin (acesso total, inclusive finanças) |
 | **Conta de anúncios principal** | ✅ Ativa | "Aura Business", ID `1598770224460932`, BRL, propriedade do BM. **Com histórico de gasto** (mar/2026, pré-pago, valores pequenos — bom: conta não é "virgem", reduz atrito de conta nova) |
-| **Conta de anúncios secundária** | ⚪ Ociosa | ID `1210943484403967`, sem nome, sem uso aparente. Ignorar (não usar como "reserva" para contornar nada) |
+| **Conta de anúncios secundária** | ⚠️ **CORRIGIDO 2026-07-12** | ID `1210943484403967`, sem nome — mas **NÃO ociosa**: tem o **pixel `1405949840871947` + dataset + Instagram conectados** (provável auto-criada pelo "Turbinar" do IG). O pixel estava aqui, não na Aura Business. **Decisão: oficial = Aura Business `1598770224460932`;** conectar o pixel nela e abandonar/renomear esta. Ver [publicos-build-spec.md §0](publicos-build-spec.md) |
 | **Instagram** | ✅ Conectado | @aurapokeranalytics (ID 17841468976680108), propriedade do BM, 710 seguidores. Sem post há 60d (teaser 06/07 resolve) |
 | **Página do Facebook** | ❌ **Nenhuma no BM** | Lista de Páginas vazia. A home do Business Suite opera só com o IG. Ver gap G2 |
 | **Pixel/Dataset** | ✅ Existe e recebe | "Aura – Website Data Set", ID `1405949840871947`, browser pixel em `aurapoker.com`. PageView ativo (últimas 5h!), InitiateCheckout/AddToCart parados há 9d (site antigo). **Sem CAPI** |
