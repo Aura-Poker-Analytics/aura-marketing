@@ -17,11 +17,11 @@
 - 100% anonimizado (nenhuma mão ligada a nick/conta/jogador). Toda frequência vem com **intervalo de confiança (Wilson) + tamanho de amostra**; nada é mostrado sem massa crítica. Dataset **atualizado trimestralmente**.
 - ⚠️ Depoimentos hoje no site (Lucas M., Ana P., Rafael C.) são **FICTÍCIOS** — remover, não usar como prova social.
 
-## 2. Hotspot Analysis ("Exploit Cards") — o ativo de oferta mais forte, sempre liderar com ele
+## 2. Hotspot Analysis ("Exploit Cards") — o módulo-vitrine, liderar pelo VALOR (leaks ranqueados)
 - Cards dos spots mais exploráveis do pool, por street (Flop/Turn/River) × direção: **Overfold** (pool foge do MDF → blefar mais) e **Overdefend** (pool defende demais → mais valor).
 - Cada card: ação+size, defesa real vs MDF, desvio em pontos, **selo de confiança** por amostra (High ≥5.000 / Med ≥1.000 / Low <1.000; piso 500 mãos), **drill-down por posição e textura** embutido no card.
 - Métrica é 100% frequência observada (pressão de fold) — **nunca EV, bb/100 ou lucro**.
-- **Gating (LEI do dono): Hotspot é COMPLETO e grátis, sem trava de filtros.**
+- **Gating (correção do dono 09/07): NÃO é full-free.** No plano grátis, apenas **ALGUNS exploit cards** são revelados (preview dos principais). O **board completo ranqueado + os filtros** são do plano pago. Copy: "preview dos top exploit cards, grátis; o board completo destrava no upgrade". **PROIBIDO** afirmar "Hotspot completo/inteiro/full grátis".
 
 ## 3. Preflop Analysis
 - Mede RFI%, 3-bet%, 4-bet%, Cold Call%, Squeeze%, família Steal, Fold vs 3-bet/4-bet — por **posição (21 combinações), stack (6 buckets BB), buy-in (5 faixas), estágio (6 fases), tipo de torneio (Vanilla/KO/Mystery), arquétipo de vilão (reg agressivo/reg tight/fish), cenário (SRP vs 3-bet pot), janela temporal**.
@@ -54,10 +54,10 @@
 ## 8. ⚠️ FLAGS OPERACIONAIS — reconciliar produto ANTES de publicar
 Estas peças de marketing afirmam coisas que o dono confirmou como intenção, mas que o **código/landing ainda não refletem**. Antes de publicar, engenharia (ou o dono ao vivo) precisa reconciliar — senão a copy fica descolada do produto (o problema que estamos justamente corrigindo):
 
-1. 🔴 **Hotspot "completo e grátis" vs código "teased".** `entitlements.ts` (2026-07-06) e `pricing.ts` (2026-07-07) ainda limitam o Hotspot grátis a **2 exploit cards por bucket + filtros travados**. Toda a nova copy grita "Hotspot completo, sem trava de filtro, grátis" (meet-hotspot, w1-spot-hotspot, w2-pre-cta, w3-post-cta, w4-cta-month, w4-spot-preflop). **Se o produto ao vivo não liberar o Hotspot completo, essa copy é falsa contra o produto.** Ação: eng ajusta `getModuleAccess('hotspot')`/`HOTSPOT_FREE_VISIBLE_LIMIT` para "full", OU o dono reconfirma olhando o produto ao vivo. **Este é o item nº 1 a resolver antes do P3 (hoje) e do carrossel ir com essa promessa.**
+1. ✅ **Hotspot gating RESOLVIDO (09/07):** o dono confirmou que **NÃO é full-free** — grátis revela só alguns exploit cards (preview); board completo + filtros = pago. Bate com o código (`entitlements.ts` já era teased). Toda a copy foi reescrita para "preview / upgrade destrava o board completo". Não afirmar "Hotspot completo grátis". (Era o item nº 1; fechado.)
 2. 🟠 **Raise não está em %pot na UI** (só o bet). Copy evita afirmar isso — manter.
 3. 🟠 **Team Mode não isolado/ativo** no runtime — não usar "banco 100% isolado" em copy B2B.
 
 ## 9. Banco de claims
-**APROVADOS (100% verdadeiros e vendáveis):** field intelligence de MTT; 500M+ mãos auditadas; 7 salas; anonimizado + intervalo de confiança; atualização trimestral; Hotspot ranqueia exploits por desvio de MDF com selo de confiança; filtros ilimitados empilháveis (a 1.0 tinha trava de 3); sizing de bet em %pot; estágio de torneio/ICM/bolha (nenhum solver modela); Mystery Bounty/KO; reg vs fish; plano grátis sem cartão; Hotspot completo grátis (ver flag §8.1).
-**PROIBIDOS:** qualquer promessa de lucro/EV/winrate; "solver overlay"/"vs GTO"; cobertura balanceada por sala; "raise em %pot"; "Team = banco isolado ativo"; depoimentos fictícios; Preflop/Postflop "completos" no grátis.
+**APROVADOS (100% verdadeiros e vendáveis):** field intelligence de MTT; 500M+ mãos auditadas; 7 salas; anonimizado + intervalo de confiança; atualização trimestral; Hotspot ranqueia exploits por desvio de MDF com selo de confiança; filtros ilimitados empilháveis (a 1.0 tinha trava de 3); sizing de bet em %pot; estágio de torneio/ICM/bolha (nenhum solver modela); Mystery Bounty/KO; reg vs fish; plano grátis sem cartão; **plano grátis = preview de cada módulo** (alguns exploit cards no Hotspot + amostra de Preflop ≤$22/Vanilla/Early + amostra de Postflop).
+**PROIBIDOS:** qualquer promessa de lucro/EV/winrate; "solver overlay"/"vs GTO"; cobertura balanceada por sala; "raise em %pot"; "Team = banco isolado ativo"; depoimentos fictícios; **"Hotspot completo/full grátis" e Preflop/Postflop "completos" no grátis** (grátis é sempre PREVIEW/amostra; board completo + filtros = pago).

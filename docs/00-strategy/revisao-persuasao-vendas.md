@@ -18,7 +18,7 @@ documentado em `aura-context` e a landing em `aura-landing`. Fontes citadas por 
 |---|---|---|---|---|
 | 1 | **Remover os 3 depoimentos falsos da landing** (PO confirmou não-reais) | 🔴 crítico — depoimento inventado desarma toda a persuasão | baixo | Dev/landing (fora deste repo) |
 | 2 | **Alinhar número-herói: 500M+ em tudo** (arte, legenda, bio, landing, ads) | alto — coerência de claim | baixo | Fábrica ✅ feito no lote |
-| 3 | **Reenquadrar o free: "Hotspot completo grátis"** como headline da oferta | alto | baixo | Fábrica + landing |
+| 3 | **Reenquadrar o free como PREVIEW de cada módulo** (top exploit cards + grid) — entrega, não restrição | alto | baixo | Fábrica + landing |
 | 4 | **Ancorar o anual: "menos que um buy-in de $22 por mês"** | alto | baixo | Landing/pricing copy |
 | 5 | **Prova social real** (Discord, marcos de uso, case do leak report) — preencher o vazio dos depoimentos | alto | médio | Fábrica + Rafael |
 | 6 | **Win-back da base morta** (157 contas travadas + ~23 churned Woo) | alto | médio | Precisa de e-mail (gap) |
@@ -75,16 +75,17 @@ acima (código + reconciliação) devem ser limpas pelas threads donas pra não 
 
 ## 4. Oferta: o free está mal contado e o anual está mal ancorado
 
-**4.1 O ativo escondido: Hotspot é COMPLETO no free** (destravado por decisão do PO em 26/06).
-A copy atual vende o free como "recorte limitado" (preflop ≤$22, Vanilla, Early) — enquadramento
-de restrição. Inverter para enquadramento de entrega:
+**4.1 O free é um PREVIEW de cada módulo — enquadrar como entrega, não restrição.**
+⚠️ Correção 09/07: o Hotspot **NÃO é full-free** — o grátis revela só alguns exploit cards (preview),
+igual Preflop (≤$22/Vanilla/Early) e Postflop (amostra). Board completo + filtros = pago. Ainda assim,
+troque o enquadramento de restrição por entrega:
 
 > ❌ "Plano grátis com recursos essenciais"
-> ✅ **"Veja os leaks do field de graça. O módulo Hotspot inteiro — de graça, pra sempre, sem cartão."**
+> ✅ **"Veja onde o field vaza — de graça. Preview dos top exploit cards + grid de preflop, sem cartão."**
 
-O free deixa de ser "amostra" e vira **um produto com nome e resultado** ("descubra o spot mais
-explorável do seu limite em 2 minutos"). O paywall então fica natural: o free mostra QUE o leak
-existe; o pago mostra COMO atacar (todas as texturas, sizings, buy-ins) — framing que o próprio
+O free vira **uma amostra com resultado** ("descubra um dos spots mais exploráveis do seu limite em 2
+minutos"). O paywall fica natural: o free mostra QUE o leak existe (alguns cards); o pago mostra o board
+completo e COMO atacar (todas as texturas, sizings, buy-ins) — framing que o próprio
 roadmap de produto recomenda (`91-roadmap-produto.md §2.3`).
 
 **4.2 Âncora de preço para o ICP.** Anual $259 ≈ **$21,6/mês** — menos que UM buy-in de $22,

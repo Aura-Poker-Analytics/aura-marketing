@@ -66,9 +66,9 @@ window.DECK = {
     slideNumber: "04",
     slideIndicator: "4 / 5",
     kicker: "Hotspot Analysis",
-    titleHtml: "All leaks. <em>Zero limits.</em>",
+    titleHtml: "The field's leaks, <em>ranked</em>",
     bodyHtml: [
-      "Every exploit card, every street — flop, turn and river — unlocked in the <b>free plan</b>. No card limit, no filter lock. The full Hotspot, not a preview.",
+      "The pool's most exploitable spots — ranked by overfold vs MDF, by street, with a confidence badge on every card. <b>Preview the top cards free</b>; unlock the full board on upgrade.",
     ],
     mock: "hotspot",
     handle: "@aurapokeranalytics",
@@ -77,8 +77,8 @@ window.DECK = {
     headlineHtml: "Study the field. <em>Free.</em>",
     bullets: [
       "Free plan, forever — no card required",
-      "<b>Hotspot</b>: complete, free — no filter lock",
-      "Preflop & Postflop: free sample · 500M+ audited",
+      "Preview every module free — top exploit cards + samples",
+      "Upgrade unlocks the full board & all filters · 500M+ audited",
     ],
     ctaLabel: "Create free account",
     ctaSub: "link in bio",
@@ -102,7 +102,7 @@ window.DECK = {
     bullets: [
       "<b>Ranked leaks</b> — the field's most exploitable spots.",
       "<b>MDF on the bar</b> — pool's defense vs minimum.",
-      "<b>100% free</b> — full Hotspot, no filter lock, ever.",
+      "<b>Free to try</b> — preview the top cards, upgrade for the full board.",
     ],
     footerNote: "aura.poker",
   },
@@ -156,7 +156,7 @@ window.DECK = {
   },
   "w2-pre-cta": {
     headlineHtml: "Try Preflop. <em>Free.</em>",
-    bullets: ["Free sample — ≤$22, Vanilla, Early Game", "Hotspot Analysis — full & free", "500M+ real MTT hands"],
+    bullets: ["Free sample — ≤$22, Vanilla, Early Game", "Hotspot — preview the top exploit cards", "500M+ audited MTT hands"],
     ctaLabel: "Create free account", ctaSub: "link in bio",
     tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
@@ -173,7 +173,7 @@ window.DECK = {
     bullets: [
       "<b>The answer isn't the solver's</b> — it's what the field does.",
       "<b>48% vs 62%</b> — 14 points of overfold to attack.",
-      "<b>Check any spot</b> — free in Hotspot.",
+      "<b>Check the top spots</b> — free in Hotspot.",
     ],
     footerNote: "aura.poker",
   },
@@ -266,7 +266,7 @@ window.DECK = {
   },
   "w3-post-cta": {
     headlineHtml: "Attack the field. <em>Free.</em>",
-    bullets: ["Hotspot Analysis — complete, free forever", "Postflop: free sample, unlock full filters", "500M+ real hands — no card required"],
+    bullets: ["Preview every module free — no card", "Postflop & Hotspot: free sample, upgrade for full", "500M+ audited hands"],
     ctaLabel: "Create free account", ctaSub: "link in bio",
     tagline: "The same game. New information.", handle: "@aurapokeranalytics",
   },
@@ -283,7 +283,7 @@ window.DECK = {
     bullets: [
       "<b>Wider isn't random</b> — the field has a shape you can read.",
       "<b>3-bet lighter</b> where it over-opens and over-folds.",
-      "<b>Preflop grid</b> — free to explore.",
+      "<b>Preflop grid</b> — free to start.",
     ],
     footerNote: "aura.poker",
   },
@@ -328,8 +328,8 @@ window.DECK = {
   "w4-cta-month": {
     headlineHtml: "One month <em>live</em>.",
     bullets: [
-      "Hotspot: full leak board, <b>free forever</b>",
-      "Preflop + Postflop: <b>free sample to start</b>",
+      "Top exploit cards + module samples, <b>free</b>",
+      "Upgrade for the full board & all filters",
       "500M+ hands audited, <b>7 rooms covered</b>",
     ],
     ctaLabel: "Create free account",
@@ -352,7 +352,7 @@ window.DECK = {
     bullets: [
       "<b>Every seat</b> — RFI, 3-bet, defense, deltas built in.",
       "<b>20+ filters</b> — stack, buy-in, stage, format, villain type.",
-      "<b>Free to $22</b> — Hotspot stays fully free.",
+      "<b>Free to $22</b> — upgrade unlocks every buy-in & filter.",
     ],
     footerNote: "aura.poker",
   },

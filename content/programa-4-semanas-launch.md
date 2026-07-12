@@ -104,15 +104,15 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 > • Postflop — a reação do pool a cada sizing e street, com o MDF na barra
 > • Hotspot — os leaks do field ranqueados, do mais explorável pro menos
 >
-> Fatie qualquer spot por 20+ filtros (buy-in, estágio, textura de board, tipo de vilão…). O módulo Hotspot
-> inteiro é grátis, sem cartão.
+> Fatie qualquer spot por 20+ filtros (buy-in, estágio, textura de board, tipo de vilão…). O plano grátis
+> te dá um preview de cada módulo, sem cartão.
 >
 > Para de decorar o equilíbrio. Começa a explorar o field. 👉 Conta grátis no link da bio.
 >
 > —— EN ——
 > Aura 2.0 is live — not a tracker, not a solver. Field intelligence: what the MTT population actually does,
 > across 500M+ audited hands from 7 sites. Three modules — Preflop, Postflop, Hotspot — sliceable by 20+
-> filters. The full Hotspot module is free, no card. Stop memorizing equilibrium; start exploiting the field.
+> filters. The free plan previews every module — no card. Stop memorizing equilibrium; start exploiting the field.
 > Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #pokertraining #mttpoker #pokerlife
@@ -128,15 +128,15 @@ cada card no story no dia (o hero tem variante 9:16 pronta).
 **⚠️ Reescrito em 09/07 (correção pós-publicação):** slide 02 (Preflop) estava subvendendo o módulo — só
 citava 3 ações (RFI/3-bet/defesa) e 2 dimensões (posição/stack), quando o produto cobre RFI, 3-bet, 4-bet,
 squeeze, cold call e a família steal, por posição, stack, buy-in, estágio, formato e arquétipo de vilão.
-Slide 04 (Hotspot) não gritava o diferenciador real: Hotspot é **completo e grátis, sem trava de filtros**
-— o ativo de oferta mais forte do produto. Slide 05 (CTA) tinha gating errado ("Hotspot + Preflop
-included", implicando os dois completos e grátis) — corrigido para Hotspot completo grátis + Preflop/
-Postflop como amostra grátis, com "500M+ audited" no lugar de "500M+ real MTT hands". Fonte de verdade:
+Slide 04 (Hotspot) foca no valor: leaks ranqueados por desvio de MDF com selo de confiança. Gating correto
+(correção do dono 09/07): **o plano grátis dá um PREVIEW de cada módulo** — alguns exploit cards no Hotspot,
+recorte ≤$22/Vanilla/Early no Preflop, amostra no Postflop; o board completo, todos os buy-ins e filtros são
+do pago. Nunca afirmar "Hotspot completo/full grátis". Fonte de verdade:
 `instagram/templates/deck.js` (chaves `meet-*`), já atualizado.
 
 Slides: 01 capa "Meet Aura 2.0" · 02 Preflop (mesa+tabela, leque completo de ações/dimensões) · 03 Postflop
-(bet/check/raise/fold por street, IP vs OOP, MDF) · 04 Hotspot (leak card, "completo e grátis, sem trava de
-filtro") · 05 CTA (gating correto: Hotspot completo grátis + Preflop/Postflop amostra grátis).
+(bet/check/raise/fold por street, IP vs OOP, MDF) · 04 Hotspot (leak card ranqueado por MDF) · 05 CTA
+(gating correto: preview grátis de cada módulo; board completo + filtros no pago).
 
 > **PT-BR**
 > Conheça a Aura 2.0 por dentro. 👉 arrasta.
@@ -147,24 +147,24 @@ filtro") · 05 CTA (gating correto: Hotspot completo grátis + Preflop/Postflop 
 > torneio.
 > • Postflop: bet, check, raise e fold do pool, street a street (flop/turn/river), com a linha de MDF na
 > barra.
-> • Hotspot: TODOS os leaks do field, sem trava de filtro — 100% grátis, sempre.
+> • Hotspot: os leaks do field ranqueados por desvio de MDF, com selo de confiança.
 >
-> Hotspot completo e grátis pra sempre. Preflop e Postflop têm amostra grátis pra começar.
+> O plano grátis te dá um preview de cada módulo, sem cartão — o board completo, todos os buy-ins e filtros são do pago.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
 > Meet Aura 2.0. Three modules, one idea: what the MTT field actually does — not what the solver says.
-> Full Hotspot, free forever, zero filter lock. Preflop + Postflop, free sample to start. 500M+ audited
-> hands. Link in bio.
+> The free plan previews every module — no card. Upgrade unlocks the full board, all buy-ins & filters.
+> 500M+ audited hands. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #estudodepoker #mttpoker #pokercoaching #pokermindset
 > 18+ · jogo de habilidade/estudo
 
 **Compliance:** ✅ sem promessa de lucro ✅ sem dinheiro/luxo ✅ 18+ ✅ sem dado de cliente ✅ sem concorrente
 nominal · números nos slides = **ilustrativos (mock de UI)**; legenda não afirma stat de banco. Gating
-corrigido conforme verdade canônica: Hotspot completo e grátis (regra oficial do dono); Preflop/Postflop =
-amostra grátis (buy-in ≤$22, Vanilla, Early Game), não "included".
+corrigido (09/07): o plano grátis é um PREVIEW de cada módulo — alguns exploit cards no Hotspot, recorte
+≤$22/Vanilla/Early no Preflop, amostra no Postflop; board completo + filtros = pago.
 
 ---
 
@@ -172,26 +172,25 @@ amostra grátis (buy-in ≤$22, Vanilla, Early Game), não "included".
 `w1-spot-hotspot` · [render](../instagram/output/programa-4-semanas/semana-1/w1-p3-spot-hotspot.png)
 
 > **PT-BR**
-> Hotspot: completo e grátis. Sem trava, sem pegadinha. 🔥
+> Hotspot: os leaks do field, ranqueados pra você. 🔥
 >
 > O módulo Hotspot varre o field inteiro e ranqueia os spots mais exploráveis por street (flop/turn/river).
 > Cada card mostra a defesa real do pool vs o MDF, o desvio em pontos e um selo de confiança pelo tamanho da
-> amostra — e ainda dá pra recortar por posição e textura de board sem sair da tela. Diferente do Preflop e
-> do Postflop, aqui não tem amostra limitada: o módulo Hotspot é seu inteiro, sem trava de filtro, no plano
-> grátis.
+> amostra — e ainda dá pra recortar por posição e textura de board sem sair da tela. No plano grátis você já
+> vê os principais exploit cards; o board completo e todos os filtros destravam no upgrade.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> Hotspot: full and free, no lock. It scans the whole field and ranks the pool's most exploitable spots by
+> Hotspot: the field's leaks, ranked. It scans the whole field and ranks the pool's most exploitable spots by
 > street, with real defense vs MDF, deviation in points, and a sample-size confidence badge on every card —
-> plus drill-down by position and board texture. The entire module is free, no filter lock. Link in bio.
+> plus drill-down by position and texture. Preview the top cards free; unlock the full board on upgrade. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #mttpoker #cardplayer
 > 18+ · jogo de habilidade/estudo
 
-**Compliance:** ✅ tudo ok · nº ilustrativo (mock de UI) · reforça claim aprovada "Hotspot completo e grátis,
-sem trava de filtros" (verdade canônica §2/§9). ⚠️ Ver pendência operacional abaixo antes de publicar.
+**Compliance:** ✅ tudo ok · nº ilustrativo (mock de UI) · gating correto: preview grátis (alguns exploit
+cards); board completo + filtros = pago. Não afirma "Hotspot completo grátis".
 
 ---
 
@@ -230,23 +229,23 @@ sem trava de filtros" (verdade canônica §2/§9). ⚠️ Ver pendência operaci
 > (do early ao mesa final) e formato (Vanilla, KO, Mystery Bounty). Cruza tudo com o arquétipo de quem age:
 > reg agressivo, reg tight ou fish.
 >
-> Amostra grátis pra sempre: buy-in até $22, Vanilla, Early Game. Já o Hotspot é completo e grátis, sem
-> trava de filtro nenhuma.
+> Amostra grátis pra sempre: buy-in até $22, Vanilla, Early Game. O Hotspot também abre um preview dos
+> principais exploit cards. O acervo completo e todos os filtros destravam no pago.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
 > The pool's range isn't a secret. Preflop covers RFI, 3-bet, 4-bet, squeeze & steal — by position, stack,
 > buy-in, tournament stage (early to final table) and format (Vanilla/KO/Mystery), crossed with reg vs fish.
-> Free sample: ≤$22 buy-in, Vanilla, Early Game. Hotspot? Full & free, no filter lock. Link in bio.
+> Free sample: ≤$22 buy-in, Vanilla, Early Game. Hotspot: preview the top exploit cards free. Link in bio.
 >
 > Set A: #poker #mtt #mttpoker #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #pokertips #pokertraining
 > Set B (rotação): #poker #mtt #mttpoker #pokerstrategy #pokerranges #icmpoker #pokerbrasil #estudodepoker #pokercoaching #tournamentpoker
 > 18+ · jogo de habilidade/estudo
 
-**Compliance:** ✅ hook trocado (era vago: "field opens too much"); CTA corrigida — deixa claro que é amostra
-grátis (buy-in ≤$22, Vanilla, Early Game) e que o Hotspot é o item completo e grátis; puxa estágio/ICM,
-formato de torneio e arquétipo de vilão como diferenciadores · nº ilustrativo (mock de UI) · sem concorrente nominal.
+**Compliance:** ✅ hook trocado (era vago: "field opens too much"); CTA corrigida — plano grátis é preview
+(amostra ≤$22/Vanilla/Early no Preflop; preview dos top exploit cards no Hotspot); puxa estágio/ICM, formato
+de torneio e arquétipo de vilão como diferenciadores · nº ilustrativo (mock de UI) · sem concorrente nominal.
 
 ---
 
@@ -345,36 +344,34 @@ formato de torneio e arquétipo de vilão como diferenciadores · nº ilustrativ
 ---
 
 ### P10 · 25/07 · L5 CTA — "Study the field. Free."
-`meet-cta` (criativo corrigido — Hotspot é o módulo completo/grátis; Preflop citado só como amostra) ·
-[render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png) *(pendente re-render)*
+`meet-cta` (criativo corrigido — plano grátis = preview de cada módulo; board completo + filtros no pago) ·
+[render](../instagram/output/programa-4-semanas/semana-3/w3-p10-cta.png)
 
 > **PT-BR**
 > Estude o field. De graça — sem letra miúda. ♠️
 >
-> Plano grátis pra sempre, sem cartão. O Hotspot Analysis vem completo nesse plano: os leaks mais
-> exploráveis do pool, por street, sem trava de filtro — sobre 500M+ mãos reais e auditadas de MTT.
-> Preflop e Postflop entram com amostra grátis pra você sentir o produto; a profundidade total (todos
-> os buy-ins, formatos e estágios) fica no plano pago, quando você quiser.
+> Plano grátis pra sempre, sem cartão — e ele te dá um preview de cada módulo: os principais exploit cards
+> do Hotspot, o grid de Preflop no recorte inicial (≤$22, Vanilla, Early) e uma amostra do Postflop — tudo
+> sobre 500M+ mãos reais e auditadas de MTT. A profundidade total — board completo do Hotspot, todos os
+> buy-ins, formatos e filtros — fica no plano pago, quando você quiser.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> Study the field. Free — no fine print. Forever-free plan, no card. Hotspot Analysis is complete in
-> it: every exploitable leak, by street, no filter lock, across 500M+ audited MTT hands. Preflop and
-> Postflop start free-to-sample; full depth unlocks on the paid plan. Link in bio.
+> Study the field. Free — no fine print. Forever-free plan, no card: a preview of every module — top
+> Hotspot exploit cards, the Preflop grid (≤$22, Vanilla, Early) and a Postflop sample, across 500M+
+> audited MTT hands. Full depth — the complete leak board, all buy-ins & filters — unlocks on the paid plan. Link in bio.
 >
 > #poker #mtt #pokerstrategy #tournamentpoker #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokertips #maisqueumjogo
 > 18+ · jogo de habilidade/estudo
 >
 > **Set B (rotação — repost/story):** #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #pokermindset #mttpoker
 
-**Compliance:** ✅ corrigido 09/07 — a versão anterior dizia "Hotspot + Preflop included", o que implicava
-acesso completo ao Preflop no grátis (banido — Preflop grátis é só amostra: buy-in ≤$22, Vanilla, Early
-Game). Agora a arte (`meet-cta`) cita só o Hotspot como módulo 100% completo/grátis nos bullets; a legenda
-menciona Preflop/Postflop como "amostra grátis" explicitamente. "500M+ mãos reais e auditadas" (não
-"bilhões"). Sem promessa de lucro, sem dinheiro/luxo, sem concorrente nominal, 18+. Caption distinta de
-P13 (gancho e estrutura diferentes; P13 tem criativo `w4-cta-month` próprio). Nº ilustrativo: n/a (arte
-sem stat solto).
+**Compliance:** ✅ corrigido 09/07 (2ª rodada) — plano grátis = **preview de cada módulo** (top exploit cards
+do Hotspot; Preflop ≤$22/Vanilla/Early; amostra de Postflop); board completo + todos os buy-ins/filtros =
+pago. NÃO afirma "Hotspot completo/full grátis" (era erro). "500M+ mãos auditadas" (não "bilhões"). Sem
+promessa de lucro, sem dinheiro/luxo, sem concorrente nominal, 18+. Caption distinta de P13 (criativo
+`w4-cta-month` próprio). Nº ilustrativo: n/a (arte sem stat solto).
 
 ---
 
@@ -414,8 +411,8 @@ sem stat solto).
 > (Vanilla/KO/Mystery Bounty) e até o arquétipo do vilão (reg agressivo, reg tight, fish).
 >
 > Amostra grátis para sempre: buy-in até $22, torneios Vanilla, fase Early Game. O range completo (todos os
-> buy-ins, formatos e estágios) é do plano pago — mas o Hotspot Analysis já vem completo e grátis, sem trava
-> de filtro nenhuma.
+> buy-ins, formatos e estágios) é do plano pago — e o Hotspot também abre um preview dos principais exploit
+> cards no grátis, com o acervo completo e os filtros no pago.
 >
 > Crie sua conta grátis — link na bio.
 >
@@ -423,8 +420,8 @@ sem stat solto).
 > The whole field, one screen. RFI, 3-bet and defense by position, deltas built in, plus 20+ stackable
 > filters — position, stack, buy-in, stage, format, villain type.
 >
-> Free sample up to $22 buy-in, Vanilla, Early Game; full range is paid. Hotspot Analysis stays fully free,
-> no filter caps.
+> Free sample up to $22 buy-in, Vanilla, Early Game; full range is paid. Hotspot previews the top exploit
+> cards free; the full board and filters unlock on the paid plan.
 >
 > Link in bio.
 >
@@ -433,39 +430,38 @@ sem stat solto).
 >
 > **Set B (rotação — repost/story):** #poker #mtt #pokertraining #onlinepoker #cardplayer #torneiodepoker #pokerbr #jogadordepoker #pokermindset #maisqueumjogo
 
-**Compliance:** ✅ corrigido 09/07 — antes underselava (sem citar os 20+ filtros) e a linha "Incluído no plano
-grátis" implicava acesso completo ao Preflop no grátis. Agora: menciona os 20+ filtros combináveis e deixa
-explícito que o Preflop grátis é **amostra** (buy-in ≤$22, Vanilla, Early Game — resto é pago), com o Hotspot
-citado como o módulo que É completo e grátis. Nº ilustrativo (mock de UI). Sem concorrente nominal, sem
-promessa de lucro.
+**Compliance:** ✅ corrigido 09/07 — cita os 20+ filtros combináveis (antes underselava) e deixa explícito o
+gating correto: plano grátis = **preview** (Preflop ≤$22/Vanilla/Early; top exploit cards no Hotspot); resto,
+board completo e filtros = pago. NÃO afirma "Hotspot completo/full grátis". Nº ilustrativo (mock de UI). Sem
+concorrente nominal, sem promessa de lucro.
 
 ---
 
 ### P13 · 01/08 · L5 CTA — "1 mês de Aura 2.0 no ar" (criativo novo, distinto de P10)
-`w4-cta-month` (criativo próprio — **não** reaproveita `meet-cta` de P10) · [render](../instagram/output/programa-4-semanas/semana-4/w4-p13-cta-month.png) *(pendente gerar — deck já configurado)*
+`w4-cta-month` (criativo próprio — **não** reaproveita `meet-cta` de P10) · [render](../instagram/output/programa-4-semanas/semana-4/w4-p13-cta-month.png)
 
 > **PT-BR**
 > Um mês de Aura 2.0 no ar. ♠️
 >
-> Hotspot completo e grátis pra sempre — os leaks mais fortes do field, por street, sem trava de filtro.
-> Preflop e Postflop têm amostra grátis pra sempre (buy-in até $22, torneios Vanilla, fase Early Game); o
-> resto do field é liberado no plano pago. Tudo sobre 500M+ mãos reais e auditadas de MTT, em 7 salas
-> cobertas. Se ainda não criou sua conta, esse mês inteiro já tinha field pra explorar.
+> O plano grátis te dá um preview de cada módulo, sem cartão — os principais exploit cards do Hotspot, o
+> grid de Preflop no recorte inicial (buy-in até $22, Vanilla, Early Game) e uma amostra do Postflop. O
+> board completo, todos os buy-ins e os filtros ficam no plano pago. Tudo sobre 500M+ mãos reais e auditadas
+> de MTT, em 7 salas cobertas. Se ainda não criou sua conta, esse mês inteiro já tinha field pra explorar.
 >
 > Crie sua conta grátis — link na bio.
 >
 > —— EN ——
-> One month of Aura 2.0, live. Hotspot: full leak board, free forever. Preflop + Postflop: free sample to
-> start (buy-in ≤$22, Vanilla, Early Game) — full field on the paid plan. 500M+ audited hands, 7 rooms
-> covered. Link in bio.
+> One month of Aura 2.0, live. The free plan previews every module, no card — top Hotspot exploit cards, the
+> Preflop grid (≤$22, Vanilla, Early) and a Postflop sample. Full board, all buy-ins & filters on the paid
+> plan. 500M+ audited hands, 7 rooms covered. Link in bio.
 >
 > #poker #mtt #tournamentpoker #pokertraining #gtostrategy #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokermindset
 > 18+ · jogo de habilidade/estudo
 
 **Compliance:** ✅ sem promessa de lucro (removida a linha "deixando dinheiro na mesa" da v. anterior — reframe
-para "field pra explorar") ✅ gating correto (Hotspot completo/grátis · Preflop+Postflop = amostra grátis, não
-"incluído" de graça inteiro) ✅ "500M+ auditadas" (não "bilhões") ✅ sem dinheiro/luxo ✅ 18+ ✅ sem dado de
-cliente ✅ sem concorrente nominal · nº: n/a (sem stat solto, só claims aprovadas).
+para "field pra explorar") ✅ gating correto (plano grátis = preview de cada módulo; board completo + filtros
+= pago; não afirma "Hotspot completo grátis") ✅ "500M+ auditadas" (não "bilhões") ✅ sem dinheiro/luxo ✅ 18+
+✅ sem dado de cliente ✅ sem concorrente nominal · nº: n/a (sem stat solto, só claims aprovadas).
 
 ---
 
@@ -478,9 +474,8 @@ cliente ✅ sem concorrente nominal · nº: n/a (sem stat solto, só claims apro
 - **Ordem/datas** são sugestão; realoco fácil. Se quiser mais/menos posts por semana, eu ajusto o deck e re-renderizo.
 - **Autenticação:** me diga "aprovado" (ou aponte ajustes por post/id) e o lote está pronto pra você agendar no
   Meta Business Suite. Eu nunca publico.
-- **⚠️ Pendência operacional — Hotspot "completo e grátis, sem trava":** P3 e P12 agora afirmam isso na legenda
-  (aprovado pelo dono, é LEI de marketing). Mas em 09/07 o código em produção (`entitlements.ts`, commit
-  2026-07-06) e a landing (`pricing.ts`, commit 2026-07-07) ainda mostravam um Hotspot "teased" — 2 exploit
-  cards por bucket no grátis + filtros de buy-in/formato/estágio travados. Antes de publicar P3, confirme
-  que engenharia já ajustou `getModuleAccess('hotspot')`/`HOTSPOT_FREE_VISIBLE_LIMIT` para refletir "full",
-  ou reconfirme a regra olhando o produto ao vivo — senão a legenda promete algo que o app ainda não entrega.
+- **✅ Gating do Hotspot resolvido (09/07):** o dono confirmou que **NÃO é full-free** — o plano grátis revela
+  só ALGUNS exploit cards (preview dos principais); o board completo + filtros são pagos, igual Preflop
+  (≤$22/Vanilla/Early) e Postflop (amostra). Toda a copy foi reescrita pra "preview de cada módulo / upgrade
+  destrava o board completo". Bate com o código em produção (`entitlements.ts` mostrava exatamente esse teaser).
+  Não afirmar "Hotspot completo/full grátis" em nenhuma peça.
