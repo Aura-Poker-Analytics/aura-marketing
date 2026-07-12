@@ -44,7 +44,7 @@ Motivos:
 ## 6. Gaps que restam (não bloqueiam nada, mas ficam registrados)
 
 - ✅ **RESOLVIDO (agente da landing, ~2026-07-12):** o CTA **agora propaga `utm_*+fbclid`** (`buildAppUrl` nos 8 CTAs) — PR #3 mergeado + deploy live. Meu check de "não propaga" era de ANTES desse trabalho. **Nuance:** o CTA carrega + o app captura em estado (Fase 1), mas **persistir no banco no cadastro segue Fase 2** (é a última milha que fecha "conta free via UTM" no AuraBusiness).
-- ➕ **GA4 (novo, não-Meta):** landing live com `G-82QPEX5EJS`; app `G-KL9K2FYVV2` pendente do merge do PR #19. Analytics suplementar — fonte de verdade do KPI de mídia continua Meta pixel + UTM.
-- ⏳ **App (novofront) PR #19 ainda aberto** — PageView + CompleteRegistration + GA4 do app não estão live até o Betiato mergear + deploy.
+- ✅ **PRs Fase 1 MERGEADOS (verificado no GitHub 2026-07-12):** app **PR #19** (feat/pixel-fase1→main, merged 08/07 por betiato) e landing **PR #3** (merged 08/07). No `main`: app = pixel+PageView+CompleteRegistration (reg_+eventID); landing = pixel+PageView+utm/fbclid+GA4.
+- ➕ **GA4:** landing `G-82QPEX5EJS` **no main ✅**. App `G-KL9K2FYVV2` **NÃO está no main ❌** — está órfão na branch `feat/pixel-fase1` (commit de 10/07, feito DEPOIS do PR #19 já mergeado em 08/07). **É a real razão de "o GA4 do app não funciona":** não é deploy pendente, é commit que nunca virou PR. **Fix (dev):** abrir PR novo `feat/pixel-fase1`→`main` ou cherry-pick esse commit. GA4 é suplementar — não bloqueia mídia (Meta pixel do app está no main).
 - ⏳ **Diagnóstico do dataset:** ainda mostra o alerta pendente "confirme o domínio" pra `aurapoker.com` — ação do Rafael no BM (não fiz essa ação, é clique de permissão).
 - ❓ Não confirmado quais eventos exatos disparam em `www.aura.poker`/`beta.aura.poker` — verificar se já inclui `CompleteRegistration` com `eventID`.
