@@ -13,6 +13,13 @@
 
 ## 0. Onde criar (caminho na UI)
 
+> 🔴 **PRÉ-REQUISITO DESCOBERTO AO VIVO (2026-07-12):** o dataset/pixel `1405949840871947` **NÃO está conectado à conta de anúncios `1598770224460932`** (verificado em Configurações → Contas de anúncios → Aura Business → **Ativos conectados: "Nenhum ativo conectado"**). Enquanto isso não for corrigido:
+> - **Não dá pra criar público de SITE** (visitantes P4, convertidos P5) nessa conta — a UI só oferece criar um pixel NOVO (o que fragmentaria os dados — NÃO fazer).
+> - **Campanhas não conseguem otimizar** pelos eventos do pixel (CompleteRegistration/Subscribe). Isso bloqueia o funil pago inteiro, não só os públicos.
+> - **Públicos que NÃO dependem do pixel** (IG engajadores P1; salvos de interesse P3/EN) **podem ser criados mesmo assim.**
+>
+> **Correção (ação de config — ~1 min):** Configurações da empresa → **Fontes de dados → Conjuntos de dados e pixels** → selecionar `Aura – Website Data Set` → aba **Contas de anúncios** (ou "Conectar ativos") → **Adicionar** a conta `Aura Business 1598770224460932`. *(Alternativa: na conta de anúncios → Ativos conectados → Conectar fonte de dados.)* É atribuição de ativo (não gasta), mas mexe em config da conta — feito pelo Rafael, ou por mim com um "go" explícito.
+
 Business Manager **Aura Poker Analytics** (`830069129552748`) → conta de anúncios **Aura Business** (`1598770224460932`) → **Gerenciador de Públicos** (Events Manager / Ads Manager → Públicos) → botão **Criar público** → escolher o tipo (Personalizado / Semelhante / Salvo).
 
 Todos os públicos abaixo nascem **BR · 18+** salvo indicação contrária.

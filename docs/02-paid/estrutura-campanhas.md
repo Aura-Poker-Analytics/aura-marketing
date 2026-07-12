@@ -37,7 +37,20 @@ Conta: **Aura Business** `1598770224460932` (BRL) · Pixel/dataset `140594984087
 | Posicionamentos | Feed IG + Stories/Reels IG (manual; sem Audience Network/FB right column — não temos Página FB ativa e o criativo é IG-nativo) |
 | Destino | Landing com UTM: `utm_source=meta&utm_medium=paid_social&utm_campaign=rtg_br_launch20&utm_content={{ad.name}}` |
 
-**Quando sobe (pausada):** já pode subir na semana do launch. **Quando ativa (decisão Rafael):** ~1 semana após a landing no ar, quando o pixel tiver povoado o público de visitantes (guia: ≥500 visitantes OU 17/07, o que vier primeiro).
+**Quando sobe (pausada):** já pode subir na semana do launch. **Quando ativa (decisão Rafael):** ver "Gate de ativação" abaixo — o guia antigo "≥500 visitantes OU 17/07" ficou stale (17/07 chegou sem o pool formado).
+
+### Gate de ativação — atualizado pós-launch (2026-07-09), split por mercado
+
+O gate NÃO é uma data — é **tracking + criativo + pool**, e é diferente por mercado (porque orgânico alcança BR mas **não alcança EN — nunca**; a base é 100% BR):
+
+| Mercado | Orgânico valida/enche pool? | Gate pra ligar o pago |
+|---|---|---|
+| **BR (RTG quente)** | Sim — visitantes/engajadores BR acumulam de graça | (1) pool retargetável ≥ ~1.000 · (2) tracking Fase 2 ok · (3) ≥1 criativo vencedor no orgânico |
+| **EN (frio)** | **Não — impossível** | (1) tracking Fase 2 ok · (2) criativo EN (já bilíngue) · (3) decisão do PO. **Sem pool quente → frio desde o dia 1** (interesse/broad, geos anglófonas, USD casa melhor) |
+
+**Decisão do PO (2026-07-09): rodar os dois em paralelo** — RTG quente BR (barato) + teste frio EN (caro, CPM anglófono 2-4×), com orçamentos separados.
+
+**Bloqueio comum aos dois = tracking Fase 2** (UTM no CTA + CAPI — ver [handoff-landing-pixel-migracao.md](handoff-landing-pixel-migracao.md)). Gastar em EN frio sem atribuição = pior cenário. **Prioridade #1: fechar isso com o dev.** Até lá, orgânico segue (enche pool BR + valida criativo BR), mas não é pré-requisito de tempo pra EN — EN é gated só no tracking + decisão.
 
 ## 2. Fase F1 — Frio BR (teste pequeno)
 
