@@ -366,11 +366,15 @@ window.DECK = {
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
   "shot-filters": {
-    layout: "collage", kicker: "20+ filters",
-    titleHtml: "Filter down to the <em>exact board</em>",
-    shotBg: "#0B1120",
-    collage: { left: "shots/filtros1.png", topRight: "shots/filtros2.png", bottomRight: "shots/filtros3.png" },
-    caption: "Position, stage, buy-in, villain type — plus <b>board texture</b> (paired, connectedness, flush draws by street) and <b>stack coverage</b> (IP covering vs covered). Stack them all, no 3-filter cap.",
+    layout: "split", kicker: "20+ filters",
+    titleHtml: "Slice the field <em>any way</em> you want",
+    shotSrc: "shots/filtros1.png", shotBg: "#0B1120",
+    bullets: [
+      "<b>Position, stage, buy-in</b> — RFI vs caller seat.",
+      "<b>Board texture</b> — paired, connectedness, flush draws.",
+      "<b>Stack coverage</b> — IP covering vs covered.",
+      "<b>Stack it all</b> — no 3-filter cap like the old Aura.",
+    ],
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
   "shot-preflop-ref": {
