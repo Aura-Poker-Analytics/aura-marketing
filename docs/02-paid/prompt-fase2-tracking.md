@@ -12,7 +12,22 @@
 - ✅ **Código Fase 2 preservado no remote (backup feito 2026-07-12).** Estava só local (nesta máquina, num worktree) — agora pushado, sem PR/merge:
   - `aura-landing:feat/marketing-tracking` @ `335d4cd` — **consent gate LGPD** (`ConsentBanner.tsx`, `consent.ts`, `privacidade.html`, `useConsentRefresh.ts`) + UTM first-touch (`attribution.ts`, `appUrl.ts`, `metaPixel.ts`).
   - `aura-novofront:feat/marketing-tracking` @ `62f0a5f` — captura/persistência de UTM (`marketingAttribution.ts`, `AuthContext.tsx`, `MinhaConta.tsx`, `requests.ts`) + Login/index.
-  - ⚠️ **Ainda falta CAPI server + Subscribe/webhook** — não estão nessas branches de front; provavelmente vivem (ou precisam ser feitos) no backend `aura_api`. Confirmar.
+  - ✅ **`aura-api:feat/marketing-tracking` @ `23c4e82`** (pushado 2026-07-12) — **CAPI server + Subscribe + UTM-persist JÁ CODADOS.** Commit limpo/aditivo (+429, 0 deleções): `Services/MetaCapiService.cs` (+205), `IMetaCapiService`, `Helpers/MetaSettings.cs`, `Entities/Request/SignUpRequestDto.cs` (UTM/fbp/fbc), `Entities/Database/TblUser.cs` (colunas), `Services/UserService.cs` (CompleteRegistration server + UTM persist no signup), `Services/BillingService.cs` (+75, Subscribe), `Program.cs` (DI), `db/marketing_tracking.sql` (migração idempotente).
+  - ✅ **Sem segredo vazado:** `appsettings.json` tem `Meta.AccessToken: ""` **vazio** — o token vem do Key Vault/env em runtime.
+
+## 0b. Reframe: Fase 2 está CODADA (não a-construir) — falta CONSOLIDAR + secrets
+
+As 4 peças existem, distribuídas em 3 branches `feat/marketing-tracking` (todas stale vs main, pushadas p/ backup):
+
+| Peça | Onde | Estado |
+|---|---|---|
+| Consentimento LGPD | landing `335d4cd` | codado |
+| UTM captura (front) | novofront `62f0a5f` | codado |
+| CAPI (CompleteRegistration+Subscribe) + UTM persist + migração | aura-api `23c4e82` | codado |
+
+**Consolidação = cherry-pick cada commit sobre o `main` atual** (não mergear a branch stale — reverteria coisas, igual foi no PR #24 do GA4).
+- Front (landing/novofront): cherry-pick provavelmente mais limpo — validar.
+- **Backend (aura-api): 1 conflito semântico em `UserService.cs`** — a branch de marketing é anterior ao **refactor de email do main** (`EmailDispatch.TrySendInBackground` novo; `_emailService`/`SmtpEmailSender`/`EmailTemplateRenderer` removidos). O cherry-pick mecânico conflita porque o código de marketing referencia classes de email que o main deletou. **Correto:** re-aplicar SÓ as adições de CAPI/UTM (injetar `_metaCapiService`+`_httpContextAccessor`, chamar `SendCompleteRegistrationAsync` após o welcome email do main, helper `GetRequestClientInfo`, gravar utm/fbp/fbc no `newUser`) sobre o `UserService.cs` ATUAL — **+ build + teste de signup**. É trabalho do dev/agente do backend (toca caminho crítico de cadastro), não cherry-pick cego.
 - ⚠️ **Migração de colunas UTM já em prod (inerte)** — segundo o agente, o banco já tem as colunas pra persistir UTM (não estão sendo preenchidas ainda).
 - 🔴 **Lição do PR #24 (não repetir):** branches antigas (`feat/pixel-fase1`) estão **muito atrás do main** — mergear a branch inteira reverteria i18n/componentes. **Não mergear branch stale: rebase/cherry-pick sobre o `main` atual** e conferir o diff (deve tocar só nos arquivos de tracking).
 
