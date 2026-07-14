@@ -15,6 +15,20 @@
   - ✅ **`aura-api:feat/marketing-tracking` @ `23c4e82`** (pushado 2026-07-12) — **CAPI server + Subscribe + UTM-persist JÁ CODADOS.** Commit limpo/aditivo (+429, 0 deleções): `Services/MetaCapiService.cs` (+205), `IMetaCapiService`, `Helpers/MetaSettings.cs`, `Entities/Request/SignUpRequestDto.cs` (UTM/fbp/fbc), `Entities/Database/TblUser.cs` (colunas), `Services/UserService.cs` (CompleteRegistration server + UTM persist no signup), `Services/BillingService.cs` (+75, Subscribe), `Program.cs` (DI), `db/marketing_tracking.sql` (migração idempotente).
   - ✅ **Sem segredo vazado:** `appsettings.json` tem `Meta.AccessToken: ""` **vazio** — o token vem do Key Vault/env em runtime.
 
+## 0a. STATUS 2026-07-13 — CONSOLIDADA, 4 PRs abertos (verificados no GitHub)
+
+Cursor consolidou sobre `main` limpo (branch `feature/marketing-tracking-fase2` em cada repo). **Todos OPEN, sem merge:**
+| Repo | PR | Diff | Nota |
+|---|---|---|---|
+| aura-database | #1 | +16/-0 | migração idempotente UTM/fbp/fbc |
+| aura-api | #9 | **+443/-0** (aditivo) | MetaCapiService reusado; UserService resolvido (só +57, sem revert do email) |
+| aura-landing | #4 | +402/-92 | consent `aura_consent` + pixel/GA4 gated + `mc=1` nos CTAs |
+| aura-novofront | #25 | +283/-33 | UTM no signup + consent alinhado; **não toca i18n** ✅ |
+
+Decisões aplicadas: CAPI reusada (não recriada); Subscribe com idempotência + skip `metadata.winback`; consent contrato único; CAPI **no-op com `Meta:AccessToken` vazio** (deploy seguro sem segredo).
+
+**Falta pra ir ao ar (não é código):** (1) Betiato revisa+mergeia os 4 PRs (ordem: db→api→landing→novofront); (2) rodar migração no AuraBusiness; (3) `Meta__AccessToken` + `Stripe:WebhookSecret` no Key Vault; (4) confirmar webhook+preços USD; (5) deploy → **aceite da Mídia Paga** (§3).
+
 ## 0b. Reframe: Fase 2 está CODADA (não a-construir) — falta CONSOLIDAR + secrets
 
 As 4 peças existem, distribuídas em 3 branches `feat/marketing-tracking` (todas stale vs main, pushadas p/ backup):
