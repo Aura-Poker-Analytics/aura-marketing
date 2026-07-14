@@ -1,13 +1,13 @@
 20+ filtros. Empilha quantos quiser. 🎛️
 
-Esse é o painel de verdade da Aura. Você escolhe o cenário (SRP ou 3-bet pot), as posições (quem abre, quem paga), o tipo de torneio (Vanilla, KO, Mystery Bounty), o estágio (do early à bolha e mesa final) e a faixa de buy-in — e cruza tudo de uma vez.
+Esse é o painel de verdade da Aura. Você escolhe cenário (SRP ou 3-bet pot), posições, tipo de torneio, estágio e buy-in — e vai fundo na textura de board: board pareado, conectividade (do disconnected ao straight-on-board), flush draws por street, e cobertura de stack (IP cobrindo vs coberto, que muda tudo na bolha).
 
-A Aura 1.0 travava em 3 filtros. A 2.0 não trava em nada: afunila até o micro-spot exato.
+A Aura 1.0 travava em 3 filtros. A 2.0 não trava em nada: afunila até o board exato.
 
 Começa de graça (preview de cada módulo). Link na bio.
 
 —— EN ——
-20+ filters, stack as many as you want. Scenario, positions, tournament type, stage, buy-in — all at once, no 3-filter cap. Funnel down to the exact micro-spot. Start free. Link in bio.
+20+ filters, stack as many as you want. Scenario, positions, tournament type, stage, buy-in — plus board texture: paired boards, connectedness (disconnected → straight-on-board), flush draws by street, and stack coverage (IP covering vs covered). No 3-filter cap. Start free. Link in bio.
 
 #poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokertips
 18+ · poker é jogo de habilidade e estudo

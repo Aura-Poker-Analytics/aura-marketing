@@ -93,6 +93,19 @@ header { display: flex; justify-content: space-between; align-items: center; pos
 .split .bullet .t { font-size: 31px; font-weight: 500; line-height: 1.4; color: var(--ink-soft); }
 .split .bullet .t b { color: var(--ink); font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; }
 
+/* COLLAGE — 1 painel alto à esquerda + 2 painéis empilhados à direita */
+.collage-wrap { position: relative; z-index: 3; margin-top: 30px; flex: 1; display: flex; flex-direction: column; }
+.collage { flex: none; height: 600px; display: flex; gap: 20px; }
+.collage .cleft { flex: none; width: 360px; }
+.collage .cleft .shot-card { height: 100%; }
+.collage .cright { flex: 1; height: 100%; display: flex; flex-direction: column; gap: 20px; }
+.collage .shot-card { padding: 14px; display: flex; align-items: center; justify-content: center; }
+.collage .cleft .shot-card { height: 100%; }
+.collage .cright .shot-card { flex: 1; min-height: 0; }
+.collage .shot-card img { width: 100%; height: 100%; object-fit: contain; }
+.collage-cap { margin-top: 22px; font-size: 26px; font-weight: 500; line-height: 1.42; color: var(--ink-soft); }
+.collage-cap b { color: var(--amber); font-weight: 800; }
+
 footer { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; border-top: 2px solid rgba(30,41,59,0.9); padding-top: 28px; margin-top: 30px; }
 .note { display: flex; align-items: center; gap: 16px; font-size: 23px; font-weight: 600; color: var(--ink-dim); letter-spacing: 0.04em; }
 .note .icon { width: 40px; height: 33px; color: var(--gold); opacity: 0.95; }
@@ -155,6 +168,16 @@ if (CONFIG.layout === "split") {
   stage.innerHTML = `
     <div class="shot-card" style="background:${CONFIG.shotBg}">${badge}<span class="glow"></span><img src="${CONFIG.shotSrc}"></div>
     <div class="col"><div class="bullets">${CONFIG.bullets.map(b => `<div class="bullet"><span class="m">♠</span><span class="t">${b}</span></div>`).join("")}</div></div>`;
+} else if (CONFIG.layout === "collage") {
+  const c = CONFIG.collage || {};
+  stage.className = "collage-wrap";
+  const card = (src) => `<div class="shot-card" style="background:${CONFIG.shotBg}"><span class="glow"></span><img src="${src}"></div>`;
+  stage.innerHTML = `
+    <div class="collage">
+      <div class="cleft">${card(c.left)}</div>
+      <div class="cright">${card(c.topRight)}${card(c.bottomRight)}</div>
+    </div>
+    ${CONFIG.caption ? `<div class="collage-cap">${CONFIG.caption}</div>` : ""}`;
 } else {
   stage.className = "hero-wrap";
   const cap = CONFIG.caption ? `<div class="caption">${CONFIG.caption}</div>` : "";
