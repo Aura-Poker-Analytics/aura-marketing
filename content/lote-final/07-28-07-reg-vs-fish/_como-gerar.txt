@@ -1,0 +1,3 @@
+Criativo: shot-showcase ?p=shot-villain
+Números: real
+(a imagem final está nesta pasta como criativo.png)

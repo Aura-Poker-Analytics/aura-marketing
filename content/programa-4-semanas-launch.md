@@ -1,7 +1,13 @@
 # Programa de posts — 4 primeiras semanas (Launch Aura 2.0)
 
+> **⚠️ SUPERSEDIDO PARA AGENDAMENTO (13/07). Use `content/lote-final/`** — pacote replanejado, menos
+> repetitivo, com screenshots reais + reels, tudo numa pasta só (imagem + legenda por post). Este doc
+> fica como **histórico e racional de copy/compliance** (as decisões de gating, número-herói, etc.). Os
+> renders antigos em `instagram/output/` foram removidos (regeneráveis via `deck.js`); os links de imagem
+> abaixo podem estar quebrados de propósito.
+
 **Owner:** Rafael (aprova e publica tudo) · **Autor:** Fábrica de posts · **Início:** L = 08/07/2026
-**Status:** proposta completa para autenticação. Nenhum post é publicado por agente — você publica/agenda.
+**Status:** histórico. Go-forward vive em `content/lote-final/INDEX.md`.
 
 **⚠️ Realinhado em 09/07 (2ª vez).** No dia do launch (08/07), o Rafael publicou **P2** (carrossel
 "Meet Aura 2.0") em vez de **P1** (hero reveal) — inversão de ordem, sem prejuízo real (P2 já cobre o

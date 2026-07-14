@@ -356,4 +356,56 @@ window.DECK = {
     ],
     footerNote: "aura.poker",
   },
+
+  /* ===== REPLANEJAMENTO 13/07 — posts com SCREENSHOT REAL (shot-showcase) ===== */
+  "shot-postflop-sizings": {
+    layout: "hero", kicker: "Postflop · real screen",
+    titleHtml: "The pool <em>overfolds</em> every sizing",
+    shotSrc: "shots/postflop1.png", shotBg: "#0B1120", frameH: 600, badge: "3.2M hands",
+    caption: "Raise vs flop c-bet, BTN caller. Real pool defense vs MDF, per bet size — every red bar is an overfold to attack.",
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
+  "shot-filters": {
+    layout: "split", kicker: "20+ filters",
+    titleHtml: "Slice the field <em>any way</em> you want",
+    shotSrc: "shots/filtros1.png", shotBg: "#0B1120",
+    bullets: [
+      "<b>Position, stage, buy-in</b> — SRP or 3-bet pot, RFI seat vs caller seat.",
+      "<b>Tournament type</b> — Vanilla, KO or Mystery Bounty.",
+      "<b>Stack it all</b> — no 3-filter cap like the old Aura.",
+    ],
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
+  "shot-preflop-ref": {
+    layout: "hero", kicker: "Preflop · real screen",
+    titleHtml: "Every preflop action, <em>one grid</em>",
+    shotSrc: "shots/1.png", shotBg: "#0B1120", frameH: 760, badge: "Total Global",
+    caption: "RFI, 3-bet, 4-bet, steal, open-limp, squeeze — by seat, vs the whole-field reference. The green/red deltas are your read.",
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
+  "shot-villain": {
+    layout: "hero", kicker: "Villain type · real screen",
+    titleHtml: "Reg or fish? <em>Different field.</em>",
+    shotSrc: "shots/preflop_disag.png", shotBg: "#0B1120", frameH: 560, badge: "Aggro Reg",
+    caption: "The same spot, disaggregated by villain archetype and stack — because an aggro reg and a fish don't leak the same way.",
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
+  "shot-cbet-reaction": {
+    layout: "hero", kicker: "Postflop · real screen",
+    titleHtml: "How the field <em>answers</em> a c-bet",
+    shotSrc: "shots/postflop2.png", shotBg: "#0B1120", frameH: 380, badge: "3.2M hands",
+    caption: "Fold, call or raise vs a flop c-bet — the pool's real reaction, in one line. Fold 33%, Call 55%, Raise 12%.",
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
+  "shot-search": {
+    layout: "split", kicker: "Spot search",
+    titleHtml: "Any postflop spot, <em>one search</em>",
+    shotSrc: "shots/busca.png", shotBg: "#0B1120",
+    bullets: [
+      "<b>Type the line</b> — 'turn delayed c-bet', 'float turn'…",
+      "<b>Flop to river</b>, IP and OOP, with the pool's frequency.",
+      "<b>Jump straight</b> to the exact spot you're studying.",
+    ],
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
 };
