@@ -25,7 +25,9 @@ As 4 peças existem, distribuídas em 3 branches `feat/marketing-tracking` (toda
 | UTM captura (front) | novofront `62f0a5f` | codado |
 | CAPI (CompleteRegistration+Subscribe) + UTM persist + migração | aura-api `23c4e82` | codado |
 
-**Consolidação = cherry-pick cada commit sobre o `main` atual** (não mergear a branch stale — reverteria coisas, igual foi no PR #24 do GA4).
+> 🔴 **AVISO PRO CURSOR (quem está consolidando):** as branches `feat/marketing-tracking` estão **15 commits ATRÁS do main** (refactor de email + mais). **Se você continuar NA MESMA branch e abrir PR dela → main, vai REVERTER o refactor de email e outros commits** (exatamente o que quase aconteceu com o GA4). Antes de qualquer coisa: **`git rebase origin/main`** (ou merge do main pra dentro) da `feat/marketing-tracking`, resolvendo o conflito do `UserService.cs` **uma vez** (detalhe abaixo). Só depois de a branch estar em cima do main atual é que o PR fica limpo. As branches já estão pushadas (backup) — dá pra `git fetch` + rebase.
+
+**Consolidação = trazer as adições pro `main` atual** — via rebase da branch (recomendado, mesma branch) OU cherry-pick dos commits. **Nunca** PR da branch stale como está.
 - Front (landing/novofront): cherry-pick provavelmente mais limpo — validar.
 - **Backend (aura-api): 1 conflito semântico em `UserService.cs`** — a branch de marketing é anterior ao **refactor de email do main** (`EmailDispatch.TrySendInBackground` novo; `_emailService`/`SmtpEmailSender`/`EmailTemplateRenderer` removidos). O cherry-pick mecânico conflita porque o código de marketing referencia classes de email que o main deletou. **Correto:** re-aplicar SÓ as adições de CAPI/UTM (injetar `_metaCapiService`+`_httpContextAccessor`, chamar `SendCompleteRegistrationAsync` após o welcome email do main, helper `GetRequestClientInfo`, gravar utm/fbp/fbc no `newUser`) sobre o `UserService.cs` ATUAL — **+ build + teste de signup**. É trabalho do dev/agente do backend (toca caminho crítico de cadastro), não cherry-pick cego.
 - ⚠️ **Migração de colunas UTM já em prod (inerte)** — segundo o agente, o banco já tem as colunas pra persistir UTM (não estão sendo preenchidas ainda).
