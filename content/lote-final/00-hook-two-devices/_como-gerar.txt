@@ -1,6 +1,8 @@
 Criativo: two-devices.html (default) · 1080x1350
 Mockups de LAPTOP/browser (a Aura nao tem versao mobile) — object-fit:contain, nada cortado.
-Prints: preflop_disag.png (reg vs fish por posicao) + postflop1.png (sizings exploraveis) — telas REAIS
+Prints: auta-total.png (Preflop Analysis, app inteiro c/ nav+filtros) + aura-total2.png (Postflop Analysis,
+app inteiro c/ nav+filtros) — telas REAIS, mostram o produto completo (logo Aura dentro do app, 3 abas de
+navegacao, sidebar de filtros cheia)
 Numeros: reais (do produto)
 
 USO SUGERIDO: post-ancora / HOOK de topo de funil. Otimo pra FIXAR no topo do perfil
