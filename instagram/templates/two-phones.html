@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="deck.js"></script>
+<title>Aura · two-phones</title>
+<script>
+/* ============================================================
+   TWO PHONES — hook "entenda o que a plataforma faz num olhar".
+   Dois celulares angulados com prints REAIS + headline grande.
+   Funciona em 1080×1350 (feed) e 1080×1920 (reel opener) — flex.
+   ============================================================ */
+const CONFIG = {
+  topRight: "Aura 2.0",
+  kicker: "Field intelligence · MTT",
+  headlineHtml: "Massive data<br>analysis <em>for MTT</em>",
+  sub: "500M+ real hands · 7 rooms. The real field — not theory.",
+  leftShot: "shots/1.png",         // print do celular esquerdo
+  rightShot: "shots/postflop1.png",// print do celular direito
+  rightPos: "top",                  // object-position do print direito (top/center)
+  leftPos: "top",
+  footer: "aurapoker.com · free account",
+};
+(function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
+</script>
+<style>
+@font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
+:root{--bg:#020617;--amber:#FBBF24;--amber3:#FCD34D;--amber6:#D97706;--gold:#D4A418;--ink:#fff;--ink-soft:#CBD5E1;--ink-dim:#64748B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:100vh;overflow:hidden}
+body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
+  background:radial-gradient(1300px 1000px at 50% -8%, rgba(34,53,89,0.62), transparent 60%),
+    radial-gradient(1050px 900px at 50% 108%, rgba(212,164,24,0.16), transparent 60%), var(--bg);
+  position:relative;display:flex;flex-direction:column;padding:70px 80px 64px}
+.suits{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.suits span{position:absolute;font-family:"Segoe UI Symbol","Segoe UI",sans-serif;color:rgba(251,191,36,0.04);user-select:none}
+.arc{position:absolute;top:-620px;left:50%;transform:translateX(-50%);pointer-events:none;filter:drop-shadow(0 0 26px rgba(212,164,24,0.3))}
+
+header{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:3}
+.lockup{display:flex;align-items:center;gap:18px}
+.lockup .icon{width:50px;height:41px;color:var(--gold)}
+.lockup .icon svg,.lockup .wm svg{width:100%;height:100%;display:block}
+.lockup .wm{width:150px;color:var(--gold)}
+.tag{font-size:22px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);border:2px solid rgba(251,191,36,0.35);background:rgba(251,191,36,0.07);border-radius:999px;padding:11px 24px}
+
+.head{position:relative;z-index:3;margin-top:34px;text-align:center}
+.kicker{font-size:26px;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:var(--amber);margin-bottom:24px}
+.headline{font-size:76px;font-weight:900;line-height:1.08;text-transform:uppercase;letter-spacing:0.005em}
+.headline em{font-style:normal;background:linear-gradient(180deg,var(--amber3) 0%,var(--amber) 45%,var(--amber6) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin-top:24px;font-size:30px;font-weight:500;line-height:1.4;color:var(--ink-soft);max-width:860px;margin-left:auto;margin-right:auto}
+.sub b{color:var(--amber);font-weight:800}
+
+.phones{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.phone{position:relative;width:318px;height:620px;border-radius:50px;background:#0A0F1C;
+  border:12px solid #182234;box-shadow:0 46px 120px rgba(0,0,0,0.72), 0 0 70px rgba(212,164,24,0.1);overflow:hidden}
+.phone .screen{position:absolute;inset:0}
+.phone .screen img{width:100%;height:100%;object-fit:cover;display:block}
+.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#182234;border-radius:0 0 15px 15px;z-index:2}
+.phone.left{transform:rotate(-7deg) translateX(46px) translateY(12px);z-index:1}
+.phone.right{transform:rotate(7deg) translateX(-46px) translateY(-18px);z-index:2}
+.glow{position:absolute;z-index:2;width:560px;height:560px;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.14), transparent 70%);pointer-events:none}
+
+footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(30,41,59,0.9);padding-top:26px;margin-top:24px}
+.foot-left{font-size:24px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
+.age{font-size:22px;font-weight:800;color:var(--ink-dim);border:3px solid var(--ink-dim);border-radius:11px;padding:6px 12px}
+</style>
+</head>
+<body>
+<div class="suits" id="suits"></div>
+<div class="arc">
+  <svg width="1400" height="1400" viewBox="0 0 1400 1400" fill="none">
+    <circle cx="700" cy="700" r="650" stroke="url(#g)" stroke-width="3" stroke-linecap="round" stroke-dasharray="3000 1084" transform="rotate(112 700 700)"/>
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1400" y2="1400"><stop offset="0" stop-color="#FCD34D"/><stop offset="0.55" stop-color="#D4A418"/><stop offset="1" stop-color="#6B520C"/></linearGradient></defs>
+  </svg>
+</div>
+
+<header>
+  <div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div>
+  <span class="tag" id="tag"></span>
+</header>
+
+<div class="head">
+  <div class="kicker" id="kicker"></div>
+  <h1 class="headline" id="headline"></h1>
+  <p class="sub" id="sub"></p>
+</div>
+
+<div class="phones">
+  <div class="glow"></div>
+  <div class="phone left"><div class="notch"></div><div class="screen"><img id="imgL"></div></div>
+  <div class="phone right"><div class="notch"></div><div class="screen"><img id="imgR"></div></div>
+</div>
+
+<footer>
+  <span class="foot-left" id="foot"></span>
+  <span class="age">18+</span>
+</footer>
+
+<script>
+const ICON_PATHS = `<path d="M5.86165 44.898C-5.49315 30.408 0.312736 8.78736 17.5518 1.99342C24.4945 -0.786314 32.5783 -0.656823 39.4165 2.36894C53.1363 8.26508 59.687 24.4384 54.0901 38.1515C53.1232 40.5643 51.8035 42.8347 50.2094 44.8936L49.874 44.6347C50.1658 44.0476 50.4577 43.4736 50.7277 42.8909C54.5649 34.7459 54.4429 24.8226 49.8784 17.1481C42.8921 5.2091 27.6609 0.935911 15.5352 7.87661C3.92345 14.5022 -0.305745 28.8843 4.59855 41.1298C4.81633 41.7039 5.0733 42.3427 5.33899 42.8952C5.60903 43.4779 5.90085 44.052 6.19267 44.639L5.85729 44.898H5.86165Z"/>
+<path d="M28.0486 8.56287C22.2601 20.394 16.4717 32.2251 10.6788 44.0562C12.3905 42.8477 14.9734 41.2895 18.3837 40.1456C19.612 39.7312 22.0293 39.0147 25.2219 38.7212C25.5964 38.5529 26.093 38.2637 26.5285 37.7759C27.012 37.2364 27.1949 36.7055 27.3604 36.2005C27.4519 35.9285 27.5521 35.5573 27.613 35.0998C27.6479 34.8279 27.2777 34.6941 27.1122 34.9185C26.8595 35.2681 26.498 35.635 25.9884 35.9199C25.714 36.071 25.0215 36.4465 24.0807 36.3688C23.031 36.2868 22.3647 35.6955 22.173 35.5228C21.132 34.5775 21.1059 33.2869 21.1016 32.933C21.0798 31.7028 21.6591 30.6885 23.0093 29.0526C24.0894 27.7404 25.7315 25.975 28.0268 24.1017C30.3439 25.975 31.9903 27.7447 33.0748 29.0526C34.4294 30.6928 35.0043 31.7115 34.9825 32.933C34.9782 33.2869 34.9521 34.5775 33.9111 35.5228C33.7238 35.6955 33.0531 36.2825 32.0034 36.3688C31.0626 36.4422 30.3744 36.071 30.0957 35.9199C29.5861 35.635 29.2246 35.2725 28.9719 34.9185C28.8108 34.6941 28.4362 34.8279 28.4711 35.0998C28.532 35.5573 28.6366 35.9285 28.7237 36.2005C28.8936 36.7055 29.0765 37.2364 29.5556 37.7759C29.9911 38.2637 30.4877 38.5529 30.8622 38.7212C34.0548 39.0147 36.4678 39.7356 37.6917 40.1456C41.1064 41.2938 43.6936 42.8477 45.4053 44.0606C39.6168 32.2294 33.8283 20.3983 28.0355 8.56718L28.0486 8.56287Z"/>`;
+const ICON_SVG = `<svg viewBox="0 0 60 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${ICON_PATHS}</svg>`;
+const AURA_LETTERS = `<path d="M32.1505 332.237H1C10.1627 314.156 19.2624 296.062 28.2992 277.98C37.4619 259.899 46.6245 241.804 55.7872 223.723C56.6431 222.262 57.6751 220.915 58.9085 219.694C60.1294 218.598 61.4761 217.679 62.9361 216.949C67.4545 214.871 71.91 212.793 76.3151 210.716C80.8335 208.638 85.289 206.624 89.6941 204.672C103.249 233.028 123.651 275.55 150.888 332.25H119.561C112.236 316.611 104.898 301.023 97.573 285.51C90.2479 269.871 82.8473 254.232 75.4089 238.581C68.1971 254.22 60.9978 269.871 53.786 285.51C46.5742 301.035 39.375 316.611 32.1631 332.25L32.1505 332.237Z"/>
+<path d="M283.683 207.769V281.279C283.683 292.763 280.877 302.244 275.251 309.698C269.511 317.027 261.935 322.592 252.533 326.382C247.398 328.334 241.847 329.807 235.856 330.777C229.865 331.759 223.635 332.237 217.166 332.237C198.35 332.237 182.907 328.019 170.811 319.583C158.716 311.146 152.675 298.379 152.675 281.267V212.529C159.144 210.691 168.798 208.072 181.623 204.647V281.267C181.623 290.194 184.669 296.477 190.785 300.141C196.764 303.931 205.989 305.82 218.45 305.82C230.91 305.82 240.186 303.931 245.938 300.141C251.677 296.238 254.547 289.942 254.547 281.267V207.757H283.683V207.769Z"/>
+<path d="M306.766 264.784H384.095C387.141 264.784 389.709 264.054 391.785 262.581C393.862 261.12 395.448 258.853 396.555 255.794C397.046 254.572 397.411 253.351 397.65 252.13C397.889 250.782 398.015 249.448 398.015 248.1C398.015 244.801 397.462 241.993 396.367 239.664C395.272 237.221 393.623 235.269 391.42 233.796C390.325 233.066 389.155 232.575 387.934 232.336C386.713 231.97 385.429 231.782 384.083 231.782H299.429C300.889 226.896 303.091 219.618 306.024 209.973C306.515 208.386 307.37 207.102 308.591 206.12C309.938 205.138 311.461 204.659 313.173 204.659H384.448C392.264 204.659 399.224 206.07 405.34 208.877C411.445 211.811 416.706 216.092 421.098 221.708C424.144 225.864 426.41 230.258 427.882 234.904C429.468 239.425 430.261 244.31 430.261 249.573C430.261 255.806 429.166 261.485 426.963 266.622C424.887 271.634 421.765 276.154 417.612 280.184C415.409 282.261 413.031 284.1 410.463 285.686C407.895 287.147 405.152 288.381 402.219 289.35C409.305 298.882 419.865 313.186 433.923 332.25H398.015C391.911 323.335 382.685 309.887 370.351 291.919H329.673V332.25H299.441V272.314C299.441 270.236 300.171 268.461 301.644 267C303.104 265.54 304.815 264.797 306.779 264.797L306.766 264.784Z"/>
+<path d="M476.263 332.237H445.112C454.275 314.156 463.374 296.062 472.411 277.98C481.574 259.899 490.737 241.804 499.899 223.723C500.755 222.262 501.787 220.915 503.021 219.694C504.241 218.598 505.588 217.679 507.048 216.949C511.567 214.871 516.022 212.793 520.427 210.716C524.946 208.638 529.401 206.624 533.806 204.672C547.361 233.028 567.763 275.55 595 332.25H563.673C556.348 316.611 549.01 301.023 541.685 285.51C534.36 269.871 526.959 254.232 519.521 238.581C512.309 254.22 505.11 269.871 497.898 285.51C490.686 301.035 483.487 316.611 476.275 332.25L476.263 332.237Z"/>`;
+const WORDMARK_SVG = `<svg viewBox="1 204 594 129" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${AURA_LETTERS}</svg>`;
+document.querySelectorAll("[data-icon]").forEach(el=>el.innerHTML=ICON_SVG);
+document.querySelectorAll("[data-wordmark]").forEach(el=>el.innerHTML=WORDMARK_SVG);
+(function(){const h=document.getElementById("suits");const s=["♠","♣","♦","♥"];const st=172;let i=0;
+for(let y=-40;y<2100;y+=st)for(let x=-40;x<1160;x+=st){const e=document.createElement("span");e.textContent=s[i%4];
+e.style.left=(x+((Math.floor(y/st)%2)?st/2:0))+"px";e.style.top=y+"px";e.style.fontSize=(34+(i*29)%18)+"px";
+e.style.transform=`rotate(${(i*53)%40-20}deg)`;h.appendChild(e);i++;}})();
+
+document.getElementById("tag").textContent = CONFIG.topRight;
+document.getElementById("kicker").textContent = CONFIG.kicker;
+document.getElementById("headline").innerHTML = CONFIG.headlineHtml;
+document.getElementById("sub").innerHTML = CONFIG.sub;
+document.getElementById("foot").textContent = CONFIG.footer;
+const L=document.getElementById("imgL"); L.src=CONFIG.leftShot; L.style.objectPosition=CONFIG.leftPos||"top";
+const R=document.getElementById("imgR"); R.src=CONFIG.rightShot; R.style.objectPosition=CONFIG.rightPos||"top";
+</script>
+</body>
+</html>

@@ -8,6 +8,17 @@ Você agenda; nenhum agente publica.
 - ✅ 09/07 — Hero "Aura 2.0 no ar"
 - ✅ 11/07 — Hotspot spotlight ("os leaks do field, ranqueados")
 
+## 📌 Post-âncora — FIXAR no topo do perfil
+- `00-hook-two-phones/` — **"Massive data analysis for MTT"** (2 celulares com telas reais). Explica a Aura
+  num olhar — é o melhor post pra fixar no perfil. Sem data fixa; poste quando quiser e fixe.
+
+## 🎬 Reels (em `reels/`)
+- **`reel-lancamento-aura-2.0.mp4` — PRONTO** (23,9s, 1080×1920). ⚠️ sem áudio: adicione uma trilha no editor
+  do Instagram antes de postar. Sugestão de data: **19/07**. (abre com o hook dos 2 celulares)
+- `04/08/11-*.txt` — roteiros dos outros 3 reels (cena a cena), pra gravar depois.
+
+> Obs: na tabela abaixo o "item" é a subpasta datada correspondente nesta mesma pasta (nomeada `NN-DD-MM-slug/`).
+
 ## Go-forward — **comece pelo #01 (13/07, HOJE)**; depois ~1 post a cada 2 dias
 | Data | # | Tipo | Item (subpasta / arquivo) | Números |
 |---|---|---|---|---|
