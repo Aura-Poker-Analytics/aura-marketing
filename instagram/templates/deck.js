@@ -425,7 +425,7 @@ window.DECK = {
     sub: "Passivo e call-heavy — vs c-bet no flop.", footer: "" },
   "reel-s8": { type: "title", showLogo: true, kicker: "",
     titleHtml: "Conta <em>grátis</em>",
-    sub: "Preview de cada módulo, sem cartão.<br><b>aura.poker</b> · link na bio", footer: "" },
+    sub: "Preview de cada módulo, sem cartão.<br><b>aurapoker.com</b> · link na bio", footer: "" },
 
   "shot-search": {
     layout: "split", kicker: "Spot search",
