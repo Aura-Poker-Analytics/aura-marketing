@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <script src="deck.js"></script>
-<title>Aura · two-phones</title>
+<title>Aura · two-devices</title>
 <script>
 /* ============================================================
-   TWO PHONES — hook "entenda o que a plataforma faz num olhar".
-   Dois celulares angulados com prints REAIS + headline grande.
+   TWO DEVICES — hook "entenda o que a plataforma faz num olhar".
+   A Aura NAO tem versao mobile — mockups de LAPTOP/browser (nao celular),
+   com prints REAIS em object-fit:CONTAIN (nunca corta o dashboard).
    Funciona em 1080×1350 (feed) e 1080×1920 (reel opener) — flex.
    ============================================================ */
 const CONFIG = {
@@ -15,17 +16,17 @@ const CONFIG = {
   kicker: "Field intelligence · MTT",
   headlineHtml: "Massive data<br>analysis <em>for MTT</em>",
   sub: "500M+ real hands · 7 rooms. The real field — not theory.",
-  leftShot: "shots/1.png",         // print do celular esquerdo
-  rightShot: "shots/postflop1.png",// print do celular direito
-  rightPos: "top",                  // object-position do print direito (top/center)
-  leftPos: "top",
+  backShot: "shots/preflop_disag.png",   // laptop de tras (menor)
+  frontShot: "shots/postflop1.png",      // laptop da frente (maior)
+  backUrl: "beta.aura.poker/preflop",
+  frontUrl: "beta.aura.poker/postflop",
   footer: "aurapoker.com · free account",
 };
 (function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
 </script>
 <style>
 @font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
-:root{--bg:#020617;--amber:#FBBF24;--amber3:#FCD34D;--amber6:#D97706;--gold:#D4A418;--ink:#fff;--ink-soft:#CBD5E1;--ink-dim:#64748B}
+:root{--bg:#020617;--amber:#FBBF24;--amber3:#FCD34D;--amber6:#D97706;--gold:#D4A418;--ink:#fff;--ink-soft:#CBD5E1;--ink-dim:#64748B;--app-bg:#0B1120}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:100vh;overflow:hidden}
 body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
@@ -50,16 +51,34 @@ header{display:flex;justify-content:space-between;align-items:center;position:re
 .sub{margin-top:24px;font-size:30px;font-weight:500;line-height:1.4;color:var(--ink-soft);max-width:860px;margin-left:auto;margin-right:auto}
 .sub b{color:var(--amber);font-weight:800}
 
-.phones{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
-.phone{position:relative;width:318px;height:620px;border-radius:50px;background:#0A0F1C;
-  border:12px solid #182234;box-shadow:0 46px 120px rgba(0,0,0,0.72), 0 0 70px rgba(212,164,24,0.1);overflow:hidden}
-.phone .screen{position:absolute;inset:0}
-.phone .screen img{width:100%;height:100%;object-fit:cover;display:block}
-.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#182234;border-radius:0 0 15px 15px;z-index:2}
-.phone.left{transform:rotate(-7deg) translateX(46px) translateY(12px);z-index:1}
-.phone.right{transform:rotate(7deg) translateX(-46px) translateY(-18px);z-index:2}
-.glow{position:absolute;z-index:2;width:560px;height:560px;left:50%;top:50%;transform:translate(-50%,-50%);
-  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.14), transparent 70%);pointer-events:none}
+.devices{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;width:920px;height:700px;flex:none}
+.glow{position:absolute;z-index:1;width:820px;height:520px;left:50%;top:52%;transform:translate(-50%,-50%);
+  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.13), transparent 70%);pointer-events:none}
+
+/* ---- laptop: tela (browser chrome + canvas) + base do teclado ---- */
+.laptop{position:absolute;display:flex;flex-direction:column;align-items:center}
+.laptop .screen{
+  width:100%;border-radius:16px 16px 4px 4px;overflow:hidden;background:var(--app-bg);
+  border:9px solid #1B2637;border-bottom:3px solid #1B2637;
+  box-shadow:0 50px 130px rgba(0,0,0,0.75), 0 0 60px rgba(212,164,24,0.08);
+}
+.laptop .chrome{display:flex;align-items:center;gap:8px;background:#101B30;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.laptop .chrome .dot{width:10px;height:10px;border-radius:50%;background:#334155}
+.laptop .chrome .url{margin-left:10px;font-size:14px;font-weight:600;color:var(--ink-dim);background:rgba(2,6,23,0.6);border-radius:999px;padding:5px 16px;letter-spacing:0.02em}
+.laptop .canvas{width:100%;display:flex;align-items:center;justify-content:center;background:var(--app-bg);padding:16px}
+.laptop .canvas img{width:100%;height:100%;object-fit:contain;display:block}
+.laptop .base{
+  width:112%;height:16px;margin-top:-1px;border-radius:0 0 10px 10px;
+  background:linear-gradient(180deg,#1B2637 0%,#101827 100%);
+  box-shadow:0 14px 30px rgba(0,0,0,0.5);position:relative;
+}
+.laptop .base::after{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:70px;height:6px;background:var(--bg);border-radius:0 0 8px 8px}
+
+.laptop.back{width:520px;top:14px;left:calc(50% - 470px);transform:rotate(-5deg);z-index:1}
+.laptop.back .screen .canvas{height:300px}
+.laptop.front{width:640px;top:230px;left:calc(50% - 280px);transform:rotate(4deg);z-index:2}
+.laptop.front .screen .canvas{height:400px}
 
 footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(30,41,59,0.9);padding-top:26px;margin-top:24px}
 .foot-left{font-size:24px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
@@ -86,10 +105,24 @@ footer{position:relative;z-index:3;display:flex;align-items:center;justify-conte
   <p class="sub" id="sub"></p>
 </div>
 
-<div class="phones">
-  <div class="glow"></div>
-  <div class="phone left"><div class="notch"></div><div class="screen"><img id="imgL"></div></div>
-  <div class="phone right"><div class="notch"></div><div class="screen"><img id="imgR"></div></div>
+<div class="devices">
+  <div class="stage">
+    <div class="glow"></div>
+    <div class="laptop back">
+      <div class="screen">
+        <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url" id="backUrl"></span></div>
+        <div class="canvas"><img id="imgBack"></div>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div class="laptop front">
+      <div class="screen">
+        <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url" id="frontUrl"></span></div>
+        <div class="canvas"><img id="imgFront"></div>
+      </div>
+      <div class="base"></div>
+    </div>
+  </div>
 </div>
 
 <footer>
@@ -118,8 +151,10 @@ document.getElementById("kicker").textContent = CONFIG.kicker;
 document.getElementById("headline").innerHTML = CONFIG.headlineHtml;
 document.getElementById("sub").innerHTML = CONFIG.sub;
 document.getElementById("foot").textContent = CONFIG.footer;
-const L=document.getElementById("imgL"); L.src=CONFIG.leftShot; L.style.objectPosition=CONFIG.leftPos||"top";
-const R=document.getElementById("imgR"); R.src=CONFIG.rightShot; R.style.objectPosition=CONFIG.rightPos||"top";
+document.getElementById("backUrl").textContent = CONFIG.backUrl;
+document.getElementById("frontUrl").textContent = CONFIG.frontUrl;
+document.getElementById("imgBack").src = CONFIG.backShot;
+document.getElementById("imgFront").src = CONFIG.frontShot;
 </script>
 </body>
 </html>

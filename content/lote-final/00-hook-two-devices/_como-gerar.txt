@@ -1,5 +1,6 @@
-Criativo: two-phones.html (default) · 1080x1350
-Prints: 1.png (grid de preflop) + postflop1.png (sizings exploraveis) — telas REAIS
+Criativo: two-devices.html (default) · 1080x1350
+Mockups de LAPTOP/browser (a Aura nao tem versao mobile) — object-fit:contain, nada cortado.
+Prints: preflop_disag.png (reg vs fish por posicao) + postflop1.png (sizings exploraveis) — telas REAIS
 Numeros: reais (do produto)
 
 USO SUGERIDO: post-ancora / HOOK de topo de funil. Otimo pra FIXAR no topo do perfil
