@@ -6,35 +6,36 @@
 <title>Aura · two-devices</title>
 <script>
 /* ============================================================
-   TWO DEVICES — hook "entenda o que a plataforma faz num olhar".
-   A Aura NAO tem versao mobile — mockups de MONITOR DE MESA (nao celular).
-   A tela trava no aspect ratio EXATO do print (backAspect/frontAspect) e o
-   print preenche 100% — NUNCA sobra fundo escuro ao redor (isso era o bug).
-   Sem barra de browser: os prints ja mostram a nav do proprio app.
-   Funciona em 1080×1350 (feed) e 1080×1920 (reel opener) — flex.
+   TWO DEVICES (v2, reconstruido do zero) — hook "entenda num olhar".
+   Dois monitores IGUAIS lado a lado (mesma enfase, nenhum na frente do outro).
+   A UI dentro de cada tela e RECRIADA em HTML/CSS (VETORIAL) — nitida em
+   qualquer tamanho, nao usa mais screenshot raster (que borrava).
+   Numeros = dados reais dos prints (auta-total / aura-total2).
+   Titulo/subtitulo grandes (como estavam antes). 1080×1350 e 1080×1920.
    ============================================================ */
 const CONFIG = {
   topRight: "Aura 2.0",
   kicker: "Field intelligence · MTT",
   headlineHtml: "Massive data<br>analysis <em>for MTT</em>",
   sub: "500M+ real hands · 7 rooms. The real field — not theory.",
-  backShot: "shots/auta-total.png",      // monitor de tras (menor) — app inteiro, Preflop Analysis
-  frontShot: "shots/aura-total2.png",    // monitor da frente (maior) — app inteiro, Postflop Analysis
-  backAspect: "1903/1013",                // aspect ratio EXATO do arquivo backShot (w/h em px)
-  frontAspect: "1953/1009",               // aspect ratio EXATO do arquivo frontShot (w/h em px)
   footer: "aurapoker.com · free account",
 };
 (function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
 </script>
 <style>
 @font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
-:root{--bg:#020617;--amber:#FBBF24;--amber3:#FCD34D;--amber6:#D97706;--gold:#D4A418;--ink:#fff;--ink-soft:#CBD5E1;--ink-dim:#64748B;--app-bg:#0B1120}
+:root{
+  --bg:#020617;--amber:#FBBF24;--amber3:#FCD34D;--amber6:#D97706;--gold:#D4A418;
+  --ink:#fff;--ink-soft:#CBD5E1;--ink-dim:#64748B;
+  --app:#0B1220;--app2:#111C30;--line:#1E2A40;
+  --pos:#34D399;--neg:#F87171;--blue:#60A5FA;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:100vh;overflow:hidden}
 body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
   background:radial-gradient(1300px 1000px at 50% -8%, rgba(34,53,89,0.62), transparent 60%),
-    radial-gradient(1050px 900px at 50% 108%, rgba(212,164,24,0.16), transparent 60%), var(--bg);
-  position:relative;display:flex;flex-direction:column;padding:44px 46px 30px}
+    radial-gradient(1050px 900px at 50% 108%, rgba(212,164,24,0.15), transparent 60%), var(--bg);
+  position:relative;display:flex;flex-direction:column;padding:60px 52px 46px}
 .suits{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .suits span{position:absolute;font-family:"Segoe UI Symbol","Segoe UI",sans-serif;color:rgba(251,191,36,0.04);user-select:none}
 .arc{position:absolute;top:-620px;left:50%;transform:translateX(-50%);pointer-events:none;filter:drop-shadow(0 0 26px rgba(212,164,24,0.3))}
@@ -46,51 +47,79 @@ header{display:flex;justify-content:space-between;align-items:center;position:re
 .lockup .wm{width:150px;color:var(--gold)}
 .tag{font-size:22px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);border:2px solid rgba(251,191,36,0.35);background:rgba(251,191,36,0.07);border-radius:999px;padding:11px 24px}
 
-.head{position:relative;z-index:3;margin-top:6px;text-align:center}
-.kicker{font-size:21px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
-.headline{font-size:50px;font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:0.005em}
+.head{position:relative;z-index:3;margin-top:34px;text-align:center}
+.kicker{font-size:26px;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:var(--amber);margin-bottom:22px}
+.headline{font-size:74px;font-weight:900;line-height:1.07;text-transform:uppercase;letter-spacing:0.005em}
 .headline em{font-style:normal;background:linear-gradient(180deg,var(--amber3) 0%,var(--amber) 45%,var(--amber6) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{margin-top:10px;font-size:22px;font-weight:500;line-height:1.3;color:var(--ink-soft);max-width:820px;margin-left:auto;margin-right:auto}
+.sub{margin-top:26px;font-size:30px;font-weight:500;line-height:1.4;color:var(--ink-soft);max-width:900px;margin-left:auto;margin-right:auto}
 .sub b{color:var(--amber);font-weight:800}
 
-.devices{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin-top:-6px}
-.stage{position:relative;width:1000px;height:850px;flex:none}
-.glow{position:absolute;z-index:1;width:1060px;height:760px;left:50%;top:50%;transform:translate(-50%,-50%);
-  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.26), transparent 70%);pointer-events:none}
-.glow.warm{width:820px;height:820px;top:58%;background:radial-gradient(50% 50% at 50% 50%, rgba(217,119,6,0.32), transparent 68%)}
+.devices{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;gap:32px}
+.glow{position:absolute;z-index:0;width:1060px;height:660px;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.2), transparent 70%);pointer-events:none}
 
-/* ---- monitor de mesa: tela (aspect ratio EXATO do print, preenche 100%) + pescoco + pe ---- */
-.monitor{position:absolute;display:flex;flex-direction:column;align-items:center}
-.monitor .bezel{
-  width:100%;border-radius:16px;overflow:hidden;background:#000;
-  border:13px solid #182234;
-  box-shadow:0 60px 150px rgba(0,0,0,0.8), 0 0 90px rgba(212,164,24,0.12), inset 0 0 0 1px rgba(255,255,255,0.03);
-}
-.monitor .bezel .screen{width:100%;overflow:hidden;background:var(--app-bg)}
-.monitor .bezel .screen img{width:100%;height:100%;object-fit:cover;display:block}
-.monitor .neck{width:28px;height:68px;background:linear-gradient(180deg,#182234 0%,#0d1420 100%);margin-top:-2px}
-.monitor .foot{
-  width:320px;height:22px;border-radius:12px;margin-top:-2px;
-  background:linear-gradient(180deg,#1E293B 0%,#101827 100%);
-  box-shadow:0 22px 46px rgba(0,0,0,0.6);
-}
+/* ---- monitor (identico p/ os dois) ---- */
+.mon{position:relative;z-index:2;flex:none;width:472px;display:flex;flex-direction:column;align-items:center}
+.mon .bezel{width:100%;border-radius:16px;overflow:hidden;background:#0A0F1A;
+  border:12px solid #1A2233;
+  box-shadow:0 46px 120px rgba(0,0,0,0.7), 0 0 70px rgba(212,164,24,0.09), inset 0 0 0 1px rgba(255,255,255,0.04)}
+.mon .scr{width:100%;aspect-ratio:16/15;overflow:hidden;background:var(--app);display:flex;flex-direction:column}
+.mon .neck{width:26px;height:60px;background:linear-gradient(180deg,#1A2233 0%,#0d1420 100%)}
+.mon .foot{width:300px;height:20px;border-radius:11px;margin-top:-1px;background:linear-gradient(180deg,#243043 0%,#101827 100%);box-shadow:0 20px 42px rgba(0,0,0,0.55)}
 
-/* traseiro = so um acento espiando; dianteiro DOMINA o quadro (legibilidade), quase full-bleed */
-.monitor.back{width:440px;top:0;left:calc(50% - 492px);z-index:1;opacity:0.92}
-.monitor.back .bezel .screen{aspect-ratio:1903/1013}
-.monitor.front{width:988px;top:210px;left:calc(50% - 494px);z-index:2}
-.monitor.front .bezel .screen{aspect-ratio:1953/1009}
+/* ---- UI recriada (vetorial) ---- */
+.app{width:100%;height:100%;display:flex;flex-direction:column}
+.nav{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line);background:#0C1424}
+.nav .lg{display:flex;align-items:center;gap:7px;color:var(--gold);font-weight:800;font-size:15px;letter-spacing:0.04em}
+.nav .lg .i{width:19px;height:15px;color:var(--gold)}
+.nav .lg .i svg{width:100%;height:100%;display:block}
+.tabs{display:flex;gap:7px;margin-left:6px}
+.tabs .t{font-size:12px;font-weight:600;color:var(--ink-dim);padding:6px 12px;border-radius:8px;white-space:nowrap}
+.tabs .t.on{color:#0F1526;font-weight:800;background:linear-gradient(135deg,var(--amber3),var(--amber6))}
+.body{flex:1;padding:16px 18px;min-height:0}
 
-footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(30,41,59,0.9);padding-top:16px;margin-top:8px}
+/* preflop table */
+.ptitle{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.ptitle .n{font-size:15px;font-weight:800;color:#E2E8F0}
+.ptitle .r{font-size:11px;color:var(--ink-dim);font-weight:600}
+table.pt{width:100%;border-collapse:collapse}
+table.pt th,table.pt td{text-align:right;font-size:13px;padding:8px 4px;font-variant-numeric:tabular-nums}
+table.pt th:first-child,table.pt td:first-child{text-align:left}
+table.pt th{color:var(--ink-dim);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--line);padding-bottom:9px}
+table.pt th.pos{color:var(--amber)}
+table.pt td{color:#E2E8F0;font-weight:700;border-bottom:1px solid rgba(30,42,64,0.5)}
+table.pt td.a{text-align:left;color:var(--ink-soft);font-weight:600}
+table.pt tr:last-child td{border-bottom:none}
+.up{color:var(--pos)} .dn{color:var(--neg)}
+.up small,.dn small{font-size:10px;margin-left:3px;vertical-align:1px}
+
+/* postflop cards */
+.pfhead{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(120,20,20,0.35),rgba(60,12,12,0.15));border:1px solid rgba(153,27,27,0.4);border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.pfhead .l{display:flex;flex-direction:column;gap:2px}
+.pfhead .l .t{font-size:14px;font-weight:800;color:#F1F5F9}
+.pfhead .l .s{font-size:10px;color:var(--ink-dim);font-weight:600}
+.pfhead .v{font-size:19px;font-weight:900;color:#fff}
+.sect{font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.cards{display:flex;flex-direction:column;gap:9px}
+.card{background:rgba(15,23,42,0.6);border:1px solid var(--line);border-radius:11px;padding:10px 13px}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.card .sz{font-size:14px;font-weight:800;color:#F8FAFC}
+.badge{font-size:11px;font-weight:800;color:#FCA5A5;background:rgba(239,68,68,0.16);border:1px solid rgba(239,68,68,0.34);border-radius:999px;padding:4px 11px}
+.bar{position:relative;height:11px;border-radius:999px;background:#0B1220;border:1px solid rgba(51,65,85,0.5);overflow:visible}
+.bar .fill{position:absolute;inset:0 auto 0 0;border-radius:999px;background:linear-gradient(90deg,#B91C1C,var(--neg))}
+.bar .mdf{position:absolute;top:-4px;bottom:-4px;width:3px;background:var(--amber);border-radius:2px;box-shadow:0 0 8px rgba(251,191,36,0.8)}
+.lbls{display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:var(--ink-dim);font-weight:600}
+.lbls b{color:#CBD5E1;font-weight:700}
+
+footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(30,41,59,0.9);padding-top:24px;margin-top:20px}
 .foot-left{font-size:24px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
 .age{font-size:22px;font-weight:800;color:var(--ink-dim);border:3px solid var(--ink-dim);border-radius:11px;padding:6px 12px}
 
-/* canvas alto (reel 1080x1920): sobe um pouco o stage e da mais respiro vertical
-   entre os monitores, sem escalar largura (evita cortar borda nos 1080px) */
-@media (min-height: 1700px){
-  .monitor.back{top:40px}
-  .monitor.front{top:330px}
-  .stage{height:1000px}
+/* canvas alto (reel 1080x1920): monitores maiores + mais respiro */
+@media (min-height:1700px){
+  .devices{gap:28px}
+  .mon{width:496px}
+  .head{margin-top:20px}
 }
 </style>
 </head>
@@ -115,17 +144,61 @@ footer{position:relative;z-index:3;display:flex;align-items:center;justify-conte
 </div>
 
 <div class="devices">
-  <div class="stage">
-    <div class="glow warm"></div>
-    <div class="glow"></div>
-    <div class="monitor back">
-      <div class="bezel"><div class="screen"><img id="imgBack"></div></div>
-      <div class="neck"></div><div class="foot"></div>
-    </div>
-    <div class="monitor front">
-      <div class="bezel"><div class="screen"><img id="imgFront"></div></div>
-      <div class="neck"></div><div class="foot"></div>
-    </div>
+  <div class="glow"></div>
+
+  <!-- MONITOR 1 · Preflop Analysis -->
+  <div class="mon">
+    <div class="bezel"><div class="scr"><div class="app">
+      <div class="nav">
+        <div class="lg"><span class="i" data-icon></span>AURA</div>
+        <div class="tabs"><span class="t on">Preflop</span><span class="t">Postflop</span><span class="t">Hotspot</span></div>
+      </div>
+      <div class="body">
+        <div class="ptitle"><span class="n">Reg Aggro</span><span class="r">▲▼ vs Global</span></div>
+        <table class="pt">
+          <tr><th>Action</th><th>Total</th><th class="pos">CO</th><th class="pos">BTN</th><th class="pos">SB</th></tr>
+          <tr><td class="a">RFI</td><td>29%</td><td>36%<small class="up">▲</small></td><td>50%<small class="up">▲</small></td><td>45%<small class="up">▲</small></td></tr>
+          <tr><td class="a">Fold vs RFI</td><td>73%</td><td>83%<small class="up">▲</small></td><td>79%<small class="up">▲</small></td><td>77%<small class="up">▲</small></td></tr>
+          <tr><td class="a">3-Bet</td><td>10%</td><td>9%<small class="dn">▼</small></td><td>10%<small class="up">▲</small></td><td>12%<small class="up">▲</small></td></tr>
+          <tr><td class="a">Fold to 3-Bet</td><td>50%</td><td>52%<small class="up">▲</small></td><td>60%<small class="up">▲</small></td><td>62%<small class="up">▲</small></td></tr>
+          <tr><td class="a">4-Bet</td><td>19%</td><td>18%<small class="dn">▼</small></td><td>15%<small class="dn">▼</small></td><td>18%<small class="dn">▼</small></td></tr>
+          <tr><td class="a">Steal Att.</td><td>42%</td><td>36%<small class="up">▲</small></td><td>50%<small class="up">▲</small></td><td>45%<small class="up">▲</small></td></tr>
+        </table>
+      </div>
+    </div></div></div>
+    <div class="neck"></div><div class="foot"></div>
+  </div>
+
+  <!-- MONITOR 2 · Postflop Analysis -->
+  <div class="mon">
+    <div class="bezel"><div class="scr"><div class="app">
+      <div class="nav">
+        <div class="lg"><span class="i" data-icon></span>AURA</div>
+        <div class="tabs"><span class="t">Preflop</span><span class="t on">Postflop</span><span class="t">Hotspot</span></div>
+      </div>
+      <div class="body">
+        <div class="pfhead"><div class="l"><span class="t">XR Flop CBet</span><span class="s">10.6M hands · BB vs BTN</span></div><span class="v">13.9%</span></div>
+        <div class="sect">Exploitative sizes</div>
+        <div class="cards">
+          <div class="card">
+            <div class="top"><span class="sz">33% pot</span><span class="badge">Overfold 9.4%</span></div>
+            <div class="bar"><span class="fill" style="width:65%"></span><span class="mdf" style="left:75%"></span></div>
+            <div class="lbls"><span>Defense <b>65.3%</b></span><span>MDF 75.2%</span></div>
+          </div>
+          <div class="card">
+            <div class="top"><span class="sz">42% pot</span><span class="badge">Overfold 9.0%</span></div>
+            <div class="bar"><span class="fill" style="width:61%"></span><span class="mdf" style="left:70%"></span></div>
+            <div class="lbls"><span>Defense <b>61.4%</b></span><span>MDF 70.4%</span></div>
+          </div>
+          <div class="card">
+            <div class="top"><span class="sz">55% pot</span><span class="badge">Overfold 6.8%</span></div>
+            <div class="bar"><span class="fill" style="width:57%"></span><span class="mdf" style="left:64%"></span></div>
+            <div class="lbls"><span>Defense <b>57.7%</b></span><span>MDF 64.5%</span></div>
+          </div>
+        </div>
+      </div>
+    </div></div></div>
+    <div class="neck"></div><div class="foot"></div>
   </div>
 </div>
 
@@ -155,10 +228,6 @@ document.getElementById("kicker").textContent = CONFIG.kicker;
 document.getElementById("headline").innerHTML = CONFIG.headlineHtml;
 document.getElementById("sub").innerHTML = CONFIG.sub;
 document.getElementById("foot").textContent = CONFIG.footer;
-document.getElementById("imgBack").src = CONFIG.backShot;
-document.getElementById("imgFront").src = CONFIG.frontShot;
-document.querySelector(".monitor.back .bezel .screen").style.aspectRatio = CONFIG.backAspect;
-document.querySelector(".monitor.front .bezel .screen").style.aspectRatio = CONFIG.frontAspect;
 </script>
 </body>
 </html>

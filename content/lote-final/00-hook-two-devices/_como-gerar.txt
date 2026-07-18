@@ -1,9 +1,14 @@
-Criativo: two-devices.html (default) · 1080x1350
-Mockups de LAPTOP/browser (a Aura nao tem versao mobile) — object-fit:contain, nada cortado.
-Prints: auta-total.png (Preflop Analysis, app inteiro c/ nav+filtros) + aura-total2.png (Postflop Analysis,
-app inteiro c/ nav+filtros) — telas REAIS, mostram o produto completo (logo Aura dentro do app, 3 abas de
-navegacao, sidebar de filtros cheia)
-Numeros: reais (do produto)
+Criativo: two-devices.html (default) · 1080x1350 (feed) e 1080x1920 (1o quadro do reel)
+Dois monitores IDENTICOS lado a lado, mesmo tamanho e mesma enfase (nenhum na frente do outro).
+
+IMPORTANTE: a UI dentro de cada tela e RECRIADA em HTML/CSS (VETORIAL) — nao usa mais print raster.
+Motivo: print colado no mockup sempre ficava borrado/baixa qualidade. Vetorial fica nitido em qualquer
+tamanho e reescala sem perda.
+  - Tela esquerda: modulo Preflop — tabela "Reg Aggro" (RFI, Fold vs RFI, 3-Bet, Fold to 3-Bet, 4-Bet,
+    Steal Att.) por posicao (CO/BTN/SB) com deltas vs global.
+  - Tela direita: modulo Postflop — XR Flop CBet (BB vs BTN) + EXPLOITATIVE SIZES (33% / 42% / 55% pot),
+    overfold vs MDF em cada sizing.
+Numeros: reais, extraidos dos prints auta-total.png / aura-total2.png.
 
 USO SUGERIDO: post-ancora / HOOK de topo de funil. Otimo pra FIXAR no topo do perfil
 (explica o que a Aura e num olhar). Pode postar quando quiser, nao tem data fixa.
