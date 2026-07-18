@@ -7,8 +7,10 @@
 <script>
 /* ============================================================
    TWO DEVICES — hook "entenda o que a plataforma faz num olhar".
-   A Aura NAO tem versao mobile — mockups de LAPTOP/browser (nao celular),
-   com prints REAIS em object-fit:CONTAIN (nunca corta o dashboard).
+   A Aura NAO tem versao mobile — mockups de MONITOR DE MESA (nao celular).
+   A tela trava no aspect ratio EXATO do print (backAspect/frontAspect) e o
+   print preenche 100% — NUNCA sobra fundo escuro ao redor (isso era o bug).
+   Sem barra de browser: os prints ja mostram a nav do proprio app.
    Funciona em 1080×1350 (feed) e 1080×1920 (reel opener) — flex.
    ============================================================ */
 const CONFIG = {
@@ -16,10 +18,10 @@ const CONFIG = {
   kicker: "Field intelligence · MTT",
   headlineHtml: "Massive data<br>analysis <em>for MTT</em>",
   sub: "500M+ real hands · 7 rooms. The real field — not theory.",
-  backShot: "shots/auta-total.png",      // laptop de tras (menor) — app inteiro, Preflop Analysis
-  frontShot: "shots/aura-total2.png",    // laptop da frente (maior) — app inteiro, Postflop Analysis
-  backUrl: "beta.aura.poker/preflop",
-  frontUrl: "beta.aura.poker/postflop",
+  backShot: "shots/auta-total.png",      // monitor de tras (menor) — app inteiro, Preflop Analysis
+  frontShot: "shots/aura-total2.png",    // monitor da frente (maior) — app inteiro, Postflop Analysis
+  backAspect: "1903/1013",                // aspect ratio EXATO do arquivo backShot (w/h em px)
+  frontAspect: "1953/1009",               // aspect ratio EXATO do arquivo frontShot (w/h em px)
   footer: "aurapoker.com · free account",
 };
 (function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
@@ -32,7 +34,7 @@ html,body{width:1080px;height:100vh;overflow:hidden}
 body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
   background:radial-gradient(1300px 1000px at 50% -8%, rgba(34,53,89,0.62), transparent 60%),
     radial-gradient(1050px 900px at 50% 108%, rgba(212,164,24,0.16), transparent 60%), var(--bg);
-  position:relative;display:flex;flex-direction:column;padding:70px 80px 64px}
+  position:relative;display:flex;flex-direction:column;padding:44px 46px 30px}
 .suits{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .suits span{position:absolute;font-family:"Segoe UI Symbol","Segoe UI",sans-serif;color:rgba(251,191,36,0.04);user-select:none}
 .arc{position:absolute;top:-620px;left:50%;transform:translateX(-50%);pointer-events:none;filter:drop-shadow(0 0 26px rgba(212,164,24,0.3))}
@@ -44,45 +46,52 @@ header{display:flex;justify-content:space-between;align-items:center;position:re
 .lockup .wm{width:150px;color:var(--gold)}
 .tag{font-size:22px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);border:2px solid rgba(251,191,36,0.35);background:rgba(251,191,36,0.07);border-radius:999px;padding:11px 24px}
 
-.head{position:relative;z-index:3;margin-top:34px;text-align:center}
-.kicker{font-size:26px;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:var(--amber);margin-bottom:24px}
-.headline{font-size:76px;font-weight:900;line-height:1.08;text-transform:uppercase;letter-spacing:0.005em}
+.head{position:relative;z-index:3;margin-top:6px;text-align:center}
+.kicker{font-size:21px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.headline{font-size:50px;font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:0.005em}
 .headline em{font-style:normal;background:linear-gradient(180deg,var(--amber3) 0%,var(--amber) 45%,var(--amber6) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{margin-top:24px;font-size:30px;font-weight:500;line-height:1.4;color:var(--ink-soft);max-width:860px;margin-left:auto;margin-right:auto}
+.sub{margin-top:10px;font-size:22px;font-weight:500;line-height:1.3;color:var(--ink-soft);max-width:820px;margin-left:auto;margin-right:auto}
 .sub b{color:var(--amber);font-weight:800}
 
-.devices{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
-.stage{position:relative;width:920px;height:700px;flex:none}
-.glow{position:absolute;z-index:1;width:820px;height:520px;left:50%;top:52%;transform:translate(-50%,-50%);
-  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.13), transparent 70%);pointer-events:none}
+.devices{position:relative;z-index:3;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin-top:-6px}
+.stage{position:relative;width:1000px;height:850px;flex:none}
+.glow{position:absolute;z-index:1;width:1060px;height:760px;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(50% 50% at 50% 50%, rgba(251,191,36,0.26), transparent 70%);pointer-events:none}
+.glow.warm{width:820px;height:820px;top:58%;background:radial-gradient(50% 50% at 50% 50%, rgba(217,119,6,0.32), transparent 68%)}
 
-/* ---- laptop: tela (browser chrome + canvas) + base do teclado ---- */
-.laptop{position:absolute;display:flex;flex-direction:column;align-items:center}
-.laptop .screen{
-  width:100%;border-radius:16px 16px 4px 4px;overflow:hidden;background:var(--app-bg);
-  border:9px solid #1B2637;border-bottom:3px solid #1B2637;
-  box-shadow:0 50px 130px rgba(0,0,0,0.75), 0 0 60px rgba(212,164,24,0.08);
+/* ---- monitor de mesa: tela (aspect ratio EXATO do print, preenche 100%) + pescoco + pe ---- */
+.monitor{position:absolute;display:flex;flex-direction:column;align-items:center}
+.monitor .bezel{
+  width:100%;border-radius:16px;overflow:hidden;background:#000;
+  border:13px solid #182234;
+  box-shadow:0 60px 150px rgba(0,0,0,0.8), 0 0 90px rgba(212,164,24,0.12), inset 0 0 0 1px rgba(255,255,255,0.03);
 }
-.laptop .chrome{display:flex;align-items:center;gap:8px;background:#101B30;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,0.05)}
-.laptop .chrome .dot{width:10px;height:10px;border-radius:50%;background:#334155}
-.laptop .chrome .url{margin-left:10px;font-size:14px;font-weight:600;color:var(--ink-dim);background:rgba(2,6,23,0.6);border-radius:999px;padding:5px 16px;letter-spacing:0.02em}
-.laptop .canvas{width:100%;display:flex;align-items:center;justify-content:center;background:var(--app-bg);padding:16px}
-.laptop .canvas img{width:100%;height:100%;object-fit:contain;display:block}
-.laptop .base{
-  width:112%;height:16px;margin-top:-1px;border-radius:0 0 10px 10px;
-  background:linear-gradient(180deg,#1B2637 0%,#101827 100%);
-  box-shadow:0 14px 30px rgba(0,0,0,0.5);position:relative;
+.monitor .bezel .screen{width:100%;overflow:hidden;background:var(--app-bg)}
+.monitor .bezel .screen img{width:100%;height:100%;object-fit:cover;display:block}
+.monitor .neck{width:28px;height:68px;background:linear-gradient(180deg,#182234 0%,#0d1420 100%);margin-top:-2px}
+.monitor .foot{
+  width:320px;height:22px;border-radius:12px;margin-top:-2px;
+  background:linear-gradient(180deg,#1E293B 0%,#101827 100%);
+  box-shadow:0 22px 46px rgba(0,0,0,0.6);
 }
-.laptop .base::after{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:70px;height:6px;background:var(--bg);border-radius:0 0 8px 8px}
 
-.laptop.back{width:520px;top:14px;left:calc(50% - 470px);transform:rotate(-5deg);z-index:1}
-.laptop.back .screen .canvas{height:300px}
-.laptop.front{width:640px;top:230px;left:calc(50% - 280px);transform:rotate(4deg);z-index:2}
-.laptop.front .screen .canvas{height:400px}
+/* traseiro = so um acento espiando; dianteiro DOMINA o quadro (legibilidade), quase full-bleed */
+.monitor.back{width:440px;top:0;left:calc(50% - 492px);z-index:1;opacity:0.92}
+.monitor.back .bezel .screen{aspect-ratio:1903/1013}
+.monitor.front{width:988px;top:210px;left:calc(50% - 494px);z-index:2}
+.monitor.front .bezel .screen{aspect-ratio:1953/1009}
 
-footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(30,41,59,0.9);padding-top:26px;margin-top:24px}
+footer{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(30,41,59,0.9);padding-top:16px;margin-top:8px}
 .foot-left{font-size:24px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
 .age{font-size:22px;font-weight:800;color:var(--ink-dim);border:3px solid var(--ink-dim);border-radius:11px;padding:6px 12px}
+
+/* canvas alto (reel 1080x1920): sobe um pouco o stage e da mais respiro vertical
+   entre os monitores, sem escalar largura (evita cortar borda nos 1080px) */
+@media (min-height: 1700px){
+  .monitor.back{top:40px}
+  .monitor.front{top:330px}
+  .stage{height:1000px}
+}
 </style>
 </head>
 <body>
@@ -107,20 +116,15 @@ footer{position:relative;z-index:3;display:flex;align-items:center;justify-conte
 
 <div class="devices">
   <div class="stage">
+    <div class="glow warm"></div>
     <div class="glow"></div>
-    <div class="laptop back">
-      <div class="screen">
-        <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url" id="backUrl"></span></div>
-        <div class="canvas"><img id="imgBack"></div>
-      </div>
-      <div class="base"></div>
+    <div class="monitor back">
+      <div class="bezel"><div class="screen"><img id="imgBack"></div></div>
+      <div class="neck"></div><div class="foot"></div>
     </div>
-    <div class="laptop front">
-      <div class="screen">
-        <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url" id="frontUrl"></span></div>
-        <div class="canvas"><img id="imgFront"></div>
-      </div>
-      <div class="base"></div>
+    <div class="monitor front">
+      <div class="bezel"><div class="screen"><img id="imgFront"></div></div>
+      <div class="neck"></div><div class="foot"></div>
     </div>
   </div>
 </div>
@@ -151,10 +155,10 @@ document.getElementById("kicker").textContent = CONFIG.kicker;
 document.getElementById("headline").innerHTML = CONFIG.headlineHtml;
 document.getElementById("sub").innerHTML = CONFIG.sub;
 document.getElementById("foot").textContent = CONFIG.footer;
-document.getElementById("backUrl").textContent = CONFIG.backUrl;
-document.getElementById("frontUrl").textContent = CONFIG.frontUrl;
 document.getElementById("imgBack").src = CONFIG.backShot;
 document.getElementById("imgFront").src = CONFIG.frontShot;
+document.querySelector(".monitor.back .bezel .screen").style.aspectRatio = CONFIG.backAspect;
+document.querySelector(".monitor.front .bezel .screen").style.aspectRatio = CONFIG.frontAspect;
 </script>
 </body>
 </html>
