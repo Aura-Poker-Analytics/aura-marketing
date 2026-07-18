@@ -14,7 +14,9 @@ Você agenda; nenhum agente publica.
   borrado). Explica a Aura num olhar — é o melhor post pra fixar no perfil. Sem data fixa.
 
 ## 🎬 Reels (em `reels/`)
-- **`reel-lancamento-aura-2.0.mp4` — PRONTO** (23,9s, 1080×1920). ⚠️ sem áudio: adicione uma trilha no editor
+- **`reel-lancamento-aura-2.0.mp4` — PRONTO** (23,9s, **1080×1350 / 4:5** — o 9:16 era recusado pelo
+  uploader do IG, que só aceita de 4:5 a 16:9; a versão vertical cheia ficou em `-9x16.mp4`).
+  ⚠️ sem áudio: adicione uma trilha no editor
   do Instagram antes de postar. Sugestão de data: **19/07**. (abre com o hook dos 2 monitores)
 - `04/08/11-*.txt` — roteiros dos outros 3 reels (cena a cena), pra gravar depois.
 
