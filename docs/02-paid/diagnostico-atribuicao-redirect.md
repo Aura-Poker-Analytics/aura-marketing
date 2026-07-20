@@ -14,8 +14,12 @@ HTTP/1.1 301 Moved Permanently
 Location: https://www.aurapoker.com          ← domínio cru: sem "/", sem "?utm_..."
 ```
 
-- Só o path raiz `/` do apex faz o 301; outros paths (`/modulos`) dão `404`. Comportamento típico de **redirect de domínio secundário do Azure Static Web Apps** (apex configurado como redirect pro domínio primário `www`, apontando pra raiz).
-- Não existe `staticwebapp.config.json` / `vercel.json` / `_redirects` no repo `aura-landing` → **o redirect não é código, é config de plataforma (Azure)**. Fix de repo não resolve.
+- **A origem do 301 é o Domain Forwarding da GoDaddy — NÃO é Azure** (confirmado 2026-07-20 via `az` CLI + DNS):
+  - Nameservers do domínio: `ns09/ns10.domaincontrol.com` + `dns.jomax.net` → **GoDaddy**.
+  - Apex `aurapoker.com` resolve pra `3.33.251.168`, com header `Server: ...ec2.internal` → **serviço de encaminhamento da GoDaddy** (roda em AWS), que 301-a pra `https://www.aurapoker.com` cru.
+  - `www.aurapoker.com` → CNAME → `jolly-flower-0b6161c0f.7.azurestaticapps.net` (o SWA, serve o app OK).
+  - No Azure, o SWA `Aura-Landing-Page` tem **só `www.aurapoker.com`** como custom domain — **o apex nem está bindado lá**.
+- Não existe `staticwebapp.config.json` / `vercel.json` / `_redirects` no repo `aura-landing`, e nenhuma config de Azure toca nisso → **o fix é no painel da GoDaddy (registrador), não em código nem em Azure.**
 - As tags estão corretas no bundle no ar (`https://www.aurapoker.com/assets/index-*.js`): GA4 `G-82QPEX5EJS`, pixel `1405949840871947`, `fbq`, `aura_consent`. **Não é tag ausente** — é o UTM sendo apagado antes de chegar nelas.
 
 ## 2. Por que isso explica TODOS os sintomas
@@ -48,8 +52,8 @@ Não é a tag: é o **mesmo property/measurement ID (`G-82QPEX5EJS`) herdado da 
 ## 4. Plano de correção (por dono)
 
 ### 4a. 🔴 P0 — parar de perder UTM (destrava toda a mensuração)
-- **Fix imediato (Rafael, Linktree, ~30s):** trocar o destino do link pra **com www**: `https://www.aurapoker.com/?utm_source=instagram&utm_medium=bio&utm_campaign=launch20`. Elimina o hop apex→www — o UTM sobrevive na hora. Não depende de deploy.
-- **Fix estrutural (Betiato/Azure):** ver [handoff-betiato-redirect-ga4.md](handoff-betiato-redirect-ga4.md). O redirect apex tem que **preservar path+query** (`301` pra `https://www.aurapoker.com{path}{query}`), ou o apex passa a servir o app direto + `staticwebapp.config.json` canonicaliza pra www preservando a query.
+- **Fix imediato (Rafael, Linktree, ~30s):** trocar o destino do link pra **com www**: `https://www.aurapoker.com/?utm_source=instagram&utm_medium=bio&utm_campaign=launch20`. Pula o encaminhamento da GoDaddy — o UTM sobrevive na hora. Não depende de deploy nem de mexer em DNS.
+- **Fix estrutural (quem tem acesso à GoDaddy):** ver [handoff-betiato-redirect-ga4.md](handoff-betiato-redirect-ga4.md). Ou (a) reconfigurar o Forwarding da GoDaddy pra **preservar path+query**, ou (b) parar o forwarding e bindar o apex direto no SWA (custom domain + validação TXT + registro apex), aí o apex serve o app sem 301 lossy. **Não é tarefa de Azure isolado** — sem o passo no registrador, o Azure sozinho não resolve.
 
 ### 4b. 🟠 Higiene do GA4 (Rafael, painel Admin — a Data API/MCP é só leitura, não edita config)
 1. **Data filter "internal traffic"** excluindo `localhost` (e IPs de dev).
