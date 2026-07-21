@@ -50,6 +50,13 @@ Desde 15/07 (PR #4), **nada de GA4 nem Pixel dispara até o clique em "Aceitar"*
 
 **Recomendação (precisa de decisão sua/legal — não mexi):** implementar **Consent Mode v2** — `gtag('consent','default',{ analytics_storage:'denied', ad_storage:'denied' })` antes do load + `update` no aceite. LGPD é mais flexível que GDPR; analytics sob legítimo interesse com sinais default é defensável e recupera modelagem agregada. Alternativa: default `granted` pra analytics (não-pixel) fora da UE. É PR na `aura-landing` — deixo pronto pro Betiato quando você decidir a postura.
 
+### 3c. 🟠 GA4 é cego pra conversão de cadastro (gap descoberto via Admin API)
+Lendo o GA4 Admin API (ADC readonly) confirmei:
+- **2 data streams intencionais no mesmo property `506294082`:** "Aura Landing Page" (`www.aurapoker.com`, `G-82QPEX5EJS`) + "Plataforma Aura" (`aura.poker`, `G-KL9K2FYVV2`). **Não é vazamento** — é setup correto pra funil cross-domain. (Corrige recomendação anterior de "separar o app": manter juntos, filtrar só o lixo.)
+- **Eventos-chave = `purchase`, `close_convert_lead`, `qualify_lead`** — todos legado WooCommerce/CRM; `purchase` nem dispara.
+- **Eventos recebidos (28d):** page_view, session_start, scroll, click, form_start, begin_checkout(5), add_to_cart(4). **NÃO existe `sign_up` nem `CompleteRegistration`.** O app dispara CompleteRegistration só pro **pixel Meta**, nunca pro GA4 → **o GA4 não enxerga a conversão de cadastro**. Só dá pra medir visita, não signup.
+- **Fix (code, novofront, aditivo):** disparar `gtag('event','sign_up')` no sucesso do cadastro (junto do `trackCompleteRegistration` que já existe), depois marcar `sign_up` como evento-chave e limpar os 3 legados. Deixo pro Betiato — é consent-gated também, então casa com a decisão do 3a.
+
 ### 3b. 🟡 Falta 1 validação de caminho completo (cadastro-teste humano)
 Tudo acima prova que o código está certo e a CAPI dispara. O que **nenhuma auditoria prova** é o caminho real fim-a-fim com UTM: IG→bio(www)→landing→app→signup, resultando em `utm_source=instagram` gravado no `tbl_user` + `CompleteRegistration` "deduplicado" no Events Manager. **Só um humano no celular fecha isso.** Não fiz cadastro sintético autônomo porque dispara evento real na Meta + email, e o caminho via API pularia justamente a landing/redirect que queremos validar.
 
@@ -61,7 +68,7 @@ Tudo acima prova que o código está certo e a CAPI dispara. O que **nenhuma aud
 - [ ] **Cadastro-teste no celular** (IG→bio→signup) → me avisa que eu confiro `utm_*`/`fbp` no `tbl_user` + dedup no Events Manager. **(fecha 3b)**
 - [ ] **Decidir postura de consentimento** (Consent Mode v2 vs default granted p/ analytics) → eu preparo o PR da landing. **(resolve 3a)**
 - [ ] **Events Manager**: confirmar que `reg_316`/`reg_317` chegaram (prova que a Meta aceita, não só "enviado"). **(BM)**
-- [ ] **GA4 Admin** (higiene): filtro localhost, hostname, separar app, referral exclusion linktr.ee, cross-domain, `sign_up` como evento-chave. **(te guio ao vivo)**
+- [ ] **GA4 Admin** (higiene, corrigido): filtro internal traffic `localhost`; filtro de hostname mantendo **`aurapoker.com` + `aura.poker`** e excluindo beta/loja/preview; **cross-domain** entre os 2 streams; referral exclusion `linktr.ee`; adicionar evento `sign_up` (código app, §3c) e marcá-lo como evento-chave; limpar os 3 eventos-chave legados (`purchase`/`close_convert_lead`/`qualify_lead`). **(te guio ao vivo)**
 - [ ] **BM**: verificar domínio `aura.poker` no dataset.
 - [ ] (Opcional) hardening §4 pro Betiato.
 
