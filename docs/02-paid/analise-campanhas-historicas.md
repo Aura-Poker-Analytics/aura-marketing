@@ -70,6 +70,22 @@ Quase **4 em cada 10 impactos foram mulheres** na campanha grande — desproporc
 
 O CPM caro do "Preflop" (R$17,40) é o **preço normal de audiência disputada e qualificada** — reforça que "barato" nas outras era sintoma, não eficiência.
 
+## 4b. 🔴 O interesse "poker" está envenenado (conhecimento do PO — não derivável da API)
+
+**Fonte: Rafael, 2026-07-21.** O targeting spec das campanhas antigas **não é exposto pela API**, então esta peça do quebra-cabeça só existe porque o PO lembrava:
+
+> *"vinham muitas pessoas de jogos de apostas/casinos que começavam a seguir e eu precisava limpar. Tem que cuidar com o termo poker sozinho pq eu lembro que direcionava pra essas pessoas."*
+
+**Mecanismo:** na taxonomia da Meta, o interesse "Poker" agrega **poker social/casual + apps de cassino + apostas**. O volume desse balde é dominado por jogador de cassino, não por grinder de MTT. Pede-se "poker", a Meta entrega o maior grupo que carrega o rótulo.
+
+É **o mesmo erro estrutural do PROFILE_VISIT**: o algoritmo acerta com precisão o alvo descrito — e o rótulo descrevia a audiência errada. Duas causas independentes, o mesmo padrão de falha.
+
+**Regra derivada:** ❌ **nunca usar o interesse "poker" isolado.** Em vez disso:
+- **Sinais específicos:** sites (PokerStars, GGPoker), trackers/solvers (PokerTracker, Hold'em Manager, GTO Wizard), mídia (PokerNews, Hendon Mob), figuras do circuito. Quem segue solver não é quem curte app de cassino.
+  *(conferir disponibilidade real no construtor — a taxonomia da Meta varia)*
+- **Exclusões explícitas:** cassino, apostas esportivas, bingo, jogos de azar. Corta o vazamento na origem em vez de podar seguidor na mão depois.
+- **Criativo como filtro primário:** dado que a taxonomia de interesse é justamente onde mora a contaminação, apoiar-se no criativo é **mais seguro** que apoiar-se no targeting. O post de preflop provou isso — 12,85% de CTR sem segmentação sofisticada.
+
 ## 5. ⚠️ Consequência que afeta o plano atual
 
 O público **"Aura | IG Engajadores 365d" (8.600–10.100 pessoas)** — que eu havia recomendado como Camada 1 do primeiro teste pago — foi **parcialmente construído por essas campanhas**. Visitas de perfil e engajamento gerados pelos ad sets de PROFILE_VISIT entram nesse pool.
@@ -78,17 +94,42 @@ O público **"Aura | IG Engajadores 365d" (8.600–10.100 pessoas)** — que eu 
 
 Os públicos **limpos** hoje são os pequenos: Site Visitantes (20) e Convertidos CompleteRegistration (20) — pequenos porque o consent gate bloqueava o pixel até 21/07, e que **agora crescem** com sinal limpo.
 
+### 5b. A base de seguidores foi podada — mas isso não conserta as lookalikes antigas
+
+O PO limpou manualmente os seguidores vindos de cassino/apostas, e avalia que **a base hoje está aderente ao nicho**. Isso é uma boa notícia, com uma ressalva temporal importante:
+
+As lookalikes existentes foram criadas em **29/01/2026**, a partir da semente **como ela era naquela data**. Limpeza posterior não age retroativamente sobre elas.
+
+| Ativo | Estado |
+|---|---|
+| LAL 1% e 1–3% (criadas 29/01) | carregam o ruído da base **pré-limpeza** |
+| Base "Seguidores IG" hoje (~1.000, podada) | aderente segundo o PO |
+| **Uma LAL nova, criada hoje sobre a base podada** | **outro ativo** — potencialmente decente |
+
+Ou seja: a semente melhorou, mas o produto derivado dela em janeiro não. Uma LAL nova vale mais do que eu havia concluído — ainda assim não é por onde começar, porque a semente segue em ~1.000 e o histórico mostra que LAL de semente pequena dilui.
+
 ## 6. Princípio para o próximo real
 
 > **O público que você constrói é função do que você otimizou.** Otimizar por visita de perfil constrói uma audiência de visitantes de perfil. Otimizar por cadastro constrói uma audiência de cadastrantes.
 
 Regras derivadas, para a Fase B:
 
-1. **Nunca otimizar por PROFILE_VISIT** para aquisição. Otimizar pela ação mais profunda que o orçamento sustentar — no nosso caso, `CompleteRegistration` (agora rastreável e provado).
+1. **Nunca otimizar por PROFILE_VISIT** para aquisição. Otimizar pela ação mais profunda que o **volume** sustentar (ver ressalva abaixo).
 2. **CTA para o site**, nunca `VIEW_INSTAGRAM_PROFILE`.
-3. **Criativo com jargão específico** (preflop, ranges, ICM, field) filtra melhor que qualquer segmentação de interesse disponível — foi o que entregou 12,85% de CTR com R$19,77.
-4. **Não construir lookalike sobre a base de seguidores.** Esperar ~100 cadastros reais e construir a LAL sobre **convertidos** — semente pequena mas limpa vale mais que semente grande e ruidosa.
-5. **Desconfiar de CPM barato.** Nesta conta, CPM baixo foi indicador de audiência irrelevante, não de eficiência.
+3. ❌ **Nunca o interesse "poker" isolado** (§4b). Sinais específicos + exclusão de cassino/apostas.
+4. **Criativo com jargão específico** (preflop, ranges, ICM, field) filtra melhor que qualquer segmentação de interesse disponível — 12,85% de CTR com R$19,77. **É o filtro primário, não o secundário.**
+5. **Não construir lookalike sobre a base de seguidores** como ponto de partida — semente de ~1.000 dilui. A LAL sobre **convertidos** é o objetivo, mas é resultado do pago, não pré-requisito dele (§6b).
+6. **Desconfiar de CPM barato.** Nesta conta, CPM baixo foi indicador de audiência irrelevante, não de eficiência.
+
+### 6b. Ressalva de realidade: a semente limpa é o PRODUTO do pago, não seu pré-requisito
+
+O orgânico está em ~0,5 cadastro/dia e decaindo — a 100 cadastros seriam ~6 meses. **Esperar a semente limpa pelo orgânico não é um plano.**
+
+E **não dá para otimizar por `CompleteRegistration` na largada**: otimização por conversão precisa de ~50 conversões/semana por conjunto para sair do aprendizado; no orçamento previsto seriam ~15. O algoritmo não aprenderia e o custo dispararia.
+
+**Sequência realista:**
+- **Fase 1** — otimizar por **cliques no link / visualizações da LP** (volume suficiente para aprender), criativo com jargão carregando a filtragem, interesses específicos + exclusões. Objetivo: gerar cadastros limpos e pool de retargeting.
+- **Fase 2** — com ~100 cadastros acumulados: LAL sobre **convertidos** + migração para otimização por conversão.
 
 ## 7. O que segue não disponível
 
