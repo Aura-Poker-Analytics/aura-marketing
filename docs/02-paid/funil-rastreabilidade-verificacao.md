@@ -2,6 +2,20 @@
 
 **Autor:** thread Mídia Paga (autônomo, subagentes Sonnet) · **Método:** 3 auditorias de código nos repos deployados (`origin/main`) + App Insights de produção + `tbl_user` + `az` CLI + bundle no ar. Tudo verificado empírica ou por leitura de código, com file:line.
 
+> ## ✅ Atualização 2026-07-21 — rastreabilidade PROVADA + 2 PRs abertos
+>
+> **Cadastro e2e passou.** Usuário **320** gravou `utm_source=instagram`, `utm_medium=bio`, `utm_campaign=launch20` no `tbl_user`, e a CAPI disparou (`reg_320` no App Insights). O caminho IG→bio(www)→landing→app→signup→banco **está rastreando**. A camada 8 saiu de "não provado" para **provado**.
+>
+> Dois sinais complementares no mesmo dia: o 320 veio **sem `fbp`/`fbc`** (banner não aceito) e o cadastro orgânico **319** veio **com `fbp` mas sem UTM** (sem link taggeado) — os dois confirmam os mecanismos exatamente como diagnosticado.
+>
+> **PRs abertos (sem merge, para review do Betiato):**
+> - [aura-landing #5](https://github.com/Aura-Poker-Analytics/aura-landing/pull/5) — guard de host + consent opt-out + Consent Mode v2
+> - [aura-novofront #28](https://github.com/Aura-Poker-Analytics/aura-novofront/pull/28) — idem + **evento `sign_up` no GA4** (§3c)
+>
+> **GA4 Admin feito pelo Rafael:** medição cross-domain entre os 2 streams + exclusão de referências (`linktr.ee`, auto-referência). Falta só marcar `sign_up` como evento-chave **depois** do deploy do #28.
+>
+> ⚠️ **Novo, fora do escopo do funil:** 10 exceptions do Stripe em 7d — `No such customer/subscription ... exists in test mode, but a live mode key was used`. Mistura de chave test/live. Afeta a camada 11 (se a assinatura falha, `Subscribe` nunca dispara). Para o Betiato.
+
 **Veredito de uma linha:** a instrumentação está **correta e deployada ponta a ponta** — o `null` de UTM era 100% o redirect (já corrigido via Linktree→www), não bug de código. Restam **2 questões reais**: (1) o consent gate suprime GA4/Pixel por padrão (decisão LGPD, não bug), e (2) falta 1 validação de caminho completo (cadastro-teste humano). A **atribuição de primeira-parte (UTM→`tbl_user`) funciona independente de consentimento** — é a nossa fonte confiável.
 
 ---
