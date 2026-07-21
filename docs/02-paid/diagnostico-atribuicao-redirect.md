@@ -2,6 +2,8 @@
 
 **Autor:** thread Mídia Paga · **Data:** 2026-07-20 · **Método:** GA4 Data API (property `506294082`) + `curl` no domínio real + inspeção do bundle JS no ar + `tbl_user` em produção. Tudo verificado, nada assumido.
 
+> ✅ **RESOLVIDO (2026-07-20):** Rafael trocou o destino do Linktree pra `https://www.aurapoker.com/?utm...` (com www) — verificado que preserva a query (HTTP 200). Isso conserta o funil de atribuição. Decisão: **não** migrar DNS pra Azure (GoDaddy não suporta ALIAS no apex; migração traria risco de quebrar email). O registro apex pendente que eu havia criado no SWA foi **removido** (Azure ficou só com `www`, `Ready`). Ajuste opcional restante: forwarding da GoDaddy preservar query pra tráfego que digita o domínio cru (baixa prioridade). **Próximo passo de validação real:** 1 cadastro ponta-a-ponta pra confirmar `utm_*`/`fbp` gravando no `tbl_user`.
+
 **TL;DR:** não é tag faltando nem consentimento. O redirect **`aurapoker.com` → `www.aurapoker.com`** responde `301` com `Location: https://www.aurapoker.com` **cru — sem path e sem query string**. Como o link da bio (Linktree) usa o domínio **sem www**, todo visitante do Instagram perde os UTMs *antes* de a landing (e o GA4/pixel) carregarem. Uma linha de config de domínio explica o funil de atribuição inteiro estar em branco.
 
 ---
