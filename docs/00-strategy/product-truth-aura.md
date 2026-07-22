@@ -8,7 +8,7 @@
 ## 0. O que a Aura É / NÃO É
 - **É** uma categoria própria: **inteligência de exploit da POPULAÇÃO (field) de MTT** — mede o que o field realmente faz (frequências reais), não teoria.
 - **NÃO é tracker**: não mostra winrate/ROI/bankroll pessoal do herói (o lake só tem `chipswon` bruto do vencedor, sem payout por jogador).
-- **NÃO é solver**: não compara com GTO, não tem overlay solver×pool, não calcula EV por spot. Hoje é 100% **descritivo** (frequência observada) + um sinal de exploit real: **pressão de fold vs MDF** (heurística, nunca chamada de "GTO").
+- **NÃO é solver**: não compara com GTO, não tem overlay solver×pool, não calcula EV por spot. Hoje é 100% **descritivo** (frequência observada) + um sinal de exploit real: **pressão de fold vs MDF** (heurística, nunca chamada de "GTO"). ⚠️ Sobre o que o sinal de MDF **não** prova, ver §10.
 
 ## 1. Número-herói e prova
 - **500M+ mãos auditadas** (nunca "bilhões" — confirmado pelo dono, 09/07).
@@ -60,4 +60,30 @@ Estas peças de marketing afirmam coisas que o dono confirmou como intenção, m
 
 ## 9. Banco de claims
 **APROVADOS (100% verdadeiros e vendáveis):** field intelligence de MTT; 500M+ mãos auditadas; 7 salas; anonimizado + intervalo de confiança; atualização trimestral; Hotspot ranqueia exploits por desvio de MDF com selo de confiança; filtros ilimitados empilháveis (a 1.0 tinha trava de 3); sizing de bet em %pot; estágio de torneio/ICM/bolha (nenhum solver modela); Mystery Bounty/KO; reg vs fish; plano grátis sem cartão; **plano grátis = preview de cada módulo** (alguns exploit cards no Hotspot + amostra de Preflop ≤$22/Vanilla/Early + amostra de Postflop).
-**PROIBIDOS:** qualquer promessa de lucro/EV/winrate; "solver overlay"/"vs GTO"; cobertura balanceada por sala; "raise em %pot"; "Team = banco isolado ativo"; depoimentos fictícios; **"Hotspot completo/full grátis" e Preflop/Postflop "completos" no grátis** (grátis é sempre PREVIEW/amostra; board completo + filtros = pago).
+**PROIBIDOS:** qualquer promessa de lucro/EV/winrate; "solver overlay"/"vs GTO"; cobertura balanceada por sala; "raise em %pot"; "Team = banco isolado ativo"; depoimentos fictícios; **"Hotspot completo/full grátis" e Preflop/Postflop "completos" no grátis** (grátis é sempre PREVIEW/amostra; board completo + filtros = pago); **"defesa abaixo do MDF = leak/erro/gap explorável"** (ver §10).
+
+---
+
+## 10. ⚠️ FRONTEIRA DO SINAL DE MDF — o que ele mede e o que ele NÃO prova
+
+Verificado em pesquisa com verificação adversarial (25 afirmações × 3 votos) —
+detalhe e citações em [pesquisa-mdf-limites.md](pesquisa-mdf-limites.md). **Toda copy que usa o
+painel de MDF checa contra aqui.**
+
+**O que é verdade e pode afirmar:**
+- MDF = `P/(P+B)` e o break-even de blefe = `B/(P+B)` são **complementos exatos**. "Defende abaixo do MDF" e "folda acima do break-even" são a mesma frase — mas **só sob a premissa de blefe de equity zero**, que é como o MDF é definido.
+- A **medição** é sempre afirmável: "o field defende X% onde o MDF pede Y%". É descrição, não inferência.
+- **Comparação relativa** (textura A vs textura B, vilão A vs vilão B) é a forma mais sólida: compara duas frequências medidas, com o MDF entrando só como baseline igual nos dois lados.
+
+**O que NÃO se pode inferir do MDF sozinho:**
+1. **Flop/turn:** solvers defendem rotineiramente **abaixo do MDF no equilíbrio**, porque quase todo candidato a blefe tem equity — o apostador não precisa do fold imediato. No equilíbrio o vilão **deve mesmo** ter blefes lucrativos. Logo defesa abaixo do MDF **não é leak**.
+2. **River:** a objeção de equity futuro some, mas a defesa de equilíbrio ainda difere do MDF por **blockers/card removal** e por **falta de candidatos a blefe** no range do apostador.
+3. **🚨 ICM (o mais grave pra nós — somos 100% MTT):** em spots com ICM o **MDF não é o benchmark correto**, porque ficha perdida vale mais que ficha ganha. Há solver de river com ICM em que o defensor paga **menos** que no chip-EV **mesmo com o agressor blefando mais**. Ou seja: **parte do "overfold" que medimos em bolha/mesa final é o field jogando CERTO.** O badge "Overfold" não distingue isso hoje.
+
+**Regra de copy:** liderar por **descrição** e por **comparação relativa**. Nunca por inferência de
+exploit a partir do desvio de MDF. Se precisar da leitura de EV, ela só vale com os quatro
+qualificadores (blefe puro, desistir se pago, em fichas, estágio de ICM baixo) — o que raramente
+cabe numa peça.
+
+**Anotado, não resolvido (produto):** avaliar segmentar/renomear o badge "Overfold" por estágio,
+já que em ICM alto ele nomeia como desvio algo que pode ser equilíbrio.

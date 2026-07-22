@@ -482,11 +482,13 @@ window.DECK = {
   "p2-s1": { kicker: "Postflop · MTT", big: 'A matemática<br>diz <em>64,5%</em>',
     line: "O field defende 57,7%.",
     caption: "MDF de 64,5%. O field defende 57,7%." },
+  /* s2: DESCRITIVO, sem inferir exploit. A leitura "abaixo do MDF logo tem leak" nao se
+     sustenta no flop nem em torneio (ICM) — ver pesquisa-mdf-limites.md §3 e §6. */
   "p2-s2": { kicker: "C-bet de 55% do pote",
-    line: "MDF é matemática. Defesa real é comportamento. O gap é o alvo.",
+    line: "MDF é matemática. Defesa real é comportamento medido.",
     block: { type:"bars", rows:[
       { sz:"55% do pote", badge:"Overfold 6,8 pts", def:57.7, mdf:64.5, defL:"57,7%", mdfL:"64,5%" } ] },
-    caption: "A distância entre a linha amarela e a barra é o gap explorável." },
+    caption: "O field defende 57,7% onde a matemática pede 64,5%." },
   "p2-s3": { kicker: "Em todo tamanho de aposta",
     block: { type:"postflop", head:"XR Flop CBet", sub:"10,6M mãos · CO abre, BB paga", val:"13,9%",
       sect:"Tamanhos exploráveis", rows:[
