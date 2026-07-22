@@ -438,4 +438,99 @@ window.DECK = {
     ],
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
+
+  /* ==========================================================
+     CAMPANHA AURA-PAID01 — cenas dos 3 videos de ANUNCIO (paid-scene.html)
+     9:16 · PT-BR · zonas seguras · legenda queimada · sem "link na bio".
+
+     PROCEDENCIA DOS NUMEROS — todos lidos das telas reais:
+       auta-total.png  → Preflop, Breakdown "Player Type"
+                         (contexto: All Tournaments · Any Stage · Any Buy-in · Last 2 Years)
+       aura-total2.png → Postflop, Breakdown "Flop Connectedness"
+                         (contexto: SRP · RFI: CO · Caller: BB · Last 2 Years)
+     NENHUM numero e de solver. A Aura nao e solver (product-truth-aura.md §0):
+     MDF e identidade matematica, nao output de solver — por isso a copy diz
+     "a matematica/MDF", nunca "o solver diz X%".
+     ========================================================== */
+
+  /* ---------- V1 · jargao preflop puro (replica do vencedor historico) ---------- */
+  "p1-s1": { kicker: "Preflop · MTT", big: 'RFI de <em>50%</em><br>no BTN',
+    line: "É o que o reg agressivo do field faz. Medido, não estimado.",
+    caption: "RFI de 50% no botão. Isso é o field — não é teoria." },
+  "p1-s2": { kicker: "Mesmo spot, vilão diferente",
+    line: "O field não é uma média. São perfis com frequências diferentes.",
+    block: { type:"vs", delta:"15 pts",
+      a:{ lb:"Reg agressivo", v:"50%", sb:"RFI no BTN" }, aHot:true,
+      b:{ lb:"Reg tight", v:"35%", sb:"RFI no BTN" } },
+    caption: "Reg agressivo abre 50% do botão. Reg tight, 35%." },
+  "p1-s3": { kicker: "A tela real",
+    block: { type:"preflop", title:"Reg Aggro", right:"▲▼ vs Global", cols:["CO","BTN","SB"], hi:"RFI",
+      rows:[["RFI","29%","36%","50%","45%"],["Fold vs RFI","73%","83%","79%","77%"],
+            ["3-Bet","10%","9%","10%","12%"],["Fold to 3-Bet","50%","52%","60%","62%"],
+            ["4-Bet","19%","18%","15%","18%"],["Steal Att.","42%","36%","50%","45%"]] },
+    caption: "Frequência observada, com tamanho de amostra e intervalo de confiança." },
+  "p1-s4": { kicker: "Reg agressivo · todas as posições",
+    block: { type:"stats", rows:[
+      { k:"Fold vs RFI", v:"73%" }, { k:"3-Bet", v:"10%" }, { k:"Steal Attempt", v:"42%" } ] },
+    line: "Cada número desses é um spot que você joga toda sessão.",
+    caption: "Fold vs RFI, 3-bet, steal attempt — o field inteiro, medido." },
+  "p1-s5": { big: 'Recorta por <em>posição</em>,<br>stack, estágio<br>e tipo de vilão', bigSm: true,
+    line: "Filtros empilháveis: buy-in, KO, Mystery Bounty, bolha, mesa final.",
+    caption: "20+ filtros combináveis até o micro-spot exato." },
+
+  /* ---------- V2 · dados reais vs teoria (angulo desocupado na Ads Library) ---------- */
+  "p2-s1": { kicker: "Postflop · MTT", big: 'A matemática<br>diz <em>64,5%</em>',
+    line: "O field defende 57,7%.",
+    caption: "MDF de 64,5%. O field defende 57,7%." },
+  "p2-s2": { kicker: "C-bet de 55% do pote",
+    line: "MDF é matemática. Defesa real é comportamento. O gap é o alvo.",
+    block: { type:"bars", rows:[
+      { sz:"55% do pote", badge:"Overfold 6,8 pts", def:57.7, mdf:64.5, defL:"57,7%", mdfL:"64,5%" } ] },
+    caption: "A distância entre a linha amarela e a barra é o gap explorável." },
+  "p2-s3": { kicker: "Em todo tamanho de aposta",
+    block: { type:"postflop", head:"XR Flop CBet", sub:"10,6M mãos · CO abre, BB paga", val:"13,9%",
+      sect:"Tamanhos exploráveis", rows:[
+        { sz:"33% do pote", badge:"Overfold 9,4%", def:65.8, mdf:75.2, defL:"65,8%", mdfL:"75,2%" },
+        { sz:"42% do pote", badge:"Overfold 9,0%", def:61.4, mdf:70.4, defL:"61,4%", mdfL:"70,4%" },
+        { sz:"55% do pote", badge:"Overfold 6,8%", def:57.7, mdf:64.5, defL:"57,7%", mdfL:"64,5%" } ] },
+    caption: "33%, 42%, 55% do pote: o field fica aquém do MDF em todos." },
+  "p2-s4": { kicker: "A base por trás disso",
+    block: { type:"stats", rows:[
+      { k:"Mãos só nesse spot", v:"10,6M" }, { k:"Mãos auditadas", v:"<em>500M+</em>" },
+      { k:"Salas cobertas", v:"7" } ] },
+    caption: "10,6 milhões de mãos só nesse spot. 500M+ no total." },
+  "p2-s5": { big: 'Solver mostra o<br><em>equilíbrio</em>', bigSm: true,
+    line: "A Aura mostra o que o field <b>realmente faz</b> — em 500M+ mãos reais.",
+    caption: "Equilíbrio é o ponto de partida. O field é o alvo." },
+
+  /* ---------- V3 · leak / variancia (padrao que ressoa em PT) ---------- */
+  "p3-s1": { kicker: "Field intelligence · MTT", big: 'Não é <em>azar</em>',
+    line: "É padrão. E padrão dá pra medir.",
+    caption: "Não é azar. É padrão — e padrão dá pra medir." },
+  "p3-s2": { kicker: "C-bet de 55% · textura do flop",
+    line: "Mesmo tamanho de aposta. Board diferente, field diferente.",
+    block: { type:"vs", delta:"+3 pts",
+      a:{ lb:"Board conectado", v:"6,9%", sb:"overfold vs MDF" },
+      b:{ lb:"Board desconexo", v:"9,9%", sb:"overfold vs MDF" }, bHot:true },
+    caption: "Em board desconexo o pool superfolda 9,9% — contra 6,9% no conectado." },
+  "p3-s3": { kicker: "E no overpot o buraco é maior",
+    line: "Quase três vezes mais pressão de fold, na mesma linha.",
+    block: { type:"vs", delta:"+5,3 pts",
+      a:{ lb:"Board conectado", v:"2,9%", sb:"overfold no overpot" },
+      b:{ lb:"Board desconexo", v:"8,2%", sb:"overfold no overpot" }, bHot:true },
+    caption: "Overpot em board desconexo: 8,2% de overfold contra 2,9%." },
+  "p3-s4": { kicker: "A tela real, filtrada por textura",
+    block: { type:"postflop", head:"XR Flop CBet", sub:"3,1M mãos · board desconexo", val:"11,5%",
+      sect:"Tamanhos exploráveis", rows:[
+        { sz:"33% do pote", badge:"Overfold 11,0%", def:64.2, mdf:75.2, defL:"64,2%", mdfL:"75,2%" },
+        { sz:"42% do pote", badge:"Overfold 11,2%", def:59.2, mdf:70.4, defL:"59,2%", mdfL:"70,4%" },
+        { sz:"55% do pote", badge:"Overfold 9,9%", def:54.6, mdf:64.5, defL:"54,6%", mdfL:"64,5%" } ] },
+    caption: "Conectividade, pareamento, high card, flush draw — 13+ dimensões." },
+  "p3-s5": { big: 'O leak é do<br><em>field</em>', bigSm: true,
+    line: "A Aura mostra <b>onde</b> ele está — e em qual textura de board.",
+    caption: "O leak não é seu. É do field. E dá pra explorar." },
+
+  /* ---------- CTA (mesma cena final nos 3) ---------- */
+  "p-cta": { cta: true, line: "500M+ mãos auditadas · 7 salas",
+    ctaBtn: "Criar conta grátis", ctaSub: "Preview de cada módulo. Sem cartão." },
 };
