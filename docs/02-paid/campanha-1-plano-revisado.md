@@ -37,20 +37,28 @@
 
 **Decisão 3 — língua vira teste, não regra.** Os orgânicos existentes são EN e têm prova social. Testá-los custa zero → rodar EN antigos + PT novos no mesmo público e deixar o `tbl_user` dizer qual língua gera cadastro mais barato. (Produção nova segue PT — §6b — mas não se assume que PT vence; mede-se.)
 
-**Decisão 4 — estrutura simples primeiro (concentra budget):**
+**Decisão 4 — estrutura por idioma×geo (v2.3, decisão do PO: PT→BR, EN→resto).** Usa os reels PT já prontos no arm quente (BR) e serve a tese global no arm EN, com a economia dos dois **medida em separado**.
 
 ```
-Campanha: AURA-PAID01-CLIQUES (objetivo: Tráfego)
+Campanha: AURA-PAID01 — Tráfego, budget por conjunto (ABO)
 │
-└── 1 Conjunto — "Amplo + criativo-filtro"  (R$50/dia)
-      Amplo (sem interesses), Geo BR, Idade 20–45, só Instagram (Reels/Stories/Feed)
-      Exclusões: cassino, apostas esportivas, bingo, jogos de azar
-      5–6 criativos (3 PT novos + 2–3 orgânicos existentes via "usar publicação")
-      Hipótese central: o jargão do criativo filtra melhor que a taxonomia
-      (foi o mecanismo real do vencedor histórico)
+├── Conjunto A — BR/PT     (R$25/dia)
+│     Criativos: 3 reels PT (prontos, content/paid/AURA-PAID01) + orgânicos PT c/ prova social
+│     Geo: Brasil + Portugal · Idade 20–45 · só Instagram · Excl: cassino/apostas/bingo
+│
+└── Conjunto B — Intl/EN   (R$25/dia)
+      Criativos: 3 reels EN (a renderizar) + orgânicos EN c/ prova social
+      Geo APERTADO no início: GB, CA, AU, DE, NL, IE, NZ, SE, NO, DK, FI
+        (BR/PT EXCLUÍDOS — são do conjunto A; alargar p/ ES/IT/PL/MX/AR/CL com dado)
+      Excl: cassino/apostas/bingo
 ```
 
-Por que 1 conjunto e não 2: R$50/dia é pequeno; dividir deixa cada criativo com dado de menos, e nosso próprio achado diz que **criativo > targeting**. Geo = amplo internacional (§6b), não BR. **Só dividir num 2º conjunto SE o amplo entregar sujo no D3** (% masculino baixo, ou país-lixo dominando os cadastros) — complexidade progressiva. Candidatos a 2º conjunto, nessa ordem: (a) **LAL worldwide sobre a base limpa** (§5b — testar contra o amplo), (b) interesses específicos (solvers/trackers, nunca "poker" isolado).
+**Sem sobreposição de geo** entre A e B (senão competem entre si). **Gates rodam por conjunto** → custo/cadastro BR vs internacional em separado (responde "o global é viável ou só o BR converte?"). 
+
+Trade-off honesto: R$50/dia dividido = cada arm aprende mais devagar; o **arm EN é o ponto fraco** (R$25 em países caros). Mitigação: lista EN apertada no início + paciência (ou mais budget). Realocar budget entre A e B no D14 conforme custo/cadastro.
+
+Otimização: **cliques no link / LP views** (ambos). Nada de Advantage+ expansion, Audience Network, Messenger.
+2º nível (só se um arm vier sujo no D3): LAL worldwide sobre base limpa (§5b) ou interesses específicos (solvers/trackers, nunca "poker" isolado).
 
 Otimização: **cliques no link / visualizações da LP** (não conversão — volume insuficiente pra sair do aprendizado). Rede de segurança: como cada criativo tem UTM próprio e o cadastro grava no `tbl_user`, clique-lixo é detectado pelo dado real (clica mas não cadastra), não pela métrica da Meta.
 Nada de Advantage+ audience expansion. Nada de Audience Network/Messenger.
