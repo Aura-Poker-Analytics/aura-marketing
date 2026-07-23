@@ -108,6 +108,8 @@ As lookalikes existentes foram criadas em **29/01/2026**, a partir da semente **
 
 Ou seja: a semente melhorou, mas o produto derivado dela em janeiro não. Uma LAL nova vale mais do que eu havia concluído — ainda assim não é por onde começar, porque a semente segue em ~1.000 e o histórico mostra que LAL de semente pequena dilui.
 
+> **Atualização v2.2 (PO reforçou o valor da base limpa):** uma LAL nova sobre a base podada é audiência **razoável**, sim — testar como UMA audiência contra o amplo, não apostar o plano nela (Meta pós-iOS14 vai bem com amplo+criativo). Hierarquia de semente: **convertidos > seguidores limpos > todos**. E LAL é **presa a país** — as de 29/01 são "BR 1%"; alvo global pede LAL worldwide (qualidade menor) ou por país, e num teste global o amplo internacional pode bater a LAL-BR. Detalhes no plano `campanha-1-plano-revisado.md §5b/§6b`.
+
 ## 6. Princípio para o próximo real
 
 > **O público que você constrói é função do que você otimizou.** Otimizar por visita de perfil constrói uma audiência de visitantes de perfil. Otimizar por cadastro constrói uma audiência de cadastrantes.

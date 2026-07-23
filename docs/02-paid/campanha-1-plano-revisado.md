@@ -50,12 +50,12 @@ Campanha: AURA-PAID01-CLIQUES (objetivo: Tráfego)
       (foi o mecanismo real do vencedor histórico)
 ```
 
-Por que 1 conjunto e não 2: R$50/dia é pequeno; dividir em interesses-vs-amplo deixa cada criativo com dado de menos, e nosso próprio achado diz que **criativo > targeting**. O teste de interesses vira Fase 1.5. **Só dividir num 2º conjunto (interesses específicos: PokerStars/GGPoker/solvers/trackers) SE o amplo entregar sujo no D3** (% masculino baixo) — complexidade progressiva.
+Por que 1 conjunto e não 2: R$50/dia é pequeno; dividir deixa cada criativo com dado de menos, e nosso próprio achado diz que **criativo > targeting**. Geo = amplo internacional (§6b), não BR. **Só dividir num 2º conjunto SE o amplo entregar sujo no D3** (% masculino baixo, ou país-lixo dominando os cadastros) — complexidade progressiva. Candidatos a 2º conjunto, nessa ordem: (a) **LAL worldwide sobre a base limpa** (§5b — testar contra o amplo), (b) interesses específicos (solvers/trackers, nunca "poker" isolado).
 
 Otimização: **cliques no link / visualizações da LP** (não conversão — volume insuficiente pra sair do aprendizado). Rede de segurança: como cada criativo tem UTM próprio e o cadastro grava no `tbl_user`, clique-lixo é detectado pelo dado real (clica mas não cadastra), não pela métrica da Meta.
 Nada de Advantage+ audience expansion. Nada de Audience Network/Messenger.
 
-## 3. Os 3 criativos (vídeo vertical 9:16, PT-BR, 15–30s)
+## 3. Os 3 criativos (vídeo vertical 9:16, **EN** — revisado v2.2, 15–30s)
 
 | # | Ângulo | Gancho (direção de copy) | Base de evidência |
 |---|---|---|---|
@@ -106,22 +106,23 @@ Se a Semana 1 vier ruim, o gasto foi R$350, não R$1.500. Nunca a mais de 7 dias
 - [ ] Betiato (opcional, não bloqueia): checkout live + estorno pra provar `Subscribe`
 - [ ] Mídia Paga: subir estrutura **PAUSADA** → revisão do Rafael → ativação DELE
 
-## 6b. Estratégia de mercado e idioma (BR vs. global)
+## 6b. Estratégia de mercado e idioma (REVISADA v2.2 — decisão do PO: alvo é global, criativo EN)
 
-**Princípio:** orçamento pequeno **não fragmenta mercado**. Um mercado por vez, sequencial — nunca BR e global em paralelo (cada um ficaria com metade do budget, nenhum sai do aprendizado, aprendizado sujo).
+**Correção de rumo:** a v2.1 recomendava "BR primeiro, global depois". O PO corrigiu — **o objetivo do negócio é global**, e a direção de criativo EN foi decidida em outra thread. A tese global deve ser **testada**, não adiada. (Pricing em USD confirma a ambição global.)
 
-**Campanha 1 = 100% Brasil**, e o idioma do criativo é a segmentação:
-- **Geo travado em BR** (não confiar só no idioma — PT também é Portugal/Angola, PMF e pagamento diferentes).
-- **Narrativa PT-BR; jargão de poker em inglês** (RFI, 3bet, range, ICM, field, redline). Grinder BR fala assim — traduzir jargão soa amador. Regra repassada à fábrica.
-- **Copy do anúncio: só PT** (bilíngue dilui o gancho de 2s). Diferente do orgânico, que mantém legenda bilíngue (alcance misto) — pipelines distintos.
+**Não se escolhe BR ou global — escolhe-se EN + amplo internacional, e o Brasil se captura por mérito.** Com base morna no BR + CPM barato, o BR tende a se sobressair nos resultados junto de todos os outros mercados. Alcance global + eficiência BR na mesma campanha; o `tbl_user` (quebra por país) mostra a mistura real em vez de a gente adivinhar.
 
-**Por que BR primeiro (não é consolação):** BR é um dos maiores mercados de MTT online; CPM muito mais barato que US (mais dado por real); base orgânica já é BR; PT-BR é diferenciação comprovada (GTOWizard roda 48 anúncios no BR **sem uma linha em PT** — Ads Library); founder conhece o usuário BR.
+- **Criativo: inglês.** Os 3 reels em produção passam pra EN. A ideia de PT-diferenciação (gap BR-PT da Ads Library) é secundária à tese global — arquivada, não perseguida agora.
+- **Targeting: amplo internacional.** Com ~$10/dia, o algoritmo acha o inventário que converte mais barato e evita o US caro sozinho (se autocorrige). Ler país no `tbl_user` → dobrar aposta na Fase 2.
+- **Copy do anúncio: EN.**
 
-**Criativos EN existentes = ativo da Fase 2, não desperdício.** Quando a Campanha 1 apontar o ângulo vencedor, produzir a versão EN **só do vencedor** para um teste global/US separado (orçamento e gates próprios). Sequenciar, não descartar.
+**Caveats do global (medir, não temer):**
+- **Diluição de país-lixo:** amplo mundial puxa cadastro barato de mercado que não paga $29 (ARPU baixo). Mitigação: país por cadastro no `tbl_user` → excluir os que inundam sem converter.
+- **Política de poker por país:** alguns sinalizam criativo poker-adjacente. Aura está fora do escopo gambling (`compliance-meta.md`), mas esperar revisão manual esporádica.
 
-**⚠️ Dependência de pricing:** produto cobra em USD. Há branch de *currency toggle BRL/USD no checkout* (`feature/stripe-brl-checkout`) — **confirmar se está deployado**. Não bloqueia a Campanha 1 (otimiza por cadastro free, funciona em qualquer moeda), mas **bloqueia a Fase 2 de receita**: cadastro BR + checkout USD-only = fricção no pagamento. BRL tem que estar no ar antes de otimizar por `Subscribe`.
+**⚠️ Dependência de pricing (agora MAIS crítica no global):** produto cobra em USD. Branch `feature/stripe-brl-checkout` — confirmar deploy. Não bloqueia a Campanha 1 (cadastro free), mas bloqueia a Fase 2 de receita. No global, USD é nativo pra maioria; o BRL toggle serve o arm brasileiro.
 
-**Pergunta aberta que define a facilidade da Fase 2 global:** a UI do produto é EN, PT, ou ambos? UI só-EN → global é natural; UI PT → global exige localização de produto, não só de anúncio.
+**Pergunta aberta que define a facilidade do global:** a UI do produto é EN, PT ou ambos? UI só-EN → global é natural e a estratégia acima é limpa; UI PT → global exige localização de **produto**, não só de anúncio (e aí o BR volta a ser o arm mais forte no curto prazo).
 
 ## 7. Fase 2 (gatilho, não data)
 
