@@ -24,11 +24,18 @@ const CONFIG = {
   kicker: "", big: "", line: "", caption: "",
   block: null,          // {type:'vs'|'bars'|'preflop'|'postflop'|'stats', ...}
   cta: false, ctaBtn: "", ctaSub: "",
+  lang: "pt",           // "pt" | "en" — troca os rotulos fixos da UI
   guides: false,        // true => desenha as zonas seguras (so p/ conferencia)
 };
 (function(){try{var q=new URLSearchParams(location.search);var id=q.get('p');
 if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);
 if(q.get('guides'))CONFIG.guides=true;}catch(e){}})();
+// rotulos fixos da UI por idioma (o resto do texto vem do deck ja traduzido)
+const T = (CONFIG.lang === "en")
+  ? { action:"Action", defense:"Defense", realDefense:"Real defense", expSizes:"Exploitative sizes",
+      ctaBtn:"Create free account", ctaSub:"Preview of every module. No card." }
+  : { action:"Ação", defense:"Defesa", realDefense:"Defesa real", expSizes:"Tamanhos exploráveis",
+      ctaBtn:"Criar conta grátis", ctaSub:"Preview de cada módulo. Sem cartão." };
 </script>
 <style>
 @font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
@@ -225,7 +232,7 @@ function elBars(b){
     <div class="brow">
       <div class="bt"><span class="bsz">${r.sz}</span><span class="bbadge">${r.badge}</span></div>
       <div class="bar"><span class="fill" style="width:${r.def}%"></span><span class="mdf" style="left:${r.mdf}%"></span></div>
-      <div class="bl"><span>Defesa real <b>${r.defL}</b></span><span>MDF ${r.mdfL}</span></div>
+      <div class="bl"><span>${T.realDefense} <b>${r.defL}</b></span><span>MDF ${r.mdfL}</span></div>
     </div>`).join('')}</div>`;
 }
 function elStats(b){
@@ -239,7 +246,7 @@ function elPreflop(b){
     <div class="wbody">
       <div class="ptitle"><span class="n">${b.title}</span><span class="r">${b.right||'▲▼ vs Global'}</span></div>
       <table class="pt">
-        <tr><th>Ação</th><th>Total</th>${b.cols.map(c=>`<th class="pos">${c}</th>`).join('')}</tr>
+        <tr><th>${T.action}</th><th>Total</th>${b.cols.map(c=>`<th class="pos">${c}</th>`).join('')}</tr>
         ${b.rows.map(r=>`<tr><td class="a">${r[0]}</td>${r.slice(1).map((c,i)=>
           `<td${b.hi===r[0]&&i>0?' class="hi"':''}>${c}</td>`).join('')}</tr>`).join('')}
       </table>
@@ -251,12 +258,12 @@ function elPostflop(b){
       <div class="tabs"><span class="t">Preflop</span><span class="t on">Postflop</span><span class="t">Hotspot</span></div></div>
     <div class="wbody">
       <div class="pfhead"><div class="l"><span class="t">${b.head}</span><span class="s">${b.sub}</span></div><span class="v">${b.val}</span></div>
-      <div class="sect">${b.sect||'Tamanhos exploráveis'}</div>
+      <div class="sect">${b.sect||T.expSizes}</div>
       <div class="cards">${b.rows.map(r=>`
         <div class="card">
           <div class="top"><span class="sz">${r.sz}</span><span class="badge">${r.badge}</span></div>
           <div class="bar"><span class="fill" style="width:${r.def}%"></span><span class="mdf" style="left:${r.mdf}%"></span></div>
-          <div class="lbls"><span>Defesa <b>${r.defL}</b></span><span>MDF ${r.mdfL}</span></div>
+          <div class="lbls"><span>${T.defense} <b>${r.defL}</b></span><span>MDF ${r.mdfL}</span></div>
         </div>`).join('')}</div>
     </div></div>`;
 }
@@ -270,7 +277,7 @@ if (CONFIG.cta) {
         <div style="display:flex;flex-direction:column;align-items:center">
           <span class="wm" data-wordmark></span><span class="tagline">Poker Analytics</span></div></div>
       ${CONFIG.line?`<p class="line" style="margin-top:0">${CONFIG.line}</p>`:''}
-      <span class="btn">${CONFIG.ctaBtn||'Criar conta grátis'}</span>
+      <span class="btn">${CONFIG.ctaBtn||T.ctaBtn}</span>
       ${CONFIG.ctaSub?`<p class="ctasub">${CONFIG.ctaSub}</p>`:''}
     </div>`;
   document.getElementById("mark").style.visibility = "hidden";
