@@ -1,0 +1,17 @@
+# filtros-stack · card screenshot real · 4:5 · ✅ POSTED
+uso: organico + paid-br + paid-intl · números: REAIS (shots/filtros1.png)
+
+## PT
+20+ filtros. Empilha quantos quiser. 🎛️
+
+Esse é o painel de verdade da Aura. Você escolhe cenário (SRP ou 3-bet pot), posições, tipo de torneio, estágio e buy-in — e vai fundo na textura de board: board pareado, conectividade (do disconnected ao straight-on-board), flush draws por street, e cobertura de stack (IP cobrindo vs coberto, que muda tudo na bolha).
+
+A Aura 1.0 travava em 3 filtros. A 2.0 não trava em nada: afunila até o board exato.
+
+Começa de graça (preview de cada módulo). Link na bio.
+
+## EN
+20+ filters, stack as many as you want. Scenario, positions, tournament type, stage, buy-in — plus board texture: paired boards, connectedness (disconnected → straight-on-board), flush draws by street, and stack coverage (IP covering vs covered). No 3-filter cap. Start free. Link in bio.
+
+#poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokerbrasil #pokeronline #estudodepoker #mttpoker #pokertips
+18+ · poker é jogo de habilidade e estudo

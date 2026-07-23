@@ -1,3 +1,0 @@
-Criativo: shot-showcase ?p=shot-filters
-Números: real
-(a imagem final está nesta pasta como criativo.png)

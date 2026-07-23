@@ -1,0 +1,17 @@
+# postflop-total · card screenshot real · 4:5 · ✅ POSTED
+uso: organico + paid-br + paid-intl · números: REAIS (aura-total2.png recortada → shots/postflop-ref.png)
+
+## PT
+Todo o postflop do field, numa tela só. (tela real)
+
+Ação (bet/check/raise), distribuição de sizes e a defesa do pool vs MDF em cada tamanho — do flop ao river, recortável por cenário, posição e textura de board. Tudo medido em mãos reais.
+
+Onde a defesa do pool fica aquém da marca de MDF, tem pressão de fold pra ler — e você decide a linha. Descrição do field, não palpite.
+
+Começa de graça, com preview de cada módulo. Link na bio.
+
+## EN
+The whole field's postflop, one screen. Action %, size distribution and the pool's defense vs MDF per size — flop to river, sliced by scenario, position and board texture. All measured on real hands. Start free. Link in bio.
+
+#pokerbrasil #pokeronline #torneiodepoker #estudodepoker #pokerbr #mttpoker #jogadordepoker #pokercoaching #pokermindset #maisqueumjogo
+18+ · poker é jogo de habilidade e estudo
