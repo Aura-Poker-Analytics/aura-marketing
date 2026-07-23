@@ -1,0 +1,27 @@
+REEL (EN) · Aura in 20 seconds (tour)
+Duration: ~20s
+Video source: Screen-record navigating the app (or a montage of the shots: filtros1 → preflop_disag → postflop1 → busca)
+Audio: calm/tech EN audio trend; or EN VO on top
+
+SCENE 1 (0-3s) — opens on the filters panel (filtros1)
+  ON-SCREEN: "Not a solver. Not a tracker."
+  VO: "Aura shows what the MTT field ACTUALLY does."
+
+SCENE 2 (3-8s) — clicks and builds a slice (position + stage + buy-in)
+  ON-SCREEN: "20+ filters. Stack them all."
+  VO: "Pick position, stage, buy-in, villain type…"
+
+SCENE 3 (8-13s) — opens the disaggregated Preflop (preflop_disag)
+  ON-SCREEN: "Green/red deltas = where the field drifts"
+  VO: "…and see where the field departs from the baseline."
+
+SCENE 4 (13-18s) — opens the Postflop exploitative sizings (postflop1)
+  ON-SCREEN: "Defense vs MDF, size by size"
+  VO: "Every bar measured against the MDF mark."
+
+SCENE 5 (18-20s) — Aura logo + CTA
+  ON-SCREEN: "Free account — link in bio"
+
+CAPTION (EN): Aura 2.0 in 20 seconds — field intelligence for MTT. Not a solver, not a tracker: the MTT field's real strategy, measured across 500M+ hands. Filter any way you want, read the field, decide your line. Start free 👉 link in bio.
+#poker #mtt #pokerstrategy #tournamentpoker #pokertraining #pokercoaching #pokeronline #gtopoker #mttpoker #pokertips
+18+ · poker is a game of skill and study

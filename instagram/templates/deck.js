@@ -384,6 +384,17 @@ window.DECK = {
     caption: "RFI, 3-bet, 4-bet, steal, open-limp, squeeze — by seat, vs the whole-field reference. The green/red deltas are your read.",
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
+
+  /* analogo de referencia do PREFLOP, mas pro POSTFLOP. Tela real (aura-total2
+     recortada: rail de contexto + coluna Total). Descritivo — sem inferir leak,
+     ver pesquisa-mdf-limites.md §10. */
+  "shot-postflop-ref": {
+    layout: "hero", kicker: "Postflop · real screen",
+    titleHtml: "The whole postflop, <em>one screen</em>",
+    shotSrc: "shots/postflop-ref.png", shotBg: "#0B1120", frameH: 770, badge: "Total",
+    caption: "Action %, size distribution and defense vs MDF per size — by scenario, position and board texture, all on real hands.",
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
   "shot-villain": {
     layout: "hero", kicker: "Villain type · real screen",
     titleHtml: "Reg or fish? <em>Different field.</em>",
@@ -426,6 +437,38 @@ window.DECK = {
   "reel-s8": { type: "title", showLogo: true, kicker: "",
     titleHtml: "Conta <em>grátis</em>",
     sub: "Preview de cada módulo, sem cartão.<br><b>aurapoker.com</b> · link na bio", footer: "" },
+
+  /* ===== LAUNCH REEL — cenas EN (arte em ingles, p/ mercado global) =====
+     s6 usa moldura DESCRITIVA (defesa medida vs MDF), nao "over-folding" —
+     ver pesquisa-mdf-limites.md §3/§10. A versao PT (reel-s6) ainda usa a
+     redacao antiga; sincronizar quando for reencodar o reel PT. */
+  "reel-s1-en": { type: "title", showLogo: true,
+    titleHtml: "It's <em>live.</em>", sub: "", footer: "" },
+  "reel-s2-en": { type: "title", showLogo: false, kicker: "Aura 2.0",
+    titleHtml: "Not a tracker.<br>Not a <em>solver.</em>",
+    sub: "A tracker shows YOUR hands. A solver shows theoretical equilibrium.", footer: "" },
+  "reel-s3-en": { type: "title", showLogo: false, kicker: "A different category",
+    titleHtml: "It's what the field<br><em>actually does.</em>",
+    sub: "<b>500M+ audited hands</b> · 7 rooms · MTT", footer: "" },
+  "reel-s4-en": { type: "shot", kicker: "Preflop Analysis",
+    titleHtml: "The field's<br>whole <em>preflop</em>",
+    shotSrc: "shots/1.png", badge: "Global Total",
+    sub: "RFI, 3-bet, 4-bet, steal — by seat, with the deltas.", footer: "" },
+  "reel-s5-en": { type: "shot", kicker: "20+ filters",
+    titleHtml: "Slice it <em>your way</em>",
+    shotSrc: "shots/filtros1.png", badge: "",
+    sub: "Position, stage, buy-in, board texture, villain type.", footer: "" },
+  "reel-s6-en": { type: "shot", kicker: "Postflop Analysis",
+    titleHtml: "Defense vs MDF,<br><em>size by size</em>",
+    shotSrc: "shots/postflop1.png", badge: "3.2M hands",
+    sub: "Real pool defense measured against the MDF mark, per size.", footer: "" },
+  "reel-s7-en": { type: "shot", kicker: "The pool's real reaction",
+    titleHtml: "Fold <em>33%</em> · Call 55%<br>Raise 12%",
+    shotSrc: "shots/postflop2.png", badge: "3.2M hands",
+    sub: "Passive and call-heavy — vs a flop c-bet.", footer: "" },
+  "reel-s8-en": { type: "title", showLogo: true, kicker: "",
+    titleHtml: "Free <em>account</em>",
+    sub: "Preview of every module, no card.<br><b>aurapoker.com</b> · link in bio", footer: "" },
 
   "shot-search": {
     layout: "split", kicker: "Spot search",
@@ -514,7 +557,7 @@ window.DECK = {
     block: { type:"vs", delta:"+3 pts",
       a:{ lb:"Board conectado", v:"6,9%", sb:"overfold vs MDF" },
       b:{ lb:"Board desconexo", v:"9,9%", sb:"overfold vs MDF" }, bHot:true },
-    caption: "Em board desconexo o pool superfolda 9,9% — contra 6,9% no conectado." },
+    caption: "Em board desconexo o pool overfolda 9,9% — contra 6,9% no conectado." },
   "p3-s3": { kicker: "E no overpot o buraco é maior",
     line: "Quase três vezes mais pressão de fold, na mesma linha.",
     block: { type:"vs", delta:"+5,3 pts",

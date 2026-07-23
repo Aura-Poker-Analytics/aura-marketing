@@ -49,7 +49,7 @@ palavra *"na hora"* precisa carregar na copy.
 - No equilíbrio **existem muitas situações em que o vilão deve mesmo ter blefes lucrativos** — logo
   defesa abaixo do MDF, por si só, **não é evidência de leak nem de desvio de equilíbrio** (3-0).
 
-➡️ **"O field superfolda vs MDF, logo tem leak" é falso no flop.** Nosso spot de XR Flop CBet é flop.
+➡️ **"O field overfolda vs MDF, logo tem leak" é falso no flop.** Nosso spot de XR Flop CBet é flop.
 
 ## 4. River — as duas metades confirmadas
 
@@ -94,7 +94,7 @@ Isso afeta o **badge Overfold do produto**, não só a copy do anúncio.
 | "O field defende 57,7% onde o MDF pede 64,5%" | ✅ **Airtight** — medição pura, sem inferência |
 | "Board desconexo 9,9% vs conectado 6,9%" | ✅ **Airtight** — compara duas frequências medidas, MDF só como baseline comum |
 | "Acima dessa linha, blefe puro nesse size lucra na hora" | 🟡 **Verdadeiro em chip-EV**, mas em MTT com ICM o break-even em $ é mais alto. Só usar sem ressalva em estágio de ICM baixo |
-| "O field superfolda vs MDF, logo tem leak / gap explorável" | ❌ **Overclaim** — refutado no flop (§3) e em torneio (§6) |
+| "O field overfolda vs MDF, logo tem leak / gap explorável" | ❌ **Overclaim** — refutado no flop (§3) e em torneio (§6) |
 
 **Consequência de copy:** liderar por **descrição** e por **comparação relativa** (o V3 já faz isso),
 não por inferência de exploit a partir do MDF. A comparação textura-contra-textura é imune a tudo

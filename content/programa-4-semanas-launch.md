@@ -285,7 +285,7 @@ de torneio e arquétipo de vilão como diferenciadores · nº ilustrativo (mock 
 > O field da bolha é outro animal. 🫧
 >
 > A Aura separa por estágio do torneio — early, pré-bolha, bolha, ITM, mesa final. Sob pressão de ICM a
-> população superfolda de um jeito que nenhum solver modela, porque solver dá a resposta ICM-perfeita, não o
+> população overfolda de um jeito que nenhum solver modela, porque solver dá a resposta ICM-perfeita, não o
 > que o field faz. Achado 100% MTT.
 >
 > Crie sua conta grátis — link na bio.
@@ -390,7 +390,7 @@ promessa de lucro, sem dinheiro/luxo, sem concorrente nominal, 18+. Caption dist
 > De leak a linha: como usar um exploit card. 👉
 >
 > 1) Leia a carta: a barra de defesa do pool aquém da marca de MDF = o field folda demais ali. 2) Tome a
-> linha: contra um field que superfolda, um c-bet pequeno e frequente ataca esse gap. A carta te diz onde;
+> linha: contra um field que overfolda, um c-bet pequeno e frequente ataca esse gap. A carta te diz onde;
 > você traz a agressão.
 >
 > Crie sua conta grátis — link na bio.

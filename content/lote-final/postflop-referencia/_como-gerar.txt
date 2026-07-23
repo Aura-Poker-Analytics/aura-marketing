@@ -1,0 +1,15 @@
+Criativo: shot-showcase ?p=shot-postflop-ref · 1080x1350
+Análogo do 05-21-07-preflop-referencia, mas para o módulo POSTFLOP.
+Números: reais (tela real do produto).
+
+Tela: aura-total2.png (Postflop Analysis) recortada para retrato — rail de contexto
+(SRP · RFI CO · Caller BB · seletores de posição/torneio/estágio) + a coluna "Total":
+XR Flop CBet, distribuição de sizes (6 tamanhos com contagem de mãos) e os exploit cards
+(defesa % vs MDF por size). Recorte gerado em shots/postflop-ref.png (825x884).
+
+Enquadramento DESCRITIVO de propósito (sem "overfold = leak"): a leitura "abaixo do MDF
+logo tem leak" não se sustenta no flop nem em torneio (ICM) — ver
+docs/00-strategy/pesquisa-mdf-limites.md §10.
+
+USO SUGERIDO: post de referência/overview do postflop, par do de preflop. Sem data fixa;
+encaixa em qualquer slot de "tela real" do cronograma.
