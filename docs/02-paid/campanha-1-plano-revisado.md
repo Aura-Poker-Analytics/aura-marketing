@@ -55,7 +55,11 @@ Por que 1 conjunto e não 2: R$50/dia é pequeno; dividir deixa cada criativo co
 Otimização: **cliques no link / visualizações da LP** (não conversão — volume insuficiente pra sair do aprendizado). Rede de segurança: como cada criativo tem UTM próprio e o cadastro grava no `tbl_user`, clique-lixo é detectado pelo dado real (clica mas não cadastra), não pela métrica da Meta.
 Nada de Advantage+ audience expansion. Nada de Audience Network/Messenger.
 
-## 3. Os 3 criativos (vídeo vertical 9:16, **EN** — revisado v2.2, 15–30s)
+## 3. Os 3 criativos (vídeo vertical 9:16, 15–30s)
+
+> **STATUS 2026-07-22:** os 3 reels foram ENTREGUES pela fábrica em `content/paid/AURA-PAID01/` (9:16, ~18s, sem áudio, thumbs). Bem feitos, guard-rails conferidos. **Dois pontos:**
+> - A fábrica **corrigiu erros de product-truth do brief original** (abaixo): V1 não usa "solver diz 48%" (número inventado + overlay que a Aura não faz) → usa reg agressivo 50% vs tight 35% (real); V3 não usa "seu redline" (Aura não vê suas mãos) → "o leak é do field". Os ganchos na tabela abaixo são os do brief antigo; **valem os do README entregue**.
+> - Estão em **PT** (feitos sob v2.1). Pivô v2.2 → precisam de **versão EN** pro alvo global (copy EN das cenas já redigida, fiel às versões corrigidas — render é trocar chaves em `deck.js` + `build-paid.mjs`). **Os PT viram o arm BR/Portugal**, não são descartados.
 
 | # | Ângulo | Gancho (direção de copy) | Base de evidência |
 |---|---|---|---|
