@@ -27,29 +27,33 @@
 2. **BR está sub-servido em português.** GTOWizard roda 48 anúncios no BR **sem uma linha em PT-BR**. Só um player europeu (PolarizePoker) e um micro (Poker 101mod) falam português. Falar PT-BR com jargão local já é diferenciação.
 3. **O ângulo medo/leak/variância ressoa no público lusófono** (é o padrão dos dois únicos anunciantes em PT). Vale uma variante.
 
-## 2. Estrutura proposta
+## 2. Estrutura proposta (REVISADA — v2.1, refino após pergunta do PO "por que só 3 reels / por que não impulsionar os outros")
+
+**Decisão 1 — nunca o botão "Impulsionar".** Boost empurra pra PROFILE_VISIT/engajamento — foi a causa do desastre dos R$505. Tudo roda pelo **Gerenciador de Anúncios**. Para reaproveitar criativos orgânicos, usar **"Usar publicação existente"** (não boost): roda o post existente como anúncio **mantendo a prova social** (views/curtidas/comentários que ele já acumulou) + dá controle total de objetivo/otimização/UTM.
+
+**Decisão 2 — mais criativos, não menos.** Criativo é a alavanca #1 do Meta; o ideal é 5–6 peças competindo, não 3. Mix = **3 reels PT novos + 2–3 melhores criativos orgânicos existentes** (que carregam prova social que as peças novas não têm).
+
+**Filtro para reaproveitar um criativo orgânico:** (a) vídeo, não carrossel estático (carrossel foi o perdedor); (b) jargão/produto na tela, não brand genérico; (c) já performou no orgânico (saves/shares). Posts product-forward (UI/módulos reais) são candidatos fortes. *(Seleção é do PO/fábrica — o MCP não expõe performance de post orgânico nesta conta.)*
+
+**Decisão 3 — língua vira teste, não regra.** Os orgânicos existentes são EN e têm prova social. Testá-los custa zero → rodar EN antigos + PT novos no mesmo público e deixar o `tbl_user` dizer qual língua gera cadastro mais barato. (Produção nova segue PT — §6b — mas não se assume que PT vence; mede-se.)
+
+**Decisão 4 — estrutura simples primeiro (concentra budget):**
 
 ```
 Campanha: AURA-PAID01-CLIQUES (objetivo: Tráfego)
-│   Orçamento por conjunto (ABO) — garante gasto nos dois braços do teste
 │
-├── Conjunto A — "Interesses específicos"  (R$25/dia)
-│     Interesses: PokerStars, GGPoker, trackers/solvers, mídia do circuito
-│       (conferir disponibilidade real no construtor)
-│     Exclusões: cassino, apostas esportivas, bingo, jogos de azar
-│     ❌ NUNCA o interesse "poker" isolado
-│     Geo: BR · Idade: 20–45 · Posicionamentos: só Instagram (Reels/Stories/Feed)
-│
-└── Conjunto B — "Amplo + criativo-filtro"  (R$25/dia)
-      Sem interesses (amplo), mesmas exclusões demográficas/geo
-      Hipótese: o jargão do criativo filtra melhor que a taxonomia contaminada
+└── 1 Conjunto — "Amplo + criativo-filtro"  (R$50/dia)
+      Amplo (sem interesses), Geo BR, Idade 20–45, só Instagram (Reels/Stories/Feed)
+      Exclusões: cassino, apostas esportivas, bingo, jogos de azar
+      5–6 criativos (3 PT novos + 2–3 orgânicos existentes via "usar publicação")
+      Hipótese central: o jargão do criativo filtra melhor que a taxonomia
       (foi o mecanismo real do vencedor histórico)
 ```
 
-**Cada conjunto recebe os mesmos 3 criativos** — o leilão mata as peças fracas.
+Por que 1 conjunto e não 2: R$50/dia é pequeno; dividir em interesses-vs-amplo deixa cada criativo com dado de menos, e nosso próprio achado diz que **criativo > targeting**. O teste de interesses vira Fase 1.5. **Só dividir num 2º conjunto (interesses específicos: PokerStars/GGPoker/solvers/trackers) SE o amplo entregar sujo no D3** (% masculino baixo) — complexidade progressiva.
 
-Otimização: **cliques no link / visualizações da LP** (não conversão — ~15 conv/semana não sai do aprendizado; limiar é ~50).
-Nada de Advantage+ audience expansion. Nada de Audience Network/Messenger (exclusão explícita).
+Otimização: **cliques no link / visualizações da LP** (não conversão — volume insuficiente pra sair do aprendizado). Rede de segurança: como cada criativo tem UTM próprio e o cadastro grava no `tbl_user`, clique-lixo é detectado pelo dado real (clica mas não cadastra), não pela métrica da Meta.
+Nada de Advantage+ audience expansion. Nada de Audience Network/Messenger.
 
 ## 3. Os 3 criativos (vídeo vertical 9:16, PT-BR, 15–30s)
 
@@ -76,6 +80,16 @@ CTA: **site**, nunca perfil do IG.
 | D14 | Conjunto A vs. B | — | O perdedor claro é pausado; o orçamento consolida no vencedor |
 
 **Por que % masculino como alarme precoce:** foi a impressão digital que separou o público bom (94,7% M) do ruim (61% M) na auditoria — e aparece em 48h, semanas antes do custo por cadastro estabilizar.
+
+## 4c. Orçamento em tranches (o R$1.500 é TETO, não compromisso de 30 dias)
+
+| Semana | Gasto | Portão |
+|---|---|---|
+| 1 | R$ 350 (R$50×7) | D3: %masc >85% · D7: ≥1 criativo >4% CTR, CPC ≤R$1,50 |
+| 2 | R$ 350 | mata criativos fracos; só continua se D7 passou |
+| 3–4 | até R$ 800 | D14: custo/cadastro <R$25 no `tbl_user` → escala/ajusta/para |
+
+Se a Semana 1 vier ruim, o gasto foi R$350, não R$1.500. Nunca a mais de 7 dias de um ponto de saída.
 
 ## 5. Premissas declaradas como não-validadas
 
