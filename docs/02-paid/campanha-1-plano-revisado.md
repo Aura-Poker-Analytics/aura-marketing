@@ -99,8 +99,8 @@ Se a Semana 1 vier ruim, o gasto foi R$350, não R$1.500. Nunca a mais de 7 dias
 
 ## 6. Pré-lançamento (checklist)
 
-- [ ] Rafael: verificação da empresa + 2FA no BM (G6/G7 — ~20 min)
-- [ ] Rafael: corrigir **vertical do negócio** no BM: está "Publishing/Online Only Publications" → Software/SaaS (achado do diagnóstico; distorce otimização e benchmarks)
+- [x] Rafael: **2FA feito** + **verificação da empresa solicitada** (aguardando veredito da Meta) — 2026-07-22
+- [~] Vertical do negócio: campo não é editável na UI (Meta infere pela categoria da Página, que já é "Software"). Item **encerrado** — efeito marginal, sem ação possível direta
 - [ ] Rafael: método de pagamento (só no GO)
 - [ ] Produzir os 3 vídeos (fábrica de posts/Canva — fora do escopo desta thread)
 - [ ] Betiato (opcional, não bloqueia): checkout live + estorno pra provar `Subscribe`
@@ -113,7 +113,10 @@ Se a Semana 1 vier ruim, o gasto foi R$350, não R$1.500. Nunca a mais de 7 dias
 **Não se escolhe BR ou global — escolhe-se EN + amplo internacional, e o Brasil se captura por mérito.** Com base morna no BR + CPM barato, o BR tende a se sobressair nos resultados junto de todos os outros mercados. Alcance global + eficiência BR na mesma campanha; o `tbl_user` (quebra por país) mostra a mistura real em vez de a gente adivinhar.
 
 - **Criativo: inglês.** Os 3 reels em produção passam pra EN. A ideia de PT-diferenciação (gap BR-PT da Ads Library) é secundária à tese global — arquivada, não perseguida agora.
-- **Targeting: amplo internacional.** Com ~$10/dia, o algoritmo acha o inventário que converte mais barato e evita o US caro sozinho (se autocorrige). Ler país no `tbl_user` → dobrar aposta na Fase 2.
+- **Targeting: amplo, mas com LISTA DE PAÍSES de mercados reais de poker** (decisão do PO — "amplo internacional" ≠ "mundo inteiro"; trava o floor contra país-lixo sem mercado de poker). O criativo com jargão filtra *dentro* da lista (filtro duplo geo+jargão). Lista de partida (refinada pelo custo/cadastro por país no `tbl_user`):
+  - **Core (dia 1):** BR, CA, DE, GB, NL, SE, NO, DK, FI, AT, IE, AU, NZ, PT, ES, IT, PL, CZ, RO, MX, AR, CL.
+  - **Opt-in do PO (não-lixo, caso à parte):** 🇺🇸 US (maior/mais rico, mas CPM caro + casa do GTOWizard → recomendo começar SEM, adicionar com criativo vencedor + budget); 🇮🇳 Índia (mercado grande mas ARPU baixo → fora do 1º teste).
+  - UI bilíngue (EN+PT) confirmada pelo PO → global é "localizar anúncio", não produto. Reforça a tese.
 - **Copy do anúncio: EN.**
 
 **Caveats do global (medir, não temer):**
