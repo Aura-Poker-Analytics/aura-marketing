@@ -92,6 +92,23 @@ CTA: **site**, nunca perfil do IG.
 - [ ] Betiato (opcional, não bloqueia): checkout live + estorno pra provar `Subscribe`
 - [ ] Mídia Paga: subir estrutura **PAUSADA** → revisão do Rafael → ativação DELE
 
+## 6b. Estratégia de mercado e idioma (BR vs. global)
+
+**Princípio:** orçamento pequeno **não fragmenta mercado**. Um mercado por vez, sequencial — nunca BR e global em paralelo (cada um ficaria com metade do budget, nenhum sai do aprendizado, aprendizado sujo).
+
+**Campanha 1 = 100% Brasil**, e o idioma do criativo é a segmentação:
+- **Geo travado em BR** (não confiar só no idioma — PT também é Portugal/Angola, PMF e pagamento diferentes).
+- **Narrativa PT-BR; jargão de poker em inglês** (RFI, 3bet, range, ICM, field, redline). Grinder BR fala assim — traduzir jargão soa amador. Regra repassada à fábrica.
+- **Copy do anúncio: só PT** (bilíngue dilui o gancho de 2s). Diferente do orgânico, que mantém legenda bilíngue (alcance misto) — pipelines distintos.
+
+**Por que BR primeiro (não é consolação):** BR é um dos maiores mercados de MTT online; CPM muito mais barato que US (mais dado por real); base orgânica já é BR; PT-BR é diferenciação comprovada (GTOWizard roda 48 anúncios no BR **sem uma linha em PT** — Ads Library); founder conhece o usuário BR.
+
+**Criativos EN existentes = ativo da Fase 2, não desperdício.** Quando a Campanha 1 apontar o ângulo vencedor, produzir a versão EN **só do vencedor** para um teste global/US separado (orçamento e gates próprios). Sequenciar, não descartar.
+
+**⚠️ Dependência de pricing:** produto cobra em USD. Há branch de *currency toggle BRL/USD no checkout* (`feature/stripe-brl-checkout`) — **confirmar se está deployado**. Não bloqueia a Campanha 1 (otimiza por cadastro free, funciona em qualquer moeda), mas **bloqueia a Fase 2 de receita**: cadastro BR + checkout USD-only = fricção no pagamento. BRL tem que estar no ar antes de otimizar por `Subscribe`.
+
+**Pergunta aberta que define a facilidade da Fase 2 global:** a UI do produto é EN, PT, ou ambos? UI só-EN → global é natural; UI PT → global exige localização de produto, não só de anúncio.
+
 ## 7. Fase 2 (gatilho, não data)
 
 Com **~100 cadastros limpos** acumulados (pago + orgânico):
