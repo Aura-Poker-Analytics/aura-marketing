@@ -10,13 +10,16 @@
    1080×1350 (feed) · 1080×1920 (story — mesmo arquivo)
    Edite apenas o CONFIG.
    ============================================================ */
+/* Default = card de ESCALA (claims aprovados no product-truth §9).
+   O default antigo (68% fold + "GTO folds far less" + "prints") era inventado
+   e violava o gabarito — nao reutilizar. */
 const CONFIG = {
-  context: "MTT · BB vs BTN · single-raised pot",
-  action: "fold",                       // "fold" | "call" | "raise" | ""
-  statValue: "68%",
-  statLabel: "of the pool folds to a flop c-bet",
-  read: "GTO folds far less here. Against this pool, your small c-bet prints — bet more flops.",
-  footerSample: "Aura · amostra de 12.4M mãos",
+  context: "MTT · field intelligence",
+  action: "",                           // "fold" | "call" | "raise" | ""
+  statValue: "500M+",
+  statLabel: "audited real hands. The field, measured.",
+  read: "7 rooms · 100% anonymized · refreshed quarterly. Every number ships with sample size and confidence interval.",
+  footerSample: "Aura · real data, not simulation",
   handle: "@aurapokeranalytics",
 };
 (function(){try{var id=new URLSearchParams(location.search).get('p');if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);}catch(e){}})();
@@ -91,6 +94,7 @@ header { display: flex; justify-content: space-between; align-items: center; pos
 .stat-block { position: relative; z-index: 3; }
 .stat-value {
   font-size: 380px; font-weight: 900; line-height: 0.96; letter-spacing: -0.03em;
+  white-space: nowrap;
   background: linear-gradient(180deg, var(--amber3) 0%, var(--amber) 45%, var(--amber6) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   filter: drop-shadow(0 0 70px rgba(251, 191, 36, 0.22));
@@ -188,6 +192,9 @@ document.querySelectorAll("[data-wordmark]").forEach(el => el.innerHTML = WORDMA
 
 document.getElementById("context").textContent = CONFIG.context;
 document.getElementById("statValue").textContent = CONFIG.statValue;
+// valores longos ("500M+") nao cabem nos 380px pensados pra "68%" — encolhe
+(function(){var el=document.getElementById("statValue"),n=CONFIG.statValue.length;
+if(n>=6)el.style.fontSize="200px";else if(n===5)el.style.fontSize="245px";else if(n===4)el.style.fontSize="320px";})();
 document.getElementById("statLabel").textContent = CONFIG.statLabel;
 document.getElementById("read").textContent = CONFIG.read;
 document.getElementById("footerSample").textContent = CONFIG.footerSample;

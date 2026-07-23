@@ -360,9 +360,9 @@ window.DECK = {
   /* ===== REPLANEJAMENTO 13/07 — posts com SCREENSHOT REAL (shot-showcase) ===== */
   "shot-postflop-sizings": {
     layout: "hero", kicker: "Postflop · real screen",
-    titleHtml: "The pool <em>overfolds</em> every sizing",
+    titleHtml: "Defense vs MDF, <em>every sizing</em>",
     shotSrc: "shots/postflop1.png", shotBg: "#0B1120", frameH: 600, badge: "3.2M hands",
-    caption: "Raise vs flop c-bet, BTN caller. Real pool defense vs MDF, per bet size — every red bar is an overfold to attack.",
+    caption: "Raise vs flop c-bet, BTN caller. The pool's real defense measured against the MDF mark, per bet size — on 3.2M hands.",
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
   "shot-filters": {
