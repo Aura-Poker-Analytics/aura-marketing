@@ -8,9 +8,14 @@ translated art, English UI labels. For a global/EN paid test (Fase 2 of the plan
 
 | File | Duration | Size |
 |---|---|---|
-| `paid01-v1-preflop-en.mp4` | 17.9s | 3.8 MB |
-| `paid01-v2-field-en.mp4` | 17.9s | 3.5 MB |
-| `paid01-v3-leak-en.mp4` | 17.9s | 3.9 MB |
+| `paid01-v1-preflop-en.mp4` | 26.0s | 6.0 MB |
+| `paid01-v2-field-en.mp4` | 26.0s | 5.1 MB |
+| `paid01-v3-leak-en.mp4` | 26.0s | 5.6 MB |
+
+**v2 (Rafael's review)** — same three fixes as the PT set, see the parent
+[README](../README.md#-o-que-mudou-na-v2): pacing 17.9s → 26.0s with per-scene durations,
+real product screenshot behind the hook frame (plus a faster push-in so it moves immediately),
+and native-resolution crops of the real app in window chrome instead of vector recreations.
 
 All **1080×1920 (9:16) · 30fps · H.264 · faststart · NO AUDIO**. Each ships with a `-thumb.png`
 (the first frame / hook).

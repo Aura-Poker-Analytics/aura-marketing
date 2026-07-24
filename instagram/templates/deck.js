@@ -498,6 +498,7 @@ window.DECK = {
 
   /* ---------- V1 · jargao preflop puro (replica do vencedor historico) ---------- */
   "p1-s1": { kicker: "Preflop · MTT", big: 'RFI de <em>50%</em><br>no BTN',
+    heroBg: "shots/crop-preflop-table.png",   // v2: produto REAL ja no frame 1
     line: "É o que o reg agressivo do field faz. Medido, não estimado.",
     caption: "RFI de 50% no botão. Isso é o field — não é teoria." },
   "p1-s2": { kicker: "Mesmo spot, vilão diferente",
@@ -506,23 +507,25 @@ window.DECK = {
       a:{ lb:"Reg agressivo", v:"50%", sb:"RFI no BTN" }, aHot:true,
       b:{ lb:"Reg tight", v:"35%", sb:"RFI no BTN" } },
     caption: "Reg agressivo abre 50% do botão. Reg tight, 35%." },
+  /* v2 s3: PRINT REAL emoldurado (era recriacao vetorial da mesma tabela —
+     redundante e menos crivel). Crop nativo 700x560, sem borrao. */
   "p1-s3": { kicker: "A tela real",
-    block: { type:"preflop", title:"Reg Aggro", right:"▲▼ vs Global", cols:["CO","BTN","SB"], hi:"RFI",
-      rows:[["RFI","29%","36%","50%","45%"],["Fold vs RFI","73%","83%","79%","77%"],
-            ["3-Bet","10%","9%","10%","12%"],["Fold to 3-Bet","50%","52%","60%","62%"],
-            ["4-Bet","19%","18%","15%","18%"],["Steal Att.","42%","36%","50%","45%"]] },
+    block: { type:"shot", src:"shots/crop-preflop-table.png", w:920,
+      title:"Aura · Preflop Analysis", cap:"produto real, não mockup" },
     caption: "Frequência observada, com tamanho de amostra e intervalo de confiança." },
   "p1-s4": { kicker: "Reg agressivo · todas as posições",
     block: { type:"stats", rows:[
       { k:"Fold vs RFI", v:"73%" }, { k:"3-Bet", v:"10%" }, { k:"Steal Attempt", v:"42%" } ] },
     line: "Cada número desses é um spot que você joga toda sessão.",
     caption: "Fold vs RFI, 3-bet, steal attempt — o field inteiro, medido." },
-  "p1-s5": { big: 'Recorta por <em>posição</em>,<br>stack, estágio<br>e tipo de vilão', bigSm: true,
-    line: "Filtros empilháveis: buy-in, KO, Mystery Bounty, bolha, mesa final.",
-    caption: "20+ filtros combináveis até o micro-spot exato." },
+  /* v2 s5: era so texto — agora mostra o painel de filtros REAL */
+  "p1-s5": { kicker: "20+ filtros · recorta até o micro-spot",
+    block: { type:"shot", src:"shots/crop-filters-rail.png", w:640, chrome:false },
+    caption: "Estágio (do early à mesa final) e buy-in — combináveis sem trava." },
 
   /* ---------- V2 · dados reais vs teoria (angulo desocupado na Ads Library) ---------- */
   "p2-s1": { kicker: "Postflop · MTT", big: 'A matemática<br>diz <em>64,5%</em>',
+    heroBg: "shots/crop-exploit-cards.png",   // v2: produto REAL ja no frame 1
     line: "O field defende 57,7%.",
     caption: "MDF de 64,5%. O field defende 57,7%." },
   /* s2: DESCRITIVO, sem inferir exploit. A leitura "abaixo do MDF logo tem leak" nao se
@@ -532,12 +535,10 @@ window.DECK = {
     block: { type:"bars", rows:[
       { sz:"55% do pote", badge:"Overfold 6,8 pts", def:57.7, mdf:64.5, defL:"57,7%", mdfL:"64,5%" } ] },
     caption: "O field defende 57,7% onde a matemática pede 64,5%." },
+  /* v2 s3: PRINT REAL dos exploit cards (era recriacao vetorial dos mesmos numeros) */
   "p2-s3": { kicker: "Em todo tamanho de aposta",
-    block: { type:"postflop", head:"XR Flop CBet", sub:"10,6M mãos · CO abre, BB paga", val:"13,9%",
-      sect:"Tamanhos exploráveis", rows:[
-        { sz:"33% do pote", badge:"Overfold 9,4%", def:65.8, mdf:75.2, defL:"65,8%", mdfL:"75,2%" },
-        { sz:"42% do pote", badge:"Overfold 9,0%", def:61.4, mdf:70.4, defL:"61,4%", mdfL:"70,4%" },
-        { sz:"55% do pote", badge:"Overfold 6,8%", def:57.7, mdf:64.5, defL:"57,7%", mdfL:"64,5%" } ] },
+    block: { type:"shot", src:"shots/crop-exploit-cards.png", w:900,
+      title:"Aura · Postflop Analysis", cap:"produto real, não mockup" },
     caption: "33%, 42%, 55% do pote: o field fica aquém do MDF em todos." },
   "p2-s4": { kicker: "A base por trás disso",
     block: { type:"stats", rows:[
@@ -550,6 +551,7 @@ window.DECK = {
 
   /* ---------- V3 · leak / variancia (padrao que ressoa em PT) ---------- */
   "p3-s1": { kicker: "Field intelligence · MTT", big: 'Não é <em>azar</em>',
+    heroBg: "shots/crop-sizedist.png",   // v2: produto REAL ja no frame 1
     line: "É padrão. E padrão dá pra medir.",
     caption: "Não é azar. É padrão — e padrão dá pra medir." },
   "p3-s2": { kicker: "C-bet de 55% · textura do flop",
@@ -564,12 +566,11 @@ window.DECK = {
       a:{ lb:"Board conectado", v:"2,9%", sb:"overfold no overpot" },
       b:{ lb:"Board desconexo", v:"8,2%", sb:"overfold no overpot" }, bHot:true },
     caption: "Overpot em board desconexo: 8,2% de overfold contra 2,9%." },
+  /* v2 s4: PRINT REAL da coluna "Disconnected" — prova os numeros do proprio video
+     (11,5% · 3,1M maos · overfolds 11,0/11,2/9,9). Crop nativo 514x812. */
   "p3-s4": { kicker: "A tela real, filtrada por textura",
-    block: { type:"postflop", head:"XR Flop CBet", sub:"3,1M mãos · board desconexo", val:"11,5%",
-      sect:"Tamanhos exploráveis", rows:[
-        { sz:"33% do pote", badge:"Overfold 11,0%", def:64.2, mdf:75.2, defL:"64,2%", mdfL:"75,2%" },
-        { sz:"42% do pote", badge:"Overfold 11,2%", def:59.2, mdf:70.4, defL:"59,2%", mdfL:"70,4%" },
-        { sz:"55% do pote", badge:"Overfold 9,9%", def:54.6, mdf:64.5, defL:"54,6%", mdfL:"64,5%" } ] },
+    block: { type:"shot", src:"shots/crop-disconnected-col.png", w:520,
+      title:"Aura · Postflop · board desconexo" },
     caption: "Conectividade, pareamento, high card, flush draw — 13+ dimensões." },
   "p3-s5": { big: 'O leak é do<br><em>field</em>', bigSm: true,
     line: "A Aura mostra <b>onde</b> ele está — e em qual textura de board.",
@@ -587,6 +588,7 @@ window.DECK = {
 
   /* V1 · jargao preflop */
   "p1-s1-en": { lang:"en", kicker:"Preflop · MTT", big:'RFI of <em>50%</em><br>on the BTN',
+    heroBg:"shots/crop-preflop-table.png",
     line:"That's what the field's aggro reg does. Measured, not estimated.",
     caption:"50% RFI on the button. That's the field — not theory." },
   "p1-s2-en": { lang:"en", kicker:"Same spot, different villain",
@@ -596,22 +598,21 @@ window.DECK = {
       b:{ lb:"Tight reg", v:"35%", sb:"RFI on the BTN" } },
     caption:"Aggro reg opens 50% of the button. Tight reg, 35%." },
   "p1-s3-en": { lang:"en", kicker:"The real screen",
-    block:{ type:"preflop", title:"Reg Aggro", right:"▲▼ vs Global", cols:["CO","BTN","SB"], hi:"RFI",
-      rows:[["RFI","29%","36%","50%","45%"],["Fold vs RFI","73%","83%","79%","77%"],
-            ["3-Bet","10%","9%","10%","12%"],["Fold to 3-Bet","50%","52%","60%","62%"],
-            ["4-Bet","19%","18%","15%","18%"],["Steal Att.","42%","36%","50%","45%"]] },
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:920,
+      title:"Aura · Preflop Analysis", cap:"real product, not a mockup" },
     caption:"Observed frequency, with sample size and confidence interval." },
   "p1-s4-en": { lang:"en", kicker:"Aggro reg · all positions",
     block:{ type:"stats", rows:[
       { k:"Fold vs RFI", v:"73%" }, { k:"3-Bet", v:"10%" }, { k:"Steal Attempt", v:"42%" } ] },
     line:"Every one of these is a spot you play every session.",
     caption:"Fold vs RFI, 3-bet, steal attempt — the whole field, measured." },
-  "p1-s5-en": { lang:"en", big:'Slice by <em>position</em>,<br>stack, stage<br>and villain type', bigSm:true,
-    line:"Stackable filters: buy-in, KO, Mystery Bounty, bubble, final table.",
-    caption:"20+ stackable filters down to the exact micro-spot." },
+  "p1-s5-en": { lang:"en", kicker:"20+ filters · slice to the micro-spot",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:640, chrome:false },
+    caption:"Stage (early to final table) and buy-in — stack them with no cap." },
 
   /* V2 · dados reais vs teoria */
   "p2-s1-en": { lang:"en", kicker:"Postflop · MTT", big:'The math<br>says <em>64.5%</em>',
+    heroBg:"shots/crop-exploit-cards.png",
     line:"The field defends 57.7%.",
     caption:"MDF of 64.5%. The field defends 57.7%." },
   "p2-s2-en": { lang:"en", kicker:"55% pot c-bet",
@@ -620,11 +621,8 @@ window.DECK = {
       { sz:"55% pot", badge:"Overfold 6.8 pts", def:57.7, mdf:64.5, defL:"57.7%", mdfL:"64.5%" } ] },
     caption:"The field defends 57.7% where the math asks 64.5%." },
   "p2-s3-en": { lang:"en", kicker:"At every bet size",
-    block:{ type:"postflop", head:"XR Flop CBet", sub:"10.6M hands · CO opens, BB calls", val:"13.9%",
-      sect:"Exploitative sizes", rows:[
-        { sz:"33% pot", badge:"Overfold 9.4%", def:65.8, mdf:75.2, defL:"65.8%", mdfL:"75.2%" },
-        { sz:"42% pot", badge:"Overfold 9.0%", def:61.4, mdf:70.4, defL:"61.4%", mdfL:"70.4%" },
-        { sz:"55% pot", badge:"Overfold 6.8%", def:57.7, mdf:64.5, defL:"57.7%", mdfL:"64.5%" } ] },
+    block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
+      title:"Aura · Postflop Analysis", cap:"real product, not a mockup" },
     caption:"33%, 42%, 55% pot: the field sits below MDF in all of them." },
   "p2-s4-en": { lang:"en", kicker:"The base behind it",
     block:{ type:"stats", rows:[
@@ -637,6 +635,7 @@ window.DECK = {
 
   /* V3 · leak / variancia */
   "p3-s1-en": { lang:"en", kicker:"Field intelligence · MTT", big:"It's not <em>variance</em>",
+    heroBg:"shots/crop-sizedist.png",
     line:"It's a pattern. And patterns can be measured.",
     caption:"It's not variance. It's a pattern — and patterns can be measured." },
   "p3-s2-en": { lang:"en", kicker:"55% c-bet · flop texture",
@@ -652,11 +651,8 @@ window.DECK = {
       b:{ lb:"Disconnected board", v:"8.2%", sb:"overfold on overpot" }, bHot:true },
     caption:"Overpot on a disconnected board: 8.2% overfold vs 2.9%." },
   "p3-s4-en": { lang:"en", kicker:"The real screen, filtered by texture",
-    block:{ type:"postflop", head:"XR Flop CBet", sub:"3.1M hands · disconnected board", val:"11.5%",
-      sect:"Exploitative sizes", rows:[
-        { sz:"33% pot", badge:"Overfold 11.0%", def:64.2, mdf:75.2, defL:"64.2%", mdfL:"75.2%" },
-        { sz:"42% pot", badge:"Overfold 11.2%", def:59.2, mdf:70.4, defL:"59.2%", mdfL:"70.4%" },
-        { sz:"55% pot", badge:"Overfold 9.9%", def:54.6, mdf:64.5, defL:"54.6%", mdfL:"64.5%" } ] },
+    block:{ type:"shot", src:"shots/crop-disconnected-col.png", w:520,
+      title:"Aura · Postflop · disconnected board" },
     caption:"Connectedness, pairing, high card, flush draw — 13+ dimensions." },
   "p3-s5-en": { lang:"en", big:"The leak is the<br><em>field's</em>", bigSm:true,
     line:"Aura shows <b>where</b> it is — and on which board texture.",
