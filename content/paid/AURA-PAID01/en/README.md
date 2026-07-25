@@ -12,6 +12,12 @@ translated art, English UI labels. For a global/EN paid test (Fase 2 of the plan
 | `paid01-v2-field-en.mp4` | 26.0s | 5.1 MB |
 | `paid01-v3-leak-en.mp4` | 26.0s | 5.6 MB |
 
+**v3 A/B variant** — `paid01-v*-b-en.mp4` (26.8s) are the **challengers**; the files above are the
+**control**. Same persuasion layer as the PT set: tension hook, audience callout, consequence line per
+data scene, persistent social-proof badge, count-up numbers and hard cuts. Run control and challenger
+in the **same ad set** — the `-b` suffix keeps them apart in `utm_content`. Details in the parent
+[README](../README.md#-o-teste-ab--leia-primeiro).
+
 **v2 (Rafael's review)** — same three fixes as the PT set, see the parent
 [README](../README.md#-o-que-mudou-na-v2): pacing 17.9s → 26.0s with per-scene durations,
 real product screenshot behind the hook frame (plus a faster push-in so it moves immediately),

@@ -2,7 +2,69 @@
 
 **Entregue por:** thread Fábrica de Posts · **Para:** thread Mídia Paga
 **Brief:** [campanha-1-plano-revisado.md §3](../../../docs/02-paid/campanha-1-plano-revisado.md)
-**Status:** ✅ **v2 (revisão do Rafael) — prontos para subir.** **Nenhum anúncio foi criado, subido ou ativado por agente.**
+**Status:** ✅ **Teste A/B pronto pra subir: v2 (controle) + v3 (desafiante).** **Nenhum anúncio foi criado, subido ou ativado por agente.**
+
+---
+
+## 🧪 O TESTE A/B — leia primeiro
+
+Duas versões de cada ângulo, pra competir **no mesmo conjunto**. O CTR decide.
+
+| | CONTROLE (v2) | DESAFIANTE (v3) |
+|---|---|---|
+| arquivos | `paid01-v1-preflop.mp4` etc. | `paid01-v1-preflop-**b**.mp4` etc. |
+| duração | 26,0s | 26,8s |
+| gancho | fato ("RFI de 50% no BTN") | **tensão** ("Dois regs. Mesmo botão.") |
+| callout de audiência | não | **sim**, nos 2 primeiros segundos |
+| consequência por cena | não | **sim**, fecha o "e daí?" |
+| prova social | só no último frame | **selo persistente no rodapé** |
+| números | estáticos | **count-up + barras crescendo** |
+| transições | crossfade 0,4s | **corte seco** |
+
+`-b` é sufixo de `utm_content` → **o relatório separa as duas sozinho**. Não renomeie nada.
+⚠️ Suba as duas no MESMO conjunto (mesmo público, mesmo orçamento). Em conjuntos separados o
+resultado mistura efeito de criativo com efeito de leilão e o teste não conclui nada.
+
+### O que a v3 mudou (a v2 continua intacta, byte a byte)
+
+**1. Gancho com tensão, não fato** — o jargão denso ficou (é ele que filtra o público; o vencedor
+histórico fez 12,85% de CTR por causa dele). O que entrou foi a razão de se importar:
+- **v1:** "Dois regs. Mesmo botão." → *15 pontos de diferença no RFI* (entra depois de um beat).
+  A pergunta "contra qual dos dois eu estou jogando?" fica implícita e a legenda a torna explícita.
+- **v2:** fecha o loop — "A matemática diz 64,5%. **O field faz 57,7%. Você joga nessa distância.**"
+- **v3:** puxa a dor pra frente — "**Você não está correndo mal.**" → beat → "O field mudou de
+  comportamento. **Você não viu.**"
+
+**2. Callout de audiência** — chip "Pra quem joga MTT online" / "For MTT grinders" no gancho.
+Diz pra quem é sem diluir o jargão.
+
+**3. Cada cena de dado fecha o "e daí?"** — consequência de **decisão**, nunca de resultado:
+> ✅ "Você sabe contra qual perfil está — antes de apertar o botão."
+> ✅ "Você entra na mesa sabendo a frequência real que vai enfrentar."
+> ❌ nada de "você ganha mais" (claim de resultado — proibido no gabarito e reprovável pela Meta).
+
+**4. Prova social cedo e o tempo todo** — "500M+ mãos auditadas · 7 salas" virou selo fixo no
+rodapé, presente em **todas** as cenas em vez de só no frame final que quase ninguém alcança.
+
+**5. Movimento real** — os números fazem count-up, as barras crescem e o segundo bloco do gancho
+entra em beat. Não é mais um card parado com zoom: cada cena animada é uma **sequência de frames**
+renderizada de verdade (`?a=0..100` no template).
+O print do gancho ficou **mais visível** (véu de ~0,55 → ~0,30 de opacidade) — o produto precisa ser
+reconhecível, não textura.
+
+**6. Corte seco entre cenas** — e aqui o achado foi maior que o reportado: amostrando o meio das
+transições, o crossfade não duplicava só o texto. Como **cada cena tem seu próprio Ken Burns**, no
+meio da transição a cena que sai e a que entra estão em **escalas diferentes** — então logo, rodapé
+e selo aparecem duplicados e deslocados também. Encurtar pra 0,16s só encurtava o defeito.
+Corte seco resolve de vez. **A v2 mantém o crossfade** — vira mais um eixo que o teste mede.
+
+### Dois problemas que só apareceram no vídeo encodado
+1. Com corte seco o primeiro frame de cada cena fica **totalmente** exposto (o crossfade escondia).
+   O count-up começava em zero e colocava **"Fold vs RFI 0%"** na tela — número falso. Agora parte de
+   72% do valor e assenta: lê como settle, nunca mostra zero.
+2. O count-up quebrava **só em EN**: o parser tratava o ponto como separador de milhar, e
+   "The field does 57.7%" virava **"577.0%"**. Em PT passava ileso (vírgula decimal). Corrigido e
+   reconferido nos dois idiomas.
 
 ---
 
@@ -56,13 +118,23 @@ que não existem como tela no produto. A divisão virou: **vetor = nossa data-vi
 
 ## Arquivos
 
+**CONTROLE (v2)**
+
 | Arquivo | Duração | Tamanho | Thumb |
 |---|---|---|---|
 | `paid01-v1-preflop.mp4` | 26,0s | 5,8 MB | `paid01-v1-preflop-thumb.png` |
 | `paid01-v2-field.mp4` | 26,0s | 4,9 MB | `paid01-v2-field-thumb.png` |
 | `paid01-v3-leak.mp4` | 26,0s | 5,3 MB | `paid01-v3-leak-thumb.png` |
 
-Versões EN em [`en/`](en/) (mesmas mudanças, mesmos tempos). Ver [`en/README.md`](en/README.md).
+**DESAFIANTE (v3)** — thumb = gancho no estado final (não o frame 0, onde o reveal ainda está oculto)
+
+| Arquivo | Duração | Tamanho | Thumb |
+|---|---|---|---|
+| `paid01-v1-preflop-b.mp4` | 26,8s | 7,5 MB | `paid01-v1-preflop-b-thumb.png` |
+| `paid01-v2-field-b.mp4` | 26,8s | 6,9 MB | `paid01-v2-field-b-thumb.png` |
+| `paid01-v3-leak-b.mp4` | 26,8s | 7,1 MB | `paid01-v3-leak-b-thumb.png` |
+
+Versões EN das duas em [`en/`](en/). Ver [`en/README.md`](en/README.md).
 
 Todos **1080×1920 (9:16) · 30fps · H.264 · faststart · SEM ÁUDIO**.
 Nomes conferem com o brief — eles viram `utm_content`, **não renomear**.
@@ -166,12 +238,16 @@ conteúdo está em texto na tela.
 node instagram/build-paid.mjs            # renderiza as 18 cenas + encoda os 3 MP4 (PT)
 node instagram/build-paid.mjs --guides   # só renderiza, com as zonas seguras desenhadas
 node instagram/build-paid-en.mjs         # idem para as versões EN
+node instagram/build-paid-b.mjs          # VARIANTE -b (v3), PT e EN de uma vez
+node instagram/build-paid-b.mjs --pt      # só PT   |  --en  # só EN
+node instagram/build-paid-b.mjs --skip-render  # reaproveita os PNGs já renderizados
 ```
 Se o `ffmpeg-static` não estiver instalado no repo, aponte o binário:
 `FFMPEG_PATH=/caminho/ffmpeg.exe node instagram/build-paid.mjs`
 
 - Template: `instagram/templates/paid-scene.html`
-- Cenas: `instagram/templates/deck.js` (`p1-s*`, `p2-s*`, `p3-s*`, `p-cta` · sufixo `-en` para EN)
+- Cenas: `instagram/templates/deck.js` — controle `p1-s*`/`p2-s*`/`p3-s*`/`p-cta`; variante `b1-s*`/`b2-s*`/`b3-s*`/`p-cta-b` (sufixo `-en` para EN)
+- ⚠️ Tudo que a v3 adiciona no template é OPT-IN (`callout`, `proof`, `heroLight`, `anim`). Rodar `build-paid.mjs` continua reproduzindo o CONTROLE byte a byte — não estrague isso tornando algum default.
 - Ritmo: constante `DURS` no topo do build (duração por cena) e `XF` (crossfade)
 - Crops: `instagram/crops.mjs` regenera os `shots/crop-*.png` a partir dos prints originais
 

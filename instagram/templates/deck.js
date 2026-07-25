@@ -661,4 +661,182 @@ window.DECK = {
   /* CTA (mesma cena final nos 3 EN) */
   "p-cta-en": { lang:"en", cta:true, line:"500M+ audited hands · 7 rooms",
     ctaBtn:"Create free account", ctaSub:"Preview of every module. No card." },
+
+  /* ==========================================================
+     VARIANTE -B (v3) — CAMADA DE PERSUASAO. Desafiante do teste A/B;
+     a v2 (sem sufixo) continua sendo o CONTROLE e nao foi tocada.
+
+     O que muda vs a v2:
+      1. frame 1 abre TENSAO (pergunta/dor), nao fato
+      2. callout de audiencia nos primeiros 2s — diz pra quem e
+      3. cada cena de dado fecha o "e dai?" com CONSEQUENCIA DE DECISAO
+         (nunca de resultado/lucro — proibido no gabarito e reprovavel pela Meta)
+      4. prova social ("500M+ maos · 7 salas") vira selo PERSISTENTE no rodape
+      5. numeros com <n> = count-up; barras com data-grow; data-in = reveal em beat
+
+     O jargao denso fica INTACTO — e ele que filtra o publico (CTR 12,85% do
+     vencedor historico veio dai). A missao foi somar tensao, nao trocar.
+     ========================================================== */
+
+  /* ---------- V1-B · preflop: contra QUAL reg você está jogando? ---------- */
+  "b1-s1": { callout:"Pra quem joga MTT online", kicker:"Preflop · MTT",
+    heroBg:"shots/crop-preflop-table.png", heroLight:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'Dois regs.<br>Mesmo <em>botão</em>.',
+    line:'<span data-in="0.55"><n>15</n> pontos de diferença no RFI.</span>',
+    caption:"Contra qual dos dois você está jogando agora?" },
+  "b1-s2": { kicker:"O mesmo spot, dois perfis", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"vs", delta:"15 pts",
+      a:{ lb:"Reg agressivo", v:"<n>50%</n>", sb:"RFI no BTN" }, aHot:true,
+      b:{ lb:"Reg tight", v:"<n>35%</n>", sb:"RFI no BTN" } },
+    caption:"Você sabe contra qual perfil está — antes de apertar o botão." },
+  "b1-s3": { kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:920,
+      title:"Aura · Preflop Analysis", cap:"produto real, não mockup" },
+    caption:"Frequência medida, com amostra e intervalo de confiança. Não é estimativa." },
+  "b1-s4": { kicker:"Reg agressivo · todas as posições", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"stats", rows:[
+      { k:"Fold vs RFI", v:"<n>73%</n>" }, { k:"3-Bet", v:"<n>10%</n>" }, { k:"Steal Attempt", v:"<n>42%</n>" } ] },
+    caption:"Você entra na mesa sabendo a frequência real que vai enfrentar." },
+  "b1-s5": { kicker:"20+ filtros · recorta até o micro-spot", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:640, chrome:false },
+    caption:"O recorte é seu: estágio, buy-in, tipo de torneio. O field muda em cada um." },
+
+  /* ---------- V2-B · a distância entre a matemática e o field ---------- */
+  "b2-s1": { callout:"Pra quem joga MTT online", kicker:"Postflop · MTT",
+    heroBg:"shots/crop-exploit-cards.png", heroLight:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    /* o numero do TITULO fica cheio desde o frame 0 — ele e a capa do anuncio.
+       O count-up vive no reveal (57,7%), que entra depois do beat. */
+    big:'A matemática<br>diz <em>64,5%</em>',
+    line:'<span data-in="0.5">O field faz <b><n>57,7%</n></b>. Você joga <em>nessa distância</em>.</span>',
+    caption:"MDF 64,5% · field 57,7%. A distância é onde a decisão acontece." },
+  "b2-s2": { kicker:"C-bet de 55% do pote", proof:"500M+ mãos auditadas · 7 salas",
+    line:"MDF é matemática. Defesa real é comportamento medido.",
+    block:{ type:"bars", rows:[
+      { sz:"55% do pote", badge:"Overfold 6,8 pts", def:57.7, mdf:64.5, defL:"<n>57,7%</n>", mdfL:"64,5%" } ] },
+    caption:"Você sabe o tamanho exato onde o field se afasta da marca." },
+  "b2-s3": { kicker:"Em todo tamanho de aposta", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
+      title:"Aura · Postflop Analysis", cap:"produto real, não mockup" },
+    caption:"33%, 42%, 55% — a defesa medida em cada size, sobre 10,6M mãos." },
+  "b2-s4": { kicker:"A base por trás disso", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"stats", rows:[
+      { k:"Mãos só nesse spot", v:"<n>10,6M</n>" }, { k:"Mãos auditadas", v:"<em><n>500M+</n></em>" },
+      { k:"Salas cobertas", v:"<n>7</n>" } ] },
+    caption:"Amostra desse tamanho é o que separa leitura de achismo." },
+  "b2-s5": { big:'Solver mostra o<br><em>equilíbrio</em>', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    line:"A Aura mostra o que o field <b>realmente faz</b> — em 500M+ mãos reais.",
+    caption:"Equilíbrio é o ponto de partida. O field é o alvo." },
+
+  /* ---------- V3-B · a dor primeiro, o dado depois ---------- */
+  "b3-s1": { callout:"Pra quem joga MTT online", kicker:"Field intelligence · MTT",
+    heroBg:"shots/crop-sizedist.png", heroLight:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'Você não está<br><em>correndo mal.</em>',
+    line:'<span data-in="0.6">O field mudou de comportamento. <b>Você não viu.</b></span>',
+    caption:"Não é azar. É padrão — e padrão dá pra medir." },
+  "b3-s2": { kicker:"C-bet de 55% · textura do flop", proof:"500M+ mãos auditadas · 7 salas",
+    line:"Mesmo tamanho de aposta. Board diferente, field diferente.",
+    block:{ type:"vs", delta:"+3 pts",
+      a:{ lb:"Board conectado", v:"<n>6,9%</n>", sb:"overfold vs MDF" },
+      b:{ lb:"Board desconexo", v:"<n>9,9%</n>", sb:"overfold vs MDF" }, bHot:true },
+    caption:"Você lê a textura antes de escolher a linha." },
+  "b3-s3": { kicker:"E no overpot a distância é maior", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"vs", delta:"+5,3 pts",
+      a:{ lb:"Board conectado", v:"<n>2,9%</n>", sb:"overfold no overpot" },
+      b:{ lb:"Board desconexo", v:"<n>8,2%</n>", sb:"overfold no overpot" }, bHot:true },
+    caption:"Quase três vezes mais pressão de fold, na mesma linha." },
+  "b3-s4": { kicker:"A tela real, filtrada por textura", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-disconnected-col.png", w:520,
+      title:"Aura · Postflop · board desconexo" },
+    caption:"3,1M mãos só nesse recorte. Conectividade, pareamento, flush draw — 13+ dimensões." },
+  "b3-s5": { big:'O leak é do<br><em>field</em>', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    line:"A Aura mostra <b>onde</b> ele está — e em qual textura de board.",
+    caption:"O leak não é seu. É do field. E dá pra ler." },
+
+  "p-cta-b": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
+    line:"Sem cartão. Preview de cada módulo.",
+    ctaBtn:"Criar conta grátis", ctaSub:"O board completo destrava no upgrade." },
+
+  /* ---------- VARIANTE -B · EN ---------- */
+  "b1-s1-en": { lang:"en", callout:"For MTT grinders", kicker:"Preflop · MTT",
+    heroBg:"shots/crop-preflop-table.png", heroLight:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:'Two regs.<br>Same <em>button</em>.',
+    line:'<span data-in="0.55"><n>15</n> points apart on RFI.</span>',
+    caption:"Which one are you up against right now?" },
+  "b1-s2-en": { lang:"en", kicker:"Same spot, two profiles", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"vs", delta:"15 pts",
+      a:{ lb:"Aggro reg", v:"<n>50%</n>", sb:"RFI on the BTN" }, aHot:true,
+      b:{ lb:"Tight reg", v:"<n>35%</n>", sb:"RFI on the BTN" } },
+    caption:"You know which profile you're facing — before you act." },
+  "b1-s3-en": { lang:"en", kicker:"The real screen", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:920,
+      title:"Aura · Preflop Analysis", cap:"real product, not a mockup" },
+    caption:"Measured frequency, with sample size and confidence interval. Not an estimate." },
+  "b1-s4-en": { lang:"en", kicker:"Aggro reg · all positions", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"stats", rows:[
+      { k:"Fold vs RFI", v:"<n>73%</n>" }, { k:"3-Bet", v:"<n>10%</n>" }, { k:"Steal Attempt", v:"<n>42%</n>" } ] },
+    caption:"You sit down knowing the real frequency you'll face." },
+  "b1-s5-en": { lang:"en", kicker:"20+ filters · slice to the micro-spot", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:640, chrome:false },
+    caption:"Your slice: stage, buy-in, tournament type. The field shifts in each one." },
+
+  "b2-s1-en": { lang:"en", callout:"For MTT grinders", kicker:"Postflop · MTT",
+    heroBg:"shots/crop-exploit-cards.png", heroLight:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:'The math<br>says <em>64.5%</em>',
+    line:'<span data-in="0.5">The field does <b><n>57.7%</n></b>. You play <em>in that gap</em>.</span>',
+    caption:"MDF 64.5% · field 57.7%. The gap is where the decision happens." },
+  "b2-s2-en": { lang:"en", kicker:"55% pot c-bet", proof:"500M+ audited hands · 7 rooms",
+    line:"MDF is math. Real defense is measured behavior.",
+    block:{ type:"bars", rows:[
+      { sz:"55% pot", badge:"Overfold 6.8 pts", def:57.7, mdf:64.5, defL:"<n>57.7%</n>", mdfL:"64.5%" } ] },
+    caption:"You know the exact size where the field drifts from the mark." },
+  "b2-s3-en": { lang:"en", kicker:"At every bet size", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
+      title:"Aura · Postflop Analysis", cap:"real product, not a mockup" },
+    caption:"33%, 42%, 55% — defense measured at every size, across 10.6M hands." },
+  "b2-s4-en": { lang:"en", kicker:"The base behind it", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"stats", rows:[
+      { k:"Hands in this spot", v:"<n>10.6M</n>" }, { k:"Audited hands", v:"<em><n>500M+</n></em>" },
+      { k:"Rooms covered", v:"<n>7</n>" } ] },
+    caption:"A sample this size is what separates a read from a hunch." },
+  "b2-s5-en": { lang:"en", big:'A solver shows<br>the <em>equilibrium</em>', bigSm:true,
+    proof:"500M+ audited hands · 7 rooms",
+    line:"Aura shows what the field <b>actually does</b> — across 500M+ real hands.",
+    caption:"Equilibrium is the starting point. The field is the target." },
+
+  "b3-s1-en": { lang:"en", callout:"For MTT grinders", kicker:"Field intelligence · MTT",
+    heroBg:"shots/crop-sizedist.png", heroLight:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:"You're not<br><em>running bad.</em>",
+    line:'<span data-in="0.6">The field changed how it plays. <b>You didn\'t see it.</b></span>',
+    caption:"It's not variance. It's a pattern — and patterns can be measured." },
+  "b3-s2-en": { lang:"en", kicker:"55% c-bet · flop texture", proof:"500M+ audited hands · 7 rooms",
+    line:"Same bet size. Different board, different field.",
+    block:{ type:"vs", delta:"+3 pts",
+      a:{ lb:"Connected board", v:"<n>6.9%</n>", sb:"overfold vs MDF" },
+      b:{ lb:"Disconnected board", v:"<n>9.9%</n>", sb:"overfold vs MDF" }, bHot:true },
+    caption:"You read the texture before you pick the line." },
+  "b3-s3-en": { lang:"en", kicker:"And on the overpot the gap is bigger", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"vs", delta:"+5.3 pts",
+      a:{ lb:"Connected board", v:"<n>2.9%</n>", sb:"overfold on overpot" },
+      b:{ lb:"Disconnected board", v:"<n>8.2%</n>", sb:"overfold on overpot" }, bHot:true },
+    caption:"Almost three times the fold pressure, on the same line." },
+  "b3-s4-en": { lang:"en", kicker:"The real screen, filtered by texture", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/crop-disconnected-col.png", w:520,
+      title:"Aura · Postflop · disconnected board" },
+    caption:"3.1M hands in this slice alone. Connectedness, pairing, flush draw — 13+ dimensions." },
+  "b3-s5-en": { lang:"en", big:'The leak is the<br><em>field\'s</em>', bigSm:true,
+    proof:"500M+ audited hands · 7 rooms",
+    line:"Aura shows <b>where</b> it is — and on which board texture.",
+    caption:"The leak isn't yours. It's the field's. And you can read it." },
+
+  "p-cta-b-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
+    line:"No card. Preview of every module.",
+    ctaBtn:"Create free account", ctaSub:"The full board unlocks on upgrade." },
 };

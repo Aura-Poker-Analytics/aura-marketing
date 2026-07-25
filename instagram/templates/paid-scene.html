@@ -27,10 +27,17 @@ const CONFIG = {
   lang: "pt",           // "pt" | "en" — troca os rotulos fixos da UI
   heroBg: "",           // v2: print REAL full-bleed atras do gancho (credibilidade + Ken Burns)
   guides: false,        // true => desenha as zonas seguras (so p/ conferencia)
+  /* ---- v3 (variante -b): tudo OPT-IN pra nao alterar os videos de CONTROLE.
+     Se estes campos ficarem vazios o template renderiza exatamente como na v2. ---- */
+  callout: "",          // chip de callout de audiencia ("Pra quem joga MTT online")
+  proof: "",            // selo de prova social persistente no rodape
+  heroLight: false,     // veu mais leve no gancho => produto mais reconhecivel
+  anim: 1,              // 0..1 — progresso da animacao (count-up / barras / reveal)
 };
 (function(){try{var q=new URLSearchParams(location.search);var id=q.get('p');
 if(id&&window.DECK&&window.DECK[id])Object.assign(CONFIG,window.DECK[id]);
-if(q.get('guides'))CONFIG.guides=true;}catch(e){}})();
+if(q.get('guides'))CONFIG.guides=true;
+var a=q.get('a'); if(a!==null)CONFIG.anim=Math.max(0,Math.min(1,parseInt(a,10)/100));}catch(e){}})();
 // rotulos fixos da UI por idioma (o resto do texto vem do deck ja traduzido)
 const T = (CONFIG.lang === "en")
   ? { action:"Action", defense:"Defense", realDefense:"Real defense", expSizes:"Exploitative sizes",
@@ -72,6 +79,21 @@ body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
 .herobg .tint{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 44%, rgba(251,191,36,0.12), transparent 70%)}
 /* escurece SO atras do bloco de texto — mantem o produto visivel no resto */
 .herobg .focus{position:absolute;inset:0;background:radial-gradient(62% 27% at 50% 41%, rgba(2,6,23,0.74), transparent 74%)}
+/* v3: veu mais leve — o print tem que ser RECONHECIVEL, nao so textura.
+   O contraste do texto passa a vir do .focus (mais forte) em vez do veu global. */
+body.herolight .herobg .veil{background:linear-gradient(180deg, rgba(2,6,23,0.86) 0%, rgba(2,6,23,0.40) 24%,
+  rgba(2,6,23,0.30) 44%, rgba(2,6,23,0.68) 68%, rgba(2,6,23,0.95) 100%)}
+body.herolight .herobg .focus{background:radial-gradient(64% 29% at 50% 41%, rgba(2,6,23,0.86), transparent 76%)}
+
+/* v3: chip de callout de audiencia — diz PRA QUEM e, sem diluir o jargao */
+.callout{display:inline-flex;align-items:center;gap:12px;align-self:center;margin-bottom:26px;
+  font-size:25px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber3);
+  background:rgba(251,191,36,0.10);border:2px solid rgba(251,191,36,0.34);border-radius:999px;padding:12px 26px}
+.callout::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--amber);flex:none;
+  box-shadow:0 0 14px rgba(251,191,36,0.9)}
+
+/* v3: reveal em beat — opacidade/deslocamento calculados por frame no JS */
+[data-in]{opacity:0}
 body.hero .stage{text-shadow:0 4px 34px rgba(2,6,23,0.85)}
 
 /* ---- v2: print REAL emoldurado (bloco 'shot') ---- */
@@ -146,7 +168,7 @@ body.hero .stage{text-shadow:0 4px 34px rgba(2,6,23,0.85)}
 
 /* STATS: linhas de numero grande */
 .stats{display:flex;flex-direction:column;gap:16px}
-.srow{display:flex;align-items:center;justify-content:space-between;
+.srow{display:flex;align-items:center;justify-content:space-between;gap:28px;
   background:rgba(13,20,36,0.7);border:2px solid var(--line);border-radius:18px;padding:26px 32px}
 .srow .k{font-size:34px;font-weight:600;color:var(--ink-soft)}
 .srow .v{font-size:54px;font-weight:900;color:#fff;font-variant-numeric:tabular-nums}
@@ -213,6 +235,12 @@ table.pt td.hi{color:var(--amber);font-weight:900}
 .foot{display:flex;align-items:center;justify-content:space-between;margin-top:26px;
   border-top:2px solid rgba(30,41,59,0.9);padding-top:20px}
 .foot .u{font-size:26px;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold)}
+/* v3: prova social PERSISTENTE — "500M+ mãos" era o maior ativo de credibilidade
+   e vivia so no ultimo frame, que quase ninguem alcanca. */
+.foot .proof{font-size:21px;font-weight:700;letter-spacing:0.03em;color:var(--ink-soft);opacity:0.92;
+  display:flex;align-items:center;gap:10px}
+.foot .proof::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pos);flex:none;
+  box-shadow:0 0 10px rgba(52,211,153,0.8)}
 .foot .age{font-size:24px;font-weight:800;color:var(--ink-dim);border:3px solid var(--ink-dim);border-radius:11px;padding:5px 12px}
 
 /* guias das zonas seguras — so p/ conferencia visual, nunca no render final */
@@ -234,7 +262,7 @@ table.pt td.hi{color:var(--amber);font-weight:900}
   <div class="mark" id="mark"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div>
   <div class="core" id="core"></div>
   <div class="cap" id="cap"></div>
-  <div class="foot"><span class="u">aurapoker.com</span><span class="age">18+</span></div>
+  <div class="foot"><span class="u">aurapoker.com</span><span class="proof" id="proof"></span><span class="age">18+</span></div>
 </div>
 
 <script>
@@ -263,7 +291,7 @@ function elBars(b){
   return `<div class="bars">${b.rows.map(r=>`
     <div class="brow">
       <div class="bt"><span class="bsz">${r.sz}</span><span class="bbadge">${r.badge}</span></div>
-      <div class="bar"><span class="fill" style="width:${r.def}%"></span><span class="mdf" style="left:${r.mdf}%"></span></div>
+      <div class="bar"><span class="fill" data-grow="${r.def}" style="width:${r.def}%"></span><span class="mdf" style="left:${r.mdf}%"></span></div>
       <div class="bl"><span>${T.realDefense} <b>${r.defL}</b></span><span>MDF ${r.mdfL}</span></div>
     </div>`).join('')}</div>`;
 }
@@ -336,6 +364,7 @@ if (CONFIG.cta) {
   document.getElementById("mark").style.visibility = "hidden";
 } else {
   core.innerHTML =
+    (CONFIG.callout?`<div class="callout">${CONFIG.callout}</div>`:'') +
     (CONFIG.kicker?`<div class="kicker">${CONFIG.kicker}</div>`:'') +
     (CONFIG.big?`<h1 class="big${CONFIG.bigSm?' sm':''}">${CONFIG.big}</h1>`:'') +
     (CONFIG.line?`<p class="line">${CONFIG.line}</p>`:'') +
@@ -343,6 +372,55 @@ if (CONFIG.cta) {
 }
 document.getElementById("cap").innerHTML = CONFIG.caption || '';
 if (!CONFIG.caption) document.getElementById("cap").style.display = 'none';
+
+// v3: selo de prova persistente (vazio => rodape identico ao da v2)
+const proofEl = document.getElementById("proof");
+if (CONFIG.proof) proofEl.textContent = CONFIG.proof; else proofEl.style.display = 'none';
+if (CONFIG.heroLight) document.body.classList.add('herolight');
+
+/* ============ v3: ANIMACAO ============
+   O build renderiza K frames variando ?a=0..100. Aqui cada frame desenha o
+   ESTADO daquele progresso — o video sai da sequencia de PNGs.
+   - <n>64,5%</n>  → count-up (respeita virgula PT / ponto EN e as casas decimais)
+   - [data-grow]   → barra cresce
+   - [data-in="0.55"] → reveal em beat (aparece so depois daquele progresso)   */
+(function(){
+  const p = CONFIG.anim;
+  const ease = 1 - Math.pow(1 - p, 3);           // easeOutCubic: rapido no inicio
+
+  document.querySelectorAll('n').forEach(el => {
+    const raw = el.textContent;
+    const m = raw.match(/^(\D*?)([\d.,]+)(\D*)$/);
+    if (!m) return;
+    const [, pre, numS, suf] = m;
+    const ptDec = numS.includes(',');                       // 64,5 (PT) vs 64.5 (EN)
+    const dec = (numS.split(/[.,]/)[1] || '').length;
+    /* So trate o ponto como separador de MILHAR quando a virgula for o decimal
+       (PT). Em EN o ponto E o decimal — remove-lo virava 57.7 em 577. */
+    const val = parseFloat(ptDec ? numS.replace(/\./g, '').replace(',', '.') : numS);
+    if (isNaN(val)) return;
+    /* count-up parte de 72% do valor, nao de zero. Com corte seco o primeiro
+       frame da cena fica TOTALMENTE visivel — comecar em zero colocava
+       "Fold vs RFI 0%" na tela, que e um numero falso. Assim le como
+       assentamento rapido e nunca exibe um valor absurdo. */
+    let s = (val * (0.72 + 0.28 * ease)).toFixed(dec);
+    if (ptDec) s = s.replace('.', ',');
+    el.textContent = pre + s + suf;
+  });
+
+  document.querySelectorAll('[data-grow]').forEach(el => {
+    el.style.width = (parseFloat(el.getAttribute('data-grow')) * ease).toFixed(2) + '%';
+  });
+
+  // reveal suave: cada frame desenha um estagio da entrada (screenshot nao
+  // captura transition CSS, entao a interpolacao tem que ser calculada aqui)
+  document.querySelectorAll('[data-in]').forEach(el => {
+    const t0 = parseFloat(el.getAttribute('data-in'));
+    const k = Math.max(0, Math.min(1, (p - t0) / 0.25));
+    el.style.opacity = k;
+    el.style.transform = `translateY(${((1 - k) * 16).toFixed(1)}px)`;
+  });
+})();
 
 document.querySelectorAll("[data-icon]").forEach(el=>el.innerHTML=ICON_SVG);
 document.querySelectorAll("[data-wordmark]").forEach(el=>el.innerHTML=WORDMARK_SVG);
