@@ -49,8 +49,11 @@ rodapé, presente em **todas** as cenas em vez de só no frame final que quase n
 **5. Movimento real** — os números fazem count-up, as barras crescem e o segundo bloco do gancho
 entra em beat. Não é mais um card parado com zoom: cada cena animada é uma **sequência de frames**
 renderizada de verdade (`?a=0..100` no template).
-O print do gancho ficou **mais visível** (véu de ~0,55 → ~0,30 de opacidade) — o produto precisa ser
-reconhecível, não textura.
+**Sobre a visibilidade do print no gancho — errei e voltei atrás.** A primeira tentativa foi clarear o
+véu global (~0,55 → ~0,30) pra "mostrar mais produto". Resultado: o título ficou **em cima da tabela de
+números**, os dois competindo, ilegível — parecia duas imagens sobrepostas. Reprovado com razão.
+A correção não foi só desfazer: o gancho agora usa um **scrim em faixa** — quase opaco atrás do bloco
+de texto, transparente em cima e embaixo. Dá pra ler o título **e** reconhecer o software.
 
 **6. Corte seco entre cenas** — e aqui o achado foi maior que o reportado: amostrando o meio das
 transições, o crossfade não duplicava só o texto. Como **cada cena tem seu próprio Ken Burns**, no

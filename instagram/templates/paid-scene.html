@@ -31,7 +31,7 @@ const CONFIG = {
      Se estes campos ficarem vazios o template renderiza exatamente como na v2. ---- */
   callout: "",          // chip de callout de audiencia ("Pra quem joga MTT online")
   proof: "",            // selo de prova social persistente no rodape
-  heroLight: false,     // veu mais leve no gancho => produto mais reconhecivel
+  heroFocus: false,     // scrim forte atras do texto do gancho (le o titulo E o produto)
   anim: 1,              // 0..1 — progresso da animacao (count-up / barras / reveal)
 };
 (function(){try{var q=new URLSearchParams(location.search);var id=q.get('p');
@@ -79,11 +79,14 @@ body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
 .herobg .tint{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 44%, rgba(251,191,36,0.12), transparent 70%)}
 /* escurece SO atras do bloco de texto — mantem o produto visivel no resto */
 .herobg .focus{position:absolute;inset:0;background:radial-gradient(62% 27% at 50% 41%, rgba(2,6,23,0.74), transparent 74%)}
-/* v3: veu mais leve — o print tem que ser RECONHECIVEL, nao so textura.
-   O contraste do texto passa a vir do .focus (mais forte) em vez do veu global. */
-body.herolight .herobg .veil{background:linear-gradient(180deg, rgba(2,6,23,0.86) 0%, rgba(2,6,23,0.40) 24%,
-  rgba(2,6,23,0.30) 44%, rgba(2,6,23,0.68) 68%, rgba(2,6,23,0.95) 100%)}
-body.herolight .herobg .focus{background:radial-gradient(64% 29% at 50% 41%, rgba(2,6,23,0.86), transparent 76%)}
+/* v3 (opt-in `heroFocus`): SCRIM FORTE atras do bloco de texto.
+   Tentei antes o caminho oposto — clarear o veu global pra "mostrar mais
+   produto" — e o resultado foi titulo em cima de tabela de numeros, ilegivel.
+   Aqui a faixa do texto fica quase opaca e o print segue visivel em cima e
+   embaixo: da pra ler o titulo E reconhecer o software. */
+body.herofocus .herobg .focus{background:
+  linear-gradient(180deg, transparent 0%, rgba(2,6,23,0.55) 16%, rgba(2,6,23,0.93) 30%,
+    rgba(2,6,23,0.95) 55%, rgba(2,6,23,0.72) 66%, transparent 82%)}
 
 /* v3: chip de callout de audiencia — diz PRA QUEM e, sem diluir o jargao */
 .callout{display:inline-flex;align-items:center;gap:12px;align-self:center;margin-bottom:26px;
@@ -376,7 +379,7 @@ if (!CONFIG.caption) document.getElementById("cap").style.display = 'none';
 // v3: selo de prova persistente (vazio => rodape identico ao da v2)
 const proofEl = document.getElementById("proof");
 if (CONFIG.proof) proofEl.textContent = CONFIG.proof; else proofEl.style.display = 'none';
-if (CONFIG.heroLight) document.body.classList.add('herolight');
+if (CONFIG.heroFocus) document.body.classList.add('herofocus');
 
 /* ============ v3: ANIMACAO ============
    O build renderiza K frames variando ?a=0..100. Aqui cada frame desenha o

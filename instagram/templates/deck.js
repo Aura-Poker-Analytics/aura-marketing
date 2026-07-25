@@ -588,7 +588,7 @@ window.DECK = {
 
   /* V1 · jargao preflop */
   "p1-s1-en": { lang:"en", kicker:"Preflop · MTT", big:'RFI of <em>50%</em><br>on the BTN',
-    heroBg:"shots/crop-preflop-table.png",
+    heroBg:"shots/crop-preflop-table.png", heroFocus:true,
     line:"That's what the field's aggro reg does. Measured, not estimated.",
     caption:"50% RFI on the button. That's the field — not theory." },
   "p1-s2-en": { lang:"en", kicker:"Same spot, different villain",
@@ -612,7 +612,7 @@ window.DECK = {
 
   /* V2 · dados reais vs teoria */
   "p2-s1-en": { lang:"en", kicker:"Postflop · MTT", big:'The math<br>says <em>64.5%</em>',
-    heroBg:"shots/crop-exploit-cards.png",
+    heroBg:"shots/crop-exploit-cards.png", heroFocus:true,
     line:"The field defends 57.7%.",
     caption:"MDF of 64.5%. The field defends 57.7%." },
   "p2-s2-en": { lang:"en", kicker:"55% pot c-bet",
@@ -635,7 +635,7 @@ window.DECK = {
 
   /* V3 · leak / variancia */
   "p3-s1-en": { lang:"en", kicker:"Field intelligence · MTT", big:"It's not <em>variance</em>",
-    heroBg:"shots/crop-sizedist.png",
+    heroBg:"shots/crop-sizedist.png", heroFocus:true,
     line:"It's a pattern. And patterns can be measured.",
     caption:"It's not variance. It's a pattern — and patterns can be measured." },
   "p3-s2-en": { lang:"en", kicker:"55% c-bet · flop texture",
@@ -680,7 +680,7 @@ window.DECK = {
 
   /* ---------- V1-B · preflop: contra QUAL reg você está jogando? ---------- */
   "b1-s1": { callout:"Pra quem joga MTT online", kicker:"Preflop · MTT",
-    heroBg:"shots/crop-preflop-table.png", heroLight:true,
+    heroBg:"shots/crop-preflop-table.png", heroFocus:true,
     proof:"500M+ mãos auditadas · 7 salas",
     big:'Dois regs.<br>Mesmo <em>botão</em>.',
     line:'<span data-in="0.55"><n>15</n> pontos de diferença no RFI.</span>',
@@ -704,7 +704,7 @@ window.DECK = {
 
   /* ---------- V2-B · a distância entre a matemática e o field ---------- */
   "b2-s1": { callout:"Pra quem joga MTT online", kicker:"Postflop · MTT",
-    heroBg:"shots/crop-exploit-cards.png", heroLight:true,
+    heroBg:"shots/crop-exploit-cards.png", heroFocus:true,
     proof:"500M+ mãos auditadas · 7 salas",
     /* o numero do TITULO fica cheio desde o frame 0 — ele e a capa do anuncio.
        O count-up vive no reveal (57,7%), que entra depois do beat. */
@@ -732,7 +732,7 @@ window.DECK = {
 
   /* ---------- V3-B · a dor primeiro, o dado depois ---------- */
   "b3-s1": { callout:"Pra quem joga MTT online", kicker:"Field intelligence · MTT",
-    heroBg:"shots/crop-sizedist.png", heroLight:true,
+    heroBg:"shots/crop-sizedist.png", heroFocus:true,
     proof:"500M+ mãos auditadas · 7 salas",
     big:'Você não está<br><em>correndo mal.</em>',
     line:'<span data-in="0.6">O field mudou de comportamento. <b>Você não viu.</b></span>',
@@ -763,7 +763,7 @@ window.DECK = {
 
   /* ---------- VARIANTE -B · EN ---------- */
   "b1-s1-en": { lang:"en", callout:"For MTT grinders", kicker:"Preflop · MTT",
-    heroBg:"shots/crop-preflop-table.png", heroLight:true,
+    heroBg:"shots/crop-preflop-table.png", heroFocus:true,
     proof:"500M+ audited hands · 7 rooms",
     big:'Two regs.<br>Same <em>button</em>.',
     line:'<span data-in="0.55"><n>15</n> points apart on RFI.</span>',
@@ -786,7 +786,7 @@ window.DECK = {
     caption:"Your slice: stage, buy-in, tournament type. The field shifts in each one." },
 
   "b2-s1-en": { lang:"en", callout:"For MTT grinders", kicker:"Postflop · MTT",
-    heroBg:"shots/crop-exploit-cards.png", heroLight:true,
+    heroBg:"shots/crop-exploit-cards.png", heroFocus:true,
     proof:"500M+ audited hands · 7 rooms",
     big:'The math<br>says <em>64.5%</em>',
     line:'<span data-in="0.5">The field does <b><n>57.7%</n></b>. You play <em>in that gap</em>.</span>',
@@ -811,7 +811,7 @@ window.DECK = {
     caption:"Equilibrium is the starting point. The field is the target." },
 
   "b3-s1-en": { lang:"en", callout:"For MTT grinders", kicker:"Field intelligence · MTT",
-    heroBg:"shots/crop-sizedist.png", heroLight:true,
+    heroBg:"shots/crop-sizedist.png", heroFocus:true,
     proof:"500M+ audited hands · 7 rooms",
     big:"You're not<br><em>running bad.</em>",
     line:'<span data-in="0.6">The field changed how it plays. <b>You didn\'t see it.</b></span>',
