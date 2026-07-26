@@ -71,17 +71,23 @@ Regra: o 1º frame é o **instrumento de medição**. Ele precisa fazer a pessoa
 ### Célula 4 · PIONEIRO — `disc-04-pioneiro`
 Testa **posicionamento**, não persona: novidade/ineditismo é razão suficiente pra parar o scroll?
 
-**⚠️ Duas versões — decisão do PO, e a escolha tem consequência:**
+**✅ APROVADO PELO PO (25/07): versão (a), com a terminologia da casa incorporada.**
 
-**(a) Versão substanciável (recomendada)**
-> **Kicker:** `Field intelligence · MTT`
+> **Kicker:** `Inteligência de field · MTT` *(EN: `Field intelligence · MTT`)*
 > **Gancho:** **"Isso não existia."**
-> *(beat)* **"500M+ mãos de MTT — lidas como população, não como amostra."**
+> **Linha:** **"Mass Data Analysis aplicada a MTT."**
+> **Legenda (rodapé):** `500M+ mãos lidas como população — não como amostra.`
 
-**(b) Versão reivindicatória (a que você pediu)**
-> **Kicker:** `Field intelligence · MTT`
-> **Gancho:** **"A primeira ferramenta de field intelligence do mundo."**
-> *(beat)* **"Mass Data Analysis aplicada a MTT."**
+**Sequência deliberada:** o gancho faz *sentir* o ineditismo → a linha *nomeia* a categoria → a legenda *prova* com número verificável. É assim que se planta categoria: mostra, nomeia, substancia. Nomear antes de mostrar viraria jargão vazio.
+
+**"Mass Data Analysis" em inglês dentro do criativo PT é proposital** — segue a regra de jargão da casa (RFI, MDF, field ficam em EN nas duas línguas). E funciona **especificamente nesta célula**: aqui o termo desconhecido *é* a mensagem (categoria nova). Nas células 1 e 2 seria ruído — lá o objetivo é compreensão imediata.
+
+<details><summary>Versão (b) — descartada, registrada pra histórico</summary>
+
+> *"A primeira ferramenta de field intelligence do mundo."*
+
+Descartada por ser claim de superioridade: risco de reprova da Meta por superlativo não-substanciado, exposição a report de concorrente, e — o mais caro — público técnico e cético, onde um único contraexemplo conhecido vira munição contra a marca. Ineditismo tautológico ("primeiro na categoria que eu mesmo nomeei") também é publicitariamente fraco.
+</details>
 
 - **Deve parar:** quem é atraído por ser early adopter; quem já sentiu que falta uma categoria
 - **Deve rolar:** quem só reage a dor concreta (esses param nas células 1 e 2)
@@ -147,10 +153,18 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 
 ## 6. Pendências antes de renderizar
 
-- [x] ~~PO valida as personas~~ — **feito 25/07:** TRACKER cortado (não rivalizamos com tracker), PIONEIRO entra no lugar
-- [ ] **PO escolhe a versão da célula 4:** (a) substanciável *"Isso não existia"* ou (b) reivindicatória *"primeira do mundo"* — ver riscos em §2
-- [ ] PO valida os ganchos das células 1–3 (§2) — é o que determina a legibilidade do teste
+- [x] ~~PO valida as personas~~ — **25/07:** TRACKER cortado (não rivalizamos com tracker), PIONEIRO no lugar
+- [x] ~~PO escolhe a versão da célula 4~~ — **25/07: versão (a)**, com `Inteligência de field` + `Mass Data Analysis aplicada a MTT`
+- [ ] PO valida os ganchos das células 1–3 (§2)
 - [ ] Só então: fábrica produz roteiro completo + render **PT**, e o EN depois de aprovada a PT
+
+### Glossário de marca (usar consistente nos 4 reels)
+| Termo | PT | EN |
+|---|---|---|
+| Categoria | **Inteligência de field** | **Field intelligence** |
+| Método | **Mass Data Analysis (MDA)** | idem — não traduzir |
+| Jargão técnico | RFI, 3bet, MDF, field, ICM | idem — não traduzir |
+| Tagline | *O mesmo jogo — novas informações* | *Same game — new information* |
 
 ## 7. Nota de posicionamento (fora do escopo do anúncio)
 
