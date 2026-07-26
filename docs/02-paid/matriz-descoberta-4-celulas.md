@@ -155,8 +155,11 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 
 - [x] ~~PO valida as personas~~ — **25/07:** TRACKER cortado (não rivalizamos com tracker), PIONEIRO no lugar
 - [x] ~~PO escolhe a versão da célula 4~~ — **25/07: versão (a)**, com `Inteligência de field` + `Mass Data Analysis aplicada a MTT`
-- [ ] PO valida os ganchos das células 1–3 (§2)
-- [ ] Só então: fábrica produz roteiro completo + render **PT**, e o EN depois de aprovada a PT
+- [x] ~~PO valida os ganchos das células 1–3~~ — **25/07: aprovados como estão**
+- [ ] **→ LIBERADO:** fábrica produz os 4 roteiros completos + render **PT**. EN só depois da PT aprovada
+- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando os 4 MP4 estiverem na biblioteca
+
+> **Status 25/07: design 100% validado pelo PO.** As 4 células, os 4 ganchos e a terminologia estão fechados. A partir daqui é produção — qualquer mudança de gancho invalida a comparabilidade do teste e deve voltar pra esta mesa antes.
 
 ### Glossário de marca (usar consistente nos 4 reels)
 | Termo | PT | EN |
