@@ -41,8 +41,12 @@ Regra: o 1º frame é o **instrumento de medição**. Ele precisa fazer a pessoa
 
 ### Célula 1 · SOLVER — `disc-01-solver`
 > **Kicker:** `MTT · pra quem estuda solver`
-> **Gancho:** **"Você decorou o equilíbrio."**
+> **Gancho:** **"Você decorou o GTO."**
 > *(beat)* **"Seu oponente não."**
+
+> ⚠️ **Atualizado na produção (PO, 25/07, 2ª rodada): "equilíbrio" → "GTO".**
+> Mais direto para a persona, que já usa o termo. Registrado aqui para a Mídia Paga não
+> trabalhar com a versão anterior. **Este é o gancho literal vigente.**
 
 - **Deve parar:** reg que já rodou solver e sente a distância entre estudo e mesa
 - **Deve rolar:** quem nunca abriu um solver — não decodifica "equilíbrio"
@@ -156,8 +160,18 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 - [x] ~~PO valida as personas~~ — **25/07:** TRACKER cortado (não rivalizamos com tracker), PIONEIRO no lugar
 - [x] ~~PO escolhe a versão da célula 4~~ — **25/07: versão (a)**, com `Inteligência de field` + `Mass Data Analysis aplicada a MTT`
 - [x] ~~PO valida os ganchos das células 1–3~~ — **25/07: aprovados como estão**
-- [ ] **→ LIBERADO:** fábrica produz os 4 roteiros completos + render **PT**. EN só depois da PT aprovada
+- [x] ~~**LIBERADO:** fábrica produz os 4 roteiros + render PT~~ — **ENTREGUE:** 4 roteiros em
+  `content/reels/disc-0*/roteiro.md` + 4 MP4 e thumbs em `content/paid/AURA-DESCOBERTA/`
 - [ ] Mídia Paga: subir campanha de descoberta (pausada) quando os 4 MP4 estiverem na biblioteca
+- [ ] EN dos 4 — só depois da PT aprovada
+
+### ⚠️ Desvio de produção registrado (fábrica → Mídia Paga)
+**§3.5 pede crossfade 0,4s; os 4 saíram com CORTE SECO.** Motivo medido: cada cena tem Ken Burns
+próprio, então no meio do crossfade a cena que sai e a que entra estão em **escalas diferentes** — os
+elementos fixos (logo, rodapé e o **selo de prova do §3.2**) aparecem duplicados e deslocados. Como o
+§3.2 exige o selo em *todas* as cenas, o defeito atingiria *todas* as transições, não só as densas.
+Corte seco aplicado **igualmente nos 4**, então não afeta a comparabilidade — mas se a Mídia Paga
+preferir o crossfade, é reverter uma constante no build e re-encodar.
 
 > **Status 25/07: design 100% validado pelo PO.** As 4 células, os 4 ganchos e a terminologia estão fechados. A partir daqui é produção — qualquer mudança de gancho invalida a comparabilidade do teste e deve voltar pra esta mesa antes.
 

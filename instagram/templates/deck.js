@@ -839,4 +839,143 @@ window.DECK = {
   "p-cta-b-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
     line:"No card. Preview of every module.",
     ctaBtn:"Create free account", ctaSub:"The full board unlocks on upgrade." },
+
+  /* ==========================================================
+     CAMPANHA DE DESCOBERTA — 4 celulas (PT). Design validado pelo PO 25/07,
+     em docs/02-paid/matriz-descoberta-4-celulas.md.
+
+     NAO E CAMPANHA DE CONVERSAO. E instrumento de medicao de topo de funil:
+     cada reel isola UMA hipotese de persona; os 4 juntos formam o experimento.
+
+     🔴 OS 4 PRIMEIROS FRAMES SAO LITERAIS (doc §2). Kicker, gancho, beat e
+     legenda de cada cena 1 estao aprovados palavra por palavra — mexer
+     invalida a comparabilidade do teste. Qualquer mudanca volta pra Midia Paga.
+
+     Padroes iguais nos 4 (doc §3): consequencia de DECISAO por cena (nunca
+     resultado financeiro) · selo de prova persistente no rodape · print real
+     ja na cena 1 · CTA identico (variavel de controle) · 18+ em todo quadro.
+     ========================================================== */
+
+  /* ---------- CELULA 1 · SOLVER — persona: reg que estuda solver ---------- */
+  "d1-s1": { brightGold:true, kicker:"MTT · pra quem estuda solver",           // 🔴 LITERAL
+    heroBg:"shots/crop-exploit-cards.png", heroFocus:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    /* PO 25/07 (2a rodada): "equilibrio" -> "GTO". Mudanca de gancho aprovado —
+       o doc §2 precisa ser atualizado pra Midia Paga nao trabalhar com spec velha. */
+    /* quebra depois de "decorou": "VOCÊ DECOROU O" nao cabe em 1 linha a 104px
+       e o "O" cai sozinho. Ajuste tipografico, palavras seguem literais. */
+    big:'Você decorou<br>o <em>GTO.</em>',                       // 🔴 LITERAL (v2)
+    line:'<span data-in="0.55">Seu oponente não.</span>',      // 🔴 LITERAL (beat)
+    caption:"GTO é o ponto de partida. O adversário real é outro assunto." },
+  "d1-s2": { brightGold:true, kicker:"C-bet de 55% do pote · SRP", proof:"500M+ mãos auditadas · 7 salas",
+    line:"MDF é matemática. A defesa do field é comportamento medido.",
+    block:{ type:"bars", rows:[
+      { sz:"55% do pote", badge:"Δ 6,8 pts", def:57.7, mdf:64.5, defL:"<n>57,7%</n>", mdfL:"64,5%" } ] },
+    caption:"Amostra: 10,6M mãos · CO abre, BB paga. Você vê a distância antes de escolher a linha." },
+  "d1-s3": { brightGold:true, kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
+      title:"Aura · Postflop Analysis", cap:"produto real, não mockup" },
+    caption:"A defesa medida em cada tamanho de aposta, com amostra por célula." },
+  "d1-s4": { brightGold:true, kicker:"A base por trás disso", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"stats", rows:[
+      { k:"Mãos só nesse spot", v:"<n>10,6M</n>" }, { k:"Mãos auditadas", v:"<em><n>500M+</n></em>" },
+      { k:"Salas cobertas", v:"<n>7</n>" } ] },
+    caption:"Toda frequência vem com tamanho de amostra e intervalo de confiança." },
+  "d1-s5": { brightGold:true, big:'O GTO é o <em>começo</em>', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/mockup-two-devices.png", w:900, chrome:false },
+    caption:"Ferramenta de estudo. Você continua decidindo na mesa." },
+
+  /* ---------- CELULA 2 · EXPLOIT — persona: exploitativo ---------- */
+  "d2-s1": { brightGold:true, kicker:"Postflop · c-bet de 55% do pote",         // 🔴 LITERAL
+    heroBg:"shots/crop-sizedist.png", heroFocus:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'A matemática<br>diz <em>64,5%</em>.',                 // 🔴 LITERAL
+    /* numero SEM count-up de proposito: este frame e literal e instrumento de
+       medicao — o count-up exibiria "41,5%" por ~0,6s, que nao e o gancho aprovado */
+    line:'<span data-in="0.55">O field defende <b>57,7%</b>.</span>',  // 🔴 LITERAL (beat)
+    caption:"Os dois números, medidos. Amostra: 10,6M mãos." },
+  "d2-s2": { brightGold:true, kicker:"Mesma aposta, textura diferente", proof:"500M+ mãos auditadas · 7 salas",
+    line:"O board muda o comportamento do field.",
+    block:{ type:"vs", delta:"3 pts",
+      a:{ lb:"Board conectado", v:"<n>6,9%</n>", sb:"distância vs MDF" },
+      b:{ lb:"Board desconexo", v:"<n>9,9%</n>", sb:"distância vs MDF" }, bHot:true },
+    caption:"Você lê a textura antes de escolher o tamanho." },
+  "d2-s3": { brightGold:true, kicker:"A tela real, filtrada por textura", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-disconnected-col.png", w:520,
+      title:"Aura · Postflop · board desconexo" },
+    caption:"3,1M mãos só nesse recorte. Conectividade, pareamento, flush draw — 13+ dimensões." },
+  "d2-s4": { brightGold:true, kicker:"E no overpot a distância é maior", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"vs", delta:"5,3 pts",
+      a:{ lb:"Board conectado", v:"<n>2,9%</n>", sb:"distância no overpot" },
+      b:{ lb:"Board desconexo", v:"<n>8,2%</n>", sb:"distância no overpot" }, bHot:true },
+    caption:"Mesma linha, board diferente — e o número muda de patamar." },
+  "d2-s5": { brightGold:true, big:'O número é<br>do <em>field</em>', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    line:"Frequência observada, por textura e por tamanho. <b>Descrição, não palpite.</b>",
+    caption:"Ferramenta de estudo. A decisão na mesa continua sendo sua." },
+
+  /* ---------- CELULA 3 · CATEGORIA — controle do experimento ---------- */
+  /* PO 25/07 (2a rodada): lockup grande na cena 1 — sinaliza "app novo" antes
+     mesmo de ler o gancho. Faz sentido justo nesta celula, que e a mais ampla. */
+  "d3-s1": { brightGold:true, kicker:"MTT", heroLogo:true,                      // 🔴 LITERAL
+    heroBg:"shots/crop-preflop-table.png", heroFocus:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'Não é solver.<br>Não é <em>tracker</em>.',            // 🔴 LITERAL
+    line:'<span data-in="0.55">É o que o field <b>inteiro</b> faz.</span>',  // 🔴 LITERAL (beat)
+    caption:"O mesmo jogo — novas informações." },             // 🔴 LITERAL (selo)
+  "d3-s2": { brightGold:true, kicker:"O que cada um responde", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"stats", rows:[
+      { k:"Solver", v:"o equilíbrio" }, { k:"Tracker", v:"as SUAS mãos" },
+      { k:"Aura", v:"<em>o field</em>" } ] },
+    caption:"Três perguntas diferentes. A Aura responde a terceira." },
+  "d3-s3": { brightGold:true, kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:920,
+      title:"Aura · Preflop Analysis", cap:"produto real, não mockup" },
+    caption:"RFI, 3-bet, 4-bet, steal — por posição, com amostra e intervalo de confiança." },
+  "d3-s4": { brightGold:true, kicker:"Medido em", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"stats", rows:[
+      { k:"Mãos auditadas", v:"<em><n>500M+</n></em>" }, { k:"Salas cobertas", v:"<n>7</n>" },
+      { k:"Atualização", v:"trimestral" } ] },
+    caption:"100% anonimizado. Nenhuma mão ligada a jogador." },
+  "d3-s5": { brightGold:true, big:'O mesmo jogo<br><em>novas informações</em>', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/mockup-two-devices.png", w:900, chrome:false },
+    caption:"Inteligência de field para MTT. Ferramenta de estudo — você decide na mesa." },
+
+  /* ---------- CELULA 4 · PIONEIRO — testa POSICIONAMENTO, nao persona ----------
+     Sequencia deliberada do doc §2: o gancho faz SENTIR o ineditismo, a linha
+     NOMEIA a categoria, a legenda PROVA com numero verificavel. Por isso a
+     linha entra depois do beat — nomear antes de mostrar viraria jargao vazio. */
+  "d4-s1": { brightGold:true, kicker:"Inteligência de field · MTT",             // 🔴 LITERAL
+    heroBg:"shots/crop-postflop-wide.png", heroFocus:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'Isso não <em>existia</em>.',                          // 🔴 LITERAL
+    line:'<span data-in="0.55">Mass Data Analysis aplicada a MTT.</span>',  // 🔴 LITERAL
+    caption:"500M+ mãos lidas como população — não como amostra." },  // 🔴 LITERAL
+  /* PO 25/07 (2a rodada): mockup dos 2 monitores aqui — e a cena de escala,
+     entao a beleza do produto trabalha a favor do argumento. */
+  "d4-s2": { brightGold:true, kicker:"População, não amostra", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/mockup-two-devices.png", w:940, chrome:false },
+    caption:"Preflop e postflop do field inteiro — 500M+ mãos auditadas, 7 salas." },
+  "d4-s3": { brightGold:true, kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/postflop-ref.png", w:640,
+      title:"Aura · Postflop Analysis" },
+    caption:"Ação, distribuição de tamanhos e defesa vs MDF — com amostra por célula." },
+  /* PO 25/07 (2a rodada): "exemplificar os 6 estagios". Em vez de dizer "6",
+     mostra o painel REAL com eles nomeados (Pre Bubble, Early ITM, FT...) —
+     exemplifica e ainda cumpre "usar os prints de filtros". */
+  "d4-s4": { brightGold:true, kicker:"Do early à mesa final", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:620, chrome:false },
+    caption:"6 estágios: Early, Mid-game, Pre Bubble, Early ITM, Mid-stage ITM e FT." },
+  "d4-s5": { brightGold:true, big:'Inteligência<br>de <em>field</em>', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    line:"O mesmo jogo — <b>novas informações</b>.",
+    caption:"Ferramenta de estudo. A decisão na mesa continua sendo sua." },
+
+  /* CTA IDENTICO nos 4 — e variavel de controle do experimento (doc §3.4).
+     Nao personalizar por celula: diferenca no CTA contamina a leitura. */
+  "d-cta": { brightGold:true, cta:true, proof:"500M+ mãos auditadas · 7 salas",
+    line:"500M+ mãos auditadas · 7 salas",
+    ctaBtn:"Criar conta grátis", ctaSub:"Preview de cada módulo. Sem cartão." },
 };

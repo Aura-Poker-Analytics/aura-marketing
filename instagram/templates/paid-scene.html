@@ -32,6 +32,8 @@ const CONFIG = {
   callout: "",          // chip de callout de audiencia ("Pra quem joga MTT online")
   proof: "",            // selo de prova social persistente no rodape
   heroFocus: false,     // scrim forte atras do texto do gancho (le o titulo E o produto)
+  heroLogo: false,      // lockup grande no gancho (sinaliza "app novo" logo de cara)
+  brightGold: false,    // dourado com piso mais claro — ver .goldbright abaixo
   anim: 1,              // 0..1 — progresso da animacao (count-up / barras / reveal)
 };
 (function(){try{var q=new URLSearchParams(location.search);var id=q.get('p');
@@ -87,6 +89,24 @@ body{font-family:"Montserrat","Segoe UI",sans-serif;color:var(--ink);
 body.herofocus .herobg .focus{background:
   linear-gradient(180deg, transparent 0%, rgba(2,6,23,0.55) 16%, rgba(2,6,23,0.93) 30%,
     rgba(2,6,23,0.95) 55%, rgba(2,6,23,0.72) 66%, transparent 82%)}
+
+/* DOURADO — o gradiente padrao termina em --amber6 (#D97706, um bronze escuro)
+   na BASE das letras. Contra fundo quase preto o terco inferior se dissolve e a
+   palavra le como "apagada" ao lado do branco solido. Aqui o piso sobe pra um
+   ambar ainda vivo + halo quente, entao a letra fica firme de ponta a ponta.
+   Opt-in (`brightGold`) pra nao alterar os criativos de controle do A/B. */
+body.goldbright .big em, body.goldbright .line em{
+  background:linear-gradient(180deg,#FDE68A 0%,#FCD34D 38%,#FBBF24 72%,#F0A81C 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 22px rgba(251,191,36,0.32))}
+
+/* lockup grande no gancho — "isso e um app, e ele e novo" antes de ler o texto */
+.herologo{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:30px}
+.herologo .icon{width:92px;height:76px;color:var(--gold)}
+.herologo .wm{width:286px;color:var(--gold)}
+.herologo .icon svg,.herologo .wm svg{width:100%;height:100%;display:block}
+.herologo .tag{font-size:19px;font-weight:800;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--gold);opacity:0.9}
 
 /* v3: chip de callout de audiencia — diz PRA QUEM e, sem diluir o jargao */
 .callout{display:inline-flex;align-items:center;gap:12px;align-self:center;margin-bottom:26px;
@@ -367,6 +387,8 @@ if (CONFIG.cta) {
   document.getElementById("mark").style.visibility = "hidden";
 } else {
   core.innerHTML =
+    (CONFIG.heroLogo?`<div class="herologo"><span class="icon" data-icon></span>
+       <span class="wm" data-wordmark></span><span class="tag">Poker Analytics</span></div>`:'') +
     (CONFIG.callout?`<div class="callout">${CONFIG.callout}</div>`:'') +
     (CONFIG.kicker?`<div class="kicker">${CONFIG.kicker}</div>`:'') +
     (CONFIG.big?`<h1 class="big${CONFIG.bigSm?' sm':''}">${CONFIG.big}</h1>`:'') +
@@ -380,6 +402,7 @@ if (!CONFIG.caption) document.getElementById("cap").style.display = 'none';
 const proofEl = document.getElementById("proof");
 if (CONFIG.proof) proofEl.textContent = CONFIG.proof; else proofEl.style.display = 'none';
 if (CONFIG.heroFocus) document.body.classList.add('herofocus');
+if (CONFIG.brightGold) document.body.classList.add('goldbright');
 
 /* ============ v3: ANIMACAO ============
    O build renderiza K frames variando ?a=0..100. Aqui cada frame desenha o
