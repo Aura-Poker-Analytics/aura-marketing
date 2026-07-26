@@ -1,7 +1,8 @@
 /* CAMPANHA DE DESCOBERTA — 4 celulas, PT. (EN so depois da PT aprovada.)
  *
- *   node instagram/build-descoberta.mjs            # renderiza + encoda os 4 MP4
- *   node instagram/build-descoberta.mjs --guides   # so renderiza, com as zonas seguras
+ *   node instagram/build-descoberta.mjs              # renderiza + encoda os 4 MP4
+ *   node instagram/build-descoberta.mjs --frames-only # so estado final de cada cena (PNG p/ PO)
+ *   node instagram/build-descoberta.mjs --guides     # so renderiza, com as zonas seguras
  *   node instagram/build-descoberta.mjs --skip-render  # reaproveita os PNGs
  *
  * Design validado pelo PO 25/07 — docs/02-paid/matriz-descoberta-4-celulas.md.
@@ -46,6 +47,7 @@ const K_DATA = 10;   // frames das cenas de dado (0,33s) — count-up rapido
 
 const GUIDES = process.argv.includes('--guides');
 const SKIP_RENDER = process.argv.includes('--skip-render');
+const FRAMES_ONLY = process.argv.includes('--frames-only');
 
 /* nome do arquivo = nome do anuncio = utm_content (doc §4). NAO RENOMEAR:
    quebra a serie do relatorio. */
@@ -58,11 +60,12 @@ const CELLS = [
 
 const OUT_DIR = path.join(ROOT, 'content/paid/AURA-DESCOBERTA');
 const FRAMES = path.join(ROOT, 'instagram/output/desc-frames');
+const PREVIEW = path.join(ROOT, 'instagram/output/desc-preview');
 const TMP = path.join(ROOT, 'instagram/output/_segs-desc');
-[OUT_DIR, FRAMES, TMP].forEach(d => fs.mkdirSync(d, { recursive: true }));
+[OUT_DIR, FRAMES, PREVIEW, TMP].forEach(d => fs.mkdirSync(d, { recursive: true }));
 
-const srv = SKIP_RENDER ? null : spawn('npx.cmd', ['serve', '-l', String(PORT), TPL], { stdio: 'ignore', shell: true });
-if (!SKIP_RENDER) await new Promise(r => setTimeout(r, 6000));
+const srv = (SKIP_RENDER && !FRAMES_ONLY) ? null : spawn('npx.cmd', ['serve', '-l', String(PORT), TPL], { stdio: 'ignore', shell: true });
+if (srv) await new Promise(r => setTimeout(r, 6000));
 
 function shot(id, out, a) {
   const q = [`p=${id}`];
@@ -72,6 +75,24 @@ function shot(id, out, a) {
     `--window-size=${W},${H}`, '--force-device-scale-factor=1',
     '--virtual-time-budget=4000', `--screenshot=${out}`,
     `http://localhost:${PORT}/paid-scene?${q.join('&')}`], { stdio: 'ignore' });
+}
+
+/* --frames-only: 1 PNG por cena no estado final (a=100), sem guias, sem encode.
+   Saida: instagram/output/desc-preview/<reel>/s<N>.png — PO valida antes do MP4. */
+if (FRAMES_ONLY) {
+  for (const C of CELLS) {
+    const dir = path.join(PREVIEW, C.name);
+    fs.mkdirSync(dir, { recursive: true });
+    C.ids.forEach((id, i) => {
+      const out = path.join(dir, `s${i + 1}.png`);
+      // estado final: anim=100 (beat revelado, count-up completo)
+      shot(id, out, 100);
+    });
+    console.log(`${C.name}: ${C.ids.length} PNGs de preview → ${dir}`);
+  }
+  if (srv) { srv.kill(); try { execFileSync('taskkill', ['/F', '/T', '/PID', String(srv.pid)], { stdio: 'ignore' }); } catch {} }
+  console.log(`preview pronto: ${PREVIEW} (${CELLS.length * 6} PNGs). Encode so depois do OK do PO.`);
+  process.exit(0);
 }
 
 if (!SKIP_RENDER) for (const C of CELLS) {

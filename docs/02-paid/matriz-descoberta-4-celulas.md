@@ -80,9 +80,16 @@ Testa **posicionamento**, não persona: novidade/ineditismo é razão suficiente
 > **Kicker:** `Inteligência de field · MTT` *(EN: `Field intelligence · MTT`)*
 > **Gancho:** **"Isso não existia."**
 > **Linha:** **"Mass Data Analysis aplicada a MTT."**
-> **Legenda (rodapé):** `500M+ mãos lidas como população — não como amostra.`
 
-**Sequência deliberada:** o gancho faz *sentir* o ineditismo → a linha *nomeia* a categoria → a legenda *prova* com número verificável. É assim que se planta categoria: mostra, nomeia, substancia. Nomear antes de mostrar viraria jargão vazio.
+> ⚠️ **Atualizado na produção (PO, 26/07, v2): legenda do rodapé removida.**
+> A frase *«500M+ mãos lidas como população — não como amostra.»* era literal aprovada e
+> fazia parte do instrumento (sentir → nomear → **provar**). O PO pediu a remoção das
+> legendas queimadas em todas as cenas do disc-04 (e do disc-02). O instrumento vigente
+> fica **gancho + linha**; a prova numérica permanece no **selo persistente** do rodapé
+> (`500M+ mãos auditadas · 7 salas`) em todas as cenas. **Não subir com a spec antiga.**
+
+**Sequência deliberada (v2):** o gancho faz *sentir* o ineditismo → a linha *nomeia* a categoria.
+A substanciação numérica fica no selo persistente (§3.2), não na caixa de legenda.
 
 **"Mass Data Analysis" em inglês dentro do criativo PT é proposital** — segue a regra de jargão da casa (RFI, MDF, field ficam em EN nas duas línguas). E funciona **especificamente nesta célula**: aqui o termo desconhecido *é* a mensagem (categoria nova). Nas células 1 e 2 seria ruído — lá o objetivo é compreensão imediata.
 
@@ -160,9 +167,11 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 - [x] ~~PO valida as personas~~ — **25/07:** TRACKER cortado (não rivalizamos com tracker), PIONEIRO no lugar
 - [x] ~~PO escolhe a versão da célula 4~~ — **25/07: versão (a)**, com `Inteligência de field` + `Mass Data Analysis aplicada a MTT`
 - [x] ~~PO valida os ganchos das células 1–3~~ — **25/07: aprovados como estão**
-- [x] ~~**LIBERADO:** fábrica produz os 4 roteiros + render PT~~ — **ENTREGUE:** 4 roteiros em
-  `content/reels/disc-0*/roteiro.md` + 4 MP4 e thumbs em `content/paid/AURA-DESCOBERTA/`
-- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando os 4 MP4 estiverem na biblioteca
+- [x] ~~**LIBERADO:** fábrica produz os 4 roteiros + render PT~~ — **ENTREGUE (v1):** 4 roteiros + MP4
+- [ ] **v2 (26/07):** PO valida PNGs de preview em `instagram/output/desc-preview/` **antes** de re-encodar MP4
+  (`node instagram/build-descoberta.mjs --frames-only`)
+- [ ] v2: mockup Postflop 2× do app real (disc-02 cena 3) — bloqueado no LOCAL (`tbl_*_pooled`)
+- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando os 4 MP4 v2 estiverem na biblioteca
 - [ ] EN dos 4 — só depois da PT aprovada
 
 ### ⚠️ Desvio de produção registrado (fábrica → Mídia Paga)
@@ -173,7 +182,15 @@ elementos fixos (logo, rodapé e o **selo de prova do §3.2**) aparecem duplicad
 Corte seco aplicado **igualmente nos 4**, então não afeta a comparabilidade — mas se a Mídia Paga
 preferir o crossfade, é reverter uma constante no build e re-encodar.
 
-> **Status 25/07: design 100% validado pelo PO.** As 4 células, os 4 ganchos e a terminologia estão fechados. A partir daqui é produção — qualquer mudança de gancho invalida a comparabilidade do teste e deve voltar pra esta mesa antes.
+### v2 produção (26/07) — o que mudou vs o design 25/07
+- Dourado do `<em>`: cor chapada (sem gradiente/`brightGold`)
+- Logo completa PNG nas cenas 1 de disc-01/02/03
+- disc-01 cena 2: shot size-a-size (não mais barra única)
+- disc-02 e disc-04: legendas queimadas removidas (ver §2 célula 4)
+- Build: flag `--frames-only` para o PO aprovar PNGs antes do encode
+
+> **Status 26/07:** ganchos literais intactos (exceto remoção da legenda do disc-04, registrada acima).
+> Qualquer mudança de gancho ainda invalida a comparabilidade e volta pra esta mesa.
 
 ### Glossário de marca (usar consistente nos 4 reels)
 | Termo | PT | EN |
