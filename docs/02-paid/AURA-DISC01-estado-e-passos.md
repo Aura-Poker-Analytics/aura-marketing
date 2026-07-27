@@ -39,7 +39,18 @@ A lista original era otimista. O que **existe de fato**:
 | GGPoker · partypoker · PokerNews · Hendon Mob | ❌ não existem | — | — |
 | Times de staking BR | ❌ não indexados | — | — |
 
-**Configuração final:** os **3 interesses** acima, em OU. Só isso.
+### ✅ CONFIGURAÇÃO FINAL (PO, 25/07) — **1,7–2M com a demografia aplicada** ✔ na faixa
+
+| Interesse | Qualidade do sinal |
+|---|---|
+| **poker strategy** | 🟢 o melhor — **intenção de estudo**, não afinidade de marca. É literalmente o que a Aura vende |
+| **poker tournament** | 🟢 MTT-específico |
+| **world poker tour** | 🟢 circuito/jogador sério |
+| **texas holdem poker** | 🟠 **o mais diluído** — pega também app social/grátis (jogador casual que não joga MTT). Mantido pelo volume |
+
+⚠️ **`texas holdem poker` é o primeiro a cortar** se no D3 alguma célula vier com `% masculino` < 80% ou engajamento estranho. Os outros três são todos de jogador sério.
+
+*(A busca do PO encontrou termos melhores que a lista original — `poker strategy` em especial. PokerStars/WSOP ficaram de fora da seleção final.)*
 
 ⚠️ **Os tamanhos mostrados na busca são GLOBAIS.** O número que importa é o estimador **após** BR + 21–47 — esperado 1,5–3M. Conferir no painel direito, não na caixa de busca.
 
