@@ -385,6 +385,22 @@ window.DECK = {
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
 
+  /* POST: distribuicao de tamanhos. Dado real da coluna Total (aura-total2):
+     ~20% 9,3% (137K) · 33% 19,5% (286K) · 42% 24,5% (360K) · 55% 16,5% (242K)
+     · ~75% 16,6% (244K) · overpot 13,6% (200K). Soma 100%, ~1,47M maos — que
+     e justamente 13,9% de 10,6M (a fatia em que houve XR).
+     ⚠️ FLAG CONHECIDA: a distribuicao pertence a acao XR (raise) e o gabarito
+     §4 diz que raise aparece em MULTIPLO na UI, nao em %pot. O PO decidiu
+     publicar assim mesmo (27/07). Se o rotulo do raise for corrigido no
+     produto, revisar este post antes de repostar ou virar anuncio. */
+  "shot-size-mix": {
+    layout: "hero", kicker: "Postflop · real screen",
+    titleHtml: "The size the field <em>actually picks</em>",
+    shotSrc: "shots/crop-sizedist.png", shotBg: "#0B1120", frameH: 620, badge: "",
+    caption: "42% is the most-used size, at 24.5%. The field goes overpot 13.6% of the time. Every row shows its own sample.",
+    footerNote: "aurapoker.com · real product", handle: "@aurapokeranalytics",
+  },
+
   /* POST: textura de board muda o field. Comparacao REAL lado a lado — o crop
      traz as colunas "Total" e "Disconnected" do proprio produto, entao a
      comparacao e visivel na tela, nao afirmada na legenda.
@@ -396,7 +412,7 @@ window.DECK = {
     titleHtml: "Same spot. <em>Different board.</em>",
     shotSrc: "shots/crop-postflop-wide.png", shotBg: "#0B1120", frameH: 780, badge: "",
     caption: "The field check-raises a flop c-bet 13.9% of the time — but 11.5% on a disconnected board. Same spot, measured per texture.",
-    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+    footerNote: "aurapoker.com · real product", handle: "@aurapokeranalytics",
   },
 
   /* analogo de referencia do PREFLOP, mas pro POSTFLOP. Tela real (aura-total2
