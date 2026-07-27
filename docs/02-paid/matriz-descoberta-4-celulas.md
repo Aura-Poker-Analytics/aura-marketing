@@ -149,11 +149,19 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 >
 > O split test resolve os dois problemas de uma vez: audiência dividida em grupos **mutuamente exclusivos** (cada pessoa vê **uma** célula só → zero saturação) e **orçamento igual garantido** por célula → amostras comparáveis. Abre-se mão da eficiência de otimização, o que é aceitável: nesta fase dado limpo > eficiência.
 >
-> **Matemática do orçamento:** R$50/dia ÷ 4 = **R$12,50/célula/dia** (~R$375/mês cada). Acima do mínimo da conta (R$5,16), mas magro — em mercados de CPM alto os breakdowns ficam ruidosos. **Decisão do PO:** manter 4 células com leitura **direcional** (recomendado), cortar pra 3 (R$16,67 cada), ou subir pra R$100/dia (R$25 cada, dado sólido).
+> **Matemática do orçamento — RESOLVIDA (25/07):** R$1.500 fixos (PO não aumenta) ÷ 30d = R$50/dia ÷ 4 células = **R$12,50/célula/dia**. Isso seria magro demais espalhado internacionalmente; **concentrar em BR resolve** — no CPM real de BR (R$4,22 histórico), R$12,50/dia compra volume suficiente pra breakdown legível. As 4 células **ficam mantidas** (cortar pra 3 perderia uma hipótese inteira, mais caro que margem de erro maior). Leitura: **direcional**, não estatisticamente conclusiva — adequado ao objetivo desta fase.
 >
 > **Sobre saturação:** não é risco material aqui. A Meta deduplica entrega dentro do conjunto, anúncios do mesmo conjunto não competem entre si, e o orçamento é pequeno demais — referência da própria conta: R$505 → 60k alcance → **frequência 1,99**. Com pool de milhões, a frequência esperada fica em ~1,0–1,5.
 >
-> **Público: AMPLO.** Sem pré-segmentação dura — o **gancho é o filtro**. Pré-segmentar enviesaria a própria descoberta (a gente encontraria só quem já escolheu). Manter: geo definido, 18+, exclusão de cassino/apostas, só Instagram. ❌ Nunca o interesse "poker" isolado (agrega cassino — aprendizado registrado).
+> **Público: AMPLO em interesse, CONCENTRADO em geo.** ⚠️ **Definido 25/07** — orçamento fixo em R$1.500 (decisão do PO); a mitigação do dado magro vem de concentrar geo/posicionamento, **não** de estreitar interesse.
+>
+> - ❌ **NÃO limitar por interesse.** (1) A taxonomia está contaminada — "poker" agrega cassino/apostas (aprendizado registrado). (2) Enviesaria a resposta: mostrando só pra interesse-poker, descobre-se apenas que gente-poker responde; os perfis não-previstos — os que valem — nunca veriam. (3) Público estreito tem CPM mais alto → *menos* dados, não mais.
+> - ✅ **SIM limitar geo: BRASIL apenas.** Geo não é a variável em descoberta (queremos *qual persona*, não *qual país*), então cortar é ganho puro. É também onde o dinheiro vazava: CPM BR real de **R$4,22** vs. estimado R$40–60 em UK/DE/Nórdicos → **~5× mais impressões por real**. Ordem de grandeza: BR-only ≈ 25–75 mil impressões/célula (legível) vs. spread internacional ≈ 6–10 mil (ruído). Coerente com o criativo, que sai em **PT primeiro**.
+> - ✅ **SIM concentrar posicionamento:** Reels + Stories, **sem Feed**. Vídeo vertical no feed rende pouco e 99% da entrega histórica foi Reels/Stories. É a única variável de breakdown cuja resposta já se conhece — sacrificá-la não custa aprendizado.
+> - ⚠️ **NÃO estreitar idade** além de 20–45: idade **é** variável de descoberta (o breakdown que mais revela o comprador). Estreitar compraria impressão pagando com o próprio achado.
+> - Manter: 18+, exclusão de cassino/apostas/bingo, só Instagram.
+>
+> **Consequência estrutural — o braço internacional sai desta fase.** Isso reverte o desenho de dois braços (BR/PT + Intl/EN) do `campanha-1-plano-revisado.md §2`. Motivo não é preferência por teste limpo (o PO já havia corrigido isso, com razão) — é **matemática de orçamento**: R$1.500 sustenta descoberta em um mercado, não em dois. O internacional vira **fase 2**: rodar BR, achar o gancho vencedor, testar **só o vencedor** em EN com orçamento próprio. Aprende mais gastando menos que diluir 4 células em 11 países.
 >
 > **Como ler a descoberta:** breakdowns do Gerenciador (**idade · gênero · posicionamento · região · dispositivo**) cruzados com `utm_content`. Cada célula tem `utm_content` próprio, então o corte sai direto. Funciona independente de on-site.
 >
