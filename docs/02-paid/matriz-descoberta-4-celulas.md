@@ -158,7 +158,8 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 > - ❌ **NÃO limitar por interesse.** (1) A taxonomia está contaminada — "poker" agrega cassino/apostas (aprendizado registrado). (2) Enviesaria a resposta: mostrando só pra interesse-poker, descobre-se apenas que gente-poker responde; os perfis não-previstos — os que valem — nunca veriam. (3) Público estreito tem CPM mais alto → *menos* dados, não mais.
 > - ✅ **SIM limitar geo: BRASIL apenas.** Geo não é a variável em descoberta (queremos *qual persona*, não *qual país*), então cortar é ganho puro. É também onde o dinheiro vazava: CPM BR real de **R$4,22** vs. estimado R$40–60 em UK/DE/Nórdicos → **~5× mais impressões por real**. Ordem de grandeza: BR-only ≈ 25–75 mil impressões/célula (legível) vs. spread internacional ≈ 6–10 mil (ruído). Coerente com o criativo, que sai em **PT primeiro**.
 > - ✅ **SIM concentrar posicionamento:** Reels + Stories, **sem Feed**. Vídeo vertical no feed rende pouco e 99% da entrega histórica foi Reels/Stories. É a única variável de breakdown cuja resposta já se conhece — sacrificá-la não custa aprendizado.
-> - ⚠️ **NÃO estreitar idade** além de 20–45: idade **é** variável de descoberta (o breakdown que mais revela o comprador). Estreitar compraria impressão pagando com o próprio achado.
+> - ✅ **Idade: 21–47** (ajustado 25/07 — o PO informou que a base real é masculina, 21–47). Não custa aprendizado: a **distribuição dentro** da faixa continua legível (21-30 vs 35-47 é achado valioso e permanece).
+> - ⚠️ **Gênero: deixar ABERTO**, apesar da base ser majoritariamente masculina. (1) O jargão já filtra — a entrega penderá masculino sozinha, desperdício pequeno. (2) Travar **destrói o alarme do D3**: `% masculino` é o indicador precoce de "este gancho atrai o público errado"; travado vira 100% por definição. (3) O histórico de 35% feminino veio de `PROFILE_VISIT` — causa identificada e corrigida. Travar é defensável (concentra verba), mas perde o termômetro.
 > - Manter: 18+, exclusão de cassino/apostas/bingo, só Instagram.
 >
 > **Consequência estrutural — o braço internacional sai desta fase.** Isso reverte o desenho de dois braços (BR/PT + Intl/EN) do `campanha-1-plano-revisado.md §2`. Motivo não é preferência por teste limpo (o PO já havia corrigido isso, com razão) — é **matemática de orçamento**: R$1.500 sustenta descoberta em um mercado, não em dois. O internacional vira **fase 2**: rodar BR, achar o gancho vencedor, testar **só o vencedor** em EN com orçamento próprio. Aprende mais gastando menos que diluir 4 células em 11 países.
@@ -310,6 +311,19 @@ preferir o crossfade, é reverter uma constante no build e re-encodar.
 | Método | **Mass Data Analysis (MDA)** | idem — não traduzir |
 | Jargão técnico | RFI, 3bet, MDF, field, ICM | idem — não traduzir |
 | Tagline | *O mesmo jogo — novas informações* | *Same game — new information* |
+
+## 6b. Extrapolação BR → internacional (fase 2)
+
+**Transfere:** o **gancho vencedor**. A relação do reg com solver/estudo/dado de field é razoavelmente universal no nicho — a tensão "decorei o equilíbrio mas o oponente não joga assim" é a mesma em Manchester e em São Paulo. É isso que dá valor mundial a uma descoberta feita em BR.
+
+**Não transfere:**
+- CPM/CPC — benchmark BR não serve de referência lá fora
+- Nuance linguística — EN é **adaptação**, não tradução
+- **⚠️ Contexto competitivo (o mais relevante):** a Ads Library mostrou **GTOWizard com 48 anúncios ativos no BR sem uma linha em PT**, enquanto os mercados EN estão saturados de anúncio de ferramenta. **A categoria é fresca no BR e batida lá fora.**
+
+**Consequência específica:** a célula **PIONEIRO** pode vencer no BR justamente por ineditismo de formato — e decepcionar em EN, onde o jogador já viu dezenas de ferramentas se anunciando como novidade. *Novidade é menos nova em mercado saturado.*
+
+**Portanto a fase 2 não copia as configurações do BR.** Ela pega o gancho vencedor, adapta pra EN e roda com **baseline próprio**, assumindo que a ordem das células pode se inverter. A demografia (masculino 21–47) provavelmente se mantém; a hierarquia de mensagem, não necessariamente.
 
 ## 7. Nota de posicionamento (fora do escopo do anúncio)
 
