@@ -145,7 +145,13 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 >
 > **Objetivo:** ThruPlay / engajamento. **NUNCA CompleteRegistration** — com ~0 conversões a Meta estreitaria a entrega num bolso minúsculo e mataria a amplitude de que a descoberta depende.
 >
-> **Estrutura:** 1 campanha · **1 conjunto** · 4 anúncios competindo. Um conjunto só — dividir em 4 fragmentaria o orçamento e cada célula ficaria sem volume pra ler.
+> **Estrutura: TESTE A/B (split test) nativo da Meta, 4 células.** ⚠️ **Corrigido 25/07** — a versão anterior dizia "1 conjunto com 4 anúncios competindo", e isso **quebraria o experimento**: com 4 anúncios num conjunto, a Meta concentra 70–90% das impressões no vencedor em 24–72h e as outras 3 células ficam sem amostra. Ótimo pra conversão, fatal pra descoberta — a gente quer o perfil de **cada** célula, não só do vencedor.
+>
+> O split test resolve os dois problemas de uma vez: audiência dividida em grupos **mutuamente exclusivos** (cada pessoa vê **uma** célula só → zero saturação) e **orçamento igual garantido** por célula → amostras comparáveis. Abre-se mão da eficiência de otimização, o que é aceitável: nesta fase dado limpo > eficiência.
+>
+> **Matemática do orçamento:** R$50/dia ÷ 4 = **R$12,50/célula/dia** (~R$375/mês cada). Acima do mínimo da conta (R$5,16), mas magro — em mercados de CPM alto os breakdowns ficam ruidosos. **Decisão do PO:** manter 4 células com leitura **direcional** (recomendado), cortar pra 3 (R$16,67 cada), ou subir pra R$100/dia (R$25 cada, dado sólido).
+>
+> **Sobre saturação:** não é risco material aqui. A Meta deduplica entrega dentro do conjunto, anúncios do mesmo conjunto não competem entre si, e o orçamento é pequeno demais — referência da própria conta: R$505 → 60k alcance → **frequência 1,99**. Com pool de milhões, a frequência esperada fica em ~1,0–1,5.
 >
 > **Público: AMPLO.** Sem pré-segmentação dura — o **gancho é o filtro**. Pré-segmentar enviesaria a própria descoberta (a gente encontraria só quem já escolheu). Manter: geo definido, 18+, exclusão de cassino/apostas, só Instagram. ❌ Nunca o interesse "poker" isolado (agrega cassino — aprendizado registrado).
 >
