@@ -155,7 +155,13 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 >
 > **Público: AMPLO em interesse, CONCENTRADO em geo.** ⚠️ **Definido 25/07** — orçamento fixo em R$1.500 (decisão do PO); a mitigação do dado magro vem de concentrar geo/posicionamento, **não** de estreitar interesse.
 >
-> - ❌ **NÃO limitar por interesse.** (1) A taxonomia está contaminada — "poker" agrega cassino/apostas (aprendizado registrado). (2) Enviesaria a resposta: mostrando só pra interesse-poker, descobre-se apenas que gente-poker responde; os perfis não-previstos — os que valem — nunca veriam. (3) Público estreito tem CPM mais alto → *menos* dados, não mais.
+> - ✅ **SIM segmentar por interesse — CORRIGIDO 25/07 (PO tinha razão).** A posição anterior ("amplo puro, o gancho filtra") **estava errada** e o motivo do erro é instrutivo: eu confundi **segmentar por persona** (enviesaria a descoberta — estaria pré-decidindo a resposta) com **segmentar por pertencimento ao nicho** (não enviesa nada). As 4 células testam *qual enquadramento ressoa **entre jogadores de poker***; filtrar pra jogadores de poker é **pré-requisito** do experimento, não viés. Poker online é ~0,5% da população — amplo puro gastaria a maior parte do orçamento redescobrindo que a maioria não joga poker. Com R$12,50/dia/célula, o algoritmo talvez nem completasse o aprendizado antes de achar o nicho sozinho.
+>   - **Incluir:** PokerStars, GGPoker, partypoker · World Series of Poker, World Poker Tour · PokerNews, Hendon Mob · "Torneio de pôquer" (se existir como interesse distinto)
+>   - **Excluir:** Cassino, Jogos de cassino, Apostas, Apostas esportivas, Bingo, Caça-níqueis
+>   - ❌ **Nunca o "Poker" genérico isolado** — é ele que agrega cassino (causa dos seguidores ruins históricos)
+>   - **Advantage+ audience expansion DESLIGADA** — reintroduziria o cassino ao "expandir"
+>   - Tamanho esperado: ~2–5M no BR em 21–47. Saudável: não satura com R$1.500, não desperdiça.
+>   - ⚠️ **Setar no painel, não via MCP:** este MCP não expõe `ads_targeting_search`, então não há como obter IDs de interesse verificados — inventar ID é rejeitado pela Meta. Configuração manual do PO no construtor de público.
 > - ✅ **SIM limitar geo: BRASIL apenas.** Geo não é a variável em descoberta (queremos *qual persona*, não *qual país*), então cortar é ganho puro. É também onde o dinheiro vazava: CPM BR real de **R$4,22** vs. estimado R$40–60 em UK/DE/Nórdicos → **~5× mais impressões por real**. Ordem de grandeza: BR-only ≈ 25–75 mil impressões/célula (legível) vs. spread internacional ≈ 6–10 mil (ruído). Coerente com o criativo, que sai em **PT primeiro**.
 > - ✅ **SIM concentrar posicionamento:** Reels + Stories, **sem Feed**. Vídeo vertical no feed rende pouco e 99% da entrega histórica foi Reels/Stories. É a única variável de breakdown cuja resposta já se conhece — sacrificá-la não custa aprendizado.
 > - ✅ **Idade: 21–47** (ajustado 25/07 — o PO informou que a base real é masculina, 21–47). Não custa aprendizado: a **distribuição dentro** da faixa continua legível (21-30 vs 35-47 é achado valioso e permanece).
@@ -311,6 +317,25 @@ preferir o crossfade, é reverter uma constante no build e re-encodar.
 | Método | **Mass Data Analysis (MDA)** | idem — não traduzir |
 | Jargão técnico | RFI, 3bet, MDF, field, ICM | idem — não traduzir |
 | Tagline | *O mesmo jogo — novas informações* | *Same game — new information* |
+
+## 5a. Seguidores "ruins" e a semente da fase 2
+
+**Risco muito menor que no histórico** — as três causas foram removidas: otimização `PROFILE_VISIT` → ThruPlay · CTA `VIEW_INSTAGRAM_PROFILE` → site · interesse "poker" (agrega cassino) → sem interesse. A campanha antiga **pedia** visitantes de perfil baratos; esta pede quem assiste vídeo técnico.
+
+**O reenquadramento que importa:** o erro histórico não foi *ter* seguidor ruim — foi **usar seguidores como semente de lookalike**. Foi assim que nasceram as LAL contaminadas de 29/01. Esta campanha gera sementes melhores e imunes:
+
+| Semente | Qualidade | Uso na fase 2 |
+|---|---|---|
+| **ThruPlay 15s+** (video viewers) | 🟢 comportamental, auto-selecionada | ✅ semente preferida |
+| **Visitantes do site** (pixel, já funcionando) | 🟢 comportamental | ✅ semente preferida |
+| Seguidores IG | 🟠 passivo, fácil de contaminar | ❌ **nunca mais como semente** |
+
+**Conduta durante a campanha:**
+- **Não limpar seguidores durante o run** — remoção em massa em campanha ativa pode disparar flag de spam; e é esteira (removendo enquanto entram).
+- **Monitorar como diagnóstico:** pico de seguidor estranho = algum gancho atraindo público errado. Casa com o `% masculino` do D3.
+- **Limpar depois, se for usar:** seguidor sujo custa caro só (a) como semente de LAL — que já decidimos não usar, e (b) diluindo taxa de engajamento do orgânico, o que reduz alcance dos posts. Limpeza pós-campanha resolve ambos.
+
+**Opção em aberto (decisão do PO):** excluir o público `Aura | IG Engajadores 365d` (8,5–10k, contaminado pelas campanhas antigas) da campanha. Garante descobrir **gente nova** em vez de re-medir o pool velho; custo de alcance irrelevante (10k num pool de milhões). Faz sentido **por ser descoberta** — numa campanha de conversão você quereria justamente o morno.
 
 ## 5b. Gates durante a campanha — de SAÚDE, não de performance
 
