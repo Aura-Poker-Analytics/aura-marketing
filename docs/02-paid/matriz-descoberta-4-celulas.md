@@ -312,6 +312,35 @@ preferir o crossfade, é reverter uma constante no build e re-encodar.
 | Jargão técnico | RFI, 3bet, MDF, field, ICM | idem — não traduzir |
 | Tagline | *O mesmo jogo — novas informações* | *Same game — new information* |
 
+## 5b. Gates durante a campanha — de SAÚDE, não de performance
+
+**Princípio:** o risco a proteger não é "gastar R$1.500 numa campanha ruim" — é **gastar R$1.500 e terminar com dado ilegível**. Campanha "ruim" com leitura clara cumpriu o objetivo; campanha "boa" com dado quebrado desperdiçou tudo.
+
+### ❌ Proibido (destruiria o experimento)
+- **Matar célula por CTR baixo.** CTR baixo **é achado** ("este gancho não faz ninguém parar"), e matar apaga o perfil demográfico daquela célula — que era o objetivo.
+- **Realocar verba pro vencedor.** Isso é otimização, o oposto de descoberta.
+- **Decidir com resultado parcial** = *peeking*; infla falso-positivo e invalida a comparação A/B.
+
+### ✅ Os 3 gates
+
+**D3 — o experimento está de pé?**
+| Checar | Vermelho → ação |
+|---|---|
+| 4 anúncios **aprovados** pela Meta | 1 reprovado = 1 célula com zero dado (furo silencioso) → corrigir e recriar |
+| Cada célula gastando ~R$12,50/dia | célula em "learning limited" não produz dado → investigar entrega |
+| CPM dentro de ~2× do estimado | acima → a conta de amostra muda, reavaliar no D15 |
+| Frequência < 2 | acima → pool pequeno demais |
+| **% masculino por célula** | <80% numa célula = aquele gancho atrai público errado → **anotar, não matar** |
+
+**D7 — o dado vai dar pra ler?** Projetar o ritmo até o D30. Numa célula fraca, distinguir:
+- teve impressões e **não** teve engajamento → **é achado**, deixa rodar
+- **não** teve impressões → **é entrega**, corrigir
+
+**D15 — único ponto real de abort (R$750 gastos).** Abortar **só por qualidade de dado**, nunca por resultado ruim:
+- CPM 3–5× acima do estimado → R$1.500 não compra amostra legível; parar e redesenhar escopo
+- Alguma célula nunca entregou → experimento já incompleto
+- Nada disso → **deixa rolar até o fim**
+
 ## 6b. Extrapolação BR → internacional (fase 2)
 
 **Transfere:** o **gancho vencedor**. A relação do reg com solver/estudo/dado de field é razoavelmente universal no nicho — a tensão "decorei o equilíbrio mas o oponente não joga assim" é a mesma em Manchester e em São Paulo. É isso que dá valor mundial a uma descoberta feita em BR.
