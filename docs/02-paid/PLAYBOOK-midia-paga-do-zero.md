@@ -158,7 +158,21 @@ Em vídeo curto, o primeiro frame decide se a pessoa para ou rola. **Em campanha
 
 🔴 **Nunca use orçamento de campanha (CBO) em descoberta.** O algoritmo concentra 70–90% das impressões no "vencedor" em 24–72h e as outras células ficam sem amostra. Excelente para conversão, **fatal para descoberta** — você queria o perfil de cada célula e recebe o de uma.
 
-**Teste A/B formal é opcional.** Ele adiciona audiência mutuamente exclusiva. Com frequência baixa (~1,0–1,5) e público grande, a sobreposição é desprezível — N conjuntos com orçamento igual já resolvem o essencial.
+**Teste A/B formal vs. N conjuntos — divergência que você precisa conhecer:**
+
+🟢 **A Meta recomenda oficialmente a ferramenta de Testes A/B (Experiments)** em vez de duplicar conjuntos para o mesmo público. A razão declarada: N conjuntos com público essencialmente igual fazem a conta **competir contra si mesma no leilão** (*auction overlap*), e a plataforma não divide a audiência de forma limpa entre eles.
+
+🟠 **O contra-argumento prático:** com frequência baixa (~1,0–1,5) e público de milhões, a sobreposição real é pequena. E o Experiments impõe rigidez (duração fixa, orçamento por variação — praticantes citam ~US$100/dia por variação para significância) que orçamento pequeno não sustenta.
+
+**Como decidir:**
+| Situação | Escolha |
+|---|---|
+| Objetivo é **significância estatística** numa variável | 🟢 Experiments |
+| Objetivo é **descoberta ampla** com orçamento pequeno, aceitando ruído | 🟠 N conjuntos com orçamento igual (ABO) |
+
+Se escolher N conjuntos, **declare explicitamente o trade-off**: você aceita overlap de leilão e leitura direcional em troca de viabilidade orçamentária. Não finja que é equivalente ao Experiments.
+
+**Quantos criativos por conjunto:** 🟢 o limite técnico é 50; a Meta já recomendou "6 ou menos" mas **recuou dessa linguagem** na documentação atual. 🟠 Praticantes convergem em **3–5 por conjunto** — variedade sem diluir o sinal por anúncio. ⚠️ **Exceção: em desenho experimental, 1 criativo por célula é obrigatório** — é o que isola a variável. São objetivos diferentes.
 
 ### 3.6 Segmentação em nicho pequeno
 Distinção que evita dois erros opostos:
@@ -170,6 +184,18 @@ Distinção que evita dois erros opostos:
 
 Se o nicho é ~0,5% da população, targeting amplo puro gasta a maior parte do orçamento redescobrindo que a maioria não é do nicho. **Filtre por nicho; deixe o criativo filtrar persona.**
 
+**Amplo vs. interesse — a evidência é condicional ao volume:**
+| Fonte | Achado |
+|---|---|
+| 🟡 Meta (estudo interno, 2024) | Advantage+ elevou ROAS em 22% e reduziu CPA em 32% vs. setups fragmentados |
+| 🟡 Turba Media (45 clientes DTC, 2025) | Amplo venceu interesse em 78% dos testes |
+| 🟡 AppsFlyer (2025) | **70–80% da performance vem do criativo**, não de budget ou targeting |
+| 🟠 Múltiplos praticantes | Interesse ainda vence com: **conta nova sem dado de pixel**, nicho B2B/muito específico, geo restrito, ou **<50 conversões/semana** |
+
+**Síntese honesta:** os dados favoráveis a amplo vêm majoritariamente de contas com volume médio/alto. **Abaixo de ~50 conversões/semana — que é o caso de qualquer conta começando — interesse é a escolha mais defensável**, até acumular sinal de pixel. Amplo "desperdiça" mais justamente no regime de baixo dado.
+
+⚠️ 🟢 **A taxonomia está encolhendo:** em jun/2025 a Meta começou a consolidar interesses de nicho em categorias mais amplas. Interesses que existiam podem desaparecer. Reverifique antes de replicar qualquer lista.
+
 ⚠️ **Evite o termo genérico da categoria.** Taxonomias de interesse agregam adjacências indesejadas (no caso real, o interesse genérico do nicho incluía uma vertical correlata mas irrelevante, e foi a causa de anos de público errado). **Prefira marcas, produtos e mídia especializada** — mais específicos e menos contaminados.
 
 **Melhor sinal encontrado:** interesse com **intenção** (ex.: "[nicho] strategy" — quem estuda) supera interesse com **afinidade** (ex.: marca do setor — quem só consome).
@@ -178,6 +204,100 @@ Se o nicho é ~0,5% da população, targeting amplo puro gasta a maior parte do 
 - **Concentre geografia.** Geo não é a variável em descoberta — cortar países caros multiplica impressões por real sem enviesar nada. Num caso real, concentrar num só mercado deu ~5× mais impressões pelo mesmo orçamento.
 - **Não estreite a demografia que você quer descobrir.** Se quer saber qual faixa etária converte, não trave idade.
 - **Aceite leitura direcional.** Orçamento pequeno não produz significância estatística. O objetivo é apontar direção, não provar.
+
+### 3.7-B 🔴 Reality check: o que orçamento pequeno NÃO consegue
+
+Esta subseção existe para calibrar expectativa. Ignorá-la produz frustração e diagnóstico errado.
+
+**A fase de aprendizado é o gargalo central de tudo.**
+
+| Fato | Evidência |
+|---|---|
+| ~**50 eventos de otimização em 7 dias** por conjunto para sair da fase de aprendizado | 🟢 Meta Business Help Center |
+| Sem atingir, o conjunto fica em **"Learning Limited"** indefinidamente — entrega instável, CPA 20–50% acima do pós-aprendizado | 🟠 observação de praticantes |
+| **Edições significativas** (orçamento, público, criativo, lance) **reiniciam** a fase | 🟢 Meta |
+| Mínimo técnico da plataforma: US$1/dia (impressão), US$5/dia (clique/conversão) | 🟢 Meta |
+| Faixa citada como "mínimo viável" para sair do aprendizado | 🟠 **US$1.500–5.000/mês** (praticantes) |
+
+**Consequência honesta:** um orçamento de ~US$270/mês (≈R$1.500) está **bem abaixo** da faixa que praticantes citam como mínima. Os conjuntos provavelmente **permanecerão em "Learning Limited" o tempo todo.**
+
+Isso **não invalida a campanha de descoberta** — porque descoberta não depende de otimização madura, depende de alcance distribuído e leitura de breakdowns. Mas invalida três expectativas comuns:
+
+1. ❌ Não espere CPA estável ou otimização fina
+2. ❌ Não interprete oscilação de custo como sinal de criativo — em Learning Limited, a variância é do sistema
+3. ❌ Não persiga "sair do aprendizado" reduzindo número de conjuntos — isso destrói o experimento para perseguir uma métrica que o orçamento não sustenta
+
+**O que fazer em vez disso:** escolher evento de otimização **mais raso** (clique no link, visualização de página, ThruPlay) em vez de conversão. Eventos rasos acumulam mais rápido e dão ao algoritmo algum sinal. É trade-off consciente, não gambiarra.
+
+> **Regra derivada:** *o objetivo de uma campanha de descoberta com orçamento pequeno é aprender quem responde, não obter eficiência.* Eficiência é problema da fase de conversão, com orçamento maior.
+
+### 3.8 Especificações de criativo em vídeo (vale para todas as fases)
+
+> **Legenda de confiabilidade:** 🟢 documentação oficial da plataforma · 🟡 estudo agregado com amostra declarada, metodologia não auditável · 🟠 prática de mercado convergente, sem estudo primário · 🔴 número recirculado sem fonte rastreável
+
+#### Duração total
+
+| Plataforma | Faixa de melhor CTR | Evidência |
+|---|---|---|
+| **Instagram/Meta Reels** | **15–30s** (CTR 1,72%) | 🟡 Benly, 12.000+ anúncios, 2026 |
+| TikTok | 9–15s (CTR 0,96%) | 🟡 Benly + 🟢 diretriz oficial TikTok Business |
+| YouTube Shorts | 6–15s (CTR 1,14%) | 🟡 Benly |
+
+⚠️ **Divergência a conhecer:** dados de *completion rate* agregado (Wistia, 4,7 bi de plays) apontam pico em 45–59s — **mas medem vídeo institucional/site, não anúncio pago vertical**. Não confunda os dois recortes. **Não existe fonte pública que separe duração ótima por estágio de funil com números** — se alguém afirmar isso com precisão, desconfie.
+
+#### O gancho: 3 segundos
+
+- 🟢 **"3-Second Video Plays" é métrica nativa** do Gerenciador da Meta — a janela de 3s é conceito oficial, não folclore.
+- 🟢 Meta recomenda entregar mensagem-chave e marca **dentro dos 3s iniciais**.
+- 🟡 No TikTok, **63% dos anúncios de CTR mais alto** entregam a mensagem-chave nesse intervalo.
+- 🔴 Benchmarks de *hook rate* (>25% mínimo, >30% bom, >40% elite) circulam amplamente mas **não são publicados pela Meta** — são de ferramentas de creative analytics.
+- ❌ **Sem evidência** sobre a diferença de queda entre 0–1s e 1–3s. Ninguém publicou essa curva.
+
+#### 🔑 Tempo de leitura — a regra mais acionável de todas
+
+| Parâmetro | Valor | Evidência |
+|---|---|---|
+| Velocidade de leitura adulta | ~200–250 palavras/min (≈4 palavras/s) | 🟠 psicolinguística geral |
+| **Mínimo por linha de texto** | **1,5s** | 🟠 RocketShip HQ, 2026 |
+| **Overlay de ~10 palavras** | **≥2,5s** | 🟠 idem |
+| Regra alternativa | **1s a cada 13 caracteres** (linha de 30 chars ⇒ ≥2,3s) | 🟠 SSW.Rules |
+| Palavras por overlay | 5–8, máximo 2 linhas visíveis | 🟠 RocketShip HQ |
+
+> 🟠 **"A maioria dos anúncios usa texto 40–50% mais rápido do que o confortável para leitura."** — RocketShip HQ, 2026
+>
+> **Esta é a falha mais comum e a mais barata de corrigir.** Calcule o tempo de cada cena a partir do texto que ela contém, não de uma duração fixa dividida igualmente.
+
+#### Ritmo e transições
+
+- 🟠 Corte a cada **2–4s** é a recomendação convergente — mas **nenhuma fonte publicou estudo controlado**. É convenção de mercado, não dado.
+- ❌ **Crossfade vs corte seco: nenhum estudo quantitativo encontrado.** A prática recomenda corte seco para manter energia; crossfade para desacelerar transição narrativa deliberadamente.
+- ⚠️ **Conflito real a resolver:** cena de 2–4s (ritmo) vs. 2,5s mínimo para overlay de 10 palavras (leitura). **Em criativo denso de texto, a leitura ganha.** Se precisar de ritmo, corte o texto — não o tempo.
+- ⚠️ Crossfade sobre duas cenas com texto pesado cria um intervalo de **ilegibilidade** (dois blocos sobrepostos). Nesses pontos, use corte seco ou mantenha um elemento âncora fixo.
+
+#### Som e legenda
+
+| Achado | Número | Evidência |
+|---|---|---|
+| Assistem sem som (geral) | 92% | 🔴 Verizon/Publicis 2019, recirculado |
+| Sem som no Facebook / Instagram | 85% / 40% | 🔴 origem ~2016, sem link primário |
+| Legenda → assistir até o fim | +80% de propensão | 🔴 Verizon 2019 |
+| Legenda → tempo de visualização | +12% | 🔴 atribuído à Meta, sem publicação localizável |
+
+**Leitura correta desses números:** são antigos (2016–2019) e recirculados sem fonte primária. A conclusão prática sobrevive mesmo assim — **projete para ser legível no mudo** — mas não cite os percentuais como se fossem medição atual.
+
+> ⚠️ **Licenciamento de áudio:** a biblioteca musical do app (Instagram/TikTok) é licenciada para uso **orgânico**. Em anúncio pago, usar essa trilha pode causar reprovação ou remoção do áudio. Para anúncio, use a biblioteca comercial do gerenciador ou trilha licenciada. **Silêncio é mais seguro que trilha errada.**
+
+#### Receita prática (ponto de partida, não dogma)
+
+```
+Duração total:     15–30s (Meta Reels)
+Cena de gancho:    3–4s, com número/jargão legível no frame 1
+Cenas de dado:     tempo = máx(2,5s ; palavras ÷ 4 + 1s)
+Cena de CTA:       3s
+Transição:         0,3–0,5s; corte seco onde ambas as cenas têm texto denso
+Legenda queimada:  sempre
+Áudio:             opcional; nunca da biblioteca orgânica
+```
 
 ---
 
@@ -221,6 +341,17 @@ Saída esperada: *"a célula 2 gerou N conversões a R$X cada, concentradas na f
 
 ### 5.3 O que a campanha constrói (além do aprendizado)
 - **Semente limpa para lookalike** — e aqui está a lição mais cara: use como semente **quem executou uma ação** (viu vídeo, visitou site, converteu), **nunca seguidores**. Semente passiva contamina fácil, e lookalike herda o ruído permanentemente.
+
+  **Hierarquia de qualidade de semente** (🟠 consenso de praticantes, não escala oficial):
+  ```
+  convertidos de alto valor  >  convertidos gerais  >  engajadores profundos (vídeo 75%+, salvamento)
+       >  visitantes com ação  >  engajadores superficiais  >  seguidores
+  ```
+  🟢 **Tamanho:** a Meta recomenda **1.000–5.000** pessoas na semente, do **mesmo país** do lookalike pretendido; funciona a partir de **100** se forem de alta qualidade. 🟠 Qualidade supera tamanho — praticantes citam que 500 compradores de alto valor rendem mais que 5.000 usuários genéricos.
+
+  🟢 **Comece em 1%** (match mais próximo) e expanda para 3–5% só depois de resultado comprovado.
+
+  ⚠️ **Lookalike é presa ao país de destino.** Semente de um país pode gerar lookalike para outro, mas é sinal derivado — mais fraco que semente local. Para o primeiro teste num mercado novo, interesse local + criativo vencedor costuma ser mais limpo.
 - Pool de retargeting para a fase de conversão
 - Interesses e criativos validados
 
@@ -266,7 +397,20 @@ Exemplo real: tipos de direcionamento por localização foram aposentados; conju
 
 ➡️ **Defina valores explicitamente em vez de aceitar defaults**, e revalide após mudanças de plataforma.
 
-### 7.6 Cache de interface engana
+### 7.6 Fadiga de criativo — quando trocar
+🟠 Benchmarks convergentes entre praticantes (sem estudo primário rastreável):
+
+| Sinal | Limiar |
+|---|---|
+| Frequência em prospecção (frio) | alerta em **2,5** · fadiga acima de **3** · degradação acentuada acima de **4** |
+| Frequência em retargeting | tolera **4–6** antes de degradar |
+| Queda de CTR | **−10% em 7 dias** já é alerta — CTR é o sinal mais rápido |
+
+🟠 Relatos indicam que mudanças no ranking da Meta (2024+) **comprimiram a janela de "queima" de criativo de ~6 semanas para 2–3 semanas**, especialmente em Reels. Trate como direcional.
+
+🔴 Números do tipo "custo +50–80%, CTR −40–55% após 5 exposições" circulam identicamente em vários blogs **sem fonte primária** — use como heurística, não como medição.
+
+### 7.7 Cache de interface engana
 Editar um objeto deletado em aba antiga é silencioso e perde trabalho. **Confirme estado pela API, não pela tela.** Se a API e a interface divergem, a API está certa.
 
 ---
@@ -327,7 +471,19 @@ Um pipeline pode estar tecnicamente correto, deployado e nunca ter sido exercita
 
 ---
 
-## 10. Regra de governança
+## 10. Nota sobre a evidência deste playbook
+
+As seções com números foram levantadas por pesquisa em jul/2026 e vêm marcadas por confiabilidade (🟢🟡🟠🔴). Três avisos ao agente que replicar:
+
+1. **Marketing digital recicla número sem fonte.** Vários dos dados mais citados do setor ("85% assistem sem som", "hook rate elite >40%") circulam há anos sem publicação primária localizável. Estão aqui marcados como 🔴 — cite-os como convenção, não como medição.
+2. **Documentação de plataforma muda sem aviso.** A recomendação de "6 anúncios por conjunto" era tratada como oficial e foi retirada. A taxonomia de interesses está encolhendo desde 2025. **Reverifique 🟢 antes de tratar como vigente.**
+3. **Quase tudo sobre ritmo de edição é convenção, não dado.** Cortes por segundo, crossfade vs corte seco, transições — nenhum estudo controlado publicado. A única regra com base real é a de **tempo de leitura**, derivada de psicolinguística.
+
+**Copy de anúncio** (🟢 Meta): texto primário de **125 caracteres** é o limite exibido antes do "ver mais" na maioria dos posicionamentos; recomenda-se **1–3 linhas**. Até 5 variações de texto primário podem ser testadas automaticamente. 🟠 Emoji em moderação (1–2, relevantes). ❌ **Sem evidência quantitativa** sobre estruturas de copy (problema-solução, prova social) — são boas práticas de copywriting sem dado comparativo publicado pela plataforma.
+
+---
+
+## 11. Regra de governança
 
 **Nenhum agente ativa campanha nem autoriza gasto.** Todo trabalho de configuração sobe **pausado**; a ativação é sempre decisão humana explícita.
 
