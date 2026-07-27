@@ -26,15 +26,38 @@ Objetivo `OUTCOME_ENGAGEMENT` · **sem CBO** (orçamento por conjunto = verba ig
 ### 1. Segmentação (nos 4 conjuntos, idêntica)
 Não dá pra setar via MCP: este servidor não expõe busca de interesses, e inventar ID é rejeitado pela Meta.
 
-No construtor de público de **cada** conjunto:
-- **Incluir (interesses):** PokerStars · GGPoker · partypoker · World Series of Poker · World Poker Tour · PokerNews · Hendon Mob
-- **Incluir (Dados demográficos → Trabalho → Cargos):** Professional Poker Player · Poker Player · Jogador de Poker
-- **Explorar:** times de staking BR (Gigantes, Nit, RPT, CPC, Red Line) se existirem como interesse/empregador
-- **Excluir:** Cassino · Jogos de cassino · Apostas · Apostas esportivas · Bingo · Caça-níqueis
-- ❌ **Nunca** o "Poker" genérico isolado (agrega cassino)
-- **Opcional:** excluir o público `Aura | IG Engajadores 365d` (contaminado pelas campanhas antigas)
+### ✅ REALIDADE DA TAXONOMIA (verificado pelo PO no painel, 25/07)
 
-> **Teste de sanidade:** adicione uma camada por vez e observe o estimador. Alvo **2–5M**. Abaixo de 1M satura; acima de 8M dilui. Se o *cargo* quase não mover o ponteiro, é a ressalva IG-bio × perfil-Facebook se confirmando — deixe lá mesmo assim, não custa.
+A lista original era otimista. O que **existe de fato**:
+
+| Termo | Existe? | Tamanho (global) | Usar? |
+|---|---|---|---|
+| **PokerStars** | ✅ | 25–29M | ✅ sim |
+| **Campeonato Mundial de Pôquer** (WSOP) | ✅ | 20M | ✅ sim |
+| **World Poker Tour** | ✅ | 20M | ✅ sim |
+| Cargo `Professional Poker Player` | ✅ | **1.000** | ❌ **descartar** |
+| GGPoker · partypoker · PokerNews · Hendon Mob | ❌ não existem | — | — |
+| Times de staking BR | ❌ não indexados | — | — |
+
+**Configuração final:** os **3 interesses** acima, em OU. Só isso.
+
+⚠️ **Os tamanhos mostrados na busca são GLOBAIS.** O número que importa é o estimador **após** BR + 21–47 — esperado 1,5–3M. Conferir no painel direito, não na caixa de busca.
+
+**Cargo descartado — a Ressalva 1 se confirmou:** 1.000 pessoas prova que o padrão observado nas bios do **Instagram** não existe no campo de trabalho do **Facebook** (de onde a Meta puxa). Adicionar 1.000 num público de milhões não move nada.
+
+### ⚠️ Exclusão de interesse NÃO EXISTE MAIS
+A Meta **removeu** a exclusão da segmentação detalhada em boa parte das contas. Não dá pra excluir cassino/apostas/bingo por interesse. Consequências:
+- O risco é **menor que no histórico** mesmo assim: os interesses são **marcas de poker** (não o "Poker" genérico, que era o contaminado) + otimização **ThruPlay** (não `PROFILE_VISIT`, a causa real) + **jargão do criativo**.
+- **O criativo passa a carregar toda a filtragem** — por necessidade, não por escolha.
+- **O gate do D3 fica mais crítico:** `% masculino` < 80% em alguma célula = contaminação. Reação disponível é trocar/ajustar criativo, já que targeting não dá margem.
+
+**Ainda vale tentar (taxonomia é irregular):** `Texas hold'em` · `Torneio de pôquer` · `Pôquer online` · `PokerStars Brasil`. Se aparecerem com volume, somar.
+
+**Ferramentas de nicho (GTO Wizard etc.) não existem na taxonomia** — a Meta só indexa marcas com escala de consumo. Não há como mirar "quem usa solver" por targeting; **é exatamente por isso que a célula 1 (SOLVER) existe** — o gancho encontra quem o targeting não alcança.
+
+- **Opcional:** excluir o público `Aura | IG Engajadores 365d` (contaminado) na seção **Públicos personalizados** — essa exclusão ainda existe, é a de interesse que sumiu.
+
+> **Teste de sanidade:** alvo **1,5–3M** após BR + idade. Abaixo de 1M satura; acima de 5M dilui.
 
 ### 2. Os 4 anúncios (1 por conjunto)
 Bloqueado até a fábrica entregar os reels. Depois:
