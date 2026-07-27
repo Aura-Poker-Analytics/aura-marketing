@@ -40,7 +40,8 @@ const CHROME = process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Applic
 const PORT = 5121;
 const W = 1080, H = 1920, FPS = 30;
 
-// soma 26,0s exatos (doc §3.5). Sem transicao consumindo tempo (corte seco).
+// soma 26,0s exatos (doc §3.5) QUANDO a celula tem as 6 cenas padrao. Sem
+// transicao consumindo tempo (corte seco).
 const DURS = [3.8, 4.7, 5.0, 4.7, 4.6, 3.2];
 const K_HOOK = 18;   // frames de animacao do gancho (0,60s) — cabe o beat
 const K_DATA = 10;   // frames das cenas de dado (0,33s) — count-up rapido
@@ -50,12 +51,34 @@ const SKIP_RENDER = process.argv.includes('--skip-render');
 const FRAMES_ONLY = process.argv.includes('--frames-only');
 
 /* nome do arquivo = nome do anuncio = utm_content (doc §4). NAO RENOMEAR:
-   quebra a serie do relatorio. */
+   quebra a serie do relatorio.
+   v2.1 (PO 26/07): anim e durs por ID de cena (nao por indice posicional) —
+   disc-01 perdeu a cena "d1-s3" (deletada a pedido do PO) e ficou com 5 cenas
+   em vez de 6; indexar por id evita off-by-one quando a contagem difere entre
+   celulas. disc-01 soma 21,0s (nao 26,0s) — DESVIO REGISTRADO e documentado
+   no roteiro.
+   v2.2 (PO 26/07, 3a rodada): disc-04 perdeu a cena "d4-s3" ("A tela real")
+   pelo mesmo motivo/padrao — tambem cai pra 5 cenas e 21,0s. disc-02 e
+   disc-03 seguem com as 6 cenas originais, em 26,0s.
+   v2.3 (PO 26/07, 4a rodada): 4 celulas EN adicionadas (mesmos ids + "-en"),
+   mesmas durs/estrutura das PT correspondentes — so o vocabulario muda. */
 const CELLS = [
-  { name: 'disc-01-solver',    ids: ['d1-s1','d1-s2','d1-s3','d1-s4','d1-s5','d-cta'], anim: {0:K_HOOK, 1:K_DATA, 3:K_DATA} },
-  { name: 'disc-02-exploit',   ids: ['d2-s1','d2-s2','d2-s3','d2-s4','d2-s5','d-cta'], anim: {0:K_HOOK, 1:K_DATA, 3:K_DATA} },
-  { name: 'disc-03-categoria', ids: ['d3-s1','d3-s2','d3-s3','d3-s4','d3-s5','d-cta'], anim: {0:K_HOOK, 3:K_DATA} },
-  { name: 'disc-04-pioneiro',  ids: ['d4-s1','d4-s2','d4-s3','d4-s4','d4-s5','d-cta'], anim: {0:K_HOOK, 1:K_DATA, 3:K_DATA} },
+  { name: 'disc-01-solver',    ids: ['d1-s1','d1-s2','d1-s4','d1-s5','d-cta'],
+    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd1-s1':K_HOOK, 'd1-s4':K_DATA } },
+  { name: 'disc-02-exploit',   ids: ['d2-s1','d2-s2','d2-s4','d2-s3','d2-s5','d-cta'],
+    durs: DURS, anim: { 'd2-s1':K_HOOK, 'd2-s2':K_DATA, 'd2-s4':K_DATA } },
+  { name: 'disc-03-categoria', ids: ['d3-s1','d3-s2','d3-s3','d3-s4','d3-s5','d-cta'],
+    durs: DURS, anim: { 'd3-s1':K_HOOK, 'd3-s4':K_DATA } },
+  { name: 'disc-04-pioneiro',  ids: ['d4-s1','d4-s2','d4-s4','d4-s5','d-cta'],
+    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd4-s1':K_HOOK, 'd4-s2':K_DATA, 'd4-s4':K_DATA } },
+  { name: 'disc-01-solver-en',    ids: ['d1-s1-en','d1-s2-en','d1-s4-en','d1-s5-en','d-cta-en'],
+    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd1-s1-en':K_HOOK, 'd1-s4-en':K_DATA } },
+  { name: 'disc-02-exploit-en',   ids: ['d2-s1-en','d2-s2-en','d2-s4-en','d2-s3-en','d2-s5-en','d-cta-en'],
+    durs: DURS, anim: { 'd2-s1-en':K_HOOK, 'd2-s2-en':K_DATA, 'd2-s4-en':K_DATA } },
+  { name: 'disc-03-categoria-en', ids: ['d3-s1-en','d3-s2-en','d3-s3-en','d3-s4-en','d3-s5-en','d-cta-en'],
+    durs: DURS, anim: { 'd3-s1-en':K_HOOK, 'd3-s4-en':K_DATA } },
+  { name: 'disc-04-pioneiro-en',  ids: ['d4-s1-en','d4-s2-en','d4-s4-en','d4-s5-en','d-cta-en'],
+    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd4-s1-en':K_HOOK, 'd4-s2-en':K_DATA, 'd4-s4-en':K_DATA } },
 ];
 
 const OUT_DIR = path.join(ROOT, 'content/paid/AURA-DESCOBERTA');
@@ -99,7 +122,7 @@ if (!SKIP_RENDER) for (const C of CELLS) {
   const dir = path.join(FRAMES, C.name);
   fs.mkdirSync(dir, { recursive: true });
   C.ids.forEach((id, i) => {
-    const K = C.anim[i];
+    const K = C.anim[id];
     if (!K) { shot(id, path.join(dir, `s${i}_000.png`)); return; }
     for (let f = 0; f < K; f++) {
       shot(id, path.join(dir, `s${i}_${String(f).padStart(3, '0')}.png`), Math.round((f / (K - 1)) * 100));
@@ -121,9 +144,9 @@ for (const C of CELLS) {
   const segs = [];
 
   // passo 1: cada cena vira um segmento (animacao + hold) com Ken Burns
-  C.ids.forEach((_, i) => {
-    const D = Math.round(DURS[i] * FPS);
-    const K = C.anim[i] || 1;
+  C.ids.forEach((id, i) => {
+    const D = Math.round(C.durs[i] * FPS);
+    const K = C.anim[id] || 1;
     const seg = path.join(TMP, `${C.name}-s${i}.mp4`);
     const lastFrame = path.join(dir, `s${i}_${String(K - 1).padStart(3, '0')}.png`);
     const zp = `zoompan=z='${zoomExpr(i, D)}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS}`;
@@ -135,7 +158,7 @@ for (const C of CELLS) {
       fc = `[0:v]scale=${W * 2}:${H * 2},setsar=1[a];[1:v]scale=${W * 2}:${H * 2},setsar=1[b];` +
            `[a][b]concat=n=2:v=1:a=0[c];[c]${zp},format=yuv420p,setsar=1[v]`;
     } else {
-      args.push('-loop', '1', '-framerate', String(FPS), '-t', DURS[i].toFixed(3), '-i', lastFrame);
+      args.push('-loop', '1', '-framerate', String(FPS), '-t', C.durs[i].toFixed(3), '-i', lastFrame);
       fc = `[0:v]scale=${W * 2}:${H * 2},setsar=1,${zp},format=yuv420p,setsar=1[v]`;
     }
     args.push('-filter_complex', fc, '-map', '[v]', '-r', String(FPS),
@@ -158,9 +181,9 @@ for (const C of CELLS) {
   const mb = (fs.statSync(out).size / 1024 / 1024).toFixed(2);
 
   // thumb = gancho no estado final (frame 0 tem o beat ainda oculto)
-  const k0 = C.anim[0] || 1;
+  const k0 = C.anim[C.ids[0]] || 1;
   fs.copyFileSync(path.join(dir, `s0_${String(k0 - 1).padStart(3, '0')}.png`),
                   path.join(OUT_DIR, `${C.name}-thumb.png`));
-  console.log(`${C.name}.mp4  ${W}x${H}  DURACAO REAL ${dur}  ${mb} MB  (alvo ${DURS.reduce((a,b)=>a+b,0).toFixed(2)}s)`);
+  console.log(`${C.name}.mp4  ${W}x${H}  DURACAO REAL ${dur}  ${mb} MB  (alvo ${C.durs.reduce((a,b)=>a+b,0).toFixed(2)}s)`);
 }
 fs.rmSync(TMP, { recursive: true, force: true });

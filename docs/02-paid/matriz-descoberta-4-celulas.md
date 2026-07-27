@@ -168,11 +168,108 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
 - [x] ~~PO escolhe a versão da célula 4~~ — **25/07: versão (a)**, com `Inteligência de field` + `Mass Data Analysis aplicada a MTT`
 - [x] ~~PO valida os ganchos das células 1–3~~ — **25/07: aprovados como estão**
 - [x] ~~**LIBERADO:** fábrica produz os 4 roteiros + render PT~~ — **ENTREGUE (v1):** 4 roteiros + MP4
-- [ ] **v2 (26/07):** PO valida PNGs de preview em `instagram/output/desc-preview/` **antes** de re-encodar MP4
-  (`node instagram/build-descoberta.mjs --frames-only`)
-- [ ] v2: mockup Postflop 2× do app real (disc-02 cena 3) — bloqueado no LOCAL (`tbl_*_pooled`)
-- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando os 4 MP4 v2 estiverem na biblioteca
-- [ ] EN dos 4 — só depois da PT aprovada
+- [x] ~~**v2 (26/07):** PO valida PNGs de preview em `instagram/output/desc-preview/`~~ — **26/07:
+  feedback recebido, ver v2.1 abaixo.**
+- [x] ~~**v2.1 (26/07, 2ª rodada):** PO valida os novos PNGs de preview~~ — **26/07: feedback
+  recebido, ver v2.2 abaixo.**
+- [x] ~~**v2.2 (26/07, 3ª rodada):** PO valida os novos PNGs de preview~~ — **26/07: feedback
+  recebido, ver v2.3 abaixo.**
+- [x] ~~**v2.3 (26/07, 4ª rodada):** PO valida os novos PNGs de preview~~ — **26/07: aprovado,
+  render completo autorizado.**
+- [x] ~~Render final PT + EN dos 8 anúncios (4 células × 2 idiomas)~~ — **26/07: ENTREGUE (v2.3).**
+  ⚠️ **Desatualizado pela v2.4** (ver abaixo) — precisa re-render antes de qualquer validação.
+- [x] ~~**v2.4 (26/07, 5ª rodada):** PO valida os novos PNGs de preview~~ — **26/07: feedback
+  recebido, ver v2.5 abaixo** (disc-02 s4 faltou o ajuste de terminologia + troca de ordem s3/s4).
+- [ ] **v2.5 (26/07, 6ª rodada):** PO valida os novos PNGs de preview do disc-02 (ordem de cenas
+  trocada + terminologia + texto de fechamento) — **antes** de re-encodar os 8 MP4
+- [ ] **Sincronizar as traduções EN pendentes** — disc-01 s4, disc-03 s3, disc-04 s2 (da v2.4) e
+  disc-02 s4/nova-headline (da v2.4/v2.5, marcadas "⚠️ pendente" nos roteiros) — antes do próximo
+  render PT+EN
+- [ ] v2: mockup Postflop 2× do app real (disc-01 cena 2, disc-02 — trocada por
+  `mockup-two-devices.png` na v2.2) — bloqueado no LOCAL (`tbl_*_pooled` inexistente; ver nota
+  técnica no fim desta seção). Fora do critical path.
+- [ ] PO faz a validação final dos 8 MP4 (assista antes de subir — o preview em PNG não capta
+  Ken Burns/timing) — só depois do re-render v2.5
+- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando o PO aprovar os 8 MP4
+
+### v2.5 produção (26/07, 6ª rodada) — feedback do PO sobre os PNGs v2.4 (disc-02)
+- **disc-02:** sub-label da cena "vs overpot" (então cena 3) ficou faltando o ajuste de
+  terminologia da v2.2 — `"distância no overpot"` → **`"Overfold vs MDF"`** (PT e EN).
+- **disc-02:** cena 3 (headline + mockup, da v2.4) e cena "vs overpot" **trocaram de ordem** — a
+  "vs overpot" passa a vir antes da headline, agrupando as duas comparações numéricas antes da
+  transição pro mockup. Só a ordem no `ids` do `build-descoberta.mjs` mudou; conteúdo de cada
+  cena continua o mesmo.
+- **disc-02:** caption **"Baseado em dados, não palpite."** saiu da cena de headline (ficaria
+  repetida 2x seguidas) e passou pra linha de fechamento da cena 5, no lugar de
+  `"Descrição, não palpite."`.
+- Ver detalhes cena a cena em [disc-02-exploit/roteiro.md](../../content/reels/disc-02-exploit/roteiro.md).
+
+### v2.4 produção (26/07, 5ª rodada) — feedback do PO sobre os MP4 v2.3
+- **disc-01 cena 4:** headline "O GTO é o começo" → **"Descubra o que o field realmente faz."**
+  — pedido do PO pra essa cena "virar anúncio da Aura" em vez de só concluir o gancho.
+- **disc-02 cena 3** ("A tela real, filtrada por textura"): mesmo tratamento — kicker trocado por
+  headline `big` **"Descubra o que o field faz em cada textura de board."** + caption nova
+  **"Baseado em dados, não palpite."**
+- **disc-03 cena 3** ("A tela real"): texto que estava no caption (rodapé) subiu pra `line`
+  (acima do print, mais em destaque) — pedido do PO. Caption eliminado, sem duplicar o texto.
+- **disc-04 cena 2:** kicker "População, não amostra" → **"Os padrões do field a um clique de
+  distância."**
+- ⚠️ **As 4 traduções EN correspondentes ainda não foram atualizadas** — marcadas "pendente" nos
+  roteiros. Os 8 MP4 da v2.3 ficaram desatualizados (conteúdo mudou); precisam de re-render depois
+  da aprovação destes PNGs + sincronização do EN.
+
+### v2.3 produção (26/07, 4ª rodada) — feedback do PO sobre os PNGs v2.2 + render final
+- **disc-02:** cena 5 — `"tamanho"` → **`"size"`** na linha de fechamento (loanword já
+  estabelecido no deck, ver §2).
+- **disc-04:** cena 3 (painel de filtros) — kicker `"Do early à mesa final"` →
+  **`"Do Early-Game à Mesa Final"`**, casando com o nome do estágio mostrado no painel.
+- **Traduções EN das 4 células** — entregues e revisadas em 2 rodadas (`The database behind it`,
+  `Field Defense %`, `Real Data, not a guess.`, `This never existed.`, `The field's data, not a
+  sample` — ver roteiros de cada célula, seção "Tradução EN").
+- **Render final autorizado pelo PO** — 8 MP4 (4 células × PT/EN) encodados e entregues em
+  `content/paid/AURA-DESCOBERTA/`, mesma duração/estrutura documentada em cada roteiro (21,0s
+  disc-01/04, 26,0s disc-02/03). `build-descoberta.mjs` ganhou 4 entradas `-en` em `CELLS`,
+  reaproveitando os mesmos `durs`/`anim` das células PT correspondentes.
+
+### v2.2 produção (26/07, 3ª rodada) — feedback do PO sobre os PNGs v2.1
+- **disc-02:** cena 2 — sub-label `distância vs MDF` → **`Overfold vs MDF`**. Cena 3 (bloqueada
+  no LOCAL) — troca do crop antigo (`crop-disconnected-col.png`) pelo mockup **`mockup-two-devices.png`**
+  (mesmo asset já usado nas cenas de fechamento de disc-01/03/04), a pedido do PO em vez de manter
+  um print desatualizado como placeholder.
+- **disc-03:** sem mudanças — **PO aprovou como estava** ("Disc 3 ok").
+- **disc-04:** cena 3 ("A tela real", mockup 2× do Preflop) **deletada** a pedido do PO — célula
+  cai de 6 pra **5 cenas**, mesmo padrão do disc-01 na v2.1. **Desvio de duração**: soma **21,0s**
+  em vez de 26,0s (registrado no build, igual disc-01).
+
+### v2.1 produção (26/07, 2ª rodada) — feedback do PO sobre os PNGs v2
+- **Template (vale pras 4 células):** logo pequena do topo (`.mark`, ícone+wordmark SVG) removida —
+  ficava duplicada com a logo grande (`heroLogo`) nas cenas 1. Agora só existe **1 logo por cena**,
+  no topo do palco, e só quando `heroLogo:true`.
+- **Mockups do front:** PO perguntou por que os shots continuam sendo prints antigos (`crop-*.png`)
+  em vez de capturas novas do `aura-novofront`. Resposta curta: **Postflop está bloqueado no LOCAL**
+  (tabelas `tbl_final_*_pooled` / `tbl_action_statistics_pooled` não existem; ver nota técnica
+  abaixo). Preflop **já usa** captura real 2× (`mockup-preflop-app.png`, disc-04 cena 3). Os shots
+  de Postflop (disc-01, disc-02, disc-04 cena 1) continuam nos crops antigos até isso destravar —
+  não é decisão de design, é bloqueio de dado local.
+- **disc-01:** cena 2 perdeu a legenda de rodapé; cena 3 ("A tela real", repetia o shot da cena 2)
+  foi **deletada** — célula caiu de 6 pra 5 cenas, **21,0s** (desvio dos 26,0s das outras 3,
+  registrado no build).
+- **disc-02:** aprovado como estava, sem mudança de conteúdo.
+- **disc-03:** cena 3 perdeu a legenda `produto real, não mockup` do print; cena 5 perdeu a
+  legenda de rodapé.
+- **disc-04:** rebalanceamento tipográfico da cena 1 (palavras seguem literais) — kicker
+  `Inteligência de field · MTT` ganhou peso, headline `"Isso não existia."` encolheu, linha
+  `"Mass Data Analysis..."` desceu. Motivo: o headline estava dominando o frame e a categoria
+  (que é o ponto da célula 4) ficava em segundo plano.
+
+**Nota técnica — por que Postflop não roda no LOCAL:** `FreqService.IsPooledEligible` só usa
+`tbl_*_pooled`/`tbl_action_statistics_pooled` quando **nenhum filtro opcional** está ativo
+(`Finest:Enabled=true` no LOCAL). Essas tabelas `_pooled` **não existem** no Postgres LOCAL — só
+existem `_cube` (`tbl_final_flopip_cube` etc., com dado real, +400M linhas). Selecionando qualquer
+filtro (textura de board, stack, etc.) a rota muda pra `_cube` e deveria funcionar; não foi validado
+ponta a ponta ainda porque a investigação foi interrompida a pedido do Rafael no meio da sessão.
+Quem pegar isso depois: comece por aí (nenhuma tabela precisa ser criada, só selecionar um filtro
+antes de "Analisar").
 
 ### ⚠️ Desvio de produção registrado (fábrica → Mídia Paga)
 **§3.5 pede crossfade 0,4s; os 4 saíram com CORTE SECO.** Motivo medido: cada cena tem Ken Burns

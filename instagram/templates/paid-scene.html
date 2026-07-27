@@ -89,9 +89,10 @@ body.herofocus .herobg .focus{background:
   linear-gradient(180deg, transparent 0%, rgba(2,6,23,0.55) 16%, rgba(2,6,23,0.93) 30%,
     rgba(2,6,23,0.95) 55%, rgba(2,6,23,0.72) 66%, transparent 82%)}
 
-/* lockup grande no gancho — PNG completa (Ativo 80@2x), nao o SVG icon+wordmark */
-.herologo{display:flex;flex-direction:column;align-items:center;margin-bottom:30px}
-.herologo img{width:420px;height:auto;display:block}
+/* v2.1: logo grande PNG (Ativo 80@2x) sobe pro lugar do mark pequeno —
+   so 1 logo por cena, nao mark+herologo empilhados. Vazio quando !heroLogo. */
+.toplogo{display:flex;justify-content:center;margin-bottom:34px}
+.toplogo img{width:420px;height:auto;display:block}
 
 /* v3: chip de callout de audiencia — diz PRA QUEM e, sem diluir o jargao */
 .callout{display:inline-flex;align-items:center;gap:12px;align-self:center;margin-bottom:26px;
@@ -115,6 +116,25 @@ body.hero .stage{text-shadow:0 4px 34px rgba(2,6,23,0.85)}
 .shotframe img{display:block;width:100%;height:auto;min-height:0;object-fit:contain}
 .shotcap{margin-top:20px;font-size:26px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber)}
 
+/* Dois dispositivos legíveis no 9:16: em vez de comprimir duas interfaces
+   completas lado a lado, uma entra como painel principal e a outra como inset.
+   O foco alterna por célula para manter Preflop e Postflop em evidência no lote. */
+.twofocus{position:relative;flex:none}
+.twofocus .main,.twofocus .inset{position:absolute;overflow:hidden;background:#0B1120;
+  border:1px solid rgba(251,191,36,0.28);border-radius:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.68),0 0 52px rgba(212,164,24,0.12)}
+.twofocus img{position:absolute;display:block;max-width:none;height:auto}
+.twofocus.pre{width:880px;height:640px}
+.twofocus.pre .main{inset:0}
+.twofocus.pre .main img{width:1885px;left:-31px;top:-99px}
+.twofocus.post{width:820px;height:740px}
+.twofocus.post .main{inset:0}
+.twofocus.post .main img{width:1749px;left:-894px;top:-92px}
+.twofocus .inset{width:286px;height:242px;right:-18px;bottom:-20px;
+  border-color:rgba(251,191,36,0.48);box-shadow:0 24px 58px rgba(0,0,0,0.8)}
+.twofocus.pre .inset img{width:610px;left:-312px;top:-32px}
+.twofocus.post .inset img{width:610px;left:-10px;top:-32px}
+
 /* ---- v2: chrome de janela (le como SOFTWARE, nao como grafico) ---- */
 .chrome{display:flex;align-items:center;gap:10px;padding:14px 20px;background:#0A1120;border-bottom:1px solid var(--line)}
 .chrome .dot{width:13px;height:13px;border-radius:50%;flex:none}
@@ -124,13 +144,16 @@ body.hero .stage{text-shadow:0 4px 34px rgba(2,6,23,0.85)}
 /* ---- palco: TUDO vive dentro da zona segura ---- */
 .stage{position:absolute;left:0;right:0;top:var(--safe-top);bottom:var(--safe-bot);
   z-index:3;display:flex;flex-direction:column;padding:0 68px}
-.mark{display:flex;align-items:center;gap:15px;justify-content:center;opacity:0.95}
-.mark .icon{width:44px;height:36px;color:var(--gold)}
-.mark .wm{width:132px;color:var(--gold)}
-.mark .icon svg,.mark .wm svg{width:100%;height:100%;display:block}
 
 .core{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0;overflow:hidden}
+/* Mockup de dois monitores: abre 40px de cada lado apenas para o conteúdo da
+   cena. Mantém rodapé e zonas seguras intactos, mas dá 1.024px ao produto
+   (vs 900px), deixando os dados internos legíveis no frame 9:16. */
+body.wide-shot .core{margin-left:-40px;margin-right:-40px}
 .kicker{font-size:29px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:26px}
+/* v2.1 (disc-04): kicker com mais peso — a categoria "Inteligencia de field"
+   precisa competir de igual pra igual com o headline, nao ficar so como rotulo */
+.kicker.lg{font-size:42px;letter-spacing:0.14em;margin-bottom:36px}
 .big{font-size:104px;font-weight:900;line-height:1.03;letter-spacing:-0.01em;text-transform:uppercase}
 /* dourado CHAPADO — gradiente + background-clip:text apagava a palavra no 9:16 */
 .big em{font-style:normal;color:var(--amber);background:none;
@@ -271,7 +294,7 @@ table.pt td.hi{color:var(--amber);font-weight:900}
 <div class="glow"></div>
 
 <div class="stage">
-  <div class="mark" id="mark"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div>
+  <div class="toplogo" id="toplogo"></div>
   <div class="core" id="core"></div>
   <div class="cap" id="cap"></div>
   <div class="foot"><span class="u">aurapoker.com</span><span class="proof" id="proof"></span><span class="age">18+</span></div>
@@ -321,6 +344,12 @@ function elShot(b){
     ${b.cap ? `<div class="shotcap">${b.cap}</div>` : ''}
   </div>`;
 }
+function elTwoFocus(b){
+  return `<div class="twofocus ${b.focus}">
+    <div class="main"><img src="${b.src}" alt=""></div>
+    <div class="inset"><img src="${b.src}" alt=""></div>
+  </div>`;
+}
 const CHROME_BAR = (t) => `<div class="chrome"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttl">${t}</span></div>`;
 
 function elPreflop(b){
@@ -353,7 +382,7 @@ function elPostflop(b){
         </div>`).join('')}</div>
     </div></div>`;
 }
-const BUILDERS = {vs:elVs,bars:elBars,stats:elStats,preflop:elPreflop,postflop:elPostflop,shot:elShot};
+const BUILDERS = {vs:elVs,bars:elBars,stats:elStats,preflop:elPreflop,postflop:elPostflop,shot:elShot,twofocus:elTwoFocus};
 
 // v2: print real full-bleed no fundo do gancho (frame 1 com produto)
 if (CONFIG.heroBg) {
@@ -361,6 +390,7 @@ if (CONFIG.heroBg) {
   document.body.insertAdjacentHTML('afterbegin',
     `<div class="herobg"><img src="${CONFIG.heroBg}"><span class="tint"></span><span class="veil"></span><span class="focus"></span></div>`);
 }
+if (CONFIG.block?.wide) document.body.classList.add('wide-shot');
 
 /* ---------- monta a cena ---------- */
 const core = document.getElementById("core");
@@ -373,16 +403,18 @@ if (CONFIG.cta) {
       <span class="btn">${CONFIG.ctaBtn||T.ctaBtn}</span>
       ${CONFIG.ctaSub?`<p class="ctasub">${CONFIG.ctaSub}</p>`:''}
     </div>`;
-  document.getElementById("mark").style.visibility = "hidden";
 } else {
   core.innerHTML =
-    (CONFIG.heroLogo?`<div class="herologo"><img src="shots/logo-aura-full.png" alt="Aura Poker Analytics"></div>`:'') +
     (CONFIG.callout?`<div class="callout">${CONFIG.callout}</div>`:'') +
-    (CONFIG.kicker?`<div class="kicker">${CONFIG.kicker}</div>`:'') +
+    (CONFIG.kicker?`<div class="kicker${CONFIG.kickerLg?' lg':''}">${CONFIG.kicker}</div>`:'') +
     (CONFIG.big?`<h1 class="big${CONFIG.bigSm?' sm':''}">${CONFIG.big}</h1>`:'') +
     (CONFIG.line?`<p class="line">${CONFIG.line}</p>`:'') +
     (CONFIG.block?`<div class="block">${BUILDERS[CONFIG.block.type](CONFIG.block)}</div>`:'');
 }
+// v2.1: logo grande sobe pro topo da cena (lugar do mark pequeno removido) —
+// 1 logo so, nunca mark+herologo empilhados. Ausente em CTA (tem seu proprio lockup).
+document.getElementById("toplogo").innerHTML =
+  (CONFIG.heroLogo && !CONFIG.cta) ? `<img src="shots/logo-aura-full.png" alt="Aura Poker Analytics">` : '';
 document.getElementById("cap").innerHTML = CONFIG.caption || '';
 if (!CONFIG.caption) document.getElementById("cap").style.display = 'none';
 

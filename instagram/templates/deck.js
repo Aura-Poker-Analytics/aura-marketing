@@ -385,6 +385,20 @@ window.DECK = {
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
 
+  /* POST: textura de board muda o field. Comparacao REAL lado a lado — o crop
+     traz as colunas "Total" e "Disconnected" do proprio produto, entao a
+     comparacao e visivel na tela, nao afirmada na legenda.
+     Numeros: XR Flop CBet 13,9% (10,6M maos) vs 11,5% em board desconexo
+     (3,1M maos). Contexto: SRP, RFI CO, caller BB, ultimos 2 anos.
+     Frequencia observada — nao e tamanho de raise (ver flag §4 do gabarito). */
+  "shot-texture-split": {
+    layout: "hero", kicker: "Postflop · real screen",
+    titleHtml: "Same spot. <em>Different board.</em>",
+    shotSrc: "shots/crop-postflop-wide.png", shotBg: "#0B1120", frameH: 780, badge: "",
+    caption: "The field check-raises a flop c-bet 13.9% of the time — but 11.5% on a disconnected board. Same spot, measured per texture.",
+    footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
+  },
+
   /* analogo de referencia do PREFLOP, mas pro POSTFLOP. Tela real (aura-total2
      recortada: rail de contexto + coluna Total). Descritivo — sem inferir leak,
      ver pesquisa-mdf-limites.md §10. */
@@ -869,23 +883,26 @@ window.DECK = {
     caption:"GTO é o ponto de partida. O adversário real é outro assunto." },
   /* v2: barra unica de MDF reprovada. Shot dos 6 sizes (Exploitative Sizes) —
      mensagem: comparar a resposta do field size a size. */
+  /* v2.1 (PO 26/07): removida a legenda do rodape — a cena fica so com o shot. */
   "d1-s2": { kicker:"Defesa do field · size a size", proof:"500M+ mãos auditadas · 7 salas",
     line:"20%, 33%, 42%, 55%, 75%, overpot — lado a lado, cada um com a própria amostra.",
     block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
       title:"Aura · Postflop Analysis" },
-    caption:"Você compara a resposta do field em cada size antes de definir a aposta." },
-  "d1-s3": { kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
-    block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
-      title:"Aura · Postflop Analysis", cap:"produto real, não mockup" },
-    caption:"A defesa medida em cada tamanho de aposta." },
+    caption:"" },
+  /* v2.1 (PO 26/07): cena "A tela real" (d1-s3) removida — repetia o mesmo shot
+     de d1-s2 sem adicionar informacao nova. Ids seguintes NAO renumerados aqui
+     (ficam como estao no deck); quem controla a sequencia e o CELLS.ids do
+     build-descoberta.mjs, que ja tira "d1-s3" da lista. */
   "d1-s4": { kicker:"A base por trás disso", proof:"500M+ mãos auditadas · 7 salas",
     block:{ type:"stats", rows:[
       { k:"Mãos só nesse spot", v:"<n>10,6M</n>" }, { k:"Mãos auditadas", v:"<em><n>500M+</n></em>" },
       { k:"Salas cobertas", v:"<n>7</n>" } ] },
     caption:"Toda frequência vem com tamanho de amostra e intervalo de confiança." },
-  "d1-s5": { big:'O GTO é o <em>começo</em>', bigSm:true,
+  /* v2.4 (PO 26/07, 5a rodada): headline trocado por pedido do PO — "vira anuncio
+     da Aura", nao so a conclusao da cena 1. Mesmo padrao big+block+caption do d4-s1. */
+  "d1-s5": { big:'Descubra o que o <em>field</em><br>realmente faz.', bigSm:true,
     proof:"500M+ mãos auditadas · 7 salas",
-    block:{ type:"shot", src:"shots/mockup-two-devices.png", w:900, chrome:false },
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"pre" },
     caption:"Ferramenta de estudo. Você continua decidindo na mesa." },
 
   /* ---------- CELULA 2 · EXPLOIT — persona: exploitativo ----------
@@ -898,26 +915,46 @@ window.DECK = {
        medicao — o count-up exibiria "41,5%" por ~0,6s, que nao e o gancho aprovado */
     line:'<span data-in="0.55">O field defende <b>57,7%</b>.</span>',  // 🔴 LITERAL (beat)
     caption:"" },
+  /* v2.2 (PO 26/07, 3a rodada): sub-label "distância vs MDF" -> "Overfold vs MDF" a
+     pedido do PO. "Overfold" ja e termo estabelecido no deck (badge em varias celulas
+     — ver "badge:'Overfold'" acima); deixa de ser so a distancia numerica e nomeia
+     o padrao. Doc/roteiro atualizados pra nao citar mais "distância vs MDF" como o
+     termo de compliance desta celula. */
   "d2-s2": { kicker:"Mesma aposta, textura diferente", proof:"500M+ mãos auditadas · 7 salas",
     line:"O board muda o comportamento do field.",
     block:{ type:"vs", delta:"3 pts",
-      a:{ lb:"Board conectado", v:"<n>6,9%</n>", sb:"distância vs MDF" },
-      b:{ lb:"Board desconexo", v:"<n>9,9%</n>", sb:"distância vs MDF" }, bHot:true },
+      a:{ lb:"Board conectado", v:"<n>6,9%</n>", sb:"Overfold vs MDF" },
+      b:{ lb:"Board desconexo", v:"<n>9,9%</n>", sb:"Overfold vs MDF" }, bHot:true },
     caption:"" },
-  /* v2: mockup novo do app bloqueado — LOCAL sem tbl_*_pooled / postflop vazio.
-     Trocar por shots/mockup-postflop-app.png (2x) quando o front+dados subirem. */
-  "d2-s3": { kicker:"A tela real, filtrada por textura", proof:"500M+ mãos auditadas · 7 salas",
-    block:{ type:"shot", src:"shots/crop-disconnected-col.png", w:520,
-      title:"Aura · Postflop · board desconexo" },
+  /* v2.2 (PO 26/07, 3a rodada): Postflop 2x continua bloqueado no LOCAL (ver nota
+     tecnica na matriz) — em vez de manter o crop antigo como placeholder, PO pediu
+     pra reusar aqui o mockup "two devices" que ja existe (mesmo asset de d1-s5/
+     d3-s5/d4-s2). */
+  /* v2.4 (PO 26/07, 5a rodada): kicker "A tela real, filtrada por textura" ->
+     headline "big" (mesmo tratamento do d1-s5, "vira anuncio da Aura").
+     v2.5 (PO 26/07, 6a rodada): ordem trocada com d2-s4 (agora toca DEPOIS do
+     2o comparativo "vs", como transicao pro headline/mockup). Caption "Baseado
+     em dados, não palpite." moveu pra d2-s5 (evita repetir a mesma frase em
+     duas cenas consecutivas); esta cena fica sem caption. */
+  "d2-s3": { big:'Descubra o que o <em>field</em><br>faz em cada textura de board.', bigSm:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"post" },
     caption:"" },
+  /* v2.5 (PO 26/07, 6a rodada): sub-label "distância no overpot" -> "Overfold vs MDF"
+     — mesmo ajuste de terminologia aplicado em d2-s2 na v2.2 (ficou faltando aqui). */
   "d2-s4": { kicker:"E no overpot a distância é maior", proof:"500M+ mãos auditadas · 7 salas",
     block:{ type:"vs", delta:"5,3 pts",
-      a:{ lb:"Board conectado", v:"<n>2,9%</n>", sb:"distância no overpot" },
-      b:{ lb:"Board desconexo", v:"<n>8,2%</n>", sb:"distância no overpot" }, bHot:true },
+      a:{ lb:"Board conectado", v:"<n>2,9%</n>", sb:"Overfold vs MDF" },
+      b:{ lb:"Board desconexo", v:"<n>8,2%</n>", sb:"Overfold vs MDF" }, bHot:true },
     caption:"" },
   "d2-s5": { big:'O número é<br>do <em>field</em>', bigSm:true,
     proof:"500M+ mãos auditadas · 7 salas",
-    line:"Frequência observada, por textura e por tamanho. <b>Descrição, não palpite.</b>",
+    /* v2.3 (PO 26/07): "tamanho" -> "size" — loanword ja estabelecido no deck
+       (ver "size por size" em p1/p2, "size a size" no d1-s2).
+       v2.5 (PO 26/07, 6a rodada): "Descrição, não palpite." -> "Baseado em
+       dados, não palpite." — frase que antes estava na caption de d2-s3
+       (removida de lá pra nao repetir nas duas cenas). */
+    line:"Frequência observada, por textura e por size. <b>Baseado em dados, não palpite.</b>",
     caption:"" },
 
   /* ---------- CELULA 3 · CATEGORIA — controle do experimento ---------- */
@@ -935,43 +972,52 @@ window.DECK = {
       { k:"Solver", v:"o equilíbrio" }, { k:"Tracker", v:"as SUAS mãos" },
       { k:"Aura", v:"<em>o field</em>" } ] },
     caption:"Três perguntas diferentes. A Aura responde a terceira." },
+  /* v2.4 (PO 26/07, 5a rodada): texto que estava no caption (rodape) subiu pra
+     "line" (acima do shot, mais em destaque) — pedido do PO. Caption eliminado,
+     nao duplica o texto. */
   "d3-s3": { kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
+    line:"RFI, 3-bet, 4-bet, steal — por posição, com amostra e intervalo de confiança.",
     block:{ type:"shot", src:"shots/crop-preflop-table.png", w:920,
-      title:"Aura · Preflop Analysis", cap:"produto real, não mockup" },
-    caption:"RFI, 3-bet, 4-bet, steal — por posição, com amostra e intervalo de confiança." },
+      title:"Aura · Preflop Analysis" },
+    caption:"" },
   "d3-s4": { kicker:"Medido em", proof:"500M+ mãos auditadas · 7 salas",
     block:{ type:"stats", rows:[
       { k:"Mãos auditadas", v:"<em><n>500M+</n></em>" }, { k:"Salas cobertas", v:"<n>7</n>" },
       { k:"Atualização", v:"trimestral" } ] },
     caption:"100% anonimizado. Nenhuma mão ligada a jogador." },
+  /* v2.1 (PO 26/07): legenda do rodape removida. */
   "d3-s5": { big:'O mesmo jogo<br><em>novas informações</em>', bigSm:true,
     proof:"500M+ mãos auditadas · 7 salas",
-    block:{ type:"shot", src:"shots/mockup-two-devices.png", w:900, chrome:false },
-    caption:"Inteligência de field para MTT. Ferramenta de estudo — você decide na mesa." },
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"pre" },
+    caption:"" },
 
   /* ---------- CELULA 4 · PIONEIRO — testa POSICIONAMENTO, nao persona ----------
      Sequencia deliberada do doc §2: o gancho faz SENTIR o ineditismo, a linha
      NOMEIA a categoria. A legenda do rodape FOI REMOVIDA na v2 (PO 26/07) —
      o instrumento do teste passa a ser gancho + linha; doc §2 atualizado. */
-  "d4-s1": { kicker:"Inteligência de field · MTT",             // 🔴 LITERAL
+  /* v2.1 (PO 26/07): rebalanco de enfase — palavras seguem 🔴 LITERAIS, so
+     tipografia mudou. "Isso não existia." estava dominando o frame (104px);
+     cai pra bigSm. Kicker "Inteligência de field · MTT" ganha peso (classe
+     .lg) pra competir de igual com o headline — e a categoria do posicionamento,
+     nao so um rotulo. A linha "Mass Data Analysis..." desce (margin-top). */
+  "d4-s1": { kicker:"Inteligência de field · MTT", kickerLg:true, heroLogo:true,  // 🔴 LITERAL
     heroBg:"shots/crop-postflop-wide.png", heroFocus:true,
     proof:"500M+ mãos auditadas · 7 salas",
-    big:'Isso não <em>existia</em>.',                          // 🔴 LITERAL
-    line:'<span data-in="0.55">Mass Data Analysis aplicada a MTT.</span>',  // 🔴 LITERAL
+    big:'Isso não <em>existia</em>.', bigSm:true,               // 🔴 LITERAL
+    line:'<span data-in="0.55" style="display:block;margin-top:26px">Mass Data Analysis aplicada a MTT.</span>',  // 🔴 LITERAL
     caption:"" },
-  "d4-s2": { kicker:"População, não amostra", proof:"500M+ mãos auditadas · 7 salas",
-    block:{ type:"shot", src:"shots/mockup-two-devices.png", w:940, chrome:false },
+  /* v2.4 (PO 26/07, 5a rodada): kicker "População, não amostra" -> pedido do PO. */
+  "d4-s2": { kicker:"Os padrões do field a um clique de distância", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"post" },
     caption:"" },
-  /* v2: postflop app 2x bloqueado no LOCAL; usa o mockup NOVO de Preflop (2x)
-     capturado do aura-novofront até o postflop subir. */
-  "d4-s3": { kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
-    block:{ type:"shot", src:"shots/mockup-preflop-app.png", w:900,
-      title:"Aura · Preflop Analysis" },
-    caption:"" },
+  /* v2.2 (PO 26/07, 3a rodada): cena "A tela real" (d4-s3, mockup-preflop-app.png)
+     removida a pedido do PO. Ids seguintes NAO renumerados aqui (ficam como estao
+     no deck); quem controla a sequencia e o CELLS.ids do build-descoberta.mjs, que
+     ja tira "d4-s3" da lista — mesmo padrao usado em d1-s3 na v2.1. */
   /* PO 25/07 (2a rodada): "exemplificar os 6 estagios". Em vez de dizer "6",
      mostra o painel REAL com eles nomeados (Pre Bubble, Early ITM, FT...) —
      exemplifica e ainda cumpre "usar os prints de filtros". */
-  "d4-s4": { kicker:"Do early à mesa final", proof:"500M+ mãos auditadas · 7 salas",
+  "d4-s4": { kicker:"Do Early-Game à Mesa Final", proof:"500M+ mãos auditadas · 7 salas",
     block:{ type:"shot", src:"shots/crop-filters-rail.png", w:620, chrome:false },
     caption:"" },
   "d4-s5": { big:'Inteligência<br>de <em>field</em>', bigSm:true,
@@ -984,4 +1030,108 @@ window.DECK = {
   "d-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
     line:"500M+ mãos auditadas · 7 salas",
     ctaBtn:"Criar conta grátis", ctaSub:"Preview de cada módulo. Sem cartão." },
+
+  /* ================================================================
+     CAMPANHA DE DESCOBERTA — VERSOES EN (26/07, apos aprovacao PT v2.3).
+     Vocabulario alinhado ao que ja existia em EN no deck (p1/p2/p3, b1/b2/b3):
+     field, size, MDF, 500M+ audited hands · 7 rooms, Create free account.
+     Numeros: virgula decimal PT -> ponto decimal EN (10,6M -> 10.6M etc).
+     Render so apos pedido explicito do PO (ver matriz §6). ================= */
+
+  /* ---------- CELULA 1 · SOLVER (EN) ---------- */
+  "d1-s1-en": { lang:"en", heroLogo:true, kicker:"MTT · for solver students",
+    heroBg:"shots/crop-exploit-cards.png", heroFocus:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:'You memorized<br>the <em>GTO.</em>',
+    line:'<span data-in="0.55">Your opponent didn\'t.</span>',
+    caption:"GTO is the starting point. The real opponent is a different matter." },
+  "d1-s2-en": { lang:"en", kicker:"Field Defense % · size by size", proof:"500M+ audited hands · 7 rooms",
+    line:"20%, 33%, 42%, 55%, 75%, overpot — side by side, each with its own sample.",
+    block:{ type:"shot", src:"shots/crop-exploit-cards.png", w:900,
+      title:"Aura · Postflop Analysis" },
+    caption:"" },
+  "d1-s4-en": { lang:"en", kicker:"The database behind it", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"stats", rows:[
+      { k:"Hands in this spot alone", v:"<n>10.6M</n>" }, { k:"Hands audited", v:"<em><n>500M+</n></em>" },
+      { k:"Rooms covered", v:"<n>7</n>" } ] },
+    caption:"Every frequency comes with sample size and confidence interval." },
+  "d1-s5-en": { lang:"en", big:'GTO is the <em>start</em>',
+    proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"pre" },
+    caption:"A study tool. You still make the call at the table." },
+
+  /* ---------- CELULA 2 · EXPLOIT (EN) ---------- */
+  "d2-s1-en": { lang:"en", heroLogo:true, kicker:"Postflop · 55% pot c-bet",
+    heroBg:"shots/crop-sizedist.png", heroFocus:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:'The math<br>says <em>64.5%</em>.',
+    line:'<span data-in="0.55">The field defends <b>57.7%</b>.</span>',
+    caption:"" },
+  "d2-s2-en": { lang:"en", kicker:"Same bet, different texture", proof:"500M+ audited hands · 7 rooms",
+    line:"The board changes the field's behavior.",
+    block:{ type:"vs", delta:"3 pts",
+      a:{ lb:"Connected board", v:"<n>6.9%</n>", sb:"Overfold vs MDF" },
+      b:{ lb:"Disconnected board", v:"<n>9.9%</n>", sb:"Overfold vs MDF" }, bHot:true },
+    caption:"" },
+  "d2-s3-en": { lang:"en", kicker:"The real screen, filtered by texture", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"post" },
+    caption:"" },
+  "d2-s4-en": { lang:"en", kicker:"And on the overpot the gap is bigger", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"vs", delta:"5.3 pts",
+      a:{ lb:"Connected board", v:"<n>2.9%</n>", sb:"Overfold vs MDF" },
+      b:{ lb:"Disconnected board", v:"<n>8.2%</n>", sb:"Overfold vs MDF" }, bHot:true },
+    caption:"" },
+  "d2-s5-en": { lang:"en", big:'The number is<br>the <em>field\'s</em>', bigSm:true,
+    proof:"500M+ audited hands · 7 rooms",
+    line:"Observed frequency, by texture and by size. <b>Real Data, not a guess.</b>",
+    caption:"" },
+
+  /* ---------- CELULA 3 · CATEGORIA (EN) ---------- */
+  "d3-s1-en": { lang:"en", kicker:"MTT", heroLogo:true,
+    heroBg:"shots/crop-preflop-table.png", heroFocus:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:"It's not a solver.<br>It's not a <em>tracker</em>.",
+    line:'<span data-in="0.55">It\'s what the <b>entire</b> field does.</span>',
+    caption:"The same game — new information." },
+  "d3-s2-en": { lang:"en", kicker:"What each one answers", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"stats", rows:[
+      { k:"Solver", v:"the equilibrium" }, { k:"Tracker", v:"YOUR hands" },
+      { k:"Aura", v:"<em>the field</em>" } ] },
+    caption:"Three different questions. Aura answers the third." },
+  "d3-s3-en": { lang:"en", kicker:"The real screen", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:920,
+      title:"Aura · Preflop Analysis" },
+    caption:"RFI, 3-bet, 4-bet, steal — by position, with sample size and confidence interval." },
+  "d3-s4-en": { lang:"en", kicker:"Measured in", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"stats", rows:[
+      { k:"Hands audited", v:"<em><n>500M+</n></em>" }, { k:"Rooms covered", v:"<n>7</n>" },
+      { k:"Update", v:"quarterly" } ] },
+    caption:"100% anonymized. No hand linked to a player." },
+  "d3-s5-en": { lang:"en", big:'The same game<br><em>new information</em>', bigSm:true,
+    proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"pre" },
+    caption:"" },
+
+  /* ---------- CELULA 4 · PIONEIRO (EN) ---------- */
+  "d4-s1-en": { lang:"en", kicker:"Field intelligence · MTT", kickerLg:true, heroLogo:true,
+    heroBg:"shots/crop-postflop-wide.png", heroFocus:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:'This never <em>existed</em>.', bigSm:true,
+    line:'<span data-in="0.55" style="display:block;margin-top:26px">Mass Data Analysis applied to MTT.</span>',
+    caption:"" },
+  "d4-s2-en": { lang:"en", kicker:"The field's data, not a sample", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"twofocus", src:"shots/mockup-two-devices.png", focus:"post" },
+    caption:"" },
+  "d4-s4-en": { lang:"en", kicker:"From Early Game to the Final Table", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:620, chrome:false },
+    caption:"" },
+  "d4-s5-en": { lang:"en", big:'Field<br><em>intelligence</em>', bigSm:true,
+    proof:"500M+ audited hands · 7 rooms",
+    line:"The same game — <b>new information</b>.",
+    caption:"" },
+
+  /* CTA EN — mesma regra do PT: identico nos 4, variavel de controle. */
+  "d-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
+    line:"500M+ audited hands · 7 rooms",
+    ctaBtn:"Create free account", ctaSub:"Preview of every module. No card." },
 };
