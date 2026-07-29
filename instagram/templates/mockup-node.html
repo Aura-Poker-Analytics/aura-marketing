@@ -26,7 +26,9 @@
   --check:#5B8FD6; --bet:#B58A12;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1240px;height:980px;overflow:hidden}
+/* canvas justo ao painel: o asset e reusado DENTRO de molduras (posts/reels),
+   entao margem propria vira moldura duplicada. */
+html,body{width:1120px;height:815px;overflow:hidden}
 body{font-family:"Montserrat","Segoe UI",sans-serif;background:
   radial-gradient(900px 700px at 50% 0%, rgba(34,53,89,0.45), transparent 62%),
   radial-gradient(700px 600px at 50% 100%, rgba(212,164,24,0.07), transparent 60%), var(--bg);
@@ -159,5 +161,35 @@ body{font-family:"Montserrat","Segoe UI",sans-serif;background:
 
   </div>
 </div>
+
+<script>
+/* Versão EN via ?lang=en — parametrizado em vez de arquivo duplicado, pra PT e
+   EN não saírem do sincronismo quando a spec mudar.
+   Jargão que NÃO traduz (regra da casa): Rainbow, Flushdraw, Monotone, OESD,
+   Check, Bet, TURN, BB, BTN. */
+(function(){
+  const q = new URLSearchParams(location.search);
+  /* ?bare=1 => fundo transparente. O asset e reusado DENTRO de molduras
+     (posts/reels); com fundo proprio aparecem 3 retangulos aninhados. */
+  if (q.get('bare')) document.body.style.background = 'transparent';
+  if (q.get('lang') !== 'en') return;
+  const MAP = {
+    "TEXTURA DO FLOP":"FLOP TEXTURE",
+    "NAIPES":"SUITS", "PAREADO":"PAIRED", "CONECTIVIDADE":"CONNECTEDNESS",
+    "Não":"No", "Sim":"Yes",
+    "Desconectado":"Disconnected", "OESD possível":"OESD possible", "Conectado":"Connected",
+    "Vez de BB":"BB to act", "Vez de BTN":"BTN to act",
+  };
+  document.querySelectorAll(".tex .head,.tkey,.chip,.turnof").forEach(el=>{
+    const t = el.textContent.trim();
+    if (MAP[t] !== undefined) el.textContent = MAP[t];
+  });
+  // decimal: PT usa vírgula, EN usa ponto (94,7% -> 94.7% · n=29,8M -> n=29.8M)
+  document.querySelectorAll(".pct,.n").forEach(el=>{
+    el.textContent = el.textContent.replace(/(\d),(\d)/g, "$1.$2");
+  });
+  document.documentElement.lang = "en";
+})();
+</script>
 </body>
 </html>

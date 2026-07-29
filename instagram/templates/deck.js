@@ -385,6 +385,17 @@ window.DECK = {
     footerNote: "aura.poker · real product", handle: "@aurapokeranalytics",
   },
 
+  /* POST DE LANCAMENTO — modulo Node-by-Node (EN). Usa o mockup RECRIADO
+     (mockup-node.html ?lang=en), nao captura de tela. Numeros reais
+     (confirmado pelo dono 27/07) — nao marcar ilustrativo. */
+  "shot-node-launch": {
+    layout: "hero", kicker: "New in Aura · Node-by-Node",
+    titleHtml: "Follow the line, <em>node by node</em>",
+    shotSrc: "shots/mockup-node-by-node-en.png", shotBg: "#0B1120", frameH: 655, badge: "",
+    caption: "At every node: whose turn it is, what the field does, and the sample behind it. Filtered by flop texture.",
+    footerNote: "aurapoker.com · real product", handle: "@aurapokeranalytics",
+  },
+
   /* POST: distribuicao de tamanhos. Dado real da coluna Total (aura-total2):
      ~20% 9,3% (137K) · 33% 19,5% (286K) · 42% 24,5% (360K) · 55% 16,5% (242K)
      · ~75% 16,6% (244K) · overpot 13,6% (200K). Soma 100%, ~1,47M maos — que
