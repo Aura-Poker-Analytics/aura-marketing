@@ -39,7 +39,8 @@ continua em todas as cenas. Doc §2 atualizado.
 ## Alterações v2.2 (PO, 26/07 — 3ª rodada)
 - Cena 3 ("A tela real" — mockup 2× do Preflop): **deletada** a pedido do PO. A célula caiu de
   6 pra **5 cenas**, mesmo padrão aplicado ao disc-01 na v2.1.
-- ⚠️ **DESVIO DE DURAÇÃO**: com a cena 3 fora, a célula soma **21,0s**, não 26,0s como disc-02/03.
+- **Cadência v2.6:** com a cena 3 fora, a célula fecha em **15,0s** — faixa curta de discovery,
+  com hook em 2,5s, cenas em 3,2–3,3s e CTA em 2,7s.
   Registrado no build (`build-descoberta.mjs` § `CELLS`) — decisão do PO, não bug.
 
 ## Alterações v2.3 (PO, 26/07 — 4ª rodada)
@@ -54,13 +55,13 @@ continua em todas as cenas. Doc §2 atualizado.
 
 | # | dur | Conteúdo | Consequência de decisão |
 |---|---|---|---|
-| 1 | 3,8s | **Logo completa no topo** · 🔴 **GANCHO LITERAL** — kicker `Inteligência de field · MTT` (em destaque) · **"Isso não existia."** (menor) → *(beat)* linha **"Mass Data Analysis aplicada a MTT."** (mais abaixo) · *sem legenda de rodapé* | — |
-| 2 | 4,7s | **"Os padrões do field a um clique de distância."** — **mockup dos 2 monitores** | — |
-| 3 | 4,7s | **Painel de filtros real** — kicker `Do Early-Game à Mesa Final` · os 6 estágios NOMEADOS | — |
-| 4 | 4,6s | "Inteligência de field" · *O mesmo jogo — novas informações* | *Ferramenta de estudo* |
+| 1 | 2,5s | **Logo completa no topo** · 🔴 **GANCHO LITERAL** — kicker `Inteligência de field · MTT` (em destaque) · **"Isso não existia."** (menor) → *(beat)* linha **"Mass Data Analysis aplicada a MTT."** (mais abaixo) · *sem legenda de rodapé* | — |
+| 2 | 3,2s | **"Os padrões do field a um clique de distância."** — Postflop em foco + inset Preflop | — |
+| 3 | 3,3s | **Painel de filtros real** — kicker `Do Early-Game à Mesa Final` · os 6 estágios NOMEADOS | — |
+| 4 | 3,3s | "Inteligência de field" · *O mesmo jogo — novas informações* | *Ferramenta de estudo* |
 | 5 | 3,2s | **CTA (idêntico nos 4)** — `Criar conta grátis` · *Preview de cada módulo. Sem cartão.* | — |
 
-**21,0s** (⚠️ ver desvio acima) · 9:16 1080×1920 · sem áudio · selo no rodapé de **todas** as cenas · 18+ em todo quadro.
+**15,0s** · 9:16 1080×1920 · sem áudio · selo no rodapé de **todas** as cenas · 18+ em todo quadro.
 
 ## Compliance conferido
 O gancho aprovado afirma **ineditismo por demonstração**, não superioridade.

@@ -41,14 +41,14 @@ refletem a cena 3 nova.
 
 | # | dur | Conteúdo | Consequência de decisão |
 |---|---|---|---|
-| 1 | 3,8s | **Logo completa da Aura** no topo (única) · 🔴 **GANCHO LITERAL** — kicker `MTT` · **"Não é solver. Não é tracker."** → *(beat)* **"É o que o field inteiro faz."** · selo: *O mesmo jogo — novas informações.* | — |
-| 2 | 4,7s | O que cada um responde: Solver → *o equilíbrio* · Tracker → *as SUAS mãos* · Aura → *o field* | *Três perguntas diferentes. A Aura responde a terceira* |
-| 3 | 5,0s | **Tela real** — texto *RFI, 3-bet, 4-bet, steal — por posição, com amostra e intervalo de confiança* movido pra **acima** do print, Preflop Analysis em janela · *sem legenda no rodapé* | — |
-| 4 | 4,7s | Medido em: 500M+ mãos auditadas · 7 salas · atualização trimestral | *100% anonimizado. Nenhuma mão ligada a jogador* |
-| 5 | 4,6s | "O mesmo jogo — novas informações" + **mockup dos 2 monitores** · *sem legenda de rodapé* | — |
+| 1 | 2,5s | **Logo completa da Aura** no topo (única) · 🔴 **GANCHO LITERAL** — kicker `MTT` · **"Não é solver. Não é tracker."** → *(beat)* **"É o que o field inteiro faz."** · selo: *O mesmo jogo — novas informações.* | — |
+| 2 | 3,0s | O que cada um responde: Solver → *o equilíbrio* · Tracker → *as SUAS mãos* · Aura → *o field* | *Três perguntas diferentes. A Aura responde a terceira* |
+| 3 | 3,0s | **Tela real** — texto *RFI, 3-bet, 4-bet, steal — por posição, com amostra e intervalo de confiança* movido pra **acima** do print, Preflop Analysis em janela · *sem legenda no rodapé* | — |
+| 4 | 3,2s | Medido em: 500M+ mãos auditadas · 7 salas · atualização trimestral | *100% anonimizado. Nenhuma mão ligada a jogador* |
+| 5 | 3,0s | "O mesmo jogo — novas informações" + Preflop em foco + inset Postflop · *sem legenda de rodapé* | — |
 | 6 | 3,2s | **CTA (idêntico nos 4)** — `Criar conta grátis` · *Preview de cada módulo. Sem cartão.* | — |
 
-**26,0s** · 9:16 1080×1920 · sem áudio · selo no rodapé de **todas** as cenas · 18+ em todo quadro.
+**17,2s** · cadência v2.6: hook 2,5s · cenas 3,0–3,2s · CTA 2,5s · 9:16 1080×1920 · sem áudio · selo no rodapé de **todas** as cenas · 18+ em todo quadro.
 
 ## Compliance conferido
 "Solver" e "tracker" aparecem como **categorias**, nunca marcas (§2, nota) — e a menção a tracker é

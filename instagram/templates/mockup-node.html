@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Aura · mockup Node-by-Node</title>
+<style>
+/* ============================================================
+   MOCKUP — Análise Node-by-Node (RECRIADO, não é captura de tela).
+   Fiel ao produto, limpo e idealizado. Renderiza a 2x → PNG usado
+   como asset em posts/reels (mesmo caminho do mockup-two-devices).
+
+   REGRA DA SPEC: nada aqui pode ter métrica, rótulo ou seção que não
+   esteja na spec do PO. Se faltar espaço, cortar de baixo pra cima
+   (tirar o nível 3 antes de mexer no resto) — nunca preencher inventando.
+
+   CORES DE AÇÃO — fixas por ação, NUNCA por ranking:
+     Check #5B8FD6 · Bet #B58A12
+     (nó com aposta na mesa: Fold #0E9AD4 · Call #2FA37B · Raise #D9603F)
+   ============================================================ */
+@font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
+:root{
+  --bg:#020617; --panel:#0B1220; --panel2:#0F1626;
+  --slate:#1E2A40; --slate2:#28374F;
+  --ink:#E7EDF7; --ink-soft:#93A4BF; --ink-dim:#64748B;
+  --amber:#FBBF24;
+  --check:#5B8FD6; --bet:#B58A12;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1240px;height:980px;overflow:hidden}
+body{font-family:"Montserrat","Segoe UI",sans-serif;background:
+  radial-gradient(900px 700px at 50% 0%, rgba(34,53,89,0.45), transparent 62%),
+  radial-gradient(700px 600px at 50% 100%, rgba(212,164,24,0.07), transparent 60%), var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  perspective:2600px}
+
+/* inclinação em perspectiva — máx. 8° (spec). Sutil pra não distorcer o texto. */
+.panel{width:1060px;transform:rotateY(-6deg) rotateX(1.4deg);transform-origin:50% 50%;
+  background:linear-gradient(180deg,var(--panel2) 0%,var(--panel) 100%);
+  border:1px solid rgba(148,163,184,0.10);border-radius:26px;padding:34px 40px 40px;
+  box-shadow:0 50px 120px rgba(0,0,0,0.62), 0 0 60px rgba(91,143,214,0.05),
+             inset 0 1px 0 rgba(255,255,255,0.045)}
+
+/* 1 · barra de frescor */
+.fresh{font-size:17px;font-weight:600;color:var(--ink-dim);letter-spacing:0.02em;margin-bottom:26px}
+
+/* 2 · painel TEXTURA DO FLOP */
+.tex{border-bottom:1px solid rgba(148,163,184,0.10);padding-bottom:28px;margin-bottom:30px}
+.tex .head{font-size:16px;font-weight:800;letter-spacing:0.20em;color:var(--ink-soft);margin-bottom:20px}
+.trow{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+.trow:last-child{margin-bottom:0}
+.tkey{flex:none;width:186px;font-size:14px;font-weight:700;letter-spacing:0.13em;color:var(--ink-dim)}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-size:16px;font-weight:600;color:var(--ink-soft);
+  border:1px solid var(--slate2);border-radius:999px;padding:8px 20px;white-space:nowrap}
+.chip.on{background:var(--amber);border-color:var(--amber);color:#12161F;font-weight:800}
+
+/* 3 · árvore — espinha vertical fina + indentação progressiva, sem caixa por nível */
+.tree{position:relative}
+.lvl{position:relative;padding-left:30px;padding-bottom:26px}
+.lvl:last-child{padding-bottom:0}
+/* espinha: contínua entre os níveis, some no último */
+.lvl::before{content:"";position:absolute;left:6px;top:13px;bottom:0;width:1.5px;background:var(--slate2)}
+.lvl:last-child::before{bottom:auto;height:0}
+/* nó na espinha */
+.lvl::after{content:"";position:absolute;left:1.5px;top:9px;width:11px;height:11px;border-radius:50%;
+  background:var(--panel);border:1.5px solid var(--slate2)}
+.lvl.cur::after{border-color:var(--amber);background:var(--amber)}
+/* indentação progressiva (12–16px por nível) */
+.lvl.d2{margin-left:14px}
+.lvl.d3{margin-left:28px}
+/* níveis já percorridos recuam; o nó atual fica destacado */
+.lvl.past{opacity:0.86}
+
+.lhead{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.badge{flex:none;font-size:14px;font-weight:800;letter-spacing:0.08em;color:var(--ink);
+  background:rgba(148,163,184,0.12);border:1px solid var(--slate2);border-radius:8px;padding:5px 12px}
+.turnof{font-size:20px;font-weight:700;color:var(--ink)}
+.street{font-size:13px;font-weight:800;letter-spacing:0.16em;color:var(--ink-dim)}
+.right{margin-left:auto;display:flex;align-items:baseline;gap:16px}
+.n{font-size:16px;font-weight:600;color:var(--ink-dim);font-variant-numeric:tabular-nums}
+.pick{font-size:16px;font-weight:800;color:var(--check)}
+
+/* barras: finas, canto arredondado só na ponta do dado, trilho discreto */
+.bars{display:flex;flex-direction:column;gap:11px}
+.bar{display:flex;align-items:center;gap:16px}
+.act{flex:none;width:64px;font-size:16px;font-weight:600;color:var(--ink-soft)}
+.track{flex:1;height:9px;border-radius:999px;background:rgba(148,163,184,0.09);overflow:hidden}
+/* display:block é obrigatório — <span> inline ignora width/height e a barra
+   sai invisível (o trilho aparece, o dado não). */
+.fill{display:block;height:100%;border-radius:0 999px 999px 0}
+.pct{flex:none;width:82px;text-align:right;font-size:17px;font-weight:800;color:var(--ink);
+  font-variant-numeric:tabular-nums}
+/* ação não escolhida recua */
+.bar.mut .act,.bar.mut .pct{color:var(--ink-dim)}
+.bar.mut .fill{opacity:0.55}
+</style>
+</head>
+<body>
+<div class="panel">
+
+  <div class="fresh">Data as of 28/07/2026, 03:20</div>
+
+  <div class="tex">
+    <div class="head">TEXTURA DO FLOP</div>
+    <div class="trow"><span class="tkey">NAIPES</span><div class="chips">
+      <span class="chip on">Rainbow</span><span class="chip">Flushdraw</span><span class="chip">Monotone</span></div></div>
+    <div class="trow"><span class="tkey">PAREADO</span><div class="chips">
+      <span class="chip on">Não</span><span class="chip">Sim</span></div></div>
+    <div class="trow"><span class="tkey">CONECTIVIDADE</span><div class="chips">
+      <span class="chip on">Desconectado</span><span class="chip">OESD possível</span><span class="chip">Conectado</span></div></div>
+  </div>
+
+  <div class="tree">
+
+    <div class="lvl past">
+      <div class="lhead">
+        <span class="badge">BB</span><span class="turnof">Vez de BB</span>
+        <span class="right"><span class="n">n=29,8M</span><span class="pick">→ Check</span></span>
+      </div>
+      <div class="bars">
+        <div class="bar"><span class="act">Check</span>
+          <span class="track"><span class="fill" style="width:94.7%;background:var(--check)"></span></span>
+          <span class="pct">94,7%</span></div>
+        <div class="bar mut"><span class="act">Bet</span>
+          <span class="track"><span class="fill" style="width:5.3%;background:var(--bet)"></span></span>
+          <span class="pct">5,3%</span></div>
+      </div>
+    </div>
+
+    <div class="lvl past d2">
+      <div class="lhead">
+        <span class="badge">BTN</span><span class="turnof">Vez de BTN</span>
+        <span class="right"><span class="n">n=28,3M</span><span class="pick">→ Check</span></span>
+      </div>
+      <div class="bars">
+        <div class="bar"><span class="act">Check</span>
+          <span class="track"><span class="fill" style="width:20.6%;background:var(--check)"></span></span>
+          <span class="pct">20,6%</span></div>
+        <div class="bar mut"><span class="act">Bet</span>
+          <span class="track"><span class="fill" style="width:79.4%;background:var(--bet)"></span></span>
+          <span class="pct">79,4%</span></div>
+      </div>
+    </div>
+
+    <div class="lvl cur d3">
+      <div class="lhead">
+        <span class="badge">BB</span><span class="turnof">Vez de BB</span><span class="street">TURN</span>
+        <span class="right"><span class="n">n=5,8M</span></span>
+      </div>
+      <div class="bars">
+        <div class="bar"><span class="act">Check</span>
+          <span class="track"><span class="fill" style="width:56.2%;background:var(--check)"></span></span>
+          <span class="pct">56,2%</span></div>
+        <div class="bar"><span class="act">Bet</span>
+          <span class="track"><span class="fill" style="width:43.8%;background:var(--bet)"></span></span>
+          <span class="pct">43,8%</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

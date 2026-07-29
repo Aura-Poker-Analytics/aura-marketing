@@ -27,7 +27,8 @@ estudou e o que encontra na mesa.
 - Cena 2 ("Defesa do field · size a size"): **legenda do rodapé removida** — fica só o shot.
 - Cena 3 ("A tela real"): **deletada**. Repetia o mesmo shot da cena 2 sem legenda nova — o PO
   achou redundante. A célula caiu de 6 pra **5 cenas**.
-- ⚠️ **DESVIO DE DURAÇÃO**: com a cena 3 fora, a célula soma **21,0s**, não 26,0s como as outras 3.
+- **Cadência v2.6:** com a cena 3 fora, a célula fecha em **15,0s** — faixa curta de discovery,
+  com hook em 2,5s, cenas em 3,2–3,3s e CTA em 2,7s.
   Registrado no build (`build-descoberta.mjs` § `CELLS`) — decisão do PO, não bug.
 
 ## Alterações v2.4 (PO, 26/07 — 5ª rodada)
@@ -39,13 +40,13 @@ estudou e o que encontra na mesa.
 
 | # | dur | Conteúdo | Consequência de decisão |
 |---|---|---|---|
-| 1 | 3,8s | **Logo completa** (única, no topo) · 🔴 **GANCHO LITERAL** — kicker `MTT · pra quem estuda solver` · **"Você decorou o GTO."** → *(beat)* **"Seu oponente não."** · legenda: *GTO é o ponto de partida. O adversário real é outro assunto.* | — |
-| 2 | 4,7s | Shot Exploitative Sizes — 20%, 33%, 42%, 55%, 75%, overpot lado a lado · *sem legenda de rodapé* | — |
-| 3 | 4,7s | Escala: 10,6M mãos nesse spot · 500M+ auditadas · 7 salas | *Toda frequência vem com amostra e intervalo de confiança* |
-| 4 | 4,6s | **"Descubra o que o field realmente faz."** + **mockup dos 2 monitores** | *Ferramenta de estudo. Você continua decidindo na mesa* |
+| 1 | 2,5s | **Logo completa** (única, no topo) · 🔴 **GANCHO LITERAL** — kicker `MTT · pra quem estuda solver` · **"Você decorou o GTO."** → *(beat)* **"Seu oponente não."** · legenda: *GTO é o ponto de partida. O adversário real é outro assunto.* | — |
+| 2 | 3,2s | Shot Exploitative Sizes — 20%, 33%, 42%, 55%, 75%, overpot lado a lado · *sem legenda de rodapé* | — |
+| 3 | 3,3s | Escala: 10,6M mãos nesse spot · 500M+ auditadas · 7 salas | *Toda frequência vem com amostra e intervalo de confiança* |
+| 4 | 3,3s | **"Descubra o que o field realmente faz."** + Preflop em foco + inset Postflop | *Ferramenta de estudo. Você continua decidindo na mesa* |
 | 5 | 3,2s | **CTA (idêntico nos 4)** — `Criar conta grátis` · *Preview de cada módulo. Sem cartão.* | — |
 
-**21,0s** (⚠️ ver desvio acima) · 9:16 1080×1920 · sem áudio · selo `500M+ mãos auditadas · 7 salas` no rodapé de **todas** as cenas · 18+ em todo quadro.
+**15,0s** · 9:16 1080×1920 · sem áudio · selo `500M+ mãos auditadas · 7 salas` no rodapé de **todas** as cenas · 18+ em todo quadro.
 
 ## Compliance conferido
 Enquadrado como **ferramenta de estudo** · zero promessa de lucro/EV/winrate ·

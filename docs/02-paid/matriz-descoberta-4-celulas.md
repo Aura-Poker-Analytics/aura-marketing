@@ -205,17 +205,27 @@ Nome do arquivo = nome do anúncio = `utm_content`. **Não renomear depois de su
   ⚠️ **Desatualizado pela v2.4** (ver abaixo) — precisa re-render antes de qualquer validação.
 - [x] ~~**v2.4 (26/07, 5ª rodada):** PO valida os novos PNGs de preview~~ — **26/07: feedback
   recebido, ver v2.5 abaixo** (disc-02 s4 faltou o ajuste de terminologia + troca de ordem s3/s4).
-- [ ] **v2.5 (26/07, 6ª rodada):** PO valida os novos PNGs de preview do disc-02 (ordem de cenas
-  trocada + terminologia + texto de fechamento) — **antes** de re-encodar os 8 MP4
+- [x] ~~**v2.5 (26/07, 6ª rodada):** PO valida os novos PNGs de preview do disc-02~~ — feedback
+  seguinte levou ao layout focal v2.6.
+- [x] ~~**v2.6 (27/07):** render PT com painel principal + inset e cadência curta~~ — 4 MP4 PT
+  encodados (15,0s disc-01/04; 17,2s disc-02/03).
 - [ ] **Sincronizar as traduções EN pendentes** — disc-01 s4, disc-03 s3, disc-04 s2 (da v2.4) e
   disc-02 s4/nova-headline (da v2.4/v2.5, marcadas "⚠️ pendente" nos roteiros) — antes do próximo
   render PT+EN
 - [ ] v2: mockup Postflop 2× do app real (disc-01 cena 2, disc-02 — trocada por
   `mockup-two-devices.png` na v2.2) — bloqueado no LOCAL (`tbl_*_pooled` inexistente; ver nota
   técnica no fim desta seção). Fora do critical path.
-- [ ] PO faz a validação final dos 8 MP4 (assista antes de subir — o preview em PNG não capta
-  Ken Burns/timing) — só depois do re-render v2.5
-- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando o PO aprovar os 8 MP4
+- [ ] PO faz a validação final dos 4 MP4 PT (assista antes de subir — o preview em PNG não capta
+  Ken Burns/timing).
+- [ ] Mídia Paga: subir campanha de descoberta (pausada) quando o PO aprovar os MP4 PT.
+
+### v2.6 produção (27/07) — legibilidade + cadência de Reels
+- Os dois dispositivos não são mais comprimidos lado a lado: um painel principal ampliado mantém
+  os dados legíveis, enquanto o outro entra como inset. Foco alternado: **Preflop** nos disc-01/03
+  e **Postflop** nos disc-02/04.
+- Cadência reduzida para a faixa curta de discovery: hook em **2,5s**, cenas em **3,0–3,3s** e
+  CTA em **2,5–2,7s**. Resultado: **15,0s** (disc-01/04) e **17,2s** (disc-02/03), em vez de
+  21,0s/26,0s. Os 4 MP4 PT foram reencodados; EN fica pendente da sincronização de texto.
 
 ### v2.5 produção (26/07, 6ª rodada) — feedback do PO sobre os PNGs v2.4 (disc-02)
 - **disc-02:** sub-label da cena "vs overpot" (então cena 3) ficou faltando o ajuste de

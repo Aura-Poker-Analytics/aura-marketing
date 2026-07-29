@@ -40,15 +40,20 @@ const CHROME = process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Applic
 const PORT = 5121;
 const W = 1080, H = 1920, FPS = 30;
 
-// soma 26,0s exatos (doc §3.5) QUANDO a celula tem as 6 cenas padrao. Sem
-// transicao consumindo tempo (corte seco).
-const DURS = [3.8, 4.7, 5.0, 4.7, 4.6, 3.2];
+/* Cadência nativa de Reels para descoberta: hook nos primeiros 2,5s, cada
+   mensagem/produto por 3,0–3,3s e CTA por 2,5s. Assim as células de 6 cenas
+   fecham em 17,2s e as de 5 em 15,0s — faixa de 15–20s adequada a awareness,
+   sem o ritmo lento de 4,6–5,0s por frame da versão anterior. */
+const DURS = [2.5, 3.0, 3.0, 3.2, 3.0, 2.5];
+const DURS_FIVE = [2.5, 3.2, 3.3, 3.3, 2.7];
 const K_HOOK = 18;   // frames de animacao do gancho (0,60s) — cabe o beat
 const K_DATA = 10;   // frames das cenas de dado (0,33s) — count-up rapido
 
 const GUIDES = process.argv.includes('--guides');
 const SKIP_RENDER = process.argv.includes('--skip-render');
 const FRAMES_ONLY = process.argv.includes('--frames-only');
+const PT_ONLY = process.argv.includes('--pt-only');
+const EN_ONLY = process.argv.includes('--en-only');
 
 /* nome do arquivo = nome do anuncio = utm_content (doc §4). NAO RENOMEAR:
    quebra a serie do relatorio.
@@ -64,22 +69,28 @@ const FRAMES_ONLY = process.argv.includes('--frames-only');
    mesmas durs/estrutura das PT correspondentes — so o vocabulario muda. */
 const CELLS = [
   { name: 'disc-01-solver',    ids: ['d1-s1','d1-s2','d1-s4','d1-s5','d-cta'],
-    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd1-s1':K_HOOK, 'd1-s4':K_DATA } },
+    durs: DURS_FIVE, anim: { 'd1-s1':K_HOOK, 'd1-s4':K_DATA } },
   { name: 'disc-02-exploit',   ids: ['d2-s1','d2-s2','d2-s4','d2-s3','d2-s5','d-cta'],
     durs: DURS, anim: { 'd2-s1':K_HOOK, 'd2-s2':K_DATA, 'd2-s4':K_DATA } },
   { name: 'disc-03-categoria', ids: ['d3-s1','d3-s2','d3-s3','d3-s4','d3-s5','d-cta'],
     durs: DURS, anim: { 'd3-s1':K_HOOK, 'd3-s4':K_DATA } },
   { name: 'disc-04-pioneiro',  ids: ['d4-s1','d4-s2','d4-s4','d4-s5','d-cta'],
-    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd4-s1':K_HOOK, 'd4-s2':K_DATA, 'd4-s4':K_DATA } },
+    durs: DURS_FIVE, anim: { 'd4-s1':K_HOOK, 'd4-s2':K_DATA, 'd4-s4':K_DATA } },
   { name: 'disc-01-solver-en',    ids: ['d1-s1-en','d1-s2-en','d1-s4-en','d1-s5-en','d-cta-en'],
-    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd1-s1-en':K_HOOK, 'd1-s4-en':K_DATA } },
+    durs: DURS_FIVE, anim: { 'd1-s1-en':K_HOOK, 'd1-s4-en':K_DATA } },
   { name: 'disc-02-exploit-en',   ids: ['d2-s1-en','d2-s2-en','d2-s4-en','d2-s3-en','d2-s5-en','d-cta-en'],
     durs: DURS, anim: { 'd2-s1-en':K_HOOK, 'd2-s2-en':K_DATA, 'd2-s4-en':K_DATA } },
   { name: 'disc-03-categoria-en', ids: ['d3-s1-en','d3-s2-en','d3-s3-en','d3-s4-en','d3-s5-en','d-cta-en'],
     durs: DURS, anim: { 'd3-s1-en':K_HOOK, 'd3-s4-en':K_DATA } },
   { name: 'disc-04-pioneiro-en',  ids: ['d4-s1-en','d4-s2-en','d4-s4-en','d4-s5-en','d-cta-en'],
-    durs: [3.8, 4.7, 4.7, 4.6, 3.2], anim: { 'd4-s1-en':K_HOOK, 'd4-s2-en':K_DATA, 'd4-s4-en':K_DATA } },
+    durs: DURS_FIVE, anim: { 'd4-s1-en':K_HOOK, 'd4-s2-en':K_DATA, 'd4-s4-en':K_DATA } },
 ];
+if (PT_ONLY && EN_ONLY) throw new Error('Use apenas um de --pt-only ou --en-only.');
+const TARGET_CELLS = PT_ONLY
+  ? CELLS.filter(C => !C.name.endsWith('-en'))
+  : EN_ONLY
+    ? CELLS.filter(C => C.name.endsWith('-en'))
+    : CELLS;
 
 const OUT_DIR = path.join(ROOT, 'content/paid/AURA-DESCOBERTA');
 const FRAMES = path.join(ROOT, 'instagram/output/desc-frames');
@@ -103,7 +114,7 @@ function shot(id, out, a) {
 /* --frames-only: 1 PNG por cena no estado final (a=100), sem guias, sem encode.
    Saida: instagram/output/desc-preview/<reel>/s<N>.png — PO valida antes do MP4. */
 if (FRAMES_ONLY) {
-  for (const C of CELLS) {
+  for (const C of TARGET_CELLS) {
     const dir = path.join(PREVIEW, C.name);
     fs.mkdirSync(dir, { recursive: true });
     C.ids.forEach((id, i) => {
@@ -114,11 +125,11 @@ if (FRAMES_ONLY) {
     console.log(`${C.name}: ${C.ids.length} PNGs de preview → ${dir}`);
   }
   if (srv) { srv.kill(); try { execFileSync('taskkill', ['/F', '/T', '/PID', String(srv.pid)], { stdio: 'ignore' }); } catch {} }
-  console.log(`preview pronto: ${PREVIEW} (${CELLS.length * 6} PNGs). Encode so depois do OK do PO.`);
+  console.log(`preview pronto: ${PREVIEW} (${TARGET_CELLS.length} reels). Encode so depois do OK do PO.`);
   process.exit(0);
 }
 
-if (!SKIP_RENDER) for (const C of CELLS) {
+if (!SKIP_RENDER) for (const C of TARGET_CELLS) {
   const dir = path.join(FRAMES, C.name);
   fs.mkdirSync(dir, { recursive: true });
   C.ids.forEach((id, i) => {
@@ -139,7 +150,7 @@ const zoomExpr = (i, D) => i === 0
 
 const run = (args) => execFileSync(ffmpeg, args, { stdio: ['ignore', 'ignore', 'pipe'] });
 
-for (const C of CELLS) {
+for (const C of TARGET_CELLS) {
   const dir = path.join(FRAMES, C.name);
   const segs = [];
 
