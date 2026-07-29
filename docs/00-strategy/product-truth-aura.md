@@ -28,7 +28,15 @@
 - Sizing de RFI/3-bet em **múltiplos de BB** (NÃO %pot — %pot é regra só do pós-flop).
 - Cada célula: frequência + IC 95% + amostra. Filtros combináveis/empilháveis sem limite no pago.
 - **Gating:** módulo acessível no grátis, mas **amostra limitada — buy-in ≤$22, Vanilla, Early Game**. Fora disso é pago; sub-linhas de sizing/drill-down borradas no grátis.
-- NÃO existe: overlay solver×pool, EV, hole cards/range do vilão, stack coverage no RFI, limped pots, Node-by-Node (dormente).
+- NÃO existe: overlay solver×pool, EV, hole cards/range do vilão, stack coverage no RFI, limped pots.
+- ✅ **Node-by-Node ESTÁ NO AR** (confirmado pelo dono, 27/07 — antes constava aqui como "dormente").
+  Árvore de decisão navegável: a cada nó, de quem é a vez, frequência de cada ação e o `n` daquele
+  recorte, com filtro de textura do flop (naipes / pareado / conectividade) e barra de frescor do dado.
+  Números do módulo são **reais** — não marcar como ilustrativo.
+  Convenção de cor por AÇÃO (nunca por ranking): Check `#5B8FD6` · Bet `#B58A12` ·
+  Fold `#0E9AD4` · Call `#2FA37B` · Raise `#D9603F`.
+  Asset de marketing pronto: `instagram/templates/shots/mockup-node-by-node.png`
+  (interface recriada em `instagram/templates/mockup-node.html`, não é captura de tela).
 
 ## 4. Postflop Analysis
 - Unifica **Pool Action** (bet/check/raise/fold) + **Pool Reaction** (fold/call/raise a cada ação) na mesma tela. Flop/turn/river, sempre **IP vs OOP**.
@@ -59,7 +67,7 @@ Estas peças de marketing afirmam coisas que o dono confirmou como intenção, m
 3. 🟠 **Team Mode não isolado/ativo** no runtime — não usar "banco 100% isolado" em copy B2B.
 
 ## 9. Banco de claims
-**APROVADOS (100% verdadeiros e vendáveis):** field intelligence de MTT; 500M+ mãos auditadas; 7 salas; anonimizado + intervalo de confiança; atualização trimestral; Hotspot ranqueia exploits por desvio de MDF com selo de confiança; filtros ilimitados empilháveis (a 1.0 tinha trava de 3); sizing de bet em %pot; estágio de torneio/ICM/bolha (nenhum solver modela); Mystery Bounty/KO; reg vs fish; plano grátis sem cartão; **plano grátis = preview de cada módulo** (alguns exploit cards no Hotspot + amostra de Preflop ≤$22/Vanilla/Early + amostra de Postflop).
+**APROVADOS (100% verdadeiros e vendáveis):** field intelligence de MTT; 500M+ mãos auditadas; 7 salas; anonimizado + intervalo de confiança; atualização trimestral; Hotspot ranqueia exploits por desvio de MDF com selo de confiança; filtros ilimitados empilháveis (a 1.0 tinha trava de 3); sizing de bet em %pot; estágio de torneio/ICM/bolha (nenhum solver modela); Mystery Bounty/KO; reg vs fish; **Node-by-Node: árvore de decisão navegável, frequência e `n` por nó, filtro de textura do flop** (no ar desde 27/07 — ver §3); plano grátis sem cartão; **plano grátis = preview de cada módulo** (alguns exploit cards no Hotspot + amostra de Preflop ≤$22/Vanilla/Early + amostra de Postflop).
 **PROIBIDOS:** qualquer promessa de lucro/EV/winrate; "solver overlay"/"vs GTO"; cobertura balanceada por sala; "raise em %pot"; "Team = banco isolado ativo"; depoimentos fictícios; **"Hotspot completo/full grátis" e Preflop/Postflop "completos" no grátis** (grátis é sempre PREVIEW/amostra; board completo + filtros = pago); **"defesa abaixo do MDF = leak/erro/gap explorável"** (ver §10).
 
 ---
