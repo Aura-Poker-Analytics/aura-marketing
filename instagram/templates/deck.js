@@ -1183,35 +1183,36 @@ window.DECK = {
   "dm-s1": { heroLogo:true, kicker:"MTT",
     heroBg:"shots/crop-postflop-wide.png", heroFocus:true,
     proof:"500M+ mãos auditadas · 7 salas",
-    big:'A única plataforma de<br><em>Field Intelligence (MDA)</em><br>do mundo', bigXs:true,
+    big:'Você realmente sabe<br><em>com quem está jogando?</em>', bigXs:true,
+    line:"A única plataforma de <b>Field Intelligence (MDA)</b> do mundo.<br>Stats da população em segundos.",
     caption:"" },
 
   "dm-s2": { kicker:"Preflop", proof:"500M+ mãos auditadas · 7 salas",
-    line:"RFI, 3-bet, 4-bet, steal — desagregado por <b>posição, stack e tipo de vilão</b>.",
+    line:"<b>% RFI, % 3-bet, % 4-bet</b> e dezenas de outras stats — por <b>posição, stack e tipo de vilão</b>.",
     block:{ type:"shot", src:"shots/crop-preflop-table.png", w:900,
       title:"Aura · Preflop Analysis" } },
 
   "dm-s3": { kicker:"Postflop", proof:"500M+ mãos auditadas · 7 salas",
-    line:"Defesa do field vs MDF — fatiada por <b>street, size e textura de board</b>.",
+    line:"Defesa do field vs MDF — por <b>street, size e textura de board</b>.",
     block:{ type:"shot", src:"shots/postflop-ref.png", w:620,
       title:"Aura · Postflop Analysis" } },
 
   "dm-s4": { kicker:"Node-by-Node", proof:"500M+ mãos auditadas · 7 salas",
-    line:"Navegue a árvore inteira — nó por nó, com <b>n</b> em cada um.",
+    line:"Navegue a árvore inteira.",
     block:{ type:"shot", src:"shots/mockup-node-by-node.png", w:920, chrome:false } },
 
   /* cena dedicada ao eixo pedido pelo PO: o recorte e do usuario.
      Usa o painel de filtros REAL (estagios nomeados + faixas de buy-in). */
   "dm-s5": { kicker:"20+ filtros empilháveis", proof:"500M+ mãos auditadas · 7 salas",
-    line:"Estágio, buy-in, tipo de torneio — <b>você monta o recorte</b>.",
+    line:"Do Early Game à mesa final — e por faixa de buy-in.",
     block:{ type:"shot", src:"shots/crop-filters-rail.png", w:620, chrome:false } },
 
   "dm-s6": { proof:"500M+ mãos auditadas · 7 salas",
-    big:'Três módulos.<br><em>Um recorte seu.</em>', bigSm:true,
+    big:'Você monta o cenário<br><em>que quer analisar.</em>', bigSm:true,
     block:{ type:"grid", cols:1, cells:[
       { t:"Preflop", s:"por posição, stack e vilão" },
       { t:"Postflop", s:"por street, size e textura" },
-      { t:"Node-by-Node", s:"a árvore inteira, com n" } ] },
+      { t:"Node-by-Node", s:"a árvore de decisão inteira" } ] },
     line:"Grátis pra começar. <b>Sem cartão.</b>" },
 
   "dm-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",

@@ -32,10 +32,11 @@ const W = 1080, H = 1920, FPS = 30;
 
 const NAME = 'disc02-plataforma-mda';           // = utm_content, nao renomear
 const SCENES = ['dm-s1', 'dm-s2', 'dm-s3', 'dm-s4', 'dm-s5', 'dm-s6', 'dm-cta'];
-/* v2 — Hotspot fora; 3 modulos + cena de filtros. tempo = max(2,5s ; palavras/4+1s):
-   s1 gancho 2,0 (brief) · s2 ~12 palavras -> 4,0 · s3 ~12 -> 4,0 · s4 ~12 -> 4,2
-   · s5 ~11 -> 3,8 · s6 grade 3 linhas + 2 frases -> 4,2 · CTA 3,0. Total 25,2s. */
-const DURS = [2.0, 4.0, 4.0, 4.2, 3.8, 4.2, 3.0];
+/* v3 (PO, 10/08) — gancho ganhou conceituacao, entao subiu de 2,0 -> 3,2s
+   (o PO reportou 'primeiro frame muito rapido'; 3,2s tambem realinha com o
+   playbook, que pede 3-4s no gancho). Demais: max(2,5s ; palavras/4+1s).
+   s1 3,2 · s2 4,6 · s3 4,0 · s4 3,4 · s5 3,8 · s6 4,2 · CTA 3,0 = 26,2s. */
+const DURS = [3.2, 4.6, 4.0, 3.4, 3.8, 4.2, 3.0];
 
 const GUIDES = process.argv.includes('--guides');
 const OUT_DIR = path.join(ROOT, 'content/paid/AURA-DISC02');
