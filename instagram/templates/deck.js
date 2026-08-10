@@ -1163,4 +1163,58 @@ window.DECK = {
   "d-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
     line:"500M+ audited hands · 7 rooms",
     ctaBtn:"Create free account", ctaSub:"Preview of every module. No card." },
+
+  /* ==========================================================
+     DISC02 — reel 'plataforma inteira' (PT). Slug/utm_content: disc02-plataforma-mda.
+     Substitui o criativo 'Nao e solver. Nao e tracker.'.
+
+     v2 (PO, 28/07): HOTSPOT REMOVIDO. Ficam 3 modulos — Preflop, Postflop e
+     Node-by-Node — e o eixo da mensagem passa a ser FILTROS / FATIAS /
+     DESAGREGACOES: o que o usuario consegue recortar na pesquisa dele.
+     Cada cena de modulo nomeia por quais dimensoes ele desagrega, e ha uma
+     cena dedicada ao painel de filtros real.
+
+     ⚠️ CLAIM DO GANCHO — decisao do PO: 'A unica plataforma de field
+     intelligence (MDA) do mundo' REATIVA a versao (b) descartada na matriz de
+     descoberta (§2: risco de reprova Meta por superlativo, report de
+     concorrente, publico cetico). O doc condiciona (b) a verificacao de
+     mercado DO PO. Registrado; a fabrica executa.
+     ========================================================== */
+  "dm-s1": { heroLogo:true, kicker:"MTT",
+    heroBg:"shots/crop-postflop-wide.png", heroFocus:true,
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'A única plataforma de<br><em>Field Intelligence (MDA)</em><br>do mundo', bigXs:true,
+    caption:"" },
+
+  "dm-s2": { kicker:"Preflop", proof:"500M+ mãos auditadas · 7 salas",
+    line:"RFI, 3-bet, 4-bet, steal — desagregado por <b>posição, stack e tipo de vilão</b>.",
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:900,
+      title:"Aura · Preflop Analysis" } },
+
+  "dm-s3": { kicker:"Postflop", proof:"500M+ mãos auditadas · 7 salas",
+    line:"Defesa do field vs MDF — fatiada por <b>street, size e textura de board</b>.",
+    block:{ type:"shot", src:"shots/postflop-ref.png", w:620,
+      title:"Aura · Postflop Analysis" } },
+
+  "dm-s4": { kicker:"Node-by-Node", proof:"500M+ mãos auditadas · 7 salas",
+    line:"Navegue a árvore inteira — nó por nó, com <b>n</b> em cada um.",
+    block:{ type:"shot", src:"shots/mockup-node-by-node.png", w:920, chrome:false } },
+
+  /* cena dedicada ao eixo pedido pelo PO: o recorte e do usuario.
+     Usa o painel de filtros REAL (estagios nomeados + faixas de buy-in). */
+  "dm-s5": { kicker:"20+ filtros empilháveis", proof:"500M+ mãos auditadas · 7 salas",
+    line:"Estágio, buy-in, tipo de torneio — <b>você monta o recorte</b>.",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:620, chrome:false } },
+
+  "dm-s6": { proof:"500M+ mãos auditadas · 7 salas",
+    big:'Três módulos.<br><em>Um recorte seu.</em>', bigSm:true,
+    block:{ type:"grid", cols:1, cells:[
+      { t:"Preflop", s:"por posição, stack e vilão" },
+      { t:"Postflop", s:"por street, size e textura" },
+      { t:"Node-by-Node", s:"a árvore inteira, com n" } ] },
+    line:"Grátis pra começar. <b>Sem cartão.</b>" },
+
+  "dm-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
+    line:"500M+ mãos auditadas · 7 salas",
+    ctaBtn:"Conheça a plataforma", ctaSub:"aurapoker.com" },
 };

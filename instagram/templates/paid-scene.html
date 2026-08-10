@@ -159,6 +159,7 @@ body.wide-shot .core{margin-left:-40px;margin-right:-40px}
 .big em{font-style:normal;color:var(--amber);background:none;
   -webkit-background-clip:initial;background-clip:initial;filter:none}
 .big.sm{font-size:76px}
+.big.xs{font-size:60px;line-height:1.16}
 .big.sm em{font-style:normal;color:var(--amber);background:none;
   -webkit-background-clip:initial;background-clip:initial;filter:none}
 .line{margin-top:32px;font-size:40px;font-weight:500;line-height:1.34;color:var(--ink-soft);max-width:880px}
@@ -253,6 +254,16 @@ table.pt td.hi{color:var(--amber);font-weight:900}
 .card .bar .mdf{position:absolute;top:-6px;bottom:-6px;width:4px;background:var(--amber);border-radius:2px;box-shadow:0 0 10px rgba(251,191,36,0.8)}
 .card .lbls{display:flex;justify-content:space-between;margin-top:12px;font-size:21px;color:var(--ink-dim);font-weight:600}
 .card .lbls b{color:#CBD5E1;font-weight:700}
+
+/* grade 2x2 de modulos — fechamento 'a plataforma inteira' (disc02) */
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%}
+/* 3 modulos: coluna unica le melhor no 9:16 que 2+1 desbalanceado */
+.mgrid.one{grid-template-columns:1fr;gap:16px}
+.mgrid.one .mcell{flex-direction:row;justify-content:space-between;padding:26px 34px;text-align:left}
+.mcell{background:rgba(13,20,36,0.78);border:2px solid var(--line);border-radius:20px;
+  padding:34px 26px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.mcell .t{font-size:32px;font-weight:800;color:var(--amber)}
+.mcell .s{font-size:22px;font-weight:600;color:var(--ink-soft)}
 
 /* ---- cena de CTA ---- */
 .ctaWrap{display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -350,6 +361,11 @@ function elTwoFocus(b){
     <div class="inset"><img src="${b.src}" alt=""></div>
   </div>`;
 }
+function elGrid(b){
+  return '<div class="mgrid' + (b.cols === 1 ? ' one' : '') + '">' + b.cells.map(c =>
+    '<div class="mcell"><span class="t">' + c.t + '</span><span class="s">' + c.s + '</span></div>'
+  ).join('') + '</div>';
+}
 const CHROME_BAR = (t) => `<div class="chrome"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttl">${t}</span></div>`;
 
 function elPreflop(b){
@@ -382,7 +398,7 @@ function elPostflop(b){
         </div>`).join('')}</div>
     </div></div>`;
 }
-const BUILDERS = {vs:elVs,bars:elBars,stats:elStats,preflop:elPreflop,postflop:elPostflop,shot:elShot,twofocus:elTwoFocus};
+const BUILDERS = {vs:elVs,bars:elBars,stats:elStats,preflop:elPreflop,postflop:elPostflop,shot:elShot,twofocus:elTwoFocus,grid:elGrid};
 
 // v2: print real full-bleed no fundo do gancho (frame 1 com produto)
 if (CONFIG.heroBg) {
@@ -407,7 +423,7 @@ if (CONFIG.cta) {
   core.innerHTML =
     (CONFIG.callout?`<div class="callout">${CONFIG.callout}</div>`:'') +
     (CONFIG.kicker?`<div class="kicker${CONFIG.kickerLg?' lg':''}">${CONFIG.kicker}</div>`:'') +
-    (CONFIG.big?`<h1 class="big${CONFIG.bigSm?' sm':''}">${CONFIG.big}</h1>`:'') +
+    (CONFIG.big?`<h1 class="big${CONFIG.bigXs?' sm xs':(CONFIG.bigSm?' sm':'')}">${CONFIG.big}</h1>`:'') +
     (CONFIG.line?`<p class="line">${CONFIG.line}</p>`:'') +
     (CONFIG.block?`<div class="block">${BUILDERS[CONFIG.block.type](CONFIG.block)}</div>`:'');
 }
