@@ -70,9 +70,33 @@ size, street) · zero promessa de lucro/winrate · sem "vs GTO"/overlay · sem t
 dinheiro/fichas · grátis = **começar** (preview), nunca "completo grátis" · Node-by-Node descrito
 como navegação da árvore, sem promessa de solver.
 
+## Versão EN (renderizada 10/08)
+`disc02-plataforma-mda-en.mp4` (26,2s) + `-en-capa.png`. Mesmo ritmo e mesmas cenas.
+⚠️ O sufixo `-en` é **`utm_content` distinto** — são anúncios diferentes, não colapsar pro mesmo nome.
+
+| # | PT | EN |
+|---|---|---|
+| 1 | `MTT` · **Você realmente sabe com quem está jogando?** · *A única plataforma de Field Intelligence (MDA) do mundo. Stats da população em segundos.* | `MTT` · **Do you really know who you are up against?** · *The world's only Field Intelligence (MDA) platform. Field stats in seconds.* |
+| 2 | **% RFI, % 3-bet, % 4-bet** e dezenas de outras stats — por **posição, stack e tipo de vilão**. | **% RFI, % 3-bet, % 4-bet** and dozens of other stats — by **position, stack and villain type**. |
+| 3 | Defesa do field vs MDF — por **street, size e textura de board**. | Field defense vs MDF — by **street, size and board texture**. |
+| 4 | Navegue a árvore inteira. | Navigate the entire tree. |
+| 5 | `20+ filtros empilháveis` · Do Early Game à mesa final — e por faixa de buy-in. | `20+ stackable filters` · From Early Game to the final table — and by buy-in range. |
+| 6 | **Você monta o cenário que quer analisar.** · *Grátis pra começar. Sem cartão.* | **You build the scenario you want to analyze.** · *Free to start. No card.* |
+| 7 | `Conheça a plataforma` | `See the platform` |
+
+Selo (todas as cenas): `500M+ mãos auditadas · 7 salas` → `500M+ audited hands · 7 rooms`.
+
+**Jargão que não traduz** (regra da casa): MTT, RFI, 3-bet, 4-bet, MDF, field, size, street,
+Field Intelligence, MDA. "População" vira **field** (nunca "pool") — mesma escolha já registrada
+no roteiro do disc-04.
+
+**Assets:** o Node-by-Node usa `mockup-node-by-node-en.png`; o painel de filtros, o Preflop e o
+Postflop **já nascem em inglês** na UI do produto, então servem aos dois idiomas sem versão extra.
+
 ## Como regerar
 ```
-node instagram/build-disc02.mjs            # renderiza + encoda MP4 + capa
+node instagram/build-disc02.mjs            # PT: renderiza + encoda MP4 + capa
+node instagram/build-disc02.mjs --en       # EN
 node instagram/build-disc02.mjs --guides   # só renderiza, com zonas seguras
 ```
-Cenas: `deck.js` (`dm-s1`…`dm-s6`, `dm-cta`).
+Cenas: `deck.js` (`dm-s1`…`dm-s6`, `dm-cta` · sufixo `-en` para a versão inglesa).

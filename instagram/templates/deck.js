@@ -1218,4 +1218,39 @@ window.DECK = {
   "dm-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
     line:"500M+ mãos auditadas · 7 salas",
     ctaBtn:"Conheça a plataforma", ctaSub:"aurapoker.com" },
+
+  /* ---------- DISC02 · EN ----------
+     Jargao que NAO traduz (regra da casa): MTT, RFI, 3-bet, 4-bet, MDF, field,
+     size, street, Field Intelligence, MDA. 'populacao' -> 'field' (nunca 'pool'),
+     mesma escolha registrada no roteiro do disc-04.
+     Assets ja existentes em EN: mockup-node-by-node-en.png e o painel de
+     filtros (crop-filters-rail.png ja nasce em ingles no produto). */
+  "dm-s1-en": { lang:"en", heroLogo:true, kicker:"MTT",
+    heroBg:"shots/crop-postflop-wide.png", heroFocus:true,
+    proof:"500M+ audited hands · 7 rooms",
+    big:'Do you really know<br><em>who you are up against?</em>', bigXs:true,
+    line:"The world's only <b>Field Intelligence (MDA)</b> platform.<br>Field stats in seconds.",
+    caption:"" },
+  "dm-s2-en": { lang:"en", kicker:"Preflop", proof:"500M+ audited hands · 7 rooms",
+    line:"<b>% RFI, % 3-bet, % 4-bet</b> and dozens of other stats — by <b>position, stack and villain type</b>.",
+    block:{ type:"shot", src:"shots/crop-preflop-table.png", w:900, title:"Aura · Preflop Analysis" } },
+  "dm-s3-en": { lang:"en", kicker:"Postflop", proof:"500M+ audited hands · 7 rooms",
+    line:"Field defense vs MDF — by <b>street, size and board texture</b>.",
+    block:{ type:"shot", src:"shots/postflop-ref.png", w:620, title:"Aura · Postflop Analysis" } },
+  "dm-s4-en": { lang:"en", kicker:"Node-by-Node", proof:"500M+ audited hands · 7 rooms",
+    line:"Navigate the entire tree.",
+    block:{ type:"shot", src:"shots/mockup-node-by-node-en.png", w:920, chrome:false } },
+  "dm-s5-en": { lang:"en", kicker:"20+ stackable filters", proof:"500M+ audited hands · 7 rooms",
+    line:"From Early Game to the final table — and by buy-in range.",
+    block:{ type:"shot", src:"shots/crop-filters-rail.png", w:620, chrome:false } },
+  "dm-s6-en": { lang:"en", proof:"500M+ audited hands · 7 rooms",
+    big:'You build the scenario<br><em>you want to analyze.</em>', bigSm:true,
+    block:{ type:"grid", cols:1, cells:[
+      { t:"Preflop", s:"by position, stack and villain" },
+      { t:"Postflop", s:"by street, size and texture" },
+      { t:"Node-by-Node", s:"the entire decision tree" } ] },
+    line:"Free to start. <b>No card.</b>" },
+  "dm-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
+    line:"500M+ audited hands · 7 rooms",
+    ctaBtn:"See the platform", ctaSub:"aurapoker.com" },
 };

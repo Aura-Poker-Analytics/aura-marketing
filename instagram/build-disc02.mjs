@@ -27,11 +27,15 @@ const ffmpeg = process.env.FFMPEG_PATH || (await import('ffmpeg-static')).defaul
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TPL = path.join(ROOT, 'instagram/templates');
 const CHROME = process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-const PORT = 5171;
+/* --en gera a versao inglesa. Sufixo -en no arquivo = utm_content distinto
+   (sao anuncios diferentes; nao colapsar pro mesmo nome). */
+const EN = process.argv.includes('--en');
+const PORT = EN ? 5172 : 5171;
 const W = 1080, H = 1920, FPS = 30;
 
-const NAME = 'disc02-plataforma-mda';           // = utm_content, nao renomear
-const SCENES = ['dm-s1', 'dm-s2', 'dm-s3', 'dm-s4', 'dm-s5', 'dm-s6', 'dm-cta'];
+const NAME = 'disc02-plataforma-mda' + (EN ? '-en' : '');   // = utm_content, nao renomear
+const SCENES = ['dm-s1', 'dm-s2', 'dm-s3', 'dm-s4', 'dm-s5', 'dm-s6', 'dm-cta']
+  .map(id => EN ? id + '-en' : id);
 /* v3 (PO, 10/08) — gancho ganhou conceituacao, entao subiu de 2,0 -> 3,2s
    (o PO reportou 'primeiro frame muito rapido'; 3,2s tambem realinha com o
    playbook, que pede 3-4s no gancho). Demais: max(2,5s ; palavras/4+1s).
@@ -40,8 +44,8 @@ const DURS = [3.2, 4.6, 4.0, 3.4, 3.8, 4.2, 3.0];
 
 const GUIDES = process.argv.includes('--guides');
 const OUT_DIR = path.join(ROOT, 'content/paid/AURA-DISC02');
-const FRAMES = path.join(ROOT, 'instagram/output/disc02-frames');
-const TMP = path.join(ROOT, 'instagram/output/_segs-disc02');
+const FRAMES = path.join(ROOT, 'instagram/output/disc02-frames' + (EN ? '-en' : ''));
+const TMP = path.join(ROOT, 'instagram/output/_segs-disc02' + (EN ? '-en' : ''));
 [OUT_DIR, FRAMES, TMP].forEach(d => fs.mkdirSync(d, { recursive: true }));
 
 const srv = spawn('npx.cmd', ['serve', '-l', String(PORT), TPL], { stdio: 'ignore', shell: true });
