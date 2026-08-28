@@ -131,7 +131,26 @@ Depois, preço normal — R$150/mês, cancela quando quiser. O código do mês q
 - Descadastro visível no rodapé: `mailto:manager@aurapoker.com?subject=Descadastrar` (o `{{{RESEND_UNSUBSCRIBE_URL}}}` só funciona em broadcast)
 - Lotes de até 100 e-mails por chamada; coortes atuais são de 10–20 pessoas
 
-**⛔ Bloqueio do lote inaugural (29/08):** o MCP `postgres-azure-business` está fora do ar e é a ÚNICA fonte da lista de cadastros pós-relançamento (Stripe só tem pagantes; Resend só tem a lista do trial antigo; GA4/Meta não têm PII). Tentado e falhou: consulta via `Azure_MCP_Server__postgres` com auth MicrosoftEntra (401 — usuário `manager@aurapoker.com` sem permissão no servidor `aura-production`/`Aura-resource-group`); a via `PostgreSQL` exigiria manipular a senha em texto claro. **Desbloqueio: reiniciar o servidor MCP do Postgres.**
+## ✅ LOTE INAUGURAL ENVIADO — 29/08
+
+Base: 34 cadastros pós-relançamento (≥20/07), fornecida pelo PO. **26 e-mails enviados**, 8 excluídos.
+
+| Degrau | Enviados | Quem |
+|---|---|---|
+| **D0** (≤3d) | 2 | j.r_scp, carritossur |
+| **D7** (4–17d) | 8 | fjose1610, lucasrrigos, pedrosavassi11, tiagotigela, plininmaker1, josesergiosilva86, pokerfranco89, pedroalmm1 |
+| **D14** (≥18d) | 16 | belicon.coach, lucasandim, rodrigo--sr, maekilee090, screenbeat, thiagobteles@outlook, tmt031414, jaymemendes, pedrohkaled, gracianogustavo26, mtavernari, mhcsandrs, mitpoker1, gasparini.luu, luiza.gasparini, hailonhkennerly |
+
+**Exclusões (8) e motivo:**
+- **Pagantes** (`active && !trial`): eliseucanuto, dalhe.gto, **gdr0896** ⚠️ e valdogamito (assinante que cancelou — alvo de win-back, não de onboarding)
+- **🇬🇧🇩🇪 Cadastros internacionais da campanha EU** (copy está em PT): `jandug@hotmail.co.uk` (15/08), `chris_f_12@hotmail.co.uk` (18/08), `philipp.zeckai@googlemail.com` (18/08) — **PENDENTE: versão EN da escada.** São exatamente os leads que custaram ~R$40 cada; ficar sem nurture desperdiça a aquisição.
+- **Descartável:** `sydney.moore63@mx-mailsrv.com` (domínio de e-mail temporário)
+
+**⚠️ Achado: possível 6º assinante desconhecido.** `gdr0896@gmail.com` (cadastro 19/08) está com `active=true, trial=false` — conta paga ativa — mas **não existe na Stripe live** e não tinha `crypto_last_payment_ref` na consulta de 23/08. Ou é acesso concedido manualmente, ou um pagamento fora dos dois rails. Vale o PO conferir.
+
+**Próximos degraus (relógio individual, envio semanal manual):** quem recebeu D0 hoje → D7 em ~05/09; quem recebeu D7 → D14 em ~05/09; quem recebeu D14 → **D21 em ~19/09, condicionado aos gates do cupom**.
+
+**Histórico do bloqueio (resolvido):** o MCP `postgres-azure-business` está fora do ar e é a ÚNICA fonte da lista de cadastros pós-relançamento (Stripe só tem pagantes; Resend só tem a lista do trial antigo; GA4/Meta não têm PII). Tentado e falhou: consulta via `Azure_MCP_Server__postgres` com auth MicrosoftEntra (401 — usuário `manager@aurapoker.com` sem permissão no servidor `aura-production`/`Aura-resource-group`); a via `PostgreSQL` exigiria manipular a senha em texto claro. **Desbloqueio: reiniciar o servidor MCP do Postgres.**
 
 **Query do lote inaugural (rodar assim que o banco voltar):**
 ```sql
