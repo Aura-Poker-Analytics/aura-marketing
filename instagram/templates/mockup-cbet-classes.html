@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aura · mockup Flop CBet IP por classe</title>
+<style>
+/* ============================================================
+   MOCKUP — Flop CBet IP, breakdown por PLAYER TYPE (Reg Aggro x Reg Tight).
+   RECRIADO em HTML/CSS, nao e captura. O print oficial nao chegou; o brief
+   autoriza recriar com "fidelidade total a UI".
+
+   Gramatica copiada da tela real (aura-total2.png / postflop-ref.png):
+   - cabecalho de coluna: titulo ambar + borda lateral ambar
+   - linha da acao ATIVA: painel marrom-avermelhado, chevron, nome em bold,
+     barra fina ambar sobre trilho slate, % em bold a direita, "N hands" abaixo
+   - rail de contexto ativo em ambar
+   Labels em INGLES porque a UI do produto e em ingles (auta-total/aura-total2)
+   — o mesmo asset serve aos reels PT e EN.
+
+   ⚠️ Nada inventado: a UI real NAO calcula "gap" entre colunas de breakdown,
+   entao o 7,6 pp NAO aparece aqui. Ele vive na nossa data-viz (cena 1 do
+   reel), nao dentro do print.
+
+   DADO OFICIAL (validado no banco, nao alterar):
+   Reg Aggro 85,2% n=2.399.253 · Reg Tight 77,6% n=804.261 · gap 7,6 pp
+   ============================================================ */
+@font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
+:root{
+  --bg:#020617; --panel:#0B1220; --panel2:#0F1626;
+  --slate:#1E2A40; --slate2:#28374F;
+  --ink:#E7EDF7; --ink-soft:#93A4BF; --ink-dim:#64748B;
+  --amber:#FBBF24; --gold:#D4A418;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* canvas justo a janela: o asset entra DENTRO de moldura no reel, entao
+   margem propria vira moldura duplicada e encolhe o painel */
+html,body{width:1180px;height:500px;overflow:hidden}
+body{font-family:"Montserrat","Segoe UI",sans-serif;background:var(--bg);
+  display:flex;align-items:center;justify-content:center}
+
+.win{width:1120px;border-radius:22px;overflow:hidden;background:var(--panel);
+  border:1px solid rgba(148,163,184,0.10);
+  box-shadow:0 46px 110px rgba(0,0,0,0.66), inset 0 1px 0 rgba(255,255,255,0.04)}
+
+/* chrome de janela */
+.chrome{display:flex;align-items:center;gap:10px;padding:14px 20px;background:#0A1120;
+  border-bottom:1px solid var(--slate)}
+.dot{width:12px;height:12px;border-radius:50%}
+.d1{background:#F87171}.d2{background:#FBBF24}.d3{background:#34D399}
+.url{margin-left:16px;font-size:17px;color:var(--ink-dim);background:rgba(148,163,184,0.10);
+  border-radius:999px;padding:5px 20px}
+
+/* nav do app */
+.nav{display:flex;align-items:center;gap:20px;padding:15px 26px;border-bottom:1px solid var(--slate);
+  background:#0C1424}
+.lg{display:flex;align-items:center;gap:9px;color:var(--gold);font-weight:800;font-size:21px;letter-spacing:0.04em}
+.lg .i{width:26px;height:21px;color:var(--gold)}
+.lg .i svg{width:100%;height:100%;display:block}
+.tab{font-size:17px;font-weight:600;color:var(--ink-dim);padding:8px 16px;border-radius:9px}
+.tab.on{color:#0F1526;font-weight:800;background:var(--amber)}
+
+.body{padding:22px 26px 26px}
+
+/* rail de contexto ativo (ambar, como na tela real) */
+.ctx{border:1px solid var(--slate2);border-radius:12px;padding:13px 18px;margin-bottom:20px}
+.ctx .lbl{font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--ink-dim);margin-bottom:6px}
+.ctx .val{font-size:16px;font-weight:700;color:var(--amber);line-height:1.4}
+
+.bk{font-size:12px;font-weight:800;letter-spacing:0.18em;color:var(--ink-dim);margin-bottom:14px}
+
+/* duas colunas de breakdown lado a lado */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.col{border:1px solid var(--slate);border-radius:14px;overflow:hidden;background:var(--panel2)}
+.colhead{background:rgba(148,163,184,0.06);border-left:3px solid var(--amber);
+  padding:12px 18px;font-size:19px;font-weight:800;color:var(--amber)}
+.colbody{padding:18px}
+
+/* linha da acao ATIVA — mesmo tratamento marrom-avermelhado da tela real */
+.act{background:linear-gradient(180deg,rgba(120,20,20,0.35),rgba(60,12,12,0.15));
+  border:1px solid rgba(153,27,27,0.40);border-radius:12px;padding:15px 16px}
+.arow{display:flex;align-items:center;gap:11px}
+.chev{color:var(--ink-dim);font-size:14px;flex:none}
+.aname{font-size:18px;font-weight:800;color:#F1F5F9;white-space:nowrap}
+.track{flex:1;height:9px;border-radius:999px;background:rgba(148,163,184,0.14);overflow:hidden;min-width:36px}
+/* display:block obrigatorio — span inline ignora width e a barra some */
+.fill{display:block;height:100%;border-radius:999px;background:var(--amber)}
+.pct{flex:none;font-size:23px;font-weight:900;color:#fff;font-variant-numeric:tabular-nums}
+.hands{margin-top:8px;margin-left:25px;font-size:15px;font-weight:600;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="chrome"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+    <span class="url">aurapoker.com</span></div>
+
+  <div class="nav">
+    <div class="lg"><span class="i" data-icon></span>AURA</div>
+    <span class="tab">Preflop</span><span class="tab on">Postflop</span><span class="tab">Hotspot</span>
+  </div>
+
+  <div class="body">
+    <div class="ctx">
+      <div class="lbl">ACTIVE CONTEXT</div>
+      <div class="val">SRP · All Tournaments · Any Stage · Any Buy-in · RFI: EP · Caller: BB · Last 2 Years</div>
+    </div>
+
+    <div class="bk">BREAKDOWN · PLAYER TYPE</div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="colhead">Reg Aggro</div>
+        <div class="colbody">
+          <div class="act">
+            <div class="arow"><span class="chev">&#9662;</span><span class="aname">Flop CBet IP</span>
+              <span class="track"><span class="fill" style="width:85.2%"></span></span>
+              <span class="pct">85.2%</span></div>
+            <div class="hands">2.4M hands</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="colhead">Reg Tight</div>
+        <div class="colbody">
+          <div class="act">
+            <div class="arow"><span class="chev">&#9662;</span><span class="aname">Flop CBet IP</span>
+              <span class="track"><span class="fill" style="width:77.6%"></span></span>
+              <span class="pct">77.6%</span></div>
+            <div class="hands">804K hands</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ICON_PATHS = '<path d="M5.86165 44.898C-5.49315 30.408 0.312736 8.78736 17.5518 1.99342C24.4945 -0.786314 32.5783 -0.656823 39.4165 2.36894C53.1363 8.26508 59.687 24.4384 54.0901 38.1515C53.1232 40.5643 51.8035 42.8347 50.2094 44.8936L49.874 44.6347C50.1658 44.0476 50.4577 43.4736 50.7277 42.8909C54.5649 34.7459 54.4429 24.8226 49.8784 17.1481C42.8921 5.2091 27.6609 0.935911 15.5352 7.87661C3.92345 14.5022 -0.305745 28.8843 4.59855 41.1298C4.81633 41.7039 5.0733 42.3427 5.33899 42.8952C5.60903 43.4779 5.90085 44.052 6.19267 44.639L5.85729 44.898H5.86165Z"/><path d="M28.0486 8.56287C22.2601 20.394 16.4717 32.2251 10.6788 44.0562C12.3905 42.8477 14.9734 41.2895 18.3837 40.1456C19.612 39.7312 22.0293 39.0147 25.2219 38.7212C25.5964 38.5529 26.093 38.2637 26.5285 37.7759C27.012 37.2364 27.1949 36.7055 27.3604 36.2005C27.4519 35.9285 27.5521 35.5573 27.613 35.0998C27.6479 34.8279 27.2777 34.6941 27.1122 34.9185C26.8595 35.2681 26.498 35.635 25.9884 35.9199C25.714 36.071 25.0215 36.4465 24.0807 36.3688C23.031 36.2868 22.3647 35.6955 22.173 35.5228C21.132 34.5775 21.1059 33.2869 21.1016 32.933C21.0798 31.7028 21.6591 30.6885 23.0093 29.0526C24.0894 27.7404 25.7315 25.975 28.0268 24.1017C30.3439 25.975 31.9903 27.7447 33.0748 29.0526C34.4294 30.6928 35.0043 31.7115 34.9825 32.933C34.9782 33.2869 34.9521 34.5775 33.9111 35.5228C33.7238 35.6955 33.0531 36.2825 32.0034 36.3688C31.0626 36.4422 30.3744 36.071 30.0957 35.9199C29.5861 35.635 29.2246 35.2725 28.9719 34.9185C28.8108 34.6941 28.4362 34.8279 28.4711 35.0998C28.532 35.5573 28.6366 35.9285 28.7237 36.2005C28.8936 36.7055 29.0765 37.2364 29.5556 37.7759C29.9911 38.2637 30.4877 38.5529 30.8622 38.7212C34.0548 39.0147 36.4678 39.7356 37.6917 40.1456C41.1064 41.2938 43.6936 42.8477 45.4053 44.0606C39.6168 32.2294 33.8283 20.3983 28.0355 8.56718L28.0486 8.56287Z"/>';
+document.querySelectorAll("[data-icon]").forEach(function(el){
+  el.innerHTML = '<svg viewBox="0 0 60 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">' + ICON_PATHS + '</svg>';
+});
+/* ?bare=1 => fundo transparente (o asset entra DENTRO de moldura no reel;
+   com fundo proprio aparecem retangulos aninhados) */
+if (new URLSearchParams(location.search).get('bare')) document.body.style.background = 'transparent';
+</script>
+</body>
+</html>

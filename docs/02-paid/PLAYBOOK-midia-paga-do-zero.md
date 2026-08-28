@@ -110,7 +110,36 @@ Alternativa: **opt-out com Consent Mode**, sinais declarados como `granted` por 
 ### 3.1 Quando usar
 Quando **não se sabe quem é o comprador**. Sinais: sem histórico utilizável, público salvo pequeno (<1.000), nenhum criativo validado.
 
-**Não otimize por conversão nessa fase.** Com poucas conversões, o algoritmo estreita a entrega num bolso minúsculo e mata a amplitude de que a descoberta depende.
+### 3.1-B 🔴 REVISADO (08/2026): o evento de otimização É o direcionamento
+
+A versão 1 deste playbook dizia *"não otimize por conversão na descoberta — o algoritmo estreita
+a entrega"*. **A prática refutou isso.** O que aconteceu no caso real (Aura, IG BR):
+
+- Otimizando por **cliques** e depois por **LPV**, a plataforma achou — com precisão crescente
+  (CTR 1,2% → 3,3%) — gente que clica e não fica (0,1–0,2s de engajamento/sessão).
+- Isso se manteve através de **3 criativos × 2 públicos × landing auditada**: a variável que
+  nunca mudou era o pedido feito ao algoritmo.
+- As telas de transparência ("por que estou vendo este anúncio") confirmam o mecanismo: a
+  entrega moderna é um **loop comportamental** ("interagiu com anúncio sobre X"), não uma
+  biblioteca de interesses. O interesse é cerca do pasto; **quem escolhe as vacas é o evento
+  de otimização.**
+
+**Hierarquia real das alavancas:**
+1. 🥇 **Evento de otimização** — "me acha gente que clica" ≠ "me acha gente parecida com quem
+   se cadastrou". É o direcionamento de fato.
+2. 🥈 **Criativo** — o filtro humano (jargão denso filtra; promessa genérica atrai curioso).
+3. 🥉 Lista de interesses — cerca grosseira, em depreciação pela própria plataforma
+   (Advantage+ / broad-by-default).
+
+**Receita corrigida:** otimize por **conversão (evento de cadastro) desde o D1**, mesmo com
+volume abaixo do mínimo da fase de aprendizado. "Aprendizado limitado" com o pedido certo
+supera aprendizado pleno com o pedido errado — o segundo entrega exatamente o que se pediu,
+e o que se pediu era lixo. O risco clássico ("estreita num bolso minúsculo") é real, mas é o
+risco MENOR: bolso pequeno de gente certa > oceano de gente errada.
+
+Pré-requisito: pixel/CAPI disparando o evento de cadastro com dedup verificado (Fase 1).
+Sem isso, esta receita não existe — mais um motivo para a instrumentação vir antes de
+qualquer real gasto.
 
 ### 3.2 O desenho experimental
 **N células = N hipóteses de persona/ângulo.** Não N variações do mesmo argumento — isso ensina CTR agregado, não *quem*.
@@ -383,6 +412,37 @@ Editáveis: `optimization_goal`, `targeting`, orçamento, nome.
 Nem toda combinação existe. Exemplo real: objetivo Engajamento + destino Site + otimização ThruPlay faz a plataforma exigir pixel e evento de conversão, bloqueando a publicação.
 
 ➡️ **Teste a combinação criando UM conjunto antes de criar todos.** Erro de combinação descoberto no quarto conjunto custa quatro recriações.
+
+### 7.2-B 🔴 A API aceita combinações que a interface não sabe renderizar
+Caso real (08/2026): criamos via API um conjunto com objetivo **Traffic** + `optimization_goal:
+OFFSITE_CONVERSIONS` + `promoted_object` apontando pixel/evento `CompleteRegistration`. A API
+**aceitou sem erro** e devolveu o objetivo na lista de `valid_optimization_goals`. Mas a Ads
+Manager **nunca mostrou o campo de URL de destino** no formulário de criação de anúncio — sem
+erro, sem aviso, o campo simplesmente não existia na tela.
+
+Causa: a tabela oficial de combinações válidas (objetivo → conversion location → conversion
+event) da Meta não lista essa combinação. **Traffic + Website só suporta "sem evento de
+conversão"** (ou seja, cliques/LPV). Otimizar por um evento de conversão pixelado como
+`CompleteRegistration` com destino Website **exige objetivo Leads**, não Traffic — mesmo que a
+ferramenta de API não bloqueie a criação.
+
+➡️ **Antes de configurar otimização por conversão, confira a tabela objetivo→conversion
+location→conversion event** (a documentação pública da Meta tem uma tabela completa — busque
+"Available conversion locations and events by objective"). Não confie em `valid_optimization_goals`
+retornado pela API como prova de que a combinação é suportada fim a fim; ele reflete o que a
+API aceita gravar, não o que a interface consegue exibir/publicar.
+
+➡️ **`conversion_location` é imutável após o conjunto ser publicado** (mesma família de
+imutabilidade de `destination_type` — §7.1). Se você descobrir a combinação errada depois de
+publicado, não tem correção: apague o conjunto (e possivelmente a campanha, se o objetivo dela
+também estiver errado) e recrie do zero sob o objetivo certo.
+
+**Mapeamento útil (Website como destino):**
+| Quer otimizar por... | Objetivo da campanha |
+|---|---|
+| Cliques / Landing Page Views | Traffic |
+| Evento de conversão pixelado (cadastro, lead) | **Leads** |
+| Compra / valor / carrinho | Sales |
 
 ### 7.3 Taxonomia de interesse é volátil e incompleta
 - Ferramentas de nicho e marcas pequenas **não existem** como interesse — só marcas com escala de consumo são indexadas.

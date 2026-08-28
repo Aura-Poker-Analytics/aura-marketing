@@ -1253,4 +1253,32 @@ window.DECK = {
   "dm-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
     line:"500M+ audited hands · 7 rooms",
     ctaBtn:"See the platform", ctaSub:"aurapoker.com" },
+
+  /* ==========================================================
+     DISC03 — "classes de jogador" (PT). Slug/utm_content: disc03-classes-cbet.
+     Primeiro criativo do eixo: contraste real entre dois perfis de reg, com
+     amostra na tela. Nada de categoria abstrata.
+
+     DADO OFICIAL (validado no banco pelo PO — NAO ALTERAR):
+       Flop CBet IP · SRP · EP contra BB
+       Reg Aggro 85,2% (n = 2.399.253) · Reg Tight 77,6% (n = 804.261) · gap 7,6 pp
+
+     O gap de 7,6 pp aparece so na NOSSA data-viz (cena 1). Nao entra no mockup,
+     porque a UI real nao calcula gap entre colunas de breakdown.
+     ========================================================== */
+  "dc-s1": { heroLogo:true, kicker:"Flop CBet IP · SRP · EP contra BB",
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'O mesmo cbet.<br><em>Dois regs diferentes.</em>', bigSm:true,
+    block:{ type:"vs", delta:"7,6 pp",
+      a:{ lb:"Reg Aggro", v:"85,2%", sb:"n = 2,4M" }, aHot:true,
+      b:{ lb:"Reg Tight", v:"77,6%", sb:"n = 804k" } } },
+  "dc-s2": { kicker:"O spot", proof:"500M+ mãos auditadas · 7 salas",
+    big:'Pote single-raised.<br>EP cbeta em posição<br><em>contra o BB.</em>', bigXs:true },
+  "dc-s3": { kicker:"A tela real", proof:"500M+ mãos auditadas · 7 salas",
+    block:{ type:"shot", src:"shots/mockup-cbet-classes.png", w:1000, chrome:false } },
+  "dc-s4": { proof:"500M+ mãos auditadas · 7 salas",
+    big:'Você defende igual<br><em>contra os dois?</em>', bigSm:true },
+  "dc-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
+    line:"Field intelligence por <b>classe de jogador</b>.",
+    ctaBtn:"Grátis pra começar", ctaSub:"Sem cartão · aurapoker.com" },
 };

@@ -328,8 +328,13 @@ e.style.transform=`rotate(${(i*53)%40-20}deg)`;h.appendChild(e);i++;}})();
 
 /* ---------- construtores de bloco ---------- */
 function elVs(b){
+  /* O corpo do valor ENCOLHE conforme o comprimento da string. Os 112px foram
+     dimensionados pra "50%" (3 chars); com "85,2%" (5 chars) o numero vazava do
+     painel e era cortado nos dois lados. Auto-ajuste evita repetir o bug. */
+  const vlSize = (v) => { const n = String(v).replace(/<[^>]+>/g,'').length;
+    return n <= 3 ? 112 : n === 4 ? 96 : n === 5 ? 82 : 70; };
   const p = (o,hot)=>`<div class="vsp${hot?' hot':''}">
-      <span class="lb">${o.lb}</span><span class="vl"${hot?' style="color:var(--amber)"':''}>${o.v}</span>
+      <span class="lb">${o.lb}</span><span class="vl" style="font-size:${vlSize(o.v)}px${hot?';color:var(--amber)':''}">${o.v}</span>
       <span class="sb">${o.sb||''}</span></div>`;
   return `<div class="vs">${p(b.a,b.aHot)}${b.delta?`<div class="vsmid"><span class="d">${b.delta}</span></div>`:''}${p(b.b,b.bHot)}</div>`;
 }

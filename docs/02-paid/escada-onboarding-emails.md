@@ -1,0 +1,125 @@
+# Escada de onboarding — copies finais (v1 pra revisão do PO)
+
+**Criado:** 2026-08-28 · Template visual: o mesmo do Lote 1/reativação (barra dourada, logo, print, CTA dourado, unsubscribe Resend)
+**Remetente:** Aura Poker Analytics `<news@news.aurapoker.com>` · Reply-To `manager@aurapoker.com`
+**UTM padrão:** `utm_source=email&utm_medium=email&utm_campaign=onboarding&utm_content=d00|d07|d14|d21-<mes>`
+
+## Spot oficial do D7 (escolhido pelo PO, 28/08)
+
+> **Flop CBet IP · SRP · BB×EP** — Reg Aggro **85,2%** (n=2.399.253) · Reg Tight **77,6%** (n=804.261) · gap **7,6 pp** · visível na UI (tela CBet IP)
+
+---
+
+## D0 — Boas-vindas: aprenda a FATIAR o field (revisado 28/08 por pedido do PO)
+
+**Assunto:** `Sua conta está pronta. Aprenda a fatiar o field.`
+**Preheader:** `O mesmo spot muda de cara quando você troca a fatia — buy-in, estágio, classe, posição.`
+
+Bem-vindo à Aura.
+
+A plataforma não te mostra "o número do spot". Mostra o número **da fatia que você escolher** — e é na comparação entre fatias que mora a informação que ninguém mais tem.
+
+Quatro cortes pra você pensar desde o primeiro login:
+
+♠ **Por buy-in** — o field de ≤$22 não joga como o de $109. A frequência que você decorou pode ser de um torneio que você nem joga.
+
+♠ **Por estágio** — early profundo e bolha são jogos diferentes: as mesmas ações, outras frequências.
+
+♠ **Por classe de jogador** — Reg Aggro e Reg Tight não apertam os mesmos botões. O painel separa um do outro, spot a spot. *(Semana que vem te mando um exemplo com números que valem a pena.)*
+
+♠ **Por posição** — RFI de CO e de BTN são parentes distantes. Compare lado a lado.
+
+No **preview grátis** você navega o recorte inicial de cada módulo (≤$22 · Vanilla · Early) e os principais exploit cards do Hotspot. O jeito de pensar já vem completo: **nunca leia um número sem saber de qual fatia ele veio.**
+
+**[Abrir a Aura →]** (app, utm d00)
+
+Bom grind.
+
+---
+
+## D7 — O gap entre classes (o e-mail de valor)
+
+**Assunto:** `85,2% vs 77,6% — o mesmo cbet, dois regs diferentes`
+**Preheader:** `Flop CBet IP, pote single-raised, EP contra BB. 3,2 milhões de mãos separadas por classe.`
+
+O spot: pote single-raised, EP abre, você paga do BB. O flop vem e ele, em posição, aperta o cbet.
+
+A pergunta que quase ninguém consegue responder com dado: **quem está apertando?**
+
+> **Reg Aggro:** cbeta **85,2%** das vezes *(2,4M mãos)*
+> **Reg Tight:** cbeta **77,6%** *(804 mil mãos)*
+
+7,6 pontos parecem pouco — até você traduzir em range: um cbeta **praticamente tudo que chega no flop**; o outro escolhe. O mesmo bet, no mesmo spot, carrega informação diferente dependendo de quem aperta.
+
+**Você defende o big blind igual contra os dois?**
+
+Na Aura, o painel de classes mostra isso spot a spot — com o tamanho de amostra na tela, pra você saber o quanto confiar em cada número.
+
+**[Ver o painel de classes →]** (app, utm d07)
+
+*[PRINT: tela CBet IP com Reg Aggro × Reg Tight lado a lado]*
+
+---
+
+## D14 — O que o upgrade destrava
+
+**Assunto:** `O preview te mostrou a porta. Isso aqui é o resto da casa.`
+**Preheader:** `Board completo, todos os buy-ins, todos os filtros.`
+
+Na conta grátis você viu o preview de cada módulo: os principais exploit cards, o grid inicial de Preflop, uma amostra do Postflop.
+
+O plano Individual abre o resto:
+
+♠ **O board completo do Hotspot** — todos os exploit cards, não só o topo da lista
+♠ **Todos os buy-ins e estágios** — do micro ao high, early ao FT, ICM
+♠ **Todos os filtros** — classe de jogador, textura de board, sizing, tipo de torneio
+♠ **Node-by-Node completo** — a árvore inteira, nó por nó
+
+Mesmo jogo. Toda a informação.
+
+**[Ver planos →]** (app/planos, utm d14)
+
+---
+
+## D21 — O cupom 75% off (SÓ pra quem não assinou; gate: deploy do checkout confirmado)
+
+**Assunto:** `Primeira mensalidade por R$37 — até <último dia do mês>`
+**Preheader:** `75% off no primeiro mês. Código <CODIGO-DO-MES> no checkout.`
+
+Três semanas de Aura. Você já sabe o que tem aqui dentro.
+
+Este mês, o primeiro mês do plano Individual sai por **R$37,50** (ou **US$7,25** no plano em dólar):
+
+> ### Código: **<CODIGO-DO-MES>**
+> **75% off na primeira mensalidade**
+> Aplicar no checkout · válido até **<último dia do mês>**
+
+Depois, preço normal — R$150/mês, cancela quando quiser. O código do mês que vem será outro.
+
+**[Assinar por R$37,50 →]** (app/planos, utm d21)
+
+*Regras do cupom (Stripe): amount_off FIXO R$112 / US$22 (≈75% da mensalidade) · duration once · max_redemptions 100 · expires fim do mês. NUNCA percent_off (75% do anual = R$971 de brecha).*
+
+---
+
+## Brief pra FÁBRICA — criativo frio "classes" (substituto do eixo vs-MDF)
+
+**Nome/slug:** `disc03-classes-cbet` (PT) e `disc03-classes-cbet-en` (EN) — vira `utm_content`
+**Formato:** reel 9:16, 15–20s, + capa estática dedicada. Estrutura:
+
+1. **Frame 1 (0–2s), o gancho:** os dois números GIGANTES — `85,2% × 77,6%` — e a linha: **"O MESMO CBET. DOIS REGS DIFERENTES."**
+2. **Frame 2:** o setup em uma frase: "Pote single-raised. EP cbeta IP contra o BB."
+3. **Frame 3 (o coração):** painel REAL da UI — CBet IP com Reg Aggro e Reg Tight lado a lado, `n` visível (2,4M / 804k). Zoom lento, sem pressa (feedback do PO: transição lenta).
+4. **Frame 4:** a pergunta: "Você defende igual contra os dois?"
+5. **Frame 5 (fechamento):** "Field intelligence por classe de jogador · 500M+ mãos auditadas · grátis pra começar, sem cartão" + aurapoker.com + 18+.
+
+**Guard-rails:** frequência é descritiva — 🚫 "leak", "erro", "vs GTO", MDF, promessa de lucro. Amostra SEMPRE visível junto do número. Jargão em inglês (cbet, IP, SRP, range). Tom reg-pra-reg.
+**Specs:** playbook §3.8 (safe zones, legenda embutida, funciona sem som; considerar trilha discreta desta vez).
+
+---
+
+## Operação da escada
+
+- **Lote inaugural (após aprovação do PO):** aplicar o degrau correto pra cada cadastro existente pela idade da conta (cadastros de jul/ago: começam no D14; novos: D0)
+- Envio semanal manual via Resend (batch) até validar taxas → depois Resend Automations
+- **Gates antes do primeiro D21:** deploy da aura-api confirmado (campo de cupom no checkout + metadata UTM) + criação do cupom do mês na Stripe
