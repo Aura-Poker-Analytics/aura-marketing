@@ -120,6 +120,29 @@ Depois, preço normal — R$150/mês, cancela quando quiser. O código do mês q
 
 ---
 
+## Implementação técnica (decidida 29/08)
+
+**HTMLs finais:** `content/email/onboarding-d00-fatiar.html` · `-d07-classes.html` · `-d14-upgrade.html` · `-d21-cupom.html` — aprovados pelo PO em 29/08.
+
+**Mecanismo de envio: `send-batch-emails` + Topic**, NÃO broadcast/segmento. Motivo: o plano do Resend limita a 3 segmentos e os três estão ocupados pela campanha de reativação; reciclá-los exigiria remover ~194 contatos um a um ou deletar segmento (destrutivo, risco de perder registro de descadastro). Topic dá gestão de inscrição sem tocar em segmento.
+
+- **Topic:** `Onboarding — dicas de estudo` · id `4bf404de-32ce-4064-aad6-cd6e693e155f` · default `opt_in`
+- Enviar sempre com `topicId` (gestão de inscrição) e `tags` `{cohort: d00|d07|d14|d21}` pra leitura por degrau
+- Descadastro visível no rodapé: `mailto:manager@aurapoker.com?subject=Descadastrar` (o `{{{RESEND_UNSUBSCRIBE_URL}}}` só funciona em broadcast)
+- Lotes de até 100 e-mails por chamada; coortes atuais são de 10–20 pessoas
+
+**⛔ Bloqueio do lote inaugural (29/08):** o MCP `postgres-azure-business` está fora do ar e é a ÚNICA fonte da lista de cadastros pós-relançamento (Stripe só tem pagantes; Resend só tem a lista do trial antigo; GA4/Meta não têm PII). Tentado e falhou: consulta via `Azure_MCP_Server__postgres` com auth MicrosoftEntra (401 — usuário `manager@aurapoker.com` sem permissão no servidor `aura-production`/`Aura-resource-group`); a via `PostgreSQL` exigiria manipular a senha em texto claro. **Desbloqueio: reiniciar o servidor MCP do Postgres.**
+
+**Query do lote inaugural (rodar assim que o banco voltar):**
+```sql
+SELECT LOWER(TRIM(email)) AS email, create_date::date AS dia,
+       (CURRENT_DATE - create_date::date) AS idade, active, trial
+FROM tbl_user
+WHERE create_date >= '2026-07-20' AND email LIKE '%@%.%'
+ORDER BY create_date DESC;
+```
+Regras de corte: excluir assinantes ativos (Stripe: therunner.poker@, eliseucanuto@, dalhe.gto@, gremistaak@, valdogamito@), internos (`rafreis%`, `tiago.betiato%`) e descartáveis. Degrau por idade: ≤3d → D0 · 4–17d → **D7** (mais forte, ninguém viu) · ≥18d → D14 · D21 só após o gate.
+
 ## Operação da escada
 
 - **Lote inaugural (após aprovação do PO):** aplicar o degrau correto pra cada cadastro existente pela idade da conta (cadastros de jul/ago: começam no D14; novos: D0)
