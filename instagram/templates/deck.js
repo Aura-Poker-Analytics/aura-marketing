@@ -1281,4 +1281,25 @@ window.DECK = {
   "dc-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
     line:"Field intelligence por <b>classe de jogador</b>.",
     ctaBtn:"Grátis pra começar", ctaSub:"Sem cartão · aurapoker.com" },
+
+  /* DISC03 EN — mesmas cenas, mesmo ritmo. Decimais com PONTO.
+     O mockup NAO tem versao traduzida: a UI do produto ja e em ingles,
+     entao shots/mockup-cbet-classes.png serve aos dois idiomas.
+     "populacao" -> field (nunca "pool"). Reg Aggro / Reg Tight sao rotulos
+     do proprio produto — nao traduzir. */
+  "dc-s1-en": { lang:"en", heroLogo:true, kicker:"Flop CBet IP · SRP · EP vs BB",
+    proof:"500M+ audited hands · 7 rooms",
+    big:'Same cbet.<br><em>Two different regs.</em>', bigSm:true,
+    block:{ type:"vs", delta:"7.6 pp",
+      a:{ lb:"Reg Aggro", v:"85.2%", sb:"n = 2.4M" }, aHot:true,
+      b:{ lb:"Reg Tight", v:"77.6%", sb:"n = 804k" } } },
+  "dc-s2-en": { lang:"en", kicker:"The spot", proof:"500M+ audited hands · 7 rooms",
+    big:'Single-raised pot.<br>EP cbets in position<br><em>against the BB.</em>', bigXs:true },
+  "dc-s3-en": { lang:"en", kicker:"The actual screen", proof:"500M+ audited hands · 7 rooms",
+    block:{ type:"shot", src:"shots/mockup-cbet-classes.png", w:1000, chrome:false } },
+  "dc-s4-en": { lang:"en", proof:"500M+ audited hands · 7 rooms",
+    big:'Do you defend<br><em>both the same?</em>', bigSm:true },
+  "dc-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
+    line:"Field intelligence by <b>player type</b>.",
+    ctaBtn:"Free to start", ctaSub:"No card · aurapoker.com" },
 };

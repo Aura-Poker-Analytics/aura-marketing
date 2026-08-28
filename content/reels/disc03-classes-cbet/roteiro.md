@@ -1,9 +1,9 @@
-# disc03-classes-cbet · Reel do eixo "classes de jogador" (PT)
+# disc03-classes-cbet · Reel do eixo "classes de jogador" (PT + EN)
 
-**Campanha:** AURA-DISC03 · **`utm_content`:** `disc03-classes-cbet`
+**Campanha:** AURA-DISC03 · **`utm_content`:** `disc03-classes-cbet` · **EN:** `disc03-classes-cbet-en`
 **Conceito:** primeiro criativo do eixo. Nada de categoria abstrata — um contraste real entre dois
 perfis de reg, com amostra na tela.
-**Entrega:** `content/paid/AURA-DISC03/disc03-classes-cbet.mp4` (18,2s) + `-capa.png` (1080×1920)
+**Entrega:** `content/paid/AURA-DISC03/` — `disc03-classes-cbet.mp4` (PT) e `disc03-classes-cbet-en.mp4` (EN), 18,20s cada, + capas 1080×1920
 
 ## Dado oficial (validado no banco pelo PO — não alterar)
 **Flop CBet IP · SRP · EP contra BB**
@@ -60,14 +60,31 @@ zero promessa de lucro/winrate · sem "vs GTO"/overlay · sem tom guru · sem di
 grátis = **começar** (preview), nunca "completo grátis" · descrição do comportamento do field,
 sem inferência de exploit.
 
-## Status EN
-⏳ **Aguardando aprovação da PT** (decisão do PO). Quando liberar:
-`node instagram/build-disc03.mjs --en` — falta só criar as cenas `dc-*-en` no deck; o mockup já
-serve sem tradução.
+## Versão EN — entregue
+`disc03-classes-cbet-en.mp4` (18,20s, idêntico ao PT ao centésimo) + `-en-capa.png`.
+Cenas `dc-s1-en`…`dc-cta-en` no deck; PT intocada (diff puramente aditivo).
+
+Decisões de tradução:
+- decimais com **ponto** (85.2% · 77.6% · 7.6 pp) · `n = 2.4M` / `n = 804k`
+- jargão preservado: **Flop CBet IP · SRP · EP vs BB · cbets in position · BB**
+- `classe de jogador` → **player type** (é o rótulo do próprio produto, `BREAKDOWN · PLAYER TYPE`)
+- `Reg Aggro` / `Reg Tight` não se traduzem — são rótulos da UI
+- `Grátis pra começar` → **Free to start** · `Sem cartão` → **No card**
+- **field**, nunca "pool"
+
+**Cena 4 reescrita na EN.** A tradução literal ("Do you defend the same against both?") tem 22
+caracteres na primeira linha e quebrava no tier de 76px, deixando um **"SAME" órfão** numa terceira
+linha — o PT é um duas-linhas limpo. Em vez de reduzir a fonte (perderia o impacto da pergunta),
+reescrevi para **"Do you defend / both the same?"**: mesmo sentido, mesma ênfase no *both*, duas
+linhas equilibradas.
+
+**O mockup não tem versão EN e não precisa** — a UI do produto já é em inglês, então
+`shots/mockup-cbet-classes.png` serve aos dois reels.
 
 ## Como regerar
 ```
-node instagram/build-disc03.mjs            # renderiza + encoda MP4 + capa
+node instagram/build-disc03.mjs            # PT — renderiza + encoda MP4 + capa
+node instagram/build-disc03.mjs --en       # EN
 node instagram/build-disc03.mjs --guides   # só renderiza, com zonas seguras
 ```
-Cenas: `deck.js` (`dc-s1`…`dc-s4`, `dc-cta`).
+Cenas: `deck.js` (`dc-s1`…`dc-cta` e `dc-s1-en`…`dc-cta-en`).

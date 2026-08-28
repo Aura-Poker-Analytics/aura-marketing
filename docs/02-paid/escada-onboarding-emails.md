@@ -57,7 +57,9 @@ Na Aura, o painel de classes mostra isso spot a spot — com o tamanho de amostr
 
 **[Ver o painel de classes →]** (app, utm d07)
 
-*[PRINT: tela CBet IP com Reg Aggro × Reg Tight lado a lado]*
+*Imagem do e-mail (aprovada pelo PO 28/08): mockup oficial da fábrica — `instagram/templates/shots/mockup-cbet-classes.png` (spot, perfis e amostras conferidos contra o dado validado).*
+*URL pública p/ o HTML:* `https://raw.githubusercontent.com/Aura-Poker-Analytics/aura-marketing/feature/descoberta-reels-v2/instagram/templates/shots/mockup-cbet-classes.png`
+*(Trocar para `aura.poker/email/cbet-classes.png` se o Betiato subir no host de e-mail — cosmético, não bloqueia.)*
 
 ---
 
