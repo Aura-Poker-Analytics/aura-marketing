@@ -1399,4 +1399,53 @@ window.DECK = {
   "bd-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
     line:"<b>You build the scenario you want to analyze.</b>",
     ctaBtn:"Free to start", ctaSub:"No card · aurapoker.com" },
+
+  /* ==========================================================
+     BOARD01 — CARROSSEL 4:5 (EN). Slug/utm_content: board01-1560-carrossel-en.
+     Mesma promessa do reel board01-1560-boards-en, formato estatico: os
+     paineis sao DENSOS e no reel a cena de Size distribution dura 4,4s —
+     ninguem le seis barras com numero em 4,4s. No carrossel cada painel fica
+     parado o tempo que o leitor quiser.
+
+     5 cards = os 4 paineis distintos que existem + CTA. Sem repetir painel.
+
+     ⚠️ Os cards 3 e 4 NAO afirmam "nesse board": os numeros do painel de
+     resultado sao reais mas vem do print CO/BB SEM filtro de board. As
+     legendas descrevem O QUE VOLTA, nao de que recorte. Ver bloco bd- .
+
+     ⚠️ NAO usar carrossel-capa aqui: o mock de UI dela e um Exploit Card com
+     "−14 pts · Confianca alta · 480k maos" hardcoded, que e dado fabricado.
+     Card 1 e um carrossel-slide fazendo as vezes de capa.
+     ========================================================== */
+  "cb-1-en": { slideNumber:"01", slideIndicator:"1 / 5",
+    kicker:"Postflop · Board texture",
+    titleHtml:"<em>1,560</em> boards.",
+    bodyHtml:["Pick yours: <b>73</b> on the flop · <b>615</b> on the turn · <b>872</b> on the river."],
+    mock:"image", imageSrc:"shots/mockup-board-s1-en.png", fitContain:true },
+
+  "cb-2-en": { slideNumber:"02", slideIndicator:"2 / 5",
+    kicker:"You define it",
+    titleHtml:"<em>Three clicks.</em>",
+    bodyHtml:["Pairing · Tone · Connectedness · High card. Two-tone, with OESD possible, ace high."],
+    mock:"image", imageSrc:"shots/mockup-board-s5-en.png", fitContain:true },
+
+  "cb-3-en": { slideNumber:"03", slideIndicator:"3 / 5",
+    kicker:"You get it back",
+    titleHtml:"The sizes it <em>used</em>.",
+    bodyHtml:["How often the field picked each size for this action."],
+    mock:"image", imageSrc:"shots/mockup-results-sizes-c.png", fitContain:true },
+
+  "cb-4-en": { slideNumber:"04", slideIndicator:"4 / 5",
+    kicker:"And how it defended",
+    titleHtml:"Defense vs <em>MDF</em>.",
+    bodyHtml:["Defense %, size by size, against the MDF reference."],
+    mock:"image", imageSrc:"shots/mockup-results-expl-c.png", fitContain:true },
+
+  "cb-5-en": { headlineHtml:"Study the field. <em>Free to start.</em>",
+    bullets:[
+      "Free to start — no card required",
+      "A preview of every module",
+      "500M+ audited hands · 7 rooms"],
+    ctaLabel:"Create free account", ctaSub:"link in bio",
+    tagline:"The same game. New information.", handle:"@aurapokeranalytics" },
 };
