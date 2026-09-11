@@ -1302,4 +1302,62 @@ window.DECK = {
   "dc-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
     line:"Field intelligence by <b>player type</b>.",
     ctaBtn:"Free to start", ctaSub:"No card · aurapoker.com" },
+
+  /* ==========================================================
+     BOARD01 — lancamento da SELECAO DE BOARD no Postflop Analysis.
+     Slug/utm_content: board01-amostra-antes (+ -en).
+
+     O que mudou: tres superficies (grade 3x3, caixa de mudanca entre streets,
+     selecao avancada) viraram UMA — uma fileira por atributo, com chips.
+     Angulo mais forte: cada chip mostra QUANTO DA SUA AMOSTRA ele segura,
+     recalculado a cada clique. Voce ve a massa antes de committar o filtro.
+
+     ⚠️ NAO PROMETER DADO NOVO. Nenhuma estatistica nova, nenhum reparse — e o
+     filtro que ficou honesto sobre o tamanho da amostra. Post que insinuar
+     "novos dados" gera decepcao na primeira abertura.
+     ⚠️ ZERO CONTAGEM ABSOLUTA DE MAOS. O "105 milhoes" dos docs internos e
+     linha IP+OOP no banco local, nao mao unica, e nao e numero de producao.
+     So percentual sai daqui.
+
+     VOCABULARIO travado: Desconectado · OESD possivel · Conectado.
+     NUNCA "seco" — o eixo mede so potencial de sequencia, e "monotone seco"
+     e um absurdo (AsKs9s e tudo menos seco).
+     Rainbow / Two-tone / Monotone / Overcard ficam em INGLES nos dois idiomas.
+
+     s2 e s3 tem layout IDENTICO de proposito: so o conteudo do painel muda,
+     entao o corte seco entre elas LE como o recalculo acontecendo.
+     ========================================================== */
+  "bf-s1": { heroLogo:true, kicker:"Postflop · Textura de board",
+    proof:"500M+ mãos auditadas · 7 salas",
+    big:'Quantas mãos tem<br><em>atrás desse filtro?</em>', bigSm:true },
+  "bf-s2": { kicker:"Antes de clicar", proof:"500M+ mãos auditadas · 7 salas",
+    line:"Cada chip mostra <b>quanto da amostra</b> ele segura.",
+    block:{ type:"shot", src:"shots/mockup-board-s1.png", w:1000, chrome:false } },
+  "bf-s3": { kicker:"Clicou em Two-tone", proof:"500M+ mãos auditadas · 7 salas",
+    line:"A fileira <b>Conectividade recalcula sozinha</b>.",
+    block:{ type:"shot", src:"shots/mockup-board-s2.png", w:1000, chrome:false } },
+  "bf-s4": { kicker:"Monotone + pareado não existe", proof:"500M+ mãos auditadas · 7 salas",
+    line:"O chip <b>risca sozinho</b> — sem tela vazia.",
+    block:{ type:"shot", src:"shots/mockup-board-s4.png", w:1000, chrome:false } },
+  "bf-cta": { cta:true, proof:"500M+ mãos auditadas · 7 salas",
+    line:"Seleção de board, agora em <b>uma superfície só</b>.",
+    ctaBtn:"Grátis pra começar", ctaSub:"Sem cartão · aurapoker.com" },
+
+  /* BOARD01 EN — mesmo ritmo. O mockup TEM versao EN (?lang=en) porque os
+     rotulos de atributo sao traduzidos; Rainbow/Two-tone/Monotone nao. */
+  "bf-s1-en": { lang:"en", heroLogo:true, kicker:"Postflop · Board texture",
+    proof:"500M+ audited hands · 7 rooms",
+    big:'How many hands<br>are behind<br><em>that filter?</em>', bigSm:true },
+  "bf-s2-en": { lang:"en", kicker:"Before you click", proof:"500M+ audited hands · 7 rooms",
+    line:"Each chip shows <b>the sample behind it</b>.",
+    block:{ type:"shot", src:"shots/mockup-board-s1-en.png", w:1000, chrome:false } },
+  "bf-s3-en": { lang:"en", kicker:"Clicked Two-tone", proof:"500M+ audited hands · 7 rooms",
+    line:"<b>Connectedness</b> recomputes itself.",
+    block:{ type:"shot", src:"shots/mockup-board-s2-en.png", w:1000, chrome:false } },
+  "bf-s4-en": { lang:"en", kicker:"Monotone + paired does not exist", proof:"500M+ audited hands · 7 rooms",
+    line:"The chip <b>strikes itself out</b> — no empty screen.",
+    block:{ type:"shot", src:"shots/mockup-board-s4-en.png", w:1000, chrome:false } },
+  "bf-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
+    line:"Board selection, now on <b>one surface</b>.",
+    ctaBtn:"Free to start", ctaSub:"No card · aurapoker.com" },
 };
