@@ -1360,4 +1360,43 @@ window.DECK = {
   "bf-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
     line:"Board selection, now on <b>one surface</b>.",
     ctaBtn:"Free to start", ctaSub:"No card · aurapoker.com" },
+
+  /* ==========================================================
+     BOARD01 v2 — "1,560 boards". Slug/utm_content: board01-1560-boards(-en).
+     Substitui o conceito anterior (board01-amostra-antes), recusado pelo PO:
+     vendia MECANISMO (classes colapsando) em vez de PROMESSA.
+
+     PROMESSA UNICA (Ogilvy): escolha o board, receba a analise dele.
+     MNEMONICO: 1.560 boards = 73 flop + 615 turn + 872 river, contados no
+     extrato da referencia de interacao.
+
+     ⚠️ A cena do resultado NAO afirma "nesse board". Os numeros do painel sao
+     reais, transcritos de shots/postflop-ref.png, mas o contexto daquele print
+     e SRP · RFI: CO · Caller: BB SEM filtro de board. Enquanto o output de um
+     bucket filtrado nao chegar, a legenda descreve O QUE VOLTA, nao DE QUE
+     RECORTE — colar "nesse board" seria numero de um recorte com rotulo de
+     outro. O rail de Active Context do mockup tambem nao afirma o filtro.
+
+     Painel em INGLES nos dois idiomas: a UI do produto e em ingles, entao o
+     mesmo asset serve PT e EN (igual dc-s3 no DISC03).
+     ========================================================== */
+  "bd-s1-en": { lang:"en", heroLogo:true, kicker:"Postflop · Aura",
+    proof:"500M+ audited hands · 7 rooms",
+    big:'1,560 boards.<br><em>Pick yours.</em>', bigSm:true },
+  "bd-s2-en": { lang:"en", kicker:"How many boards you can query",
+    proof:"500M+ audited hands · 7 rooms",
+    line:"<b>73</b> on the flop · <b>615</b> on the turn · <b>872</b> on the river.",
+    block:{ type:"shot", src:"shots/mockup-board-s1-en.png", w:1000, chrome:false } },
+  "bd-s3-en": { lang:"en", kicker:"Three clicks", proof:"500M+ audited hands · 7 rooms",
+    line:"<b>Two-tone. OESD possible. Ace high.</b>",
+    block:{ type:"shot", src:"shots/mockup-board-s5-en.png", w:1000, chrome:false } },
+  "bd-s4-en": { lang:"en", kicker:"Analyze", proof:"500M+ audited hands · 7 rooms",
+    line:"Which size the field actually used.",
+    block:{ type:"shot", src:"shots/mockup-results-sizes.png", w:900, chrome:false } },
+  "bd-s5-en": { lang:"en", kicker:"And how it defended", proof:"500M+ audited hands · 7 rooms",
+    line:"Real defense against <b>MDF</b>, size by size.",
+    block:{ type:"shot", src:"shots/mockup-results-expl.png", w:900, chrome:false } },
+  "bd-cta-en": { lang:"en", cta:true, proof:"500M+ audited hands · 7 rooms",
+    line:"<b>You build the scenario you want to analyze.</b>",
+    ctaBtn:"Free to start", ctaSub:"No card · aurapoker.com" },
 };

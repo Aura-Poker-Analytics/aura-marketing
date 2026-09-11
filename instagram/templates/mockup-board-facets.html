@@ -160,7 +160,7 @@ const D_FLOP="1,1,0,2,117069;1,1,0,3,355552;1,1,0,4,705750;1,1,0,5,1177354;1,1,0
 
 const q = new URLSearchParams(location.search);
 const LANG = q.get('lang') === 'en' ? 'en' : 'pt';
-const STEP = Math.max(1, Math.min(4, parseInt(q.get('step') || '1', 10)));
+const STEP = Math.max(1, Math.min(5, parseInt(q.get('step') || '1', 10)));
 const REEL = !!q.get('reel');
 if (REEL) document.body.classList.add('reel');
 if (q.get('bare')) document.body.style.background = 'transparent';
@@ -191,7 +191,9 @@ const t = (o) => typeof o === 'string' ? o : o[LANG];
 
 /* estados da demo — o passo 2 e o post inteiro (a fileira Conectividade
    recalcula na frente da camera quando Two-tone entra) */
-const STEPS = { 1:{}, 2:{tn:[3]}, 3:{tn:[3],cf:[1]}, 4:{tn:[2]} };
+/* 5 = o board definido do anuncio: Two-tone + OESD possivel + As.
+   Tres cliques, e e o estado que entra na cena "voce define". */
+const STEPS = { 1:{}, 2:{tn:[3]}, 3:{tn:[3],cf:[1]}, 4:{tn:[2]}, 5:{tn:[3],cf:[1],hc:[6]} };
 
 const sel = {}; DIMS.forEach(d => sel[d] = new Set(STEPS[STEP][d] || []));
 
