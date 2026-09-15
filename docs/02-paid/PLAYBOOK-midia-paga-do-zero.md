@@ -496,6 +496,29 @@ Num caso real, CPM baixo foi indicador de **audiência pouco disputada e irrelev
 ### 8.5 Assumir que código deployado está funcionando
 Um pipeline pode estar tecnicamente correto, deployado e nunca ter sido exercitado. **Só um teste ponta a ponta real prova** — e ele frequentemente revela que um elo silencioso está quebrado.
 
+### 8.6 🔴 Mexer na configuração antes de ela ter tido uma janela limpa
+**O erro que matou a campanha DISC02-EU, e o mais caro em dinheiro desta operação.**
+
+A campanha teve três configurações em 14 dias. A degradação foi monotônica:
+
+| Janela | Configuração | Visitas / 1.000 impr | Cadastros |
+|---|---|---:|---:|
+| 02–06/09 | interesse de **identidade** (PokerStars + Professional Poker Player), R$20/dia | **9,5** | **4** |
+| 07–10/09 | público **amplo** (18–50 + 11 países, sem interesse), R$27/dia | 4,7 | 0 |
+| 11–14/09 | interesse **temático** (Poker/game), R$27/dia | 3,4 | 0 |
+
+Total de 05 a 14/09: **R$253,59, 6.867 impressões, 37 visitas, zero cadastro.**
+
+Três coisas que este caso ensina:
+
+1. **A única configuração que já produziu resultado foi abandonada com 5 dias de vida.** Ela nunca teve uma janela limpa para ser avaliada — foi trocada porque "a amostra parecia baixa demais", não porque os dados diziam isso.
+2. **Cada edição significativa (público, posicionamento, meta de otimização) reseta o aprendizado e recalibra o modelo de lance contra outro inventário.** Três edições em seis dias = três recomeços. Nenhuma das configurações chegou a ser medida.
+3. **CPM mais barato acompanhou resultado pior**, de novo (ver §8.3): o amplo baixou o CPM 10% e encareceu o custo por visita em 84%.
+
+➡️ **Regra:** definir a configuração, escrever o gate ANTES de olhar o resultado (o número que decide, e em quantos dias), e **não tocar em nada até o gate**. Se a vontade de mexer aparecer antes do prazo, ela é sintoma de ansiedade, não de leitura de dado.
+
+➡️ **Corolário estatístico:** zero conversão em N visitas só prova que a taxa é menor que 3/N. Com 6 visitas não se conclui nada; com 37 visitas contra uma taxa observada de 12,5%, a probabilidade de dar zero é 0,7% — aí sim é conclusivo. Sempre calcule antes de dar veredito. Ver `.claude/skills/meta-ads-doctor/references/statistical-thresholds.md`.
+
 ---
 
 ## 9. Checklist de replicação
