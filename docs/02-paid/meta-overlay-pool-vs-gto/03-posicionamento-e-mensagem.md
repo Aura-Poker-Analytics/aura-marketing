@@ -17,6 +17,8 @@ Base: `_strategy/aura.md`, `_strategy/AURA-UX-BLUEPRINT.md`, `.agents/product-ma
 
 **Trueline** (a coisa verdadeira que um concorrente não pode dizer): *"O solver sabe o equilíbrio. Só a Aura sabe o field."*
 
+**A primeira evidência de usuário para a tese:** o depoimento de Paulo "Galator" Moraes (17/09/2026, `09-depoimentos.md`, autorização pendente) diz que ele encontrou "padrões do field onde a simples frequência de fold ou call possibilitam exploits". É a tese do produto na voz de um usuário: a frequência real do field, medida, é o que gera o exploit. É também a primeira linguagem verbatim de cliente para a lacuna do `product-marketing.md §9`. O depoimento de braga'-'279 (19/09) sustenta o arquétipo B: "uso os dados como referência para começar estudos e investigar linhas".
+
 **Teste de troca:** nenhum anunciante da Biblioteca usa dado de field agregado como gancho (`08-concorrencia.md`). GTOWizard vende capacidade do solver ("Preflop ICM Solving Is Live"); os Geckos e o Custom Poker Trainer vendem velocidade ("in weeks"); Upswing vende história de mão; o reglifepoker (BR) vende sistema de estudo. O ângulo está livre.
 
 ## 2. Mensagem

@@ -22,6 +22,7 @@
 | 06 | [stack de IA](06-stack-ia.md) | comparativo com preço, stack de ~US$ 100 e ~US$ 300, bíblia do personagem, prompts e roteiros prontos para colar |
 | 07 | [compliance](07-compliance.md) | checklist por anúncio, frases proibidas e substitutas, gambling, divulgação de IA, CONAR e CDC |
 | 08 | [concorrência](08-concorrencia.md) | o que a Biblioteca de Anúncios mostra e o espaço livre |
+| 09 | [depoimentos](09-depoimentos.md) | 2 depoimentos reais (autorização pendente) e 3 versões da fala do fundador (o Rafael escolhe) |
 
 ## Orçamento recomendado por fase
 

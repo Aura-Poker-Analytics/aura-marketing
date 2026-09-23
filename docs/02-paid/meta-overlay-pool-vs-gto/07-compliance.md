@@ -34,6 +34,8 @@ Marque todas as linhas. Uma linha falhando, o anúncio não sobe.
 
 **Prova social**
 - [ ] Depoimento só de pessoa real, identificada, que usou o produto e deu autorização por escrito para aquele texto. Sem isso, não tem depoimento.
+- [ ] O depoimento sai do banco `09-depoimentos.md`, com o status de autorização conferido. Nenhum corte muda o sentido, e excerto editado além de corte tem o OK do autor.
+- [ ] A fala do fundador vai sempre com o cargo ("Rafael Reis, fundador da Aura") e nunca como cliente.
 
 ## 2. Frases a evitar, e o que dizer no lugar
 
