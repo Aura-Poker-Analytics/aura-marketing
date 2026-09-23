@@ -7,7 +7,7 @@ Material para o redesign da landing e para os anúncios. Recebido do HUB em 22/0
 1. **Só depoimento real e autorizado.** Autor identificado, que usou o produto, com autorização escrita para aquele texto e para a forma de assinatura (nome, apelido ou descrição). Sem autorização, o depoimento não sai deste doc.
 2. **Corte que mude o sentido é proibido.** Pode encurtar, não pode reescrever. Se o trecho for editado além de cortar, por exemplo trocando palavras ou corrigindo o texto, a versão editada também precisa do OK do autor (CONAR; CDC art. 37).
 3. **Nenhum depoimento ou fala promete lucro, ganho, winrate ou ROI**, nem vem ao lado de uma promessa dessas (`07-compliance.md §2`).
-4. **A fala do fundador vai sempre com o cargo** ("Rafael Reis, fundador da Aura"). Nunca aparece como cliente, nunca na boca do analista de IA, nunca sem assinatura.
+4. **Regra de posição da fala do fundador.** A fala é assinada só "Rafael Reis", sem cargo (decisão do Rafael, 22/09). Por isso ela **não entra no bloco de depoimentos de clientes nem em anúncio como depoimento de usuário**. O lugar dela é onde o contexto já deixa claro que é a voz de quem construiu a Aura: abertura de seção ("como a gente estuda"), manifesto ou área "sobre". A própria frase diz "foi isso que eu construí". Nunca na boca do analista de IA e nunca sem assinatura. Ver o §2.
 5. **O analista da Aura não lê depoimento.** Depoimento aparece como texto, com a assinatura do autor.
 
 ## 1. Depoimentos reais
@@ -44,19 +44,23 @@ O trecho omitido em "[...]" (H2N4, composição de range, EV) é feedback de pro
 
 ## 2. Fala do fundador
 
-> **⚠️ PENDENTE: o Rafael escolhe uma versão e corrige.** Nenhuma das três foi dita por ele; são propostas de redação para ele assinar.
+**Aprovada pelo Rafael em 22/09 (via HUB): versão B, assinada só "Rafael Reis".** As versões A e C foram descartadas.
 
-- **A:** "Construí a Aura porque eu precisava dela. Antes de estudar qualquer spot, quero saber como o field joga de verdade, não como deveria jogar. Hoje é por ela que eu começo o estudo." (Rafael Reis, fundador da Aura)
-- **B:** "Eu jogo MTT e estudo como todo mundo: solver, revisão, vídeo. O que faltava era ver onde o field erra, com dado, sem achismo. Foi isso que eu construí, e é isso que eu uso toda semana." (Rafael Reis, fundador)
-- **C:** "Fiz a ferramenta que eu queria ter quando comecei a estudar o field." (Rafael Reis, fundador da Aura)
+> "Eu jogo MTT e estudo como todo mundo: solver, revisão, vídeo. O que faltava era ver onde o field erra, com dado, sem achismo. Foi isso que eu construí, e é isso que eu uso toda semana."
+> Rafael Reis
 
-As afirmações sobre a rotina dele ("começo o estudo por ela", "uso toda semana", "jogo MTT") precisam ser verdadeiras. É o próprio fundador quem confirma, ao escolher a versão.
+**Regra de posição (§ Regras, item 4):**
+
+- **Pode:** abertura de seção ("como a gente estuda"), manifesto, área "sobre". Nesses lugares o contexto diz que é a voz de quem construiu a Aura.
+- **Não pode:** bloco de depoimentos de clientes; anúncio em que ela apareça como depoimento de usuário; a boca do analista de IA.
+- **Se o Rafael pedir para pôr no bloco de clientes:** é decisão dele e fica registrada aqui como decisão do PO, com o risco dito. Um depoimento sem o vínculo declarado com a empresa pode ser lido como depoimento de cliente independente. Isso esbarra na política da Meta sobre endossos não autorizados ou enganosos (*Unacceptable business practices*) e no CONAR (o testemunho tem que ser real e o vínculo com o anunciante tem que ficar claro).
 
 ## 3. Onde cada um entra
 
 | Peça | Depoimento | Condição |
 |---|---|---|
 | `/gto`, seção "por que confiar" (`03 §5.2`) | Paulo (texto inteiro) + braga E1 | depois das duas autorizações |
-| Landing principal, redesign | Paulo + braga E1/E2 + fala do fundador | idem, e a versão escolhida pelo Rafael |
+| Landing principal, redesign: bloco de depoimentos | Paulo + braga E1/E2 | idem |
+| Landing principal, redesign: abertura de seção, manifesto ou "sobre" | fala do Rafael (versão B) | aprovada; **nunca** no bloco de depoimentos |
 | Carrossel de prova social (card extra no P1 ou no P3) | Paulo | autorização; nunca em anúncio com o analista de IA no mesmo quadro |
 | Reels | nenhum por enquanto | o formato de citação em tela é possível, mas depois de a Fase 1 medir os ângulos |

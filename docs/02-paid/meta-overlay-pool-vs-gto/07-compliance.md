@@ -35,7 +35,7 @@ Marque todas as linhas. Uma linha falhando, o anúncio não sobe.
 **Prova social**
 - [ ] Depoimento só de pessoa real, identificada, que usou o produto e deu autorização por escrito para aquele texto. Sem isso, não tem depoimento.
 - [ ] O depoimento sai do banco `09-depoimentos.md`, com o status de autorização conferido. Nenhum corte muda o sentido, e excerto editado além de corte tem o OK do autor.
-- [ ] A fala do fundador vai sempre com o cargo ("Rafael Reis, fundador da Aura") e nunca como cliente.
+- [ ] **Regra de posição da fala do Rafael** (assinada só "Rafael Reis", sem cargo): ela não entra no bloco de depoimentos de clientes nem em anúncio como depoimento de usuário. Só em abertura de seção, manifesto ou "sobre", onde o contexto diz que é a voz de quem construiu a Aura (`09-depoimentos.md §2`). Pôr no bloco de clientes é decisão do PO, registrada, com o risco da Meta (endosso enganoso) e do CONAR (vínculo não declarado).
 
 ## 2. Frases a evitar, e o que dizer no lugar
 
