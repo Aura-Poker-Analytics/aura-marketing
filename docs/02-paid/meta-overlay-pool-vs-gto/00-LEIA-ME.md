@@ -1,59 +1,62 @@
-# Meta Ads para o Modo GTO e o Field vs GTO: plano e criativos
+# Meta Ads para o Modo GTO: plano e criativos
 
-**Sessão:** overnight de 22/09/2026 · **Branch:** `feature/meta-ads-overlay-poolvsgto` · **Status:** plano. **Nada foi criado, editado, ativado ou gasto na Meta.** A conta, o GA4, o Woo e o Postgres de analytics foram só lidos, e só em agregados.
+**Sessões:** overnight de 22/09/2026 (plano original) · revisão de 25/09/2026 (R$ 1.000, Modo GTO no ar) · **Branch:** `feature/meta-ads-overlay-poolvsgto` · **Status:** plano. **Nada foi criado, editado, pausado, ativado ou gasto na Meta.** A conta e o pixel foram só lidos. Em 22/09 também foram lidos o GA4, o Woo e o Postgres de analytics, só em agregados.
 
-## Em cinco linhas
+## Em cinco linhas (revisão de 25/09)
 
-1. A mídia de setembro não falhou por criativo. Público de bets no BR, configuração mexida antes do gate e um funil que não passava UTM, `fbclid` nem pagamento para a Meta. Resultado: R$ 1.771 na vida da conta, ~12 cadastros, zero assinatura.
-2. **Fase 0 (R$ 0):** consertar o funil. UTM e `fbclid` da landing para o app, evento `Purchase` saindo do Stripe, página `/gto` com formulário próprio e cadastro em PT.
-3. **Fase 1 (R$ 1.400, 4 semanas):** lista de espera do Modo GTO. Reabre o único recorte que já produziu (identidade EN) e prova com pelo menos uma assinatura que o funil fecha.
-4. **Fase 2 (R$ 2.940 garantidos, teto de R$ 6.300; agressivo de R$ 12.600 só por gate):** lançamento no dia em que o Modo GTO responder 200 em prod. CAC-alvo de R$ 600, com corte automático em 52 cadastros sem assinatura.
-5. Criativo: a tela real é a estrela. O "analista da Aura" é um personagem de IA divulgado como tal, e ele mesmo faz da divulgação o gancho.
+1. A mídia de setembro não falhou por criativo. Público de bets no BR, configuração mexida antes do gate e um funil que não passava UTM, `fbclid` nem pagamento para a Meta. Resultado: R$ 1.771 na vida da conta, ~12 cadastros, zero assinatura. A conta não gasta nada desde 15/09.
+2. **Orçamento total de R$ 1.000**, num público só (identidade EN, o único recorte que já produziu), otimizando **`CompleteRegistration`**. R$ 1.000 compra de 10 a 40 cadastros no histórico da conta; **nenhum evento sai da fase de aprendizado**, e a venda nem chega perto.
+3. **Fase 1 · teste, R$ 600:** 3 criativos prontos, um por conjunto, R$ 20/dia cada, 10 dias, com corte por criativo escrito antes. **Fase 2 · concentração, R$ 400:** o vencedor a R$ 40/dia por 10 dias, só se alguém ficar a ≤ R$ 60 por cadastro.
+4. **Destino:** a landing do #11 em modo de lançamento → cadastro → checkout do plano GTO. A lista de espera deixa de ser destino. 🔴 **Hoje um cadastro novo não consegue comprar o GTO**: o front não pede o plano no checkout. É o A1 do brief 12, parte do go-live.
+5. **Para gastar mais:** uma assinatura GTO atribuída à Meta **e** o CAC estimado com a taxa cadastro → pago medida (B4) abaixo de R$ 500. R$ 1.000 sozinho não prova o CAC.
 
 ## Os documentos
 
 | # | Doc | O que tem |
 |---|---|---|
-| 01 | [linha de base](01-linha-de-base.md) | números reais: Meta por campanha e criativo, funil GA4, UTM medida ao vivo, base e receita agregadas, o que faltou |
-| 02 | [plano em fases](02-plano-em-fases.md) | economia unitária, público, Fases 0/1/2 com estrutura, orçamento em 3 cenários, KPI amarrado a pagamento e critério de corte |
+| 01 | [linha de base](01-linha-de-base.md) | números reais de 22/09: Meta por campanha e criativo, funil GA4, UTM medida ao vivo, base e receita agregadas, o que faltou |
+| 02 | [plano em fases](02-plano-em-fases.md) | **revisado em 25/09:** o que R$ 1.000 compra, evento de otimização, público, funil com o que existe e o que falta, Fases 0/1/2, cortes, os 3 criativos, o que depende do Rafael |
 | 03 | [posicionamento e mensagem](03-posicionamento-e-mensagem.md) | Dunford, unicidade, promessa, "o gap", banco de provas, **nomes comerciais**, auditoria da landing e o texto da `/gto` |
-| 04 | [12 reels](04-reels.md) | gancho, storyboard, texto na tela e legenda de cada um; os 3 ganchos para testar primeiro |
+| 04 | [12 reels](04-reels.md) | roteiros: gancho, storyboard, texto na tela e legenda. **Nenhum produzido**; o R6 é o primeiro a produzir |
 | 05 | [10 posts e carrosséis](05-posts-carrosseis.md) | card a card, com legenda e destino |
-| 06 | [stack de IA](06-stack-ia.md) | comparativo com preço, stack de ~US$ 100 e ~US$ 300, bíblia do personagem, prompts e roteiros prontos para colar |
+| 06 | [stack de IA](06-stack-ia.md) | comparativo com preço, stack de ~US$ 100 e ~US$ 300, bíblia do personagem, prompts. **Fora desta rodada** |
 | 07 | [compliance](07-compliance.md) | checklist por anúncio, frases proibidas e substitutas, gambling, divulgação de IA, CONAR e CDC |
 | 08 | [concorrência](08-concorrencia.md) | o que a Biblioteca de Anúncios mostra e o espaço livre |
 | 09 | [depoimentos](09-depoimentos.md) | 2 depoimentos reais (autorização pendente) e a fala do Rafael (versão B, aprovada, com regra de posição) |
 
-## Orçamento recomendado por fase
+## Orçamento por fase (25/09)
 
-| Fase | Mídia | Ferramentas | Passa para a próxima quando |
-|---|---:|---:|---|
-| 0 · Pré-requisitos | R$ 0 | ~R$ 540/mês | 12 itens com prova (`02 §3`) |
-| 1 · Pré-lançamento | **R$ 1.400** | ~R$ 540/mês | D28 com custo por cadastro ≤ R$ 60 |
-| 2 · Lançamento | **R$ 2.940 → teto de R$ 6.300**; agressivo de R$ 12.600 só com CAC ≤ R$ 600 provado | ~R$ 1.600/mês | — |
+| Fase | Mídia | Passa para a próxima quando |
+|---|---:|---|
+| 0 · Pré-requisitos | R$ 0 | os 8 itens do `02 §3.3` com prova |
+| 1 · Teste de criativo | **R$ 600** (3 × R$ 20/dia × 10 dias) | D10 com um criativo a ≤ R$ 60 por cadastro e ≥ 2 cadastros |
+| 2 · Concentração | **R$ 400** (R$ 40/dia × 10 dias) | fim do orçamento; mais verba só com o `02 §6.1` |
+| **Total** | **R$ 1.000** | |
 
-## Os três ganchos para testar primeiro
+Ferramentas: R$ 0 nesta rodada. Os três criativos já existem; a troca do selo é render local.
 
-1. **"Um clique. O GTO de um lado, o field do outro."** (R6). A promessa demonstrada na tela, com notícia.
-2. **"Eu sou uma IA. Os 500 milhões de mãos, não."** (R5). A divulgação obrigatória vira gancho.
-3. **"A Aura se recusou a me mostrar esse número."** (R8). Prova de confiança para um público cético; ninguém na categoria fala disso.
+## Os três criativos desta rodada
 
-## O que depende do PO antes do primeiro real
+1. **`disc02-plataforma-mda-en`** (controle): o melhor EN medido, R$ 62 por cadastro.
+2. **`disc-04-pioneiro-en`**: o ângulo "isso não existia", o único que converteu no BR frio.
+3. **`board01-1560-boards-en`**: o mais novo, a tela de resultado real do Postflop. Está em commits sem push de outra branch.
 
-1. **Dev da Fase 0**, itens 0.1 a 0.7: UTM e `fbclid` repassados, `fbc` no cadastro, `Purchase` via Stripe → CAPI e GA4, `/gto` com `Lead`, cadastro em PT, e-mail D0, report de coorte.
-2. **Conta e BM:** criar os públicos (visitantes, vídeo, listas de cadastro e pagantes); confirmar verificação da empresa, domínio e 2FA; ligar o filtro anti-bet nos comentários.
-3. **Preço:** o valor em BRL do Individual e dos planos GTO e Top (as 9 decisões de `pricing-tiers-plan.md §7`). Os reels R4 e P6 e a `/gto` da Fase 2 precisam do número.
-4. **Nomes:** "Modo GTO" em vez de "overlay" (em MTT, overlay é o buraco do garantido) e "Field vs GTO" em vez de "Pool vs GTO" (regra "field, nunca pool").
-5. **O personagem:** aprovar o analista da Aura, gerado do zero e sem rosto nem voz de pessoa real.
-6. **Deploy para a Fase 2:** merge do #27, deploy da API (não há pipeline), migration `plan_tier`, flag `GtoOverlay:Enabled` e smoke com login real. Para a onda 2b, o Field vs GTO sair de branch.
-7. **Orçamento:** aprovar o teto por fase e o gatilho de escala.
-8. **Leitura para o CAC:** autenticar o Stripe numa sessão de leitura (churn e LTV) ou autorizar leitura agregada do `AuraBusiness` (grátis→pago por coorte). Sem isso, o CAC-alvo de R$ 600 é hipótese.
-9. **Landing atual:** corrigir o card Grátis ("Hotspot — exploração completa" deixou de ser verdade com o #26) e o "spots que geram EV". São risco de CDC com ou sem mídia.
+Os três precisam trocar o selo "500M+ audited hands" por "400K+ tournaments" (B6 da landing) antes de subir. Nenhum mostra o Modo GTO; o **R6 `um-clique-o-gap`** entra no lugar do terceiro se ficar pronto antes do D1.
 
-## Limites desta sessão
+## O que depende do Rafael antes do primeiro real
 
-- **Stripe:** não autenticado. A receita Stripe e o churn não foram lidos.
-- **Postgres de analytics de prod:** só tem tabelas de poker. Cadastro e plano ficam no `AuraBusiness`, fora da autorização.
+Lista completa em `02 §9`. Em resumo:
+
+1. **Go-live do Modo GTO**, com o A1 do brief 12 (o checkout do GTO a partir do app).
+2. **Merge do aura-landing#11** com `VITE_LAUNCH_MODO_GTO=1` e o Field vs GTO desligado (a A12b espera a HUB).
+3. **Conta de anúncio:** forma de pagamento, verificação da empresa e do domínio, 2FA.
+4. **Criar a campanha** do `02 §4.1`. Agente não cria nada no Meta.
+5. **Sim para a leitura agregada do AuraBusiness** e autenticação do Stripe (B4), para medir o CAC.
+6. A14 (real no checkout) e as autorizações dos depoimentos (B2) **não travam este teste em EN**, mas travam qualquer anúncio em PT com preço e qualquer peça com depoimento.
+
+## Limites
+
+- **Stripe e AuraBusiness:** não lidos em 22/09 nem em 25/09. A B4 autoriza a leitura agregada; o AuraBusiness pede o sim do Rafael na sessão.
 - **Biblioteca da Meta pela API:** não devolve formato nem CTA dos anúncios.
-- **Log de atividade da conta:** não liberado. A data exata da pausa da DISC02-EU não foi confirmada por ferramenta.
-- **Sessão de teste no GA4:** uma sessão com `utm_source=diag_claude` entrou de propósito, para medir o repasse de UTM.
+- **Estatísticas do pixel:** a Meta guarda só 28 dias; o que está no `02 §3.2` é dos últimos 7 (18 a 25/09).
+- **Sessão de teste no GA4 (22/09):** uma sessão com `utm_source=diag_claude` entrou de propósito, para medir o repasse de UTM.

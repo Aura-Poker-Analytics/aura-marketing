@@ -1,5 +1,7 @@
 # 04 · Doze roteiros de reels
 
+> **Revisão de 25/09 (R$ 1.000, Modo GTO no ar):** nenhum destes doze está produzido, e a rodada de R$ 1.000 usa três criativos prontos (`02 §8`). O **R6** é o primeiro a produzir e entra no lugar do terceiro se ficar pronto antes do D1. Os roteiros "Fase 1 · lista de espera" (R1, R2, R5, R9) perderam o destino: se forem produzidos, o CTA vira o do plano GTO. **O R5 está bloqueado:** o gancho depende do "500M+", que saiu da landing. O rodapé `500M+ mãos auditadas` de todos os doze vira `Mais de 400 mil torneios · 7 salas` (B6; EN `400K+ tournaments · 7 rooms`).
+
 **Regras para todos os doze:**
 
 - **Formato:** 9:16, 1080×1920, de 15 a 25 s.

@@ -122,6 +122,8 @@ A landing (`www.aurapoker.com`) tem **um trabalho**: levar à conta grátis. O v
 
 ### 5.2 A `/gto` (Fase 1: lista de espera) — texto pronto
 
+> **Revisão de 25/09:** a lista de espera deixou de ser destino de anúncio (B5; Modo GTO no ar). A `/gto` que vale é a do aura-landing#11 em modo de lançamento (`VITE_LAUNCH_MODO_GTO=1`), cujo CTA é "Criar conta e ver o gap". Este texto fica como referência do que a página diz; o funil está no `02 §3`.
+
 **Uma página, um trabalho:** entrar na lista. CTA secundário, visualmente menor: criar conta grátis.
 
 > **Kicker:** Em breve na Aura · Modo GTO

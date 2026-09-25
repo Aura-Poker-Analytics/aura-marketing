@@ -8,7 +8,7 @@
 - **Rodapé em todo card:** `500M+ mãos auditadas · 7 salas · 18+`, e `n = …` em todo card com número.
 - **Fase 1:** as telas do Modo GTO e do Field vs GTO levam `prévia do beta`.
 - **Templates:** os HTML em `instagram/templates/` (v2 product-forward) e o pipeline `instagram/build-*.mjs` já existem. A fábrica de posts produz a partir destes textos.
-- **Impulsionar:** só o que performar no orgânico sobe como anúncio (`plano-instagram-medio-longo-prazo.md §3`), dentro das campanhas do `02 §4.1` e `§5.2`, **nunca** pelo botão "Impulsionar" do Instagram. Aquele botão otimiza por engajamento, exatamente o que atraiu bot e bet em setembro.
+- **Impulsionar:** só o que performar no orgânico sobe como anúncio (`plano-instagram-medio-longo-prazo.md §3`), dentro das campanhas do `02 §4.1` e `§5`, **nunca** pelo botão "Impulsionar" do Instagram. Aquele botão otimiza por engajamento, exatamente o que atraiu bot e bet em setembro.
 
 | # | Título | Ângulo | Fase | Formato | Destino |
 |---|---|---|---|---|---|
