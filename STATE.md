@@ -13,7 +13,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 
 ## 2. Em andamento (máx. 2)
 - **Meta Ads · R$ 1.000 com Modo GTO** · branch `feature/meta-ads-overlay-poolvsgto` · onde parou: plano revisado e commitado no PR #1; nada criado na Meta · próximo passo: re-renderizar os 3 criativos escolhidos trocando "500M+ audited hands" por "400K+ tournaments" (item 0.6), depois esperar o §9 do doc 02 · doc: `docs/02-paid/meta-overlay-pool-vs-gto/02-plano-em-fases.md`
-- **BOARD01 (seleção de board) e descoberta v2** · branch `feature/descoberta-reels-v2`, **só no checkout `aura-main/aura-marketing`, 5 commits sem push** (`4c5f933`…`dd5f7ec`) · onde parou: BOARD01 EN renderizado (24,2 s), PT não feito; `PLAYBOOK-midia-paga-do-zero.md §8.6` escrito · próximo passo: push da branch pela sessão dona daquele checkout. O T3 do plano de R$ 1.000 depende disso
+- **BOARD01 (seleção de board) e descoberta v2** · branch `feature/descoberta-reels-v2` (checkout `aura-main/aura-marketing`), **pushada em 25/09** até `dd5f7ec` (5 commits, fast-forward, sem rebase) · onde parou: BOARD01 EN renderizado (24,2 s), PT não feito; `PLAYBOOK-midia-paga-do-zero.md §8.6` escrito · próximo passo: PR ou merge dessa branch, para o T3 do plano de R$ 1.000 chegar à `main`
 
 ## 3. Bloqueado ou na mão do PO
 - **Ligar os R$ 1.000** · bloqueado por: go-live do Modo GTO **com o A1 do brief 12**. Medido em 25/09 na `main` do `aura-novofront`: `CreateCheckoutSessionRequest` não tem plano, então **um cadastro novo só consegue comprar o Individual**, embora a API aceite `planId: gto` · desde: 2026-09-25
@@ -44,5 +44,5 @@ Re-render dos 3 criativos do `02 §8` com o selo "400K+ tournaments · 7 rooms" 
 ## Mapa de leitura
 - Regras de engenharia: AGENTS.md
 - Plano de Meta Ads e linha de base: `docs/02-paid/meta-overlay-pool-vs-gto/00-LEIA-ME.md`
-- Playbook de mídia paga: `docs/02-paid/PLAYBOOK-midia-paga-do-zero.md` (a §8.6 só no checkout `aura-main/aura-marketing`)
+- Playbook de mídia paga: `docs/02-paid/PLAYBOOK-midia-paga-do-zero.md` (a §8.6 na branch `feature/descoberta-reels-v2`)
 - Mapa do ecossistema e contratos: `../ECOSYSTEM.md`
