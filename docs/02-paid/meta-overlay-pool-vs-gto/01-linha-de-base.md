@@ -5,7 +5,7 @@ salvo onde está escrito "estimado". Nenhum dado pessoal (e-mail, nome, id de us
 
 ## 1. Resumo em seis linhas
 
-1. **Mídia paga na Meta, vida inteira da conta:** R$ 1.771,48 em 7 campanhas, ~12 cadastros grátis atribuídos, **zero assinatura paga**.
+1. **Mídia paga na Meta, vida inteira da conta:** R$ 1.771,48 em 7 campanhas, ~12 cadastros grátis atribuídos e **1 assinatura paga: Individual anual, US$ 259, em 02/09, vinda da DISC02-EU** (corrigido em 27/09; a versão de 22/09 dizia "zero", ver §2.1).
 2. **Custo por cadastro:** R$ 103,53 na média da conta (jul–set); o melhor recorte foi a janela de identidade da DISC02-EU (02–06/09), ~R$ 25, e foi abandonado com 5 dias de vida.
 3. **Funil do site (GA4, 90 dias):** 1.429 viram a landing → 56 chegaram ao app (3,9%) → 25 criaram conta (44,6% de quem chegou). O vazamento é a travessia landing → app, não o formulário.
 4. **Atribuição:** a landing preserva a UTM em 93,9% das sessões; o app perde 65,1% para `(direct)`. Medido ao vivo hoje: **o botão "Comece grátis" da landing não repassa `utm_*` nem `fbclid` para o app** — só `mc=1` e o `_gl` do GA4. Por isso a UTM chega nula ao `tbl_user` e o `fbc` cobre só 7,7% dos eventos do pixel.
@@ -32,9 +32,29 @@ Fonte: `ads_get_ad_entities`, janela `maximum`. Detalhe completo das chamadas no
 **Os quatro achados que o plano usa:**
 
 - **O único recorte que produziu a preço aceitável foi identidade EN** (PokerStars + Professional Poker Player, 11 países da Europa, R$ 20/dia): 4 cadastros em 5 dias, 9,5 visitas por mil impressões (`PLAYBOOK-midia-paga-do-zero.md §8.6`, no checkout `aura-main/aura-marketing`, ainda sem push). Foi trocado por "amplo" e depois por interesse "Poker" isolado, e a campanha morreu em zero. A Fase 1 reabre exatamente esse recorte e **não mexe nele antes do gate**.
-- **Criativo de plataforma venceu criativo de stat no público frio EU:** `disc02-plataforma-mda-en` R$ 62/cadastro e R$ 1,95/ThruPlay contra `disc03-classes-cbet-en` R$ 88,95 e R$ 7,26. No BR, a célula PIONEIRO ("isso não existia") foi a única com mais de um cadastro (R$ 44,20). Novidade de categoria converte melhor que stat solto. O overlay é novidade de categoria.
+- **Criativo de plataforma venceu criativo de stat no público frio EU _em custo por cadastro_** (mas foi o de stat, classes de c-bet, que trouxe a única venda; §2.1): `disc02-plataforma-mda-en` R$ 62/cadastro e R$ 1,95/ThruPlay contra `disc03-classes-cbet-en` R$ 88,95 e R$ 7,26. No BR, a célula PIONEIRO ("isso não existia") foi a única com mais de um cadastro (R$ 44,20). Novidade de categoria converte melhor que stat solto. O overlay é novidade de categoria.
 - **CPM Europa tier-1 ≈ R$ 35–48; BR histórico ≈ R$ 4–10.** O BR é 5 a 10 vezes mais barato, mas o pool de interesse "poker" no IG BR é o ecossistema de bets (`plano-fuga-das-bets.md`: 0,11–0,18 s por sessão, spam de "grupo VIP" nos comentários).
-- **Pixel vivo, CAPI disparando, zero `Purchase`.** EMQ do `PageView` 6,1/10; `fbc` em 7,7%; nenhuma conversão personalizada. A Meta classifica a conta como "Publishing / Online Only Publications", não como software.
+- **Pixel vivo, CAPI disparando, zero `Purchase`.** Mas a venda chega como **`Subscribe`**, não `Purchase`, e esse evento existe: 2 `Subscribe` entre 02 e 03/09 (§2.1). A leitura de 22/09 procurou o evento errado. EMQ do `PageView` 6,1/10; `fbc` em 7,7%; nenhuma conversão personalizada. A Meta classifica a conta como "Publishing / Online Only Publications", não como software.
+
+### 2.1 Correção de 27/09: houve uma assinatura, e ela veio da Meta
+
+A versão de 22/09 escreveu "zero assinatura" porque leu só a Meta e o pixel, que não tinham evento de venda. O Stripe não foi lido naquela sessão. Lido em 27/09 (só leitura, agregado, dentro da B4):
+
+| Campo | Valor |
+|---|---|
+| Plano e ciclo | Individual **anual**, **US$ 259** (o anual em real da tabela é R$ 1.295) |
+| Criada em | **02/09/2026**, dentro da janela boa da identidade EN (02–06/09) |
+| Estado em 27/09 | ativa, sem cancelamento agendado |
+| Metadados no Stripe | `utm_source=meta` · `utm_medium=paid` · `utm_campaign=aura-disc02` · `utm_content=disc02-classes-cbet-en` · `utm_term` = id do conjunto **"DISC02-EU · identidade tier-1 (EN, otim. cadastro)"** (conferido no MCP da Meta) |
+| Criativo | o de **classes de c-bet** (`disc03-classes-cbet-en`, o único anúncio do conjunto com "classes-cbet" no nome; o valor da UTM leva o prefixo da campanha). Inferido pelo nome, não por clique |
+
+**O que isso muda:**
+
+- **CAC observado:** R$ 603,80 (gasto do conjunto DISC02-EU inteiro) por 1 assinatura, cujo primeiro pagamento, US$ 259, cobre esse gasto. Na conta inteira, R$ 1.771,48 por 1.
+- **Cadastro → pago:** 1 em ~8 cadastros na DISC02-EU (~12%) e 1 em ~12 na conta (~8%). Com uma venda só, o intervalo é enorme; é sinal, não taxa.
+- **A atribuição funcionou para essa venda:** a UTM chegou até o checkout e ficou gravada no Stripe. O "UTM 100% nula" vale para o `tbl_user` em geral, não para esse caminho.
+- **O criativo de classes de c-bet** tinha o pior custo por cadastro (R$ 88,95) e trouxe a única venda. Custo por cadastro sozinho julgou errado.
+- **O pixel viu a venda:** o MCP da Meta mostra **2 `Subscribe`** no dataset entre 02/09 e 03/09 (contagem total; a Meta guarda só 28 dias). O `Subscribe` via CAPI no `checkout.session.completed` já está provado em produção. A leitura de 22/09 procurou `Purchase`, que não existe.
 
 Divergência registrada, não resolvida: a DISC02-EU está `ACTIVE` como campanha, com o único ad set que gastou em `PAUSED`. Não há entrega. O log de atividade ainda não está liberado para a conta, então a data exata da pausa não foi confirmada por ferramenta; o commit `dd5f7ec` (15/09) registra a pausa.
 
@@ -100,4 +120,4 @@ Leitura: 44 contas novas em dois meses (~5 por semana). Pagantes de 8 para 14 co
 | Cobertura `fbc` no pixel | 7,7% | ≥ 60% | ≥ 70% |
 | Cadastros por semana (todas as fontes) | 2–8 | ≥ 15 | ≥ 30 |
 | Grátis → pago em 30 dias | não medido | medido por coorte (é o entregável) | ≥ 5% na coorte paga |
-| Assinaturas pagas atribuídas à Meta | 0 | ≥ 1 (prova de que o funil fecha) | CAC ≤ R$ 600 |
+| Assinaturas pagas atribuídas à Meta | **1** (Individual anual, 02/09; lida no Stripe em 27/09, §2.1) | ≥ 1 (prova de que o funil fecha) | CAC ≤ R$ 600 |

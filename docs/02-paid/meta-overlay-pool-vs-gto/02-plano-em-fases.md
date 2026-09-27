@@ -19,7 +19,8 @@ O que não mudou: a mídia de setembro morreu por público errado no BR, configu
 | Criativos | **3**, todos já produzidos, re-renderizados sem o "500M+" (§8) |
 | Fases | Fase 1 · teste, **R$ 600** (3 × R$ 20/dia × 10 dias) · Fase 2 · concentração, **R$ 400** (R$ 40/dia × 10 dias), só se o gate passar |
 | Para gastar mais | uma assinatura GTO atribuída à Meta **e** o CAC estimado com número medido (B4) abaixo do alvo (§6) |
-| O que R$ 1.000 não prova | que o CAC fecha. Prova o custo por cadastro de cada criativo, se o funil conta cada passo e, com sorte, a primeira venda |
+| Histórico que pesa | **uma venda já veio desse público:** Individual anual, US$ 259, em 02/09, do conjunto de identidade EN, criativo de classes de c-bet (`01 §2.1`, lido no Stripe em 27/09). CAC observado: R$ 603,80 |
+| O que R$ 1.000 não prova | que o CAC do GTO fecha. Prova o custo por cadastro de cada criativo, se o funil conta cada passo e, com sorte, a primeira venda do GTO |
 
 ## 1. Economia unitária e o que R$ 1.000 compra
 
@@ -33,6 +34,7 @@ O que não mudou: a mídia de setembro morreu por público errado no BR, configu
 | Vida média do assinante | **desconhecida** | Stripe não lido; B4 autoriza a leitura agregada |
 | Grátis → pago por coorte | **desconhecido** | AuraBusiness não lido; B4 autoriza, com o sim do Rafael na sessão |
 | **CAC-alvo (hipótese)** | **R$ 500** (≈ US$ 98) | 2 meses do plano GTO; vira número real quando o Stripe der a vida média. Era R$ 600 com o GTO a R$ 319 |
+| **CAC observado (1 venda)** | **R$ 603,80** por 1 Individual anual de US$ 259 | conjunto DISC02-EU inteiro, 25/08–15/09 (`01 §2.1`). O primeiro pagamento cobre o gasto. Uma venda não é taxa, mas não é zero |
 
 **Critério universal (mantido):** a Meta compra cadastro. O CAC é `custo por cadastro ÷ taxa cadastro → pago`. Com o alvo de R$ 500, cada custo por cadastro exige uma taxa mínima:
 
@@ -60,7 +62,7 @@ Acima de R$ 60 por cadastro, o CAC só fecha com uma conversão que nenhum SaaS 
 
 A Meta sai do aprendizado com cerca de **50 eventos de otimização por conjunto de anúncios em 7 dias**. Com R$ 1.000 em ~20 dias, a verba é ~R$ 50 por dia somando tudo:
 
-- **A venda (`Subscribe`, que a CAPI já dispara; `Purchase` não existe):** 0 na vida da conta. Mesmo no melhor cenário, 1 a 2 em todo o teste. Seriam precisos ~50 por semana: **impossível**.
+- **A venda (`Subscribe`, que a CAPI já dispara; `Purchase` não existe):** 1 atribuída à mídia na vida da conta (02/09). Mesmo no melhor cenário, 1 a 2 em todo o teste. Seriam precisos ~50 por semana: **impossível**.
 - **`CompleteRegistration`:** para 50 por semana num conjunto, a R$ 60 cada, seriam R$ 3.000 por semana. O plano gasta ~R$ 140 a R$ 280 por semana por conjunto e compra de 2 a 11 cadastros. **Também não sai**; o conjunto fica em "aprendizado limitado" o tempo todo.
 - **`InitiateCheckout`:** tem menos volume que o cadastro, porque o checkout vem depois do cadastro no funil, e hoje **não existe no pixel** (0 eventos nos últimos 7 dias, e nenhum código dispara, `§3.2`). **Pior ainda.**
 
@@ -80,7 +82,7 @@ Os arquétipos de 22/09 continuam valendo; nenhum foi validado em entrevista.
 
 Com R$ 1.000, dois mercados dividem o sinal ao meio e nenhum dos dois conclui nada. O mercado escolhido é **identidade EN** (interesses PokerStars + Professional Poker Player; IE, NL, NO, SE, GB, FI, DK, AT, PT, DE, MT; 21–50):
 
-1. **É o único recorte que já produziu** a preço aceitável: ~R$ 25 por cadastro na janela de 02–06/09, com o conjunto a R$ 20/dia (`01 §2`). Foi trocado com 5 dias de vida e morreu. Aqui ele reabre igual e **não é tocado antes do gate** (`PLAYBOOK-midia-paga-do-zero.md §8.6`).
+1. **É o único recorte que já produziu**, e **é de onde veio a única venda da mídia paga** (Individual anual, US$ 259, 02/09): ~R$ 25 por cadastro na janela de 02–06/09, com o conjunto a R$ 20/dia (`01 §2` e `§2.1`). Foi trocado com 5 dias de vida e morreu. Aqui ele reabre igual e **não é tocado antes do gate** (`PLAYBOOK-midia-paga-do-zero.md §8.6`).
 2. **O checkout em dólar não depende da A14.** A divergência medida é do real (R$ 762/1.325 contra R$ 745/1.295 da landing). Quem vem pela página em inglês paga em dólar.
 3. **Não tem o ruído de bet** que contaminou o interesse "poker" no IG BR (`plano-fuga-das-bets.md`).
 4. **O app e o Modo GTO são em inglês.** O cadastro não troca de idioma no meio do caminho.
@@ -127,7 +129,7 @@ Levantado em 25/09, só leitura: código da landing na branch do #11 (`feat/land
 | **`CompleteRegistration`** (evento de otimização) | ✅ pixel no app (`eventID reg_<user_id>`) **e** CAPI na API (`MetaCapiService.cs`, mesmo `event_id`, com `fbc`/`fbp`). Medido no pixel: 3 eventos nos últimos 7 dias, 2 deles pelo servidor, então a CAPI está viva | a EMQ e a cobertura de `fbc` não foram relidas desde 22/09 (EMQ do `PageView` 6,1; `fbc` 7,7%). Com o #11 no ar, o `fbc` deve subir; conferir no Events Manager no D1 | Rafael (Events Manager) |
 | **Checkout do plano GTO a partir do anúncio** | ⚠️ a API aceita `planId: gto` e moeda (`CreateCheckoutSessionRequest.cs`, `ResolvePriceId`) | 🔴 **o front da `main` não pede o plano.** `CreateCheckoutSessionRequest` do app (`src/types/api/requests.ts:245-249`) só tem `userId`, `billingOptionId` e `currency`. Nenhum `plan`/`tier` na URL, nem no Login, nem na Minha Conta: **hoje um cadastro novo só consegue comprar o Individual.** O conserto é o A1 do brief 12 (o modal de upgrade conhecer o tier GTO), que está no roteiro do go-live (A7). A landing também não passa plano (`docs/lancamento-modo-gto.md`, "sem parâmetro de plano") | go-live do Modo GTO (Rafael) |
 | **`InitiateCheckout`** | ❌ não existe em lugar nenhum (0 no pixel em 7 dias; nem front nem API) | não bloqueia o teste: a otimização é por cadastro. Para ler cadastro → checkout por criativo, basta **contar as Checkout Sessions criadas no Stripe por conta com `utm_content`**, em agregado. Se for criado depois, `fbq('track','InitiateCheckout')` no `handleSubscribe` da Minha Conta | leitura: sessão de medição (B4) |
-| **Venda (`Subscribe`)** | ✅ CAPI na API, no `checkout.session.completed`, `event_id sub_<subscriptionId>`, com guarda de idempotência e fora de winback e legado | ⚠️ `currency` fixa em `"usd"` e o `value` sai de um mapa de price id. **Conferir que os 6 price ids do GTO estão no mapa**, senão a venda do GTO chega sem valor ou não chega. Nenhuma venda nos 7 dias, então nada foi provado em produção. Evento `Purchase` não existe; para a Meta, `Subscribe` é o evento de assinatura e basta | sessão do overlay (go-live) |
+| **Venda (`Subscribe`)** | ✅ CAPI na API, no `checkout.session.completed`, `event_id sub_<subscriptionId>`, com guarda de idempotência e fora de winback e legado. **Provado em produção:** 2 `Subscribe` no dataset entre 02 e 03/09, incluindo a venda anual vinda da Meta (`01 §2.1`) | ⚠️ `currency` fixa em `"usd"` e o `value` sai de um mapa de price id. **Conferir que os 6 price ids do GTO estão no mapa**, senão a venda do GTO chega sem valor. Evento `Purchase` não existe; para a Meta, `Subscribe` é o evento de assinatura e basta. A UTM também chega aos metadados da assinatura no Stripe (`utm_*`), então a venda é atribuível por lá, sem depender do pixel | sessão do overlay (go-live) |
 | **GA4** | ✅ `sign_up` no app; `generate_lead` e `cta_click` na landing | ❌ `begin_checkout` e `purchase` não existem. Não bloqueia: a venda é medida pelo Stripe e pelo AuraBusiness (B4), não pelo GA4 | — |
 | **Lista de espera** | ✅ no #11: função do SWA → Resend, com `Lead` no pixel | **deixa de ser destino** (B5). Fica ligada só para o Field vs GTO | — |
 
@@ -171,14 +173,14 @@ Ficou de fora de propósito: cadastro em PT e e-mail D0 (o teste é em EN), púb
 
 ### 4.2 Critérios de corte, escritos antes de olhar
 
-Meta de custo por cadastro: **≤ R$ 60** (§1.1). Os cortes são por criativo, e nenhum outro toque é permitido antes do D10: nada de trocar público, otimização ou orçamento no meio da janela (anti-padrão `PLAYBOOK §8.6`, que custou o único recorte bom de setembro).
+Meta de custo por cadastro: **≤ R$ 60** (§1.1). **Custo por cadastro sozinho não decide:** em setembro, o criativo de classes de c-bet teve o pior custo por cadastro do conjunto (R$ 88,95) e trouxe a única venda. Por isso venda e checkout vêm antes do custo por cadastro no vencedor, e o corte do D7 não mata quem já levou alguém ao checkout. Os cortes são por criativo, e nenhum outro toque é permitido antes do D10: nada de trocar público, otimização ou orçamento no meio da janela (anti-padrão `PLAYBOOK §8.6`, que custou o único recorte bom de setembro).
 
 | Quando | Regra | Ação |
 |---|---|---|
 | D3 | sessão média na `/gto` vinda do conjunto < 5 s (GA4, por `utm_content`) | pausa o conjunto: é tráfego de bot ou bet |
 | a qualquer momento | gasto ≥ **R$ 120** (2× a meta) com **0 cadastro** | pausa o conjunto |
-| D7 | custo por cadastro > **R$ 90** (1,5× a meta) | pausa o conjunto; a verba não é redistribuída (sai da conta, não do teste) |
-| D10 | fim do teste | o vencedor é o de **menor custo por cadastro, com ≥ 2 cadastros e custo ≤ R$ 60**. Empate: vence quem tiver mais cadastros que chegaram ao checkout (§3.2) |
+| D7 | custo por cadastro > **R$ 90** (1,5× a meta) **e nenhum checkout iniciado nem venda** entre os cadastros dele | pausa o conjunto; a verba não é redistribuída (sai da conta, não do teste) |
+| D10 | fim do teste | o vencedor sai nesta ordem: **1) venda atribuída** (qualquer plano, lida no Stripe por `utm_content`); **2) checkout iniciado** (Checkout Sessions do Stripe por `utm_content`); **3) menor custo por cadastro, com ≥ 2 cadastros e custo ≤ R$ 60** |
 | sempre | 3 reprovações da Meta por "gambling" no mesmo tema | para de subir variação e segue o `07 §5` |
 
 Leitura complementar, que não corta nada mas entra no relatório do D10: taxa de gancho (3 s ÷ impressões, lida no Gerenciador), custo por ThruPlay, custo por visita à página de destino e **cadastro → checkout iniciado** por criativo.
@@ -189,7 +191,7 @@ Custo por cadastro de cada um dos 3 criativos, em ~6 a 24 cadastros no total; se
 
 ## 5. Fase 2 · Concentração (R$ 400, 10 dias, só com gate)
 
-**Entra quando**, no D10: pelo menos um criativo passou no critério de vencedor do §4.2. **Se nenhum passou, os R$ 400 não são gastos.** Voltam para o Rafael com o relatório, e a próxima sessão é de oferta ou de página, não de anúncio.
+**Entra quando**, no D10: pelo menos um criativo passou no critério de vencedor do §4.2 (venda, checkout, ou custo por cadastro ≤ R$ 60 com ≥ 2 cadastros). **Se nenhum passou, os R$ 400 não são gastos.** Voltam para o Rafael com o relatório, e a próxima sessão é de oferta ou de página, não de anúncio.
 
 | Conjunto | O que é | Orçamento |
 |---|---|---:|
@@ -216,7 +218,7 @@ Ferramentas de IA: **R$ 0 nesta rodada.** Os três criativos já existem, e a re
 
 ### 6.1 Para gastar mais que R$ 1.000, as três coisas têm de ser verdade
 
-1. **Uma assinatura do plano GTO atribuída à Meta**, provada no disco: a conta com `utm_source=meta` e `utm_campaign=gto-r1000` gravada no cadastro, e uma assinatura GTO paga no Stripe. Lido por `SELECT` agregado (contagem por `utm_campaign`, sem e-mail nem id), dentro da B4.
+1. **Uma assinatura do plano GTO atribuída à Meta** (uma Individual anual já existe, de 02/09; a pergunta agora é o GTO), provada no disco: `utm_source=meta` e `utm_campaign=gto-r1000` nos metadados da assinatura GTO no Stripe (é onde a venda de 02/09 guardou a UTM) ou no cadastro. Lido por `SELECT` agregado (contagem por `utm_campaign`, sem e-mail nem id), dentro da B4.
 2. **A taxa cadastro → pago medida numa coorte**, não na campanha: cadastros por semana e por `utm_source` no AuraBusiness e quantos pagaram em 30 dias. É a leitura que a B4 autorizou; **o AuraBusiness pede o sim do Rafael na sessão, antes da consulta**. Esta sessão não fez essa leitura.
 3. **CAC estimado ≤ CAC-alvo:** `custo por cadastro da Fase 1 ÷ taxa cadastro → pago da coorte ≤ R$ 500`, e o R$ 500 recalculado com a vida média lida no Stripe (B4). Se a vida média vier abaixo de 2 meses, o alvo cai junto.
 
@@ -241,26 +243,28 @@ Três, porque é o máximo que R$ 1.000 julga: a R$ 20/dia por 10 dias, cada um 
 
 | Slot | Criativo (arquivo) | Por que entra | Dado de base |
 |---|---|---|---|
-| **T1 · controle** | `disc02-plataforma-mda-en` (`content/paid/AURA-DISC02/disc02-plataforma-mda-en.mp4`, 26,2 s) | o melhor EN medido: venceu o de stat no mesmo público frio | R$ 62 por cadastro · R$ 1,95 por ThruPlay (DISC02-EU) |
-| **T2 · novidade** | `disc-04-pioneiro-en` (`content/paid/AURA-DESCOBERTA/disc-04-pioneiro-en.mp4`, 15,0 s) | "This never existed." é o ângulo N, o único que converteu no BR frio, e é o mais próximo da mensagem de lançamento entre os prontos. Nunca rodou em EN | R$ 44,20 por cadastro na célula PIONEIRO (BR) |
+| **T1 · a venda** | `disc03-classes-cbet-en` (`content/paid/AURA-DISC03/disc03-classes-cbet-en.mp4`, 18,2 s) | **trouxe a única venda da mídia paga** (Individual anual, US$ 259, 02/09, `01 §2.1`), no mesmo público que o plano reabre. O jargão denso filtra quem estuda a sério | R$ 88,95 por cadastro · R$ 7,26 por ThruPlay · **1 venda** (R$ 355,79 gastos no anúncio) |
+| **T2 · controle de cadastro** | `disc02-plataforma-mda-en` (`content/paid/AURA-DISC02/disc02-plataforma-mda-en.mp4`, 26,2 s) | o melhor custo por cadastro EN medido, no mesmo conjunto | R$ 62 por cadastro · R$ 1,95 por ThruPlay · 0 venda (R$ 248,01 gastos no anúncio) |
 | **T3 · produto no ar** | `board01-1560-boards-en` (`content/paid/AURA-BOARD01/board01-1560-boards-en.mp4`, 24,2 s) | o mais novo: mostra a tela de resultado real do Postflop ("1,560 boards. Pick yours."), uma promessa só. Nunca rodou. Está na branch `feature/descoberta-reels-v2` (pushada em 25/09 até `dd5f7ec`), junto com o `PLAYBOOK §8.6` que este plano cita; ainda fora da `main` | sem histórico |
 
-**Sem "overlay":** os três roteiros foram lidos e nenhum usa a palavra nem "vs GTO"; o da DISC02 traz a regra "sem vs GTO/overlay" escrita. **Sem promessa pendente:** nenhum promete cadência (A12/A12b), preço em real (A14), EV, lucro ou winrate. **Sem pessoa:** nenhum usa o analista de IA (B1 não se aplica) nem depoimento (B2 não se aplica). Todos fecham com "Create free account"/"Free to start · No card", que é verdade: o cadastro é grátis, e o upgrade para o GTO acontece dentro do app.
+**Revisão de 27/09:** a versão de 25/09 punha o `disc-04-pioneiro-en` no T2 e deixava de fora o de classes de c-bet por "perder" no custo por cadastro. Foi ele que trouxe a venda. T1 e T2 agora são os dois anúncios da DISC02-EU, com um resultado de venda para bater, e o T3 é o desafiante.
+
+**Sem "overlay":** os três roteiros foram lidos e nenhum usa a palavra nem "vs GTO"; os da DISC02 e da DISC03 trazem a regra "sem vs GTO/overlay" escrita. **Sem promessa pendente:** nenhum promete cadência (A12/A12b), preço em real (A14), EV, lucro ou winrate. **Sem pessoa:** nenhum usa o analista de IA (B1 não se aplica) nem depoimento (B2 não se aplica). Todos fecham com "Create free account"/"Free to start · No card", que é verdade: o cadastro é grátis, e o upgrade para o GTO acontece dentro do app.
 
 **O que nenhum dos três faz:** mostrar o Modo GTO. Nenhum criativo pronto mostra, porque não havia footage do toggle antes do go-live. É por isso que o destino é a home, cujo hero mostra o Modo GTO (§3.1). O **R6 `um-clique-o-gap`** (`04-reels.md`) é o primeiro a produzir quando o Modo GTO estiver no ar para uma conta de gravação: tela real do toggle, sem avatar, sem voz, sem ferramenta paga (Screen Studio + o pipeline HTML existente). **Se ficar pronto antes do D1, ele entra no lugar do T3**, com destino na `/gto`. Não entra como quarto criativo.
 
 ### 8.2 O que tem de mudar neles antes de subir (0.6)
 
-- 🔴 **O selo "500M+ audited hands · 7 rooms" sai dos três.** Ele está gravado no rodapé de todas as cenas. O PO tirou o "500M+" da landing (escolha de 23/09, sem proveniência medida; `aura-context/docs/08-planning/landing-redesign/00-fase-a.md` §2.1 e §7), e o #11 usa "400K+ tournaments" com link para `/metodologia`. Anúncio com "500M+" levando a uma página que diz "400K+" quebra a coerência e sustenta um número que a própria empresa deixou de sustentar. **Troca:** `400K+ tournaments · 7 rooms` (o texto EN do B6), re-renderizado pelos builds que já existem: `instagram/build-disc02.mjs`, `build-descoberta.mjs`, `build-board01.mjs`. É troca de string e render local, sem custo.
+- 🔴 **O selo "500M+ audited hands · 7 rooms" sai dos três.** Ele está gravado no rodapé de todas as cenas. O PO tirou o "500M+" da landing (escolha de 23/09, sem proveniência medida; `aura-context/docs/08-planning/landing-redesign/00-fase-a.md` §2.1 e §7), e o #11 usa "400K+ tournaments" com link para `/metodologia`. Anúncio com "500M+" levando a uma página que diz "400K+" quebra a coerência e sustenta um número que a própria empresa deixou de sustentar. **Troca:** `400K+ tournaments · 7 rooms` (o texto EN do B6), re-renderizado pelos builds que já existem: `instagram/build-disc02.mjs`, `build-disc03.mjs`, `build-board01.mjs`. É troca de string e render local, sem custo.
 - **`disc02-plataforma-mda-en`, cena 1:** "The world's only Field Intelligence (MDA) platform" é alegação de unicidade. Passou na revisão da Meta em agosto; fica, mas precisa ser defensável se alguém contestar (CONAR). Se o Rafael preferir tirar o risco, a troca é "Field Intelligence (MDA) for MTT", sem "only".
-- **`disc-04-pioneiro-en`, cena 2:** a tradução EN está atrás do PT (roteiro, v2.4), e o `.mp4` EN é de 27/07. O kicker EN antigo ("The field's data, not a sample") é verdadeiro e pode ficar; conferir no quadro qual versão foi renderizada.
-- **Os três:** conferir no quadro que nenhum número mudou desde o render (BOARD01 de 11/09, DISC02 de 12/08, PIONEIRO de 27/07). Os dois DISC só trazem números de escala, sem stat de spot.
+- 🟠 **`disc03-classes-cbet-en`, o número:** Reg Aggro 85,2% (n 2,4M) × Reg Tight 77,6% (n 804k) é um corte por classe de jogador, e o STATE do aura-main registra que o lake atual tem **21–26% das linhas com a classe do outro jogador** (papel IP/OOP trocado no parser até `bce96d8`; só o reparse corrige). O produto em produção mostra esse mesmo número, então o anúncio bate com a tela que o cliente vê; mas o número tende a mudar no reparse. Reconferir na tela no dia do re-render e não usar o "7,6 pp" em outra peça antes do reparse. O painel da cena 3 é mockup fiel da UI (o print oficial não chegou; roteiro do DISC03).
+- **Os três:** conferir no quadro que nenhum número mudou desde o render (BOARD01 de 11/09, DISC02 de 12/08, DISC03 de agosto). O DISC02 só traz números de escala, sem stat de spot.
 
 ### 8.3 O que ficou de fora e por quê
 
 | Criativo | Por que não |
 |---|---|
-| `disc03-classes-cbet-en` | perdeu para o de plataforma no mesmo público (R$ 88,95 contra R$ 62) |
+| `disc-04-pioneiro-en` | nunca rodou em EN; o resultado dele (R$ 44,20 por cadastro, célula PIONEIRO) é do BR, com objetivo de engajamento, e sem venda. Primeiro reserva se um dos três for reprovado |
 | `disc-03-categoria` | promete "atualização trimestral": cadência sem rotina (A12) |
 | `disc-01-solver`, `disc-02-exploit` | células da DISC01 com no máximo um cadastro cada (só a PIONEIRO passou de um) |
 | `paid01-v1/v2/v3` | não aparecem em nenhuma campanha da conta (`01 §2`); ficam como reserva, depois do "500M+" trocado |

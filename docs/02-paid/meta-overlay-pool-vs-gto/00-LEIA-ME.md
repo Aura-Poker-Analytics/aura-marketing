@@ -2,9 +2,9 @@
 
 **Sessões:** overnight de 22/09/2026 (plano original) · revisão de 25/09/2026 (R$ 1.000, Modo GTO no ar) · **Branch:** `feature/meta-ads-overlay-poolvsgto` · **Status:** plano. **Nada foi criado, editado, pausado, ativado ou gasto na Meta.** A conta e o pixel foram só lidos. Em 22/09 também foram lidos o GA4, o Woo e o Postgres de analytics, só em agregados.
 
-## Em cinco linhas (revisão de 25/09)
+## Em cinco linhas (revisão de 25/09, corrigida em 27/09)
 
-1. A mídia de setembro não falhou por criativo. Público de bets no BR, configuração mexida antes do gate e um funil que não passava UTM, `fbclid` nem pagamento para a Meta. Resultado: R$ 1.771 na vida da conta, ~12 cadastros, zero assinatura. A conta não gasta nada desde 15/09.
+1. A mídia de setembro não falhou por criativo. Público de bets no BR, configuração mexida antes do gate e um funil que não passava UTM, `fbclid` nem pagamento para a Meta. Resultado: R$ 1.771 na vida da conta, ~12 cadastros e **1 assinatura anual (US$ 259, 02/09)**, vinda do conjunto de identidade EN que o plano reabre (corrigido em 27/09; a versão anterior dizia "zero", `01 §2.1`). A conta não gasta nada desde 15/09.
 2. **Orçamento total de R$ 1.000**, num público só (identidade EN, o único recorte que já produziu), otimizando **`CompleteRegistration`**. R$ 1.000 compra de 10 a 40 cadastros no histórico da conta; **nenhum evento sai da fase de aprendizado**, e a venda nem chega perto.
 3. **Fase 1 · teste, R$ 600:** 3 criativos prontos, um por conjunto, R$ 20/dia cada, 10 dias, com corte por criativo escrito antes. **Fase 2 · concentração, R$ 400:** o vencedor a R$ 40/dia por 10 dias, só se alguém ficar a ≤ R$ 60 por cadastro.
 4. **Destino:** a landing do #11 em modo de lançamento → cadastro → checkout do plano GTO. A lista de espera deixa de ser destino. 🔴 **Hoje um cadastro novo não consegue comprar o GTO**: o front não pede o plano no checkout. É o A1 do brief 12, parte do go-live.
@@ -14,7 +14,7 @@
 
 | # | Doc | O que tem |
 |---|---|---|
-| 01 | [linha de base](01-linha-de-base.md) | números reais de 22/09: Meta por campanha e criativo, funil GA4, UTM medida ao vivo, base e receita agregadas, o que faltou |
+| 01 | [linha de base](01-linha-de-base.md) | números reais de 22/09 (com a correção de 27/09: 1 venda anual, §2.1): Meta por campanha e criativo, funil GA4, UTM medida ao vivo, base e receita agregadas, o que faltou |
 | 02 | [plano em fases](02-plano-em-fases.md) | **revisado em 25/09:** o que R$ 1.000 compra, evento de otimização, público, funil com o que existe e o que falta, Fases 0/1/2, cortes, os 3 criativos, o que depende do Rafael |
 | 03 | [posicionamento e mensagem](03-posicionamento-e-mensagem.md) | Dunford, unicidade, promessa, "o gap", banco de provas, **nomes comerciais**, auditoria da landing e o texto da `/gto` |
 | 04 | [12 reels](04-reels.md) | roteiros: gancho, storyboard, texto na tela e legenda. **Nenhum produzido**; o R6 é o primeiro a produzir |
@@ -37,9 +37,11 @@ Ferramentas: R$ 0 nesta rodada. Os três criativos já existem; a troca do selo 
 
 ## Os três criativos desta rodada
 
-1. **`disc02-plataforma-mda-en`** (controle): o melhor EN medido, R$ 62 por cadastro.
-2. **`disc-04-pioneiro-en`**: o ângulo "isso não existia", o único que converteu no BR frio.
-3. **`board01-1560-boards-en`**: o mais novo, a tela de resultado real do Postflop. Está em commits sem push de outra branch.
+1. **`disc03-classes-cbet-en`**: **trouxe a única venda da mídia paga** (Individual anual, US$ 259, 02/09), apesar do pior custo por cadastro (R$ 88,95).
+2. **`disc02-plataforma-mda-en`** (controle de cadastro): o melhor custo por cadastro EN, R$ 62, sem venda.
+3. **`board01-1560-boards-en`**: o desafiante, a tela de resultado real do Postflop. Na branch `feature/descoberta-reels-v2`, fora da `main`.
+
+O vencedor do D10 sai por venda, depois por checkout iniciado, e só depois por custo por cadastro (`02 §4.2`).
 
 Os três precisam trocar o selo "500M+ audited hands" por "400K+ tournaments" (B6 da landing) antes de subir. Nenhum mostra o Modo GTO; o **R6 `um-clique-o-gap`** entra no lugar do terceiro se ficar pronto antes do D1.
 

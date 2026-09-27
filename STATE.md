@@ -9,7 +9,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 - Pipeline de criativos por HTML → `.mp4`/`.png` (`instagram/build-*.mjs`, `instagram/templates/`), re-renderizável localmente sem custo
 - Criativos pagos renderizados, PT e EN: DISC-01 a DISC-04, DISC02 plataforma, DISC03 classes de c-bet, PAID01 v1–v3 · `content/paid/`. Todos com o selo "500M+" gravado (ver §3)
 - Plano de Meta Ads revisado para **R$ 1.000 com o Modo GTO no ar** (25/09): Fase 1 R$ 600 (3 criativos × R$ 20/dia × 10 dias), Fase 2 R$ 400 só com gate, otimização por `CompleteRegistration`, público identidade EN · `docs/02-paid/meta-overlay-pool-vs-gto/02-plano-em-fases.md` · PR #1, sem merge
-- Mídia paga: **parada desde 15/09** (conferido no MCP da Meta em 25/09: último gasto em 15/09, R$ 9,53). Vida da conta: R$ 1.771, ~12 cadastros, 0 assinaturas · `01-linha-de-base.md`
+- Mídia paga: **parada desde 15/09** (conferido no MCP da Meta em 25/09: último gasto em 15/09, R$ 9,53). Vida da conta: R$ 1.771, ~12 cadastros, **1 assinatura** (Individual anual, US$ 259, 02/09, DISC02-EU identidade EN, criativo de classes de c-bet; lida no Stripe em 27/09 — a versão de 25/09 dizia 0) · `01-linha-de-base.md §2.1`
 
 ## 2. Em andamento (máx. 2)
 - **Meta Ads · R$ 1.000 com Modo GTO** · branch `feature/meta-ads-overlay-poolvsgto` · onde parou: plano revisado e commitado no PR #1; nada criado na Meta · próximo passo: re-renderizar os 3 criativos escolhidos trocando "500M+ audited hands" por "400K+ tournaments" (item 0.6), depois esperar o §9 do doc 02 · doc: `docs/02-paid/meta-overlay-pool-vs-gto/02-plano-em-fases.md`
