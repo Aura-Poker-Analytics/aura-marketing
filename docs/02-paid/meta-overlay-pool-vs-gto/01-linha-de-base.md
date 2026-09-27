@@ -46,7 +46,7 @@ A versão de 22/09 escreveu "zero assinatura" porque leu só a Meta e o pixel, q
 | Criada em | **02/09/2026**, dentro da janela boa da identidade EN (02–06/09) |
 | Estado em 27/09 | ativa, sem cancelamento agendado |
 | Metadados no Stripe | `utm_source=meta` · `utm_medium=paid` · `utm_campaign=aura-disc02` · `utm_content=disc02-classes-cbet-en` · `utm_term` = id do conjunto **"DISC02-EU · identidade tier-1 (EN, otim. cadastro)"** (conferido no MCP da Meta) |
-| Criativo | o de **classes de c-bet** (`disc03-classes-cbet-en`, o único anúncio do conjunto com "classes-cbet" no nome; o valor da UTM leva o prefixo da campanha). Inferido pelo nome, não por clique |
+| Criativo | o de **classes de c-bet**, anúncio `disc03-classes-cbet-en` (id `120249317954770327`, criativo `3125435954464297`, texto "Same c-bet, two different regs."). Conferido por exclusão no MCP da Meta em 27/09: o conjunto do `utm_term` tem só dois anúncios (`disc03-classes-cbet-en` e `disc02-plataforma-mda-en`); o único outro anúncio da conta com "classes-cbet" é o `ativ01-classes-cbet`, em PT, de outra campanha e outro conjunto. O prefixo `disc02-` da `utm_content` é o da campanha (AURA-DISC02), não o do criativo. A API não expõe os `url_tags` de anúncio de vídeo, então a string exata da URL não foi lida |
 
 **O que isso muda:**
 
