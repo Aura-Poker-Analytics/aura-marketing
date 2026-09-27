@@ -31,9 +31,10 @@ O que não mudou: a mídia de setembro morreu por público errado no BR, configu
 | Plano GTO, mensal | US$ 49 · R$ 250 | A13 (24/09), landing #11 `pricing.ts`. **R$ fica fora do criativo até a A14** |
 | Plano GTO, semestral | US$ 249 · R$ 1.245 | idem |
 | Plano GTO, anual | US$ 439 · R$ em disputa (A16) | idem |
-| Vida média do assinante | **desconhecida** | Stripe não lido; B4 autoriza a leitura agregada |
-| Grátis → pago por coorte | **desconhecido** | AuraBusiness não lido; B4 autoriza, com o sim do Rafael na sessão |
-| **CAC-alvo (hipótese)** | **R$ 500** (≈ US$ 98) | 2 meses do plano GTO; vira número real quando o Stripe der a vida média. Era R$ 600 com o GTO a R$ 319 |
+| Vida média do assinante | **~2,5 meses no mensal** (60% renovam no 1º mês); 25% das assinaturas novas são anuais | Stripe, 27/09, 8 assinaturas desde 01/07 (`01 §4.1`) |
+| Receita do 1º ano por assinante novo | **~R$ 605 no Individual; ~R$ 1.000 no GTO** (mesma vida, preço do GTO) | idem |
+| Cadastro → pago | **8,6%** desde 01/07 (5 de 58); **11% na Meta** (1 de 9) | AuraBusiness, 27/09, agregado (`01 §4.1`) |
+| **CAC-alvo** | **R$ 500** (≈ US$ 98) | agora com base medida: ~83% da receita do 1º ano do Individual e ~50% da do GTO. Amostra pequena; refazer no D30 |
 | **CAC observado (1 venda)** | **R$ 603,80** por 1 Individual anual de US$ 259 | conjunto DISC02-EU inteiro, 25/08–15/09 (`01 §2.1`). O primeiro pagamento cobre o gasto. Uma venda não é taxa, mas não é zero |
 
 **Critério universal (mantido):** a Meta compra cadastro. O CAC é `custo por cadastro ÷ taxa cadastro → pago`. Com o alvo de R$ 500, cada custo por cadastro exige uma taxa mínima:
@@ -46,7 +47,7 @@ O que não mudou: a mídia de setembro morreu por público errado no BR, configu
 | R$ 75 | 15,0% |
 | R$ 103,53 (média da conta) | 20,7% |
 
-Acima de R$ 60 por cadastro, o CAC só fecha com uma conversão que nenhum SaaS de nicho sustenta com tráfego frio. Por isso **R$ 60 é o teto de custo por cadastro deste plano**.
+**Com a taxa medida (8,6%), o CAC de R$ 500 pede custo por cadastro de ~R$ 43.** O teto do plano fica em **R$ 60**, que dá CAC de ~R$ 700: acima do alvo para quem compra o Individual, mas dentro dos ~R$ 1.000 do 1º ano de quem compra o GTO, que é o que o anúncio vende. Se a mistura do teste sair só Individual, o teto certo é R$ 43, e a Fase 2 usa esse número.
 
 ### 1.2 Quantas conversões R$ 1.000 compra (histórico da conta, `01 §2`)
 
@@ -219,8 +220,8 @@ Ferramentas de IA: **R$ 0 nesta rodada.** Os três criativos já existem, e a re
 ### 6.1 Para gastar mais que R$ 1.000, as três coisas têm de ser verdade
 
 1. **Uma assinatura do plano GTO atribuída à Meta** (uma Individual anual já existe, de 02/09; a pergunta agora é o GTO), provada no disco: `utm_source=meta` e `utm_campaign=gto-r1000` nos metadados da assinatura GTO no Stripe (é onde a venda de 02/09 guardou a UTM) ou no cadastro. Lido por `SELECT` agregado (contagem por `utm_campaign`, sem e-mail nem id), dentro da B4.
-2. **A taxa cadastro → pago medida numa coorte**, não na campanha: cadastros por semana e por `utm_source` no AuraBusiness e quantos pagaram em 30 dias. É a leitura que a B4 autorizou; **o AuraBusiness pede o sim do Rafael na sessão, antes da consulta**. Esta sessão não fez essa leitura.
-3. **CAC estimado ≤ CAC-alvo:** `custo por cadastro da Fase 1 ÷ taxa cadastro → pago da coorte ≤ R$ 500`, e o R$ 500 recalculado com a vida média lida no Stripe (B4). Se a vida média vier abaixo de 2 meses, o alvo cai junto.
+2. **A taxa cadastro → pago medida numa coorte**, não na campanha. ✅ **Primeira leitura feita em 27/09** (`01 §4.1`): 8,6% geral e 11% na Meta, em 58 cadastros. Falta refazer com a coorte da `gto-r1000` no D30, com o mesmo `SELECT` agregado (o sim do Rafael vale por sessão).
+3. **CAC estimado ≤ CAC-alvo:** `custo por cadastro da Fase 1 ÷ taxa cadastro → pago da coorte ≤ R$ 500`. A vida média já foi lida no Stripe (~2,5 meses no mensal, `01 §4.1`); se o D30 mostrar renovação abaixo de 60%, o alvo cai junto.
 
 Com as três verdadeiras, o próximo degrau é o cenário de R$ 70/dia do plano de 22/09 (R$ 2.940 em 6 semanas), com a escala de +20% a cada 3 dias. Sem as três, **mais mídia só aumenta o prejuízo**: o problema passa a ser oferta ou ativação.
 
@@ -285,8 +286,8 @@ Nada liga sem os itens desta lista. Nenhum agente cria, pausa ou altera campanha
 | 5 | **Autorizações dos depoimentos** (B2): texto final por escrito do Paulo "Galator" e do braga, este sem a tag [GTOW] | **não travam este teste**: nenhum dos três criativos usa depoimento. Travam a rodada seguinte e o bloco de prova da landing | `09-depoimentos.md` |
 | 6 | **Conta de anúncio e pagamento:** forma de pagamento válida na conta `1598770224460932`, verificação da empresa, domínio verificado e 2FA no BM | sem forma de pagamento a campanha não entrega; sem verificação, a primeira reprovação por "gambling" não tem para onde recorrer (`07 §5`) | Business Manager |
 | 7 | **Criar a campanha** do §4.1, exatamente como está, e só ela | o agente não cria nada | Gerenciador de Anúncios |
-| 8 | **Sim para a leitura agregada do AuraBusiness** na sessão de medição do D10 e do D30 (B4) | é o que mede cadastro → pago e diz se há CAC | sessão de medição |
-| 9 | **Autenticar o Stripe** numa sessão de leitura (B4) | vida média e churn, que viram o CAC-alvo real no lugar dos R$ 500 | sessão de medição |
+| 8 | **Sim para a leitura agregada do AuraBusiness** na sessão de medição do D10 e do D30 (B4) | ✅ dado em 27/09 para a primeira leitura (`01 §4.1`); vale por sessão, então o D10 e o D30 pedem de novo | sessão de medição |
+| 9 | **Stripe** para vida média e churn (B4) | ✅ lido em 27/09 (`01 §4.1`) | — |
 | 10 | **Push da `feature/descoberta-reels-v2`** do checkout `aura-main/aura-marketing` (5 commits locais: BOARD01 e `PLAYBOOK §8.6`), pela sessão dona dele | o T3 e a regra de não mexer antes do gate só existem nesse disco | sessão de marketing daquele checkout |
 
 **O que já está decidido e não volta ao Rafael:** B1 (o analista de IA, com "personagem gerado por IA" no vídeo, não usado nesta rodada), B3 (fase 1 aprovada; teto trocado de R$ 200 para R$ 1.000 em 25/09), B5 (lista no Resend, fora do destino), A11 ("Modo GTO" em público) e A12 (sem cadência na copy).

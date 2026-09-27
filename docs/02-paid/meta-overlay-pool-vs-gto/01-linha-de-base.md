@@ -101,12 +101,42 @@ Leitura: 44 contas novas em dois meses (~5 por semana). Pagantes de 8 para 14 co
 
 **Postgres de analytics de prod** (`postgres-azure-analytics-prod`): conecta em `aura_database`, que só tem tabelas analíticas de poker. Usuário, trial e plano ficam no `AuraBusiness`, que não estava autorizado. Cadastros por semana e retenção vieram do report diário acima.
 
+## 4.1 Cadastro → pago e vida do assinante, medidos em 27/09 (B4)
+
+Leitura autorizada pelo Rafael em 27/09: `SELECT` agregado no AuraBusiness (sem e-mail, nome nem id na saída) e listagem de assinaturas e faturas pagas no Stripe live desde 01/07 (quando o checkout virou Stripe nativo). Nenhum dado pessoal entra neste doc. Uma assinatura de teste da própria equipe foi excluída.
+
+**Cadastros desde 01/07 (AuraBusiness, sem superusuário):**
+
+| Origem (`utm_source` / `utm_campaign`) | Cadastros | Com assinatura no Stripe | Taxa |
+|---|---:|---:|---:|
+| `meta` / `aura-disc02` | 6 | 1 (a anual de 02/09) | 17% |
+| `meta` / `aura-ativ01` | 2 | 0 | |
+| `meta` / `disc01` | 1 | 0 | |
+| **Meta pago, total** | **9** | **1** | **11%** |
+| `instagram` (orgânico e `launch20`) | 4 | 0 | |
+| sem UTM | 45 | 4 | 9% |
+| **Todos** | **58** | **5** | **8,6%** |
+
+Por mês: julho 26 cadastros, agosto 23, setembro (até 24/09) 9. Com UTM: 4, 6 e 3; todos os que têm `utm_source=meta` também têm `fbc`. Os cadastros de setembro ainda não completaram 30 dias, então a taxa deles pode subir. Com 5 conversões, o intervalo é largo: 8,6% é a melhor estimativa, não uma certeza.
+
+**Assinaturas novas no Stripe desde 01/07 (sem a de teste):** 8, sendo 6 mensais e 2 anuais (25%).
+
+| Métrica | Valor |
+|---|---|
+| Mensal: renovou pelo menos uma vez, entre as que já passaram do 1º vencimento | **3 de 5 (60%)**; 2 cancelaram depois do 1º mês |
+| Vida média estimada do mensal (retenção de 60% ao mês, geométrica) | **~2,5 meses → ~R$ 375** no Individual (R$ 150/mês) |
+| Anual | 2 de 8 assinaturas (R$ 1.295 e US$ 259), pagas à vista |
+| **Receita do 1º ano por assinante novo (mistura 75% mensal + 25% anual)** | **~R$ 605** no Individual |
+| Receita paga desde 01/07 (sem a de teste) | R$ 2.495 + US$ 288, em 11 faturas |
+
+**Leitura para o CAC:** com cadastro → pago de 8,6%, o CAC é `custo por cadastro ÷ 0,086`. A R$ 25 por cadastro dá ~R$ 290; a R$ 43, ~R$ 500; a R$ 60, ~R$ 700; na média da conta (R$ 103,53), ~R$ 1.200. Aplicando a mesma vida ao plano GTO (R$ 250/mês; anual ainda em disputa, A16), a receita do 1º ano fica na casa de R$ 1.000.
+
 ## 5. O que faltou e quem destrava
 
 | Faltou | Por quê | Quem destrava |
 |---|---|---|
-| Conversão grátis→pago por coorte | sem evento de assinatura; `AuraBusiness` fora do escopo | PO autoriza leitura agregada no `AuraBusiness`, ou o dev cria o evento `Purchase` (Fase 0) |
-| Churn e LTV | Stripe não autenticado; Woo só cobre o legado | PO autentica o Stripe numa sessão de leitura |
+| Conversão grátis→pago por coorte | ✅ medida em 27/09 (§4.1): 8,6% geral, 11% na Meta | — |
+| Churn e LTV | ✅ primeira leitura em 27/09 (§4.1): 60% de renovação no 1º mês, ~R$ 605 no 1º ano. Amostra de 8 assinaturas: refazer no D30 | — |
 | Hook rate (3 s) por criativo | campo não suportado pela API; só ThruPlay | ler no Gerenciador de Anúncios na próxima campanha |
 | Data exata da pausa da DISC02-EU | log de atividade não liberado para a conta | irrelevante para o plano |
 | Formato, CTA e landing dos anúncios de concorrentes | a Biblioteca via API devolve só título e datas | abrir os `ad_snapshot_url` à mão (ver `08-concorrencia.md`) |
@@ -119,5 +149,5 @@ Leitura: 44 contas novas em dois meses (~5 por semana). Pagantes de 8 para 14 co
 | Landing → cadastro | 1,75% | ≥ 4% (landing dedicada + UTM + cadastro em PT) | ≥ 5% |
 | Cobertura `fbc` no pixel | 7,7% | ≥ 60% | ≥ 70% |
 | Cadastros por semana (todas as fontes) | 2–8 | ≥ 15 | ≥ 30 |
-| Grátis → pago em 30 dias | não medido | medido por coorte (é o entregável) | ≥ 5% na coorte paga |
+| Grátis → pago em 30 dias | **8,6%** desde 01/07 (11% na Meta), §4.1 | medido por coorte (é o entregável) | ≥ 5% na coorte paga |
 | Assinaturas pagas atribuídas à Meta | **1** (Individual anual, 02/09; lida no Stripe em 27/09, §2.1) | ≥ 1 (prova de que o funil fecha) | CAC ≤ R$ 600 |
