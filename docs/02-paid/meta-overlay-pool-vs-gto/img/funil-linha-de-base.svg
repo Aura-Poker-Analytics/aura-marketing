@@ -1,0 +1,19 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1040 342' width='1040' height='342' role='img' aria-label='Funil medido, 90 dias (24/06 a 22/09/2026)'>
+<rect width='1040' height='342' fill='#020617'/>
+<text x='24' y='38' fill='#F1F5F9' font-size='20' font-weight='700' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Funil medido, 90 dias (24/06 a 22/09/2026)</text>
+<text x='24' y='64' fill='#94A3B8' font-size='13' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Usuários únicos por etapa. O vazamento está na travessia landing → app.</text>
+<text x='318' y='118' fill='#F1F5F9' font-size='14' text-anchor='end' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Viu a landing</text>
+<rect x='330' y='104' width='440.0' height='22' rx='4' fill='#FBBF24'/>
+<text x='778.0' y='120' fill='#F1F5F9' font-size='14' font-weight='700' font-family='Montserrat, Segoe UI, Arial, sans-serif'>1.429</text>
+<text x='318' y='162' fill='#F1F5F9' font-size='14' text-anchor='end' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Chegou ao app</text>
+<rect x='330' y='148' width='17.2' height='22' rx='4' fill='#FBBF24'/>
+<text x='355.2' y='164' fill='#F1F5F9' font-size='14' font-weight='700' font-family='Montserrat, Segoe UI, Arial, sans-serif'>56</text>
+<text x='379.2' y='164' fill='#94A3B8' font-size='12' font-family='Montserrat, Segoe UI, Arial, sans-serif'>3,9% da etapa anterior</text>
+<text x='318' y='206' fill='#F1F5F9' font-size='14' text-anchor='end' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Criou conta (sign_up)</text>
+<rect x='330' y='192' width='7.7' height='22' rx='4' fill='#FBBF24'/>
+<text x='345.7' y='208' fill='#F1F5F9' font-size='14' font-weight='700' font-family='Montserrat, Segoe UI, Arial, sans-serif'>25</text>
+<text x='369.7' y='208' fill='#94A3B8' font-size='12' font-family='Montserrat, Segoe UI, Arial, sans-serif'>44,6% da etapa anterior</text>
+<text x='318' y='250' fill='#F1F5F9' font-size='14' text-anchor='end' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Assinou (pago)</text>
+<text x='330' y='252' fill='#94A3B8' font-size='14' font-family='Montserrat, Segoe UI, Arial, sans-serif'>n/d · não há evento de assinatura para medir</text>
+<text x='24' y='320' fill='#94A3B8' font-size='11' font-family='Montserrat, Segoe UI, Arial, sans-serif'>Fonte: GA4 properties/506294082, run_funnel_report (page_view landing → page_view app → sign_up). Não há evento de assinatura no GA4 nem no pixel.</text>
+</svg>
