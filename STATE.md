@@ -22,7 +22,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 - ✅ Primeira medição do CAC feita em 27/09 (B4, com o sim do Rafael): cadastro → pago 8,6% desde 01/07 (11% na Meta), 60% dos mensais renovam no 1º mês, ~R$ 605 de receita no 1º ano por assinante Individual. CAC de R$ 500 pede ~R$ 43 por cadastro · `01-linha-de-base.md §4.1` · refazer no D30 da campanha
 - 🔴 **"500M+ mãos" gravado em todos os criativos prontos e nos 12 roteiros**, e o PO tirou o número da landing (sem proveniência; B6 = "Mais de 400 mil torneios" + `/metodologia`) · resolvido por: re-render (item 0.6), sem decisão pendente · desde: 2026-09-23
 - A14 (real no checkout ≠ landing): não trava o teste EN, trava anúncio em PT com preço · bloqueado por: Rafael no Stripe · desde: 2026-09-25
-- Depoimentos (B2): texto final por escrito do Paulo "Galator" e do braga (sem [GTOW]) · não travam esta rodada · bloqueado por: autores · desde: 2026-09-24
+- ✅ Depoimentos (B2) autorizados pelo Rafael em 30/09 (ok dos alunos): Paulo "Galator" inteiro; braga'-'279 sem [GTOW] e só em corte literal (E1/E2 fora de peça) · `09-depoimentos.md` · fechado 2026-09-30
 
 ## 4. Contratos que este repo FORNECE
 | Contrato | Consumidor | Formato e onde está documentado | Versão ou data |
