@@ -22,7 +22,7 @@
 | 06 | [stack de IA](06-stack-ia.md) | comparativo com preço, stack de ~US$ 100 e ~US$ 300, bíblia do personagem, prompts. **Fora desta rodada** |
 | 07 | [compliance](07-compliance.md) | checklist por anúncio, frases proibidas e substitutas, gambling, divulgação de IA, CONAR e CDC |
 | 08 | [concorrência](08-concorrencia.md) | o que a Biblioteca de Anúncios mostra e o espaço livre |
-| 09 | [depoimentos](09-depoimentos.md) | 2 depoimentos reais (autorização pendente) e a fala do Rafael (versão B, aprovada, com regra de posição) |
+| 09 | [depoimentos](09-depoimentos.md) | 2 depoimentos reais (autorizados em 30/09; o do braga só em corte literal) e a fala do Rafael (versão B, aprovada, com regra de posição) |
 
 ## Orçamento por fase (25/09)
 
@@ -54,7 +54,7 @@ Lista completa em `02 §9`. Em resumo:
 3. **Conta de anúncio:** forma de pagamento, verificação da empresa e do domínio, 2FA.
 4. **Criar a campanha** do `02 §4.1`. Agente não cria nada no Meta.
 5. **Sim para a leitura agregada do AuraBusiness** e autenticação do Stripe (B4), para medir o CAC.
-6. A14 (real no checkout) e as autorizações dos depoimentos (B2) **não travam este teste em EN**, mas travam qualquer anúncio em PT com preço e qualquer peça com depoimento.
+6. A14 (real no checkout) **não trava este teste em EN**, mas trava qualquer anúncio em PT com preço. Os depoimentos (B2) foram autorizados em 30/09.
 
 ## Limites
 

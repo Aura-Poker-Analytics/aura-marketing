@@ -14,26 +14,25 @@ Material para o redesign da landing e para os anúncios. Recebido do HUB em 22/0
 
 ### 1.1 braga'-'279 [GTOW] · 19/09/2026
 
-> **⚠️ AUTORIZAÇÃO PENDENTE: não publicar até o Rafael confirmar.**
-> Confirmar também se ele pode aparecer com o nome. Se não puder, assinar como "coach de MTT". A tag [GTOW] sugere vínculo com o GTO Wizard, e um nome ligado a um concorrente num anúncio da Aura é decisão do PO.
+> **✅ Autorizado pelo Rafael em 30/09 (ok dos alunos).**
+> Assina **"braga'-'279"**, sem a tag [GTOW] (decisão do PO: a tag sugere vínculo com o GTO Wizard, concorrente).
 
 **Original, verbatim:**
 > "Tenho alguns meses usando o Aura, principalmente para elaborar aulas e conteúdos de estudo. Facilita muito o trabalho de quem fica nessa parte mais cientifica do jogo. Normalmente uso os dados ali como referencia para começar estudos e investigar linhas, pois dessa forma economizo muito tempo. [...] A interface da ferramenta é bem didática e o suporte que vcs oferece é bom, sempre responderam minhas demandas de duvidas. Dashboard que vocês atualizaram recentemente tbm ficou muito bonito, parabéns pelo trabalho."
 
 O trecho omitido em "[...]" (H2N4, composição de range, EV) é feedback de produto, registrado no ECOSYSTEM §6.6. **Não entra em peça.**
 
-**Excertos aprovados pelo HUB para peça:**
+**Corte literal para peça (o usado na landing v3):** frases inteiras e contíguas do original, sem trocar palavra nem acento.
 
-- E1: "Facilita muito o trabalho de quem fica nessa parte mais científica do jogo. Uso os dados como referência para começar estudos e investigar linhas, e economizo muito tempo."
-- E2: "A interface é bem didática, e o suporte sempre respondeu minhas dúvidas."
+> "Tenho alguns meses usando o Aura, principalmente para elaborar aulas e conteúdos de estudo. Facilita muito o trabalho de quem fica nessa parte mais cientifica do jogo. Normalmente uso os dados ali como referencia para começar estudos e investigar linhas, pois dessa forma economizo muito tempo."
 
-**Observação de compliance:** os dois excertos vão além de cortes. O E1 corrige acentos e troca "Normalmente uso os dados ali como referencia… pois dessa forma" por "Uso os dados como referência… e". O E2 reescreve "o suporte que vcs oferece é bom, sempre responderam minhas demandas de duvidas". O sentido se mantém, mas pela regra 2 **a redação final precisa do OK do próprio autor**, junto com a autorização de uso. Se o autor não aprovar, use cortes literais do original.
+**Os excertos E1 e E2 de 22/09 não entram em peça** (decisão do PO, 30/09: sem reescrever a fala do aluno). Eles corrigiam acentos e reescreviam trechos, o que a regra 2 não permite sem o OK do autor.
 
 **Público que ele representa:** o arquétipo B do `02 §2`, quem estuda a fundo e dá aula.
 
 ### 1.2 Paulo "Galator" Moraes · 17/09/2026
 
-> **⚠️ AUTORIZAÇÃO PENDENTE: não publicar até o Rafael confirmar.**
+> **✅ Autorizado pelo Rafael em 30/09 (ok dos alunos).**
 
 **Original, verbatim, aprovado inteiro para peça:**
 > "O site é super intuitivo e fácil de achar informações. Então na prática, consegui encontrar padrões do field onde a simples frequência de fold ou call possibilitam exploits enormes e super simples de aplicar."
@@ -57,10 +56,12 @@ O trecho omitido em "[...]" (H2N4, composição de range, EV) é feedback de pro
 
 ## 3. Onde cada um entra
 
+Na landing em inglês os dois textos aparecem em tradução fiel, com o aviso "Translated from Portuguese" no card.
+
 | Peça | Depoimento | Condição |
 |---|---|---|
-| `/gto`, seção "por que confiar" (`03 §5.2`) | Paulo (texto inteiro) + braga E1 | depois das duas autorizações |
-| Landing principal, redesign: bloco de depoimentos | Paulo + braga E1/E2 | idem |
+| `/gto`, seção "por que confiar" (`03 §5.2`) | Paulo (texto inteiro) + braga (corte literal acima) | — |
+| Landing principal, redesign: bloco de depoimentos | Paulo + braga (corte literal acima) | — |
 | Landing principal, redesign: abertura de seção, manifesto ou "sobre" | fala do Rafael (versão B) | aprovada; **nunca** no bloco de depoimentos |
-| Carrossel de prova social (card extra no P1 ou no P3) | Paulo | autorização; nunca em anúncio com o analista de IA no mesmo quadro |
+| Carrossel de prova social (card extra no P1 ou no P3) | Paulo | nunca em anúncio com o analista de IA no mesmo quadro |
 | Reels | nenhum por enquanto | o formato de citação em tela é possível, mas depois de a Fase 1 medir os ângulos |
