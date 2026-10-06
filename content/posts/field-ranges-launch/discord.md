@@ -25,7 +25,7 @@ Contra 3-bet (não all-in), o BTN dá fold em 56,9% das vezes. O EP, em 39,0%. M
 - Mesa de 6 lugares para escolher as posições
 - Filtros de stack e de buy-in
 
-**Base:** os percentuais de fold vêm de 1,42 bi de decisões; a grade mão a mão e as 90 situações (cada uma com pelo menos 2.000 mãos com cartas conhecidas) vêm de 96,4 mi de mãos com cartas conhecidas. 20bb+, todos os buy-ins. É uma leitura do field a partir de mais de um bilhão de decisões reais.
+**Base:** 1,42 bi de decisões pré-flop e 96,4 mi de mãos com cartas conhecidas, 20bb+, todos os buy-ins.
 
 🔎 Está em Beta: abra um spot que você joga e conte aqui o que faltou ou o que ficou confuso.
 
@@ -50,7 +50,7 @@ Facing a non-all-in 3-bet, the BTN folds 56.9% of the time. EP folds 39.0%. Same
 - 6-seat table to pick the positions
 - Stack and buy-in filters
 
-**Data:** the fold percentages come from 1.42B decisions; the hand-by-hand grid and the 90 spots (each with at least 2,000 hands with known cards) come from 96.4M hands with known cards. 20bb+, all buy-ins. It is a read of the field built from over a billion real decisions.
+**Data:** 1.42B preflop decisions and 96.4M hands with known cards, 20bb+, all buy-ins.
 
 🔎 It is in Beta: open a spot you actually play and tell us here what is missing or confusing.
 
