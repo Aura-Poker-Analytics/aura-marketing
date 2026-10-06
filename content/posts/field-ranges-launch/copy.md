@@ -1,22 +1,22 @@
-# Field Ranges (Beta): copy de lançamento
+# Field Ranges: copy de lançamento
 
 Status: rascunho para aprovação do Rafael. Não publicado, sem commit.
 @aurapokeranalytics: a confirmar pelo Rafael. URLs com UTM prontas na tabela abaixo.
 Fonte única dos números: `numeros-verificados.md` (mesma pasta). Stacks de 20bb+, todos os buy-ins.
 
 ## URLs por peça
-Base: `https://www.aura.poker/` + `?utm_source=<fonte>&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=<peça>`
+Regra: Discord leva ao app (`https://www.aura.poker/`); Instagram leva à landing (`https://www.aurapoker.com/`). Parâmetros: `utm_source=<fonte>&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=<peça>`.
 
-| Peça | utm_source | utm_content | URL |
-|---|---|---|---|
-| Discord PT | discord | discord-pt | https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=discord-pt |
-| Discord EN | discord | discord-en | https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=discord-en |
-| Feed (link na bio) | instagram | feed | https://www.aura.poker/?utm_source=instagram&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=feed |
-| Story (sticker de link) | instagram | story | https://www.aura.poker/?utm_source=instagram&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=story |
-| Carrossel (link na bio) | instagram | carrossel | https://www.aura.poker/?utm_source=instagram&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=carrossel |
-| Landing (botão de CTA) | landing | landing | https://www.aura.poker/?utm_source=landing&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=landing |
+| Peça | Destino | utm_source | utm_content | URL |
+|---|---|---|---|---|
+| Discord PT | app | discord | discord-pt | https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=discord-pt |
+| Discord EN | app | discord | discord-en | https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=discord-en |
+| Feed (link na bio) | landing | instagram | feed | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=feed |
+| Story (sticker de link) | landing | instagram | story | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=story |
+| Carrossel (link na bio) | landing | instagram | carrossel | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=carrossel |
+| Landing (botão de CTA, para o app) | app | landing | landing | https://www.aura.poker/?utm_source=landing&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=landing |
 
-Observação: para a landing o `utm_source` não estava na lista (discord|instagram); usei `landing`. Ajustar se o Rafael preferir outro valor.
+Observação: para o botão da landing o `utm_source` não estava na lista (discord|instagram); mantive `landing`. Ajustar se o Rafael preferir outro valor.
 
 ## Rodapés padrão (dois, conforme o número usado)
 - **Rodapé DECISÕES** (qualquer arte que use 56,9% e 39,0%, e as sem número de fold):
@@ -83,7 +83,7 @@ Data: Aura, 1.42B decisions. 18+.
 
 ## Story (1080x1920)
 
-Nota ao designer (todas as artes de Instagram): sem selo, kicker nem texto "Beta"; o kicker é só "FIELD RANGES". Sem convite a feedback nas artes e legendas.
+Nota ao designer (Instagram e landing): sem selo, kicker nem convite a feedback; o kicker é só "FIELD RANGES". Decisão do Rafael: só o Discord (comunidade) mantém o selo Beta e o pedido de feedback.
 
 Texto na arte (PT), 3 telas curtas em um único story:
 - Topo: FIELD RANGES
@@ -96,7 +96,7 @@ Texto na arte (EN):
 - Center: "AA in the BB vs a CO open: the field only calls 13%." + "(84% non-all-in 3-bet, 3% all-in)"
 - Bottom: "See the grid, hand by hand." + button "Free account" + "18+"
 
-Instrução ao designer (fora do texto da arte): o botão de CTA é o sticker de link do Instagram, com o texto "Conta grátis" / "Free account". Sticker de enquete opcional: "Você 3-beta AA ali?" / "Do you 3-bet AA there?" com opções Sempre / Às vezes. / Always / Sometimes.
+Instrução ao designer (fora do texto da arte): o botão de CTA é o sticker de link do Instagram, com o texto "Conta grátis" / "Free account". Sticker de enquete opcional: "Você dá 3-bet com AA ali?" / "Do you 3-bet AA there?" com opções Sempre / Às vezes. / Always / Sometimes.
 
 ## Carrossel (6 slides, 1080x1350)
 
@@ -177,8 +177,8 @@ Data: Aura, 1.42B decisions (the AA 13% comes from 96.4M hands with known cards)
 - EN: See how the field plays every hand
 
 ## Subtítulo
-- PT: Field Ranges (Beta): uma grade 13x13 para cada spot pré-flop, com a trilha open, 3-bet, 4-bet e all-in. Leitura do field a partir de mais de um bilhão de decisões reais, stacks de 20bb+, todos os buy-ins.
-- EN: Field Ranges (Beta): a 13x13 grid for every preflop spot, following the trail open, 3-bet, 4-bet and all-in. A read of the field built from over a billion real decisions, 20bb+ stacks, all buy-ins.
+- PT: Field Ranges: uma grade 13x13 para cada spot pré-flop, com a trilha open, 3-bet, 4-bet e all-in. Leitura do field a partir de mais de um bilhão de decisões reais, stacks de 20bb+, todos os buy-ins.
+- EN: Field Ranges: a 13x13 grid for every preflop spot, following the trail open, 3-bet, 4-bet and all-in. A read of the field built from over a billion real decisions, 20bb+ stacks, all buy-ins.
 
 ## 3 bullets
 PT:
@@ -191,8 +191,8 @@ EN:
 - Follow the trail: pick positions on the 6-seat table, step from open to all-in and filter by stack and buy-in. 90 spots with a grid.
 - Find where to exploit: facing a non-all-in 3-bet, the BTN folds 56.9% of the time. EP folds 39.0%. Built on 1.42B decisions and 96.4M hands with known cards.
 
-Nota de rodapé da seção (PT): "O fold de 56,9% e 39,0% é contra 3-bet não all-in e conta decisões, não mãos. Leitura do field a partir de mais de um bilhão de decisões reais. Beta: conte o que faltou."
-Footnote (EN): "The 56.9% and 39.0% folds are against non-all-in 3-bets and count decisions, not hands. A read of the field built from over a billion real decisions. Beta: tell us what is missing."
+Nota de rodapé da seção (PT): "O fold de 56,9% e 39,0% é contra 3-bet não all-in e conta decisões, não mãos. Leitura do field a partir de mais de um bilhão de decisões reais."
+Footnote (EN): "The 56.9% and 39.0% folds are against non-all-in 3-bets and count decisions, not hands. A read of the field built from over a billion real decisions."
 CTA: PT "Criar conta grátis" / EN "Create free account".
 Números usados na landing: 56,9%, 39,0% (seção 3), 90 (seção 2), 1,42 bi, 96,4 mi (seção 1). Esses números ficam só no texto, nunca atribuídos a uma imagem.
 
@@ -203,8 +203,8 @@ Números usados na landing: 56,9%, 39,0% (seção 3), 90 (seção 2), 1,42 bi, 9
 - EN: "13x13 poker hand grid for the spot CO opens and SB 3-bets all-in, showing the CO's response. Each cell is a hand, colored by the field's fold and call frequency."
 
 ### Imagem 2: trilha da mão com a mesa
-- PT: "Painel do Field Ranges (Beta): mesa de 6 lugares com CO abrindo e SB dando 3-bet, botões de próximo passo (4Bet e 4Bet all-in) e filtros de stack efetivo e buy-in."
-- EN: "Field Ranges (Beta) panel: 6-seat table with CO opening and SB 3-betting, next-step buttons (4Bet and 4Bet all-in) and effective stack and buy-in filters."
+- PT: "Painel do Field Ranges: mesa de 6 lugares com CO abrindo e SB dando 3-bet, botões de próximo passo (4Bet e 4Bet all-in) e filtros de stack efetivo e buy-in."
+- EN: "Field Ranges panel: 6-seat table with CO opening and SB 3-betting, next-step buttons (4Bet and 4Bet all-in) and effective stack and buy-in filters."
 
 ### Imagem 3: contraste entre dois spots
 - PT: "Duas grades 13x13 lado a lado: como o BB responde ao open do EP e ao open do CO. Cada célula é uma mão, colorida por fold, call, 3-bet e 3-bet all-in."

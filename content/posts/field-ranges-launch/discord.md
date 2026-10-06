@@ -29,7 +29,7 @@ Contra 3-bet (não all-in), o BTN dá fold em 56,9% das vezes. O EP, em 39,0%. M
 
 🔎 Está em Beta: abra um spot que você joga e conte aqui o que faltou ou o que ficou confuso.
 
-👉 Teste grátis: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=discord-pt
+👉 Teste grátis: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=discord-pt
 ```
 
 ## EN
@@ -54,5 +54,5 @@ Facing a non-all-in 3-bet, the BTN folds 56.9% of the time. EP folds 39.0%. Same
 
 🔎 It is in Beta: open a spot you actually play and tell us here what is missing or confusing.
 
-👉 Try it free: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=discord-en
+👉 Try it free: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-launch&utm_content=discord-en
 ```
