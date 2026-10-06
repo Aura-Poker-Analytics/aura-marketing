@@ -5,13 +5,13 @@ Atualizado em: 2026-10-06 · por: sessão `aura · Field Ranges · pacote de lan
 Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de tarefa atualiza este arquivo antes de fechar. "Em andamento" tem no máximo dois itens.
 
 ## 1. Implementado
-- Pacote de lançamento do Field Ranges (Beta), sem publicar: Discord PT/EN, Instagram (feed, story, carrossel de 6) PT/EN, mockups e texto da landing em `content/posts/field-ranges-launch/` (revisão de marca: 3 rodadas, ver §3).
+- Pacote de lançamento do Field Ranges (Beta), sem publicar: Discord PT/EN, Instagram (feed, story, carrossel de 6) PT/EN, mockups e texto da landing em `content/posts/field-ranges-launch/` (revisão de marca em 4 rodadas, OK com ressalvas na final; HUB aprovou o pacote em 3acf1ae).
 
 ## 2. Em andamento (máx. 2)
-- **Pacote Field Ranges** · branch `feature/launch-field-ranges` · onde parou: PR aberto, nada publicado · próximo passo: Rafael confirma URL/UTMs/@ e decide publicação · doc: `content/posts/field-ranges-launch/copy.md`
+- **Pacote Field Ranges** · branch `feature/launch-field-ranges` · onde parou: PR #2 aberto (3acf1ae), nada publicado, pacote fechado do lado da sessão · próximo passo: merge do PR #2 e postagens são do Rafael; a landing lê os mockups deste worktree (não remover até o merge); só o @aurapokeranalytics a confirmar · doc: `content/posts/field-ranges-launch/copy.md`
 
 ## 3. Bloqueado ou na mão do PO
-- Publicação: quem posta é o Rafael; URL final, UTMs e @ do perfil a confirmar (placeholders em `discord.md` e `copy.md`) · desde: 2026-10-06
+- Publicação: quem posta é o Rafael; URLs com UTM já definidas (tabela no `copy.md`), falta confirmar o @ do perfil · desde: 2026-10-06
 - Números: só `numeros-verificados.md` (lake congelado desde 20/08, estimativa do field); o Field Ranges só vai ao ar com o merge e o promote do Rafael no aura-main · desde: 2026-10-06
 
 ## 4. Contratos que este repo FORNECE
