@@ -29,7 +29,7 @@ def crop(src, dst, box):
     im.crop((x0, y0, x1, y1)).save(ASSETS / dst)
 
 
-def lift_dim_labels(path):
+def lift_dim_labels(path, origin=(196, 684)):
     """Slide 2: so o rotulo das celulas sem massa (cinza apagado, ~2,4:1) sobe para ~7:1.
     O preenchimento das celulas nao muda. Geometria da grade: 13x13 do app, passo 55,6 px (capturas a 2000 px)."""
     import numpy as np
@@ -41,8 +41,8 @@ def lift_dim_labels(path):
     n = 0
     for j in range(13):
         for i in range(13):
-            cx = round((255 + 55.6 * i - 196) * S)
-            cy = round((744 + 55.55 * j - 684) * S)
+            cx = round((255 + 55.6 * i - origin[0]) * S)
+            cy = round((744 + 55.55 * j - origin[1]) * S)
             if np.abs(a[cy - 30, cx - 30] - bg).sum() > 6:   # nao e celula apagada
                 continue
             box = a[cy - 18:cy + 18, cx - 32:cx + 32]

@@ -1,7 +1,7 @@
 # E-mail: lançamento do Field Ranges
 
 Status: rascunho para aprovação do Rafael. Não enviado.
-Único número usado: 1,42 bi de decisões pré-flop, 20bb+ (`numeros-verificados.md` §1), na linha "Dados: Aura · 1,42 bi de decisões · 20bb+". Sem exemplo de spot, sem frequência de fold, sem selo nem menção a Beta, sem pedido de feedback.
+Único número usado: 1,42 bi de decisões pré-flop, 20bb+ (`numeros-verificados.md` §1), na linha "Dados: Aura · 1,42 bi de decisões · 20bb+". Sem frequência de fold, sem selo de fase nem pedido de feedback.
 HTML pronto: `email-pt.html` e `email-en.html` (mesma pasta).
 
 ---
@@ -27,7 +27,7 @@ Serve para ver onde o field joga diferente, mão a mão, e explorar isso na mesa
 
 Dados: Aura · 1,42 bi de decisões · 20bb+
 
-Botão: Abrir o Field Ranges
+Botão: Acesse grátis
 Sob o botão: Com a sua conta grátis. Poker é jogo de habilidade e estudo. 18+.
 
 ---
@@ -53,14 +53,14 @@ Use it to see where the field plays differently, hand by hand, and exploit it at
 
 Data: Aura · 1.42B decisions · 20bb+
 
-Button: Open Field Ranges
+Button: Get free access
 Under the button: With your free account. Poker is a game of skill and study. 18+.
 
 ---
 
 ## Nota técnica
 
-- **Sem imagem:** só texto e botão. A grade do mockup anterior mostrava um spot com posições, o que o feedback do Rafael vetou. Se quiser imagem, tem de ser uma grade sem spot nomeado.
+- **Imagem:** a grade 13x13 do app (`email/field-ranges-pt.png` e `-en.png`, 1200 px de largura, exibida a 552 px, fundo #0b1220, sem transparência), logo abaixo do texto e antes do botão. Só o cartão da grade com a legenda, sem título de spot, sem selo de fase e sem percentuais. Hospedar em `https://www.aurapoker.com/email/` antes do envio. Os `*.preview.html` usam o caminho relativo `email/` para abrir do disco.
 - **Logo:** `https://www.aura.poker/email/aura-logo.png` (já hospedado).
 - **Link do CTA (sempre a landing, nunca o app/login; `www.aurapoker.com` com www):**
   - PT: https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=field-ranges-launch&utm_content=pt
