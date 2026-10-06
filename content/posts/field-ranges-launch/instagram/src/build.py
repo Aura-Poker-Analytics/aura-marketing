@@ -138,11 +138,12 @@ KICK = '<div class="kicker">Field Ranges · Beta</div>'
 
 T = {
     "pt": {
-        "sample_hands": "Dados: Aura · 96,4 mi de mãos com cartas conhecidas · estimativa do field · 20bb+ · 18+",
-        "sample_dec": "Dados: Aura · 1,42 bi de decisões · estimativa do field · 20bb+ · 18+",
+        "sample_hands": "Dados: Aura · 96,4 mi de mãos com cartas conhecidas · 20bb+ · 18+",
+        "sample_dec": "Dados: Aura · 1,42 bi de decisões · 20bb+ · 18+",
         "btn": "BTN", "ep": "EP", "v_btn": "56,9%", "v_ep": "39,0%",
         "feed_title": "ONDE O FIELD <em>JOGA DIFERENTE</em>",
-        "feed_l1": "BTN folda <b>56,9%</b> contra 3-bet <span class='q'>(não all-in)</span>",
+        "feed_spot": "Contra 3-bet (não all-in)",
+        "feed_l1": "BTN folda <b>56,9%</b>",
         "feed_l2": "EP folda <b>39,0%</b>",
         "feed_note": "Fold contra 3-bet não all-in",
         "st_quote1": "AA no BB contra open do CO:",
@@ -165,7 +166,7 @@ T = {
         "s4_x": "AA no BB contra open do CO: o field só paga <b>13%</b> (<b>84%</b> dão 3-bet não all-in, <b>3%</b> vão all-in).",
         "s4_n": "contra 3-bet não all-in",
         "s5_t": "EM <em>BETA</em>, COM VOCÊ",
-        "s5_b": "Estimativa do field sobre <b>1,42 bi</b> de decisões e <b>96,4 mi</b> de mãos com cartas conhecidas. 20bb+, todos os buy&#8209;ins.",
+        "s5_b": "Leitura do field sobre <b>1,42 bi</b> de decisões e <b>96,4 mi</b> de mãos com cartas conhecidas. 20bb+, todos os buy&#8209;ins.",
         "s5_h": "Abra um spot que você joga e diga o que faltou.",
         "s5_n1": "1,42 bi", "s5_l1": "decisões", "s5_n2": "96,4 mi", "s5_l2": "mãos com cartas conhecidas",
         "s6_t": "ABRA O <em>FIELD RANGES</em>",
@@ -174,11 +175,12 @@ T = {
         "trail": ["Open", "3-bet", "4-bet", "All-in"],
     },
     "en": {
-        "sample_hands": "Data: Aura · 96.4M hands with known cards · field estimate · 20bb+ · 18+",
-        "sample_dec": "Data: Aura · 1.42B decisions · field estimate · 20bb+ · 18+",
+        "sample_hands": "Data: Aura · 96.4M hands with known cards · 20bb+ · 18+",
+        "sample_dec": "Data: Aura · 1.42B decisions · 20bb+ · 18+",
         "btn": "BTN", "ep": "EP", "v_btn": "56.9%", "v_ep": "39.0%",
         "feed_title": "WHERE THE FIELD <em>PLAYS DIFFERENTLY</em>",
-        "feed_l1": "BTN folds <b>56.9%</b> facing a <span class='q'>non-all-in 3-bet</span>",
+        "feed_spot": "Facing a non-all-in 3-bet",
+        "feed_l1": "BTN folds <b>56.9%</b>",
         "feed_l2": "EP folds <b>39.0%</b>",
         "feed_note": "Fold against non-all-in 3-bets",
         "st_quote1": "AA in the BB vs a CO open:",
@@ -201,7 +203,7 @@ T = {
         "s4_x": "AA in the BB vs a CO open: the field only calls <b>13%</b> (<b>84%</b> non-all-in 3-bet, <b>3%</b> all-in).",
         "s4_n": "against non-all-in 3-bets",
         "s5_t": "<em>BETA</em>, WITH YOU",
-        "s5_b": "Field estimate over <b>1.42B</b> decisions and <b>96.4M</b> hands with known cards. 20bb+, all buy&#8209;ins.",
+        "s5_b": "A read of the field over <b>1.42B</b> decisions and <b>96.4M</b> hands with known cards. 20bb+, all buy&#8209;ins.",
         "s5_h": "Open a spot you play and tell us what's missing.",
         "s5_n1": "1.42B", "s5_l1": "decisions", "s5_n2": "96.4M", "s5_l2": "hands with known cards",
         "s6_t": "OPEN <em>FIELD RANGES</em>",
@@ -223,20 +225,20 @@ def feed(lang):
 .page { padding-top: 64px; }
 .top { margin-top: 70px; }
 .title { font-size: 92px; margin-top: 30px; }
-.rows { margin-top: 76px; display: flex; flex-direction: column; gap: 68px; }
+.spot { margin-top: 48px; font-size: 40px; font-weight: 700; color: var(--amber); }
+.rows { margin-top: 44px; display: flex; flex-direction: column; gap: 52px; }
 .row .q { white-space: nowrap; }
-.row .l { font-size: 44px; font-weight: 600; line-height: 1.2; color: var(--ink-soft); }
-.row .l b { color: var(--amber); font-weight: 900; font-size: 62px; }
-.row .fbar { height: 56px; margin-top: 28px; }
-.axis { display: flex; justify-content: space-between; margin-top: 14px; font-size: 21px; font-weight: 600; color: var(--ink-mute); position: relative; }
+.row .l { font-size: 56px; font-weight: 600; line-height: 1.2; color: var(--ink-soft); }
+.row .l b { color: var(--amber); font-weight: 900; font-size: 78px; }
+.row .fbar { height: 64px; margin-top: 26px; }
 .note { margin-top: 36px; font-size: 28px; font-weight: 600; color: var(--ink-mute); letter-spacing: 0.04em; }
 """
     inner = lockup('<span class="beta">BETA</span>') + f"""
 <div class="top z">{KICK}<h1 class="title">{t['feed_title']}</h1></div>
+<div class="spot z">{t['feed_spot']}</div>
 <div class="rows z">
-  <div class="row"><div class="l">{t['feed_l1']}</div><div class="fbar"><i style="width:56.9%"></i><u></u></div></div>
-  <div class="row"><div class="l">{t['feed_l2']}</div><div class="fbar"><i style="width:39.0%"></i><u></u></div>
-    <div class="axis"><span>0%</span><span style="position:absolute;left:50%;transform:translateX(-50%)">50%</span><span>100%</span></div></div>
+  <div class="row"><div class="l">{t['feed_l1']}</div><div class="fbar"><i style="width:56.9%"></i></div></div>
+  <div class="row"><div class="l">{t['feed_l2']}</div><div class="fbar"><i style="width:39.0%"></i></div></div>
 </div>
 {footer(t)}"""
     return page(lang, 1350, inner, css)
@@ -340,16 +342,14 @@ def carousel(lang, n):
 .r .nm { width: 128px; font-size: 44px; font-weight: 800; color: #fff; }
 .r .fbar { flex: 1; margin-top: 0; height: 70px; }
 .r .v { width: 230px; text-align: right; font-size: 68px; font-weight: 900; color: var(--amber); font-variant-numeric: tabular-nums; }
-.axis { display: flex; justify-content: space-between; margin: -22px 254px 0 152px; font-size: 22px; font-weight: 600; color: var(--ink-mute); position: relative; }
 .hl { font-size: 38px; }
 """
         inner = slide_head(4) + slide_title(t, "s4_t") + f"""
 <div class="mid z">
 <div class="body"><p>{t['s4_b']}</p></div>
 <div class="rows">
- <div class="r"><span class="nm">BTN</span><div class="fbar"><i style="width:56.9%"></i><u></u></div><span class="v">{t['v_btn']}</span></div>
- <div class="r"><span class="nm">EP</span><div class="fbar"><i style="width:39.0%"></i><u></u></div><span class="v">{t['v_ep']}</span></div>
- <div class="axis"><span>0%</span><span style="position:absolute;left:50%;transform:translateX(-50%)">50%</span><span>100%</span></div>
+ <div class="r"><span class="nm">BTN</span><div class="fbar"><i style="width:56.9%"></i></div><span class="v">{t['v_btn']}</span></div>
+ <div class="r"><span class="nm">EP</span><div class="fbar"><i style="width:39.0%"></i></div><span class="v">{t['v_ep']}</span></div>
 </div>
 <div class="hl">{t['s4_h']}</div>
 </div>

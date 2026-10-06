@@ -84,7 +84,6 @@ footer { margin-top: auto; position: relative; z-index: 3; border-top: 2px solid
 /* barras de fold */
 .fbar { margin-top: 18px; position: relative; height: 34px; background: rgba(30, 41, 59, 0.85); border-radius: 999px; }
 .fbar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, #015A6B, #0E8AA3); box-shadow: inset 0 0 0 2px rgba(103, 232, 249, 0.35); }
-.fbar u { position: absolute; left: 50%; top: -8px; bottom: -8px; width: 3px; background: rgba(251, 191, 36, 0.75); border-radius: 2px; text-decoration: none; }
 .fline { font-size: 33px; font-weight: 600; color: var(--ink-soft); }
 .fline b { color: #fff; font-weight: 900; }
 

@@ -3,7 +3,7 @@
 Status: rascunho para aprovação do Rafael. Não publicado.
 Números usados (todos de `numeros-verificados.md`): 1,42 bi de decisões, 96,4 mi de mãos com cartas conhecidas, 90 situações, BTN 56,9% e EP 39,0% de fold contra 3-bet não all-in, 20bb+.
 O exemplo "CO abre, SB dá 3-bet all-in" é só o spot, sem número de frequência (não há número verificado para ele).
-URL, UTMs e @ do perfil a confirmar antes de publicar.
+URLs com UTM prontas abaixo (uma por peça). @aurapokeranalytics: a confirmar pelo Rafael.
 
 ---
 
@@ -25,11 +25,11 @@ Contra 3-bet (não all-in), o BTN dá fold em 56,9% das vezes. O EP, em 39,0%. M
 - Mesa de 6 lugares para escolher as posições
 - Filtros de stack e de buy-in
 
-**Base:** os percentuais de fold vêm de 1,42 bi de decisões; a grade mão a mão e as 90 situações (cada uma com pelo menos 2.000 mãos com cartas conhecidas) vêm de 96,4 mi de mãos com cartas conhecidas. 20bb+, todos os buy-ins. É estimativa do field, não range exato.
+**Base:** os percentuais de fold vêm de 1,42 bi de decisões; a grade mão a mão e as 90 situações (cada uma com pelo menos 2.000 mãos com cartas conhecidas) vêm de 96,4 mi de mãos com cartas conhecidas. 20bb+, todos os buy-ins. É uma leitura do field a partir de mais de um bilhão de decisões reais.
 
 🔎 Está em Beta: abra um spot que você joga e conte aqui o que faltou ou o que ficou confuso.
 
-👉 Teste grátis: [URL FINAL + UTM A CONFIRMAR]
+👉 Teste grátis: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=discord-pt
 ```
 
 ## EN
@@ -50,9 +50,9 @@ Facing a non-all-in 3-bet, the BTN folds 56.9% of the time. EP folds 39.0%. Same
 - 6-seat table to pick the positions
 - Stack and buy-in filters
 
-**Data:** the fold percentages come from 1.42B decisions; the hand-by-hand grid and the 90 spots (each with at least 2,000 hands with known cards) come from 96.4M hands with known cards. 20bb+, all buy-ins. It is a field estimate, not an exact range.
+**Data:** the fold percentages come from 1.42B decisions; the hand-by-hand grid and the 90 spots (each with at least 2,000 hands with known cards) come from 96.4M hands with known cards. 20bb+, all buy-ins. It is a read of the field built from over a billion real decisions.
 
 🔎 It is in Beta: open a spot you actually play and tell us here what is missing or confusing.
 
-👉 Try it free: [FINAL URL + UTM TO CONFIRM]
+👉 Try it free: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=field-ranges-beta&utm_content=discord-en
 ```
