@@ -1,4 +1,4 @@
-"""Field Ranges (Beta) - build das artes de lancamento.
+"""Field Ranges - build das artes de lancamento.
 
 1. recorta as capturas brutas (mockups/raw) -> src/assets
 2. gera os HTMLs-fonte em src/
@@ -58,7 +58,7 @@ def make_assets():
     for lang in ("pt", "en"):
         # titulo do spot + cartao da grade (sem o painel lateral com percentuais, sem a navegacao)
         crop(f"{lang}-01-grade-allin.png", f"{lang}-a-grade.png", (190, 610, 990, 1520))
-        crop(f"{lang}-02-trilha-mesa.png", f"{lang}-b-trilha.png", (176, 108, 1824, 679))
+        crop(f"{lang}-02-trilha-mesa.png", f"{lang}-b-trilha.png", (176, 160, 1824, 679))
         crop(f"{lang}-03a-bb-vs-ep.png", f"{lang}-c1.png", (190, 610, 990, 1520))
         crop(f"{lang}-03b-bb-vs-co.png", f"{lang}-c2.png", (190, 610, 990, 1520))
         # so o cartao da grade (para os slides)
@@ -134,7 +134,7 @@ def footer(T, kind="dec"):
 <div class="sample">{T['sample_' + kind]}</div></div><span class="age">18+</span></footer>"""
 
 
-KICK = '<div class="kicker">Field Ranges · Beta</div>'
+KICK = '<div class="kicker">Field Ranges</div>'
 
 T = {
     "pt": {
@@ -165,10 +165,10 @@ T = {
         "s4_h": "BTN larga mais da metade: o seu 3-bet tende a ter mais fold equity. EP: mais critério.",
         "s4_x": "AA no BB contra open do CO: o field só paga <b>13%</b> (<b>84%</b> dão 3-bet não all-in, <b>3%</b> vão all-in).",
         "s4_n": "contra 3-bet não all-in",
-        "s5_t": "EM <em>BETA</em>, COM VOCÊ",
-        "s5_b": "Leitura do field sobre <b>1,42 bi</b> de decisões e <b>96,4 mi</b> de mãos com cartas conhecidas. 20bb+, todos os buy&#8209;ins.",
-        "s5_h": "Abra um spot que você joga e diga o que faltou.",
-        "s5_n1": "1,42 bi", "s5_l1": "decisões", "s5_n2": "96,4 mi", "s5_l2": "mãos com cartas conhecidas",
+        "s5_t": "A <em>BASE</em> POR TRÁS DA GRADE",
+        "s5_b": "Leitura do field sobre <b>1,42 bi</b> de decisões pré-flop reais. Stacks de 20bb+, todos os buy&#8209;ins.",
+        "s5_btn": "Conta grátis",
+        "s5_n1": "1,42 bi", "s5_l1": "decisões pré-flop reais",
         "s6_t": "ABRA O <em>FIELD RANGES</em>",
         "s6_b": "Crie sua conta grátis e veja o seu próximo spot.",
         "s6_btn": "Link na bio",
@@ -202,10 +202,10 @@ T = {
         "s4_h": "BTN gives up more than half: your 3-bet tends to carry more fold equity. EP: more care.",
         "s4_x": "AA in the BB vs a CO open: the field only calls <b>13%</b> (<b>84%</b> non-all-in 3-bet, <b>3%</b> all-in).",
         "s4_n": "against non-all-in 3-bets",
-        "s5_t": "<em>BETA</em>, WITH YOU",
-        "s5_b": "A read of the field over <b>1.42B</b> decisions and <b>96.4M</b> hands with known cards. 20bb+, all buy&#8209;ins.",
-        "s5_h": "Open a spot you play and tell us what's missing.",
-        "s5_n1": "1.42B", "s5_l1": "decisions", "s5_n2": "96.4M", "s5_l2": "hands with known cards",
+        "s5_t": "THE <em>DATA</em> BEHIND THE GRID",
+        "s5_b": "A read of the field over <b>1.42B</b> real preflop decisions. 20bb+ stacks, all buy&#8209;ins.",
+        "s5_btn": "Free account",
+        "s5_n1": "1.42B", "s5_l1": "real preflop decisions",
         "s6_t": "OPEN <em>FIELD RANGES</em>",
         "s6_b": "Create your free account and see your next spot.",
         "s6_btn": "Link in bio",
@@ -233,7 +233,7 @@ def feed(lang):
 .row .fbar { height: 64px; margin-top: 26px; }
 .note { margin-top: 36px; font-size: 28px; font-weight: 600; color: var(--ink-mute); letter-spacing: 0.04em; }
 """
-    inner = lockup('<span class="beta">BETA</span>') + f"""
+    inner = lockup() + f"""
 <div class="top z">{KICK}<h1 class="title">{t['feed_title']}</h1></div>
 <div class="spot z">{t['feed_spot']}</div>
 <div class="rows z">
@@ -265,7 +265,7 @@ def story(lang):
 """
     inner = f"""
 <div class="z">{lockup()}</div>
-<div class="kick z"><span class="k">Field Ranges</span><span class="beta">BETA</span></div>
+<div class="kick z"><span class="k">Field Ranges</span></div>
 <div class="q1 z">{t['st_quote1']}</div>
 <div class="q2 z">{t['st_quote2']}</div>
 <div class="q3 z grad">{t['st_v']}</div>
@@ -359,19 +359,17 @@ def carousel(lang, n):
     if n == 5:
         css = """
 .body { margin-top: 44px; }
-.tiles { margin-top: 56px; display: flex; gap: 26px; }
-.tile { flex: 1; background: rgba(15,23,42,.85); border: 1.5px solid rgba(251,191,36,.3); border-radius: 24px; padding: 44px 34px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
-.tile .n { font-size: 92px; font-weight: 900; line-height: 1; }
-.tile .l { margin-top: 18px; font-size: 34px; font-weight: 600; color: var(--ink-soft); line-height: 1.3; }
-.hl { margin-top: 64px; font-size: 38px; }
-.big-beta { margin-top: 40px; }
+.tile { margin-top: 56px; background: rgba(15,23,42,.85); border: 1.5px solid rgba(251,191,36,.3); border-radius: 28px; padding: 56px 48px; box-shadow: 0 30px 80px rgba(0,0,0,.5); text-align: center; }
+.tile .n { font-size: 150px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; }
+.tile .l { margin-top: 22px; font-size: 38px; font-weight: 600; color: var(--ink-soft); }
+.btnwrap { margin-top: 56px; text-align: center; }
+.btn { display: inline-block; font-size: 40px; font-weight: 900; letter-spacing: 0.04em; color: #0F1526; background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; padding: 26px 66px; box-shadow: 0 16px 50px rgba(245,158,11,.4); }
 """
         inner = slide_head(5) + slide_title(t, "s5_t", 78) + f"""
 <div class="body z"><p>{t['s5_b']}</p></div>
-<div class="tiles z"><div class="tile"><div class="n grad">{t['s5_n1']}</div><div class="l">{t['s5_l1']}</div></div>
-<div class="tile"><div class="n grad">{t['s5_n2']}</div><div class="l">{t['s5_l2']}</div></div></div>
-<div class="hl z">{t['s5_h']}</div>
-{footer(t, "hands")}"""
+<div class="tile z"><div class="n grad">{t['s5_n1']}</div><div class="l">{t['s5_l1']}</div></div>
+<div class="btnwrap z"><span class="btn">{t['s5_btn']}</span></div>
+{footer(t)}"""
         return page(lang, 1350, inner, css)
 
     if n == 6:

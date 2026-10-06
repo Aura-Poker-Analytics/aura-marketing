@@ -26,7 +26,7 @@ Observação: para a landing o `utm_source` não estava na lista (discord|instag
   - PT: "Dados: Aura · 96,4 mi de mãos com cartas conhecidas · 20bb+ · 18+"
   - EN: "Data: Aura · 96.4M hands with known cards · 20bb+ · 18+"
 
-Qual rodapé vale por peça: feed = decisões; story = mãos (único lugar do 13%/AA); slides 1, 2, 3, 4 e 6 = decisões; slide 5 = mãos. Regra: nenhuma arte mistura número de decisões e de mãos sob o mesmo rodapé.
+Qual rodapé vale por peça: feed = decisões; story = mãos (único lugar do 13%/AA); slides 1 a 6 = decisões (o slide 5 agora cita só o 1,42 bi). Regra: nenhuma arte mistura número de decisões e de mãos sob o mesmo rodapé.
 Regras de leitura: "decisões" nunca é "mãos"; o fold de 56,9% e 39,0% é contra 3-bet não all-in; o 13% do AA é "paga em vez de dar 3-bet". Na UI os botões se chamam 3Bet/4Bet; no texto corrido usamos 3-bet/4-bet.
 
 ---
@@ -57,9 +57,7 @@ O BTN abre o range mais largo e é quem mais desiste contra 3-bet (não all-in):
 
 Mesma ação, field diferente por posição. Se o BTN larga mais da metade das vezes, o seu 3-bet tende a ter mais fold equity ali. Contra o EP, o 3-bet pede mais critério.
 
-Field Ranges (Beta) mostra isso numa grade 13x13, mão a mão, com a trilha open, 3-bet, 4-bet, all-in. Stacks de 20bb+, todos os buy-ins. Uma leitura do field a partir de mais de um bilhão de decisões reais.
-
-Está em Beta: abra um spot que você joga e conte o que faltou.
+O Field Ranges mostra isso numa grade 13x13, mão a mão, com a trilha open, 3-bet, 4-bet, all-in. Stacks de 20bb+, todos os buy-ins. Uma leitura do field a partir de mais de um bilhão de decisões reais.
 
 Crie sua conta grátis, link na bio.
 
@@ -74,9 +72,7 @@ The BTN opens the widest range and is the position that gives up the most agains
 
 Same action, different field by position. If the BTN folds more than half the time, your 3-bet tends to carry more fold equity there. Against EP, the 3-bet needs more care.
 
-Field Ranges (Beta) shows it on a 13x13 grid, hand by hand, following the trail open, 3-bet, 4-bet, all-in. 20bb+, all buy-ins. A read of the field built from over a billion real decisions.
-
-It is in Beta: open a spot you play and tell us what is missing.
+Field Ranges shows it on a 13x13 grid, hand by hand, following the trail open, 3-bet, 4-bet, all-in. 20bb+, all buy-ins. A read of the field built from over a billion real decisions.
 
 Create your free account, link in bio.
 
@@ -87,14 +83,16 @@ Data: Aura, 1.42B decisions. 18+.
 
 ## Story (1080x1920)
 
+Nota ao designer (todas as artes de Instagram): sem selo, kicker nem texto "Beta"; o kicker é só "FIELD RANGES". Sem convite a feedback nas artes e legendas.
+
 Texto na arte (PT), 3 telas curtas em um único story:
-- Topo: FIELD RANGES · BETA
+- Topo: FIELD RANGES
 - Centro: "AA no BB contra open do CO: o field só paga 13%." + "(84% dão 3-bet não all-in, 3% vão all-in)"
 - Base: "Veja a grade, mão a mão." + botão "Conta grátis" + "18+"
 - Números usados: 13%, 84%, 3% (seção 4). Rodapé: MÃOS.
 
 Texto na arte (EN):
-- Top: FIELD RANGES · BETA
+- Top: FIELD RANGES
 - Center: "AA in the BB vs a CO open: the field only calls 13%." + "(84% non-all-in 3-bet, 3% all-in)"
 - Bottom: "See the grid, hand by hand." + button "Free account" + "18+"
 
@@ -124,10 +122,10 @@ Títulos em caixa alta, corpo em sentence case. Rodapé por slide indicado em ca
 - EN: title "WHERE TO EXPLOIT" / body "Facing a non-all-in 3-bet, the BTN folds 56.9%. EP folds 39.0%." / highlight "BTN gives up more than half: your 3-bet tends to carry more fold equity. EP: more care."
 - Números: 56,9% e 39,0% (seção 3). Rodapé: DECISÕES. O AA/13% fica só no story.
 
-### Slide 5: Beta
-- PT: título "EM BETA, COM VOCÊ" / corpo "Leitura do field sobre 1,42 bi de decisões e 96,4 mi de mãos com cartas conhecidas. 20bb+, todos os buy-ins." / destaque "Abra um spot que você joga e diga o que faltou."
-- EN: title "BETA, WITH YOU" / body "A read of the field over 1.42B decisions and 96.4M hands with known cards. 20bb+, all buy-ins." / highlight "Open a spot you play and tell us what's missing."
-- Números: 1,42 bi de decisões e 96,4 mi de mãos (seção 1). Rodapé: MÃOS.
+### Slide 5: base e CTA
+- PT: título "A BASE POR TRÁS DA GRADE" / corpo "Leitura do field sobre 1,42 bi de decisões pré-flop reais. Stacks de 20bb+, todos os buy-ins." / botão "Conta grátis"
+- EN: title "THE DATA BEHIND THE GRID" / body "A read of the field over 1.42B real preflop decisions. 20bb+ stacks, all buy-ins." / button "Free account"
+- Número: 1,42 bi de decisões (seção 1). Rodapé: DECISÕES.
 
 ### Slide 6: CTA
 - PT: título "ABRA O FIELD RANGES" / corpo "Crie sua conta grátis e veja o seu próximo spot." / botão "Link na bio" / "18+"
@@ -143,7 +141,7 @@ Exemplo: contra 3-bet (não all-in) o BTN folda 56,9%, o EP 39,0%. E o AA do BB 
 
 Grade 13x13, trilha open, 3-bet, 4-bet, all-in, mesa de 6 lugares e filtros de stack e buy-in. 90 situações, 20bb+. Uma leitura do field a partir de mais de um bilhão de decisões reais.
 
-Está em Beta. Salve para estudar e conte o que faltou.
+Salve para estudar.
 
 Crie sua conta grátis, link na bio.
 
@@ -159,7 +157,7 @@ Example: facing a non-all-in 3-bet the BTN folds 56.9%, EP 39.0%. And AA in the 
 
 13x13 grid, trail open, 3-bet, 4-bet, all-in, 6-seat table and stack and buy-in filters. 90 spots, 20bb+. A read of the field built from over a billion real decisions.
 
-It is in Beta. Save it for study and tell us what is missing.
+Save it for study.
 
 Create your free account, link in bio.
 
