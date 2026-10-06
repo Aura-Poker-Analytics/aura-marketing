@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt"><head><meta charset="UTF-8"><title>Aura Field Ranges</title>
+<link rel="stylesheet" href="base.css"><style>
+.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 64px; padding: 24px 0 36px; }
+.body p { font-size: 38px; text-wrap: balance; }
+.rows { display: flex; flex-direction: column; gap: 44px; }
+.r { display: flex; align-items: center; gap: 24px; }
+.r .nm { width: 128px; font-size: 44px; font-weight: 800; color: #fff; }
+.r .fbar { flex: 1; margin-top: 0; height: 70px; }
+.r .v { width: 230px; text-align: right; font-size: 68px; font-weight: 900; color: var(--amber); font-variant-numeric: tabular-nums; }
+.axis { display: flex; justify-content: space-between; margin: -22px 254px 0 152px; font-size: 22px; font-weight: 600; color: var(--ink-mute); position: relative; }
+.hl { font-size: 38px; }
+</style></head>
+<body><div class="page h1350">
+<div class="suits" id="suits"></div>
+
+<div class="vignette"></div>
+<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">4 / 6</span></header><div class="z" style="margin-top:44px"><div class="kicker">Field Ranges · Beta</div><h1 class="title" style="font-size:70px;margin-top:24px">ONDE <em>EXPLORAR</em></h1></div>
+<div class="mid z">
+<div class="body"><p>Contra 3-bet (não all-in), o BTN folda <b>56,9%</b>. O EP folda <b>39,0%</b>.</p></div>
+<div class="rows">
+ <div class="r"><span class="nm">BTN</span><div class="fbar"><i style="width:56.9%"></i><u></u></div><span class="v">56,9%</span></div>
+ <div class="r"><span class="nm">EP</span><div class="fbar"><i style="width:39.0%"></i><u></u></div><span class="v">39,0%</span></div>
+ <div class="axis"><span>0%</span><span style="position:absolute;left:50%;transform:translateX(-50%)">50%</span><span>100%</span></div>
+</div>
+<div class="hl">BTN larga mais da metade: o seu 3-bet tende a ter mais fold equity. EP: mais critério.</div>
+</div>
+<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div>
+<div class="sample">Dados: Aura · 1,42 bi de decisões · estimativa do field · 20bb+ · 18+</div></div><span class="age">18+</span></footer>
+</div><script src="common.js"></script></body></html>

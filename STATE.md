@@ -1,0 +1,32 @@
+# STATE.md — aura-marketing
+
+Atualizado em: 2026-10-06 · por: sessão `aura · Field Ranges · pacote de lançamento` · branch de trabalho: feature/launch-field-ranges
+
+Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de tarefa atualiza este arquivo antes de fechar. "Em andamento" tem no máximo dois itens.
+
+## 1. Implementado
+- Pacote de lançamento do Field Ranges (Beta), sem publicar: Discord PT/EN, Instagram (feed, story, carrossel de 6) PT/EN, mockups e texto da landing em `content/posts/field-ranges-launch/` (revisão de marca: 3 rodadas, ver §3).
+
+## 2. Em andamento (máx. 2)
+- **Pacote Field Ranges** · branch `feature/launch-field-ranges` · onde parou: PR aberto, nada publicado · próximo passo: Rafael confirma URL/UTMs/@ e decide publicação · doc: `content/posts/field-ranges-launch/copy.md`
+
+## 3. Bloqueado ou na mão do PO
+- Publicação: quem posta é o Rafael; URL final, UTMs e @ do perfil a confirmar (placeholders em `discord.md` e `copy.md`) · desde: 2026-10-06
+- Números: só `numeros-verificados.md` (lake congelado desde 20/08, estimativa do field); o Field Ranges só vai ao ar com o merge e o promote do Rafael no aura-main · desde: 2026-10-06
+
+## 4. Contratos que este repo FORNECE
+| Contrato | Consumidor | Formato e onde está documentado | Versão ou data |
+| --- | --- | --- | --- |
+| Mockups do Field Ranges (PT/EN) | aura-landing | `content/posts/field-ranges-launch/mockups/*.png` + alt text na seção Landing do `copy.md` | 06/10 |
+
+## 5. Contratos que este repo CONSOME
+| Contrato | Fornecedor | Como consome (tabela, pacote, arquivo) | Risco atual |
+| --- | --- | --- | --- |
+| Números verificados do Field Ranges | aura-main | cópia de `_ops/field-ranges-launch/numeros-verificados.md` | números mudam se as folhas forem refeitas |
+| Telas do app | aura-novofront (#69 `bcc593f`) | capturas de http://localhost:5302 em `mockups/raw/` | a UI pode mudar antes do lançamento |
+
+## 6. Próxima sessão
+Landing: copiar os mockups e a seção Landing para o aura-landing (sessão no aura-landing, Sonnet médio, `aura-landing-dev`), depois do ok do Rafael.
+
+## Mapa de leitura
+- Regras: AGENTS.md · Estratégia: docs/00-strategy/ · Marca: brand/brand-kit.md

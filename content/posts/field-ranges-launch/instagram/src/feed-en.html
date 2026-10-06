@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Aura Field Ranges</title>
+<link rel="stylesheet" href="base.css"><style>
+.page { padding-top: 64px; }
+.top { margin-top: 70px; }
+.title { font-size: 92px; margin-top: 30px; }
+.rows { margin-top: 76px; display: flex; flex-direction: column; gap: 68px; }
+.row .q { white-space: nowrap; }
+.row .l { font-size: 44px; font-weight: 600; line-height: 1.2; color: var(--ink-soft); }
+.row .l b { color: var(--amber); font-weight: 900; font-size: 62px; }
+.row .fbar { height: 56px; margin-top: 28px; }
+.axis { display: flex; justify-content: space-between; margin-top: 14px; font-size: 21px; font-weight: 600; color: var(--ink-mute); position: relative; }
+.note { margin-top: 36px; font-size: 28px; font-weight: 600; color: var(--ink-mute); letter-spacing: 0.04em; }
+</style></head>
+<body><div class="page h1350">
+<div class="suits" id="suits"></div>
+
+<div class="vignette"></div>
+<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="beta">BETA</span></header>
+<div class="top z"><div class="kicker">Field Ranges · Beta</div><h1 class="title">WHERE THE FIELD <em>PLAYS DIFFERENTLY</em></h1></div>
+<div class="rows z">
+  <div class="row"><div class="l">BTN folds <b>56.9%</b> facing a <span class='q'>non-all-in 3-bet</span></div><div class="fbar"><i style="width:56.9%"></i><u></u></div></div>
+  <div class="row"><div class="l">EP folds <b>39.0%</b></div><div class="fbar"><i style="width:39.0%"></i><u></u></div>
+    <div class="axis"><span>0%</span><span style="position:absolute;left:50%;transform:translateX(-50%)">50%</span><span>100%</span></div></div>
+</div>
+<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div>
+<div class="sample">Data: Aura · 1.42B decisions · field estimate · 20bb+ · 18+</div></div><span class="age">18+</span></footer>
+</div><script src="common.js"></script></body></html>
