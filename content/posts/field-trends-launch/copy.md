@@ -28,7 +28,7 @@ Regra: Discord leva ao app (`https://www.aura.poker/`); Instagram e e-mail levam
 | Feed (link na bio) | landing | instagram | feed | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-trends-launch&utm_content=feed |
 | Story (sticker de link) | landing | instagram | story | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-trends-launch&utm_content=story |
 | Carrossel (link na bio) | landing | instagram | carrossel | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-trends-launch&utm_content=carrossel |
-| Landing (botão de CTA, para o app) | app | landing | landing | https://www.aura.poker/?utm_source=landing&utm_medium=social&utm_campaign=field-trends-launch&utm_content=landing |
+| Landing (botão de CTA, para o cadastro no app) | app | landing | (sem utm_content; utm_medium=website) | https://www.aura.poker/Login?tab=signup&utm_source=landing&utm_medium=website&utm_campaign=field-trends-launch |
 | E-mail PT | landing | email | pt | https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=field-trends-launch&utm_content=pt |
 | E-mail EN | landing | email | en | https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=field-trends-launch&utm_content=en |
 
