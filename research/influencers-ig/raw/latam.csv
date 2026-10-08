@@ -1,0 +1,101 @@
+handle,nome,pais,idioma,tipo_provavel,fonte_url,fonte_tipo,motivo_mtt,publi_sala_ferramenta,handle_confianca
+steveenriquez,Steve Enriquez,,es,midia,https://www.twitchmetrics.net/c/70995358-steveenriquez,twitch_youtube,streams de torneos GGPoker; bio diz GGPoker Ambassador e PokerGO Espanol,GGPoker,na_fonte
+codigopoker,CodigoPoker (canal CodigoPLAY),,es,midia,https://www.twitchmetrics.net/c/433168475-codigoplay,twitch_youtube,autoridad do poker latino; Twitch #44 poker em espanhol,,na_fonte
+pamelabalzano,Pamela Balzano (Pamsi),Argentina,es,jugador,https://www.forbesargentina.com/lifestyle/de-fotografa-torneos-ser-primera-hispanohablante-sponsoreada-sala-poker-online-mas-grande-mundo-n25513,patrocinio,jogadora e criadora; primeira hispanofalante patrocinada pela GGPoker; Twitch/YouTube,GGPoker,na_fonte
+dieventura,Diego Ventura,Peru,es,jugador,https://espndeportes.espn.com/poker/nota/_/id/11937718/ventura-llegar-al-team-ggpoker-un-objetivo-que-llevaba-un-buen-tiempo-buscando,patrocinio,embaixador GGPoker; campeao WSOPC online; conteudo sobre preparacao mental,GGPoker,na_fonte
+cstival.pokercoach,C. Stival Poker Coach (pagina Meta Ads),Argentina,es,coach,https://www.facebook.com/ads/library/?id=4133554023597088,ads_library,anuncios Road to Pro / Lista VIP em ARS; coaching de poker (MTT nao confirmado),,na_fonte
+picharapoker_nivel1,Pichara Poker Nivel 1 (pagina Meta Ads),Chile,es,coach,https://www.facebook.com/ads/library/?id=2867616356774635,ads_library,anuncios em CLP de curso de poker; MTT nao confirmado,,na_fonte
+adrianvargas_itmpoker,Adrian Vargas ITM Poker (pagina Meta Ads),Argentina,es,coach,https://www.facebook.com/ads/library/?id=1067904689390825,ads_library,anuncios em ARS de torneos de poker; ITM sugere torneos,,na_fonte
+elclubpokergg,El Club Poker GG (pagina Meta Ads),,es,stable,https://www.facebook.com/ads/library/?id=2239099500338275,ads_library,anuncios de torneos de poker; clube GG,GGPoker,na_fonte
+trtrica,trtrica (Moon Staking),Mexico,es,stable,https://www.facebook.com/ads/library/?id=1434357257921673,ads_library,anuncios MXN Moon Staking / backing / coaching; foco cash game declarado,,na_fonte
+pokermetria,Pokermetria (pagina Meta Ads),,es,coach,https://www.facebook.com/ads/library/?id=4685880935032400,ads_library,anuncio GTO em EUR; pode ser Espanha,,na_fonte
+,Universo Poker Academia de Poker,,es,coach,https://www.facebook.com/ads/library/?id=1745484283172060,ads_library,anuncio academia de poker,,nome_sem_handle
+,Mario Montes (pagina Meta Ads),,es,coach,https://www.facebook.com/ads/library/?id=2332849760790136,ads_library,anuncios USD recorrentes na busca poker mentoria,,nome_sem_handle
+,Santiago Diaz Poker,,es,coach,https://www.facebook.com/ads/library/?id=1195615965426720,ads_library,anuncio na busca poker mentoria; MTT nao confirmado,,nome_sem_handle
+,Optimus Poker,,es,coach,https://www.facebook.com/ads/library/?id=1417371009828399,ads_library,anuncio na busca poker GTO,,nome_sem_handle
+,Under The Gun / The Poker Lab Academy,,es,coach,https://www.facebook.com/ads/library/?id=4329919147321495,ads_library,comunidade de poker gratuita; anuncio em EUR,,nome_sem_handle
+mentopoker,Mentopoker,,es,coach,https://twitchtracker.com/mentopoker | https://www.instagram.com/mentopoker/,twitch_youtube,escola por assinatura com preflop charts; Twitch e YouTube,,inferido_da_bio
+,DideusPoker,,es,midia,https://www.twitchmetrics.net/c/133986731-dideuspoker,twitch_youtube,#2 poker em espanhol na Twitch (77k seguidores),,nome_sem_handle
+,PokerRed,,es,midia,https://www.twitchmetrics.net/c/71399252-pokerred,twitch_youtube,portal de poker em espanhol; 25k seguidores Twitch; transmite festivais,,nome_sem_handle
+,GGPoker En Espanol,,es,midia,https://www.facebook.com/ads/library/?id=1735348320884205,ads_library,pagina da sala; anuncios WSOPC Panama,GGPoker,nome_sem_handle
+,City Center Poker (Rosario),Argentina,es,midia,https://www.facebook.com/ads/library/?id=1128881946292577,ads_library,anuncios WSOPC en City Center,,nome_sem_handle
+nach_barbero,Nacho Barbero,Argentina,es,jugador,https://www.pokernews.com/news/2025/09/nacho-barbero-talks-wpt-global-ambassador-deal-49642.htm | https://www.instagram.com/nach_barbero/,patrocinio,bracelete WSOP 2022 turbo bounty; embaixador WPT Global,WPT Global,inferido_da_bio
+,Ivan Luca,Argentina,es,jugador,https://www.pokernews.com/news/2017/07/andres-korn-wins-5k-wsop-2017-28373.htm,ranking,primeiro bracelete argentino WSOP; lider de ganhos argentino,,nome_sem_handle
+,Damian Salas,Argentina,es,jugador,https://wikipedia.com/wiki/Damian_Salas,ranking,campeao WSOP Main Event 2020; evento SCOOP 2021,PokerStars,nome_sem_handle
+,Andres Korn,Argentina,es,jugador,https://www.pokernews.com/news/2017/07/andres-korn-wins-5k-wsop-2017-28373.htm,ranking,bracelete WSOP 2017 $5k NLH,,nome_sem_handle
+nextlevelftp,Alejandro Lococo (Papo),Argentina,es,jugador,https://www.pokernews.com/news/2026/10/alejandro-lococo-adds-wcoop-main-event-title-52513.htm | https://www.instagram.com/nextlevelftp/,ranking,campeao WCOOP 2026 Main $1050 (X: @PapoMcArg),PokerStars,inferido_da_bio
+,Leo Fernandez,Argentina,es,jugador,https://es.famousbirthdays.com/people/leo-fern--ndez.html,patrocinio,jogador pro historico PokerStars; ~20k IG segundo site de terceiros,PokerStars,nome_sem_handle
+marialampropulos,Maria Lampropulos,Argentina,es,jugador,https://soundsandcolours.com/subjects/travel/who-are-the-best-latino-poker-players-right-now-54463/ | https://www.instagram.com/marialampropulos/,ranking,lista de melhores jogadores latinos,,inferido_da_bio
+,Miguel Fluxa,Argentina,es,jugador,https://focusgn.com/latinoamerica/se-realizo-la-fecha-1-del-torneo-poker-series-de-mar-del-plata,busca,campeao Poker Series Mar del Plata (live),,nome_sem_handle
+,Alejandro Quatrini,Argentina,es,jugador,https://focusgn.com/latinoamerica/se-realizo-la-fecha-1-del-torneo-poker-series-de-mar-del-plata,busca,vice Poker Series Mar del Plata (live),,nome_sem_handle
+,Daniel Cou,Argentina,es,jugador,https://focusgn.com/latinoamerica/argentina-el-torneo-poker-series-convoco-a-mas-de-600-participantes-en-mar-del-plata,busca,participante de nivel nacional em torneios live,,nome_sem_handle
+,Adrian Jimenez,Argentina,es,jugador,https://focusgn.com/latinoamerica/argentina-el-torneo-poker-series-convoco-a-mas-de-600-participantes-en-mar-del-plata,busca,participante de nivel nacional em torneios live,,nome_sem_handle
+,Jose Masciotra,Argentina,es,jugador,https://focusgn.com/latinoamerica/argentina-el-torneo-poker-series-convoco-a-mas-de-600-participantes-en-mar-del-plata,busca,participante de nivel nacional em torneios live,,nome_sem_handle
+,Viti Llanos,Argentina,es,jugador,https://focusgn.com/latinoamerica/argentina-el-torneo-poker-series-convoco-a-mas-de-600-participantes-en-mar-del-plata,busca,participante de nivel nacional em torneios live,,nome_sem_handle
+,Fabian Ortiz,Argentina,es,jugador,https://www.pokernews.com/news/2014/07/fabian-ortiz-wins-lapt-panama-for-143-930-becomes-second-eve-18887.htm,ranking,bicampeao LAPT (dado de 2014),,nome_sem_handle
+,Luis Losada,Argentina,es,jugador,https://misionesonline.net/2026/06/03/un-misionero-hizo-historia-en-el-poker-luis-losada/,busca,feito historico em torneo (2026),,nome_sem_handle
+,Jacobo Montoya (Jakobgold),Mexico,es,jugador,https://www.pokernews.com/news/2023/12/club-wpt-qualifier-jacobo-montoya-45007.htm,patrocinio,campeao SCOOP Main 2019 $688k; Team GGPoker LatAm,GGPoker,nome_sem_handle
+,David Mancera,Mexico,es,jugador,https://cardplayer.com/poker-players/489214-david-mancera,busca,resultados online GGPoker/WSOP Online e LAPT CDMX 2024,GGPoker,nome_sem_handle
+,Juan Carlos Alvarado,Mexico,es,jugador,https://soundsandcolours.com/subjects/travel/who-are-the-best-latino-poker-players-right-now-54463/,ranking,maior ganhador mexicano em torneios live,,nome_sem_handle
+,Luis Velador,Mexico,es,jugador,https://wikipedia.com/wiki/Luis_Velador,ranking,dois braceletes WSOP,,nome_sem_handle
+,Angel Guillen,Mexico,es,jugador,https://www.pokernews.com/news/2019/03/wpt-latin-america-tv-azteca-33563.htm,busca,jogador pro e comentarista WPT na TV Azteca,WPT,nome_sem_handle
+,Jorge Landazuri,Mexico,es,jugador,https://www.mediotiempo.com/mas-deportes/el-mexicano-landazuri-consiguio-historico-segundo-lugar-en-el-lapt,busca,vice LAPT Mar del Plata (dado antigo),PokerStars,nome_sem_handle
+,Christian de Leon,Mexico,es,jugador,https://www.pokernews.com/news/2014/08/departure-of-brenes-barbero-suggests-change-in-pokerstars-19015.htm,patrocinio,ex Team PokerStars Latam (2014),PokerStars,nome_sem_handle
+gtopoker,Michael Acevedo,Costa Rica,es,coach,https://espndeportes.espn.com/poker/nota/_/id/11937718/ventura-llegar-al-team-ggpoker-un-objetivo-que-llevaba-un-buen-tiempo-buscando | https://www.instagram.com/gtopoker/,patrocinio,coach MTT GTO e autor Modern Poker Theory; Team GGPoker LatAm,GGPoker,inferido_da_bio
+,Thomas Boivin (MarToMchat),Costa Rica,es,jugador,https://www.pokernews.com/news/2026/10/alejandro-lococo-adds-wcoop-main-event-title-52513.htm,ranking,7o no WCOOP 2026 Main $10300,PokerStars,nome_sem_handle
+,Humberto Brenes,Costa Rica,es,jugador,https://www.pokernews.com/news/2014/08/humberto-brenes-departure-team-pokerstars-pro-18993.htm,patrocinio,ex Team PokerStars (2014),PokerStars,nome_sem_handle
+caarlitospoker,Carlos Camargo,Colombia,es,jugador,https://espndeportes.espn.com/poker/nota/_/id/11888541/camargo-intentara-una-version-andina-del-jogo-bonito-al-incorporarse-al-team-ggpoker-brasil | https://www.instagram.com/caarlitospoker/,patrocinio,primeiro hispano no Team GGPoker Brasil,GGPoker,inferido_da_bio
+,Farid Jattin,Colombia,es,jugador,https://abceconomia.co/2022/06/08/torneos-de-poker-posicionan-a-colombia-a-nivel-internacional/,busca,figura internacional citada na midia colombiana,,nome_sem_handle
+,Weider Gutierrez,Colombia,es,jugador,https://www.pokernews.com/news/2011/10/2011-pokerstars-net-lapt-colombia-day-3-julian-menendez-11234.htm,ranking,primeiro colombiano campeao LAPT (dado antigo),,nome_sem_handle
+,Andres Carrillo,Colombia,es,jugador,https://www.pokernews.com/news/2016/05/andres-carrillo-wins-lapt-panama-24803.htm,ranking,campeao LAPT Panama 2016,PokerStars,nome_sem_handle
+,Nick Yunis (chilenocl),Chile,es,jugador,https://www.pokertube.com/pro/nick-yunis,ranking,Triple COOP; dois SCOOP e um WCOOP,PokerStars,nome_sem_handle
+,Nicolas Fierro,Chile,es,jugador,https://www.elmostrador.cl/noticias/pais/2023/07/28/los-mejores-jugadores-profesionales-de-poker-chilenos/,ranking,"US$1,7M online; Sunday Million",,nome_sem_handle
+,Andres Vega (Nutshell),Chile,es,jugador,https://www.elmostrador.cl/noticias/pais/2023/07/28/los-mejores-jugadores-profesionales-de-poker-chilenos/,ranking,maior premio online chileno 2022 SCOOP Sunday Million,PokerStars,nome_sem_handle
+,Amos Ben Haim,Chile,es,jugador,https://www.elmostrador.cl/noticias/pais/2023/07/28/los-mejores-jugadores-profesionales-de-poker-chilenos/,ranking,US$1M+ em torneios,,nome_sem_handle
+,Alfonso Jeria,Chile,es,jugador,https://www.elmostrador.cl/noticias/pais/2023/07/28/los-mejores-jugadores-profesionales-de-poker-chilenos/,ranking,premios regulares em torneios locais,,nome_sem_handle
+,Miguel Lopez (Mikirikitiki),Chile,es,jugador,https://www.elmostrador.cl/noticias/pais/2023/07/28/los-mejores-jugadores-profesionales-de-poker-chilenos/,ranking,campeao torneo Vina del Mar 2022,,nome_sem_handle
+,Ewald Mahr,Peru,es,jugador,https://cardplayer.com/poker-players/416253-ewald-mahr,busca,campeao Flip & Go GGPoker/WSOP Online 2022,GGPoker,nome_sem_handle
+,Yoshiaki Paco,Peru,es,jugador,https://proactivo.com.pe/poker-online-en-peru-de-los-torneos-presenciales-de-lima-al-juego-digital/,busca,2o lugar WSOP Main Event 2022 segundo a midia peruana,,nome_sem_handle
+,Luis Quilcate,Peru,es,jugador,https://cardplayer.com/poker-players/414569-luis-quilcate,busca,perfil CardPlayer,,nome_sem_handle
+,German Fernandez,Uruguay,es,jugador,https://focusgn.com/latinoamerica/un-campeon-uruguayo-para-el-conrad-poker-tour,busca,campeao Conrad Poker Tour (live),,nome_sem_handle
+,Gustavo Prato,Uruguay,es,jugador,https://www.pokernews.com/tours/pokerstars-festival/2017-pokerstars-festival-uruguay/main-event/post.259285.htm,busca,campeao PokerStars Cup Uruguay segundo fonte,PokerStars,nome_sem_handle
+,Raul Mestre (EducaPoker),Espana,es,coach,https://rec.poker/?p=26183,coach_stable,fundador EducaPoker; formou geracao de MTT espanhois,,nome_sem_handle
+,Irene Albarran (Frogy),Espana,es,jugador,https://www.pokernews.com/news/2023/01/get-to-know-the-two-new-pokerstars-ambassadors-42958.htm,patrocinio,embaixadora PokerStars 2023,PokerStars,nome_sem_handle
+,Ramon Colillas,Espana,es,jugador,https://www.pokernews.com/news/2023/01/get-to-know-the-two-new-pokerstars-ambassadors-42958.htm,patrocinio,campeao PSPC 2019; embaixador PokerStars,PokerStars,nome_sem_handle
+picharapoker,Fabian Pichara (Escuela de Poker),Argentina,es,coach,https://www.instagram.com/picharapoker/,coach_stable,"bio: coach e jogador pro, planos cash e MTTs",,inferido_da_bio
+alcortanicolas,Nicolas Alcorta,Argentina,es,coach,https://www.instagram.com/alcortanicolas/,coach_stable,"bio: jogador pro, mentor/coach Efecto Poker, Head Coach LATAM 2026 Flow Poker Team",Flow Poker Team,inferido_da_bio
+alexromerole,Alex Romero,Espana,es,jugador,https://www.instagram.com/alexromerole/,patrocinio,bio: embaixador PokerStars Espana e coach Educapoker,PokerStars,inferido_da_bio
+khristianpoker,Christian Hospina,Panama,es,jugador,https://www.instagram.com/khristianpoker/,busca,"bio cita titulos LAPT Turbo Deep Stack, CLSOP e Second Chance PGA",LAPT,inferido_da_bio
+juanmalakastyle,Juan Pardo Dominguez,Espana,es,jugador,https://www.instagram.com/juanmalakastyle/,busca,"bio: jogador pro, maior ganhador online GGPoker (auto-declarado)",GGPoker,inferido_da_bio
+ellistorc,Jorge Martinez,,es,jugador,https://www.instagram.com/ellistorc/,twitch_youtube,"bio: streamer e jogador de poker, professor na Educapoker",Educapoker,inferido_da_bio
+lapecerapoker,La Pecera Poker,Mexico,es,coach,https://www.instagram.com/lapecerapoker/,coach_stable,academia mexicana; ~42k seguidores; codigo bonus GGPoker,GGPoker,inferido_da_bio
+lapecerapokeracademy,La Pecera Poker Academy,Mexico,es,coach,https://www.instagram.com/lapecerapokeracademy/,coach_stable,academia com mensalidade (MXN),,inferido_da_bio
+educapoker,EducaPoker,Espana,es,coach,https://www.instagram.com/educapoker/,coach_stable,"maior escola de poker em espanhol, ~15 anos",,inferido_da_bio
+zerospoker,Zeros Poker,,es,coach,https://www.instagram.com/zerospoker/,coach_stable,curso de poker gratis em espanhol; MTT nao confirmado,,inferido_da_bio
+zerospoker_comunidad,Zerospoker.com,,es,coach,https://www.instagram.com/zerospoker_comunidad/,coach_stable,escola de poker em espanhol,,inferido_da_bio
+teamexploitpoker,Exploit Poker Team,,es,stable,https://www.instagram.com/teamexploitpoker/,coach_stable,coaching e staking de MTT; aulas em es/pt/en,,inferido_da_bio
+exploitpokrlatina,Exploit Armada Latina,,es,stable,https://www.instagram.com/exploitpokrlatina/,coach_stable,"coaching MTT, 5000h de video em espanhol",,inferido_da_bio
+lptpoker,Latinoamerica Poker Team (LPT),,es,stable,https://www.instagram.com/lptpoker/,coach_stable,equipe pro que forma jogadores latinos; stream,,inferido_da_bio
+coachpokeronline,Coach Poker Online,,es,coach,https://www.instagram.com/coachpokeronline/,coach_stable,conteudo gratuito web/Discord/video; MTT nao confirmado,,inferido_da_bio
+mentoringpokeronline,Mentoring Poker Online,,es,coach,https://www.instagram.com/mentoringpokeronline/,coach_stable,escola gratuita de profissionalizacao,,inferido_da_bio
+miguelant90,Miguel Antonio,Chile,es,coach,https://www.instagram.com/miguelant90/,busca,bio: jogador pro (cash high stakes) e CEO de academia; MTT nao confirmado,,inferido_da_bio
+pokerstudyspain,Poker Study,Espana,es,coach,https://www.instagram.com/pokerstudyspain/,coach_stable,conteudo gratis de poker em espanhol,,inferido_da_bio
+mttchile,MTTChile,Chile,es,midia,https://www.instagram.com/mttchile/,busca,pagina MTT Chile; natureza nao confirmada,,inferido_da_bio
+pokerchile.cl,PokerChile,Chile,es,midia,https://www.instagram.com/pokerchile.cl/,busca,site de poker no Chile,,inferido_da_bio
+federacioncolombianadepoker,Federacion Colombiana de Poker,Colombia,es,midia,https://www.instagram.com/federacioncolombianadepoker/,busca,federacao; calendario de torneios,,inferido_da_bio
+circuitoargentinodepoker,Circuito Argentino de Poker,Argentina,es,midia,https://www.instagram.com/circuitoargentinodepoker/,busca,circuito de torneios oficial,,inferido_da_bio
+perupokerpro,Peru Poker,Peru,es,midia,https://www.instagram.com/perupokerpro/,busca,midia do poker peruano; torneios,,inferido_da_bio
+uruguaypokerseries,Uruguay Poker Series,Uruguay,es,midia,https://www.instagram.com/uruguaypokerseries/,busca,noticias e torneios do poker uruguaio,,inferido_da_bio
+pokernewsespana,PokerNews Espana,Espana,es,midia,https://www.instagram.com/pokernewsespana/,busca,midia de poker em espanhol,PokerNews,inferido_da_bio
+partypokerlatam,PartyPoker LATAM,,es,midia,https://www.instagram.com/partypokerlatam/,patrocinio,conta regional da sala,partypoker,inferido_da_bio
+wptglobal.latam,WPT Global Latam,,es,midia,https://www.instagram.com/wptglobal.latam/,patrocinio,conta regional da sala,WPT Global,inferido_da_bio
+ggpokeres,GGPoker En Espanol,,es,midia,https://www.instagram.com/ggpokeres/,patrocinio,conta da sala em espanhol,GGPoker,inferido_da_bio
+laptoficial,LAPT,,es,midia,https://www.instagram.com/laptoficial/,patrocinio,perfil oficial Latin American Poker Tour,PokerStars,inferido_da_bio
+acrpokerlatam,ACR Poker LATAM,,es,midia,https://www.instagram.com/acrpokerlatam/,patrocinio,conta regional da sala,ACR,inferido_da_bio
+pppokerarg,PPPoker Argentina (agente),Argentina,es,stable,https://www.instagram.com/pppokerarg/,busca,agente de clubes com torneios MTT,PPPoker,inferido_da_bio
+madero.poker,Madero Poker,Argentina,es,midia,https://www.instagram.com/madero.poker/,busca,sala de Buenos Aires com torneios,,inferido_da_bio
+estoespoker,Esto es Poker,,es,midia,https://www.instagram.com/estoespoker/,busca,conta de poker em espanhol; natureza nao confirmada,,inferido_da_bio
+pokerfi.es,PokerFi Espanol,,es,midia,https://www.instagram.com/pokerfi.es/,busca,conta de poker em espanhol,,inferido_da_bio
+odin_poker,Odin Poker,,es,midia,https://www.instagram.com/odin_poker/,busca,software com 700k simulacoes GTO,Odin,inferido_da_bio
+ggtilt.poker,GGTilt Poker (Danilo Chen),,es,coach,https://www.instagram.com/ggtilt.poker/,coach_stable,treino mental para poker; MTT nao confirmado,,inferido_da_bio
+ivan_balzano,Ivan Balzano (patasss),Argentina,es,jugador,https://www.instagram.com/ivan_balzano/,busca,bio: Poker Player; MTT nao confirmado,,inferido_da_bio

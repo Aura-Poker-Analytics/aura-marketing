@@ -11,6 +11,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 - **Pacote Field Ranges** · branch `feature/launch-field-ranges` · onde parou: PR #2 aberto (3acf1ae), nada publicado, pacote fechado do lado da sessão · próximo passo: merge do PR #2 e postagens são do Rafael; a landing lê os mockups deste worktree (não remover até o merge); só o @aurapokeranalytics a confirmar · doc: `content/posts/field-ranges-launch/copy.md`
 
 ## 3. Bloqueado ou na mão do PO
+- **Varredura de influencers IG MTT** · branch `feat/influencers-ig-mtt` (`research/influencers-ig/`) · descoberta feita (Brasil 50, LatAm 100, inglês 157 candidatos; 218 @ únicos), fase 2 (API) **não rodou**: `META_IG_TOKEN` (usuário do Windows) guarda um texto de 7 palavras, não um token (Graph API: erro 190) · bloqueado por: Rafael gerar/colar um token de Instagram Graph (escopo instagram_basic + pages_show_list) na variável; depois `python -X utf8 -I scripts/enrich.py` e `scripts/build.py` · desde: 2026-10-08
 - Publicação: quem posta é o Rafael; URLs com UTM já definidas (tabela no `copy.md`), falta confirmar o @ do perfil · desde: 2026-10-06
 - Números: só `numeros-verificados.md` (lake congelado desde 20/08, estimativa do field); o Field Ranges só vai ao ar com o merge e o promote do Rafael no aura-main · desde: 2026-10-06
 
