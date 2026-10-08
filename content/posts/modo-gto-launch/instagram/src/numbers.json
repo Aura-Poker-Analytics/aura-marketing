@@ -19,7 +19,7 @@
     "from": 37.1,
     "to": 40.4
   },
-  "N4": 7.2,
+  "N4": 5.6,
   "_N4": "Diferenca field - GTO central, em pp (so texto: e-mail e legendas, nunca em arte). null = a build calcula |N2 - N3.center|; preencha so para fixar o numero exato que a tela mostra.",
   "N5": {
     "_doc": "Exemplo de pre-flop, torneio Regular: a celula destacada na captura do slide 4. Aparece SO dentro da captura; aqui fica o registro do que a captura precisa mostrar.",

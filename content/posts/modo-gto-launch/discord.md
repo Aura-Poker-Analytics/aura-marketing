@@ -2,7 +2,7 @@
 
 Status: rascunho com números fechados; não publicado.
 **Aviso de publicação: só postar depois do passo 6 do roteiro de go-live (teste logado do Rafael).** O link leva ao app e o texto promete o módulo.
-Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), +7,2 pp. Nenhum outro número.
+Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), +5,6 pp acima do topo da faixa. Nenhum outro número.
 Tamanho: cerca de 1.080 caracteres em PT e 1.100 em EN (contagem manual, URL inclusa); o teto é cerca de 1.200. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
 O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB, lida do código. Sem "prévia", sem preço, sem Beta.
 @aurapokeranalytics: a confirmar pelo Rafael. UTM: `utm_campaign=modo-gto-launch`, uma URL por idioma.
@@ -17,7 +17,7 @@ O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A
 Ao lado de cada número do field, o número GTO e a faixa GTO. Onde o field sai da faixa, está o spot para estudar.
 
 **Exemplo de spot**
-CO × BB em pote simples, 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO folda 38,8% (faixa 37,1–40,4%): acima da faixa, +7,2 pp.
+CO × BB em pote simples, 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO folda 38,8% (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa.
 Aqui o c-bet de bluff tem mais fold equity do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 **O que você vê**
@@ -39,7 +39,7 @@ O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação 
 Next to every field number, the GTO number and the GTO range. Where the field leaves the range, that is the spot to study.
 
 **Example spot**
-CO × BB single-raised pot, 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO folds 38.8% (range 37.1–40.4%): above the range, +7.2 pp.
+CO × BB single-raised pot, 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO folds 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range.
 Here the bluff c-bet has more fold equity than GTO. This is one spot, not the field average. Check it on your board.
 
 **What you see**
