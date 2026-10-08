@@ -39,7 +39,7 @@ ART = {
     "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Onde o field<br><em>sai do GTO?</em>", s="Novo: Modo GTO", ts=104, emph=True),
     "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="c1", t="Where does<br>the field<br><em>leave GTO?</em>", s="New: GTO Mode", ts=88, emph=True),
     "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=96),
-    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO and range</em>", s="SRP and 3-bet, flop and turn, with raise response.", ts=76),
+    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO and range</em>", s="SRP and 3-bet, flop and turn. Raise response on SRP flop.", ts=76),
     "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{c4}", ts=76),
     "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="GTO Mode is<br>a <em>paid plan</em>", s=None, ts=104),
     "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="c6", t="See <em>GTO Mode</em>", s="Link in bio.", ts=96),

@@ -10,8 +10,8 @@
     "_doc": "Spot do exemplo. pt/en = linha de apoio curta das artes. email_pt/email_en = contexto completo do e-mail (email.md). Fonte: numeros-verificados.md, exemplo (a).",
     "pt": "CO × BB · K-high two-tone · c-bet de 33%",
     "en": "CO × BB · K-high two-tone · 33% c-bet",
-    "email_pt": "CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%",
-    "email_en": "CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet"
+    "email_pt": "CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%",
+    "email_en": "CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet"
   },
   "N2": 46.0,
   "_N2": "% de fold do field contra o c-bet no spot N1 (numero, ex.: 34.1).",
@@ -32,19 +32,22 @@
   },
   "N6": {
     "_doc": "1 numero de escala/cobertura. SO landing (nota de rodape). Nenhuma arte nem o e-mail usa. Opcional; escolher entre os 'verificados' abaixo.",
-    "pt": "30 situações de pré-flop com GTO no flop, de 25 a 60bb",
-    "en": "30 preflop situations with GTO on the flop, from 25 to 60bb"
+    "pt": "30 situações (10 confrontos de posição a 25, 40 e 60bb) com GTO no flop",
+    "en": "30 situations (10 position matchups at 25, 40 and 60bb) with GTO on the flop"
   },
   "decimals": 1,
   "scale_max": null,
   "_scale_max": "Teto do eixo das barras (ex.: 50). null = automatico (1,06 x o maior valor, arredondado para cima em 5). As barras sempre partem do zero.",
-  "email_image": "print",
-  "_email_image": "'print' = captura de producao enquadrada (prints/prod/postflop-pt.png|-en.png); 'bars' = as duas barras renderizadas pela build com N2/N3 (alternativa do email.md se as capturas atrasarem).",
+  "email_image": {
+    "pt": "bars",
+    "en": "print"
+  },
+  "_email_image": "Por idioma. 'print' = captura de producao enquadrada (prints/prod/postflop-<lang>.png); 'bars' = as duas barras renderizadas pela build com N2/N3 no formato do idioma. PT usa 'bars' porque o app mistura 46.0% e 38,8% na captura em PT.",
   "textos_com_numero": {
     "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
     "c4_apoio_en": "Includes CO and BTN RFI at 40bb.",
-    "email_corpo_pt": "Ao lado de cada número do field, agora o número GTO e a faixa GTO. No pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. No pré-flop: o GTO e o desvio em cada célula da grade, inclusive o RFI de CO e BTN a 40bb.",
-    "email_corpo_en": "Next to every field number, now the GTO number and the GTO range. Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in every grid cell, including the CO and BTN RFI at 40bb."
+    "email_corpo_pt": "Ao lado do número do field, agora o número GTO e a faixa GTO, onde há referência. No pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. No pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.",
+    "email_corpo_en": "Next to the field number, now the GTO number and the GTO range, where a reference exists. Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb."
   },
   "verificados": {
     "_doc": "Ja verificados em producao (numeros-verificados.md, 08/10). Nao entram sozinhos em nenhuma arte; servem para escolher o N6 e para a legenda.",

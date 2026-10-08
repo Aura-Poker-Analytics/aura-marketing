@@ -165,7 +165,7 @@ COL_W = 270
 FX, GX = 40, 602             # x das colunas: field e GTO
 MID = (FX + COL_W + GX) // 2  # centro da zona do gap
 HEAD = 212
-LEG = {"pt": ("Faixa GTO", "Gap"), "en": ("GTO range", "Gap")}
+LEG = {"pt": ("Faixa GTO", "Gap até a faixa"), "en": ("GTO range", "Gap to range")}
 TITLE = {"pt": "Fold vs c-bet", "en": "Fold vs c-bet"}
 NAMES = ("FIELD", "GTO")
 

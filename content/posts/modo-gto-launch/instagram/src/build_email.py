@@ -35,7 +35,7 @@ CP = {
     "pt": dict(
         lang_attr="pt-BR", subject="Novo na Aura: Modo GTO", h1="Novo na Aura: Modo GTO",
         tagline="O GTO e o field na mesma tela.",
-        pre="Novo na Aura: Modo GTO. O número GTO e a faixa GTO ao lado de cada número do field.",
+        pre="Novo na Aura: Modo GTO. O número GTO e a faixa GTO ao lado do número do field, onde há referência.",
         btn="Conhecer o Modo GTO",
         under="O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO. Poker é jogo de habilidade e estudo. 18+.",
         alt="Modo GTO no Postflop Analysis: o número do field e o número GTO com a faixa GTO, lado a lado, no mesmo spot.",
@@ -47,7 +47,7 @@ CP = {
     "en": dict(
         lang_attr="en", subject="New on Aura: GTO Mode", h1="New on Aura: GTO Mode",
         tagline="GTO and the field on the same screen.",
-        pre="New on Aura: GTO Mode. The GTO number and the GTO range next to every field number.",
+        pre="New on Aura: GTO Mode. The GTO number and the GTO range next to the field number, where a reference exists.",
         btn="See GTO Mode",
         under="GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan. Poker is a game of skill and study. 18+.",
         alt="GTO Mode in Postflop Analysis: the field number and the GTO number with the GTO range, side by side, in the same spot.",
@@ -167,6 +167,8 @@ def bars_image(lang, n, pw):
 def slot_image(lang, n, pw):
     """Retorna (imagem PIL, pendente: bool, motivos)."""
     mode = n.get("email_image", "print")
+    if isinstance(mode, dict):                      # por idioma: {"pt": "bars", "en": "print"}
+        mode = mode.get(lang, "print")
     if mode == "bars":
         ex = Ex(n, lang)
         miss = ex.missing()
@@ -196,7 +198,6 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
         banner = (f'<tr><td bgcolor="#e11d48" align="center" style="background-color:#e11d48; padding:10px 14px; font-family:Arial,Helvetica,sans-serif; '
                   f'font-size:13px; font-weight:bold; color:#ffffff; letter-spacing:1px;">{c["draft"]}{H.escape(", ".join(miss))}{H.escape(note)}</td></tr>')
     title = ("[DRAFT] " if draft else "") + c["subject"]
-    desc = (f'<!-- {"DRAFT: nao enviar. Gerado por instagram/src/build_email.py a partir de numbers.json; preencha o JSON e rode de novo." if draft else "Gerado por instagram/src/build_email.py a partir de numbers.json. Nao editar a mao."} -->')
     return f"""<!DOCTYPE html>
 <html lang="{c['lang_attr']}" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -209,7 +210,6 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
   <title>{H.escape(title)}</title>
 </head>
 <body style="margin:0; padding:0; width:100%; background-color:#070a12; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
-  {desc}
   <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#070a12; opacity:0;">{c['pre']}</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#070a12;">
     <tr>
