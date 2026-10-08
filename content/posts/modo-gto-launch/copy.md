@@ -8,7 +8,7 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 > **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano Grátis fica na legenda e no e-mail, não nas artes. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
 ## Origem das capturas
-As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-novofront `429c093`, build com o Modo GTO ligado) servido localmente e lendo a API local `:7060` com os snapshots do go-live (flop e turn/river 20261008, reação a raise 20261006, pré-flop 20261007), por conta de teste local (sem login em produção). Capturadas em 08/10 com Playwright, em EN e PT. A imagem do e-mail é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque. Na tela, o card do 33% mostra +5,6 pp (distância ao topo da faixa).
+As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-novofront `429c093`, build com o Modo GTO ligado) servido localmente e lendo a API local `:7060` com os snapshots do go-live (flop e turn/river 20261008, reação a raise 20261006, pré-flop 20261007), por conta de teste local (sem login em produção). Capturadas em 08/10 com Playwright, em EN e PT. A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque. Na tela, o card do 33% mostra +5,6 pp (distância ao topo da faixa).
 
 ## Pendências reais
 1. **Conferência das capturas no teste logado.** As capturas (slides 3 e 4, recorte do e-mail) vêm do front no SHA de produção + API local com os snapshots do go-live (ver "Origem das capturas"). O teste logado do Rafael (passo 6 do roteiro de go-live) deve conferir, em `www.aura.poker`, os MESMOS valores do exemplo (46,0% / 38,8% / faixa 37,1–40,4% e RFI do CO 31,6% / 37,0%) antes de qualquer post ou envio. Nenhuma peça chama as capturas de "print de produção". A captura do slide 3 não mostra a reação a raise de BB 3-bet vs CO, SB 3-bet vs BTN ou BTN 3-bet vs CO a 40/60bb, que ainda não tem GTO.
@@ -70,7 +70,7 @@ Observação: para o botão da landing mantive `utm_source=landing`, como no Fie
 
 ## Texto final de cada arte (título + apoio)
 
-Em toda arte: `@aurapokeranalytics · 18+`, pequeno, e mais nada. Nas barras, o % central do GTO no rótulo e a faixa GTO como sombreado, com a faixa escrita pequena.
+Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalytics · 18+` pequeno e, nos slides, o indicador "n / 6". Nas barras, o % central do GTO no rótulo e a faixa GTO como sombreado, com a faixa escrita pequena.
 
 | Arte | Formato | Idioma | Título | Apoio (uma linha) | O que a imagem mostra |
 |---|---|---|---|---|---|
@@ -80,16 +80,16 @@ Em toda arte: `@aurapokeranalytics · 18+`, pequeno, e mais nada. Nas barras, o 
 | Story | 1080x1920 | EN | Does the field fold more than GTO? | CO × BB · K-high two-tone · 33% c-bet | Same bars (46.0% and 38.8%); link sticker "See GTO Mode" |
 | Story da capa do carrossel | 1080x1920 | PT | Onde o field sai do GTO? | Novo: Modo GTO (+ micro-legenda do spot: CO × BB · K-high two-tone · c-bet de 33%) | Mesmas barras com o gap em âmbar (46,0% e 38,8%); sticker "Conhecer o Modo GTO" |
 | Carrossel 1 (capa) | 1080x1350 | EN | Where does the field leave GTO? | New: GTO Mode (+ spot micro-caption: CO × BB · K-high two-tone · 33% c-bet) | Mesma imagem da capa PT (46.0% and 38.8%) |
-| Carrossel 2 | 1080x1350 | EN | Same spot, two numbers | (nenhum) | Só as barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%) |
+| Carrossel 2 | 1080x1350 | EN | Same spot, two numbers | CO × BB · K-high two-tone · 33% c-bet | As barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%) |
 | Carrossel 3 | 1080x1350 | EN | Postflop: GTO and range | SRP and 3-bet, flop and turn. Raise response on SRP flop. | Captura do Postflop com o Modo GTO ligado, no spot do exemplo |
 | Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
-| Carrossel 5 | 1080x1350 | EN | GTO Mode is a paid plan | (nenhum) | O cadeado "Disponível no Modo GTO" do app |
+| Carrossel 5 | 1080x1350 | EN | GTO Mode is a paid plan | (nenhum) | Um cadeado desenhado (sem texto do app) |
 | Carrossel 6 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
 
 Notas de arte:
 - **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO.
 - **Slide 4 (carrossel):** o stack da captura é 30–50bb (GTO a 40bb), torneio Regular. O número fica dentro da captura; nenhum texto de arte o repete.
-- **Slide 5:** cadeado do app. A frase do plano Grátis fica na legenda.
+- **Slide 5:** cadeado desenhado. A frase do plano Grátis fica na legenda.
 - **Enquete opcional no story (fora da arte):** "Qual spot você quer ver com o GTO ao lado?" com as opções "SRP" e "3-bet" / "Which spot do you want to see with GTO next to it?" with "SRP" and "3-bet".
 
 ## Legendas
@@ -259,7 +259,7 @@ Study tool. 18+.
 
 # (d) E-mail
 
-Texto, assuntos, preheader e notas técnicas em `email.md`. Assunto recomendado: a 1 ("Novo na Aura: Modo GTO" / "New on Aura: GTO Mode"). Botão "Conhecer o Modo GTO" / "See GTO Mode". O HTML existe (`email-pt.html` e `email-en.html`; para abrir do disco, `email-pt.preview.html` e `email-en.preview.html`). A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) é a captura recortada do card de 33% do app, com os mesmos números do texto (46,0% e 38,8%, faixa 37,1–40,4%, 5,6 pp acima do topo da faixa); não são duas barras renderizadas.
+Texto, assuntos, preheader e notas técnicas em `email.md`. Assunto recomendado: a 1 ("Novo na Aura: Modo GTO" / "New on Aura: GTO Mode"). Botão "Conhecer o Modo GTO" / "See GTO Mode". O HTML existe (`email-pt.html` e `email-en.html`; para abrir do disco, `email-pt.preview.html` e `email-en.preview.html`). A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) (EN: captura recortada do card de 33% do app; PT: as duas barras renderizadas pela build, porque o app em PT mistura formatos decimais) com os mesmos números do texto (46,0% e 38,8%, faixa 37,1–40,4%, 5,6 pp acima do topo da faixa); não são duas barras renderizadas.
 
 ---
 

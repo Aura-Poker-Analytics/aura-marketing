@@ -38,7 +38,7 @@ CP = {
         pre="Novo na Aura: Modo GTO. O número GTO e a faixa GTO ao lado do número do field, onde há referência.",
         btn="Conhecer o Modo GTO",
         under="O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO. Poker é jogo de habilidade e estudo. 18+.",
-        alt="Modo GTO no Postflop Analysis: o número do field e o número GTO com a faixa GTO, lado a lado, no mesmo spot.",
+        alt="Duas barras de fold no mesmo spot: field 46,0% e GTO 38,8%, com a faixa GTO de 37,1 a 40,4%.",
         f1="Você recebeu este e-mail porque criou uma conta na Aura Poker Analytics.",
         f2='Não quer mais e-mails como este? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Descadastrar</a> · Dúvidas no <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
         f3="Fale com a gente:",
