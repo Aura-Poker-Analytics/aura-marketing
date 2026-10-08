@@ -34,13 +34,13 @@ from lib import ASSETS, MIRROR, OUT, SRC, TPL, Ex, chart_svg, find_print, n5_mis
 ART = {
     "feed-pt": dict(lang="pt", size=(1080, 1350), kind="feed", t="Mesmo spot,<br><em>dois números</em>", s="{N1}", ts=92),
     "feed-en": dict(lang="en", size=(1080, 1350), kind="feed", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=92),
-    "story-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="O field folda<br><em>mais que o GTO?</em>", s="Veja o gap no seu spot.", ts=80),
-    "story-en": dict(lang="en", size=(1080, 1920), kind="story", t="Does the field<br>fold <em>more<br>than GTO?</em>", s="See the gap in your spot.", ts=88),
+    "story-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="O field folda<br><em>mais que o GTO?</em>", s="{N1}", ts=80),
+    "story-en": dict(lang="en", size=(1080, 1920), kind="story", t="Does the field<br>fold <em>more<br>than GTO?</em>", s="{N1}", ts=88),
     "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Onde o field<br><em>sai do GTO?</em>", s="Novo: Modo GTO", ts=104, emph=True),
     "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="c1", t="Where does<br>the field<br><em>leave GTO?</em>", s="New: GTO Mode", ts=88, emph=True),
-    "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="Same spot,<br><em>two numbers</em>", s=None, ts=96),
-    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO and range</em>", s="SRP and 3-bet, flop and turn. Raise response on SRP flop.", ts=72),
-    "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{c4}", ts=72),
+    "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=96),
+    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO and range</em>", s="SRP and 3-bet, flop and turn, with raise response.", ts=76),
+    "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{c4}", ts=76),
     "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="GTO Mode is<br>a <em>paid plan</em>", s=None, ts=104),
     "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="c6", t="See <em>GTO Mode</em>", s="Link in bio.", ts=96),
 }
@@ -55,7 +55,7 @@ def needs(name, n):
     if k == "feed":
         return ex.missing(with_n1=True)
     if k in ("story", "c1", "c2"):
-        return ex.missing()
+        return ex.missing(with_n1=True)
     if k == "c3":
         return [] if find_print("postflop-en") else ["print:postflop-en"]
     if k == "c4":
@@ -203,7 +203,8 @@ def render_html(name, n, miss, test=False):
 .sub { margin-top: 24px; font-size: 52px; }
 .sticker { margin-top: 30px; height: 120px; }
 """
-            svg, _ = chart_svg(lang, n, ph_h=ph_story, emphasize=a.get("emph", False))
+            cap = (Ex(n, lang).n1 or "[[N1]]") if name == "story-capa-pt" else None   # capa: o spot vira micro-legenda do grafico
+            svg, _ = chart_svg(lang, n, ph_h=ph_story - (30 if cap else 0), emphasize=a.get("emph", False), caption=cap)
             stick = ('<div class="sticker z">' + ('<div class="stickph">[STICKER DE LINK · Conhecer o Modo GTO / See GTO Mode]</div>' if tag else "") + "</div>")
             inner = f"""<div class="blk z">{lockup()}</div>
 <div class="z" style="margin-top:56px"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
@@ -212,7 +213,8 @@ def render_html(name, n, miss, test=False):
 {footer()}"""
             return page(lang, h, inner, css, tag=tag)
         css = base_css + ".t { margin-top: 44px; }\n.mid { margin-top: 28px; display:flex; justify-content:center; }\n.sub { font-size: 44px; }\n"
-        svg, _ = chart_svg(lang, n, ph_h=330, emphasize=True)
+        ex = Ex(n, lang)
+        svg, _ = chart_svg(lang, n, ph_h=300, emphasize=True, caption=ex.n1 or "[[N1]]")   # spot como micro-legenda do grafico; o apoio segue "New: GTO Mode"
         inner = lockup(indicator(1)) + f"""
 <div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 <div class="mid z">{svg}</div>
@@ -220,10 +222,10 @@ def render_html(name, n, miss, test=False):
         return page(lang, h, inner, css, tag=tag)
 
     if k == "c2":
-        css = base_css + ".t { margin-top: 44px; }\n.mid { flex: 1; display:flex; align-items:center; justify-content:center; padding-bottom: 8px; }\n"
-        svg, _ = chart_svg(lang, n, ph_h=520)
+        css = base_css + ".t { margin-top: 44px; }\n.mid { flex: 1; display:flex; align-items:center; justify-content:center; padding-bottom: 8px; margin-top: 26px; }\n"
+        svg, _ = chart_svg(lang, n, ph_h=450)
         inner = lockup(indicator(2)) + f"""
-<div class="z t"><h1 class="title">{a['t']}</h1></div>
+<div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 <div class="mid z">{svg}</div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag)
@@ -231,10 +233,16 @@ def render_html(name, n, miss, test=False):
     if k in ("c3", "c4"):
         i = 3 if k == "c3" else 4
         pname = "postflop-en" if k == "c3" else "preflop-en"
-        css = base_css + ".title { white-space: nowrap; }\n.t { margin-top: 44px; }\n.sub { font-size: 38px; text-wrap: balance; }\n.mid { flex: 1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding: 18px 0 26px; }\n"
+        css = base_css + """.title { white-space: nowrap; }
+.sub { font-size: 42px; }
+.grp { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 90px; padding-bottom: 30px; }
+.cap { position: relative; margin-left: -84px; margin-right: -84px; }
+.cap .glow { position: absolute; left: 50%; top: 50%; width: 1100px; height: 560px; transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(212,164,24,.20), transparent 100%); pointer-events: none; }
+"""
         inner = lockup(indicator(i)) + f"""
-<div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n, 'wrap' if k == 'c3' else '')}</div>
-<div class="mid z">{slot(pname, '', n)}</div>
+<div class="grp z"><div><h1 class="title">{a['t']}</h1>{sub(a, n, 'fit')}</div>
+<div class="cap"><div class="glow"></div>{slot(pname, '', n)}</div></div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag)
 

@@ -89,8 +89,12 @@ class Ex:
         n4 = n.get("N4")
         if is_num(n4):
             self.n4 = abs(n4)
-        elif self.n2 is not None and self.c is not None:
-            self.n4 = abs(self.n2 - self.c)
+        elif self.n2 is not None and self.hi is not None and self.n2 > self.hi:
+            self.n4 = self.n2 - self.hi          # acima: distancia ao TOPO da faixa (como a tela mostra)
+        elif self.n2 is not None and self.lo is not None and self.n2 < self.lo:
+            self.n4 = self.lo - self.n2          # abaixo: distancia a BASE da faixa
+        elif self.n2 is not None and self.lo is not None and self.hi is not None:
+            self.n4 = None                       # dentro da faixa: nao ha distancia a faixa
         else:
             self.n4 = None
 
@@ -184,22 +188,25 @@ def _ph_text(x, y, label, size):
             f'<text x="{x}" y="{y}" text-anchor="middle" font-size="{size}" font-weight="900" fill="#fff">{label}</text>')
 
 
-def chart_svg(lang, n, ph_h=470, emphasize=False, bg=None):
+def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None):
     """Barras field x GTO lado a lado, faixa GTO sombreada na barra do GTO, gap em ambar entre as duas.
     Pronto (todos os numeros) -> alturas reais, barras a partir do zero. Senao -> contornos tracejados com [[N..]]."""
     ex = Ex(n, lang)
     ready = ex.chart_ready
-    base = HEAD + ph_h
+    head = HEAD + (30 if caption else 0)
+    base = head + ph_h
     H = base + 90
     o = [f'<svg class="chart" width="{W}" height="{H}" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat, Segoe UI, sans-serif">']
     o.append('<defs>'
              '<linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E8AA3"/><stop offset="1" stop-color="#015A6B"/></linearGradient>'
              f'<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="{7 if emphasize else 0}"/></filter>'
              '</defs>')
+    if caption:
+        o.append(f'<text x="0" y="68" font-size="26" font-weight="600" fill="#94A3B8">{caption}</text>')
     o.append(f'<text x="0" y="34" font-size="30" font-weight="700" letter-spacing="2" fill="#A9B6C8">{TITLE[lang].upper()}</text>')
     # nomes das colunas
     for cx, name in ((FX + COL_W / 2, NAMES[0]), (GX + COL_W / 2, NAMES[1])):
-        o.append(f'<text x="{cx:.0f}" y="{HEAD - 20}" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="6" fill="#CBD5E1">{name}</text>')
+        o.append(f'<text x="{cx:.0f}" y="{head - 20}" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="6" fill="#CBD5E1">{name}</text>')
 
     if ready:
         axis = _nice_axis(ex, n)
@@ -213,24 +220,25 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, bg=None):
                  f'stroke="rgba(226,232,240,.85)" stroke-width="2.5" stroke-dasharray="11 8"/>')
         # gap em ambar
         sw = 6 if emphasize else 4
-        top, bot = min(yf, yc), max(yf, yc)
+        yg = yh if ex.position == "above" else (yl if ex.position == "below" else yc)   # alvo do gap: topo da faixa (field acima), base (abaixo), centro (dentro)
+        top, bot = min(yf, yg), max(yf, yg)
         glow = ""
         if emphasize:
             glow = (f'<g filter="url(#glow)" opacity=".85"><line x1="{MID}" y1="{top:.1f}" x2="{MID}" y2="{bot:.1f}" stroke="{AMBER}" stroke-width="14"/></g>')
         o.append(glow)
         o.append(f'<line x1="{FX + COL_W + 6}" y1="{yf:.1f}" x2="{GX + COL_W + 26}" y2="{yf:.1f}" stroke="{AMBER}" stroke-width="{sw}" stroke-dasharray="14 9"/>')
-        o.append(f'<line x1="{FX + COL_W + 6}" y1="{yc:.1f}" x2="{GX - 6}" y2="{yc:.1f}" stroke="{AMBER}" stroke-width="{sw}" stroke-dasharray="14 9"/>')
+        o.append(f'<line x1="{FX + COL_W + 6}" y1="{yg:.1f}" x2="{GX - 30}" y2="{yg:.1f}" stroke="{AMBER}" stroke-width="{sw}" stroke-dasharray="14 9"/>')
         o.append(f'<line x1="{MID}" y1="{top:.1f}" x2="{MID}" y2="{bot:.1f}" stroke="{AMBER}" stroke-width="{sw + 2}" stroke-linecap="butt"/>')
-        if bot - top > 34:
-            a = 16
+        if bot - top > 22:
+            a = min(16, (bot - top) / 3.4)
             o.append(f'<polygon points="{MID - a},{top + a * 1.5:.1f} {MID + a},{top + a * 1.5:.1f} {MID},{top:.1f}" fill="{AMBER}"/>')
             o.append(f'<polygon points="{MID - a},{bot - a * 1.5:.1f} {MID + a},{bot - a * 1.5:.1f} {MID},{bot:.1f}" fill="{AMBER}"/>')
         else:
             o.append(f'<line x1="{MID - 18}" y1="{top:.1f}" x2="{MID + 18}" y2="{top:.1f}" stroke="{AMBER}" stroke-width="{sw + 2}"/>')
             o.append(f'<line x1="{MID - 18}" y1="{bot:.1f}" x2="{MID + 18}" y2="{bot:.1f}" stroke="{AMBER}" stroke-width="{sw + 2}"/>')
         # numeros no cabecalho das colunas
-        o.append(f'<text x="{FX + COL_W / 2:.0f}" y="{HEAD - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n2()}</text>')
-        o.append(f'<text x="{GX + COL_W / 2:.0f}" y="{HEAD - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n3c()}</text>')
+        o.append(f'<text x="{FX + COL_W / 2:.0f}" y="{head - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n2()}</text>')
+        o.append(f'<text x="{GX + COL_W / 2:.0f}" y="{head - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n3c()}</text>')
     else:
         # rascunho: alturas ILUSTRATIVAS (nao sao dado), contornos tracejados, marcadores visiveis
         fh, ch_, lo_h, hi_h = 0.86 * ph_h, 0.56 * ph_h, 0.38 * ph_h, 0.74 * ph_h
@@ -242,15 +250,17 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, bg=None):
         o.append(f'<line x1="{FX + COL_W + 6}" y1="{yf:.1f}" x2="{GX + COL_W + 26}" y2="{yf:.1f}" stroke="{AMBER}" stroke-width="3" stroke-dasharray="4 10" opacity=".8"/>')
         o.append(f'<line x1="{FX + COL_W + 6}" y1="{yc:.1f}" x2="{GX - 6}" y2="{yc:.1f}" stroke="{AMBER}" stroke-width="3" stroke-dasharray="4 10" opacity=".8"/>')
         o.append(f'<line x1="{MID}" y1="{yf:.1f}" x2="{MID}" y2="{yc:.1f}" stroke="{AMBER}" stroke-width="4" stroke-dasharray="4 10" opacity=".8"/>')
-        o.append(_ph_text(FX + COL_W / 2, HEAD - 70, "[[N2]]" if ex.n2 is None else ex.s_n2(), 68) if ex.n2 is None else
-                 f'<text x="{FX + COL_W / 2:.0f}" y="{HEAD - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n2()}</text>')
-        o.append(_ph_text(GX + COL_W / 2, HEAD - 70, "[[N3]]", 68) if ex.c is None else
-                 f'<text x="{GX + COL_W / 2:.0f}" y="{HEAD - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n3c()}</text>')
+        o.append(_ph_text(FX + COL_W / 2, head - 70, "[[N2]]" if ex.n2 is None else ex.s_n2(), 68) if ex.n2 is None else
+                 f'<text x="{FX + COL_W / 2:.0f}" y="{head - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n2()}</text>')
+        o.append(_ph_text(GX + COL_W / 2, head - 70, "[[N3]]", 68) if ex.c is None else
+                 f'<text x="{GX + COL_W / 2:.0f}" y="{head - 70}" text-anchor="middle" font-size="100" font-weight="900" fill="#fff">{ex.s_n3c()}</text>')
     # linha de base
     o.append(f'<line x1="0" y1="{base}" x2="{W}" y2="{base}" stroke="#475569" stroke-width="3"/>')
     # legenda (conta como parte do grafico): faixa GTO e gap
     ly = base + 56
     lg, gp = LEG[lang]
+    if ready:
+        lg += f" {fnum(ex.lo, lang, n)}–{fnum(ex.hi, lang, n)}%"
     o.append(f'<rect x="{FX}" y="{ly - 20}" width="44" height="26" rx="5" fill="rgba(203,213,225,.38)" stroke="rgba(226,232,240,.95)" stroke-width="2.5" stroke-dasharray="7 5"/>')
     o.append(f'<text x="{FX + 58}" y="{ly + 1}" font-size="28" font-weight="600" fill="#CBD5E1">{lg}</text>')
     o.append(f'<line x1="{GX - 40}" y1="{ly - 7}" x2="{GX + 4}" y2="{ly - 7}" stroke="{AMBER}" stroke-width="6"/>')
@@ -259,5 +269,5 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, bg=None):
     return "".join(o), H
 
 
-def chart_height(ph_h):
-    return HEAD + ph_h + 90
+def chart_height(ph_h, caption=False):
+    return HEAD + (30 if caption else 0) + ph_h + 90

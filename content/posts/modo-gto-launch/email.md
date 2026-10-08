@@ -2,7 +2,7 @@
 
 Status: rascunho com números fechados; não publicado. Não enviado, e nada foi criado no Resend.
 Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a). O único número verificado do e-mail é o do exemplo (um spot): field folda 46,0%, GTO folda 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. Sem número de escala, sem pré-flop concreto, sem contagem de mãos.
-HTML: não produzido nesta rodada (pedido só o `email.md`). Quando houver, seguir o layout do e-mail do Field Trends.
+HTML: existe (`email-pt.html` e `email-en.html`; para abrir do disco, `email-pt.preview.html` e `email-en.preview.html`). A imagem do e-mail é a captura recortada do card de 33% do app, não duas barras renderizadas.
 **Só enviar depois do passo 6 do roteiro de go-live.** O botão leva à landing, mas o texto promete o módulo.
 
 ---
@@ -24,7 +24,7 @@ O GTO e o field na mesma tela.
 
 Ao lado de cada número do field, agora o número GTO e a faixa GTO. No pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. No pré-flop: o GTO e o desvio em cada célula da grade, inclusive o RFI de CO e BTN a 40bb.
 
-Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o c-bet de bluff tem mais fold equity do que o GTO. É um spot, não a média do field. Confira no seu board.
+Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 Botão: Conhecer o Modo GTO
 Sob o botão: O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO. Poker é jogo de habilidade e estudo. 18+.
@@ -48,7 +48,7 @@ GTO and the field on the same screen.
 
 Next to every field number, now the GTO number and the GTO range. Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in every grid cell, including the CO and BTN RFI at 40bb.
 
-Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the bluff c-bet has more fold equity than GTO. This is one spot, not the field average. Check it on your board.
+Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
 Button: See GTO Mode
 Under the button: GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan. Poker is a game of skill and study. 18+.
@@ -57,7 +57,7 @@ Under the button: GTO Mode is a paid plan. The free account keeps the field and 
 
 ## Nota técnica
 
-- **Imagem:** `email/modo-gto-pt.png` e `-en.png` (1200 px, geradas pela build a partir de `_ops/golive-gto-2026-10-04/prints/prod/postflop-pt.png` e `-en.png`): painel "Fold por tamanho de Flop CBet" do app, com o 33% (field 46,0%, GTO 38,8%, faixa 37,1–40,4, Overfold +5,6 pp). A captura vem do front no SHA de produção (aura-novofront 429c093) lendo a API com os mesmos snapshots do go-live, não da conta de produção (sem login). Sem selo Beta, e-mail ou nick no enquadramento. Hospedar em `https://www.aurapoker.com/email/` antes do envio.
+- **Imagem:** `email/modo-gto-pt.png` e `-en.png` (1200 px, geradas pela build a partir de `_ops/golive-gto-2026-10-04/prints/prod/postflop-pt.png` e `-en.png`): recorte do card de 33% do painel "Fold por tamanho de Flop CBet" do app (field 46,0%, GTO 38,8%, faixa 37,1–40,4, 5,6 pp acima do topo da faixa). A captura vem do front no SHA de produção (aura-novofront 429c093) lendo a API local com os snapshots do go-live, não da conta de produção (sem login). Sem e-mail ou nick no enquadramento. Hospedar em `https://www.aurapoker.com/email/` antes do envio.
 - **Logo:** `https://www.aura.poker/email/aura-logo.png` (já hospedado).
 - **Link do CTA (sempre a landing, nunca o app/login; `www.aurapoker.com` com www):**
   - PT: https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content=pt

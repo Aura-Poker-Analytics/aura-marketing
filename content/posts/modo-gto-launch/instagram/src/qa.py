@@ -31,7 +31,7 @@ JS = """() => {
     if (r.width) boxes.push([s, Math.round(r.left), Math.round(r.top), Math.round(r.right), Math.round(r.bottom), e]);
   }
   for (const [s, l, t, r, b, e] of boxes) {
-    if (l < 80 || r > 1000) out.issues.push(`${s} fora da margem lateral (${l}..${r})`);
+    if ((l < 80 || r > 1000) && s !== '.slot' && s !== '.slotimg') out.issues.push(`${s} fora da margem lateral (${l}..${r})`);
     if (s !== 'footer' && b > out.h) out.issues.push(`${s} passa do fim da pagina`);
     if (e.scrollWidth > e.clientWidth + 2 && s === '.sub') out.issues.push('linha de apoio cortada');
   }

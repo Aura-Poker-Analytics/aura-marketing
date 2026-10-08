@@ -21,7 +21,7 @@ from PIL import Image, ImageDraw, ImageFont
 from playwright.sync_api import sync_playwright
 
 import lib
-from lib import ASSETS, EMAIL, POST, SRC, Ex, chart_svg, find_print, has_text, ph_email
+from lib import ASSETS, EMAIL, POST, SRC, Ex, chart_svg, find_print, fnum, has_text, pct, ph_email
 
 BG_MAIL = (11, 18, 32)  # #0b1220
 W = 1200
@@ -61,26 +61,32 @@ CP = {
 
 # ---------------------------------------------------------------- texto do exemplo (email.md)
 def example_html(lang, n):
-    """Paragrafo do exemplo. Retorna (html, faltando)."""
+    """Paragrafo do exemplo, na redacao de email.md. Retorna (html, faltando)."""
     ex = Ex(n, lang, mark=ph_email)
-    miss = ex.missing(with_n1=True, with_n4=True)
     pos = ex.position
-    n1 = ex.s_n1()
-    if ex.n1:
-        n1 = H.escape(ex.n1.rstrip(".").strip())
+    miss = ex.missing(with_n1=True, with_n4=(pos != "inside"))
+    long_n1 = ((n.get("N1") or {}).get(f"email_{lang}") or "").strip()      # contexto completo do spot (email.md)
+    if has_text(long_n1):
+        n1 = H.escape(long_n1.rstrip("."))
+    elif ex.n1:
+        n1 = H.escape(ex.n1.rstrip("."))
+        miss.append("N1.email")
+    else:
+        n1 = ex.s_n1()
+    lo = fnum(ex.lo, lang, n) if ex.lo is not None else None
+    hi = fnum(ex.hi, lang, n) if ex.hi is not None else None
+    rng = f"{lo}–{hi}%" if lo and hi else ph_email("N3")
     if lang == "pt":
-        head = f"Exemplo: {n1}. Contra o c-bet, o field folda {ex.s_n2()} e o GTO folda {ex.s_n3_words()}. "
-        gap = f"Diferença de {ex.s_n4()} pp, "
-        above = gap + "com o field acima da faixa GTO. Aqui, o c-bet de bluff tem mais fold equity do que o GTO. "
-        below = gap + "com o field abaixo da faixa GTO. Aqui, o c-bet de bluff tem menos fold equity do que o GTO; estude o c-bet por valor. "
-        inside = gap + ph_email("LEITURA: field dentro da faixa GTO, copy a definir") + " "
+        head = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {pct(ex.c, lang, n) if ex.c is not None else ph_email('N3')} do GTO (faixa {rng}): "
+        above = f"{ex.s_n4()} pp acima do topo da faixa. Aqui o field folda mais do que o GTO. "
+        below = f"{ex.s_n4()} pp abaixo da base da faixa. Aqui o field folda menos do que o GTO. "
+        inside = ph_email("LEITURA: field dentro da faixa GTO, copy a definir") + " "
         tail = "É um spot, não a média do field. Confira no seu board."
     else:
-        head = f"Example: {n1}. Against the c-bet, the field folds {ex.s_n2()} and GTO folds {ex.s_n3_words()}. "
-        gap = f"A gap of {ex.s_n4()} pp, "
-        above = gap + "with the field above the GTO range. Here, the bluff c-bet has more fold equity than GTO. "
-        below = gap + "with the field below the GTO range. Here, the bluff c-bet has less fold equity than GTO; study value c-bets. "
-        inside = gap + ph_email("LEITURA: field inside the GTO range, copy to be defined") + " "
+        head = f"Example: {n1}. The field folds {ex.s_n2()} against GTO's {pct(ex.c, lang, n) if ex.c is not None else ph_email('N3')} (range {rng}): "
+        above = f"{ex.s_n4()} pp above the top of the range. Here the field folds more than GTO does. "
+        below = f"{ex.s_n4()} pp below the bottom of the range. Here the field folds less than GTO does. "
+        inside = ph_email("LEITURA: field inside the GTO range, copy to be defined") + " "
         tail = "This is one spot, not the field average. Check it on your board."
     if pos == "inside":
         read = inside

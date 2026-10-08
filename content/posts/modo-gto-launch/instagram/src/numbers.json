@@ -7,9 +7,11 @@
     "N2, N3 e N4 tem de vir do MESMO spot (N1) e da mesma leitura da tela. Fonte: numeros-verificados.md ou a tela de producao."
   ],
   "N1": {
-    "_doc": "Spot do exemplo, com o rotulo exato da tela. Texto livre por idioma. Ex.: posicoes + stack + textura do board.",
+    "_doc": "Spot do exemplo. pt/en = linha de apoio curta das artes. email_pt/email_en = contexto completo do e-mail (email.md). Fonte: numeros-verificados.md, exemplo (a).",
     "pt": "CO × BB · K-high two-tone · c-bet de 33%",
-    "en": "CO × BB · K-high two-tone · 33% c-bet"
+    "en": "CO × BB · K-high two-tone · 33% c-bet",
+    "email_pt": "CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%",
+    "email_en": "CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet"
   },
   "N2": 46.0,
   "_N2": "% de fold do field contra o c-bet no spot N1 (numero, ex.: 34.1).",
@@ -20,13 +22,13 @@
     "to": 40.4
   },
   "N4": 5.6,
-  "_N4": "Diferenca field - GTO central, em pp (so texto: e-mail e legendas, nunca em arte). null = a build calcula |N2 - N3.center|; preencha so para fixar o numero exato que a tela mostra.",
+  "_N4": "Distancia do field ao TOPO da faixa GTO (como a tela mostra: Overfold +5,6 pp), nao ao centro. So texto: e-mail e legendas, nunca em arte. null = a build calcula N2 - N3.to (field acima da faixa) ou N3.from - N2 (abaixo); dentro da faixa nao ha distancia e o e-mail pede a leitura. Preencha so para fixar o numero exato da tela.",
   "N5": {
-    "_doc": "Exemplo de pre-flop, torneio Regular: a celula destacada na captura do slide 4. Aparece SO dentro da captura; aqui fica o registro do que a captura precisa mostrar.",
-    "cell": "RFI do CO, 30–50bb (GTO a 40bb)",
-    "gto": 37.0,
-    "field": 31.6,
-    "deviation": -5.4
+    "_doc": "Pre-flop: celula do CO no RFI, destacada na captura do slide 4 (preflop-en.png). Valores como a captura mostra (arredondados em inteiro). Aparece SO dentro da captura; aqui fica o registro.",
+    "cell": "CO RFI",
+    "gto": 37,
+    "field": 32,
+    "deviation": -5
   },
   "N6": {
     "_doc": "1 numero de escala/cobertura. SO landing (nota de rodape). Nenhuma arte nem o e-mail usa. Opcional; escolher entre os 'verificados' abaixo.",

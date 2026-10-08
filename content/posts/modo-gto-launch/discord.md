@@ -1,9 +1,9 @@
 # Discord: lançamento do Modo GTO
 
 Status: rascunho com números fechados; não publicado.
+**Tamanho real (len do texto exato dos blocos abaixo, URL inclusa, em caracteres Unicode como o `len` do Python): PT 992, EN 1.017. Teto de 1.200 respeitado nos dois.** Recontar se qualquer palavra mudar. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
 **Aviso de publicação: só postar depois do passo 6 do roteiro de go-live (teste logado do Rafael).** O link leva ao app e o texto promete o módulo.
-Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), +5,6 pp acima do topo da faixa. Nenhum outro número.
-Tamanho: cerca de 1.080 caracteres em PT e 1.100 em EN (contagem manual, URL inclusa); o teto é cerca de 1.200. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
+Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. Nenhum outro número.
 O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB, lida do código. Sem "prévia", sem preço, sem Beta.
 @aurapokeranalytics: a confirmar pelo Rafael. UTM: `utm_campaign=modo-gto-launch`, uma URL por idioma.
 
@@ -18,7 +18,7 @@ Ao lado de cada número do field, o número GTO e a faixa GTO. Onde o field sai 
 
 **Exemplo de spot**
 CO × BB em pote simples, 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO folda 38,8% (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa.
-Aqui o c-bet de bluff tem mais fold equity do que o GTO. É um spot, não a média do field. Confira no seu board.
+Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 **O que você vê**
 - Pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP
@@ -26,8 +26,8 @@ Aqui o c-bet de bluff tem mais fold equity do que o GTO. É um spot, não a méd
 
 🔎 Abra um spot que você joga e olhe o gap.
 
-Referência GTO: mesa de 8, chipEV, torneios vanilla.
 O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO.
+Ferramenta de estudo. 18+.
 👉 Conhecer o Modo GTO: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-pt
 ```
 
@@ -40,7 +40,7 @@ Next to every field number, the GTO number and the GTO range. Where the field le
 
 **Example spot**
 CO × BB single-raised pot, 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO folds 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range.
-Here the bluff c-bet has more fold equity than GTO. This is one spot, not the field average. Check it on your board.
+Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
 **What you see**
 - Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop
@@ -48,8 +48,8 @@ Here the bluff c-bet has more fold equity than GTO. This is one spot, not the fi
 
 🔎 Open a spot you play and look at the gap.
 
-GTO reference: 8-handed, chipEV, vanilla tournaments.
 GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan.
+Study tool. 18+.
 👉 See GTO Mode: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-en
 ```
 
@@ -57,3 +57,5 @@ GTO Mode is a paid plan. The free account keeps the field and the MDF comparison
 
 ## Notas
 - A reação a raise é dita só como "no flop do SRP". Nos 3-bets BB vs CO, SB vs BTN e BTN vs CO a 40/60bb ela ainda não tem GTO; não generalizar.
+- A ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10); o Discord não a repete.
+- Conferência da contagem, para quem quiser refazer: copiar o texto de cada bloco (sem as cercas ```) para um arquivo sem quebra de linha final e rodar `python -c "import sys;print(len(open(sys.argv[1],encoding='utf-8').read()))" arquivo.txt`. A contagem acima foi feita por regex âncorada no arquivo inteiro (`\A(?s:.){N}\z`), porque esta sessão não tinha Python. O resultado é PT 992 e EN 1.017.
