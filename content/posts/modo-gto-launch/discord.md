@@ -1,10 +1,10 @@
 # Discord: lançamento do Modo GTO
 
-Status: rascunho com marcadores; não publicado.
+Status: rascunho com números fechados; não publicado.
 **Aviso de publicação: só postar depois do passo 6 do roteiro de go-live (teste logado do Rafael).** O link leva ao app e o texto promete o módulo.
-Números: todos são marcadores `[[N1..N4]]`, a preencher de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (arquivo ainda inexistente). Nenhum número inventado.
-Tamanho: cerca de 1.050 caracteres em PT e 1.080 em EN com valores típicos nos marcadores, URL inclusa; o teto é cerca de 1.200. Recontar depois de preencher. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
-O botão/CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB, lida do código. Sem "prévia", sem preço, sem Beta.
+Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), +7,2 pp. Nenhum outro número.
+Tamanho: cerca de 1.080 caracteres em PT e 1.100 em EN (contagem manual, URL inclusa); o teto é cerca de 1.200. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
+O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB, lida do código. Sem "prévia", sem preço, sem Beta.
 @aurapokeranalytics: a confirmar pelo Rafael. UTM: `utm_campaign=modo-gto-launch`, uma URL por idioma.
 
 ---
@@ -17,9 +17,8 @@ O botão/CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de gr
 Ao lado de cada número do field, o número GTO e a faixa GTO. Onde o field sai da faixa, está o spot para estudar.
 
 **Exemplo de spot**
-[[N1: spot do exemplo — posições, stack, board/textura]]
-Fold contra o c-bet: field [[N2: % de fold do field no exemplo]], GTO [[N3: % GTO do mesmo spot e a faixa (de–a)]]. Diferença: [[N4: diferença field − GTO em pp]] pp.
-O field folda acima da faixa GTO, então aqui o c-bet de bluff tem mais fold equity do que o GTO. É um spot, não a média do field. Confira no seu board.
+CO × BB em pote simples, 30–60bb (GTO a 40bb), flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO folda 38,8% (faixa 37,1–40,4%): acima da faixa, +7,2 pp.
+Aqui o c-bet de bluff tem mais fold equity do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 **O que você vê**
 - Pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP
@@ -27,6 +26,7 @@ O field folda acima da faixa GTO, então aqui o c-bet de bluff tem mais fold equ
 
 🔎 Abra um spot que você joga e olhe o gap.
 
+Referência GTO: mesa de 8, chipEV, torneios vanilla.
 O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO.
 👉 Conhecer o Modo GTO: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-pt
 ```
@@ -39,9 +39,8 @@ O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação 
 Next to every field number, the GTO number and the GTO range. Where the field leaves the range, that is the spot to study.
 
 **Example spot**
-[[N1: example spot — positions, stack, board/texture]]
-Fold to the c-bet: field [[N2: field fold % in the example]], GTO [[N3: GTO % of the same spot and the range (from–to)]]. Gap: [[N4: field − GTO difference in pp]] pp.
-The field folds above the GTO range, so here the bluff c-bet has more fold equity than GTO. This is one spot, not the field average. Check it on your board.
+CO × BB single-raised pot, 30–60bb (GTO at 40bb), K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO folds 38.8% (range 37.1–40.4%): above the range, +7.2 pp.
+Here the bluff c-bet has more fold equity than GTO. This is one spot, not the field average. Check it on your board.
 
 **What you see**
 - Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop
@@ -49,6 +48,7 @@ The field folds above the GTO range, so here the bluff c-bet has more fold equit
 
 🔎 Open a spot you play and look at the gap.
 
+GTO reference: 8-handed, chipEV, vanilla tournaments.
 GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan.
 👉 See GTO Mode: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-en
 ```
@@ -56,5 +56,4 @@ GTO Mode is a paid plan. The free account keeps the field and the MDF comparison
 ---
 
 ## Notas
-- Se o spot escolhido tiver o field abaixo da faixa GTO, trocar a frase "O field folda acima da faixa GTO..." pela alternativa de `copy.md` (pendência 6).
-- A reação a raise é dita só como "no flop do SRP". Num 3-bet CO×BB a 40bb ela não tem GTO ainda; não generalizar.
+- A reação a raise é dita só como "no flop do SRP". Nos 3-bets BB vs CO, SB vs BTN e BTN vs CO a 40/60bb ela ainda não tem GTO; não generalizar.

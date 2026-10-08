@@ -8,30 +8,30 @@
   ],
   "N1": {
     "_doc": "Spot do exemplo, com o rotulo exato da tela. Texto livre por idioma. Ex.: posicoes + stack + textura do board.",
-    "pt": "",
-    "en": ""
+    "pt": "CO × BB · K-high two-tone · c-bet de 33%",
+    "en": "CO × BB · K-high two-tone · 33% c-bet"
   },
-  "N2": null,
+  "N2": 46.0,
   "_N2": "% de fold do field contra o c-bet no spot N1 (numero, ex.: 34.1).",
   "N3": {
     "_doc": "Fold GTO no mesmo spot: valor central e a faixa GTO (de-a). Os tres sao obrigatorios.",
-    "center": null,
-    "from": null,
-    "to": null
+    "center": 38.8,
+    "from": 37.1,
+    "to": 40.4
   },
-  "N4": null,
+  "N4": 7.2,
   "_N4": "Diferenca field - GTO central, em pp (so texto: e-mail e legendas, nunca em arte). null = a build calcula |N2 - N3.center|; preencha so para fixar o numero exato que a tela mostra.",
   "N5": {
     "_doc": "Exemplo de pre-flop, torneio Regular: a celula destacada na captura do slide 4. Aparece SO dentro da captura; aqui fica o registro do que a captura precisa mostrar.",
-    "cell": "",
-    "gto": null,
-    "field": null,
-    "deviation": null
+    "cell": "RFI do CO, 30–50bb (GTO a 40bb)",
+    "gto": 37.0,
+    "field": 31.6,
+    "deviation": -5.4
   },
   "N6": {
     "_doc": "1 numero de escala/cobertura. SO landing (nota de rodape). Nenhuma arte nem o e-mail usa. Opcional; escolher entre os 'verificados' abaixo.",
-    "pt": "",
-    "en": ""
+    "pt": "30 situações de pré-flop com GTO no flop, de 25 a 60bb",
+    "en": "30 preflop situations with GTO on the flop, from 25 to 60bb"
   },
   "decimals": 1,
   "scale_max": null,
