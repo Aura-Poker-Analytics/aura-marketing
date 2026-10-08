@@ -41,7 +41,7 @@ ART = {
     "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=96),
     "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO and range</em>", s="SRP and 3-bet, flop and turn. Raise response on SRP flop.", ts=76),
     "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{c4}", ts=76),
-    "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="GTO Mode is<br>a <em>paid plan</em>", s=None, ts=104),
+    "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="GTO Mode,<br>now in<br><em>Individual</em>", s="For a limited time.", ts=104),
     "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="c6", t="See <em>GTO Mode</em>", s="Link in bio.", ts=96),
 }
 N_SLIDES = 6
@@ -257,7 +257,7 @@ def render_html(name, n, miss, test=False):
 <rect x="6" y="29" width="48" height="36" rx="8" fill="#D4A418"/>
 <circle cx="30" cy="44" r="5" fill="#0F1526"/><rect x="28" y="46" width="4" height="10" rx="2" fill="#0F1526"/></svg></div>"""
         inner = lockup(indicator(5)) + f"""
-<div class="mid z">{lock}<h1 class="title">{a['t']}</h1></div>
+<div class="mid z">{lock}<h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag)
 

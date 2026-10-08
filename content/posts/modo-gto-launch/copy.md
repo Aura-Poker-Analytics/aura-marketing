@@ -5,7 +5,7 @@ Status: rascunho com números fechados; não publicado. Sem commit. Entra no ar 
 Fonte única dos números: `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10, lido em produção). Os números usados estão mapeados em "Números usados" no fim. **Nenhum marcador `[[N..]]` restou no pacote.**
 Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel só em EN), landing e e-mail (em `email.md`).
 
-> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano Grátis fica na legenda e no e-mail, não nas artes. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
+> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o título do slide 5. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
 ## Origem das capturas
 As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-novofront `429c093`, build com o Modo GTO ligado) servido localmente e lendo a API local `:7060` com os snapshots do go-live (flop e turn/river 20261008, reação a raise 20261006, pré-flop 20261007), por conta de teste local (sem login em produção). Capturadas em 08/10 com Playwright, em EN e PT. A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque. Na tela, o card do 33% mostra +5,6 pp (distância ao topo da faixa).
@@ -13,7 +13,9 @@ As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-n
 ## Pendências reais
 1. **Conferência das capturas no teste logado.** As capturas (slides 3 e 4, recorte do e-mail) vêm do front no SHA de produção + API local com os snapshots do go-live (ver "Origem das capturas"). O teste logado do Rafael (passo 6 do roteiro de go-live) deve conferir, em `www.aura.poker`, os MESMOS valores do exemplo (46,0% / 38,8% / faixa 37,1–40,4% e RFI do CO 31,6% / 37,0%) antes de qualquer post ou envio. Nenhuma peça chama as capturas de "print de produção". A captura do slide 3 não mostra a reação a raise de BB 3-bet vs CO, SB 3-bet vs BTN ou BTN 3-bet vs CO a 40/60bb, que ainda não tem GTO.
 2. **Ordem de publicação.** Só postar depois do teste logado do Rafael (passo 6 do roteiro de go-live).
-3. **Bug do front a avisar.** O app em PT mistura formatos no mesmo card: "46.0%" (ponto) e "38,8%" (vírgula). Nas peças em PT escrevemos sempre com vírgula; o app não.
+3. **Dependência do P-61 e preço promocional.** A frase nova ("O Modo GTO está incluído no plano Individual por tempo limitado...") só é verdadeira depois da publicação do P-61 (abertura do Modo GTO ao plano Individual); nada com ela sai antes disso. A promoção (o plano Modo GTO pelo preço do Individual, por tempo limitado, quando os preços do Stripe entrarem) **não está em nenhuma peça**: só entra quando a HUB confirmar que o checkout cobra o promocional. Até lá, nenhuma peça cita preço do GTO nem o plano Modo GTO como produto à venda. O fim do "tempo limitado" (data) também não consta; se houver data, ela vem da HUB.
+4. **Slide 5 e arte.** O título e o apoio novos do slide 5 ("GTO Mode, now in Individual" / "For a limited time.") precisam ser aplicados na arte por quem cuida das imagens; esta rodada só mudou os textos.
+5. **Bug do front a avisar.** O app em PT mistura formatos no mesmo card: "46.0%" (ponto) e "38,8%" (vírgula). Nas peças em PT escrevemos sempre com vírgula; o app não.
 
 ## Decisões registradas (revisão de marca, 08/10)
 - **Capa com duas linhas (decisão consciente).** A capa (story PT e slide 1 do carrossel) tem o apoio ("Novo: Modo GTO" / "New: GTO Mode") e uma micro-legenda do spot ("CO × BB · K-high two-tone · c-bet de 33%" / "CO × BB · K-high two-tone · 33% c-bet"). É a única exceção à regra de uma linha de apoio.
@@ -26,7 +28,7 @@ As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-n
 - **Cobertura, sem absolutos:** nenhuma peça diz "cada número" nem "cada célula". PT: "onde há referência" e "nas células cobertas"; EN: "where a reference exists" e "in the covered cells". A fonte só garante 30 situações no flop e 225 decisões de pré-flop.
 - **Pré-flop:** "o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb" (pré-flop `20261007`).
 - **Filtro do exemplo nas peças:** "torneios Regular" (EN "Regular tournaments") e "últimos 2 anos" (EN "last 2 years"), sem vanilla nem chipEV.
-- **Plano Grátis (lido do código):** conta Grátis (e Individual) não vê número GTO nem faixa; segue com o field e a comparação com o MDF, e o GTO aparece como cadeado. Frase única, PT: "O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO." EN: "GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan." Vive na legenda, no Discord, na landing e no e-mail. CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". Sem "prévia", sem "borrado", sem preço, sem "Beta".
+- **Plano e conta Grátis (decisão da HUB, 08/10; substitui a frase anterior em todas as peças):** o Modo GTO está sendo aberto ao plano Individual, por tempo limitado; a conta Grátis segue com o field e a comparação com o MDF (o GTO aparece como cadeado). Frase única, PT: "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN: "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison." Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só o título do slide 5. CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". Nenhuma peça diz "plano pago" do GTO, cita preço, cita o plano Modo GTO como produto à venda nem menciona o plano Top. Sem "prévia", sem "borrado", sem "Beta".
 - **Escopo da referência:** a ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10). Nenhuma peça a repete; "Regular" aparece só como filtro do spot.
 - **"Spot"** é a situação ou a decisão, nunca contagem de linhas.
 - **Formato dos números:** vírgula em PT (46,0%), ponto em EN (46.0%).
@@ -83,13 +85,13 @@ Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalyt
 | Carrossel 2 | 1080x1350 | EN | Same spot, two numbers | CO × BB · K-high two-tone · 33% c-bet | As barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%) |
 | Carrossel 3 | 1080x1350 | EN | Postflop: GTO and range | SRP and 3-bet, flop and turn. Raise response on SRP flop. | Captura do Postflop com o Modo GTO ligado, no spot do exemplo |
 | Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
-| Carrossel 5 | 1080x1350 | EN | GTO Mode is a paid plan | (nenhum) | Um cadeado desenhado (sem texto do app) |
+| Carrossel 5 | 1080x1350 | EN | GTO Mode, now in Individual | For a limited time. | Um cadeado desenhado (sem texto do app) |
 | Carrossel 6 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
 
 Notas de arte:
 - **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO.
 - **Slide 4 (carrossel):** o stack da captura é 30–50bb (GTO a 40bb), torneio Regular. O número fica dentro da captura; nenhum texto de arte o repete.
-- **Slide 5:** cadeado desenhado. A frase do plano Grátis fica na legenda.
+- **Slide 5:** o título passa a ser "GTO Mode, now in Individual" e o apoio "For a limited time." (decisão da HUB, 08/10). O cadeado desenhado continua. A frase completa sobre o plano Individual e a conta grátis fica na legenda.
 - **Enquete opcional no story (fora da arte):** "Qual spot você quer ver com o GTO ao lado?" com as opções "SRP" e "3-bet" / "Which spot do you want to see with GTO next to it?" with "SRP" and "3-bet".
 
 ## Legendas
@@ -105,7 +107,7 @@ Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regula
 
 Pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
-O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO.
+O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 
 Conhecer o Modo GTO, link na bio. Ferramenta de estudo. 18+.
 
@@ -121,7 +123,7 @@ Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tour
 
 Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
-GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan.
+GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
 
 See GTO Mode, link in bio. Study tool. 18+.
 
@@ -139,7 +141,7 @@ Pós-flop: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regu
 
 Pré-flop: RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos. O field abre 31,6% e o GTO abre 37,0%.
 
-O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO.
+O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 
 Conhecer o Modo GTO, link na bio. Salve para estudar. Ferramenta de estudo. 18+.
 
@@ -155,7 +157,7 @@ Postflop: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tou
 
 Preflop: CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years. The field opens 31.6% and GTO opens 37.0%.
 
-GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan.
+GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
 
 See GTO Mode, link in bio. Save it for study. Study tool. 18+.
 
@@ -195,7 +197,7 @@ Nota de rodapé da seção (PT): "Um spot, não a média do field. Dados: Aura �
 Footnote (EN): "One spot, not the field average. Data: Aura · 30 situations (10 position matchups at 25, 40 and 60bb) with GTO on the flop, over 2,300 flops, nearly 7 million turn and river nodes and 225 preflop decisions, from 10 to 60bb. Study tool · 18+. Aura is not a betting site and does not offer gambling."
 
 CTA: PT "Conhecer o Modo GTO" / EN "See GTO Mode".
-Frase sob o CTA, PT: "O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO." / EN: "GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan."
+Frase sob o CTA, PT: "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / EN: "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison."
 
 ## Alt text das imagens (2)
 ### Imagem 1: o exemplo lado a lado
@@ -211,7 +213,7 @@ Nota para o designer: as imagens só mostram os números de "Números usados". N
 
 # (c) Discord
 
-Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.200 caracteres cada. Tamanho real (len do texto exato, URL inclusa): **PT 1.038, EN 1.078**. 3 emojis funcionais (📊 título, 🔎 convite, 👉 CTA). **Só postar depois do passo 6 do roteiro.**
+Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.200 caracteres cada. Tamanho real (len do texto exato, URL inclusa): **PT 1.029, EN 1.066**. 3 emojis funcionais (📊 título, 🔎 convite, 👉 CTA). **Só postar depois do passo 6 do roteiro.**
 
 **PT**
 ```
@@ -229,7 +231,7 @@ Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confir
 
 🔎 Abra um spot que você joga e olhe o gap.
 
-O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO.
+O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 Ferramenta de estudo. 18+.
 👉 Conhecer o Modo GTO: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-pt
 ```
@@ -250,7 +252,7 @@ Here the field folds more than GTO does. This is one spot, not the field average
 
 🔎 Open a spot you play and look at the gap.
 
-GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan.
+GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
 Study tool. 18+.
 👉 See GTO Mode: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-en
 ```

@@ -27,7 +27,7 @@ Ao lado do número do field, agora o número GTO e a faixa GTO, onde há referê
 Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 Botão: Conhecer o Modo GTO
-Sob o botão: O Modo GTO é um plano pago. A conta grátis segue com o field e a comparação com o MDF; o número GTO e a faixa são do plano Modo GTO. Poker é jogo de habilidade e estudo. 18+.
+Sob o botão: O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.
 
 ---
 
@@ -51,7 +51,7 @@ Next to the field number, now the GTO number and the GTO range, where a referenc
 Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
 Button: See GTO Mode
-Under the button: GTO Mode is a paid plan. The free account keeps the field and the MDF comparison; the GTO number and range are on the GTO Mode plan. Poker is a game of skill and study. 18+.
+Under the button: GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+.
 
 ---
 
@@ -66,6 +66,7 @@ Under the button: GTO Mode is a paid plan. The free account keeps the field and 
 - **Descadastro:** placeholder `{{{RESEND_UNSUBSCRIBE_URL}}}` no rodapé, substituído pelo Resend no envio.
 - **Layout:** 600px, tabelas, estilos inline, preheader oculto, botão âmbar `#D4A418`, linha de canais (Discord, WhatsApp, YouTube) e 18+ no rodapé, igual ao e-mail do Field Trends.
 - **Botão:** "Conhecer o Modo GTO" / "See GTO Mode", por instrução da HUB; não usar "Acesse grátis", porque a conta grátis não vê o número GTO.
-- **Frase sob o botão:** a da HUB, lida do código (Grátis e Individual não veem número GTO nem faixa; o GTO aparece como cadeado). Sem "prévia" nem "borrado".
+- **Frase sob o botão (decisão da HUB, 08/10):** "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison." Ela depende da publicação do P-61 (abertura do Modo GTO ao plano Individual). Sem preço, sem o plano Modo GTO como produto à venda, sem "plano Top", sem "prévia" nem "borrado".
+- **Promoção (não citar ainda):** o plano Modo GTO pelo preço do Individual, por tempo limitado, só entra quando a HUB confirmar que o checkout cobra o promocional. Até lá, nenhuma peça cita preço do GTO nem o plano Modo GTO como produto à venda.
 - **Reply-to:** o e-mail não pede resposta; o remetente segue o padrão anterior (`manager@aurapoker.com` como reply-to). Confirmar antes do envio.
 - **Não enviado.** Envio e lista são do Rafael.
