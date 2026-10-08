@@ -3,7 +3,7 @@
 Status: rascunho com números fechados; não publicado. Não enviado, e nada foi criado no Resend.
 Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a). O único número verificado do e-mail é o do exemplo (um spot): field folda 46,0%, GTO folda 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. Sem número de escala, sem pré-flop concreto, sem contagem de mãos.
 HTML: existe (`email-pt.html` e `email-en.html`; para abrir do disco, `email-pt.preview.html` e `email-en.preview.html`). A imagem do e-mail EN é a captura recortada do card de 33% do app; a PT são as duas barras renderizadas pela build (o app em PT mistura formatos decimais).
-**Só enviar depois do passo 6 do roteiro de go-live.** O botão leva à landing, mas o texto promete o módulo.
+**Só enviar depois do passo 6 do roteiro de go-live e depois do P-61 no ar (Modo GTO aberto ao Individual).** O botão leva à landing, mas o texto promete o módulo.
 
 ---
 

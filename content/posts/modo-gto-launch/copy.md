@@ -12,9 +12,9 @@ As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-n
 
 ## Pendências reais
 1. **Conferência das capturas no teste logado.** As capturas (slides 3 e 4, recorte do e-mail) vêm do front no SHA de produção + API local com os snapshots do go-live (ver "Origem das capturas"). O teste logado do Rafael (passo 6 do roteiro de go-live) deve conferir, em `www.aura.poker`, os MESMOS valores do exemplo (46,0% / 38,8% / faixa 37,1–40,4% e RFI do CO 31,6% / 37,0%) antes de qualquer post ou envio. Nenhuma peça chama as capturas de "print de produção". A captura do slide 3 não mostra a reação a raise de BB 3-bet vs CO, SB 3-bet vs BTN ou BTN 3-bet vs CO a 40/60bb, que ainda não tem GTO.
-2. **Ordem de publicação.** Só postar depois do teste logado do Rafael (passo 6 do roteiro de go-live).
+2. **Ordem de publicação.** Só postar depois do teste logado do Rafael (passo 6 do roteiro de go-live) e depois do P-61 no ar (Modo GTO aberto ao Individual).
 3. **Dependência do P-61 e preço promocional.** A frase nova ("O Modo GTO está incluído no plano Individual por tempo limitado...") só é verdadeira depois da publicação do P-61 (abertura do Modo GTO ao plano Individual); nada com ela sai antes disso. A promoção (o plano Modo GTO pelo preço do Individual, por tempo limitado, quando os preços do Stripe entrarem) **não está em nenhuma peça**: só entra quando a HUB confirmar que o checkout cobra o promocional. Até lá, nenhuma peça cita preço do GTO nem o plano Modo GTO como produto à venda. O fim do "tempo limitado" (data) também não consta; se houver data, ela vem da HUB.
-4. **Slide 5 e arte.** O título e o apoio novos do slide 5 ("GTO Mode, now in Individual" / "For a limited time.") precisam ser aplicados na arte por quem cuida das imagens; esta rodada só mudou os textos.
+4. **Slide 5 e arte.** Resolvido: o `carrossel-en-05.png` já traz "GTO Mode, now in Individual" / "For a limited time." (cadeado desenhado mantido).
 5. **Bug do front a avisar.** O app em PT mistura formatos no mesmo card: "46.0%" (ponto) e "38,8%" (vírgula). Nas peças em PT escrevemos sempre com vírgula; o app não.
 
 ## Decisões registradas (revisão de marca, 08/10)

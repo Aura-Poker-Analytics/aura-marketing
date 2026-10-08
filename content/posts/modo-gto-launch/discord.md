@@ -2,7 +2,7 @@
 
 Status: rascunho com números fechados; não publicado.
 **Tamanho real (len do texto exato dos blocos abaixo, URL inclusa, em caracteres Unicode como o `len` do Python): PT 1.029, EN 1.066. Teto de 1.200 respeitado nos dois.** Recontar se qualquer palavra mudar. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
-**Aviso de publicação: só postar depois do passo 6 do roteiro de go-live (teste logado do Rafael).** O link leva ao app e o texto promete o módulo.
+**Aviso de publicação: só postar depois do passo 6 do roteiro de go-live (teste logado do Rafael) e depois do P-61 no ar (Modo GTO aberto ao Individual).** O link leva ao app e o texto promete o módulo.
 Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. Nenhum outro número.
 O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB de 08/10 ("incluído no plano Individual por tempo limitado") e depende da publicação do P-61. Sem preço, sem o plano Modo GTO como produto à venda, sem "prévia", sem Beta.
 @aurapokeranalytics: a confirmar pelo Rafael. UTM: `utm_campaign=modo-gto-launch`, uma URL por idioma.
