@@ -1,0 +1,71 @@
+{
+  "_leia-me": [
+    "Fonte unica de TODO numero das artes e do e-mail do Modo GTO. Nada numerico mora no HTML.",
+    "Campo null ou string vazia = pendente: a build escreve o marcador [[N..]] bem visivel e nomeia a saida com -DRAFT.",
+    "Preencha e rode: python build.py && python build_email.py (em instagram/src). Sem editar HTML.",
+    "Percentuais sao numeros puros (34.1, nao '34,1%'); a build formata por idioma (PT 34,1% / EN 34.1%).",
+    "N2, N3 e N4 tem de vir do MESMO spot (N1) e da mesma leitura da tela. Fonte: numeros-verificados.md ou a tela de producao."
+  ],
+  "N1": {
+    "_doc": "Spot do exemplo, com o rotulo exato da tela. Texto livre por idioma. Ex.: posicoes + stack + textura do board.",
+    "pt": "",
+    "en": ""
+  },
+  "N2": null,
+  "_N2": "% de fold do field contra o c-bet no spot N1 (numero, ex.: 34.1).",
+  "N3": {
+    "_doc": "Fold GTO no mesmo spot: valor central e a faixa GTO (de-a). Os tres sao obrigatorios.",
+    "center": null,
+    "from": null,
+    "to": null
+  },
+  "N4": null,
+  "_N4": "Diferenca field - GTO central, em pp (so texto: e-mail e legendas, nunca em arte). null = a build calcula |N2 - N3.center|; preencha so para fixar o numero exato que a tela mostra.",
+  "N5": {
+    "_doc": "Exemplo de pre-flop, torneio Regular: a celula destacada na captura do slide 4. Aparece SO dentro da captura; aqui fica o registro do que a captura precisa mostrar.",
+    "cell": "",
+    "gto": null,
+    "field": null,
+    "deviation": null
+  },
+  "N6": {
+    "_doc": "1 numero de escala/cobertura. SO landing (nota de rodape). Nenhuma arte nem o e-mail usa. Opcional; escolher entre os 'verificados' abaixo.",
+    "pt": "",
+    "en": ""
+  },
+  "decimals": 1,
+  "scale_max": null,
+  "_scale_max": "Teto do eixo das barras (ex.: 50). null = automatico (1,06 x o maior valor, arredondado para cima em 5). As barras sempre partem do zero.",
+  "email_image": "print",
+  "_email_image": "'print' = captura de producao enquadrada (prints/prod/postflop-pt.png|-en.png); 'bars' = as duas barras renderizadas pela build com N2/N3 (alternativa do email.md se as capturas atrasarem).",
+  "textos_com_numero": {
+    "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
+    "c4_apoio_en": "Includes CO and BTN RFI at 40bb.",
+    "email_corpo_pt": "Ao lado de cada número do field, agora o número GTO e a faixa GTO. No pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. No pré-flop: o GTO e o desvio em cada célula da grade, inclusive o RFI de CO e BTN a 40bb.",
+    "email_corpo_en": "Next to every field number, now the GTO number and the GTO range. Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in every grid cell, including the CO and BTN RFI at 40bb."
+  },
+  "verificados": {
+    "_doc": "Ja verificados em producao (numeros-verificados.md, 08/10). Nao entram sozinhos em nenhuma arte; servem para escolher o N6 e para a legenda.",
+    "fonte": "aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md",
+    "situacoes_preflop_com_gto_no_flop": 30,
+    "confrontos_de_posicao": 10,
+    "stacks_flop_bb": [
+      25,
+      40,
+      60
+    ],
+    "flops_resolvidos": "mais de 2.300 (2.330)",
+    "nos_turn_e_river": "quase 7 milhoes (6.980.568)",
+    "decisoes_preflop": 225,
+    "stacks_preflop_bb": [
+      10,
+      14,
+      17,
+      25,
+      40,
+      60
+    ],
+    "rfi_co_40bb_pct": 37,
+    "rfi_btn_40bb_pct": 51
+  }
+}
