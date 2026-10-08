@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>Aura Field Trends</title>
 <link rel="stylesheet" href="base.css"><style>
-.cards { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-.cards img { display: block; width: 288px; height: auto; filter: drop-shadow(0 18px 34px rgba(0,0,0,.55)); }
-
-.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 30px; }
-.sub { margin-top: 30px; font-size: 40px; font-weight: 500; line-height: 1.4; color: var(--ink-soft); max-width: 860px; }
-.cards { margin-top: 56px; gap: 32px; flex-wrap: nowrap; }
-.cards img { width: 440px; }
-.ccap { margin-top: 18px; text-align: center; font-size: 28px; font-weight: 600; color: var(--ink-soft); }
-
 .krow { display: flex; align-items: center; gap: 22px; }
 .krow.c { justify-content: center; }
-.newpill { flex: none; font-size: 31px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #0F1526;
-  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; padding: 13px 30px; box-shadow: 0 8px 30px rgba(245,158,11,.35); }
+.newpill { flex: none; font-size: 32px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #0F1526;
+  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; padding: 14px 32px; box-shadow: 0 8px 30px rgba(245,158,11,.35); }
 .krow .kicker { font-size: 27px; }
 .krow .kicker::before { display: none; }
+.cgrid { display: flex; flex-direction: column; width: 100%; }
+.crow { display: flex; justify-content: center; }
+.cgrid img, .cardone { display: block; height: auto; filter: drop-shadow(0 18px 34px rgba(0,0,0,.55)); }
+.btnpill { display: inline-flex; align-items: center; gap: 16px; font-weight: 800; color: #0F1526;
+  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; box-shadow: 0 12px 40px rgba(245,158,11,.4); }
 
-.newpill { font-size: 34px; padding: 15px 34px; }
+.title { font-size: 84px; line-height: 1.06; margin-top: 24px; }
+.sub { margin-top: 22px; font-size: 42px; font-weight: 500; color: var(--ink-soft); }
+.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 10px 0 30px; }
 </style></head>
 <body><div class="page h1350">
 <div class="suits" id="suits"></div>
 
 <div class="vignette"></div>
-<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">1 / 6</span></header>
-<div class="mid z"><div><div class="krow"><span class="newpill">NEW MODULE</span><div class="kicker">Field Trends</div></div><h1 class="title" style="margin-top:30px;font-size:76px;line-height:1.08">THE FIELD CHANGED.<br><em>WHAT ABOUT YOUR EXPLOIT?</em></h1>
-<p class="sub">Follow the field, quarter by quarter.</p></div>
-<div class="cards"><img src="assets/en-card1.png"><img src="assets/en-card3.png"></div>
-<div class="ccap">Change over 1 year <span class="nw">(2Q26 in progress)</span></div></div>
-<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div>
-<div class="sample">Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+</div></div><span class="age">18+</span></footer>
+<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">1 / 5</span></header>
+<div class="z" style="margin-top:50px"><div class="krow"><span class="newpill">NEW MODULE</span><div class="kicker">Field Trends</div></div><h1 class="title" style="font-size:100px;margin-top:30px">Did the field<br><em>change?</em></h1>
+<p class="sub">Quarter by quarter.</p></div>
+<div class="mid z"><div class="cgrid" style="gap:32px"><div class="crow" style="gap:32px"><img src="assets/en-card5.png" width="440"><img src="assets/en-card2.png" width="440"></div></div></div>
+<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div><div class="sample">Data: Aura · 2Q26 in progress</div></div><span class="age">18+</span></footer>
 </div><script src="common.js"></script></body></html>

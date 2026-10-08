@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>Aura Field Trends</title>
 <link rel="stylesheet" href="base.css"><style>
-.shot { margin-left: -84px; margin-right: -84px; width: 1080px; border-radius: 0; border-left: 0; border-right: 0; }
+.krow { display: flex; align-items: center; gap: 22px; }
+.krow.c { justify-content: center; }
+.newpill { flex: none; font-size: 32px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #0F1526;
+  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; padding: 14px 32px; box-shadow: 0 8px 30px rgba(245,158,11,.35); }
+.krow .kicker { font-size: 27px; }
+.krow .kicker::before { display: none; }
+.cgrid { display: flex; flex-direction: column; width: 100%; }
+.crow { display: flex; justify-content: center; }
+.cgrid img, .cardone { display: block; height: auto; filter: drop-shadow(0 18px 34px rgba(0,0,0,.55)); }
+.btnpill { display: inline-flex; align-items: center; gap: 16px; font-weight: 800; color: #0F1526;
+  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; box-shadow: 0 12px 40px rgba(245,158,11,.4); }
 
-.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 24px 0 40px; }
-.body { margin-top: 40px; } .hl { margin-top: 32px; }
-.body p { font-size: 38px; } .hl { font-size: 40px; }
+.title { font-size: 84px; line-height: 1.06; margin-top: 24px; }
+.sub { margin-top: 22px; font-size: 42px; font-weight: 500; color: var(--ink-soft); }
+.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 10px 0 30px; }
 </style></head>
 <body><div class="page h1350">
 <div class="suits" id="suits"></div>
 
 <div class="vignette"></div>
-<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">2 / 6</span></header><div class="z" style="margin-top:40px"><div class="kicker">Field Trends</div><h1 class="title" style="font-size:70px;margin-top:22px">STAT <em>BY STAT</em></h1></div>
-<div class="mid z"><div class="shot"><img src="assets/en-chart.png"></div>
-<div class="body"><p><b>114</b> postflop stats: c-bet, fold to c-bet, donk, probe and more, quarter by quarter.</p></div><div class="hl">The IP flop c-bet alone adds up to <b>75.7 million</b> hands <small>(the sum includes 2Q26, in progress)</small>.</div></div>
-<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div>
-<div class="sample">Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+</div></div><span class="age">18+</span></footer>
+<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">2 / 5</span></header>
+<div class="z" style="margin-top:44px"><div class="kicker">Field Trends</div><h1 class="title">What changed<br><em>this year</em></h1><p class="sub">Change over 1 year.</p></div>
+<div class="mid z"><div class="cgrid" style="gap:18px"><div class="crow" style="gap:18px"><img src="assets/en-card1.png" width="292"><img src="assets/en-card2.png" width="292"><img src="assets/en-card3.png" width="292"></div><div class="crow" style="gap:18px"><img src="assets/en-card4.png" width="292"><img src="assets/en-card5.png" width="292"></div></div></div>
+<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div><div class="sample">Data: Aura · 2Q26 in progress</div></div><span class="age">18+</span></footer>
 </div><script src="common.js"></script></body></html>

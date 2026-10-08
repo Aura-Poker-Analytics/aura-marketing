@@ -6,17 +6,18 @@ Fonte única dos números: `aura-main/_ops/field-trends-launch/numeros-verificad
 Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, carrossel), landing e e-mail (em `email.md`, `email-pt.html`, `email-en.html` e os `*.preview.html`).
 
 ## Pendências de produto (conferir antes de aprovar)
-1. **Filtros.** O briefing cita filtros por buy-in, stack e posição. O STATE do produto de 06/10 lista posição como fora dos filtros desta versão do Field Trends (entram buy-in, stack, etapa, perfil, Regular/KO). Por isso o texto diz só **"buy-in e stack"**. Se posição entrou, trocar nas linhas: Discord PT/EN ("Filtros por buy-in e stack"), carrossel slide 5, landing bullet 3 e e-mail (frase sob o botão).
-2. **O que o plano Grátis vê (B2).** Pelo STATE e pelo roteiro de release (§6), o Grátis só vê um teaser (IP Flop CBet com buy-in até US$ 22), e qualquer filtro abre o paywall. Os cards "o que mudou", Regs e fish, filtros e a lista completa são dos planos pagos. O botão pedido pelo Rafael segue "Acesse grátis" / "Get free access", e perto dele (Discord, legendas do feed e do carrossel, landing, e-mail) está a frase: PT "A conta grátis abre uma prévia do Field Trends; as variações significativas, os filtros e a lista completa de stats são dos planos pagos." / EN "The free account opens a Field Trends preview; the significant changes, filters and the full stat list are on paid plans." Nenhuma peça promete ao Grátis o painel de mudanças do field. Se o Rafael decidir abrir mais coisa no Grátis, ajustar essas frases. Slide 6 e story já seguem essa leitura: o slide 6 diz "abra o Field Trends" e o story diz "Veja uma stat de graça.".
+1. **Filtros.** O briefing cita filtros por buy-in, stack e posição. O STATE do produto de 06/10 lista posição como fora dos filtros desta versão do Field Trends (entram buy-in, stack, etapa, perfil, Regular/KO). Por isso o texto diz só **"buy-in e stack"**. Se posição entrou, trocar nas linhas: Discord PT/EN ("Filtros por buy-in e stack"), landing bullet 3 e e-mail (frase sob o botão). As artes e as legendas do Instagram não citam filtro por nome (a legenda diz só que "o resto é dos planos pagos").
+2. **O que o plano Grátis vê (B2).** Pelo STATE e pelo roteiro de release (§6), o Grátis só vê um teaser (IP Flop CBet com buy-in até US$ 22), e qualquer filtro abre o paywall. Os cards "o que mudou", Regs e fish, filtros e a lista completa são dos planos pagos. O botão pedido pelo Rafael segue "Acesse grátis" / "Get free access", e perto dele (Discord, landing, e-mail) está a frase: PT "A conta grátis abre uma prévia do Field Trends; as variações significativas, os filtros e a lista completa de stats são dos planos pagos." / EN "The free account opens a Field Trends preview; the significant changes, filters and the full stat list are on paid plans." Nas legendas do Instagram (feed e carrossel) a frase é a versão curta: PT "Conta grátis, link na bio (abre só uma prévia)." / EN "Free account, link in bio (opens only a preview)." Nenhuma peça promete ao Grátis o painel de mudanças do field. Se o Rafael decidir abrir mais coisa no Grátis, ajustar essas frases. As artes seguem essa leitura: o slide 5 do carrossel diz "Open Field Trends" / "Free account · link in bio" e os stories dizem "Conta grátis" / "Free account".
 3. **Só publicar depois do smoke logado do Rafael (estado real em 07/10, conforme `aura-main/_ops/field-trends-launch/roteiro-release.md` §8).** O roteiro registra como **já executados em 07/10**: promote do banco na Azure (`--verify` ok, GRANT ao papel read-only), publish da API (`deploy-4d370aa.zip`, app setting `FieldTrends__ExcludedQuarters__0=20251`), smoke anônimo (401 nas 4 rotas do Field Trends e nas demais conferidas) e a flag do front (#86 mesclado, `792e1b8`, bundle `index-BdNKbc3s.js` com `isFieldTrendsEnabled` verdadeiro). **Falta o smoke logado com conta paga, que o roteiro deixa com o Rafael** (o smoke com conta Grátis, previsto no §6, não consta como executado no §8). Nenhuma peça deste pacote deve sair antes desse smoke. Datas e ordem são do Rafael.
 4. **2T26 em curso.** A fonte exige citar sempre "até o 2T26 (em curso)". Todo número com 2T26 leva a marca no texto. Se a publicação cair depois do fechamento do trimestre e os números forem relidos, reescrever sem "em curso".
 5. **Os números do exemplo são do field inteiro, não de um spot.** Fold to IP Flop CBet (43,62% para 44,99%) é a média do field no flop, todas as posições. Por isso o exemplo diz "você dá c-bet IP no flop", sem BTN contra BB, sem textura de board e sem stack. Não acrescentar spot específico sem número do spot.
 6. **`product-truth-aura.md`** não existe neste worktree nem no `aura-context`. Li `AGENTS.md`, `brand-kit.md`, o plano de marketing, os números verificados e o roteiro de release. Se o arquivo existir em outro lugar, vale uma conferência rápida das frases de produto.
 7. **Stats citadas.** c-bet, fold to c-bet, donk e probe aparecem na fonte (IP Flop CBet, Fold to IP Flop CBet, Fold to OOP Flop Donk Bet, OOP Probe Bet), então a lista do briefing está coberta.
+8. **Formato das artes (Rafael, 08/10).** Carrossel só em inglês, 5 slides (capa, os 5 cards, gráfico com a faixa, card do Fold to c-bet IP, CTA). A capa em PT-BR é o story (1080x1920, "O field mudou? / Trimestre a trimestre."); há também story EN e feed PT/EN, todos com a pílula NOVO MÓDULO / NEW MODULE. As artes não têm número digitado: os 43,62%, 44,99%, +1,36, ± 0,77 e 42,99% → 41,84% ficam só nas legendas, no Discord, na landing e no e-mail. Os únicos números nas artes são os dos cards do app (ver "Números usados").
 
 ## Regra de leitura do exemplo (A1)
-O exemplo é do field inteiro, não de um spot: nenhuma peça afirma que o exploit continua valendo nem que o c-bet de bluff ganha fold equity sem o qualificador "em média, no field inteiro" e o convite "confira no seu spot". Frase longa (legendas, Discord, landing, e-mail): PT "No field inteiro, o fold to c-bet IP subiu 1,36 pp, então em média o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot." / EN "Across the whole field, the IP fold to c-bet rose 1.36 pp, so on average the IP bluff c-bet has a little more fold equity. Check it in your own spot." Versão curta (slide 5): PT "Em média, o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot." / EN "On average, the IP bluff c-bet has a little more fold equity. Check it in your own spot."
-Regra do 2T26 (A4): todo número do 2T26 em texto leva "(2T26 em curso)" / "(2Q26 in progress)", inclusive o 41,84% do call e a soma de 75,7 milhões de mãos.
+O exemplo é do field inteiro, não de um spot: nenhuma peça afirma que o exploit continua valendo nem que o c-bet de bluff ganha fold equity sem o qualificador "em média, no field inteiro" e o convite "confira no seu spot". Frase longa (Discord, landing, e-mail): PT "No field inteiro, o fold to c-bet IP subiu 1,36 pp, então em média o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot." / EN "Across the whole field, the IP fold to c-bet rose 1.36 pp, so on average the IP bluff c-bet has a little more fold equity. Check it in your own spot." Versão curta (legendas do Instagram, feed e carrossel): PT "No field inteiro, o fold to c-bet IP subiu 1,36 pp: em média, o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot." / EN "Across the whole field, the IP fold to c-bet rose 1.36 pp: on average, the IP bluff c-bet has a little more fold equity. Check it in your own spot."
+Regra do 2T26 (A4): todo número do 2T26 em texto leva "(2T26 em curso)" / "(2Q26 in progress)", inclusive o 41,84% do call e a soma de 75,7 milhões de mãos. Nas artes não há número do 2T26 digitado; os dos cards do app vêm do próprio print, e o rodapé de cada arte diz "2T26 em curso" / "2Q26 in progress".
 
 ## URLs por peça
 Regra: Discord leva ao app (`https://www.aura.poker/`); Instagram e e-mail levam à landing (`https://www.aurapoker.com/`). Parâmetros: `utm_source=<fonte>&utm_medium=<meio>&utm_campaign=field-trends-launch&utm_content=<peça>`.
@@ -38,7 +39,7 @@ Observação: para o botão da landing mantive `utm_source=landing`, como no Fie
 - PT: "Dados: Aura · 11 trimestres, até o 2T26 (em curso) · 18+"
 - EN: "Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+"
 
-Regra: o rodapé usa só o número de trimestres. O 75,7 milhões de mãos é do c-bet IP no flop, não do módulo inteiro, então só aparece colado a esse stat ("só o c-bet IP no flop soma 75,7 milhões de mãos") e nunca como base do módulo. Nenhuma arte atribui esse número a outra stat.
+Regra: o rodapé usa só o número de trimestres (nas legendas do Instagram, "Dados: Aura, 11 trimestres"; nas artes, a versão curta "Dados: Aura · 2T26 em curso"). O 75,7 milhões de mãos é do c-bet IP no flop, não do módulo inteiro, então só aparece colado a esse stat ("só o c-bet IP no flop soma 75,7 milhões de mãos") e nunca como base do módulo. Nenhuma arte nem legenda do Instagram usa esse número.
 
 ---
 
@@ -46,43 +47,35 @@ Regra: o rodapé usa só o número de trimestres. O 75,7 milhões de mãos é do
 
 ## Legenda do feed (1080x1350)
 
+Regra de texto (Rafael, 08/10): por arte, no máximo 1 título curto e 1 linha de apoio; a imagem do app fala. Sem diagrama, sem número digitado (os 43,62%, 44,99% e ± 0,77 saem das artes e ficam só nas legendas); os únicos números na arte são os que estão nos cards do app.
+
 Texto na arte (PT), idêntico ao `instagram/feed-pt.png` (fonte: `instagram/src/build.py`):
-- Selo (pílula âmbar) + kicker: NOVO MÓDULO · FIELD TRENDS
-- Título: O FIELD MUDOU. O SEU EXPLOIT AINDA VALE?
-- Spot, uma vez só: Field contra c-bet IP no flop
-- Stat: Fold to c-bet IP: 43,62% → 44,99%
-- Período, pequeno: 2T25 → 2T26 (em curso)
-- Diagrama da faixa, só com os rótulos: +1,36 pp e ± 0,77 pp
+- Pílula âmbar + kicker: NOVO MÓDULO · FIELD TRENDS
+- Título: O FIELD MUDOU. E O SEU EXPLOIT?
+- Imagem: os 5 cards do app (field inteiro, 1 ano)
 - CTA (âmbar): Já na Aura · conta grátis, link na bio
-- Rodapé: @aurapokeranalytics · Dados: Aura · 11 trimestres, até o 2T26 (em curso) · 18+
+- Rodapé: @aurapokeranalytics · Dados: Aura · 2T26 em curso · 18+
 
 Texto na arte (EN), idêntico ao `instagram/feed-en.png`:
-- Seal (amber pill) + kicker: NEW MODULE · FIELD TRENDS
-- Title: THE FIELD CHANGED. DOES YOUR EXPLOIT STILL HOLD?
-- Spot, once: Field vs IP flop c-bet
-- Stat: Fold to c-bet IP: 43.62% → 44.99%
-- Period, small: 2Q25 → 2Q26 (in progress)
-- Band diagram, labels only: +1.36 pp and ± 0.77 pp
+- Amber pill + kicker: NEW MODULE · FIELD TRENDS
+- Title: THE FIELD CHANGED. YOUR EXPLOIT?
+- Image: the 5 app cards (whole field, 1 year)
 - CTA (amber): Now on Aura · free account, link in bio
-- Footer: @aurapokeranalytics · Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+
+- Footer: @aurapokeranalytics · Data: Aura · 2Q26 in progress · 18+
 
-Nota de arte: selo "NOVO MÓDULO" / "NEW MODULE" (nunca "Beta"). A leitura do exemplo (variação acima da faixa, "mudança real, e pequena", fold equity) fica só na legenda, não na arte. Números: 43,62%, 44,99%, +1,36, ± 0,77 (seção 4 da fonte).
+Nota de arte: selo "NOVO MÓDULO" / "NEW MODULE" (nunca "Beta"). A leitura do exemplo (fold to c-bet IP, faixa de variação normal, fold equity) fica só na legenda.
 
 Legenda PT:
 ```
 Novo módulo na Aura: Field Trends.
 
-O field mudou. O seu exploit ainda vale?
+O field mudou. O seu exploit ainda vale? São 114 stats do pós-flop, e 23 das 114 mudaram de forma significativa no último ano.
 
-São 114 stats do pós-flop, trimestre a trimestre, e o Field Trends destaca só as mudanças significativas do último ano: 23 das 114. Cada stat traz a faixa de variação normal do próprio field, então você separa o que mudou de verdade do que é oscilação.
+Fold to c-bet IP no flop: 43,62% (2T25) → 44,99% (2T26 em curso), acima da faixa de variação normal (± 0,77 pp). O call foi de 42,99% para 41,84% (2T26 em curso).
 
-Exemplo: o fold to c-bet IP no flop foi de 43,62% (2T25) para 44,99% (2T26 em curso), acima da faixa de variação normal da stat (± 0,77 pp). A mudança é real, e pequena. No mesmo período, o call do field caiu de 42,99% para 41,84% (2T26 em curso).
+No field inteiro, o fold to c-bet IP subiu 1,36 pp: em média, o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot.
 
-No field inteiro, o fold to c-bet IP subiu 1,36 pp, então em média o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot.
-
-Acesse grátis, link na bio. A conta grátis abre uma prévia do Field Trends; as variações significativas, os filtros e a lista completa de stats são dos planos pagos.
-
-Dados: Aura, 11 trimestres, até o 2T26 (em curso). 18+.
+Conta grátis, link na bio (abre só uma prévia). Dados: Aura, 11 trimestres. 18+.
 
 #poker #pokerMTT #pokerestudo #pokerstrategy #aurapoker
 ```
@@ -91,112 +84,66 @@ Legenda EN:
 ```
 New module on Aura: Field Trends.
 
-The field changed. Does your exploit still hold?
+The field changed. Does your exploit still hold? 114 postflop stats, and 23 of the 114 changed significantly over the past year.
 
-That is 114 postflop stats, quarter by quarter, and Field Trends highlights only the significant changes of the past year: 23 of the 114. Each stat carries the normal variation band of its own field, so you can tell what really changed from what is just drift.
+IP flop fold to c-bet: 43.62% (2Q25) → 44.99% (2Q26 in progress), above the normal variation band (± 0.77 pp). The call went from 42.99% to 41.84% (2Q26 in progress).
 
-Example: the IP flop fold to c-bet went from 43.62% (2Q25) to 44.99% (2Q26 in progress), above the stat's normal variation band (± 0.77 pp). The change is real, and small. Over the same period, the field's call dropped from 42.99% to 41.84% (2Q26 in progress).
+Across the whole field, the IP fold to c-bet rose 1.36 pp: on average, the IP bluff c-bet has a little more fold equity. Check it in your own spot.
 
-Across the whole field, the IP fold to c-bet rose 1.36 pp, so on average the IP bluff c-bet has a little more fold equity. Check it in your own spot.
-
-Get free access, link in bio. The free account opens a Field Trends preview; the significant changes, filters and the full stat list are on paid plans.
-
-Data: Aura, 11 quarters, through 2Q26 (in progress). 18+.
+Free account, link in bio (opens only a preview). Data: Aura, 11 quarters. 18+.
 
 #poker #MTT #pokerstrategy #pokerstudy #aurapoker
 ```
 
 ## Story (1080x1920)
 
-Nota ao designer (Instagram e landing): sem selo de fase nem convite a feedback; o kicker é só "FIELD TRENDS".
+Nota ao designer: o story PT-BR é a capa em português; o story EN espelha. Sem diagrama e sem número digitado; a imagem são 4 cards do app. Sem selo de fase nem convite a feedback. Sem legenda longa: uma linha de CTA (abaixo).
+
+Linha de CTA do story (texto de postagem, não da arte): PT "Novo módulo na Aura: Field Trends. Conta grátis no link (abre uma prévia)." / EN "New module on Aura: Field Trends. Free account at the link (opens a preview)."
 
 Texto na arte (PT), idêntico ao `instagram/story-pt.png` (fonte: `instagram/src/build.py`):
 - Topo: logo; pílula NOVO MÓDULO + FIELD TRENDS
-- Centro: "Fold to c-bet IP no flop:" / 43,62% → 44,99% / "Mudança real ou variação normal?" / "(2T25 → 2T26, em curso)"
-- Diagrama da faixa, só com os rótulos: +1,36 pp e ± 0,77 pp
-- Base: "Veja uma stat de graça." / botão "Conta grátis" / rodapé "Dados: Aura · 11 trimestres, até o 2T26 (em curso) · 18+" / selo 18+
+- Título: O FIELD MUDOU?
+- Apoio: Trimestre a trimestre.
+- Imagem: 4 cards do app
+- Botão (sticker de link): Conta grátis
+- Rodapé: Dados: Aura · 2T26 em curso · selo 18+
 
 Texto na arte (EN), idêntico ao `instagram/story-en.png`:
 - Top: logo; NEW MODULE pill + FIELD TRENDS
-- Center: "IP flop fold to c-bet:" / 43.62% → 44.99% / "Real change or normal variation?" / "(2Q25 → 2Q26, in progress)"
-- Band diagram, labels only: +1.36 pp and ± 0.77 pp
-- Bottom: "See one stat for free." / button "Free account" / footer "Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+" / 18+ badge
-
-Nota de arte: a arte não traz frase de veredito, só a pergunta. O Grátis só abre uma prévia, por isso o convite é "uma stat de graça". Nenhum número novo.
+- Title: DID THE FIELD CHANGE?
+- Support: Quarter by quarter.
+- Image: 4 app cards
+- Button (link sticker): Free account
+- Footer: Data: Aura · 2Q26 in progress · 18+ badge
 
 Instrução ao designer (fora do texto da arte): o botão de CTA é o sticker de link do Instagram, com o texto "Conta grátis" / "Free account". Sticker de enquete opcional: "O seu c-bet IP ainda vale?" / "Does your IP c-bet still hold?" com opções "Confiro a stat" / "Vou revisar" e "I will check the stat" / "I will review it".
 
-## Carrossel (6 slides, 1080x1350)
+## Carrossel (5 slides, 1080x1350, SÓ EM INGLÊS)
 
-Texto idêntico ao das artes finais (`instagram/carrossel-*.png`; fonte: `instagram/src/build.py`). Títulos em caixa alta, corpo em sentence case. Rodapé padrão em todos os slides (@aurapokeranalytics · "Dados: Aura · 11 trimestres, até o 2T26 (em curso) · 18+" / "Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+", selo 18+) e indicador "n / 6" no topo. Os cards dos slides 1, 3, 4 e 5 são capturas do app (imagem), não texto de arte.
+Texto idêntico ao das artes finais (`instagram/carrossel-en-01..05.png`; fonte: `instagram/src/build.py`). Arte e legenda só em inglês. Regra: 1 título curto + 1 linha de apoio por slide, sem parágrafo. Indicador "n / 5" no topo. Rodapé: @aurapokeranalytics · "Data: Aura · 2Q26 in progress" (slides 1 a 4; o 5 leva só o handle) · selo 18+. Os cards e o gráfico são capturas do app (imagem), não texto de arte. A capa em PT-BR é o story.
 
-### Slide 1: gancho
-- PT: pílula NOVO MÓDULO + FIELD TRENDS / título "O FIELD MUDOU. E O SEU EXPLOIT?" / sub "Acompanhe o field, trimestre a trimestre." / 2 cards do app / legenda "Variação em 1 ano (2T26 em curso)"
-- EN: NEW MODULE pill + FIELD TRENDS / title "THE FIELD CHANGED. WHAT ABOUT YOUR EXPLOIT?" / sub "Follow the field, quarter by quarter." / 2 app cards / caption "Change over 1 year (2Q26 in progress)"
-- Número: nenhum no corpo (só o rodapé).
+- Slide 1 (capa): pílula NEW MODULE + FIELD TRENDS / "DID THE FIELD CHANGE?" / "Quarter by quarter." / 2 cards do app (Fold to IP Flop CBet, Call vs IP Flop CBet)
+- Slide 2: "WHAT CHANGED THIS YEAR" / "Change over 1 year." / os 5 cards do app
+- Slide 3: "REAL CHANGE OR NORMAL VARIATION?" / "The shaded band is normal variation." / gráfico do app (IP Flop CBet %, com a faixa clareada só em cor)
+- Slide 4: "FOLD TO C-BET IP" / "Above the normal variation band." / card do app Fold to IP Flop CBet
+- Slide 5 (CTA): pílula NEW MODULE + FIELD TRENDS / "OPEN FIELD TRENDS" / botão "Free account · link in bio" / 18+
 
-### Slide 2: stat por stat
-- PT: título "STAT POR STAT" / corpo "114 stats do pós-flop: c-bet, fold to c-bet, donk, probe e mais, trimestre a trimestre." / destaque "Só o c-bet IP no flop soma 75,7 milhões de mãos (a soma inclui o 2T26, em curso)."
-- EN: title "STAT BY STAT" / body "114 postflop stats: c-bet, fold to c-bet, donk, probe and more, quarter by quarter." / highlight "The IP flop c-bet alone adds up to 75.7 million hands (the sum includes 2Q26, in progress)."
-- Arte: linha do tempo trimestral de uma stat, na paleta do app. Números: 114 (seção 3), 75,7 milhões (seção 1).
+Contagem de palavras (título + apoio, sem pílula, kicker, rodapé nem texto dos prints): feed PT 7 + CTA 7; feed EN 5 + CTA 8; story PT 3 + 3 (+ botão 2); story EN 4 + 3 (+ botão 2); carrossel 1: 4 + 3; 2: 4 + 4; 3: 5 + 6; 4: 4 + 5; 5: 3 + botão 5.
 
-### Slide 3: só o que mudou
-- PT: título "SÓ O QUE MUDOU DE VERDADE" / 5 cards do app / legenda "Variação em 1 ano (2T26 em curso)" / corpo "No último ano, 23 das 114 stats tiveram variação significativa." / destaque "Menos stat para olhar, mais tempo de estudo."
-- EN: title "ONLY WHAT REALLY CHANGED" / 5 app cards / caption "Change over 1 year (2Q26 in progress)" / body "Over the past year, 23 of the 114 stats had a significant change." / highlight "Fewer stats to scan, more time to study."
-- Números: 23 e 114 (seções 6 e 3).
+Nota de arte: nenhum número digitado; só os que aparecem nos cards do app. Nunca "Beta".
 
-### Slide 4: a faixa de variação normal
-- PT: título "REAL OU VARIAÇÃO NORMAL?" / corpo "Cada stat traz a faixa de variação normal do próprio field. Dentro da faixa, é oscilação. Fora, o field mudou." / destaque "Fold to c-bet IP: +1,36 pp. Faixa: ± 0,77 pp. Mudança real." / período "2T25 → 2T26 (em curso)" / legenda do gráfico "Gráfico: C-bet no flop (IP) %, com a sua faixa de variação normal"
-- EN: title "REAL OR NORMAL VARIATION?" / body "Every stat carries the normal variation band of its own field. Inside the band, it is drift. Outside, the field changed." / highlight "IP fold to c-bet: +1.36 pp. Band: ± 0.77 pp. A real change." / period "2Q25 → 2Q26 (in progress)" / chart caption "Chart: IP flop c-bet %, with its normal variation band"
-- Arte: gráfico do **C-bet no flop (IP) %** com a faixa de variação normal sombreada, só para ilustrar a faixa (não é a série do Fold, e nenhum número do destaque é lido no gráfico). A legenda curta fica sob o gráfico. O destaque (Fold to c-bet IP: +1,36 pp, faixa ± 0,77) fica colado ao card real do Fold to IP Flop CBet (o mesmo do slide 5), com "2T25 → 2T26 (em curso)". No e-mail, a mesma legenda vai sob o gráfico. Números: 43,62%, 44,99%, +1,36, ± 0,77 (seção 4); nenhum número novo.
-
-### Slide 5: o que fazer com isso
-- PT: título "O QUE FAZER COM ISSO" / 2 cards do app / legenda dos cards "Variação em 1 ano (2T26 em curso)" / corpo "O fold to c-bet IP foi de 43,62% para 44,99% (2T26 em curso), e o call caiu de 42,99% para 41,84% (2T26 em curso). O field folda um pouco mais e paga um pouco menos." / destaque "Em média, o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot."
-- EN: title "WHAT TO DO WITH IT" / 2 app cards / card caption "Change over 1 year (2Q26 in progress)" / body "IP fold to c-bet went from 43.62% to 44.99% (2Q26 in progress), and the call dropped from 42.99% to 41.84% (2Q26 in progress). The field folds a little more and calls a little less." / highlight "On average, the IP bluff c-bet has a little more fold equity. Check it in your own spot."
-- Microtexto: "Filtre por buy-in e stack (planos pagos) e confira no field do seu jogo." / "Filter by buy-in and stack (paid plans) and check the field you actually play."
-- Números: 43,62%, 44,99%, 42,99%, 41,84% (seções 4 e 5).
-
-### Slide 6: CTA
-- PT: pílula NOVO MÓDULO + FIELD TRENDS / título "ABRA O FIELD TRENDS" / corpo "Crie sua conta grátis e abra o Field Trends." / botão "Link na bio" / "18+"
-- EN: NEW MODULE pill + FIELD TRENDS / title "OPEN FIELD TRENDS" / body "Create your free account and open Field Trends." / button "Link in bio" / "18+"
-- Número: nenhum no corpo.
-
-**Nota de arte do carrossel, slides 1 e 6.** Pílula âmbar "NOVO MÓDULO" / "NEW MODULE" + FIELD TRENDS acima do título nos slides 1 e 6 (nunca "Beta"). Os slides 2 a 5 levam só o kicker FIELD TRENDS. Nenhum número novo.
-
-### Legenda do carrossel
-PT:
-```
-Novo módulo na Aura: Field Trends.
-
-O field mudou. O seu exploit ainda vale?
-
-O Field Trends mostra 114 stats do pós-flop trimestre a trimestre e destaca só as mudanças significativas do último ano: 23 das 114. Cada stat traz a faixa de variação normal do próprio field. Dentro dela é oscilação, fora dela o field mudou.
-
-Exemplo: o fold to c-bet IP no flop foi de 43,62% (2T25) para 44,99% (2T26 em curso), fora da faixa de ± 0,77 pp, e o call caiu de 42,99% para 41,84% (2T26 em curso). Mudança real, e pequena. No field inteiro, o fold to c-bet IP subiu 1,36 pp, então em média o c-bet de bluff IP tem um pouco mais de fold equity. Confira no seu spot.
-
-Filtros por buy-in e stack nos planos pagos. Salve para estudar.
-
-Acesse grátis, link na bio. A conta grátis abre uma prévia do Field Trends; as variações significativas, os filtros e a lista completa de stats são dos planos pagos.
-
-Dados: Aura, 11 trimestres, até o 2T26 (em curso). 18+.
-
-#poker #pokerMTT #pokerestudo #pokerstrategy #aurapoker
-```
-EN:
+### Legenda do carrossel (só EN)
 ```
 New module on Aura: Field Trends.
 
-The field changed. Does your exploit still hold?
+Did the field change? 114 postflop stats, and 23 of the 114 moved significantly over the past year. Each stat has its own normal variation band: inside it, drift; outside it, the field changed.
 
-Field Trends shows 114 postflop stats quarter by quarter and highlights only the significant changes of the past year: 23 of the 114. Each stat carries the normal variation band of its own field. Inside it, drift; outside it, the field changed.
+Example, IP flop fold to c-bet: 43.62% (2Q25) → 44.99% (2Q26 in progress), outside the ± 0.77 pp band. The call went from 42.99% to 41.84% (2Q26 in progress).
 
-Example: the IP flop fold to c-bet went from 43.62% (2Q25) to 44.99% (2Q26 in progress), outside the ± 0.77 pp band, and the call dropped from 42.99% to 41.84% (2Q26 in progress). A real change, and a small one. Across the whole field, the IP fold to c-bet rose 1.36 pp, so on average the IP bluff c-bet has a little more fold equity. Check it in your own spot.
+Across the whole field, the IP fold to c-bet rose 1.36 pp: on average, the IP bluff c-bet has a little more fold equity. Check it in your own spot.
 
-Buy-in and stack filters on paid plans. Save it for study.
-
-Get free access, link in bio. The free account opens a Field Trends preview; the significant changes, filters and the full stat list are on paid plans.
-
-Data: Aura, 11 quarters, through 2Q26 (in progress). 18+.
+Free account, link in bio (opens only a preview). Data: Aura, 11 quarters. 18+.
 
 #poker #MTT #pokerstrategy #pokerstudy #aurapoker
 ```
@@ -319,11 +266,12 @@ Texto, assuntos, preheader e notas técnicas em `email.md`. HTML em `email-pt.ht
 
 | Número no texto | Seção da fonte | Onde aparece |
 |---|---|---|
-| 114 stats (30 ações e 84 reações) | §3 | Discord, feed (legenda), carrossel slides 2 e 3 e legenda, landing (subtítulo, bullets 1 e 2), e-mail |
-| 23 das 114 com variação significativa em 1 ano | §6 | Discord, feed (legenda), carrossel slide 3 e legenda, landing bullet 2, e-mail |
-| 75,7 milhões de mãos (c-bet IP no flop, 11 trimestres, 3T23 a 2T26, sem o 1T25; a soma inclui o 2T26 em curso, e o texto diz isso) | §1 e §2 | Discord (Base), carrossel slide 2, landing bullet 1 |
-| 11 trimestres (3T23 a 2T26, em curso) | §2 | rodapé padrão (todas as artes), Discord, landing (nota), e-mail (linha "Dados") |
-| Fold to IP Flop CBet 43,62% (2T25) para 44,99% (2T26), +1,36 pp, faixa ± 0,77 | §4 | Discord, feed (arte e legenda), story, carrossel slides 4 e 5 e legenda, landing bullet 2, e-mail |
-| Call vs IP Flop CBet 42,99% para 41,84% | §5 | Discord, feed (legenda), carrossel slide 5 e legenda |
+| 114 stats (30 ações e 84 reações) | §3 | Discord, legendas do feed (PT/EN) e do carrossel (EN), landing (subtítulo, bullets 1 e 2), e-mail. Nenhuma arte |
+| 23 das 114 com variação significativa em 1 ano | §6 | Discord, legendas do feed e do carrossel, landing bullet 2, e-mail. Nenhuma arte |
+| 75,7 milhões de mãos (c-bet IP no flop, 11 trimestres, 3T23 a 2T26, sem o 1T25; a soma inclui o 2T26 em curso, e o texto diz isso) | §1 e §2 | Discord (Base), landing bullet 1. Nenhuma arte nem legenda do Instagram |
+| 11 trimestres (3T23 a 2T26, em curso) | §2 | legendas do feed e do carrossel ("Dados: Aura, 11 trimestres"), Discord, landing (nota), e-mail (linha "Dados"). Nas artes, o rodapé diz só "2T26 em curso" / "2Q26 in progress" |
+| Fold to IP Flop CBet 43,62% (2T25) para 44,99% (2T26), +1,36 pp, faixa ± 0,77 | §4 | Discord, legendas do feed e do carrossel, landing bullet 2, e-mail. Digitado em nenhuma arte |
+| Call vs IP Flop CBet 42,99% para 41,84% | §5 | Discord, legendas do feed e do carrossel. Digitado em nenhuma arte |
+| Números dos cards do app (aparecem só dentro do print, nunca digitados): 45,0% / 1,4 (Fold to IP Flop CBet), 41,8% / 1,1 (Call vs IP Flop CBet), 43,8% / 0,9 (OOP Probe Bet), 12,9% / 0,6 (Raise vs IP Float Flop), 28,0% / 1,1 (Fold to OOP Flop Donk Bet) | §4, §5, §7 e "Outras mudanças reais" (44,99 / +1,36; 41,84 / −1,15; 43,76 / −0,87; 12,88 / −0,65; 28,02 / +1,13; o app arredonda como mostra) | Artes: feed PT/EN, stories PT/EN e carrossel EN (slides 1, 2 e 4). Todos em `numeros-verificados.md` |
 
-Não usados, por instrução da fonte: qualquer número de pré-flop, de filtro por buy-in e o 78,9% do Grátis. As outras mudanças reais da fonte (donk, probe, delayed c-bet) ficaram de fora para não pesar o texto; podem entrar em peças de sustentação.
+Não usados, por instrução da fonte: qualquer número de pré-flop, de filtro por buy-in e o 78,9% do Grátis. As outras mudanças reais da fonte (donk, probe) aparecem só como números dentro dos cards do app nas artes; no texto, e o delayed c-bet inteiro, ficaram de fora para não pesar; podem entrar em peças de sustentação.

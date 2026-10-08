@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><title>Aura Field Trends</title>
 <link rel="stylesheet" href="base.css"><style>
-.cards { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-.cards img { display: block; width: 288px; height: auto; filter: drop-shadow(0 18px 34px rgba(0,0,0,.55)); }
+.krow { display: flex; align-items: center; gap: 22px; }
+.krow.c { justify-content: center; }
+.newpill { flex: none; font-size: 32px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #0F1526;
+  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; padding: 14px 32px; box-shadow: 0 8px 30px rgba(245,158,11,.35); }
+.krow .kicker { font-size: 27px; }
+.krow .kicker::before { display: none; }
+.cgrid { display: flex; flex-direction: column; width: 100%; }
+.crow { display: flex; justify-content: center; }
+.cgrid img, .cardone { display: block; height: auto; filter: drop-shadow(0 18px 34px rgba(0,0,0,.55)); }
+.btnpill { display: inline-flex; align-items: center; gap: 16px; font-weight: 800; color: #0F1526;
+  background: linear-gradient(135deg, var(--amber3), var(--amber6)); border-radius: 999px; box-shadow: 0 12px 40px rgba(245,158,11,.4); }
 
-.cards { margin-top: 34px; gap: 32px; flex-wrap: nowrap; }
-.cards img { width: 440px; }
-.ccap { margin-top: 16px; text-align: center; font-size: 28px; font-weight: 600; color: var(--ink-soft); }
-.body { margin-top: 26px; } .hl { margin-top: 26px; }
-.body p { font-size: 32px; } .hl { font-size: 34px; }
-.micro { text-wrap: balance; margin-top: 22px; font-size: 27px; font-weight: 600; line-height: 1.4; color: var(--ink-soft); }
-.nw { white-space: nowrap; }
+.title { font-size: 84px; line-height: 1.06; margin-top: 24px; }
+.sub { margin-top: 22px; font-size: 42px; font-weight: 500; color: var(--ink-soft); }
+.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 10px 0 30px; }
+
+.mid { align-items: center; text-align: center; padding-bottom: 20px; }
+.big { width: 130px; height: 98px; color: var(--gold); filter: drop-shadow(0 0 40px rgba(212,164,24,.45)); }
+.big svg { width: 100%; height: 100%; }
+.title { font-size: 104px; margin-top: 44px; }
+.btn { margin-top: 52px; font-size: 40px; padding: 28px 60px; }
+.krow { margin-top: 70px; }
 </style></head>
 <body><div class="page h1350">
 <div class="suits" id="suits"></div>
 
 <div class="vignette"></div>
-<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">5 / 6</span></header><div class="z" style="margin-top:40px"><div class="kicker">Field Trends</div><h1 class="title" style="font-size:66px;margin-top:22px">WHAT TO DO <em>WITH IT</em></h1></div>
-<div class="cards z"><img src="assets/en-card5.png"><img src="assets/en-card2.png"></div>
-<div class="ccap z">Change over 1 year <span class="nw">(2Q26 in progress)</span></div>
-<div class="body z"><p>IP fold to c-bet went from <b>43.62%</b> to <b>44.99%</b> <small>(2Q26 in progress)</small>, and the call dropped from <b>42.99%</b> to <b>41.84%</b> <small>(2Q26 in progress)</small>. The field folds a little more and calls a little less.</p></div><div class="hl z">On average, the IP bluff c-bet has a little more fold equity. Check it in your own spot.</div>
-<div class="micro z">Filter by buy-in and stack <span class="nw">(paid plans)</span> and check the field you actually play.</div>
-<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div>
-<div class="sample">Data: Aura · 11 quarters, through 2Q26 (in progress) · 18+</div></div><span class="age">18+</span></footer>
+<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div><span class="indicator">5 / 5</span></header>
+<div class="mid z"><div style="position:relative;width:130px;height:98px;margin-top:20px"><svg style="position:absolute;left:-45px;top:-61px" width="220" height="220" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="104" stroke="rgba(212,164,24,0.7)" stroke-width="2.5" stroke-dasharray="460 190" stroke-linecap="round"/><circle cx="110" cy="110" r="88" stroke="rgba(212,164,24,0.2)" stroke-width="1.5"/></svg><div class="big" data-icon></div></div>
+<div class="krow c"><span class="newpill">NEW MODULE</span><div class="kicker">Field Trends</div></div>
+<h1 class="title">Open<br><em>Field Trends</em></h1><div class="btnpill btn">Free account · link in bio</div></div>
+<footer><div class="f-left"><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div></div><span class="age">18+</span></footer>
 </div><script src="common.js"></script></body></html>
