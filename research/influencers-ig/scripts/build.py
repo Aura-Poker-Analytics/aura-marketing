@@ -1,6 +1,6 @@
 """Fase 3: junta raw/*.csv + cache/*.json (API) em influencers_ig_mtt.csv e RESUMO.md.
 Sem cache (API indisponivel) as metricas ficam vazias e o filtro de 5 mil fica 'nao_verificado'."""
-import csv, json, statistics
+import csv, json, re, statistics
 from datetime import datetime
 from pathlib import Path
 
@@ -47,6 +47,20 @@ def fit(r):
     return "médio", "Jogador de MTT; falta confirmar se produz conteúdo de estudo."
 
 
+def contatos():
+    d = {}
+    for f in ("brasil", "latam", "ingles"):
+        p = ROOT / "contatos" / f"{f}.csv"
+        if p.exists():
+            for r in csv.DictReader(open(p, encoding="utf-8-sig")):
+                d[norm(r["handle"])] = r
+    return d
+
+
+CONT = contatos()
+EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
+URL = re.compile(r"https?://\S+|(?:linktr\.ee|beacons\.ai|bio\.link)/\S+")
+
 rows, stats = [], {}
 for lang, label in LANGS:
     n = sem_handle = 0
@@ -62,12 +76,18 @@ for lang, label in LANGS:
         fol, mc, ppw, eng = metrics(bd) if bd else (None, None, None, None)
         f5 = "nao_verificado" if st == "sem_api" else ("sim" if (fol or 0) >= MIN_SEG else ("nao" if bd else "n/a"))
         fi, why = fit(r)
-        rows.append(dict(lista=lang, handle=h, nome=r["nome"], pais=r["pais"], idioma=r["idioma"], seguidores=fol,
+        c = CONT.get(h, {})
+        bio = (bd or {}).get("biography") or ""
+        em = ";".join(dict.fromkeys(filter(None, [c.get("email", "")] + EMAIL.findall(bio))))
+        lk = ";".join(dict.fromkeys(filter(None, [c.get("site_ou_link", "")] + URL.findall(bio))))
+        rows.append(dict(lista=lang, handle=h, instagram_url=f"https://www.instagram.com/{h}/", dm_link=f"https://ig.me/m/{h}", nome=r["nome"], pais=r["pais"], idioma=r["idioma"], seguidores=fol,
                          posts_semana=None if ppw is None else round(ppw, 2),
                          engajamento=None if eng is None else round(eng, 4), tipo=r["tipo_provavel"],
                          publi=r["publi_sala_ferramenta"], encaixe=fi, motivo_encaixe=why, status_api=st,
                          filtro_5k=f5, handle_confianca=r["handle_confianca"], fonte_url=r["fonte_url"],
-                         motivo_mtt=r["motivo_mtt"]))
+                         motivo_mtt=r["motivo_mtt"], email=em, site_ou_link=lk,
+                         agencia=c.get("agencia_ou_empresario", ""), fonte_contato=c.get("fonte_url", "") or ("bio_api" if em or lk else ""),
+                         obs_contato=c.get("observacao", "")))
     stats[lang] = dict(candidatos=n, com_handle=len(seen), sem_handle=sem_handle)
 
 cols = list(rows[0].keys())
@@ -92,12 +112,16 @@ for lang, label in LANGS:
                 key=lambda r: (rank[r["encaixe"]], -(r["seguidores"] or 0), -(r["engajamento"] or 0), r["handle"]))[:20]
     out += ["", f"## Top 20 para abordar — {label}", "", "| # | @ | Tipo | Seguidores | Eng. | Publi | Encaixe |", "| --- | --- | --- | --- | --- | --- | --- |"]
     for i, r in enumerate(rs, 1):
-        out.append(f"| {i} | @{r['handle']} | {r['tipo']} | {r['seguidores'] or '—'} | {r['engajamento'] if r['engajamento'] is not None else '—'} | {r['publi'] or '—'} | {r['encaixe']}: {r['motivo_encaixe']} |")
+        out.append(f"| {i} | [@{r['handle']}]({r['instagram_url']}) ([DM]({r['dm_link']})) | {r['tipo']} | {r['seguidores'] or '—'} | {r['engajamento'] if r['engajamento'] is not None else '—'} | {r['publi'] or '—'} | {r['encaixe']}: {r['motivo_encaixe']} |")
 out += ["", "## Notas de método", "",
         "- Descoberta por busca web, WebSearch restrito a instagram.com, biblioteca de anúncios da Meta e listas públicas; nenhum Instagram aberto logado, nenhuma raspagem de perfil.",
         "- Todo @ veio literalmente de uma fonte lida; `handle_confianca=inferido_da_bio` vem de título/bio indexados e deve ser conferido.",
         "- Metas de 80–150 por idioma não foram atingidas no Brasil; ver contagens acima.",
         "- Engajamento = média de (curtidas + comentários) / seguidores nos últimos 12 posts; posts por semana = intervalo entre o 1º e o 12º post.",
+        "- Contatos: só o que está publicado como contato profissional; e-mail de suporte/geral marcado em `obs_contato`; `nada_publico` significa 'não achei por busca web', não 'não existe'. Com a API, e-mail e link da bio entram automaticamente.",
         "- O `ads_library_search` é posto como fonte, mas rendeu pouco nicho."]
 (ROOT / "RESUMO.md").write_text("\n".join(out) + "\n", encoding="utf-8")
+com_em = sum(1 for r in rows if r["email"]); com_lk = sum(1 for r in rows if r["site_ou_link"] or r["agencia"])
+out2 = (ROOT / "RESUMO.md").read_text(encoding="utf-8")
+(ROOT / "RESUMO.md").write_text(out2.replace("## Top 20", f"Contatos públicos: {com_em} com e-mail, {com_lk} com site/link/agência, de {len(rows)} handles.\n\n## Top 20", 1), encoding="utf-8")
 print(stats, "api_ok", tot_api)
