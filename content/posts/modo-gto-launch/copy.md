@@ -11,7 +11,7 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 > - `[[N7: spot]]`, `[[N8: % do field]]`, `[[N9: % GTO e faixa]]`, `[[N10: diferença em pp]]`: exemplo de abertura do agressor (second barrel ou probe). Sem número até a HUB fornecer.
 > - Em `[mais|menos]` (exemplo de abertura): escolher a palavra pelo sinal de N10.
 
-> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o título do slide 6. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
+> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual com preço e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o slide 6 (título e apoio, com o preço em EN). Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
 ## Origem das capturas
 - **Slides 2, 4 (pré-flop) e imagem do e-mail:** as capturas de 08/10 seguem valendo até a reconferência. Vêm do front no SHA de produção daquele dia (aura-novofront `429c093`), lendo a API local `:7060` com os snapshots do go-live (flop e turn/river 20261008, pré-flop 20261007), por conta de teste local (sem login em produção). A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque.
@@ -25,7 +25,7 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 4. **Exemplo de abertura do agressor (N7 a N10).** A HUB fornece: o spot (second barrel ou probe, com posições, stack, filtro e board), a frequência do field, o GTO com a faixa e a diferença em pp. O texto-modelo PT/EN está na seção "O exemplo de abertura" e vale também para o slide 5 do carrossel. Se o número vier de outro tipo de abertura (probe, delayed c-bet), trocar o nome da ação no título do slide 5.
 5. **Conferência das capturas no teste logado.** O teste logado do Rafael deve conferir, em `www.aura.poker`, os mesmos valores do exemplo (46,0% / 38,8% / faixa 37,1–40,4% e RFI do CO 31,6% / 37,0%) e os de N7 a N10, antes de qualquer post ou envio.
 6. **Ordem de publicação.** Só postar depois do teste logado do Rafael e depois do P-61 no ar (Modo GTO aberto ao Individual), e depois que a versão "GTO em todas as ações" estiver em produção (13/10).
-7. **Dependência do P-61, plano e Top.** A frase do plano ("O Modo GTO está incluído no plano Individual por tempo limitado...") só é verdadeira depois da publicação do P-61. Nenhuma peça cita preço do GTO, plano Modo GTO à venda, promoção ou plano Top. **A HUB confirma depois** o que entra sobre planos nesta versão (inclusive se há data para o "tempo limitado"); até lá a frase fica como está.
+7. **Plano e preço (decisão do Rafael via HUB, 13/10: "vamos anunciar como fazendo parte do plano de 29 por tempo limitado!! pra gerar urgência").** A frase do plano agora cita o preço do Individual: PT "O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN "GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison." Fonte do valor (conferida pela HUB): `aura-landing` `src/content/pricing.ts` e `aura-novofront` `billingPlans.ts` (`SELLABLE_PLAN_IDS` = individual; GTO incluso no Individual desde 09/10): US$ 29/mês no checkout em EN, R$ 150/mês no checkout em PT. **Pendente: a HUB ainda confirma que o checkout cobra 29 / 150 hoje.** Só publicar depois dessa confirmação e do P-61 no ar. Regras: PT sempre "plano Individual" e "R$ 150/mês" (nunca "US$ 29" nem "R$ 29" em peça PT); EN sempre "Individual plan" e "US$ 29/month". Urgência só por "por tempo limitado" / "for a limited time": sem data de fim, sem "últimas horas", sem "só hoje", sem prazo. Nenhuma peça cita o plano Modo GTO à parte, o plano Top, desconto semestral/anual ou promoção.
 8. **Landing: nota de rodapé sem números de escala.** Os números de escala de 08/10 (30 situações com GTO no flop, 2.330 flops, 6.980.568 nós de turn e river, 225 decisões de pré-flop) descreviam a cobertura antiga e saíram do rodapé da landing. Voltam só se o `numeros-verificados.md` novo trouxer a escala de 13/10.
 9. **Artes a refazer por outro agente (fora deste escopo):** slide 3 (novo título e apoio), slide 5 novo (abertura), renumeração do carrossel de 6 para 7 slides (o plano passa a ser o 6 e o CTA o 7), indicador "n / 7", e o texto do e-mail em `email-pt.html` e `email-en.html` conforme `email.md`.
 10. **Bug do front a avisar.** O app em PT mistura formatos no mesmo card: "46.0%" (ponto) e "38,8%" (vírgula). Nas peças em PT escrevemos sempre com vírgula; o app não. Reconferir se segue assim na versão de 13/10.
@@ -45,7 +45,7 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 - **Fluxo:** "escolha o spot, clique em Apply e veja o field e o GTO juntos" e "a cada clique, o app mostra o que falta para ver o GTO". Nada de "GTO em breve" nem "ainda sem GTO" como feature.
 - **Pré-flop:** "o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb" (pré-flop `20261007`), sempre com `[[CONFIRMAR-PREFLOP]]`.
 - **Filtro do exemplo nas peças:** "torneios Regular" (EN "Regular tournaments") e "últimos 2 anos" (EN "last 2 years"), sem a palavra vanilla.
-- **Plano e conta Grátis (HUB, 08/10, P-61):** PT "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison." Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só o título do slide 6. CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". Nenhuma peça diz "plano pago" do GTO, cita preço, cita o plano Modo GTO como produto à venda, nem menciona o plano Top.
+- **Plano e conta Grátis (HUB, 08/10, P-61; preço do Individual por decisão do Rafael, 13/10):** PT "O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN "GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison." Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só o slide 6 (título e apoio). CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". O único preço citado é o do plano Individual dentro da frase do plano (PT "R$ 150/mês", EN "US$ 29/month", moeda nunca trocada). Nenhuma peça diz "plano pago" do GTO, cita o plano Modo GTO como produto à venda, desconto semestral/anual, promoção, data de fim, nem menciona o plano Top.
 - **Escopo da referência:** a ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10). Nenhuma peça a repete; "Regular" aparece só como filtro do spot.
 - **"Spot"** é a situação ou a decisão, nunca contagem de linhas.
 - **Formato dos números:** vírgula em PT (46,0%), ponto em EN (46.0%).
@@ -112,17 +112,17 @@ Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalyt
 | Carrossel 3 | 1080x1350 | EN | [[CONFIRMAR-COBERTURA]] Postflop: GTO in every action | Flop, turn and river, with the GTO range. | Captura nova do Postflop com o Modo GTO ligado e o GTO nas ações (inclusive a abertura), no spot do exemplo |
 | Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | [[CONFIRMAR-PREFLOP]] Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
 | Carrossel 5 (novo) | 1080x1350 | EN | Second barrel: field vs GTO | [[N7: spot]] | Barras da abertura lado a lado: Field [[N8: % do field]] e GTO [[N9: % GTO e faixa]] com a faixa sombreada; gap em âmbar com [[N10: diferença em pp]] pp |
-| Carrossel 6 | 1080x1350 | EN | GTO Mode, now in Individual | For a limited time. | Um cadeado desenhado (sem texto do app) |
+| Carrossel 6 | 1080x1350 | EN | GTO Mode, now in Individual | Part of the US$ 29/month plan, for a limited time. | Um cadeado desenhado (sem texto do app) |
 | Carrossel 7 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
 
-Contagem de palavras (regra do Rafael): títulos de 4 a 7 palavras; apoios de 3 a 8 palavras (o apoio do slide 3 tem 8; o do 5 é só a micro-legenda do spot, mesmo formato da capa).
+Contagem de palavras (regra do Rafael): títulos de 4 a 7 palavras; apoios de 3 a 10 palavras (o apoio do slide 3 tem 8; o do slide 6 tem 10; o do 5 é só a micro-legenda do spot, mesmo formato da capa).
 
 Notas de arte:
 - **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO. No slide 5, a barra é de aposta (frequência de bet), não de fold: usar a cor semântica do raise (`#AD2C34`) para a aposta, mantendo o gap em âmbar e a faixa sombreada.
 - **Slide 3:** a captura nova deve mostrar o GTO ao lado do field em mais de uma ação (a abertura e a reação). O número fica dentro da captura; nenhum texto de arte o repete. Não mostrar estado de carregamento nem aviso de "sem GTO".
 - **Slide 4:** o stack da captura é 30–50bb (GTO a 40bb), torneio Regular. O número fica dentro da captura.
 - **Slide 5 (novo):** só entra depois de N7 a N10. Se o spot for probe ou delayed c-bet em vez de second barrel, trocar o nome da ação no título ("Probe: field vs GTO").
-- **Slide 6:** título "GTO Mode, now in Individual", apoio "For a limited time." O cadeado desenhado continua. A frase completa sobre o plano Individual e a conta grátis fica na legenda. (Era o slide 5; renomear `carrossel-en-05` para 06.)
+- **Slide 6:** título "GTO Mode, now in Individual", apoio "Part of the US$ 29/month plan, for a limited time." (10 palavras; sem data, sem "últimas horas"). O cadeado desenhado continua. A frase completa sobre o plano Individual e a conta grátis fica na legenda. Pendente: a HUB confirma que o checkout cobra US$ 29 hoje. (Era o slide 5; renomear `carrossel-en-05` para 06.)
 - **Slide 7:** CTA (era o slide 6; renomear `carrossel-en-06` para 07).
 - **Enquete opcional no story (fora da arte):** "Qual spot você quer ver com o GTO ao lado?" com as opções "Flop" e "Turn/river" / "Which spot do you want to see with GTO next to it?" with "Flop" and "Turn/river".
 
@@ -141,7 +141,7 @@ Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regula
 
 [[CONFIRMAR-PREFLOP]] Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
-O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
+O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 
 Conhecer o Modo GTO, link na bio. Ferramenta de estudo. 18+.
 
@@ -159,7 +159,7 @@ Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tour
 
 [[CONFIRMAR-PREFLOP]] Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
-GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
+GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison.
 
 See GTO Mode, link in bio. Study tool. 18+.
 
@@ -181,7 +181,7 @@ Abertura: [[N7: spot]]. O field aposta [[N8: % do field]] e o GTO aposta [[N9: %
 
 [[CONFIRMAR-PREFLOP]] Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos: o field abre 31,6% e o GTO abre 37,0%.
 
-O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
+O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 
 Conhecer o Modo GTO, link na bio. Salve para estudar. Ferramenta de estudo. 18+.
 
@@ -201,7 +201,7 @@ Opening: [[N7: spot]]. The field bets [[N8: % do field]] and GTO bets [[N9: % GT
 
 [[CONFIRMAR-PREFLOP]] Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
 
-GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
+GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison.
 
 See GTO Mode, link in bio. Save it for study. Study tool. 18+.
 
@@ -242,7 +242,7 @@ Footnote (EN): "One spot, not the field average. Study tool · 18+. Aura is not 
 (Os números de escala de 08/10 saíram deste rodapé: ver Pendências, item 8.)
 
 CTA: PT "Conhecer o Modo GTO" / EN "See GTO Mode".
-Frase sob o CTA, PT: "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / EN: "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison."
+Frase sob o CTA, PT: "O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / EN: "GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison."
 
 ## Alt text das imagens (2)
 ### Imagem 1: o exemplo lado a lado
@@ -252,7 +252,7 @@ Frase sob o CTA, PT: "O Modo GTO está incluído no plano Individual por tempo l
 - PT: "Grade de mãos do Preflop Analysis em que as células cobertas mostram o GTO e o desvio do field, com a célula do RFI do CO em destaque."
 - EN: "Preflop Analysis hand grid where the covered cells show the GTO and the field deviation, with the CO RFI cell highlighted."
 
-Nota para o designer: as imagens só mostram os números de "Números usados". Não mostrar preço. Não mostrar estado de carregamento nem aviso de "sem GTO".
+Nota para o designer: as imagens só mostram os números de "Números usados". Não mostrar preço nas imagens (o preço fica só na frase do plano, sob o CTA). Não mostrar estado de carregamento nem aviso de "sem GTO".
 
 ---
 
