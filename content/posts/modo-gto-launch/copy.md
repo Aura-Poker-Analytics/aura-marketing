@@ -1,41 +1,58 @@
-# Modo GTO: copy de lançamento
+# Modo GTO: copy de lançamento ("GTO em todas as ações")
 
-Status: rascunho com números fechados; não publicado. Sem commit. Entra no ar em 08/10/2026.
+Status: rascunho com marcadores pendentes; não publicado. Sem commit. Versão "GTO em todas as ações do pós-flop", entra no ar em 13/10/2026 (antes: 08/10).
 @aurapokeranalytics: a confirmar pelo Rafael. URLs com UTM prontas na tabela abaixo.
-Fonte única dos números: `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10, lido em produção). Os números usados estão mapeados em "Números usados" no fim. **Nenhum marcador `[[N..]]` restou no pacote.**
-Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel só em EN), landing e e-mail (em `email.md`).
+Fonte dos números: `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10, lido em produção). **Ainda não existe `numeros-verificados.md` para a versão de 13/10**: os números do exemplo CO × BB e do pré-flop são os de 08/10 e precisam ser reconfirmados pela HUB (ver Pendências). Os números usados estão mapeados em "Números usados" no fim.
+Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel de 7 slides só em EN), landing e e-mail (em `email.md`).
 
-> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o título do slide 5. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
+> **Marcadores abertos neste pacote (todos devem sumir antes de publicar):**
+> - `[[CONFIRMAR-COBERTURA]]`: início de todo trecho que diz "em todas as ações do pós-flop". Tirar quando a HUB confirmar a cobertura no `numeros-verificados.md` novo.
+> - `[[CONFIRMAR-PREFLOP]]`: início de todo trecho do pré-flop ("o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb"). Tirar quando a HUB confirmar que o pré-flop não mudou (ou trocar o texto, se mudou).
+> - `[[N7: spot]]`, `[[N8: % do field]]`, `[[N9: % GTO e faixa]]`, `[[N10: diferença em pp]]`: exemplo de abertura do agressor (second barrel ou probe). Sem número até a HUB fornecer.
+> - Em `[mais|menos]` (exemplo de abertura): escolher a palavra pelo sinal de N10.
+
+> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o título do slide 6. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
 ## Origem das capturas
-As telas dos slides 3 e 4 e do e-mail vêm do front no SHA de produção (aura-novofront `429c093`, build com o Modo GTO ligado) servido localmente e lendo a API local `:7060` com os snapshots do go-live (flop e turn/river 20261008, reação a raise 20261006, pré-flop 20261007), por conta de teste local (sem login em produção). Capturadas em 08/10 com Playwright, em EN e PT. A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque. Na tela, o card do 33% mostra +5,6 pp (distância ao topo da faixa).
+- **Slides 2, 4 (pré-flop) e imagem do e-mail:** as capturas de 08/10 seguem valendo até a reconferência. Vêm do front no SHA de produção daquele dia (aura-novofront `429c093`), lendo a API local `:7060` com os snapshots do go-live (flop e turn/river 20261008, pré-flop 20261007), por conta de teste local (sem login em produção). A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque.
+- **Slide 3 (postflop) e slide 5 (abertura):** precisam de captura nova da versão de 13/10 (tela com GTO nas ações, inclusive a abertura do agressor), a ser feita por quem cuida das artes. O slide 5 depende de N7 a N10.
+- Nenhuma peça chama as capturas de "print de produção".
 
 ## Pendências reais
-1. **Conferência das capturas no teste logado.** As capturas (slides 3 e 4, recorte do e-mail) vêm do front no SHA de produção + API local com os snapshots do go-live (ver "Origem das capturas"). O teste logado do Rafael (passo 6 do roteiro de go-live) deve conferir, em `www.aura.poker`, os MESMOS valores do exemplo (46,0% / 38,8% / faixa 37,1–40,4% e RFI do CO 31,6% / 37,0%) antes de qualquer post ou envio. Nenhuma peça chama as capturas de "print de produção". A captura do slide 3 não mostra a reação a raise de BB 3-bet vs CO, SB 3-bet vs BTN ou BTN 3-bet vs CO a 40/60bb, que ainda não tem GTO.
-2. **Ordem de publicação.** Só postar depois do teste logado do Rafael (passo 6 do roteiro de go-live) e depois do P-61 no ar (Modo GTO aberto ao Individual).
-3. **Dependência do P-61 e preço promocional.** A frase nova ("O Modo GTO está incluído no plano Individual por tempo limitado...") só é verdadeira depois da publicação do P-61 (abertura do Modo GTO ao plano Individual); nada com ela sai antes disso. A promoção (o plano Modo GTO pelo preço do Individual, por tempo limitado, quando os preços do Stripe entrarem) **não está em nenhuma peça**: só entra quando a HUB confirmar que o checkout cobra o promocional. Até lá, nenhuma peça cita preço do GTO nem o plano Modo GTO como produto à venda. O fim do "tempo limitado" (data) também não consta; se houver data, ela vem da HUB.
-4. **Slide 5 e arte.** Resolvido: o `carrossel-en-05.png` já traz "GTO Mode, now in Individual" / "For a limited time." (cadeado desenhado mantido).
-5. **Bug do front a avisar.** O app em PT mistura formatos no mesmo card: "46.0%" (ponto) e "38,8%" (vírgula). Nas peças em PT escrevemos sempre com vírgula; o app não.
+1. **Reconfirmar os números do exemplo no snapshot de produção novo.** Os valores do exemplo CO × BB (field 46,0%, GTO 38,8%, faixa 37,1–40,4%, 5,6 pp acima do topo da faixa) e do pré-flop (RFI do CO: field 31,6%, GTO 37,0%) são de 08/10 e estão no texto como estavam. A HUB deve reconfirmá-los no snapshot de produção de 13/10 e entregar o `numeros-verificados.md` novo. Se algum mudar, atualizar todas as peças e as artes (tabela "Números usados" lista onde cada um aparece).
+2. **Cobertura "em todas as ações do pós-flop".** Texto-alvo marcado com `[[CONFIRMAR-COBERTURA]]`. Só sai sem marcador se o `numeros-verificados.md` novo confirmar. Enquanto não, nenhuma peça vai ao ar.
+3. **Pré-flop.** `[[CONFIRMAR-PREFLOP]]` em todo trecho do pré-flop, incluindo o RFI de CO e BTN a 40bb.
+4. **Exemplo de abertura do agressor (N7 a N10).** A HUB fornece: o spot (second barrel ou probe, com posições, stack, filtro e board), a frequência do field, o GTO com a faixa e a diferença em pp. O texto-modelo PT/EN está na seção "O exemplo de abertura" e vale também para o slide 5 do carrossel. Se o número vier de outro tipo de abertura (probe, delayed c-bet), trocar o nome da ação no título do slide 5.
+5. **Conferência das capturas no teste logado.** O teste logado do Rafael deve conferir, em `www.aura.poker`, os mesmos valores do exemplo (46,0% / 38,8% / faixa 37,1–40,4% e RFI do CO 31,6% / 37,0%) e os de N7 a N10, antes de qualquer post ou envio.
+6. **Ordem de publicação.** Só postar depois do teste logado do Rafael e depois do P-61 no ar (Modo GTO aberto ao Individual), e depois que a versão "GTO em todas as ações" estiver em produção (13/10).
+7. **Dependência do P-61, plano e Top.** A frase do plano ("O Modo GTO está incluído no plano Individual por tempo limitado...") só é verdadeira depois da publicação do P-61. Nenhuma peça cita preço do GTO, plano Modo GTO à venda, promoção ou plano Top. **A HUB confirma depois** o que entra sobre planos nesta versão (inclusive se há data para o "tempo limitado"); até lá a frase fica como está.
+8. **Landing: nota de rodapé sem números de escala.** Os números de escala de 08/10 (30 situações com GTO no flop, 2.330 flops, 6.980.568 nós de turn e river, 225 decisões de pré-flop) descreviam a cobertura antiga e saíram do rodapé da landing. Voltam só se o `numeros-verificados.md` novo trouxer a escala de 13/10.
+9. **Artes a refazer por outro agente (fora deste escopo):** slide 3 (novo título e apoio), slide 5 novo (abertura), renumeração do carrossel de 6 para 7 slides (o plano passa a ser o 6 e o CTA o 7), indicador "n / 7", e o texto do e-mail em `email-pt.html` e `email-en.html` conforme `email.md`.
+10. **Bug do front a avisar.** O app em PT mistura formatos no mesmo card: "46.0%" (ponto) e "38,8%" (vírgula). Nas peças em PT escrevemos sempre com vírgula; o app não. Reconferir se segue assim na versão de 13/10.
 
-## Decisões registradas (revisão de marca, 08/10)
-- **Capa com duas linhas (decisão consciente).** A capa (story PT e slide 1 do carrossel) tem o apoio ("Novo: Modo GTO" / "New: GTO Mode") e uma micro-legenda do spot ("CO × BB · K-high two-tone · c-bet de 33%" / "CO × BB · K-high two-tone · 33% c-bet"). É a única exceção à regra de uma linha de apoio.
+## Decisões registradas
+- **Capa com duas linhas (decisão consciente, revisão de marca de 08/10).** A capa (story PT e slide 1 do carrossel) tem o apoio ("Novo: Modo GTO" / "New: GTO Mode") e uma micro-legenda do spot ("CO × BB · K-high two-tone · c-bet de 33%" / "CO × BB · K-high two-tone · 33% c-bet"). É a única exceção à regra de uma linha de apoio.
 - **Slide 4 mostra os números arredondados da tela.** A captura traz Field 32% / GTO 37% / −5. A fonte tem 31,6 / 37,0 / −5,4; as legendas e a landing usam os valores da fonte.
 - **"Rodapé de amostra".** O brand-kit pede rodapé de amostra em post com número. A instrução do Rafael de 08/10 (sem contagem de mãos nem amostra nas peças) o substitui; nenhuma peça traz amostra.
-- **Slide 3.** O apoio é "SRP and 3-bet, flop and turn. Raise response on SRP flop." A reação a raise vale só para o flop do SRP; os 3-bets (CO×BB e os demais citados acima) a 40/60bb não têm.
+- **Slide 3 (13/10).** Passa a mostrar o GTO em todas as ações do pós-flop (flop, turn e river). O apoio antigo ("SRP and 3-bet, flop and turn. Raise response on SRP flop.") sai: nenhuma peça limita a cobertura por street, por tipo de pote ou por ação.
+- **Slide 5 novo (13/10): abertura do agressor.** Entra como slide 5 (e não como 4) para manter o slide 4 do pré-flop como está; o plano vira o slide 6 e o CTA o slide 7 (por último). Se o Rafael preferir a abertura colada ao pós-flop (slide 4), basta inverter com o pré-flop e renomear os arquivos.
+- **Stories e feed** seguem com o exemplo CO × BB.
+- **Exemplo de abertura só no carrossel (slide 5 e legenda).** Feed, stories, Discord, landing e e-mail ficam com um exemplo só (CO × BB), para não poluir.
 
-## Fatos de produto aplicados (referência, já resolvidos)
-- **Reação a raise:** dita só como "no flop do SRP". Sem generalizar.
-- **Cobertura, sem absolutos:** nenhuma peça diz "cada número" nem "cada célula". PT: "onde há referência" e "nas células cobertas"; EN: "where a reference exists" e "in the covered cells". A fonte só garante 30 situações no flop e 225 decisões de pré-flop.
-- **Pré-flop:** "o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb" (pré-flop `20261007`).
-- **Filtro do exemplo nas peças:** "torneios Regular" (EN "Regular tournaments") e "últimos 2 anos" (EN "last 2 years"), sem vanilla nem chipEV.
-- **Plano e conta Grátis (decisão da HUB, 08/10; substitui a frase anterior em todas as peças):** o Modo GTO está sendo aberto ao plano Individual, por tempo limitado; a conta Grátis segue com o field e a comparação com o MDF (o GTO aparece como cadeado). Frase única, PT: "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN: "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison." Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só o título do slide 5. CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". Nenhuma peça diz "plano pago" do GTO, cita preço, cita o plano Modo GTO como produto à venda nem menciona o plano Top. Sem "prévia", sem "borrado", sem "Beta".
+## Fatos de produto aplicados
+- **Cobertura:** "em todas as ações do pós-flop: flop, turn e river, inclusive as aberturas do agressor (c-bet, second barrel, probe)". Sempre com `[[CONFIRMAR-COBERTURA]]` no começo do trecho. Removidas as frases que limitavam a cobertura ("SRP e 3-bet", "flop e turn", "reação a raise só no flop do SRP", "onde há referência" no pós-flop).
+- **Cada ação com dois números:** o número GTO e a faixa GTO ao lado da frequência do field.
+- **Fluxo:** "escolha o spot, clique em Apply e veja o field e o GTO juntos" e "a cada clique, o app mostra o que falta para ver o GTO". Nada de "GTO em breve" nem "ainda sem GTO" como feature.
+- **Pré-flop:** "o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb" (pré-flop `20261007`), sempre com `[[CONFIRMAR-PREFLOP]]`.
+- **Filtro do exemplo nas peças:** "torneios Regular" (EN "Regular tournaments") e "últimos 2 anos" (EN "last 2 years"), sem a palavra vanilla.
+- **Plano e conta Grátis (HUB, 08/10, P-61):** PT "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison." Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só o título do slide 6. CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". Nenhuma peça diz "plano pago" do GTO, cita preço, cita o plano Modo GTO como produto à venda, nem menciona o plano Top.
 - **Escopo da referência:** a ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10). Nenhuma peça a repete; "Regular" aparece só como filtro do spot.
 - **"Spot"** é a situação ou a decisão, nunca contagem de linhas.
 - **Formato dos números:** vírgula em PT (46,0%), ponto em EN (46.0%).
 - **Nome em inglês:** "GTO Mode".
 - **Carrossel só em EN;** a capa tem story PT-BR 1080x1920. Não há story EN da capa.
 
-## O exemplo (fonte: `numeros-verificados.md`, exemplo (a))
+## O exemplo (fonte: `numeros-verificados.md` de 08/10, exemplo (a); a reconfirmar, pendência 1)
 Filtro da tela: Postflop · SRP · RFI CO, caller BB · stack 30.1–60bb (GTO a 40bb) · torneio Regular (Vanilla) · flop K-high, two-tone, sem par, desconectado · reação do BB ao c-bet de 33%.
 - Field folda **46,0%**; GTO folda **38,8%**, faixa **37,1–40,4%**; diferença **+5,6 pp** (a tela mostra a distância ao topo da faixa; contra o centro do GTO são 7,2). Leitura: acima da faixa (o field está acima do topo da faixa).
 
@@ -44,6 +61,15 @@ Filtro da tela: Postflop · SRP · RFI CO, caller BB · stack 30.1–60bb (GTO a
 **Final example text, EN:** "CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board."
 
 **Exemplo de pré-flop (exemplo (b)):** RFI do CO, torneio Regular, stack 30–50bb (GTO a 40bb). Field abre **31,6%**; GTO abre **37,0%**; diferença **−5,4 pp** (o field abre de menos). PT: "No pré-flop, RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos: o field abre 31,6% e o GTO abre 37,0%." EN: "Preflop, CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%."
+
+## O exemplo de abertura do agressor (novo; números pendentes da HUB)
+Ação da abertura: second barrel (ou probe, conforme o spot que a HUB entregar). Métrica: frequência da aposta do agressor, field contra GTO, com a faixa GTO. Marcadores: **N7** spot (posições, pote, stack, filtro, board, rua), **N8** % do field, **N9** % GTO e faixa, **N10** diferença em pp. **Não inventar nenhum valor.**
+
+**Texto-modelo, PT:** "[[N7: spot]]. O field aposta [[N8: % do field]] e o GTO aposta [[N9: % GTO e faixa]]: [[N10: diferença em pp]] pp de diferença. Aqui o field aposta [mais|menos] do que o GTO. É um spot, não a média do field. Confira no seu board."
+
+**Model text, EN:** "[[N7: spot]]. The field bets [[N8: % do field]] and GTO bets [[N9: % GTO e faixa]]: a gap of [[N10: diferença em pp]] pp. Here the field bets [more|less] than GTO does. This is one spot, not the field average. Check it on your board."
+
+Leitura de `[mais|menos]` / `[more|less]`: se o field está acima do topo da faixa, "mais" / "more"; se abaixo da base, "menos" / "less"; se dentro da faixa, trocar a frase por "O field está dentro da faixa GTO" / "The field is inside the GTO range" (e a diferença deixa de ser destaque).
 
 ## URLs por peça
 Regra: Discord leva ao app (`https://www.aura.poker/`); Instagram e e-mail levam à landing (`https://www.aurapoker.com/`). Parâmetros: `utm_source=<fonte>&utm_medium=<meio>&utm_campaign=modo-gto-launch&utm_content=<peça>`.
@@ -72,7 +98,7 @@ Observação: para o botão da landing mantive `utm_source=landing`, como no Fie
 
 ## Texto final de cada arte (título + apoio)
 
-Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalytics · 18+` pequeno e, nos slides, o indicador "n / 6". Nas barras, o % central do GTO no rótulo e a faixa GTO como sombreado, com a faixa escrita pequena.
+Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalytics · 18+` pequeno e, nos slides, o indicador "n / 7". Nas barras, o % central do GTO no rótulo e a faixa GTO como sombreado, com a faixa escrita pequena. Marcadores `[[...]]` nesta tabela são instrução para o designer: não renderizar o marcador, só o texto depois dele, e só depois de a HUB confirmar.
 
 | Arte | Formato | Idioma | Título | Apoio (uma linha) | O que a imagem mostra |
 |---|---|---|---|---|---|
@@ -83,16 +109,22 @@ Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalyt
 | Story da capa do carrossel | 1080x1920 | PT | Onde o field sai do GTO? | Novo: Modo GTO (+ micro-legenda do spot: CO × BB · K-high two-tone · c-bet de 33%) | Mesmas barras com o gap em âmbar (46,0% e 38,8%); sticker "Conhecer o Modo GTO" |
 | Carrossel 1 (capa) | 1080x1350 | EN | Where does the field leave GTO? | New: GTO Mode (+ spot micro-caption: CO × BB · K-high two-tone · 33% c-bet) | Mesma imagem da capa PT (46.0% and 38.8%) |
 | Carrossel 2 | 1080x1350 | EN | Same spot, two numbers | CO × BB · K-high two-tone · 33% c-bet | As barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%) |
-| Carrossel 3 | 1080x1350 | EN | Postflop: GTO and range | SRP and 3-bet, flop and turn. Raise response on SRP flop. | Captura do Postflop com o Modo GTO ligado, no spot do exemplo |
-| Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
-| Carrossel 5 | 1080x1350 | EN | GTO Mode, now in Individual | For a limited time. | Um cadeado desenhado (sem texto do app) |
-| Carrossel 6 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
+| Carrossel 3 | 1080x1350 | EN | [[CONFIRMAR-COBERTURA]] Postflop: GTO in every action | Flop, turn and river, with the GTO range. | Captura nova do Postflop com o Modo GTO ligado e o GTO nas ações (inclusive a abertura), no spot do exemplo |
+| Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | [[CONFIRMAR-PREFLOP]] Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
+| Carrossel 5 (novo) | 1080x1350 | EN | Second barrel: field vs GTO | [[N7: spot]] | Barras da abertura lado a lado: Field [[N8: % do field]] e GTO [[N9: % GTO e faixa]] com a faixa sombreada; gap em âmbar com [[N10: diferença em pp]] pp |
+| Carrossel 6 | 1080x1350 | EN | GTO Mode, now in Individual | For a limited time. | Um cadeado desenhado (sem texto do app) |
+| Carrossel 7 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
+
+Contagem de palavras (regra do Rafael): títulos de 4 a 7 palavras; apoios de 3 a 8 palavras (o apoio do slide 3 tem 8; o do 5 é só a micro-legenda do spot, mesmo formato da capa).
 
 Notas de arte:
-- **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO.
-- **Slide 4 (carrossel):** o stack da captura é 30–50bb (GTO a 40bb), torneio Regular. O número fica dentro da captura; nenhum texto de arte o repete.
-- **Slide 5:** o título passa a ser "GTO Mode, now in Individual" e o apoio "For a limited time." (decisão da HUB, 08/10). O cadeado desenhado continua. A frase completa sobre o plano Individual e a conta grátis fica na legenda.
-- **Enquete opcional no story (fora da arte):** "Qual spot você quer ver com o GTO ao lado?" com as opções "SRP" e "3-bet" / "Which spot do you want to see with GTO next to it?" with "SRP" and "3-bet".
+- **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO. No slide 5, a barra é de aposta (frequência de bet), não de fold: usar a cor semântica do raise (`#AD2C34`) para a aposta, mantendo o gap em âmbar e a faixa sombreada.
+- **Slide 3:** a captura nova deve mostrar o GTO ao lado do field em mais de uma ação (a abertura e a reação). O número fica dentro da captura; nenhum texto de arte o repete. Não mostrar estado de carregamento nem aviso de "sem GTO".
+- **Slide 4:** o stack da captura é 30–50bb (GTO a 40bb), torneio Regular. O número fica dentro da captura.
+- **Slide 5 (novo):** só entra depois de N7 a N10. Se o spot for probe ou delayed c-bet em vez de second barrel, trocar o nome da ação no título ("Probe: field vs GTO").
+- **Slide 6:** título "GTO Mode, now in Individual", apoio "For a limited time." O cadeado desenhado continua. A frase completa sobre o plano Individual e a conta grátis fica na legenda. (Era o slide 5; renomear `carrossel-en-05` para 06.)
+- **Slide 7:** CTA (era o slide 6; renomear `carrossel-en-06` para 07).
+- **Enquete opcional no story (fora da arte):** "Qual spot você quer ver com o GTO ao lado?" com as opções "Flop" e "Turn/river" / "Which spot do you want to see with GTO next to it?" with "Flop" and "Turn/river".
 
 ## Legendas
 
@@ -101,11 +133,13 @@ PT:
 ```
 O GTO folda 38,8%. O field folda 46,0%. Mesmo spot.
 
-Novo na Aura: Modo GTO. Ao lado do número do field, o número GTO e a faixa GTO, onde há referência.
+Novo na Aura: Modo GTO. Ao lado da frequência do field, o número GTO e a faixa GTO.
 
 Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
-Pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
+[[CONFIRMAR-COBERTURA]] Pós-flop: o GTO em todas as ações, em flop, turn e river, inclusive as aberturas do agressor (c-bet, second barrel, probe). Escolha o spot, clique em Apply e veja o field e o GTO juntos. A cada clique, o app mostra o que falta para ver o GTO.
+
+[[CONFIRMAR-PREFLOP]] Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
 O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 
@@ -117,11 +151,13 @@ EN:
 ```
 GTO folds 38.8%. The field folds 46.0%. Same spot.
 
-New on Aura: GTO Mode. Next to the field number, the GTO number and the GTO range, where a reference exists.
+New on Aura: GTO Mode. Next to the field frequency, the GTO number and the GTO range.
 
 Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
-Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
+[[CONFIRMAR-COBERTURA]] Postflop: GTO in every action, on the flop, turn and river, including the aggressor's openings (c-bet, second barrel, probe). Pick the spot, hit Apply and see the field and GTO together. At every click, the app shows what is missing to see GTO.
+
+[[CONFIRMAR-PREFLOP]] Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
 GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
 
@@ -135,11 +171,15 @@ PT (usar também com o story da capa, se o Rafael postar legenda):
 ```
 Onde o field sai do GTO?
 
-Novo na Aura: Modo GTO. Ao lado do número do field, o número GTO e a faixa GTO, onde há referência, no pós-flop (SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP) e no pré-flop (o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb).
+Novo na Aura: Modo GTO. Ao lado da frequência do field, o número GTO e a faixa GTO.
 
-Pós-flop: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
+[[CONFIRMAR-COBERTURA]] Pós-flop: o GTO em todas as ações, em flop, turn e river, inclusive as aberturas do agressor. Escolha o spot, clique em Apply e veja o field e o GTO juntos. A cada clique, o app mostra o que falta para ver o GTO.
 
-Pré-flop: RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos. O field abre 31,6% e o GTO abre 37,0%.
+Reação: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
+
+Abertura: [[N7: spot]]. O field aposta [[N8: % do field]] e o GTO aposta [[N9: % GTO e faixa]]: [[N10: diferença em pp]] pp de diferença. Aqui o field aposta [mais|menos] do que o GTO. É um spot, não a média do field.
+
+[[CONFIRMAR-PREFLOP]] Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos: o field abre 31,6% e o GTO abre 37,0%.
 
 O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
 
@@ -151,11 +191,15 @@ EN:
 ```
 Where does the field leave GTO?
 
-New on Aura: GTO Mode. Next to the field number, the GTO number and the GTO range, where a reference exists, postflop (SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop) and preflop (the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb).
+New on Aura: GTO Mode. Next to the field frequency, the GTO number and the GTO range.
 
-Postflop: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
+[[CONFIRMAR-COBERTURA]] Postflop: GTO in every action, on the flop, turn and river, including the aggressor's openings. Pick the spot, hit Apply and see the field and GTO together. At every click, the app shows what is missing to see GTO.
 
-Preflop: CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years. The field opens 31.6% and GTO opens 37.0%.
+Response: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
+
+Opening: [[N7: spot]]. The field bets [[N8: % do field]] and GTO bets [[N9: % GTO e faixa]]: a gap of [[N10: diferença em pp]] pp. Here the field bets [more|less] than GTO does. This is one spot, not the field average.
+
+[[CONFIRMAR-PREFLOP]] Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
 
 GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
 
@@ -179,22 +223,23 @@ See GTO Mode, link in bio. Save it for study. Study tool. 18+.
 - EN: GTO and the field on the same screen.
 
 ## Subtítulo
-- PT: Modo GTO: o número GTO e a faixa GTO ao lado do número do field, onde há referência, no pós-flop e no pré-flop. Veja onde o field sai da faixa e estude esse spot.
-- EN: GTO Mode: the GTO number and the GTO range next to the field number, where a reference exists, postflop and preflop. See where the field leaves the range and study that spot.
+- PT: [[CONFIRMAR-COBERTURA]] Modo GTO: em todas as ações do pós-flop, o número GTO e a faixa GTO ao lado da frequência do field. Veja onde o field sai da faixa e estude esse spot.
+- EN: [[CONFIRMAR-COBERTURA]] GTO Mode: in every postflop action, the GTO number and the GTO range next to the field frequency. See where the field leaves the range and study that spot.
 
 ## 3 bullets
 PT:
-- Pós-flop: SRP e 3-bet, flop e turn, com o número GTO e a faixa GTO ao lado do field, inclusive a reação a raise no flop do SRP.
-- Pré-flop: a grade traz o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. No RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos, o field abre 31,6% e o GTO abre 37,0%.
+- [[CONFIRMAR-COBERTURA]] Pós-flop: flop, turn e river, inclusive as aberturas do agressor (c-bet, second barrel, probe), cada ação com o número GTO e a faixa GTO ao lado do field. Escolha o spot, clique em Apply e veja os dois juntos; a cada clique, o app mostra o que falta para ver o GTO.
+- [[CONFIRMAR-PREFLOP]] Pré-flop: a grade traz o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. No RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos, o field abre 31,6% e o GTO abre 37,0%.
 - Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 EN:
-- Postflop: SRP and 3-bet, flop and turn, with the GTO number and the GTO range next to the field, including the response to a raise on the SRP flop.
-- Preflop: the grid carries the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. On the CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years, the field opens 31.6% and GTO opens 37.0%.
+- [[CONFIRMAR-COBERTURA]] Postflop: flop, turn and river, including the aggressor's openings (c-bet, second barrel, probe), each action with the GTO number and the GTO range next to the field. Pick the spot, hit Apply and see both together; at every click, the app shows what is missing to see GTO.
+- [[CONFIRMAR-PREFLOP]] Preflop: the grid carries the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. On the CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years, the field opens 31.6% and GTO opens 37.0%.
 - Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
-Nota de rodapé da seção (PT): "Um spot, não a média do field. Dados: Aura · 30 situações (10 confrontos de posição a 25, 40 e 60bb) com GTO no flop, mais de 2.300 flops, quase 7 milhões de nós de turn e river e 225 decisões de pré-flop, de 10 a 60bb. Ferramenta de estudo · 18+. A Aura não é site de apostas e não oferece jogo."
-Footnote (EN): "One spot, not the field average. Data: Aura · 30 situations (10 position matchups at 25, 40 and 60bb) with GTO on the flop, over 2,300 flops, nearly 7 million turn and river nodes and 225 preflop decisions, from 10 to 60bb. Study tool · 18+. Aura is not a betting site and does not offer gambling."
+Nota de rodapé da seção (PT): "Um spot, não a média do field. Ferramenta de estudo · 18+. A Aura não é site de apostas e não oferece jogo."
+Footnote (EN): "One spot, not the field average. Study tool · 18+. Aura is not a betting site and does not offer gambling."
+(Os números de escala de 08/10 saíram deste rodapé: ver Pendências, item 8.)
 
 CTA: PT "Conhecer o Modo GTO" / EN "See GTO Mode".
 Frase sob o CTA, PT: "O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / EN: "GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison."
@@ -207,73 +252,35 @@ Frase sob o CTA, PT: "O Modo GTO está incluído no plano Individual por tempo l
 - PT: "Grade de mãos do Preflop Analysis em que as células cobertas mostram o GTO e o desvio do field, com a célula do RFI do CO em destaque."
 - EN: "Preflop Analysis hand grid where the covered cells show the GTO and the field deviation, with the CO RFI cell highlighted."
 
-Nota para o designer: as imagens só mostram os números de "Números usados". Não mostrar preço nem "prévia".
+Nota para o designer: as imagens só mostram os números de "Números usados". Não mostrar preço. Não mostrar estado de carregamento nem aviso de "sem GTO".
 
 ---
 
 # (c) Discord
 
-Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.200 caracteres cada. Tamanho real (len do texto exato, URL inclusa): **PT 1.029, EN 1.066**. 3 emojis funcionais (📊 título, 🔎 convite, 👉 CTA). **Só postar depois do passo 6 do roteiro.**
-
-**PT**
-```
-📊 **Novo na Aura: Modo GTO**
-
-Ao lado do número do field, o número GTO e a faixa GTO, onde há referência. Onde o field sai da faixa, está o spot para estudar.
-
-**Exemplo de spot**
-CO × BB em pote simples, 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO folda 38,8% (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa.
-Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
-
-**O que você vê**
-- Pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP
-- Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb
-
-🔎 Abra um spot que você joga e olhe o gap.
-
-O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
-Ferramenta de estudo. 18+.
-👉 Conhecer o Modo GTO: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-pt
-```
-
-**EN**
-```
-📊 **New on Aura: GTO Mode**
-
-Next to the field number, the GTO number and the GTO range, where a reference exists. Where the field leaves the range, that is the spot to study.
-
-**Example spot**
-CO × BB single-raised pot, 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO folds 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range.
-Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
-
-**What you see**
-- Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop
-- Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb
-
-🔎 Open a spot you play and look at the gap.
-
-GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison.
-Study tool. 18+.
-👉 See GTO Mode: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-en
-```
+Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.200 caracteres cada, com os marcadores contados. Tamanho real e emojis: ver `discord.md`. **Só postar depois do teste logado, do P-61 no ar e da confirmação dos marcadores.**
 
 ---
 
 # (d) E-mail
 
-Texto, assuntos, preheader e notas técnicas em `email.md`. Assunto recomendado: a 1 ("Novo na Aura: Modo GTO" / "New on Aura: GTO Mode"). Botão "Conhecer o Modo GTO" / "See GTO Mode". O HTML existe (`email-pt.html` e `email-en.html`; para abrir do disco, `email-pt.preview.html` e `email-en.preview.html`). A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) (EN: captura recortada do card de 33% do app; PT: as duas barras renderizadas pela build, porque o app em PT mistura formatos decimais) com os mesmos números do texto (46,0% e 38,8%, faixa 37,1–40,4%, 5,6 pp acima do topo da faixa); não são duas barras renderizadas.
+Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode". O HTML atual (`email-pt.html` e `email-en.html`) é da versão de 08/10 e precisa ser atualizado por outro agente conforme `email.md`. A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) tem os mesmos números do exemplo de 08/10 (46,0% e 38,8%, faixa 37,1–40,4%), a reconfirmar.
 
 ---
 
-## Números usados (todos de `numeros-verificados.md`, 08/10; leitura de produção)
+## Números usados (de `numeros-verificados.md`, 08/10, leitura de produção; a reconfirmar no snapshot de 13/10)
 
-| Número no texto | Valor | Seção da fonte | Onde aparece |
-|---|---|---|---|
-| Spot do exemplo (antigo N1) | CO × BB · SRP · 30–60bb (GTO a 40bb) · Regular (Vanilla) · flop K-high, two-tone, sem par, desconectado · c-bet de 33% | Exemplo (a) | Linha de apoio do feed; legendas, Discord, landing, e-mail |
-| Field folda (N2) | 46,0% (EN 46.0%) | Exemplo (a), `potPercentage` do `actionSize` 2 | Barras (feed, stories, carrossel 1 e 2); legendas, Discord, landing, e-mail |
-| GTO folda e faixa (N3) | 38,8% (38,78 na API); faixa 37,1–40,4% (37,13–40,43) | Exemplo (a), `gtoFold` e `gtoBand.fold` | Barras com a faixa como sombreado; legendas, Discord, landing, e-mail |
-| Diferença (N4) | +5,6 pp (acima do topo da faixa, como a tela mostra; 7,2 é contra o centro) | Exemplo (a) | Só texto: legendas, Discord, landing, e-mail |
-| Pré-flop (N5) | RFI do CO, Regular, 30–50bb (GTO a 40bb): field abre 31,6%, GTO abre 37,0%, −5,4 pp | Exemplo (b) e "Pré-flop" (37 %) | Captura do slide 4 do carrossel; legenda do carrossel e landing (bullet 2). O −5,4 pp não é citado no texto |
-| Escala (N6) | 30 situações (10 confrontos de posição a 25, 40 e 60bb) com GTO no flop; mais de 2.300 flops (2.330); quase 7 milhões de nós de turn e river (6.980.568); 225 decisões de pré-flop, de 10 a 60bb | "Pós-flop" e "Pré-flop" | Só a nota da landing. Fora das artes |
+| Número no texto | Valor | Seção da fonte | Onde aparece | Estado |
+|---|---|---|---|---|
+| Spot do exemplo (antigo N1) | CO × BB · SRP · 30–60bb (GTO a 40bb) · Regular (Vanilla) · flop K-high, two-tone, sem par, desconectado · c-bet de 33% | Exemplo (a) | Linha de apoio do feed; legendas, Discord, landing, e-mail | a reconfirmar |
+| Field folda (N2) | 46,0% (EN 46.0%) | Exemplo (a), `potPercentage` do `actionSize` 2 | Barras (feed, stories, carrossel 1 e 2); legendas, Discord, landing, e-mail | a reconfirmar |
+| GTO folda e faixa (N3) | 38,8% (38,78 na API); faixa 37,1–40,4% (37,13–40,43) | Exemplo (a), `gtoFold` e `gtoBand.fold` | Barras com a faixa como sombreado; legendas, Discord, landing, e-mail | a reconfirmar |
+| Diferença (N4) | +5,6 pp (acima do topo da faixa, como a tela mostra; 7,2 é contra o centro) | Exemplo (a) | Só texto: legendas, Discord, landing (o e-mail novo não a cita) | a reconfirmar |
+| Pré-flop (N5) | RFI do CO, Regular, 30–50bb (GTO a 40bb): field abre 31,6%, GTO abre 37,0%, −5,4 pp | Exemplo (b) e "Pré-flop" (37 %) | Captura do slide 4; legenda do carrossel e landing (bullet 2). O −5,4 pp não é citado no texto | a reconfirmar (`[[CONFIRMAR-PREFLOP]]`) |
+| Escala (N6) | 30 situações, 2.330 flops, 6.980.568 nós de turn e river, 225 decisões de pré-flop (08/10) | "Pós-flop" e "Pré-flop" | **Fora de todas as peças** nesta versão (descreviam a cobertura antiga) | aguardando fonte nova |
+| Spot da abertura (N7) | `[[N7: spot]]` | HUB (a fornecer) | Slide 5 (apoio), legenda do carrossel | pendente |
+| Field aposta (N8) | `[[N8: % do field]]` | HUB (a fornecer) | Slide 5 (barra), legenda do carrossel | pendente |
+| GTO aposta e faixa (N9) | `[[N9: % GTO e faixa]]` | HUB (a fornecer) | Slide 5 (barra e faixa), legenda do carrossel | pendente |
+| Diferença da abertura (N10) | `[[N10: diferença em pp]]` | HUB (a fornecer) | Slide 5 (gap), legenda do carrossel | pendente |
 
 Não usados, por instrução da fonte e da HUB: as 10.216 mãos e as 23,8 milhões de oportunidades; contagens de linhas; o candidato SB × BB 3-bet (amostra pequena); RFI do BTN a 40bb (51%), que fica disponível para peças de sustentação.

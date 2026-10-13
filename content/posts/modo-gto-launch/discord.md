@@ -1,10 +1,11 @@
-# Discord: lançamento do Modo GTO
+# Discord: lançamento do Modo GTO ("GTO em todas as ações")
 
-Status: rascunho com números fechados; não publicado.
-**Tamanho real (len do texto exato dos blocos abaixo, URL inclusa, em caracteres Unicode como o `len` do Python): PT 1.029, EN 1.066. Teto de 1.200 respeitado nos dois.** Recontar se qualquer palavra mudar. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
-**Aviso de publicação: só postar depois do passo 6 do roteiro de go-live (teste logado do Rafael) e depois do P-61 no ar (Modo GTO aberto ao Individual).** O link leva ao app e o texto promete o módulo.
-Números: todos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. Nenhum outro número.
-O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB de 08/10 ("incluído no plano Individual por tempo limitado") e depende da publicação do P-61. Sem preço, sem o plano Modo GTO como produto à venda, sem "prévia", sem Beta.
+Status: rascunho com marcadores pendentes; não publicado. Versão de 13/10/2026.
+**Tamanho real (len do texto exato dos blocos abaixo, URL e marcadores inclusos, em caracteres Unicode): PT 1.092, EN 1.105. Sem os dois marcadores (46 caracteres): PT 1.046, EN 1.059. Teto de 1.200 respeitado nos dois.** Recontar se qualquer palavra mudar. 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
+**Aviso de publicação: só postar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual) e da confirmação dos marcadores.** O link leva ao app e o texto promete o módulo.
+Marcadores a tirar antes de postar: `[[CONFIRMAR-COBERTURA]]` (cobertura "em todas as ações do pós-flop", pendente da HUB) e `[[CONFIRMAR-PREFLOP]]` (pré-flop, confirmar se mudou).
+Números: de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10), exemplo (a): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. A HUB deve reconfirmá-los no snapshot de produção de 13/10. Nenhum outro número.
+O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a da HUB (P-61) e depende da publicação do P-61. Sem preço, sem plano Modo GTO à venda, sem Top.
 @aurapokeranalytics: a confirmar pelo Rafael. UTM: `utm_campaign=modo-gto-launch`, uma URL por idioma.
 
 ---
@@ -14,15 +15,15 @@ O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A
 ```
 📊 **Novo na Aura: Modo GTO**
 
-Ao lado do número do field, o número GTO e a faixa GTO, onde há referência. Onde o field sai da faixa, está o spot para estudar.
+[[CONFIRMAR-COBERTURA]] O GTO em todas as ações do pós-flop: flop, turn e river, inclusive as aberturas do agressor (c-bet, second barrel, probe). Cada ação mostra o número GTO e a faixa GTO ao lado do field.
 
-**Exemplo de spot**
-CO × BB em pote simples, 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO folda 38,8% (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa.
-Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
+**Exemplo**
+CO × BB em pote simples, 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO 38,8% (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. É um spot, não a média do field.
 
-**O que você vê**
-- Pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP
-- Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb
+**Como usar**
+Escolha o spot, clique em Apply e veja o field e o GTO juntos. A cada clique, o app mostra o que falta para ver o GTO.
+
+[[CONFIRMAR-PREFLOP]] Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
 🔎 Abra um spot que você joga e olhe o gap.
 
@@ -36,15 +37,15 @@ Ferramenta de estudo. 18+.
 ```
 📊 **New on Aura: GTO Mode**
 
-Next to the field number, the GTO number and the GTO range, where a reference exists. Where the field leaves the range, that is the spot to study.
+[[CONFIRMAR-COBERTURA]] GTO in every postflop action: flop, turn and river, including the aggressor's openings (c-bet, second barrel, probe). Each action shows the GTO number and the GTO range next to the field.
 
-**Example spot**
-CO × BB single-raised pot, 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO folds 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range.
-Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
+**Example**
+CO × BB single-raised pot, 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. This is one spot, not the field average.
 
-**What you see**
-- Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop
-- Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb
+**How to use it**
+Pick the spot, hit Apply and see the field and GTO together. At every click, the app shows what is missing to see GTO.
+
+[[CONFIRMAR-PREFLOP]] Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
 🔎 Open a spot you play and look at the gap.
 
@@ -56,6 +57,7 @@ Study tool. 18+.
 ---
 
 ## Notas
-- A reação a raise é dita só como "no flop do SRP". Nos 3-bets BB vs CO, SB vs BTN e BTN vs CO a 40/60bb ela ainda não tem GTO; não generalizar.
+- Sem exemplo de abertura (N7 a N10) no Discord: um exemplo só, para caber no teto. O exemplo de abertura vive no carrossel.
+- Sem as frases que limitavam a cobertura ("SRP e 3-bet", "flop e turn", reação a raise só no flop do SRP).
 - A ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10); o Discord não a repete.
-- Conferência da contagem, para quem quiser refazer: copiar o texto de cada bloco (sem as cercas ```) para um arquivo sem quebra de linha final e rodar `python -c "import sys;print(len(open(sys.argv[1],encoding='utf-8').read()))" arquivo.txt`. A contagem acima foi feita por regex âncorada no arquivo inteiro (`\A(?s:.){N}\z`), porque esta sessão não tinha Python. O resultado é PT 1.029 e EN 1.066.
+- Conferência da contagem, para quem quiser refazer: copiar o texto de cada bloco (sem as cercas ```) para um arquivo sem quebra de linha final e rodar `python -c "import sys;print(len(open(sys.argv[1],encoding='utf-8').read()))" arquivo.txt`. A contagem acima foi feita por regex no arquivo (`📊 \*\*Novo na Aura: Modo GTO\*\*.{0,N}\n```` em modo multilinha e dotall, bisseção de N até o menor que casa: 1.064 depois da 1.ª linha de 28 caracteres no PT; 1.078 depois da 1.ª linha de 27 no EN), porque esta sessão não tinha Python. `\n` conta 1 caractere.
