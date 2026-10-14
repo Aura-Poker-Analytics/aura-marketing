@@ -238,6 +238,8 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None, keys=("N2", "N3"
         o.append(f'<line x1="{FX + COL_W + 6}" y1="{yf:.1f}" x2="{GX + COL_W + 26}" y2="{yf:.1f}" stroke="{AMBER}" stroke-width="{sw}" stroke-dasharray="14 9"/>')
         o.append(f'<line x1="{FX + COL_W + 6}" y1="{yg:.1f}" x2="{GX - 30}" y2="{yg:.1f}" stroke="{AMBER}" stroke-width="{sw}" stroke-dasharray="14 9"/>')
         o.append(f'<line x1="{MID}" y1="{top:.1f}" x2="{MID}" y2="{bot:.1f}" stroke="{AMBER}" stroke-width="{sw + 2}" stroke-linecap="butt"/>')
+        if bot - top < 30:      # gap curto: faixa ambar entre as duas linhas, para ele aparecer no celular
+            o.append(f'<rect x="{FX + COL_W + 6}" y="{top:.1f}" width="{GX - 30 - (FX + COL_W + 6)}" height="{max(bot - top, 3):.1f}" fill="rgba(251,191,36,.80)"/>')
         if bot - top > 22:
             a = min(16, (bot - top) / 3.4)
             o.append(f'<polygon points="{MID - a},{top + a * 1.5:.1f} {MID + a},{top + a * 1.5:.1f} {MID},{top:.1f}" fill="{AMBER}"/>')
