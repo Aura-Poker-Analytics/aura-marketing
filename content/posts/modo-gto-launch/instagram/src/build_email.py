@@ -35,9 +35,8 @@ CP = {
     "pt": dict(
         lang_attr="pt-BR", subject="Novo na Aura: Modo GTO", h1="Novo na Aura: Modo GTO",
         tagline="O GTO e o field na mesma tela.",
-        pre="Novo na Aura: Modo GTO. O número GTO e a faixa GTO ao lado do número do field, onde há referência.",
+        pre="O GTO no flop, turn e river, ao lado do field. Escolha o spot, clique em Apply e compare.",
         btn="Conhecer o Modo GTO",
-        under="O Modo GTO está incluído no plano Individual por tempo limitado. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.",
         alt="Duas barras de fold no mesmo spot: field 46,0% e GTO 38,8%, com a faixa GTO de 37,1 a 40,4%.",
         f1="Você recebeu este e-mail porque criou uma conta na Aura Poker Analytics.",
         f2='Não quer mais e-mails como este? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Descadastrar</a> · Dúvidas no <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
@@ -47,9 +46,8 @@ CP = {
     "en": dict(
         lang_attr="en", subject="New on Aura: GTO Mode", h1="New on Aura: GTO Mode",
         tagline="GTO and the field on the same screen.",
-        pre="New on Aura: GTO Mode. The GTO number and the GTO range next to the field number, where a reference exists.",
+        pre="GTO on the flop, turn and river, next to the field. Pick the spot, hit Apply and compare.",
         btn="See GTO Mode",
-        under="GTO Mode is included in the Individual plan for a limited time. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+.",
         alt="GTO Mode in Postflop Analysis: the field number and the GTO number with the GTO range, side by side, in the same spot.",
         f1="You received this email because you created an account on Aura Poker Analytics.",
         f2='Don\'t want emails like this anymore? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Unsubscribe</a> · Questions? Find us on <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
@@ -61,10 +59,9 @@ CP = {
 
 # ---------------------------------------------------------------- texto do exemplo (email.md)
 def example_html(lang, n):
-    """Paragrafo do exemplo, na redacao de email.md. Retorna (html, faltando)."""
+    """Paragrafo do exemplo, na redacao de email.md (14/10): so field e GTO, sem faixa nem gap no texto."""
     ex = Ex(n, lang, mark=ph_email)
-    pos = ex.position
-    miss = ex.missing(with_n1=True, with_n4=(pos != "inside"))
+    miss = ex.missing(with_n1=True)
     long_n1 = ((n.get("N1") or {}).get(f"email_{lang}") or "").strip()      # contexto completo do spot (email.md)
     if has_text(long_n1):
         n1 = H.escape(long_n1.rstrip("."))
@@ -73,29 +70,12 @@ def example_html(lang, n):
         miss.append("N1.email")
     else:
         n1 = ex.s_n1()
-    lo = fnum(ex.lo, lang, n) if ex.lo is not None else None
-    hi = fnum(ex.hi, lang, n) if ex.hi is not None else None
-    rng = f"{lo}–{hi}%" if lo and hi else ph_email("N3")
+    c = pct(ex.c, lang, n) if ex.c is not None else ph_email("N3")
     if lang == "pt":
-        head = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {pct(ex.c, lang, n) if ex.c is not None else ph_email('N3')} do GTO (faixa {rng}): "
-        above = f"{ex.s_n4()} pp acima do topo da faixa. Aqui o field folda mais do que o GTO. "
-        below = f"{ex.s_n4()} pp abaixo da base da faixa. Aqui o field folda menos do que o GTO. "
-        inside = ph_email("LEITURA: field dentro da faixa GTO, copy a definir") + " "
-        tail = "É um spot, não a média do field. Confira no seu board."
+        html = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {c} do GTO. É um spot, não a média do field. Confira no seu board."
     else:
-        head = f"Example: {n1}. The field folds {ex.s_n2()} against GTO's {pct(ex.c, lang, n) if ex.c is not None else ph_email('N3')} (range {rng}): "
-        above = f"{ex.s_n4()} pp above the top of the range. Here the field folds more than GTO does. "
-        below = f"{ex.s_n4()} pp below the bottom of the range. Here the field folds less than GTO does. "
-        inside = ph_email("LEITURA: field inside the GTO range, copy to be defined") + " "
-        tail = "This is one spot, not the field average. Check it on your board."
-    if pos == "inside":
-        read = inside
-        miss.append("LEITURA")
-    elif pos == "below":
-        read = below
-    else:                       # acima, ou ainda indefinido (rascunho: usa o texto de "acima" do email.md)
-        read = above
-    return head + read + tail, miss
+        html = f"Example: {n1}. The field folds {ex.s_n2()} against GTO's {c}. This is one spot, not the field average. Check it on your board."
+    return html, miss
 
 
 # ---------------------------------------------------------------- imagem do slot
@@ -185,10 +165,13 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
     body, ex_miss = example_html(lang, n)
     miss = list(dict.fromkeys(ex_miss + draft_miss))
     txt = n.get("textos_com_numero") or {}
-    corpo = txt.get(f"email_corpo_{lang}")
-    if not has_text(corpo):
-        corpo = ph_email(f"email_corpo_{lang}")
-        miss.append(f"email_corpo_{lang}")
+    def tx(key):
+        v = txt.get(f"{key}_{lang}")
+        if not has_text(v):
+            miss.append(f"{key}_{lang}")
+            return ph_email(f"{key}_{lang}")
+        return H.escape(v)
+    corpo, preflop, under = tx("email_corpo"), tx("email_preflop"), tx("email_under")
     draft = bool(miss)
     url = lib.LANDING.format(lang=lang)
     src = f"email/{img_name}" if preview else f"https://www.aurapoker.com/email/{img_name}"
@@ -234,7 +217,8 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
           <tr>
             <td style="padding-top:16px; padding-right:34px; padding-bottom:4px; padding-left:34px; font-family:Arial,Helvetica,sans-serif; color:#c3ccd9; font-size:15px; line-height:1.65;">
               <p style="margin:0 0 14px 0;">{corpo}</p>
-              <p style="margin:0 0 4px 0;">{body}</p>
+              <p style="margin:0 0 14px 0;">{body}</p>
+              <p style="margin:0 0 4px 0;">{preflop}</p>
             </td>
           </tr>
           <tr>
@@ -249,7 +233,7 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
                   <a href="{url}" style="display:inline-block; padding-top:14px; padding-bottom:14px; padding-left:34px; padding-right:34px; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:bold; color:#0b1220; text-decoration:none; border-radius:10px;">{c['btn']}</a>
                 </td>
               </tr></table>
-              <p style="margin:12px 0 0 0; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#9aa7ba;">{c['under']}</p>
+              <p style="margin:12px 0 0 0; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#9aa7ba;">{under}</p>
             </td>
           </tr>
           <tr>

@@ -46,8 +46,13 @@
   "textos_com_numero": {
     "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
     "c4_apoio_en": "Includes CO and BTN RFI at 40bb.",
-    "email_corpo_pt": "Ao lado do número do field, agora o número GTO e a faixa GTO, onde há referência. No pós-flop: SRP e 3-bet, flop e turn, inclusive a reação a raise no flop do SRP. No pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.",
-    "email_corpo_en": "Next to the field number, now the GTO number and the GTO range, where a reference exists. Postflop: SRP and 3-bet, flop and turn, including the response to a raise on the SRP flop. Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb."
+    "email_corpo_pt": "Agora no flop, turn e river, inclusive as aberturas do agressor (second barrel, delayed c-bet, probe): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.",
+    "email_corpo_en": "Now on the flop, turn and river, including the aggressor's opening bets (second barrel, delayed c-bet, probe): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.",
+    "c6_apoio_en": "Part of the US$ 29/month plan, for a limited time.",
+    "email_preflop_pt": "No pré-flop, o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.",
+    "email_preflop_en": "Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.",
+    "email_under_pt": "O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.",
+    "email_under_en": "GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+."
   },
   "verificados": {
     "_doc": "Ja verificados em producao (numeros-verificados.md, 08/10). Nao entram sozinhos em nenhuma arte; servem para escolher o N6 e para a legenda.",
@@ -72,5 +77,20 @@
     ],
     "rfi_co_40bb_pct": 37,
     "rfi_btn_40bb_pct": 51
-  }
+  },
+  "N6A": "Turn Delayed CBet",
+  "_N6A": "Acao do exemplo de abertura (slide 5 do carrossel). Frequencia de APOSTA do agressor, nao de fold.",
+  "N7": "CO × BB · two-tone · turn",
+  "_N7": "Spot resumido do exemplo de abertura: apoio do slide 5. Contexto completo (numeros-verificados-lancamento.md): CO x BB, 40bb (30.1-60), SRP, flop two-tone, turn qualquer, torneios Regular, ultimos 2 anos.",
+  "N8": 51.7,
+  "N9": {
+    "_doc": "GTO da abertura (Bet frequency) e faixa GTO.",
+    "center": 44.1,
+    "from": 37.8,
+    "to": 50.3
+  },
+  "N10": 1.4,
+  "_N10": "Distancia do field ao TOPO da faixa GTO (51.7 - 50.3). Leitura: ACIMA. So para registro; a arte mostra so o gap desenhado.",
+  "slide5": "bars",
+  "_slide5": "'bars' = barras field x GTO da abertura (padrao); 'capture' = so a captura turn-delayed-cbet.png com o titulo."
 }

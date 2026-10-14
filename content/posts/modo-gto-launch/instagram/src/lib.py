@@ -18,6 +18,7 @@ EMAIL = POST / "email"
 TPL = ROOT / "instagram/templates/carrossel-slide.html"
 NUMBERS = Path(os.environ.get("AURA_NUMBERS") or (SRC / "numbers.json"))   # AURA_NUMBERS: so para teste de layout
 PRINTS = Path(os.environ.get("AURA_PRINTS_DIR") or (ROOT.parent / "_ops/golive-gto-2026-10-04/prints/prod"))
+PRINTS_MKT = Path(os.environ.get("AURA_PRINTS_MKT") or (ROOT.parent / "_ops/golive-gto-2026-10-14/prints-mkt"))   # capturas de 14/10 (turn)
 PRINT_NAMES = {            # arquivo esperado em PRINTS (png ou jpg) -> onde entra
     "postflop-en": "carrossel slide 3 (Postflop com o Modo GTO ligado, spot N1)",
     "preflop-en": "carrossel slide 4 (grade do pre-flop, celula N5 destacada, torneio Regular)",
@@ -41,10 +42,11 @@ def has_text(v):
 
 def find_print(name):
     """Captura de producao em PRINTS (png ou jpg); None se nao existe."""
-    for ext in ("png", "jpg", "jpeg"):
-        p = PRINTS / f"{name}.{ext}"
-        if p.exists():
-            return p
+    for d in (PRINTS, PRINTS_MKT):
+        for ext in ("png", "jpg", "jpeg"):
+            p = d / f"{name}.{ext}"
+            if p.exists():
+                return p
     return None
 
 
@@ -77,16 +79,16 @@ def ph_email(label):
 class Ex:
     """Os campos do exemplo field x GTO ja resolvidos (valor, texto ou marcador)."""
 
-    def __init__(self, n, lang, mark=ph):
+    def __init__(self, n, lang, mark=ph, keys=("N2", "N3", "N4")):
         self.n, self.lang, self.mark = n, lang, mark
-        n3 = n.get("N3") or {}
-        self.n2 = n.get("N2") if is_num(n.get("N2")) else None
+        n3 = n.get(keys[1]) or {}
+        self.n2 = n.get(keys[0]) if is_num(n.get(keys[0])) else None
         self.c = n3.get("center") if is_num(n3.get("center")) else None
         self.lo = n3.get("from") if is_num(n3.get("from")) else None
         self.hi = n3.get("to") if is_num(n3.get("to")) else None
         n1 = (n.get("N1") or {}).get(lang)
         self.n1 = n1.strip() if has_text(n1) else None
-        n4 = n.get("N4")
+        n4 = n.get(keys[2])
         if is_num(n4):
             self.n4 = abs(n4)
         elif self.n2 is not None and self.hi is not None and self.n2 > self.hi:
@@ -188,22 +190,29 @@ def _ph_text(x, y, label, size):
             f'<text x="{x}" y="{y}" text-anchor="middle" font-size="{size}" font-weight="900" fill="#fff">{label}</text>')
 
 
-def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None):
+PAL = {   # fold = teal; bet = vermelho do raise (#AD2C34), semantica de acao do brand kit
+    "fold": dict(g0="#0E8AA3", g1="#015A6B", fs="rgba(103,232,249,.4)", gf="rgba(1,90,107,.55)", gs="#5EC9DB", df="rgba(1,90,107,.25)"),
+    "bet": dict(g0="#CF4650", g1="#AD2C34", fs="rgba(252,165,165,.45)", gf="rgba(173,44,52,.50)", gs="#F28B92", df="rgba(173,44,52,.25)"),
+}
+
+
+def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None, keys=("N2", "N3", "N4"), title=None, pal="fold", gaplabel=None):
     """Barras field x GTO lado a lado, faixa GTO sombreada na barra do GTO, gap em ambar entre as duas.
     Pronto (todos os numeros) -> alturas reais, barras a partir do zero. Senao -> contornos tracejados com [[N..]]."""
-    ex = Ex(n, lang)
+    P = PAL[pal]
+    ex = Ex(n, lang, keys=keys)
     ready = ex.chart_ready
     head = HEAD + (30 if caption else 0)
     base = head + ph_h
     H = base + 90
     o = [f'<svg class="chart" width="{W}" height="{H}" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat, Segoe UI, sans-serif">']
     o.append('<defs>'
-             '<linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E8AA3"/><stop offset="1" stop-color="#015A6B"/></linearGradient>'
+             f'<linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{P["g0"]}"/><stop offset="1" stop-color="{P["g1"]}"/></linearGradient>'
              f'<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="{7 if emphasize else 0}"/></filter>'
              '</defs>')
     if caption:
         o.append(f'<text x="0" y="68" font-size="26" font-weight="600" fill="#94A3B8">{caption}</text>')
-    o.append(f'<text x="0" y="34" font-size="30" font-weight="700" letter-spacing="2" fill="#A9B6C8">{TITLE[lang].upper()}</text>')
+    o.append(f'<text x="0" y="34" font-size="30" font-weight="700" letter-spacing="2" fill="#A9B6C8">{(title or TITLE[lang]).upper()}</text>')
     # nomes das colunas
     for cx, name in ((FX + COL_W / 2, NAMES[0]), (GX + COL_W / 2, NAMES[1])):
         o.append(f'<text x="{cx:.0f}" y="{head - 20}" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="6" fill="#CBD5E1">{name}</text>')
@@ -213,8 +222,8 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None):
         y = lambda v: base - v / axis * ph_h
         yf, yc, yl, yh = y(ex.n2), y(ex.c), y(ex.lo), y(ex.hi)
         # barras
-        o.append(f'<path d="{_topround(FX, yf, COL_W, base - yf, 18)}" fill="url(#fb)" stroke="rgba(103,232,249,.4)" stroke-width="2.5"/>')
-        o.append(f'<path d="{_topround(GX, yc, COL_W, base - yc, 18)}" fill="rgba(1,90,107,.55)" stroke="#5EC9DB" stroke-width="3.5"/>')
+        o.append(f'<path d="{_topround(FX, yf, COL_W, base - yf, 18)}" fill="url(#fb)" stroke="{P["fs"]}" stroke-width="2.5"/>')
+        o.append(f'<path d="{_topround(GX, yc, COL_W, base - yc, 18)}" fill="{P["gf"]}" stroke="{P["gs"]}" stroke-width="3.5"/>')
         # faixa GTO sombreada em volta da barra do GTO
         o.append(f'<rect x="{GX - 26}" y="{yh:.1f}" width="{COL_W + 52}" height="{max(yl - yh, 6):.1f}" rx="8" fill="rgba(203,213,225,.20)" '
                  f'stroke="rgba(226,232,240,.85)" stroke-width="2.5" stroke-dasharray="11 8"/>')
@@ -243,8 +252,8 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None):
         # rascunho: alturas ILUSTRATIVAS (nao sao dado), contornos tracejados, marcadores visiveis
         fh, ch_, lo_h, hi_h = 0.86 * ph_h, 0.56 * ph_h, 0.38 * ph_h, 0.74 * ph_h
         yf, yc, yl, yh = base - fh, base - ch_, base - lo_h, base - hi_h
-        o.append(f'<path d="{_topround(FX, yf, COL_W, base - yf, 18)}" fill="rgba(1,90,107,.25)" stroke="#5EC9DB" stroke-width="3.5" stroke-dasharray="14 10"/>')
-        o.append(f'<path d="{_topround(GX, yc, COL_W, base - yc, 18)}" fill="rgba(1,90,107,.25)" stroke="#5EC9DB" stroke-width="3.5" stroke-dasharray="14 10"/>')
+        o.append(f'<path d="{_topround(FX, yf, COL_W, base - yf, 18)}" fill="{P["df"]}" stroke="{P["gs"]}" stroke-width="3.5" stroke-dasharray="14 10"/>')
+        o.append(f'<path d="{_topround(GX, yc, COL_W, base - yc, 18)}" fill="{P["df"]}" stroke="{P["gs"]}" stroke-width="3.5" stroke-dasharray="14 10"/>')
         o.append(f'<rect x="{GX - 26}" y="{yh:.1f}" width="{COL_W + 52}" height="{yl - yh:.1f}" rx="8" fill="rgba(203,213,225,.12)" stroke="rgba(226,232,240,.85)" stroke-width="2.5" stroke-dasharray="11 8"/>')
         o.append(f'<text x="{GX + COL_W / 2:.0f}" y="{yh + 36:.0f}" text-anchor="middle" font-size="26" font-weight="800" fill="#E2E8F0">[[N3 faixa]]</text>')
         o.append(f'<line x1="{FX + COL_W + 6}" y1="{yf:.1f}" x2="{GX + COL_W + 26}" y2="{yf:.1f}" stroke="{AMBER}" stroke-width="3" stroke-dasharray="4 10" opacity=".8"/>')
@@ -259,6 +268,8 @@ def chart_svg(lang, n, ph_h=470, emphasize=False, caption=None):
     # legenda (conta como parte do grafico): faixa GTO e gap
     ly = base + 56
     lg, gp = LEG[lang]
+    if gaplabel:
+        gp = gaplabel
     if ready:
         lg += f" {fnum(ex.lo, lang, n)}–{fnum(ex.hi, lang, n)}%"
     o.append(f'<rect x="{FX}" y="{ly - 20}" width="44" height="26" rx="5" fill="rgba(203,213,225,.38)" stroke="rgba(226,232,240,.95)" stroke-width="2.5" stroke-dasharray="7 5"/>')

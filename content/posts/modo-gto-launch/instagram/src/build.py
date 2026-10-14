@@ -39,12 +39,13 @@ ART = {
     "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Onde o field<br><em>sai do GTO?</em>", s="Novo: Modo GTO", ts=104, emph=True),
     "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="c1", t="Where does<br>the field<br><em>leave GTO?</em>", s="New: GTO Mode", ts=88, emph=True),
     "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=96),
-    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO and range</em>", s="SRP and 3-bet, flop and turn. Raise response on SRP flop.", ts=76),
-    "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{c4}", ts=76),
-    "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="GTO Mode,<br>now in<br><em>Individual</em>", s="For a limited time.", ts=104),
-    "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="c6", t="See <em>GTO Mode</em>", s="Link in bio.", ts=96),
+    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO with the range</em>", s="Turn and river openings, with the range.", ts=72),
+    "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{t:c4_apoio_en}", ts=76),
+    "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="Delayed c-bet:<br><em>field vs GTO</em>", s="{N7}", ts=84),
+    "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="c6", t="GTO Mode,<br>now in<br><em>Individual</em>", s="{t:c6_apoio_en}", ts=104),
+    "carrossel-en-07": dict(lang="en", size=(1080, 1350), kind="c7", t="See <em>GTO Mode</em>", s="Link in bio.", ts=96),
 }
-N_SLIDES = 6
+N_SLIDES = 7
 
 # ---------------------------------------------------------------- dependencias por arte
 def needs(name, n):
@@ -57,7 +58,15 @@ def needs(name, n):
     if k in ("story", "c1", "c2"):
         return ex.missing(with_n1=True)
     if k == "c3":
-        return [] if find_print("postflop-en") else ["print:postflop-en"]
+        return [f"print:{p}" for p in ("second-barrel", "turn-delayed-cbet") if not find_print(p)]
+    if k == "c5":
+        ox = Ex(n, "en", keys=("N8", "N9", "N10"))
+        m = [x.replace("N2", "N8").replace("N3", "N9") for x in ox.missing()]
+        if not lib.has_text(n.get("N7")):
+            m.append("N7")
+        if not lib.has_text(n.get("N6A")):
+            m.append("N6A")
+        return m
     if k == "c4":
         return n5_missing(n) + ([] if find_print("preflop-en") else ["print:preflop-en"])
     return []
@@ -159,6 +168,20 @@ def slot(name, label_for, n):
             f'<div class="pexp">esperado: prints\\prod\\{name}.png</div>{extra}</div>')
 
 
+def stack(names, big=False):
+    """Capturas largas empilhadas (cada uma um card do app, 2232 px de largura), ou o slot pendente."""
+    parts = []
+    for nm in names:
+        p = find_print(nm)
+        if not p:
+            parts.append(f'<div class="slot" style="height:200px;margin:0 auto;width:1032px;border:4px dashed rgba(251,191,36,.75);border-radius:26px"><div class="plab" style="font-size:36px">[PRINT DE PRODUÇÃO PENDENTE]</div><div class="pexp">esperado: prints-mkt/{nm}.png</div></div>')
+            continue
+        dst = ASSETS / f"prod-{nm}{p.suffix.lower()}"
+        shutil.copyfile(p, dst)
+        parts.append(f'<img src="assets/{dst.name}">')
+    return '<div class="stack">' + "".join(parts) + "</div>"
+
+
 def sub(a, n, cls=""):
     """Linha de apoio (ou vazio). {N1} -> spot; {c4} -> texto fixo do slide 4 (numbers.json)."""
     s = a["s"]
@@ -167,9 +190,12 @@ def sub(a, n, cls=""):
     if s == "{N1}":
         ex = Ex(n, a["lang"])
         return f'<p class="sub fit {cls}">{ex.s_n1()}</p>'
-    if s == "{c4}":
-        txt = (n.get("textos_com_numero") or {}).get("c4_apoio_en")
-        return f'<p class="sub fit {cls}">{txt if lib.has_text(txt) else ph("c4_apoio_en")}</p>'
+    if s == "{N7}":
+        return f'<p class="sub fit {cls}">{n["N7"] if lib.has_text(n.get("N7")) else ph("N7")}</p>'
+    if s.startswith("{t:"):
+        key = s[3:-1]
+        txt = (n.get("textos_com_numero") or {}).get(key)
+        return f'<p class="sub fit {cls}">{txt if lib.has_text(txt) else ph(key)}</p>'
     return f'<p class="sub {cls}">{s}</p>'
 
 
@@ -230,9 +256,31 @@ def render_html(name, n, miss, test=False):
 {footer()}"""
         return page(lang, h, inner, css, tag=tag)
 
+    if k == "c5":
+        css = base_css + """.title { white-space: nowrap; }
+.sub { font-size: 44px; }
+.t { margin-top: 44px; }
+.mid { flex: 1; display:flex; align-items:center; justify-content:center; padding-bottom: 8px; margin-top: 26px; }
+"""
+        ex_ = Ex(n, "en", keys=("N8", "N9", "N10"))
+        if n.get("slide5") == "capture":
+            cap = stack(["turn-delayed-cbet"], big=True)
+            inner = lockup(indicator(5)) + f"""
+<div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
+<div class="mid z" style="margin-left:-84px;margin-right:-84px">{cap}</div>
+{footer()}"""
+        else:
+            svg, _ = chart_svg(lang, n, ph_h=430, keys=("N8", "N9", "N10"), title="Bet frequency", pal="bet", gaplabel="Gap to range")
+            inner = lockup(indicator(5)) + f"""
+<div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
+<div class="mid z">{svg}</div>
+{footer()}"""
+        return page(lang, h, inner, css, tag=tag)
+
     if k in ("c3", "c4"):
         i = 3 if k == "c3" else 4
         pname = "postflop-en" if k == "c3" else "preflop-en"
+        capture = stack(["second-barrel", "turn-delayed-cbet"]) if k == "c3" else slot(pname, '', n)
         css = base_css + """.title { white-space: nowrap; }
 .sub { font-size: 42px; }
 .grp { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 90px; padding-bottom: 30px; }
@@ -242,13 +290,14 @@ def render_html(name, n, miss, test=False):
 """
         inner = lockup(indicator(i)) + f"""
 <div class="grp z"><div><h1 class="title">{a['t']}</h1>{sub(a, n, 'fit')}</div>
-<div class="cap"><div class="glow"></div>{slot(pname, '', n)}</div></div>
+<div class="cap"><div class="glow"></div>{capture}</div></div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag)
 
-    if k == "c5":
+    if k == "c6":
         css = base_css + """.mid { flex: 1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 .title { margin-top: 56px; }
+.sub { width: 912px; font-size: 40px; }
 """
         lock = """<div style="position:relative;width:260px;height:260px">
 <svg style="position:absolute;inset:0" width="260" height="260" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="104" stroke="rgba(212,164,24,0.7)" stroke-width="2.5" stroke-dasharray="460 190" stroke-linecap="round"/><circle cx="110" cy="110" r="88" stroke="rgba(212,164,24,0.2)" stroke-width="1.5"/></svg>
@@ -256,19 +305,19 @@ def render_html(name, n, miss, test=False):
 <path d="M16 30V21a14 14 0 0 1 28 0v9" stroke="#D4A418" stroke-width="5.5" stroke-linecap="round"/>
 <rect x="6" y="29" width="48" height="36" rx="8" fill="#D4A418"/>
 <circle cx="30" cy="44" r="5" fill="#0F1526"/><rect x="28" y="46" width="4" height="10" rx="2" fill="#0F1526"/></svg></div>"""
-        inner = lockup(indicator(5)) + f"""
+        inner = lockup(indicator(6)) + f"""
 <div class="mid z">{lock}<h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag)
 
-    if k == "c6":
+    if k == "c7":
         css = base_css + """.mid { flex: 1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 .big { width: 150px; height: 112px; color: var(--gold); filter: drop-shadow(0 0 40px rgba(212,164,24,.45)); }
 .big svg { width: 100%; height: 100%; }
 .title { margin-top: 56px; white-space: nowrap; }
 .sub { margin-top: 26px; font-size: 48px; }
 """
-        inner = lockup(indicator(6)) + f"""
+        inner = lockup(indicator(7)) + f"""
 <div class="mid z"><div style="position:relative;width:150px;height:112px;margin-top:10px"><svg style="position:absolute;left:-35px;top:-54px" width="220" height="220" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="104" stroke="rgba(212,164,24,0.7)" stroke-width="2.5" stroke-dasharray="460 190" stroke-linecap="round"/><circle cx="110" cy="110" r="88" stroke="rgba(212,164,24,0.2)" stroke-width="1.5"/></svg><div class="big" data-icon></div></div>
 <h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 {footer()}"""
