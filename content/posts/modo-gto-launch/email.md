@@ -2,7 +2,6 @@
 
 Status: rascunho sem marcadores abertos; não publicado. Não enviado, e nada foi criado no Resend. Versão de 13/10/2026, números fechados em 14/10.
 Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10): field folda 46,0%, GTO folda 38,8%. A cobertura segue `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (14/10). Um exemplo só (CO × BB) e uma comparação só (field contra GTO). Sem número de escala, sem pré-flop concreto, sem contagem de mãos, sem o exemplo de abertura.
-HTML: `email-pt.html` e `email-en.html` são da versão de 08/10 e **precisam ser atualizados por outro agente** conforme este arquivo (ver "Para quem atualiza o HTML"). Este arquivo não mexe no HTML nem nas imagens.
 **Só enviar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual), da conferência do preço (29 / 150) no Stripe pelo Rafael, da hospedagem das imagens (aura-landing#17) e da versão de 13/10 em produção.** O botão leva à landing, mas o texto promete o módulo.
 
 ---
@@ -22,7 +21,7 @@ HTML: `email-pt.html` e `email-en.html` são da versão de 08/10 e **precisam se
 Novo na Aura: Modo GTO
 O GTO e o field na mesma tela.
 
-Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet, probe, third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.
+Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet e third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.
 
 Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO. É um spot, não a média do field. Confira no seu board.
 
@@ -48,7 +47,7 @@ Sob o botão: O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo l
 New on Aura: GTO Mode
 GTO and the field on the same screen.
 
-Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet, probe, third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.
+Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet and third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.
 
 Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8%. This is one spot, not the field average. Check it on your board.
 
@@ -59,15 +58,9 @@ Under the button: GTO Mode is part of the Individual plan (US$ 29/month) for a l
 
 ---
 
-## Para quem atualiza o HTML (outro agente)
-
-- Trocar o parágrafo de cobertura, o bloco do exemplo, o assunto, o preheader e a frase do plano pelo texto acima.
-- O exemplo do corpo cita só "46,0% contra 38,8%" (sem a faixa e sem o "5,6 pp" no texto). A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) segue com os mesmos números (46,0%, 38,8%, faixa 37,1–40,4%, +5,6 pp); não contradiz o texto.
-- Mantém: botão âmbar, frase do plano sob o botão, rodapé com descadastro e 18+.
-
 ## Nota técnica
 
-- **Imagem:** `email/modo-gto-pt.png` e `email/modo-gto-en.png` (1200 px, geradas pela build). EN: captura recortada do card de 33% do app (`_ops/golive-gto-2026-10-04/prints/prod/postflop-en.png`: 46.0%, GTO 38.8% (37.1–40.4), Overfold +5.6 pp). PT: as duas barras renderizadas pela build (46,0% / 38,8% / faixa 37,1–40,4), porque o app em PT mistura 46.0% e 38,8% (bug do front). A captura vem do front no SHA de produção de 08/10 (aura-novofront 429c093) lendo a API local com os snapshots do go-live, não da conta de produção; o teste logado do Rafael confere os mesmos valores antes do envio. Sem selo de versão, e-mail ou nick. **Hospedar em `https://www.aurapoker.com/email/` antes do envio (aura-landing#17).**
+- **Imagem:** `email/modo-gto-pt.png` e `email/modo-gto-en.png` (1200 px, geradas pela build). EN: captura recortada do card de 33% do app (`_ops/golive-gto-2026-10-04/prints/prod/postflop-en.png`: 46.0%, GTO 38.8% (37.1–40.4), Overfold +5.6 pp). PT: as duas barras renderizadas pela build (46,0% / 38,8% / faixa 37,1–40,4), porque o app em PT mistura 46.0% e 38,8% (bug do front). A captura vem do front no SHA de produção de 08/10 (aura-novofront 429c093) lendo a API local com os snapshots do go-live, não da conta de produção; os mesmos números foram confirmados em produção em 14/10, e o teste logado do Rafael os confere antes do envio. Sem selo de versão, e-mail ou nick. **Hospedar em `https://www.aurapoker.com/email/` antes do envio (aura-landing#17).**
 - **Logo:** `https://www.aura.poker/email/aura-logo.png` (já hospedado).
 - **Link do CTA (sempre a landing, nunca o app/login; `www.aurapoker.com` com www):**
   - PT: https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content=pt

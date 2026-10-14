@@ -39,7 +39,7 @@ ART = {
     "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Onde o field<br><em>sai do GTO?</em>", s="Novo: Modo GTO", ts=104, emph=True),
     "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="c1", t="Where does<br>the field<br><em>leave GTO?</em>", s="New: GTO Mode", ts=88, emph=True),
     "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=96),
-    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO with the range</em>", s="Turn and river openings, with the range.", ts=72),
+    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="Postflop:<br><em>GTO with the range</em>", s="Turn openings, with the range.", ts=72),
     "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{t:c4_apoio_en}", ts=76),
     "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c5", t="Delayed c-bet:<br><em>field vs GTO</em>", s="{N7}", ts=84),
     "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="c6", t="GTO Mode,<br>now in<br><em>Individual</em>", s="{t:c6_apoio_en}", ts=104),

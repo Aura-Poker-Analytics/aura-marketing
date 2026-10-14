@@ -8,11 +8,11 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 > **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual com preço e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o slide 6 (título e apoio, com o preço em EN). Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
 ## Origem das capturas e artes a refazer (por outro agente)
-- **Slides 2, 4 (pré-flop) e imagem do e-mail:** as capturas de 08/10 seguem valendo (mesmos números). Vêm do front no SHA de produção daquele dia (aura-novofront `429c093`), lendo a API local `:7060` com os snapshots do go-live, por conta de teste local (sem login em produção). A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque.
-- **Slide 3 (postflop):** captura nova, que mostra Second Barrel e Turn Delayed CBet com o GTO ao lado do field. O Second Barrel só aparece nessa captura; não é o exemplo do slide 5.
-- **Slide 5 (abertura):** captura ou barras do Turn Delayed CBet do exemplo de abertura (CO × BB, 40bb).
+- **Slide 3 (postflop):** captura nova do aura-novofront `35d7005` (prévia local, API de prévia, 14/10), que mostra Second Barrel e Turn Delayed CBet com o GTO ao lado do field. O Second Barrel só aparece nessa captura; não é o exemplo do slide 5.
+- **Slide 4 (pré-flop) e imagem EN do e-mail:** capturas de 08/10 do aura-novofront `429c093` (front no SHA de produção daquele dia, lendo a API local `:7060` com os snapshots do go-live, por conta de teste local, sem login em produção). Os mesmos números foram confirmados em produção em 14/10. A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque.
+- **Slides 2 e a imagem do e-mail PT:** barras renderizadas pela build (46,0% / 38,8% / faixa 37,1–40,4%), não são captura.
+- **Slide 5 (abertura):** captura ou barras do Turn Delayed CBet do exemplo de abertura (CO × BB, 30–60bb, GTO a 40bb).
 - **Carrossel de 7 slides:** o plano passa a ser o slide 6 e o CTA o 7; indicador "n / 7"; renomear `carrossel-en-05` para 06 e `-06` para 07.
-- **E-mail:** `email-pt.html` e `email-en.html` conforme `email.md`.
 - Nenhuma peça chama as capturas de "print de produção".
 
 ## Pendências reais
@@ -21,11 +21,13 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 3. **Teste logado do Rafael.** Conferir em `www.aura.poker` os mesmos valores do exemplo CO × BB (46,0% / 38,8% / faixa 37,1–40,4%), do RFI do CO (31,6% / 37,0%) e do exemplo de abertura (51,7% / 44,1% / faixa 37,8–50,3%), antes de qualquer post ou envio.
 4. **Hospedagem das imagens do e-mail (aura-landing#17).** `email/modo-gto-pt.png` e `-en.png` precisam estar em `https://www.aurapoker.com/email/` antes do envio.
 5. **Cobertura: nunca vira "todas".** A tela não cobre todas as ações (por exemplo, o c-bet do flop como abertura, o donk do flop e o probe do river não são feature). Nenhuma peça usa "todas / every / all" para cobertura, nem cita o c-bet do flop, o donk ou o probe do river como feature. O texto fica nas formas abaixo.
+6. **"Por tempo limitado" sem data (recomendação do revisor, CONAR/CDC).** Expressão de urgência sem data de fim pode ser questionada. Recomendação: combinar uma data de fim e honrá-la, ou tirar a expressão. Decisão do Rafael. Enquanto não decidir, as peças mantêm "por tempo limitado" / "for a limited time", sem data.
+7. **Dependências de produção.** (a) aura-api#84: o turn e o river de co_btn, utg_bb@25 e outros pares ficam fora hoje até o deploy; o texto de cobertura só vale com esse deploy feito. (b) A landing de produção não pode mostrar o GTO como plano à parte (nem preço próprio); só como parte do Individual.
 
 ## Decisões registradas
-- **Cobertura (texto final, HUB 14/10).** PT: "GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe, third barrel)." EN: "GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, probe, third barrel)." Nas legendas, versão curta: "no flop, turn e river" e "inclusive as aberturas do agressor no turn e no river" (EN "on the flop, turn and river" e "including the aggressor's openings on the turn and river").
+- **Cobertura (texto final, HUB 14/10).** PT: "GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel)." EN: "GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel)." Nas legendas curtas e no e-mail, versão curta: "no flop, turn e river" e "inclusive as aberturas do agressor no turn e no river", com a lista só "second barrel, delayed c-bet e third barrel" quando houver lista (EN "on the flop, turn and river" e "including the aggressor's openings on the turn and river"; "second barrel, delayed c-bet and third barrel").
 - **Capa com duas linhas (decisão consciente, revisão de marca de 08/10).** A capa (story PT e slide 1 do carrossel) tem o apoio ("Novo: Modo GTO" / "New: GTO Mode") e uma micro-legenda do spot ("CO × BB · K-high two-tone · c-bet de 33%" / "CO × BB · K-high two-tone · 33% c-bet"). É a única exceção à regra de uma linha de apoio.
-- **Slide 3.** Título "Postflop: GTO with the range", apoio "Turn and river openings, with the range." (7 palavras; a captura mostra Second Barrel e Turn Delayed CBet).
+- **Slide 3.** Título "Postflop: GTO with the range", apoio "Turn openings, with the range." (5 palavras; a captura mostra Second Barrel e Turn Delayed CBet). A arte é do outro agente.
 - **Slide 4 mostra os números arredondados da tela.** A captura traz Field 32% / GTO 37% / −5. A fonte tem 31,6 / 37,0 / −5,4; as legendas e a landing usam os valores da fonte.
 - **Slide 5 novo: abertura do agressor.** Entra como slide 5 para manter o slide 4 do pré-flop como está. Exemplo: Turn Delayed CBet (o CO aposta o turn depois do flop passado), recorte largo. Não se usa o Probe nem o Second Barrel como exemplo (o Second Barrel, dentro da faixa, só aparece na captura do slide 3). Se o Rafael preferir a abertura colada ao pós-flop (slide 4), basta inverter com o pré-flop e renomear os arquivos.
 - **Stories e feed** seguem com o exemplo CO × BB (c-bet de 33%). O exemplo de abertura só vive no carrossel (slide 5 e legenda); Discord, landing e e-mail ficam com um exemplo só.
@@ -55,11 +57,11 @@ Filtro da tela: Postflop · SRP · RFI CO, caller BB · stack 30.1–60bb (GTO a
 **Exemplo de pré-flop (exemplo (b)):** RFI do CO, torneio Regular, stack 30–50bb (GTO a 40bb). Field abre **31,6%**; GTO abre **37,0%**; diferença **−5,4 pp** (o field abre de menos). PT: "No pré-flop, RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos: o field abre 31,6% e o GTO abre 37,0%." EN: "Preflop, CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%."
 
 ## O exemplo de abertura do agressor (Turn Delayed CBet)
-Spot (recorte largo): CO × BB · 40bb · SRP · flop two-tone · turn qualquer · torneios Regular · últimos 2 anos. Ação: Turn Delayed CBet (o CO aposta o turn depois do flop passado). Métrica: frequência da aposta do CO, field contra GTO. Field aposta **51,7%**; GTO aposta **44,1%**, faixa **37,8–50,3%**; **1,4 pp acima do topo da faixa**. Leitura: acima da faixa (o field aposta mais do que o GTO). Resumo para o apoio da arte: "CO × BB · two-tone · turn".
+Spot (recorte largo): CO × BB · 30–60bb (GTO a 40bb) · SRP · flop two-tone · turn qualquer · torneios Regular · últimos 2 anos. Ação: Turn Delayed CBet (o CO aposta o turn depois do flop passado). Métrica: frequência da aposta do CO, field contra GTO. Field aposta **51,7%**; GTO aposta **44,1%**, faixa **37,8–50,3%**; **1,4 pp acima do topo da faixa**. Leitura: acima da faixa (o field aposta mais do que o GTO). Resumo para o apoio da arte: "CO × BB · two-tone · turn".
 
-**Texto final, PT:** "CO × BB em pote simples (SRP), 40bb, torneios Regular, últimos 2 anos, flop two-tone, qualquer turn. No turn, depois do flop passado, o CO aposta (delayed c-bet): o field aposta 51,7% e o GTO aposta 44,1% (faixa 37,8–50,3%): 1,4 pp acima do topo da faixa. Aqui o field aposta mais do que o GTO. É um spot, não a média do field. Confira no seu board."
+**Texto final, PT:** "CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop two-tone, qualquer turn. No turn, depois do flop passado, o CO aposta (delayed c-bet): o field aposta 51,7% e o GTO aposta 44,1% (faixa 37,8–50,3%): 1,4 pp acima do topo da faixa. Aqui o field aposta mais do que o GTO. É um spot, não a média do field. Confira no seu board."
 
-**Final text, EN:** "CO × BB single-raised pot (SRP), 40bb, Regular tournaments, last 2 years, two-tone flop, any turn. On the turn, after the flop checks through, the CO bets (delayed c-bet): the field bets 51.7% and GTO bets 44.1% (range 37.8–50.3%): 1.4 pp above the top of the range. Here the field bets more than GTO does. This is one spot, not the field average. Check it on your board."
+**Final text, EN:** "CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, two-tone flop, any turn. On the turn, after the flop checks through, the CO bets (delayed c-bet): the field bets 51.7% and GTO bets 44.1% (range 37.8–50.3%): 1.4 pp above the top of the range. Here the field bets more than GTO does. This is one spot, not the field average. Check it on your board."
 
 ## URLs por peça
 Regra: Discord leva ao app (`https://www.aura.poker/`); Instagram e e-mail levam à landing (`https://www.aurapoker.com/`). Parâmetros: `utm_source=<fonte>&utm_medium=<meio>&utm_campaign=modo-gto-launch&utm_content=<peça>`.
@@ -99,13 +101,13 @@ Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalyt
 | Story da capa do carrossel | 1080x1920 | PT | Onde o field sai do GTO? | Novo: Modo GTO (+ micro-legenda do spot: CO × BB · K-high two-tone · c-bet de 33%) | Mesmas barras com o gap em âmbar (46,0% e 38,8%); sticker "Conhecer o Modo GTO" |
 | Carrossel 1 (capa) | 1080x1350 | EN | Where does the field leave GTO? | New: GTO Mode (+ spot micro-caption: CO × BB · K-high two-tone · 33% c-bet) | Mesma imagem da capa PT (46.0% and 38.8%) |
 | Carrossel 2 | 1080x1350 | EN | Same spot, two numbers | CO × BB · K-high two-tone · 33% c-bet | As barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%) |
-| Carrossel 3 | 1080x1350 | EN | Postflop: GTO with the range | Turn and river openings, with the range. | Captura nova do Postflop com o Modo GTO ligado, mostrando Second Barrel e Turn Delayed CBet com o GTO ao lado do field |
+| Carrossel 3 | 1080x1350 | EN | Postflop: GTO with the range | Turn openings, with the range. | Captura nova do Postflop com o Modo GTO ligado (aura-novofront `35d7005`), mostrando Second Barrel e Turn Delayed CBet com o GTO ao lado do field |
 | Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
 | Carrossel 5 (novo) | 1080x1350 | EN | Delayed c-bet: field vs GTO | CO × BB · two-tone · turn | Barras de aposta lado a lado: Field 51.7% e GTO 44.1% com a faixa 37.8–50.3% sombreada; gap em âmbar (1.4 pp acima do topo da faixa) |
 | Carrossel 6 | 1080x1350 | EN | GTO Mode, now in Individual | Part of the US$ 29/month plan, for a limited time. | Um cadeado desenhado (sem texto do app) |
 | Carrossel 7 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
 
-Contagem de palavras (regra do Rafael): títulos de 4 a 7 palavras; apoios de 3 a 10 palavras (slide 3: 7; slide 5: 5; slide 6: 10).
+Contagem de palavras (regra do Rafael): títulos de 4 a 7 palavras; apoios de 3 a 10 palavras (slide 3: 5; slide 5: 5; slide 6: 10).
 
 Notas de arte:
 - **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO. No slide 5, a barra é de aposta (frequência de bet), não de fold: usar a cor semântica do raise (`#AD2C34`) para a aposta, mantendo o gap em âmbar e a faixa sombreada.
@@ -162,11 +164,11 @@ Onde o field sai do GTO?
 
 Novo na Aura: Modo GTO. Ao lado da frequência do field, o número GTO e a faixa GTO.
 
-Pós-flop: GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe, third barrel). Escolha o spot, clique em Apply e veja o field e o GTO juntos. A faixa de status do app guia cada clique até ter GTO.
+Pós-flop: GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel). Escolha o spot, clique em Apply e veja o field e o GTO juntos. A faixa de status do app guia cada clique até ter GTO.
 
 Reação: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
-Abertura: CO × BB em pote simples (SRP), 40bb, torneios Regular, últimos 2 anos, flop two-tone, qualquer turn. No turn, depois do flop passado, o CO aposta (delayed c-bet): o field aposta 51,7% e o GTO aposta 44,1% (faixa 37,8–50,3%): 1,4 pp acima do topo da faixa. Aqui o field aposta mais do que o GTO. É um spot, não a média do field.
+Abertura: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop two-tone, qualquer turn. No turn, depois do flop passado, o CO aposta (delayed c-bet): o field aposta 51,7% e o GTO aposta 44,1% (faixa 37,8–50,3%): 1,4 pp acima do topo da faixa. Aqui o field aposta mais do que o GTO. É um spot, não a média do field.
 
 Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos: o field abre 31,6% e o GTO abre 37,0%.
 
@@ -182,11 +184,11 @@ Where does the field leave GTO?
 
 New on Aura: GTO Mode. Next to the field frequency, the GTO number and the GTO range.
 
-Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, probe, third barrel). Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
+Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
 
 Response: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
-Opening: CO × BB single-raised pot (SRP), 40bb, Regular tournaments, last 2 years, two-tone flop, any turn. On the turn, after the flop checks through, the CO bets (delayed c-bet): the field bets 51.7% and GTO bets 44.1% (range 37.8–50.3%): 1.4 pp above the top of the range. Here the field bets more than GTO does. This is one spot, not the field average.
+Opening: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, two-tone flop, any turn. On the turn, after the flop checks through, the CO bets (delayed c-bet): the field bets 51.7% and GTO bets 44.1% (range 37.8–50.3%): 1.4 pp above the top of the range. Here the field bets more than GTO does. This is one spot, not the field average.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
 
@@ -217,12 +219,12 @@ See GTO Mode, link in bio. Save it for study. Study tool. 18+.
 
 ## 3 bullets
 PT:
-- Pós-flop: GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe, third barrel). Escolha o spot, clique em Apply e veja o field e o GTO juntos; a faixa de status do app guia cada clique até ter GTO.
+- Pós-flop: GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel). Escolha o spot, clique em Apply e veja o field e o GTO juntos; a faixa de status do app guia cada clique até ter GTO.
 - Pré-flop: a grade traz o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. No RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos, o field abre 31,6% e o GTO abre 37,0%.
 - Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
 EN:
-- Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, probe, third barrel). Pick the spot, hit Apply and see the field and GTO together; the app's status bar guides you, click by click, until GTO is there.
+- Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Pick the spot, hit Apply and see the field and GTO together; the app's status bar guides you, click by click, until GTO is there.
 - Preflop: the grid carries the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. On the CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years, the field opens 31.6% and GTO opens 37.0%.
 - Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
@@ -253,7 +255,7 @@ Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.20
 
 # (d) E-mail
 
-Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode". O HTML atual (`email-pt.html` e `email-en.html`) é da versão de 08/10 e precisa ser atualizado por outro agente conforme `email.md`. A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) tem os mesmos números do exemplo (46,0% e 38,8%, faixa 37,1–40,4%).
+Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode". A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) tem os mesmos números do exemplo (46,0% e 38,8%, faixa 37,1–40,4%).
 
 ---
 
@@ -267,7 +269,7 @@ Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exem
 | Diferença | +5,6 pp (acima do topo da faixa, como a tela mostra; 7,2 é contra o centro) | Exemplo (a) | Só texto: legendas, Discord, landing (o e-mail não a cita) |
 | Pré-flop | RFI do CO, Regular, 30–50bb (GTO a 40bb): field abre 31,6%, GTO abre 37,0%, −5,4 pp | Exemplo (b) | Captura do slide 4; legenda do carrossel e landing (bullet 2). O −5,4 pp não é citado no texto |
 | Ação da abertura | Turn Delayed CBet (o CO aposta o turn depois do flop passado) | `numeros-verificados-lancamento.md` (14/10) | Título do slide 5; legenda do carrossel |
-| Spot da abertura | CO × BB · 40bb · SRP · flop two-tone · turn qualquer · Regular · últimos 2 anos (apoio da arte: "CO × BB · two-tone · turn") | idem | Slide 5 (apoio); legenda do carrossel |
+| Spot da abertura | CO × BB · 30–60bb (GTO a 40bb) · SRP · flop two-tone · turn qualquer · Regular · últimos 2 anos (apoio da arte: "CO × BB · two-tone · turn") | idem | Slide 5 (apoio); legenda do carrossel |
 | Field aposta | 51,7% (EN 51.7%) | idem | Slide 5 (barra); legenda do carrossel |
 | GTO aposta e faixa | 44,1%, faixa 37,8–50,3% (EN 44.1%, 37.8–50.3%) | idem | Slide 5 (barra e faixa); legenda do carrossel |
 | Diferença da abertura | 1,4 pp acima do topo da faixa (EN 1.4 pp above the top of the range) | idem | Slide 5 (gap); legenda do carrossel |

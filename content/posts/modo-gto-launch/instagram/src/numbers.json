@@ -46,8 +46,8 @@
   "textos_com_numero": {
     "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
     "c4_apoio_en": "Includes CO and BTN RFI at 40bb.",
-    "email_corpo_pt": "Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet, probe, third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.",
-    "email_corpo_en": "Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet, probe, third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.",
+    "email_corpo_pt": "Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet e third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.",
+    "email_corpo_en": "Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet and third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.",
     "c6_apoio_en": "Part of the US$ 29/month plan, for a limited time.",
     "email_preflop_pt": "No pré-flop, o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.",
     "email_preflop_en": "Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.",
