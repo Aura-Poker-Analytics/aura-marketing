@@ -1,6 +1,6 @@
 # Modo GTO: copy de lançamento (GTO no flop, turn e river)
 
-Status: rascunho sem marcadores abertos; não publicado. Sem commit. Entra no ar em 13/10/2026 (antes: 08/10); números fechados em 14/10.
+Status: pacote final para aprovação do Rafael; não publicado. Números fechados em 14/10 (antes: 08/10). Publicar só depois dos gates em Pendências (P-61, teste logado, Stripe, hospedagem das imagens do e-mail).
 @aurapokeranalytics: a confirmar pelo Rafael. URLs com UTM prontas na tabela abaixo.
 Fonte dos números: `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (origin/main `e17fc8e`, 14/10), para a cobertura, o pré-flop e o exemplo de abertura; o exemplo CO × BB e o pré-flop seguem iguais aos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10). Os números usados estão mapeados em "Números usados" no fim. **Nenhum marcador `[[...]]` resta no pacote.**
 Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel de 7 slides só em EN), landing e e-mail (em `email.md`).
@@ -263,6 +263,8 @@ Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exem
 
 | Número no texto | Valor | Fonte | Onde aparece |
 |---|---|---|---|
+| Second Barrel no recorte largo (só na captura do slide 3) | field 54,2% · GTO 57,2% (50,8–63,5) · dentro da faixa | `numeros-verificados-lancamento.md` (14/10) | Slide 3 (captura, sem contagem de mãos); não citado em texto |
+| Diferença do exemplo (a) dentro da imagem EN do e-mail | "Overfold +5.6 pp" (a tela mostra a distância ao topo da faixa) | Exemplo (a), 08/10, confirmado em 14/10 | Imagem EN do e-mail; o texto do e-mail não cita a diferença |
 | Spot do exemplo CO × BB | CO × BB · SRP · 30–60bb (GTO a 40bb) · Regular · flop K-high, two-tone, sem par, desconectado · c-bet de 33% | Exemplo (a), 08/10 | Apoio do feed; legendas, Discord, landing, e-mail |
 | Field folda | 46,0% (EN 46.0%) | Exemplo (a), `potPercentage` do `actionSize` 2 | Barras (feed, stories, carrossel 1 e 2); legendas, Discord, landing, e-mail |
 | GTO folda e faixa | 38,8% (38,78 na API); faixa 37,1–40,4% (37,13–40,43) | Exemplo (a), `gtoFold` e `gtoBand.fold` | Barras com a faixa como sombreado; legendas, Discord, landing, e-mail |
