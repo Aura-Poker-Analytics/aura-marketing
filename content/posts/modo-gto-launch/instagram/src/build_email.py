@@ -35,7 +35,7 @@ CP = {
     "pt": dict(
         lang_attr="pt-BR", subject="Modo GTO no ar", h1="Modo GTO no ar",
         tagline="O GTO e o field na mesma tela.",
-        pre="Early bird de R$ 150/mês, por tempo limitado. O GTO no flop, turn e river, ao lado do field.",
+        pre="Incluso no plano Individual, por tempo limitado. O GTO no flop, turn e river, ao lado do field.",
         btn="Conhecer o Modo GTO",
         alt="Duas barras de fold no mesmo spot: field 46,0% e GTO 38,8%, com a faixa GTO de 37,1 a 40,4%.",
         f1="Você recebeu este e-mail porque criou uma conta na Aura Poker Analytics.",
@@ -46,7 +46,7 @@ CP = {
     "en": dict(
         lang_attr="en", subject="GTO Mode is live", h1="GTO Mode is live",
         tagline="GTO and the field on the same screen.",
-        pre="Early bird US$ 29/month, for a limited time. GTO on the flop, turn and river, next to the field.",
+        pre="Included in the Individual plan, for a limited time. GTO on the flop, turn and river, next to the field.",
         btn="See GTO Mode",
         alt="GTO Mode in Postflop Analysis: the field number and the GTO number with the GTO range, side by side, in the same spot.",
         f1="You received this email because you created an account on Aura Poker Analytics.",

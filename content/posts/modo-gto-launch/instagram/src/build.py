@@ -36,8 +36,8 @@ ART = {
     "feed-en": dict(lang="en", size=(1080, 1350), kind="feed", t="Same spot,<br><em>two numbers</em>", s="{N1}", ts=92),
     "story-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="O field folda<br><em>mais que o GTO?</em>", s="{N1}", ts=80),
     "story-en": dict(lang="en", size=(1080, 1920), kind="story", t="Does the field<br>fold <em>more<br>than GTO?</em>", s="{N1}", ts=88),
-    # capa do story (lancamento, 15/10): selo NO AR, early bird em R$, sem micro-legenda do spot
-    "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Modo GTO<br><em>no ar</em>", s="{t:c1_apoio_pt}", ts=120, cover=True, live="NO AR"),
+    # capa do story (lancamento, 15/10): selo NO AR, preco em R$, sem micro-legenda do spot
+    "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Modo GTO<br><em>no ar</em>", s="{t:story_apoio_pt}", ts=120, cover=True, live="NO AR", caption_key="story_grafico_pt"),
     # carrossel EN, 6 slides
     "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="cover", t="GTO Mode<br>is <em>live</em>", s="{t:c1_apoio_en}", ts=148),
     "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="See where the<br>field breaks<br><em>from GTO</em>", s="{N1}", ts=84),
@@ -72,7 +72,7 @@ def needs(name, n):
     if k == "c4":
         return m + n5_missing(n) + ([] if find_print("preflop-en") else ["print:preflop-en"])
     if k == "price":
-        return m + ([] if lib.has_text(txt.get("c5_titulo_en")) else ["c5_titulo_en"])
+        return m + [k_ for k_ in ("c5_titulo_en", "c5_numero_en") if not lib.has_text(txt.get(k_))]
     return m
 
 
@@ -185,11 +185,6 @@ def stack(names, big=False):
     return '<div class="stack">' + "".join(parts) + "</div>"
 
 
-def sealify(txt):
-    """'Early bird: ...' -> selo EARLY BIRD (pilula) + resto da frase: a leitura e a mesma, com destaque de lancamento."""
-    return re.sub(r"^Early bird:\s*", '<span class="seal">EARLY BIRD</span>', txt)
-
-
 def sub(a, n, cls=""):
     """Linha de apoio (ou vazio). {N1} -> spot; {c4} -> texto fixo do slide 4 (numbers.json)."""
     s = a["s"]
@@ -203,7 +198,7 @@ def sub(a, n, cls=""):
     if s.startswith("{t:"):
         key = s[3:-1]
         txt = (n.get("textos_com_numero") or {}).get(key)
-        return f'<p class="sub fit {cls}">{sealify(txt) if lib.has_text(txt) else ph(key)}</p>'
+        return f'<p class="sub fit {cls}">{txt if lib.has_text(txt) else ph(key)}</p>'
     return f'<p class="sub {cls}">{s}</p>'
 
 
@@ -256,12 +251,13 @@ def render_html(name, n, miss, test=False):
 .blk { display: flex; flex-direction: column; }
 .sub { margin-top: 24px; font-size: 52px; }
 .sticker { margin-top: 30px; height: 120px; }
-.pillrow { margin-top: 44px; }
+.pillrow { margin-top: 44px; display: flex; align-items: center; gap: 22px; }
 .titlewrap { position: relative; }
 .titlewrap::before { content: ""; position: absolute; left: -140px; top: -90px; width: 1000px; height: 520px; z-index: -1;
   background: radial-gradient(closest-side, rgba(251,191,36,.26), transparent); }
 """
-        svg, _ = chart_svg(lang, n, ph_h=ph_story, emphasize=bool(cover))
+        capt = txt.get(a["caption_key"]) if cover else None
+        svg, _ = chart_svg(lang, n, ph_h=ph_story - (30 if capt else 0), emphasize=bool(cover), caption=capt)
         stick = ('<div class="sticker z">' + ('<div class="stickph">[STICKER DE LINK · Conhecer o Modo GTO / See GTO Mode]</div>' if tag else "") + "</div>")
         pill = f'<div class="pillrow z">{live_pill(a["live"])}</div>' if cover else ""
         inner = f"""<div class="blk z">{lockup()}</div>
@@ -274,7 +270,7 @@ def render_html(name, n, miss, test=False):
 
     if k == "cover":
         css = base_css + """.page { padding-top: 56px; }
-.pillrow { margin-top: 40px; }
+.pillrow { margin-top: 40px; display: flex; align-items: center; gap: 22px; }
 .titlewrap { position: relative; margin-top: 26px; }
 .titlewrap::before { content: ""; position: absolute; left: -160px; top: -110px; width: 1100px; height: 560px; z-index: -1;
   background: radial-gradient(closest-side, rgba(251,191,36,.30), transparent); }
@@ -319,26 +315,25 @@ def render_html(name, n, miss, test=False):
         return page(lang, h, inner, css, tag=tag)
 
     if k == "price":
-        titulo = txt.get("c5_titulo_en") or ""
-        m = re.search(r"(US\$)\s*(\d+)\s*/\s*(\w+)", titulo)
-        cur, num, per = m.groups() if m else ("US$", "[[c5]]", "month")
+        lead = txt.get("c5_titulo_en") or "[[c5_titulo_en]]"
+        m = re.match(r"^\s*(US\$)\s*(\d+)\s*/\s*(\w+)", txt.get("c5_numero_en") or "")
+        cur, num, per = m.groups() if m else ("US$", "[[c5_numero_en]]", "month")
         css = """.page { padding-top: 64px; }
 .mid { flex: 1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position: relative; }
 .rings { position: absolute; left: 50%; top: 40%; width: 1100px; height: 760px; transform: translate(-50%, -50%); z-index: 0; background: radial-gradient(closest-side, rgba(251,191,36,.30), rgba(251,191,36,.08) 55%, transparent); }
-.seal.big { font-size: 40px; padding: .22em .8em; margin: 0; z-index: 2; position: relative; }
-.title { position: relative; z-index: 2; margin-top: 18px; line-height: .9; display: flex; align-items: flex-start; justify-content: center; gap: 18px; }
+.lead { position: relative; z-index: 2; font-size: 78px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; color: #fff; }
+.lead em { font-style: normal; color: #FBBF24; }
+.title { position: relative; z-index: 2; margin-top: 6px; line-height: .9; display: flex; align-items: flex-start; justify-content: center; gap: 18px; }
 .title .cur { font-size: 100px; font-weight: 900; margin-top: 44px; color: #fff; }
 .title .num { font-size: 400px; font-weight: 900; line-height: .86; background: linear-gradient(180deg,#FCD34D 0%,#FBBF24 45%,#D97706 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 12px 40px rgba(245,158,11,.35)); }
 .per { position: relative; z-index: 2; font-size: 74px; font-weight: 800; color: #fff; margin-top: 4px; letter-spacing: .02em; }
-.lim { position: relative; z-index: 2; margin-top: 26px; font-size: 26px; font-weight: 800; letter-spacing: .24em; color: var(--ink-mute); border: 2px solid rgba(148,163,184,.55); border-radius: 999px; padding: 10px 26px; }
-.sub { position: relative; z-index: 2; margin-top: 30px; font-size: 40px; width: 912px; color: var(--ink-soft); }
+.sub { position: relative; z-index: 2; margin-top: 40px; font-size: 40px; width: 912px; color: var(--ink-soft); }
 """
         inner = lockup(indicator(5)) + f"""
 <div class="mid z"><div class="rings"></div>
-<span class="seal big">EARLY BIRD</span>
+<div class="lead">{lead}</div>
 <h1 class="title"><span class="cur">{cur}</span><span class="num">{num}</span></h1>
 <div class="per">/{per}</div>
-<div class="lim">LIMITED TIME</div>
 {sub(a, n)}</div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag, cls="drama")

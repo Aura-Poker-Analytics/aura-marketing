@@ -129,3 +129,4 @@ small { font-size: 0.72em; font-weight: 600; color: var(--ink-soft); white-space
 .fcard { position: relative; width: 980px; }
 .fcard img { position: relative; display: block; width: 980px; height: auto; border-radius: 28px; box-shadow: 0 40px 90px rgba(0,0,0,.7), 0 0 0 2px rgba(251,191,36,.35); }
 .fcard .fglow { position: absolute; left: 50%; top: 50%; width: 1200px; height: 620px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(251,191,36,.30), transparent); }
+.pillrow .seal.big { font-size: 34px; padding: 14px 30px; margin: 0; vertical-align: baseline; background: transparent; color: #FBBF24; border: 3px solid #FBBF24; }

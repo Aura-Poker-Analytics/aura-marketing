@@ -110,6 +110,23 @@ for f in SRC.glob("*.html"):
             bad(f"{f.name}: R$ em arte EN")
     elif not f.name.startswith("_"):
         bad(f"HTML-fonte sobrando: {f.name}")
+for stem, a_ in ART.items():
+    f = SRC / f"{stem}.html"
+    if not f.exists():
+        f = SRC / f"{stem}-DRAFT.html"
+    if not f.exists():
+        continue
+    vis = re.sub(r"<style.*?</style>|<script.*?</script>|<[^>]+>", " ", f.read_text(encoding="utf-8"), flags=re.S).lower()
+    eb = len(re.findall(r"early bird", vis))
+    lt = len(re.findall(r"limited time|tempo limitado", vis))
+    if eb:
+        bad(f"{f.name}: 'early bird' proibido ({eb}x)")
+    if lt > 1:
+        bad(f"{f.name}: 'limited time/tempo limitado' {lt}x (maximo 1)")
+
+for f in [SRC / "numbers.json", SRC / "build.py", SRC / "build_email.py", SRC / "base.css", *SRC.glob("*.html"), *POST.glob("email-*.html")]:
+    if re.search(r"early bird", f.read_text(encoding="utf-8"), re.I):
+        bad(f"{f.name}: 'early bird' proibido no pacote")
 
 # ---- e-mail
 for lang in ("pt", "en"):

@@ -31,9 +31,9 @@
     "deviation": -5
   },
   "N6": {
-    "_doc": "1 numero de escala/cobertura. SO landing (nota de rodape). Nenhuma arte nem o e-mail usa. Opcional; escolher entre os 'verificados' abaixo.",
-    "pt": "30 situações (10 confrontos de posição a 25, 40 e 60bb) com GTO no flop",
-    "en": "30 situations (10 position matchups at 25, 40 and 60bb) with GTO on the flop"
+    "_doc": "SEM USO desde 15/10: a nota da landing nao cita mais numero de escala (copy.md). Nenhuma arte nem o e-mail usa. Mantido vazio.",
+    "pt": "",
+    "en": ""
   },
   "decimals": 1,
   "scale_max": null,
@@ -45,22 +45,24 @@
   "_email_image": "Por idioma. 'print' = captura de producao enquadrada (prints/prod/postflop-<lang>.png); 'bars' = as duas barras renderizadas pela build com N2/N3 no formato do idioma. PT usa 'bars' porque o app mistura 46.0% e 38,8% na captura em PT.",
   "textos_com_numero": {
     "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
-    "c4_apoio_en": "CO RFI: the field opens less than GTO.",
+    "c4_apoio_en": "CO RFI at 40bb: the field opens less than GTO.",
     "email_corpo_pt": "Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet e third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.",
     "email_corpo_en": "Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet and third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.",
     "email_preflop_pt": "No pré-flop, o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.",
     "email_preflop_en": "Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.",
-    "email_under_pt": "Early bird de R$ 150/mês, por tempo limitado: o Modo GTO faz parte do plano Individual. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.",
-    "email_under_en": "Early bird US$ 29/month, for a limited time: GTO Mode is part of the Individual plan. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+.",
-    "c1_apoio_en": "Early bird: US$ 29/month. For a limited time.",
-    "c1_apoio_pt": "Early bird: R$ 150/mês. Por tempo limitado.",
+    "email_under_pt": "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.",
+    "email_under_en": "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+.",
+    "c1_apoio_en": "Included in Individual: US$ 29/month. Limited time.",
     "c3_apoio_en": "Second barrel: inside the range. Delayed c-bet: above.",
-    "c5_titulo_en": "Early bird: US$ 29/month",
-    "c5_apoio_en": "Part of the Individual plan, for a limited time."
+    "c5_titulo_en": "Included in Individual",
+    "c5_apoio_en": "For a limited time.",
+    "story_apoio_pt": "Incluso no plano Individual: R$ 150/mês. Por tempo limitado.",
+    "story_grafico_pt": "CO × BB · exemplo",
+    "c5_numero_en": "US$ 29/month"
   },
   "verificados": {
-    "_doc": "Ja verificados em producao (numeros-verificados.md, 08/10). Nao entram sozinhos em nenhuma arte; servem para escolher o N6 e para a legenda.",
-    "fonte": "aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md",
+    "_doc": "Verificados em producao: numeros-verificados.md (08/10) e numeros-verificados-lancamento.md (14/10). Nao entram sozinhos em nenhuma arte; so registro.",
+    "fonte": "aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md; aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md",
     "situacoes_preflop_com_gto_no_flop": 30,
     "confrontos_de_posicao": 10,
     "stacks_flop_bb": [
@@ -80,12 +82,18 @@
       60
     ],
     "rfi_co_40bb_pct": 37,
-    "rfi_btn_40bb_pct": 51
+    "rfi_btn_40bb_pct": 51,
+    "cobertura_14_10": "flop: reacao ao c-bet e ao raise; turn e river: aberturas do agressor (second barrel, delayed c-bet, third barrel) e reacoes",
+    "preco_early_bird": {
+      "en": "US$ 29/month",
+      "pt": "R$ 150/mês",
+      "regra": "so as strings dos slides; sem data, sem desconto semestral/anual, sem preco travado"
+    }
   },
   "N6A": "Turn Delayed CBet",
-  "_N6A": "Acao do exemplo de abertura (slide 5 do carrossel). Frequencia de APOSTA do agressor, nao de fold.",
+  "_N6A": "Registro do exemplo de abertura (Turn Delayed CBet). Desde 15/10 NAO ha slide de barras para ele: o slide 3 usa as capturas second-barrel.png e turn-delayed-cbet.png. Frequencia de APOSTA do agressor, nao de fold.",
   "N7": "CO × BB · two-tone · turn",
-  "_N7": "Spot resumido do exemplo de abertura: apoio do slide 5. Contexto completo (numeros-verificados-lancamento.md): CO x BB, 40bb (30.1-60), SRP, flop two-tone, turn qualquer, torneios Regular, ultimos 2 anos.",
+  "_N7": "Registro: spot resumido do exemplo de abertura (a arte usa o micro-rotulo fixo 'CO × BB · two-tone flop · any turn' no slide 3). Contexto completo em numeros-verificados-lancamento.md: CO x BB, 40bb (30.1-60), SRP, flop two-tone, turn qualquer, Regular, ultimos 2 anos.",
   "N8": 51.7,
   "N9": {
     "_doc": "GTO da abertura (Bet frequency) e faixa GTO.",
@@ -95,6 +103,13 @@
   },
   "N10": 1.4,
   "_N10": "Distancia do field ao TOPO da faixa GTO (51.7 - 50.3). Leitura: ACIMA. So para registro; a arte mostra so o gap desenhado.",
-  "slide5": "bars",
-  "_slide5": "'bars' = barras field x GTO da abertura (padrao); 'capture' = so a captura turn-delayed-cbet.png com o titulo."
+  "N11": {
+    "_doc": "Second Barrel (turn), mesmo recorte do N7. Leitura: DENTRO da faixa, sem gap. Fonte: numeros-verificados-lancamento.md (14/10). Aparece nas artes so dentro da captura second-barrel.png.",
+    "action": "Second Barrel",
+    "field": 54.2,
+    "center": 57.2,
+    "from": 50.8,
+    "to": 63.5,
+    "reading": "inside"
+  }
 }
