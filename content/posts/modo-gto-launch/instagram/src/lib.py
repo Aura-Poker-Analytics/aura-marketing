@@ -20,11 +20,6 @@ NUMBERS = Path(os.environ.get("AURA_NUMBERS") or (SRC / "numbers.json"))   # AUR
 PRINTS = Path(os.environ.get("AURA_PRINTS_DIR") or (ROOT.parent / "_ops/golive-gto-2026-10-04/prints/prod"))
 PRINTS_MKT = Path(os.environ.get("AURA_PRINTS_MKT") or (ROOT.parent / "_ops/golive-gto-2026-10-14/prints-mkt"))   # capturas de 14/10 (turn)
 PRINTS_FVG = Path(os.environ.get("AURA_PRINTS_FVG") or (ROOT.parent / "_ops/golive-p53-2026-10-15/prints-mkt"))   # captura do Field vs GTO (Field Ranges)
-PRINT_NAMES = {            # arquivo esperado em PRINTS (png ou jpg) -> onde entra
-    "postflop-en": "carrossel slide 3 (Postflop com o Modo GTO ligado, spot N1)",
-    "preflop-en": "carrossel slide 4 (grade do pre-flop, celula N5 destacada, torneio Regular)",
-    "postflop-pt": "e-mail PT (mesmo spot N1, em PT)",
-}
 HANDLE = "@aurapokeranalytics"
 LANDING = "https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content={lang}"
 

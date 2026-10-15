@@ -24,7 +24,7 @@
   "N4": 5.6,
   "_N4": "Distancia do field ao TOPO da faixa GTO (como a tela mostra: Overfold +5,6 pp), nao ao centro. So texto: e-mail e legendas, nunca em arte. null = a build calcula N2 - N3.to (field acima da faixa) ou N3.from - N2 (abaixo); dentro da faixa nao ha distancia e o e-mail pede a leitura. Preencha so para fixar o numero exato da tela.",
   "N5": {
-    "_doc": "Pre-flop: celula do CO no RFI, destacada na captura do slide 4 (preflop-en.png). Valores como a captura mostra (arredondados em inteiro). Aparece SO dentro da captura; aqui fica o registro.",
+    "_doc": "Pre-flop: celula do CO no RFI, destacada na captura do slide 5 (preflop-en.png). Valores como a captura mostra (arredondados em inteiro). Aparece SO dentro da captura; aqui fica o registro.",
     "cell": "CO RFI",
     "gto": 37,
     "field": 32,
@@ -91,9 +91,9 @@
     }
   },
   "N6A": "Turn Delayed CBet",
-  "_N6A": "Registro do exemplo de abertura (Turn Delayed CBet). Desde 15/10 NAO ha slide de barras para ele: o slide 3 usa as capturas second-barrel.png e turn-delayed-cbet.png. Frequencia de APOSTA do agressor, nao de fold.",
+  "_N6A": "Registro do exemplo de abertura (Turn Delayed CBet). Desde 15/10 NAO ha slide de barras para ele: o slide 4 usa as capturas second-barrel.png e turn-delayed-cbet.png. Frequencia de APOSTA do agressor, nao de fold.",
   "N7": "CO × BB · two-tone · turn",
-  "_N7": "Registro: spot resumido do exemplo de abertura (a arte usa o micro-rotulo fixo 'CO × BB · two-tone flop · any turn' no slide 3). Contexto completo em numeros-verificados-lancamento.md: CO x BB, 40bb (30.1-60), SRP, flop two-tone, turn qualquer, Regular, ultimos 2 anos.",
+  "_N7": "Registro: spot resumido do exemplo de abertura (a arte usa o micro-rotulo fixo 'CO × BB · two-tone flop · any turn' no slide 4). Contexto completo em numeros-verificados-lancamento.md: CO x BB, 40bb (30.1-60), SRP, flop two-tone, turn qualquer, Regular, ultimos 2 anos.",
   "N8": 51.7,
   "N9": {
     "_doc": "GTO da abertura (Bet frequency) e faixa GTO.",
@@ -102,7 +102,7 @@
     "to": 50.3
   },
   "N10": 1.4,
-  "_N10": "Distancia do field ao TOPO da faixa GTO (51.7 - 50.3). Leitura: ACIMA. So para registro; a arte mostra so o gap desenhado.",
+  "_N10": "Distancia do field ao TOPO da faixa GTO (51.7 - 50.3). Leitura: ACIMA. So registro: a arte mostra o numero dentro da captura turn-delayed-cbet.png (slide 4), nao ha gap desenhado.",
   "N11": {
     "_doc": "Second Barrel (turn), mesmo recorte do N7. Leitura: DENTRO da faixa, sem gap. Fonte: numeros-verificados-lancamento.md (14/10). Aparece nas artes so dentro da captura second-barrel.png.",
     "action": "Second Barrel",

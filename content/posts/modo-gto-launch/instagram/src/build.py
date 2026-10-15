@@ -299,7 +299,7 @@ def render_fvg(name, a, n, tag):
 .pills {{ position: relative; z-index: 3; display: flex; align-items: center; gap: 14px; margin-top: 26px; }}
 .pills .lab {{ font-size: 26px; font-weight: 700; color: var(--ink-soft); margin-right: 6px; }}
 .pl {{ font-size: 26px; font-weight: 800; color: #fff; padding: 9px 22px; border-radius: 999px; letter-spacing: .02em; }}
-.pr {{ background: #1E7F57; }} .pc {{ background: #2F6FDB; }} .pf {{ background: #015A6B; }}
+.pr, .pc, .pf {{ background: rgba(30,41,59,.92); border: 2px solid rgba(148,163,184,.5); }}
 """
     inner = lockup(indicator(a["idx"])) + f"""
 <div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n, 'fit')}</div>
