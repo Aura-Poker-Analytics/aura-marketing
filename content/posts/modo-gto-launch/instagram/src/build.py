@@ -38,15 +38,16 @@ ART = {
     "story-en": dict(lang="en", size=(1080, 1920), kind="story", t="Does the field<br>fold <em>more<br>than GTO?</em>", s="{N1}", ts=88),
     # capa do story (lancamento, 15/10): selo NO AR, preco em R$, sem micro-legenda do spot
     "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="Modo GTO<br><em>no ar</em>", s="{t:story_apoio_pt}", ts=120, cover=True, live="NO AR", caption_key="story_grafico_pt"),
-    # carrossel EN, 6 slides
-    "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="cover", t="GTO Mode<br>is <em>live</em>", s="{t:c1_apoio_en}", ts=148),
-    "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", t="See where the<br>field breaks<br><em>from GTO</em>", s="{N1}", ts=84),
-    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", t="GTO on the<br><em>turn and river</em>", s="{t:c3_apoio_en}", ts=84),
-    "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c4", t="Preflop:<br><em>GTO and deviation</em>", s="{t:c4_apoio_en}", ts=76),
-    "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="price", t="{t:c5_titulo_en}", s="{t:c5_apoio_en}", ts=84),
-    "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="cta", t="Get GTO Mode", s="Link in bio.", ts=76),
+    # carrossel EN, 7 slides
+    "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="cover", idx=1, t="GTO Mode<br>is <em>live</em>", s="{t:c1_apoio_en}", ts=148),
+    "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", idx=2, t="See where the<br>field breaks<br><em>from GTO</em>", s="{N1}", ts=84),
+    "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="fvg", idx=3, t="Field vs GTO,<br><em>hand by hand</em>", s="See exactly where the field's preflop strays from GTO.", ts=84),
+    "carrossel-en-04": dict(lang="en", size=(1080, 1350), kind="c3", idx=4, t="GTO on the<br><em>turn and river</em>", s="{t:c3_apoio_en}", ts=84),
+    "carrossel-en-05": dict(lang="en", size=(1080, 1350), kind="c4", idx=5, t="Preflop:<br><em>GTO and deviation</em>", s="{t:c4_apoio_en}", ts=76),
+    "carrossel-en-06": dict(lang="en", size=(1080, 1350), kind="price", idx=6, t="{t:c5_titulo_en}", s="{t:c5_apoio_en}", ts=84),
+    "carrossel-en-07": dict(lang="en", size=(1080, 1350), kind="cta", idx=7, t="Get GTO Mode", s="Link in bio.", ts=76),
 }
-N_SLIDES = 6
+N_SLIDES = 7
 
 # ---------------------------------------------------------------- dependencias por arte
 def needs(name, n):
@@ -67,6 +68,12 @@ def needs(name, n):
         return m + ([] if find_print("postflop-en") else ["print:postflop-en"])
     if k == "c2":
         return ex.missing(with_n1=True)
+    if k == "fvg":
+        f_ = n.get("fvg") or {}
+        miss_ = [] if find_print("field-vs-gto-sb-rfi-60bb") else ["print:field-vs-gto-sb-rfi-60bb"]
+        if not f_.get("grid_box"):
+            miss_.append("fvg.grid_box")
+        return m + miss_
     if k == "c3":
         return m + [f"print:{p}" for p in ("second-barrel", "turn-delayed-cbet") if not find_print(p)]
     if k == "c4":
@@ -224,6 +231,84 @@ def floatcard(name, rot=-4):
 ARCSVG = """<svg width="{s}" height="{s}" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="104" stroke="rgba(212,164,24,0.7)" stroke-width="2" stroke-dasharray="460 190" stroke-linecap="round"/><circle cx="110" cy="110" r="88" stroke="rgba(212,164,24,0.22)" stroke-width="1.2"/></svg>"""
 
 
+def fvg_capture(n):
+    """Captura real do Field vs GTO: recorta o que a config manda esconder (ex.: 'maos vistas') e devolve (arquivo, w, h)."""
+    from PIL import Image
+    p = find_print("field-vs-gto-sb-rfi-60bb")
+    if not p:
+        return None
+    f = n.get("fvg") or {}
+    im = Image.open(p).convert("RGB")
+    c = f.get("crop")
+    if c:
+        W_, H_ = im.size
+        im = im.crop((round(c[0] * W_), round(c[1] * H_), round(c[2] * W_), round(c[3] * H_)))
+    dst = ASSETS / "prod-field-vs-gto.png"
+    im.save(dst)
+    return dst.name, im.width, im.height
+
+
+def render_fvg(name, a, n, tag):
+    """Slide 'Field vs GTO': captura real do app (so a grade 13x13, recortada) em moldura de janela, leve inclinacao e brilho
+    ambar; por cima, desenhado, um anel arredondado no AA (reforca o contorno do app sem cobrir os numeros) e a legenda das marcas.
+    Sem captura: moldura com [CAPTURA DE PRODUTO PENDENTE]."""
+    lang, (w, h) = a["lang"], a["size"]
+    f = n.get("fvg") or {}
+    mk = f.get("marks") or {}
+    cap = fvg_capture(n)
+    box = f.get("grid_box")
+    MAXH = 615                                          # altura maxima da imagem dentro da moldura
+    if cap:
+        fn, cw, ch = cap
+        FW = min(900, round(MAXH * cw / ch))
+        ih = round(FW * ch / cw)
+        ring = ""
+        if box:
+            c = f.get("crop") or [0, 0, 1, 1]          # grid_box vem em fracao da captura inteira; converte para a recortada
+            gx0, gx1 = (box[0] - c[0]) / (c[2] - c[0]), (box[2] - c[0]) / (c[2] - c[0])
+            gy0, gy1 = (box[1] - c[1]) / (c[3] - c[1]), (box[3] - c[1]) / (c[3] - c[1])
+            cell_w, cell_h = (gx1 - gx0) * FW / 13, (gy1 - gy0) * ih / 13
+            cx, cy = gx0 * FW + cell_w / 2, gy0 * ih + cell_h / 2
+            rw, rh = cell_w * 1.22, cell_h * 1.22
+            ring = f'<div class="aaring" style="left:{cx - rw / 2:.0f}px;top:{cy - rh / 2:.0f}px;width:{rw:.0f}px;height:{rh:.0f}px"></div>'
+        body = f'<div class="fvgimg" style="height:{ih}px"><img src="assets/{fn}">{ring}</div>'
+    else:
+        FW, ih = 880, 560
+        body = (f'<div class="fvgimg slotp" style="height:{ih}px"><div class="plab" style="font-size:40px">[CAPTURA DE PRODUTO PENDENTE]</div>'
+                '<div class="pexp">esperado: _ops/golive-p53-2026-10-15/prints-mkt/field-vs-gto-sb-rfi-60bb.png</div></div>')
+    pills = (f'<span class="pl pr">{mk.get("RFI", "[[RFI]]")} RFI</span>'
+             f'<span class="pl pc">{mk.get("limp", "[[limp]]")} limp</span>'
+             f'<span class="pl pf">{mk.get("fold", "[[fold]]")} fold</span>')
+    label = f.get("marks_label") or "[[marks_label]]"
+    spot = f.get("spot_label") or "[[spot_label]]"
+    css = f""".title {{ font-size: {a["ts"]}px; line-height: 1.05; white-space: nowrap; }}
+.sub {{ font-size: 42px; }}
+.t {{ margin-top: 40px; }}
+.stage {{ flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 0 14px; position: relative; }}
+.stage .glow {{ position: absolute; left: 50%; top: 46%; width: 1200px; height: 780px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(251,191,36,.34), rgba(251,191,36,.08) 58%, transparent); }}
+.win {{ position: relative; width: {FW}px; transform: rotate(-1.8deg); border-radius: 24px; overflow: hidden; background: #0B1220;
+  border: 2px solid rgba(251,191,36,.45); box-shadow: 0 44px 100px rgba(0,0,0,.7), 0 0 0 10px rgba(251,191,36,.07); }}
+.win .bar {{ height: 34px; background: #111A2E; display: flex; align-items: center; gap: 9px; padding-left: 16px; border-bottom: 1px solid rgba(148,163,184,.2); }}
+.win .bar i {{ width: 12px; height: 12px; border-radius: 50%; background: rgba(148,163,184,.45); }}
+.fvgimg {{ position: relative; width: {FW}px; }}
+.fvgimg img {{ display: block; width: {FW}px; height: auto; }}
+.fvgimg.slotp {{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 4px dashed rgba(251,191,36,.7); box-sizing: border-box; }}
+.slotp .pexp {{ text-align: center; padding: 0 40px; }}
+.aaring {{ position: absolute; border: 5px solid #FBBF24; border-radius: 26%; box-shadow: 0 0 0 3px rgba(15,21,38,.55), 0 0 26px rgba(251,191,36,.9); pointer-events: none; }}
+.spotlab {{ position: relative; z-index: 3; width: {FW}px; font-size: 27px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #A9B6C8; margin-bottom: 20px; }}
+.pills {{ position: relative; z-index: 3; display: flex; align-items: center; gap: 14px; margin-top: 26px; }}
+.pills .lab {{ font-size: 26px; font-weight: 700; color: var(--ink-soft); margin-right: 6px; }}
+.pl {{ font-size: 26px; font-weight: 800; color: #fff; padding: 9px 22px; border-radius: 999px; letter-spacing: .02em; }}
+.pr {{ background: #1E7F57; }} .pc {{ background: #2F6FDB; }} .pf {{ background: #015A6B; }}
+"""
+    inner = lockup(indicator(a["idx"])) + f"""
+<div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n, 'fit')}</div>
+<div class="stage z"><div class="glow"></div><div class="spotlab">{spot}</div><div class="win"><div class="bar"><i></i><i></i><i></i></div>{body}</div>
+<div class="pills"><span class="lab">{label}</span>{pills}</div></div>
+{footer()}"""
+    return page(lang, h, inner, css, tag=tag)
+
+
 def render_html(name, n, miss, test=False):
     a = ART[name]
     lang, (w, h), k = a["lang"], a["size"], a["kind"]
@@ -278,17 +363,20 @@ def render_html(name, n, miss, test=False):
 .sub { font-size: 46px; margin-top: 26px; color: #fff; font-weight: 700; }
 .fc { flex: 1; display: flex; align-items: center; justify-content: center; padding-bottom: 34px; }
 """
-        inner = lockup(indicator(1)) + f"""
+        inner = lockup(indicator(a["idx"])) + f"""
 <div class="pillrow z">{live_pill("LIVE")}</div>
 <div class="z titlewrap"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 <div class="fc z">{floatcard("postflop-en", -4)}</div>
 {footer()}"""
         return page(lang, h, inner, css, tag=tag, cls="drama")
 
+    if k == "fvg":
+        return render_fvg(name, a, n, tag)
+
     if k == "c2":
         css = base_css + ".t { margin-top: 40px; }\n.mid { flex: 1; display:flex; align-items:center; justify-content:center; padding-bottom: 8px; margin-top: 20px; }\n"
         svg, _ = chart_svg(lang, n, ph_h=370)
-        inner = lockup(indicator(2)) + f"""
+        inner = lockup(indicator(a["idx"])) + f"""
 <div class="z t"><h1 class="title">{a['t']}</h1>{sub(a, n)}</div>
 <div class="mid z">{svg}</div>
 {footer()}"""
@@ -308,7 +396,7 @@ def render_html(name, n, miss, test=False):
             capture = '<div class="micro">CO × BB · two-tone flop · any turn</div>' + stack(["second-barrel", "turn-delayed-cbet"])
         else:
             capture = slot("preflop-en", "", n)
-        inner = lockup(indicator(i)) + f"""
+        inner = lockup(indicator(a["idx"])) + f"""
 <div class="grp z"><div><h1 class="title">{a['t']}</h1>{sub(a, n, 'fit')}</div>
 <div class="cap"><div class="glow"></div>{capture}</div></div>
 {footer()}"""
@@ -329,7 +417,7 @@ def render_html(name, n, miss, test=False):
 .per { position: relative; z-index: 2; font-size: 74px; font-weight: 800; color: #fff; margin-top: 4px; letter-spacing: .02em; }
 .sub { position: relative; z-index: 2; margin-top: 40px; font-size: 40px; width: 912px; color: var(--ink-soft); }
 """
-        inner = lockup(indicator(5)) + f"""
+        inner = lockup(indicator(a["idx"])) + f"""
 <div class="mid z"><div class="rings"></div>
 <div class="lead">{lead}</div>
 <h1 class="title"><span class="cur">{cur}</span><span class="num">{num}</span></h1>
@@ -348,7 +436,7 @@ def render_html(name, n, miss, test=False):
 .sub { margin-top: 34px; font-size: 48px; }
 """
         arrow = '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#0F1526" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
-        inner = lockup(indicator(6)) + f"""
+        inner = lockup(indicator(a["idx"])) + f"""
 <div class="mid z"><div style="position:relative;width:190px;height:142px;margin-top:10px"><div style="position:absolute;left:-40px;top:-62px">{ARCSVG.format(s=270)}</div><div class="big" data-icon></div></div>
 <h1 class="title">{a['t']} {arrow}</h1>{sub(a, n)}</div>
 {footer()}"""

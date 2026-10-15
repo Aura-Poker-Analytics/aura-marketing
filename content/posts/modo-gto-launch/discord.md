@@ -58,6 +58,7 @@ Study tool. 18+.
 ## Notas
 - Sem exemplo de abertura no Discord: um exemplo só, para caber no teto. O exemplo de abertura (Turn Delayed CBet) e o Second Barrel vivem no carrossel.
 - Sem "todas as ações", sem o c-bet do flop, o donk nem o probe do river como feature.
+- Field vs GTO (P-53): sem linha no Discord. Uma linha curta cabe no PT (1.108 + ~72 = ~1.180), mas no EN passaria de 1.200 (1.150 + ~53 a ~73), e os dois idiomas ficam com o mesmo conteúdo. O Field vs GTO vive no slide 3 e na legenda do carrossel.
 - A ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10); o Discord não a repete.
 - A inclusão do GTO no Individual é a temporária. Sem promessa de preço travado, de que quem assina agora mantém o GTO, de preço futuro ou plano GTO à parte, e sem data. Se a data interna for combinada (GATE B1), ela entra aqui e nas demais peças ao mesmo tempo.
 - Mudanças de 15/10 frente à versão de 13/10: título "Modo GTO no ar" / "GTO Mode is live" (antes "Novo na Aura: Modo GTO" / "New on Aura: GTO Mode"); a frase do plano diz "incluso no plano Individual (preço) por tempo limitado", em negrito (revisão de 15/10); no EN, "The app's status bar guides each click until GTO is there" (antes "…you, click by click, until GTO is there") para caber no teto.

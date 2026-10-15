@@ -111,5 +111,38 @@
     "from": 50.8,
     "to": 63.5,
     "reading": "inside"
+  },
+  "fvg": {
+    "_doc": "Slide 3 do carrossel (Field vs GTO, Field Ranges). Captura: aura-main/_ops/golive-p53-2026-10-15/prints-mkt/field-vs-gto-sb-rfi-60bb.png (2803x1591; API local do P-53, conta paga de teste; SB, RFI, 60bb/faixa 50bb+). Fonte dos numeros: _ops/golive-p53-2026-10-15/numeros-verificados.md.",
+    "marks_label": "Marks by action:",
+    "marks": {
+      "RFI": 132,
+      "limp": 148,
+      "fold": 74,
+      "_fonte": "SB RFI 60bb, medido em producao. As contagens se sobrepoem (uma mao pode ter marca em mais de uma acao), por isso o rotulo 'by action'; o app chama a acao de RFI, nao de raise."
+    },
+    "grid_box": [
+      0.0248,
+      0.0445,
+      0.4683,
+      0.8252
+    ],
+    "_grid_box": "[x0,y0,x1,y1] em fracao da captura INTEIRA (nao recortada), so a grade 13x13; o anel do AA e desenhado na celula (0,0), canto superior esquerdo, sobre o contorno ambar que o app ja poe.",
+    "crop": [
+      0.0,
+      0.0,
+      0.49,
+      0.84
+    ],
+    "_crop": "[x0,y0,x1,y1] em fracao da captura: so a grade (sem o painel do AA e sem a legenda), para a grade ficar legivel no celular. O painel do AA mostra os deltas (+20,9 / -21,6): NAO entram no slide.",
+    "_AA": {
+      "gto_raise": "56.5%",
+      "gto_limp": "43.5%",
+      "field_raise": "77.4% (+20.9 pp)",
+      "field_limp": "21.9% (-21.6 pp)",
+      "_nota": "Referencia (numeros-verificados.md); a tela mostra arredondado (77/56/+20.9; 22/44/-21.6). Nenhum destes aparece escrito no slide."
+    },
+    "spot_label": "SB open (RFI) · 50bb+",
+    "_spot_label": "Rotulo do grafico (nao e linha de apoio). Sem filtros de torneio/buy-in/etapa (a tela esta em todos) e sem contagem de maos."
   }
 }
