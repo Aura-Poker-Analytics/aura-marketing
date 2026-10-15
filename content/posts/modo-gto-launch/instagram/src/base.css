@@ -113,3 +113,19 @@ small { font-size: 0.72em; font-weight: 600; color: var(--ink-soft); white-space
 /* capturas largas empilhadas (cards do app) */
 .stack { position: relative; z-index: 1; width: 1080px; padding: 0 24px; display: flex; flex-direction: column; gap: 18px; }
 .stack img { display: block; width: 1032px; height: auto; border-radius: 22px; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
+
+/* lancamento (15/10): fundo dramatico, selos, card flutuante */
+.page.drama { background:
+  radial-gradient(900px 700px at 88% 6%, rgba(245,158,11,.34), transparent 62%),
+  radial-gradient(1000px 800px at 0% 100%, rgba(1,90,107,.55), transparent 64%),
+  radial-gradient(1300px 900px at 50% -14%, rgba(34,53,89,.6), transparent 62%),
+  var(--bg); }
+.live { display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #FCD34D, #D97706); color: #0F1526;
+  font-weight: 900; font-size: 36px; letter-spacing: .16em; padding: 14px 32px 14px 26px; border-radius: 999px; box-shadow: 0 8px 34px rgba(245,158,11,.45); }
+.live .dot { width: 20px; height: 20px; border-radius: 50%; background: #0F1526; box-shadow: 0 0 0 6px rgba(15,21,38,.22), 0 0 0 12px rgba(15,21,38,.10); }
+.seal { display: inline-block; font-size: .62em; font-weight: 900; letter-spacing: .12em; color: #FBBF24; border: 3px solid #FBBF24; border-radius: 999px;
+  padding: .12em .6em; vertical-align: .14em; margin-right: .5em; line-height: 1.2; }
+.seal.big { background: linear-gradient(135deg, #FCD34D, #D97706); color: #0F1526; border: 0; }
+.fcard { position: relative; width: 980px; }
+.fcard img { position: relative; display: block; width: 980px; height: auto; border-radius: 28px; box-shadow: 0 40px 90px rgba(0,0,0,.7), 0 0 0 2px rgba(251,191,36,.35); }
+.fcard .fglow { position: absolute; left: 50%; top: 50%; width: 1200px; height: 620px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(251,191,36,.30), transparent); }

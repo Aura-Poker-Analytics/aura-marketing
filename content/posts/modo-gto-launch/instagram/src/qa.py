@@ -94,6 +94,23 @@ with sync_playwright() as p:
                 bad(f"{png.name}: palavra proibida '{w_}'")
     b.close()
 
+# ---- arquivos sobrando e moeda (PT nunca US$; EN nunca R$)
+names = set(ART)
+for f in OUT.glob("*.png"):
+    if f.stem.replace("-DRAFT", "") not in names:
+        bad(f"PNG sobrando fora do conjunto: {f.name}")
+for f in SRC.glob("*.html"):
+    stem = f.stem.replace("-DRAFT", "")
+    if stem in names:
+        vis = re.sub(r"<style.*?</style>|<[^>]+>", " ", f.read_text(encoding="utf-8"), flags=re.S)
+        lang = ART[stem]["lang"]
+        if lang == "pt" and "US$" in vis:
+            bad(f"{f.name}: US$ em arte PT")
+        if lang == "en" and "R$" in vis:
+            bad(f"{f.name}: R$ em arte EN")
+    elif not f.name.startswith("_"):
+        bad(f"HTML-fonte sobrando: {f.name}")
+
 # ---- e-mail
 for lang in ("pt", "en"):
     for f in (POST / f"email-{lang}.html", POST / f"email-{lang}.preview.html"):

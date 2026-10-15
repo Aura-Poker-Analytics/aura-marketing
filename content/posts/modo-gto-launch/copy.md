@@ -1,36 +1,39 @@
 # Modo GTO: copy de lançamento (GTO no flop, turn e river)
 
-Status: pacote final para aprovação do Rafael; não publicado. Números fechados em 14/10 (antes: 08/10). Publicar só depois dos gates em Pendências (P-61, teste logado, Stripe, hospedagem das imagens do e-mail).
+Status: pacote final para aprovação do Rafael; não publicado. **Versão de 15/10**, depois do retorno do Rafael sobre o aura-marketing#4 (via HUB): "sim leva" para o "por tempo limitado" e pedido de um carrossel mais apelativo, de grande lançamento: "foi lançado e vai ser temporariamente um early bird a 29 dólares". Números fechados em 14/10 (antes: 08/10). Publicar só depois dos gates em Pendências (P-61, teste logado, Stripe, hospedagem das imagens do e-mail, regra do early bird).
 @aurapokeranalytics: a confirmar pelo Rafael. URLs com UTM prontas na tabela abaixo.
 Fonte dos números: `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (origin/main `e17fc8e`, 14/10), para a cobertura, o pré-flop e o exemplo de abertura; o exemplo CO × BB e o pré-flop seguem iguais aos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10). Os números usados estão mapeados em "Números usados" no fim. **Nenhum marcador `[[...]]` resta no pacote.**
-Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel de 7 slides só em EN), landing e e-mail (em `email.md`).
+Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel de 6 slides só em EN), landing e e-mail (em `email.md`).
 
-> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (Individual com preço e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, só o slide 6 (título e apoio, com o preço em EN). Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
+> **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (early bird, Individual com preço e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, o early bird aparece só na capa do carrossel (apoio), no slide 5 (título e apoio) e no story da capa PT (apoio), sempre com a moeda do idioma (EN "US$ 29/month", PT "R$ 150/mês"). Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
 ## Origem das capturas e artes a refazer (por outro agente)
-- **Slide 3 (postflop):** captura nova do aura-novofront `35d7005` (prévia local, API de prévia, 14/10), que mostra Second Barrel e Turn Delayed CBet com o GTO ao lado do field. O Second Barrel só aparece nessa captura; não é o exemplo do slide 5.
+- **Slide 3 (turn e river):** barras renderizadas pela build, duas por spot (Second Barrel e Turn Delayed CBet, CO × BB, 30–60bb, GTO a 40bb, SRP, flop two-tone, qualquer turn), ou a captura nova do aura-novofront `35d7005` (prévia local, API de prévia, 14/10) **só se ela mostrar exatamente** 54,2% / 57,2% (50,8–63,5) e 51,7% / 44,1% (37,8–50,3) nesse recorte. Se a captura mostrar outro recorte ou outros valores, usar as barras. Os valores novos do Second Barrel vão para o `numbers.json` (chaves novas, sugestão N11), e nada numérico mora no HTML.
 - **Slide 4 (pré-flop) e imagem EN do e-mail:** capturas de 08/10 do aura-novofront `429c093` (front no SHA de produção daquele dia, lendo a API local `:7060` com os snapshots do go-live, por conta de teste local, sem login em produção). Os mesmos números foram confirmados em produção em 14/10. A imagem do e-mail EN é o recorte do card de 33% do painel de Fold por tamanho de Flop CBet; a célula do CO no slide 4 tem um contorno âmbar desenhado só para destaque.
-- **Slides 2 e a imagem do e-mail PT:** barras renderizadas pela build (46,0% / 38,8% / faixa 37,1–40,4%), não são captura.
-- **Slide 5 (abertura):** captura ou barras do Turn Delayed CBet do exemplo de abertura (CO × BB, 30–60bb, GTO a 40bb).
-- **Carrossel de 7 slides:** o plano passa a ser o slide 6 e o CTA o 7; indicador "n / 7"; renomear `carrossel-en-05` para 06 e `-06` para 07.
+- **Slide 2, capa do story PT e imagem do e-mail PT:** barras renderizadas pela build (46,0% / 38,8% / faixa 37,1–40,4%), não são captura.
+- **Capa do carrossel (slide 1):** sem número em arte além do apoio; a imagem é a do produto ou as barras do slide 2 com o gap em âmbar, a critério do designer, sem repetir o texto do slide 2.
+- **Carrossel de 6 slides (versão de 15/10):** substitui o de 7. O slide 5 antigo (barras do Turn Delayed CBet) foi fundido no slide 3; o slide 6 antigo (plano) virou o slide 5 (early bird); o CTA virou o slide 6. Indicador "n / 6". Renomear/regerar `carrossel-en-01` a `-06` e apagar `carrossel-en-07.*`.
 - Nenhuma peça chama as capturas de "print de produção".
 
 ## Pendências reais
 1. **P-61 no ar e ordem de publicação.** Só postar ou enviar depois do P-61 no ar (Modo GTO aberto ao Individual) e depois que a versão de 13/10 estiver em produção.
-2. **Preço (Rafael confere no Stripe).** Decisão do Rafael via HUB, 13/10: "vamos anunciar como fazendo parte do plano de 29 por tempo limitado". A frase do plano cita o preço do Individual: PT "O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." EN "GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison." Fonte do valor (HUB): `aura-landing` `src/content/pricing.ts` e `aura-novofront` `billingPlans.ts` (US$ 29/mês no checkout em EN, R$ 150/mês no checkout em PT). **Pendente: o Rafael confere no Stripe que o checkout cobra 29 / 150 hoje.** Regras: PT sempre "plano Individual" e "R$ 150/mês" (nunca "US$ 29" nem "R$ 29" em peça PT); EN sempre "Individual plan" e "US$ 29/month". Urgência só por "por tempo limitado" / "for a limited time": sem data de fim, sem "últimas horas", sem "só hoje". Nenhuma peça cita o plano Modo GTO à parte, o plano Top, desconto semestral/anual ou promoção.
-3. **Teste logado do Rafael.** Conferir em `www.aura.poker` os mesmos valores do exemplo CO × BB (46,0% / 38,8% / faixa 37,1–40,4%), do RFI do CO (31,6% / 37,0%) e do exemplo de abertura (51,7% / 44,1% / faixa 37,8–50,3%), antes de qualquer post ou envio.
+2. **Preço e early bird (Rafael confere no Stripe).** Decisões do Rafael via HUB: 13/10, "vamos anunciar como fazendo parte do plano de 29 por tempo limitado"; 15/10, "sim leva" ao "por tempo limitado" e "vai ser temporariamente um early bird a 29 dólares". A frase do plano passa a ser: PT "Early bird de R$ 150/mês, por tempo limitado: o Modo GTO faz parte do plano Individual. A conta grátis segue com o field e a comparação com o MDF." EN "Early bird US$ 29/month, for a limited time: GTO Mode is part of the Individual plan. The free account keeps the field and the MDF comparison." Fonte do valor (HUB): `aura-landing` `src/content/pricing.ts` e `aura-novofront` `billingPlans.ts` (US$ 29/mês no checkout em EN, R$ 150/mês no checkout em PT). **Pendente: o Rafael confere no Stripe que o checkout cobra 29 / 150 hoje.** Regras: PT sempre "plano Individual", "R$ 150/mês" e "early bird" (nunca "US$ 29" nem "R$ 29" em peça PT); EN sempre "Individual plan", "US$ 29/month" e "early bird" (nunca "R$ 150" em peça EN). Urgência só por "por tempo limitado" / "for a limited time": sem data de fim, sem "últimas horas", sem "só hoje". **Early bird sem promessa de preço travado:** nenhuma peça diz que quem assina agora mantém o preço, nem que o preço vai subir, nem cita data de fim. A regra do early bird (o que ele é e o que acontece quando acaba) **precisa da confirmação da HUB antes de publicar**; enquanto isso, as peças só dizem o preço e "por tempo limitado". Nenhuma peça cita o plano Modo GTO à parte, o plano Top, desconto semestral/anual ou outra promoção.
+3. **Teste logado do Rafael.** Conferir em `www.aura.poker` os mesmos valores do exemplo CO × BB (46,0% / 38,8% / faixa 37,1–40,4%), do RFI do CO (31,6% / 37,0%), do exemplo de abertura (Turn Delayed CBet 51,7% / 44,1% / faixa 37,8–50,3%) e do Second Barrel do mesmo recorte (54,2% / 57,2% / faixa 50,8–63,5%, usado no slide 3 do carrossel e na legenda), antes de qualquer post ou envio.
 4. **Hospedagem das imagens do e-mail (aura-landing#17).** `email/modo-gto-pt.png` e `-en.png` precisam estar em `https://www.aurapoker.com/email/` antes do envio.
 5. **Cobertura: nunca vira "todas".** A tela não cobre todas as ações (por exemplo, o c-bet do flop como abertura, o donk do flop e o probe do river não são feature). Nenhuma peça usa "todas / every / all" para cobertura, nem cita o c-bet do flop, o donk ou o probe do river como feature. O texto fica nas formas abaixo.
-6. **"Por tempo limitado" sem data (recomendação do revisor, CONAR/CDC).** Expressão de urgência sem data de fim pode ser questionada. Recomendação: combinar uma data de fim e honrá-la, ou tirar a expressão. Decisão do Rafael. Enquanto não decidir, as peças mantêm "por tempo limitado" / "for a limited time", sem data.
+6. **"Por tempo limitado" sem data (recomendação do revisor, CONAR/CDC).** Expressão de urgência sem data de fim pode ser questionada. Recomendação: combinar uma data de fim e honrá-la, ou tirar a expressão. O Rafael respondeu "sim leva" em 15/10: o post leva "por tempo limitado". As peças mantêm "por tempo limitado" / "for a limited time", sem data. Se uma data for combinada depois, ela entra em todas as peças ao mesmo tempo (capa do carrossel, slide 5, story da capa, legendas, Discord, landing, e-mail).
 7. **Dependências de produção.** (a) aura-api#84: o turn e o river de co_btn, utg_bb@25 e outros pares ficam fora hoje até o deploy; o texto de cobertura só vale com esse deploy feito. (b) A landing de produção não pode mostrar o GTO como plano à parte (nem preço próprio); só como parte do Individual.
+8. **Regra do early bird (HUB confirma antes de publicar).** US$ 29/mês e R$ 150/mês são o preço mensal vigente do plano Individual; o "early bird" nas peças significa o Modo GTO incluído nesse plano por tempo limitado. Falta a HUB confirmar: o que é o early bird, se quem assina agora mantém algo quando acabar, e como o fim será comunicado. Até lá, nenhuma peça promete preço travado/garantido, nem aumento futuro, nem data de fim, e nenhuma cita desconto semestral/anual.
+9. **Second Barrel no slide 3.** Entra como contraste (dentro da faixa) ao lado do Turn Delayed CBet (acima do topo), do mesmo recorte largo do arquivo de 14/10. A captura `35d7005` só serve se mostrar esses valores; senão, barras da build.
 
 ## Decisões registradas
 - **Cobertura (texto final, HUB 14/10).** PT: "GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel)." EN: "GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel)." Nas legendas curtas e no e-mail, versão curta: "no flop, turn e river" e "inclusive as aberturas do agressor no turn e no river", com a lista só "second barrel, delayed c-bet e third barrel" quando houver lista (EN "on the flop, turn and river" e "including the aggressor's openings on the turn and river"; "second barrel, delayed c-bet and third barrel").
-- **Capa com duas linhas (decisão consciente, revisão de marca de 08/10).** A capa (story PT e slide 1 do carrossel) tem o apoio ("Novo: Modo GTO" / "New: GTO Mode") e uma micro-legenda do spot ("CO × BB · K-high two-tone · c-bet de 33%" / "CO × BB · K-high two-tone · 33% c-bet"). É a única exceção à regra de uma linha de apoio.
-- **Slide 3.** Título "Postflop: GTO with the range", apoio "Turn openings, with the range." (5 palavras; a captura mostra Second Barrel e Turn Delayed CBet). A arte é do outro agente.
+- **Capa de lançamento (15/10, substitui a "capa com duas linhas" de 08/10).** A capa do carrossel ("GTO Mode is live") e a do story PT ("Modo GTO no ar") têm só título e UMA linha de apoio, que é o early bird. Sai a micro-legenda do spot; não há mais exceção à regra de uma linha.
+- **Early bird nas artes (15/10).** Aparece só na capa do carrossel, no slide 5 e no story da capa PT, com a moeda do idioma. Sem data, sem "últimas horas", sem preço travado, sem aumento futuro, sem desconto semestral/anual. "Early bird" fica em inglês também no PT.
+- **Carrossel de 6 slides, só em EN (15/10).** 1 capa de lançamento; 2 o exemplo do c-bet de 33% (Overfold); 3 turn e river com dois spots lado a lado (Second Barrel dentro da faixa, Turn Delayed CBet acima do topo); 4 pré-flop; 5 early bird; 6 CTA. Cada slide: título curto e no máximo UMA linha de apoio; a imagem fala.
+- **Slide 3 usa o Second Barrel como contraste (15/10).** O Second Barrel (54,2% / 57,2%, faixa 50,8–63,5, dentro da faixa) e o Turn Delayed CBet (51,7% / 44,1%, faixa 37,8–50,3, 1,4 pp acima do topo) vêm do mesmo recorte largo (28 classes de board; `numeros-verificados-lancamento.md`, 14/10), onde o arquivo permite o Second Barrel "só como contraste". Não usar o Probe (faixa larga) nem a célula de um board só.
 - **Slide 4 mostra os números arredondados da tela.** A captura traz Field 32% / GTO 37% / −5. A fonte tem 31,6 / 37,0 / −5,4; as legendas e a landing usam os valores da fonte.
-- **Slide 5 novo: abertura do agressor.** Entra como slide 5 para manter o slide 4 do pré-flop como está. Exemplo: Turn Delayed CBet (o CO aposta o turn depois do flop passado), recorte largo. Não se usa o Probe nem o Second Barrel como exemplo (o Second Barrel, dentro da faixa, só aparece na captura do slide 3). Se o Rafael preferir a abertura colada ao pós-flop (slide 4), basta inverter com o pré-flop e renomear os arquivos.
-- **Stories e feed** seguem com o exemplo CO × BB (c-bet de 33%). O exemplo de abertura só vive no carrossel (slide 5 e legenda); Discord, landing e e-mail ficam com um exemplo só.
+- **Stories e feed** seguem com o exemplo CO × BB (c-bet de 33%). O exemplo de abertura (Turn Delayed CBet) e o Second Barrel só vivem no carrossel (slide 3 e legenda); Discord, landing e e-mail ficam com um exemplo só.
 - **Sem contagem de mãos nem amostra.** O brand-kit pede rodapé de amostra em post com número; a instrução do Rafael de 08/10 o substitui. Ficam fora a contagem de mãos do exemplo de abertura (80 mil), as 10.216 mãos do exemplo CO × BB e o número de oportunidades do pré-flop (23,8 milhões).
 - **Bug do front a lembrar.** O app em PT mistura formatos no mesmo card ("46.0%" e "38,8%"). Nas peças em PT escrevemos sempre com vírgula.
 
@@ -39,12 +42,12 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 - **Fluxo:** "escolha o spot, clique em Apply e veja o field e o GTO juntos" e "a faixa de status do app guia cada clique até ter GTO" (EN "the app's status bar guides you, click by click, until GTO is there"). Sem citar as frases em inglês da tela. Nada de "GTO em breve" nem "ainda sem GTO" como feature.
 - **Pré-flop:** "o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb" (pré-flop `20261007`).
 - **Filtro do exemplo nas peças:** "torneios Regular" (EN "Regular tournaments") e "últimos 2 anos" (EN "last 2 years"), sem a palavra vanilla.
-- **Plano e conta Grátis:** frase única da Pendência 2. Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só o slide 6. CTAs: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". O único preço citado é o do plano Individual, dentro da frase do plano, com a moeda nunca trocada.
+- **Plano, early bird e conta Grátis:** frase única da Pendência 2. Vive na legenda, no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só a capa do carrossel, o slide 5 e a capa do story PT. CTAs de texto: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". O slide 6 do carrossel usa "Get GTO Mode" (pedido do Rafael via HUB), que não promete gratuidade: a conta grátis segue só com o field e o MDF. O único preço citado é o do plano Individual, com a moeda nunca trocada.
 - **Escopo da referência:** a ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10). Nenhuma peça a repete; "Regular" aparece só como filtro do spot.
 - **"Spot"** é a situação ou a decisão, nunca contagem de linhas.
 - **Formato dos números:** vírgula em PT (46,0%), ponto em EN (46.0%).
 - **Nome em inglês:** "GTO Mode".
-- **Carrossel só em EN;** a capa tem story PT-BR 1080x1920. Não há story EN da capa.
+- **Carrossel só em EN;** a capa tem story PT-BR 1080x1920 ("Modo GTO no ar", early bird em R$). Não há story EN da capa.
 
 ## O exemplo (reação ao c-bet; exemplo (a))
 Filtro da tela: Postflop · SRP · RFI CO, caller BB · stack 30.1–60bb (GTO a 40bb) · torneio Regular · flop K-high, two-tone, sem par, desconectado · reação do BB ao c-bet de 33%.
@@ -90,7 +93,7 @@ Observação: para o botão da landing mantive `utm_source=landing`, como no Fie
 
 ## Texto final de cada arte (título + apoio)
 
-Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalytics · 18+` pequeno e, nos slides, o indicador "n / 7". Nas barras, o % central do GTO no rótulo e a faixa GTO como sombreado, com a faixa escrita pequena.
+Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalytics · 18+` pequeno e, nos slides, o indicador "n / 6". Nas barras, o % central do GTO no rótulo e a faixa GTO como sombreado, com a faixa escrita pequena.
 
 | Arte | Formato | Idioma | Título | Apoio (uma linha) | O que a imagem mostra |
 |---|---|---|---|---|---|
@@ -98,24 +101,31 @@ Em toda arte, além do título e da linha de apoio: logo AURA, `@aurapokeranalyt
 | Feed | 1080x1350 | EN | Same spot, two numbers | CO × BB · K-high two-tone · 33% c-bet | Fold bars side by side: Field 46.0% and GTO 38.8% (range 37.1–40.4%) |
 | Story | 1080x1920 | PT | O field folda mais que o GTO? | CO × BB · K-high two-tone · c-bet de 33% | Mesmas barras (46,0% e 38,8%); sticker de link "Conhecer o Modo GTO" |
 | Story | 1080x1920 | EN | Does the field fold more than GTO? | CO × BB · K-high two-tone · 33% c-bet | Same bars (46.0% and 38.8%); link sticker "See GTO Mode" |
-| Story da capa do carrossel | 1080x1920 | PT | Onde o field sai do GTO? | Novo: Modo GTO (+ micro-legenda do spot: CO × BB · K-high two-tone · c-bet de 33%) | Mesmas barras com o gap em âmbar (46,0% e 38,8%); sticker "Conhecer o Modo GTO" |
-| Carrossel 1 (capa) | 1080x1350 | EN | Where does the field leave GTO? | New: GTO Mode (+ spot micro-caption: CO × BB · K-high two-tone · 33% c-bet) | Mesma imagem da capa PT (46.0% and 38.8%) |
-| Carrossel 2 | 1080x1350 | EN | Same spot, two numbers | CO × BB · K-high two-tone · 33% c-bet | As barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%) |
-| Carrossel 3 | 1080x1350 | EN | Postflop: GTO with the range | Turn openings, with the range. | Captura nova do Postflop com o Modo GTO ligado (aura-novofront `35d7005`), mostrando Second Barrel e Turn Delayed CBet com o GTO ao lado do field |
-| Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | Includes CO and BTN RFI at 40bb. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
-| Carrossel 5 (novo) | 1080x1350 | EN | Delayed c-bet: field vs GTO | CO × BB · two-tone · turn | Barras de aposta lado a lado: Field 51.7% e GTO 44.1% com a faixa 37.8–50.3% sombreada; gap em âmbar (1.4 pp acima do topo da faixa) |
-| Carrossel 6 | 1080x1350 | EN | GTO Mode, now in Individual | Part of the US$ 29/month plan, for a limited time. | Um cadeado desenhado (sem texto do app) |
-| Carrossel 7 (CTA) | 1080x1350 | EN | See GTO Mode | Link in bio. | Logo e fundo da marca |
+| Story da capa do carrossel (novo, 15/10) | 1080x1920 | PT | Modo GTO no ar | Early bird: R$ 150/mês. Por tempo limitado. | Barras de fold do exemplo (46,0% e 38,8%, faixa 37,1–40,4% sombreada) com o gap em âmbar; sticker de link "Conhecer o Modo GTO". Sem micro-legenda do spot |
+| Carrossel 1 (capa de lançamento) | 1080x1350 | EN | GTO Mode is live | Early bird: US$ 29/month. For a limited time. | Capa de grande lançamento: logo grande e a janela do produto com o Modo GTO (ou as barras do slide 2, sem repetir o texto dele). Sem micro-legenda do spot |
+| Carrossel 2 | 1080x1350 | EN | See where the field breaks from GTO | CO × BB · K-high two-tone · 33% c-bet | As barras e os dois números: Field 46.0%, GTO 38.8% (range 37.1–40.4%), gap em âmbar |
+| Carrossel 3 | 1080x1350 | EN | GTO on the turn and river | Second barrel: inside the range. Delayed c-bet: above. | Dois pares de barras de aposta lado a lado, mesmo spot (rótulo pequeno na imagem: CO × BB · two-tone flop · any turn): Second Barrel Field 54.2% e GTO 57.2% (range 50.8–63.5); Turn Delayed CBet Field 51.7% e GTO 44.1% (range 37.8–50.3), gap em âmbar só no segundo |
+| Carrossel 4 | 1080x1350 | EN | Preflop: GTO and deviation | CO RFI: the field opens less than GTO. | Captura da grade com a célula do RFI do CO destacada: na tela, Field 32%, GTO 37%, −5 (arredondado; a fonte tem 31,6 / 37,0 / −5,4) |
+| Carrossel 5 | 1080x1350 | EN | Early bird: US$ 29/month | Part of the Individual plan, for a limited time. | Fundo da marca com destaque âmbar (símbolo Aura ou selo desenhado, sem texto do app). Sem cadeado |
+| Carrossel 6 (CTA) | 1080x1350 | EN | Get GTO Mode | Link in bio. | Logo e fundo da marca |
 
-Contagem de palavras (regra do Rafael): títulos de 4 a 7 palavras; apoios de 3 a 10 palavras (slide 3: 5; slide 5: 5; slide 6: 10).
+Contagem de palavras (regra do Rafael): títulos de 3 a 7 palavras; apoios de 3 a 10 palavras (capa: 8; slide 2: 7 mais símbolos; slide 3: 8; slide 4: 8; slide 5: 9; slide 6: 3).
 
 Notas de arte:
-- **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO. No slide 5, a barra é de aposta (frequência de bet), não de fold: usar a cor semântica do raise (`#AD2C34`) para a aposta, mantendo o gap em âmbar e a faixa sombreada.
-- **Slide 3:** o número fica dentro da captura; nenhum texto de arte o repete. Não mostrar estado de carregamento nem aviso de "sem GTO".
+- **Cores:** fold em teal `#015A6B`; a distância entre a barra do field e a do GTO em âmbar (o gap). Faixa GTO sombreada em volta da barra do GTO. No slide 3, as barras são de aposta (frequência de bet), não de fold: usar a cor semântica do raise (`#AD2C34`) para a aposta, mantendo o gap em âmbar e a faixa sombreada. No Second Barrel o field está dentro da faixa: sem gap.
+- **Capa (slide 1 e story PT):** é o gancho. Título grande, apoio com o early bird em âmbar. O early bird não vira selo de "desconto": só o texto do apoio. Sem data.
+- **Slide 3:** barras renderizadas pela build, ou a captura `35d7005` só se mostrar exatamente esses valores (ver "Origem das capturas"). Não mostrar estado de carregamento nem aviso de "sem GTO". Sem contagem de mãos. Os números 54.2/57.2 e 51.7/44.1 e as duas faixas ficam nas barras; a faixa pequena, escrita.
 - **Slide 4:** o stack da captura é 30–50bb (GTO a 40bb), torneio Regular. O número fica dentro da captura.
-- **Slide 5:** sem contagem de mãos. O 51.7% e o 44.1% ficam nas barras; a faixa pequena, escrita 37.8–50.3%.
-- **Slide 6:** título "GTO Mode, now in Individual", apoio "Part of the US$ 29/month plan, for a limited time." (10 palavras; sem data, sem "últimas horas"). O cadeado desenhado continua. A frase completa sobre o plano Individual e a conta grátis fica na legenda.
+- **Slide 5:** título "Early bird: US$ 29/month", apoio "Part of the Individual plan, for a limited time." (sem data, sem "últimas horas", sem "preço travado", sem "vai subir"). A frase completa sobre o plano Individual e a conta grátis fica na legenda.
+- **Slide 6:** "Get GTO Mode" + "Link in bio." Sem preço.
+- **Story da capa PT:** o preço aparece em R$ (nunca US$). O sticker de link leva à landing com `utm_content=story-capa-pt`.
 - **Enquete opcional no story (fora da arte):** "Qual spot você quer ver com o GTO ao lado?" com as opções "Flop" e "Turn/river" / "Which spot do you want to see with GTO next to it?" with "Flop" and "Turn/river".
+
+## Strings para o agente das artes e do HTML (não editei `instagram/src`)
+- **`build.py`:** `story-capa-pt` → título "Modo GTO<br><em>no ar</em>", apoio "Early bird: R$ 150/mês. Por tempo limitado.", sem micro-legenda do spot. `carrossel-en-01` → título "GTO Mode<br>is <em>live</em>", apoio "Early bird: US$ 29/month. For a limited time.", sem micro-legenda. Slides 2 a 6 conforme a tabela acima; indicador "n / 6"; sem `carrossel-en-07`.
+- **`numbers.json`:** novo bloco para o Second Barrel (sugestão N11: field 54.2; GTO centro 57.2, de 50.8, até 63.5; N6A2 "Second Barrel"); `N8`/`N9`/`N10` (Turn Delayed CBet) seguem como estão. `textos_com_numero.c6_apoio_en` ("Part of the US$ 29/month plan, for a limited time.") sai; entram `c1_apoio_en` "Early bird: US$ 29/month. For a limited time.", `c1_apoio_pt` "Early bird: R$ 150/mês. Por tempo limitado.", `c5_titulo_en` "Early bird: US$ 29/month", `c5_apoio_en` "Part of the Individual plan, for a limited time." e `c3_apoio_en` "Second barrel: inside the range. Delayed c-bet: above.". `email_under_pt` "Early bird de R$ 150/mês, por tempo limitado: o Modo GTO faz parte do plano Individual. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+." e `email_under_en` "Early bird US$ 29/month, for a limited time: GTO Mode is part of the Individual plan. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+." `c4_apoio_en` → "CO RFI: the field opens less than GTO."
+- **`build_email.py`:** assunto e h1 PT "Modo GTO no ar" (hoje "Novo na Aura: Modo GTO"); EN "GTO Mode is live" (hoje "New on Aura: GTO Mode"); preheader conforme `email.md`. O corpo do e-mail (`email_corpo_*`, `email_preflop_*`) não muda.
+- **Aviso de moeda:** nenhuma string PT leva "US$" ou "R$ 29"; nenhuma string EN leva "R$".
 
 ## Legendas
 
@@ -124,7 +134,7 @@ PT:
 ```
 O GTO folda 38,8%. O field folda 46,0%. Mesmo spot.
 
-Novo na Aura: Modo GTO. Ao lado da frequência do field, o número GTO e a faixa GTO.
+O Modo GTO está no ar. Ao lado da frequência do field, o número GTO e a faixa GTO.
 
 Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
@@ -132,7 +142,7 @@ Pós-flop: o GTO no flop, turn e river, inclusive as aberturas do agressor no tu
 
 Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
-O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
+Early bird de R$ 150/mês, por tempo limitado: o Modo GTO faz parte do plano Individual. A conta grátis segue com o field e a comparação com o MDF.
 
 Conhecer o Modo GTO, link na bio. Ferramenta de estudo. 18+.
 
@@ -142,7 +152,7 @@ EN:
 ```
 GTO folds 38.8%. The field folds 46.0%. Same spot.
 
-New on Aura: GTO Mode. Next to the field frequency, the GTO number and the GTO range.
+GTO Mode is live. Next to the field frequency, the GTO number and the GTO range.
 
 Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
@@ -150,7 +160,7 @@ Postflop: GTO on the flop, turn and river, including the aggressor's openings on
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
-GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison.
+Early bird US$ 29/month, for a limited time: GTO Mode is part of the Individual plan. The free account keeps the field and the MDF comparison.
 
 See GTO Mode, link in bio. Study tool. 18+.
 
@@ -160,19 +170,21 @@ See GTO Mode, link in bio. Study tool. 18+.
 ### Legenda do carrossel e da capa
 PT (usar também com o story da capa, se o Rafael postar legenda):
 ```
-Onde o field sai do GTO?
+O Modo GTO está no ar. Early bird de R$ 150/mês, por tempo limitado.
 
-Novo na Aura: Modo GTO. Ao lado da frequência do field, o número GTO e a faixa GTO.
+Veja onde o field sai do GTO: ao lado da frequência do field, o número GTO e a faixa GTO.
 
 Pós-flop: GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel). Escolha o spot, clique em Apply e veja o field e o GTO juntos. A faixa de status do app guia cada clique até ter GTO.
 
 Reação: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
 
-Abertura: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop two-tone, qualquer turn. No turn, depois do flop passado, o CO aposta (delayed c-bet): o field aposta 51,7% e o GTO aposta 44,1% (faixa 37,8–50,3%): 1,4 pp acima do topo da faixa. Aqui o field aposta mais do que o GTO. É um spot, não a média do field.
+Abertura: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop two-tone, qualquer turn. No turn, depois do flop passado, o CO aposta (delayed c-bet): o field aposta 51,7% e o GTO aposta 44,1% (faixa 37,8–50,3%): 1,4 pp acima do topo da faixa. Aqui o field aposta mais do que o GTO. No mesmo spot, o second barrel fica dentro da faixa: o field aposta 54,2% e o GTO 57,2% (faixa 50,8–63,5%). São spots, não a média do field.
 
 Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb. RFI do CO a 30–50bb (GTO a 40bb), torneios Regular, últimos 2 anos: o field abre 31,6% e o GTO abre 37,0%.
 
-O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF.
+Abra um spot que você joga, olhe o gap e escolha o que estudar.
+
+Early bird de R$ 150/mês, por tempo limitado: o Modo GTO faz parte do plano Individual. A conta grátis segue com o field e a comparação com o MDF.
 
 Conhecer o Modo GTO, link na bio. Salve para estudar. Ferramenta de estudo. 18+.
 
@@ -180,21 +192,23 @@ Conhecer o Modo GTO, link na bio. Salve para estudar. Ferramenta de estudo. 18+.
 ```
 EN:
 ```
-Where does the field leave GTO?
+GTO Mode is live. Early bird US$ 29/month, for a limited time.
 
-New on Aura: GTO Mode. Next to the field frequency, the GTO number and the GTO range.
+See where the field breaks from GTO: next to the field frequency, the GTO number and the GTO range.
 
 Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
 
 Response: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
 
-Opening: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, two-tone flop, any turn. On the turn, after the flop checks through, the CO bets (delayed c-bet): the field bets 51.7% and GTO bets 44.1% (range 37.8–50.3%): 1.4 pp above the top of the range. Here the field bets more than GTO does. This is one spot, not the field average.
+Opening: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, two-tone flop, any turn. On the turn, after the flop checks through, the CO bets (delayed c-bet): the field bets 51.7% and GTO bets 44.1% (range 37.8–50.3%): 1.4 pp above the top of the range. Here the field bets more than GTO does. In the same spot, the second barrel is inside the range: the field bets 54.2% and GTO 57.2% (range 50.8–63.5%). These are spots, not the field average.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
 
-GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison.
+Open a spot you play, look at the gap and pick what to study.
 
-See GTO Mode, link in bio. Save it for study. Study tool. 18+.
+Early bird US$ 29/month, for a limited time: GTO Mode is part of the Individual plan. The free account keeps the field and the MDF comparison.
+
+Get GTO Mode, link in bio. Save it for study. Study tool. 18+.
 
 #poker #pokerMTT #pokerestudo #aurapoker
 ```
@@ -206,8 +220,8 @@ See GTO Mode, link in bio. Save it for study. Study tool. 18+.
 @aurapokeranalytics: a confirmar pelo Rafael. URL do CTA: ver a linha "Landing" da tabela "URLs por peça".
 
 ## Kicker (acima do título, com a pílula de novo)
-- PT: Novo na Aura · Modo GTO
-- EN: New on Aura · GTO Mode
+- PT: No ar · Modo GTO
+- EN: Live now · GTO Mode
 
 ## Título
 - PT: O GTO e o field na mesma tela.
@@ -233,7 +247,7 @@ Footnote (EN): "One spot, not the field average. Study tool · 18+. Aura is not 
 (Sem números de escala no rodapé: a escala de 08/10 descrevia a cobertura antiga e não foi atualizada.)
 
 CTA: PT "Conhecer o Modo GTO" / EN "See GTO Mode".
-Frase sob o CTA, PT: "O Modo GTO faz parte do plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / EN: "GTO Mode is part of the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison."
+Frase sob o CTA, PT: "Early bird de R$ 150/mês, por tempo limitado: o Modo GTO faz parte do plano Individual. A conta grátis segue com o field e a comparação com o MDF." / EN: "Early bird US$ 29/month, for a limited time: GTO Mode is part of the Individual plan. The free account keeps the field and the MDF comparison."
 
 ## Alt text das imagens (2)
 ### Imagem 1: o exemplo lado a lado
@@ -249,13 +263,13 @@ Nota para o designer: as imagens só mostram os números de "Números usados". N
 
 # (c) Discord
 
-Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.200 caracteres cada. Tamanho real e emojis: ver `discord.md`. **Só postar depois do teste logado e do P-61 no ar.**
+Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.200 caracteres cada, com o título "Modo GTO no ar" / "GTO Mode is live" e o early bird em negrito. Tamanho real e emojis: ver `discord.md`. **Só postar depois do teste logado, do P-61 no ar e da confirmação da regra do early bird.**
 
 ---
 
 # (d) E-mail
 
-Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode". A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) tem os mesmos números do exemplo (46,0% e 38,8%, faixa 37,1–40,4%).
+Texto, assuntos (um deles anuncia "Modo GTO no ar" / "GTO Mode is live"), preheader com o early bird e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode"; frase do early bird sob o botão. A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) tem os mesmos números do exemplo (46,0% e 38,8%, faixa 37,1–40,4%).
 
 ---
 
@@ -263,18 +277,20 @@ Texto, assuntos, preheader e notas técnicas em `email.md`. Corpo curto, um exem
 
 | Número no texto | Valor | Fonte | Onde aparece |
 |---|---|---|---|
-| Second Barrel no recorte largo (só na captura do slide 3) | field 54,2% · GTO 57,2% (50,8–63,5) · dentro da faixa | `numeros-verificados-lancamento.md` (14/10) | Slide 3 (captura, sem contagem de mãos); não citado em texto |
+| Preço do plano Individual (early bird) | US$ 29/mês no checkout EN (EN "US$ 29/month"); R$ 150/mês no checkout PT | `aura-landing` `pricing.ts` e `aura-novofront` `billingPlans.ts` (HUB); Rafael via HUB, 13 e 15/10. **Pendente: o Rafael confere no Stripe** | Capa e slide 5 do carrossel (EN), story da capa PT (R$), legendas, Discord, landing, e-mail. Moeda nunca trocada |
+| "Por tempo limitado" / "for a limited time" | sem data de fim | Rafael ("sim leva"), 15/10; sem data por decisão | Capa e slide 5 do carrossel, story da capa PT, legendas, Discord, landing, e-mail |
+| Second Barrel no recorte largo (28 classes de board) | field 54,2% · GTO 57,2% (50,8–63,5) · dentro da faixa | `numeros-verificados-lancamento.md` (14/10), seção N7 a N10 ("Outras ações no mesmo recorte") | Slide 3 (barras, sem contagem de mãos); legenda do carrossel. Uso como contraste, não como exemplo principal |
 | Diferença do exemplo (a) dentro da imagem EN do e-mail | "Overfold +5.6 pp" (a tela mostra a distância ao topo da faixa) | Exemplo (a), 08/10, confirmado em 14/10 | Imagem EN do e-mail; o texto do e-mail não cita a diferença |
 | Spot do exemplo CO × BB | CO × BB · SRP · 30–60bb (GTO a 40bb) · Regular · flop K-high, two-tone, sem par, desconectado · c-bet de 33% | Exemplo (a), 08/10 | Apoio do feed; legendas, Discord, landing, e-mail |
-| Field folda | 46,0% (EN 46.0%) | Exemplo (a), `potPercentage` do `actionSize` 2 | Barras (feed, stories, carrossel 1 e 2); legendas, Discord, landing, e-mail |
+| Field folda | 46,0% (EN 46.0%) | Exemplo (a), `potPercentage` do `actionSize` 2 | Barras (feed, stories, story da capa PT, carrossel 2); legendas, Discord, landing, e-mail |
 | GTO folda e faixa | 38,8% (38,78 na API); faixa 37,1–40,4% (37,13–40,43) | Exemplo (a), `gtoFold` e `gtoBand.fold` | Barras com a faixa como sombreado; legendas, Discord, landing, e-mail |
 | Diferença | +5,6 pp (acima do topo da faixa, como a tela mostra; 7,2 é contra o centro) | Exemplo (a) | Só texto: legendas, Discord, landing (o e-mail não a cita) |
 | Pré-flop | RFI do CO, Regular, 30–50bb (GTO a 40bb): field abre 31,6%, GTO abre 37,0%, −5,4 pp | Exemplo (b) | Captura do slide 4; legenda do carrossel e landing (bullet 2). O −5,4 pp não é citado no texto |
-| Ação da abertura | Turn Delayed CBet (o CO aposta o turn depois do flop passado) | `numeros-verificados-lancamento.md` (14/10) | Título do slide 5; legenda do carrossel |
-| Spot da abertura | CO × BB · 30–60bb (GTO a 40bb) · SRP · flop two-tone · turn qualquer · Regular · últimos 2 anos (apoio da arte: "CO × BB · two-tone · turn") | idem | Slide 5 (apoio); legenda do carrossel |
-| Field aposta | 51,7% (EN 51.7%) | idem | Slide 5 (barra); legenda do carrossel |
-| GTO aposta e faixa | 44,1%, faixa 37,8–50,3% (EN 44.1%, 37.8–50.3%) | idem | Slide 5 (barra e faixa); legenda do carrossel |
-| Diferença da abertura | 1,4 pp acima do topo da faixa (EN 1.4 pp above the top of the range) | idem | Slide 5 (gap); legenda do carrossel |
+| Ação da abertura | Turn Delayed CBet (o CO aposta o turn depois do flop passado) | `numeros-verificados-lancamento.md` (14/10) | Slide 3 (barra); legenda do carrossel |
+| Spot da abertura e do Second Barrel | CO × BB · 30–60bb (GTO a 40bb) · SRP · flop two-tone · turn qualquer · Regular · últimos 2 anos (rótulo da arte: "CO × BB · two-tone flop · any turn") | idem | Slide 3 (rótulo); legenda do carrossel |
+| Field aposta | 51,7% (EN 51.7%) | idem | Slide 3 (barra); legenda do carrossel |
+| GTO aposta e faixa | 44,1%, faixa 37,8–50,3% (EN 44.1%, 37.8–50.3%) | idem | Slide 3 (barra e faixa); legenda do carrossel |
+| Diferença da abertura | 1,4 pp acima do topo da faixa (EN 1.4 pp above the top of the range) | idem | Slide 3 (gap desenhado, sem número na arte); legenda do carrossel |
 | Cobertura | Texto da seção "Decisões registradas" | idem | Legendas, landing, Discord, e-mail, slide 3 |
 
-Não usados, por instrução da fonte e da HUB: a contagem de mãos do exemplo de abertura (80 mil), as 10.216 mãos e as 23,8 milhões de oportunidades; contagens de linhas e a escala de 08/10 (30 situações, 2.330 flops, 6.980.568 nós, 225 decisões); o Probe e o Second Barrel como exemplo; o candidato SB × BB 3-bet (amostra pequena); RFI do BTN a 40bb (51%), disponível para peças de sustentação.
+Não usados, por instrução da fonte e da HUB: a contagem de mãos do exemplo de abertura (80 mil), as 197 mil do Second Barrel, as 10.216 mãos e as 23,8 milhões de oportunidades; contagens de linhas e a escala de 08/10 (30 situações, 2.330 flops, 6.980.568 nós, 225 decisões); o Probe (faixa larga) como exemplo; o candidato SB × BB 3-bet (amostra pequena); RFI do BTN a 40bb (51%), disponível para peças de sustentação.
