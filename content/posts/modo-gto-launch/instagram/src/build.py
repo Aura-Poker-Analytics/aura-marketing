@@ -321,7 +321,7 @@ def render_html(name, n, miss, test=False):
         css = """.page { padding-top: 64px; }
 .mid { flex: 1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position: relative; }
 .rings { position: absolute; left: 50%; top: 40%; width: 1100px; height: 760px; transform: translate(-50%, -50%); z-index: 0; background: radial-gradient(closest-side, rgba(251,191,36,.30), rgba(251,191,36,.08) 55%, transparent); }
-.lead { position: relative; z-index: 2; font-size: 78px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; color: #fff; }
+.lead { position: relative; z-index: 2; font-size: 62px; line-height: 1.08; max-width: 900px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; color: #fff; }
 .lead em { font-style: normal; color: #FBBF24; }
 .title { position: relative; z-index: 2; margin-top: 6px; line-height: .9; display: flex; align-items: flex-start; justify-content: center; gap: 18px; }
 .title .cur { font-size: 100px; font-weight: 900; margin-top: 44px; color: #fff; }

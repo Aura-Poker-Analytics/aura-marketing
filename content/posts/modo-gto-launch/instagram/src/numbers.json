@@ -52,12 +52,12 @@
     "email_preflop_en": "Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.",
     "email_under_pt": "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.",
     "email_under_en": "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+.",
-    "c1_apoio_en": "Included in Individual: US$ 29/month. Limited time.",
+    "c1_apoio_en": "Included in Individual (US$ 29/month) for a limited time.",
     "c3_apoio_en": "Second barrel: inside the range. Delayed c-bet: above.",
-    "c5_titulo_en": "Included in Individual",
+    "c5_titulo_en": "GTO Mode is included in Individual",
     "c5_apoio_en": "For a limited time.",
-    "story_apoio_pt": "Incluso no plano Individual: R$ 150/mês. Por tempo limitado.",
-    "story_grafico_pt": "CO × BB · exemplo",
+    "story_apoio_pt": "Incluso no plano Individual (R$ 150/mês) por tempo limitado.",
+    "story_grafico_pt": "CO × BB · c-bet de 33% · exemplo",
     "c5_numero_en": "US$ 29/month"
   },
   "verificados": {
@@ -84,10 +84,10 @@
     "rfi_co_40bb_pct": 37,
     "rfi_btn_40bb_pct": 51,
     "cobertura_14_10": "flop: reacao ao c-bet e ao raise; turn e river: aberturas do agressor (second barrel, delayed c-bet, third barrel) e reacoes",
-    "preco_early_bird": {
+    "preco_individual": {
       "en": "US$ 29/month",
       "pt": "R$ 150/mês",
-      "regra": "so as strings dos slides; sem data, sem desconto semestral/anual, sem preco travado"
+      "regra": "so as strings dos slides, ligadas a inclusao por tempo limitado; sem data, sem desconto semestral/anual, sem preco travado"
     }
   },
   "N6A": "Turn Delayed CBet",
