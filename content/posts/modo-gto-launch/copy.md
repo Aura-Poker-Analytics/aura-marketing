@@ -263,7 +263,7 @@ Texto completo, com URLs, em `discord.md` (mesma pasta). PT e EN, abaixo de 1.20
 
 # (d) E-mail
 
-Texto, assunto (aprovado pelo Rafael em 15/10: "O GTO no flop, turn e river, ao lado do field" / "GTO on the flop, turn and river, next to the field"), preheader com "incluso no plano Individual, por tempo limitado" e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode"; frase do plano sob o botão. A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) é um mockup de produto (janela do app com a grade 13×13 do Field vs GTO e um cartão com as barras field × GTO do c-bet de 33%) com os mesmos números do exemplo (PT 46,0% × 38,8%, EN 46.0% × 38.8%, faixa 37,1–40,4%).
+Texto, assunto (aprovado pelo Rafael em 15/10: "O GTO no flop, turn e river, ao lado do field" / "GTO on the flop, turn and river, next to the field"), preheader com "incluso no plano Individual, por tempo limitado" e notas técnicas em `email.md`. Corpo curto, um exemplo (CO × BB) e a comparação field × GTO dele. Botão "Conhecer o Modo GTO" / "See GTO Mode"; frase do plano sob o botão. A imagem do e-mail (`email/modo-gto-pt.png` e `-en.png`) é um mockup de produto (janela do app com a captura real da grade 13×13 do Field vs GTO e um cartão com as barras field × GTO do c-bet de 33%) com os mesmos números do exemplo (PT 46,0% × 38,8%, EN 46.0% × 38.8%, faixa 37,1–40,4%).
 
 ---
 

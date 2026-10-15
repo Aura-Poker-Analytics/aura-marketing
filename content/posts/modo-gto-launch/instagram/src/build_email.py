@@ -38,7 +38,6 @@ CP = {
         tagline="O GTO e o field na mesma tela.",
         pre="Incluso no plano Individual, por tempo limitado. O GTO no flop, turn e river, ao lado do field.",
         btn="Conhecer o Modo GTO",
-        alt="Duas barras de fold no mesmo spot: field 46,0% e GTO 38,8%, com a faixa GTO de 37,1 a 40,4%.",
         f1="Você recebeu este e-mail porque criou uma conta na Aura Poker Analytics.",
         f2='Não quer mais e-mails como este? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Descadastrar</a> · Dúvidas no <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
         f3="Fale com a gente:",
@@ -49,7 +48,6 @@ CP = {
         tagline="GTO and the field on the same screen.",
         pre="Included in the Individual plan, for a limited time. GTO on the flop, turn and river, next to the field.",
         btn="See GTO Mode",
-        alt="Aura window showing the Field vs GTO hand grid and the field and GTO fold bars for the same spot.",
         f1="You received this email because you created an account on Aura Poker Analytics.",
         f2='Don\'t want emails like this anymore? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Unsubscribe</a> · Questions? Find us on <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
         f3="Reach us:",
@@ -165,11 +163,13 @@ def mockup_html(lang, n):
     cw_, chh = (gx1 - gx0) * WW / 13, (gy1 - gy0) * ih / 13
     cx, cy = gx0 * WW + cw_ / 2, gy0 * ih + chh / 2
     rw, rh = cw_ * 1.22, chh * 1.22
+    spot = f.get("spot_label") or "[[spot_label]]"
+    spot = f"Field vs GTO · {spot}"
     ex = Ex(n, lang)
     lab, rng_lab, f_lab, g_lab = CARD_L[lang]
     top = max(ex.n2, ex.hi, ex.c) * 1.12
     sc = lambda v: v / top * 100
-    rng = f"{fnum(ex.lo, lang, n)}\u2013{fnum(ex.hi, lang, n)}"
+    rng = f"{fnum(ex.lo, lang, n)}\u2013{fnum(ex.hi, lang, n)}%"
     return f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="base.css"><style>
 html, body {{ width: {MW}px; background: #0b1220; }}
 #m {{ position: relative; width: {MW}px; height: {MH}px; overflow: hidden; background:
@@ -178,6 +178,7 @@ html, body {{ width: {MW}px; background: #0b1220; }}
 .win {{ position: absolute; left: 70px; top: 70px; width: {WW}px; transform: rotate(-1.5deg); border-radius: 26px; overflow: hidden; background: #0B1220;
   border: 2px solid rgba(251,191,36,.45); box-shadow: 0 40px 90px rgba(0,0,0,.65), 0 0 0 10px rgba(251,191,36,.07); }}
 .win .bar {{ height: 40px; background: #111A2E; display: flex; align-items: center; gap: 10px; padding-left: 18px; border-bottom: 1px solid rgba(148,163,184,.2); }}
+.win .bar span {{ margin-left: 14px; font-size: 22px; font-weight: 600; color: #8FA0B8; letter-spacing: .03em; white-space: nowrap; }}
 .win .bar i {{ width: 13px; height: 13px; border-radius: 50%; background: rgba(148,163,184,.45); }}
 .gi {{ position: relative; width: {WW}px; height: {ih}px; }} .gi img {{ display: block; width: {WW}px; }}
 .ring {{ position: absolute; left: {cx - rw / 2:.0f}px; top: {cy - rh / 2:.0f}px; width: {rw:.0f}px; height: {rh:.0f}px; border: 5px solid #FBBF24; border-radius: 26%; box-shadow: 0 0 0 3px rgba(15,21,38,.55), 0 0 26px rgba(251,191,36,.9); }}
@@ -195,7 +196,7 @@ html, body {{ width: {MW}px; background: #0b1220; }}
 .leg {{ display: flex; align-items: center; gap: 12px; margin-top: 24px; font-size: 24px; font-weight: 600; color: #CBD5E1; }}
 .leg i {{ width: 38px; height: 22px; border-radius: 5px; background: rgba(203,213,225,.38); border: 2px dashed rgba(226,232,240,.95); }}
 </style></head><body><div id="m">
-<div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="gi"><img src="assets/{fn}"><div class="ring"></div></div></div>
+<div class="win"><div class="bar"><i></i><i></i><i></i><span>{spot}</span></div><div class="gi"><img src="assets/{fn}"><div class="ring"></div></div></div>
 <div class="card"><div class="t">{lab}</div>
 <div class="row"><span class="n">{f_lab}</span><div class="track"><div class="fill ff" style="width:{sc(ex.n2):.1f}%"></div></div><span class="v">{pct(ex.n2, lang, n)}</span></div>
 <div class="row"><span class="n">{g_lab}</span><div class="track"><div class="fill fg" style="width:{sc(ex.c):.1f}%"></div><div class="band" style="left:{sc(ex.lo):.1f}%;width:{sc(ex.hi) - sc(ex.lo):.1f}%"></div></div><span class="v">{pct(ex.c, lang, n)}</span></div>
@@ -255,6 +256,17 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
         return H.escape(v)
     corpo, preflop, under = tx("email_corpo"), tx("email_preflop"), tx("email_under")
     draft = bool(miss)
+    exa = Ex(n, lang)
+    spot_alt = (n.get("fvg") or {}).get("spot_alt") or {}
+    if exa.chart_ready:
+        if lang == "pt":
+            alt = (f"Janela do app com a grade de mãos do Field vs GTO no pré-flop (SB, RFI, 50bb+) e, sobreposto, o cartão do exemplo do e-mail: "
+                   f"fold contra c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}, faixa GTO {fnum(exa.lo, lang, n)}–{fnum(exa.hi, lang, n)}%.")
+        else:
+            alt = (f"App window with the Field vs GTO preflop hand grid (SB, RFI, 50bb+) and, overlaid, the e-mail's example card: "
+                   f"fold vs c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}, GTO range {fnum(exa.lo, lang, n)}–{fnum(exa.hi, lang, n)}%.")
+    else:
+        alt = "[[alt]]"
     url = lib.LANDING.format(lang=lang)
     src = f"email/{img_name}" if preview else f"https://www.aurapoker.com/email/{img_name}"
     banner = ""
@@ -305,7 +317,7 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
           </tr>
           <tr>
             <td style="padding-top:18px; padding-right:34px; padding-bottom:4px; padding-left:34px;" align="center">
-              <img src="{src}" width="552" height="{img_h}" alt="{H.escape(c['alt'])}" style="display:block; width:100%; max-width:552px; height:auto; border:0; outline:none; text-decoration:none;">
+              <img src="{src}" width="530" height="{img_h}" alt="{H.escape(alt)}" style="display:block; width:100%; max-width:530px; height:auto; border:0; outline:none; text-decoration:none;">
             </td>
           </tr>
           <tr>
@@ -350,7 +362,7 @@ def main():
             other.unlink(missing_ok=True)
             im.save(dst, optimize=True)
             chk = Image.open(dst)
-            hd = round(chk.height * 552 / chk.width)
+            hd = round(chk.height * 530 / chk.width)
             print(dst.name, chk.size, chk.mode, round(dst.stat().st_size / 1024), "KB", "(provisoria)" if pending else "")
             for preview in (False, True):
                 html, miss = render(lang, n, dst.name, hd, why, preview)
