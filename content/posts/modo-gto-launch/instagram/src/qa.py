@@ -128,6 +128,11 @@ for f in [SRC / "numbers.json", SRC / "build.py", SRC / "build_email.py", SRC / 
     if re.search(r"early[\s_-]?bird", f.read_text(encoding="utf-8"), re.I):
         bad(f"{f.name}: 'early bird' proibido no pacote")
 
+# ---- "MDF" proibido em pecas publicas (a conta gratis inclui uma amostra do GTO, nao "field e MDF")
+for f in [SRC / "numbers.json", SRC / "build.py", SRC / "build_email.py", *SRC.glob("*.html"), *POST.glob("email-*.html")]:
+    if re.search(r"MDF", f.read_text(encoding="utf-8")):
+        bad(f"{f.name}: 'MDF' proibido em peca publica")
+
 # ---- e-mail
 for lang in ("pt", "en"):
     for f in (POST / f"email-{lang}.html", POST / f"email-{lang}.preview.html"):

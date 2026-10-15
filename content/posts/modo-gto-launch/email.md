@@ -2,7 +2,7 @@
 
 Status: rascunho sem marcadores abertos; não publicado. Não enviado, e nada foi criado no Resend. Versão de 15/10/2026 (anuncia "no ar" e a inclusão do GTO no Individual por tempo limitado, decisão do Rafael via HUB), números fechados em 14/10. **O Rafael aprovou, direto, em 15/10, o assunto e o corpo do e-mail (PT e EN); o corpo não muda.**
 Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10): field folda 46,0%, GTO folda 38,8%. A cobertura segue `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (14/10). Um exemplo só (CO × BB) e uma comparação só (field contra GTO). Sem número de escala, sem pré-flop concreto, sem contagem de mãos, sem o exemplo de abertura.
-**Só enviar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual), da conferência do preço (29 / 150) no Stripe pelo Rafael, do GATE B1 (data interna a honrar e reconciliação da landing publicada, sessão do aura-landing), do GATE A2 (frase da conta grátis), do **GATE P-53** (o teste logado do Rafael confirma que a visão Field vs GTO está ligada em produção para o Individual e que o AA mostra +21 (20,9 pp arredondado) e as marcas 132 / 148 / 74 do SB RFI 50bb+; a imagem do e-mail mostra essa grade), da hospedagem das imagens (aura-landing#17) e da versão de 13/10 em produção.** O botão leva à landing, mas o texto promete o módulo.
+**Só enviar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual), da conferência do preço (29 / 150) no Stripe pelo Rafael, do GATE B1 (data interna a honrar e reconciliação da landing publicada, sessão do aura-landing), do GATE A2 (amostra do GTO na conta grátis), do **GATE P-53** (o teste logado do Rafael confirma que a visão Field vs GTO está ligada em produção para o Individual e que o AA mostra +21 (20,9 pp arredondado) e as marcas 132 / 148 / 74 do SB RFI 50bb+; a imagem do e-mail mostra essa grade), da hospedagem das imagens (aura-landing#17) e da versão de 13/10 em produção.** O botão leva à landing, mas o texto promete o módulo.
 
 ---
 
@@ -26,7 +26,7 @@ Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regula
 No pré-flop, o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
 Botão: Conhecer o Modo GTO
-Sob o botão: O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF. Poker é jogo de habilidade e estudo. 18+.
+Sob o botão: O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis inclui uma amostra do GTO. Poker é jogo de habilidade e estudo. 18+.
 
 ---
 
@@ -50,7 +50,7 @@ Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tour
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
 Button: See GTO Mode
-Under the button: GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison. Poker is a game of skill and study. 18+.
+Under the button: GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account includes a sample of GTO. Poker is a game of skill and study. 18+.
 
 ---
 
@@ -64,8 +64,8 @@ Under the button: GTO Mode is included in the Individual plan (US$ 29/month) for
   - Só o logo continua hospedado em `https://www.aura.poker/email/`; não é link de destino.
 - **Descadastro:** placeholder `{{{RESEND_UNSUBSCRIBE_URL}}}` no rodapé, substituído pelo Resend no envio.
 - **Layout:** 600px, tabelas, estilos inline, preheader oculto, botão âmbar `#D4A418`, linha de canais (Discord, WhatsApp, YouTube) e 18+ no rodapé, igual ao e-mail do Field Trends.
-- **Botão:** "Conhecer o Modo GTO" / "See GTO Mode", por instrução da HUB; não usar "Acesse grátis", porque a conta grátis não vê o número GTO.
-- **Frase sob o botão (decisão do Rafael via HUB, 13/10: "fazendo parte do plano de 29 por tempo limitado"; 15/10: a inclusão do GTO no Individual é a temporária):** PT "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis segue com o field e a comparação com o MDF." / EN "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account keeps the field and the MDF comparison." R$ 150 e US$ 29 são o preço do Individual; o temporário é a inclusão do GTO. Valor conferido pela HUB em `aura-landing` `src/content/pricing.ts` e `aura-novofront` `billingPlans.ts` (US$ 29/mês no checkout em EN, R$ 150/mês no checkout em PT). Moeda nunca trocada: PT só "R$ 150/mês", EN só "US$ 29/month". Sem data de fim, sem "últimas horas" nem "só hoje", sem preço travado, sem promessa de que quem assina agora mantém o GTO, sem preço futuro nem plano GTO à parte. **Pendências: o Rafael confere no Stripe que o checkout cobra 29 / 150 hoje; GATE B1 (data interna a honrar e reconciliação da landing publicada, em `copy.md` Pendência 8); GATE A2 (a frase da conta grátis só fica se o teste logado do Rafael confirmar); depende também do P-61 no ar. Não enviar antes.**
+- **Botão:** "Conhecer o Modo GTO" / "See GTO Mode", por instrução da HUB; não usar "Acesse grátis", porque a conta grátis inclui só uma amostra do GTO.
+- **Frase sob o botão (decisão do Rafael via HUB, 13/10: "fazendo parte do plano de 29 por tempo limitado"; 15/10: a inclusão do GTO no Individual é a temporária):** PT "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis inclui uma amostra do GTO." / EN "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account includes a sample of GTO." R$ 150 e US$ 29 são o preço do Individual; o temporário é a inclusão do GTO. Valor conferido pela HUB em `aura-landing` `src/content/pricing.ts` e `aura-novofront` `billingPlans.ts` (US$ 29/mês no checkout em EN, R$ 150/mês no checkout em PT). Moeda nunca trocada: PT só "R$ 150/mês", EN só "US$ 29/month". Sem data de fim, sem "últimas horas" nem "só hoje", sem preço travado, sem promessa de que quem assina agora mantém o GTO, sem preço futuro nem plano GTO à parte. **Pendências: o Rafael confere no Stripe que o checkout cobra 29 / 150 hoje; GATE B1 (data interna a honrar e reconciliação da landing publicada, em `copy.md` Pendência 8); GATE A2 (o teste logado do Rafael confere a amostra do GTO na conta Grátis, um spot do flop com a reação ao c-bet, e que o resto fica trancado; sem isso, a frase sai); depende também do P-61 no ar. Não enviar antes.**
 - **Fora do e-mail:** plano Modo GTO à parte, plano Top, desconto semestral/anual e qualquer promoção.
 - **Reply-to:** o e-mail não pede resposta; o remetente segue o padrão anterior (`manager@aurapoker.com` como reply-to). Confirmar antes do envio.
 - **Não enviado.** Envio e lista são do Rafael.

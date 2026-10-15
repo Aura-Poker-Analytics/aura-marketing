@@ -1,8 +1,8 @@
 # Discord: lançamento do Modo GTO (GTO no flop, turn e river)
 
 Status: rascunho sem marcadores abertos; não publicado. Versão de 15/10/2026 (a inclusão do GTO no Individual é a temporária, por tempo limitado; decisão do Rafael via HUB), números fechados em 14/10.
-**Tamanho real (len do texto exato dos blocos abaixo, URL inclusa, `\n` = 1 caractere, emoji = 1 caractere): PT 1.108, EN 1.150. Teto de 1.200 respeitado nos dois, com folga de 92 e 50 caracteres (contando cada emoji como 2, UTF-16, ficam 1.111 e 1.153).** A contagem de 15/10 foi refeita à mão (deltas sobre a contagem linha a linha anterior), porque esta sessão não tinha Python nem shell; **recontar por regex ou `len()` antes de postar** (comando em Notas). 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
-**Aviso de publicação: só postar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual), da conferência do preço no Stripe pelo Rafael, do GATE B1 (data interna a honrar e reconciliação da landing publicada, sessão do aura-landing) e do GATE A2 (a frase da conta grátis só fica se o teste logado confirmar).** O link leva ao app e o texto promete o módulo.
+**Tamanho real (len do texto exato dos blocos abaixo, URL inclusa, `\n` = 1 caractere, emoji = 1 caractere): PT 1.091, EN 1.136. Teto de 1.200 respeitado nos dois, com folga de 109 e 64 caracteres (contando cada emoji como 2, UTF-16, ficam 1.094 e 1.139). A troca da frase da conta grátis (15/10, correção do Rafael: "inclui uma amostra do GTO") encurtou o PT em 17 e o EN em 14 caracteres.** A contagem de 15/10 foi refeita à mão (deltas sobre a contagem linha a linha anterior), porque esta sessão não tinha Python nem shell; **recontar por regex ou `len()` antes de postar** (comando em Notas). 3 emojis funcionais: 📊 título, 🔎 convite, 👉 CTA.
+**Aviso de publicação: só postar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual), da conferência do preço no Stripe pelo Rafael, do GATE B1 (data interna a honrar e reconciliação da landing publicada, sessão do aura-landing) e do GATE A2 (o teste logado do Rafael confere a amostra do GTO na conta Grátis, um spot do flop com a reação ao c-bet, e que o resto fica trancado).** O link leva ao app e o texto promete o módulo.
 Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10): field 46,0%, GTO 38,8% (faixa 37,1–40,4%), 5,6 pp acima do topo da faixa. A cobertura segue `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (14/10). Preço: US$ 29/mês (EN) e R$ 150/mês (PT) são o preço do plano Individual, do checkout (HUB), a conferir no Stripe. Nenhum outro número.
 O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A frase do plano é a decisão do Rafael via HUB (13 e 15/10): PT "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado." e EN "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time.", nunca a moeda trocada; o temporário é a inclusão do GTO no Individual, não o preço; "por tempo limitado" sem data, sem preço travado, sem promessa de que quem assina agora mantém o GTO, sem preço futuro. Sem plano Modo GTO à parte, sem Top, sem desconto semestral/anual.
 @aurapokeranalytics: a confirmar pelo Rafael. UTM: `utm_campaign=modo-gto-launch`, uma URL por idioma.
@@ -26,7 +26,7 @@ Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a
 
 🔎 Abra um spot que você joga e olhe o gap.
 
-O Modo GTO está **incluso no plano Individual (R$ 150/mês) por tempo limitado.** A conta grátis segue com o field e a comparação com o MDF.
+O Modo GTO está **incluso no plano Individual (R$ 150/mês) por tempo limitado.** A conta grátis inclui uma amostra do GTO.
 Ferramenta de estudo. 18+.
 👉 Conhecer o Modo GTO: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-pt
 ```
@@ -48,7 +48,7 @@ Preflop: the GTO and the deviation in the covered cells, including the CO and BT
 
 🔎 Open a spot you play and look at the gap.
 
-GTO Mode is **included in the Individual plan (US$ 29/month) for a limited time.** The free account keeps the field and the MDF comparison.
+GTO Mode is **included in the Individual plan (US$ 29/month) for a limited time.** The free account includes a sample of GTO.
 Study tool. 18+.
 👉 See GTO Mode: https://www.aura.poker/?utm_source=discord&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=discord-en
 ```
@@ -58,8 +58,8 @@ Study tool. 18+.
 ## Notas
 - Sem exemplo de abertura no Discord: um exemplo só, para caber no teto. O exemplo de abertura (Turn Delayed CBet) e o Second Barrel vivem no carrossel.
 - Sem "todas as ações", sem o c-bet do flop, o donk nem o probe do river como feature.
-- Field vs GTO (P-53): sem linha no Discord. Uma linha curta cabe no PT (1.108 + ~72 = ~1.180), mas no EN passaria de 1.200 (1.150 + ~53 a ~73), e os dois idiomas ficam com o mesmo conteúdo. O Field vs GTO vive no slide 3 e na legenda do carrossel.
+- Field vs GTO (P-53): sem linha no Discord. Com a frase nova da conta grátis (mais curta), uma linha curta caberia nos dois (PT 1.091 + ~72 = ~1.163; EN 1.136 + ~53 a ~73 = ~1.189 a ~1.209, no limite), mas fica de fora para não arriscar o teto e manter um exemplo só; se o Rafael quiser, a linha EN "Field vs GTO: hand by hand, where the field strays." (~53) entra com a contagem refeita. O Field vs GTO vive no slide 3 e na legenda do carrossel.
 - A ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10); o Discord não a repete.
 - A inclusão do GTO no Individual é a temporária. Sem promessa de preço travado, de que quem assina agora mantém o GTO, de preço futuro ou plano GTO à parte, e sem data. Se a data interna for combinada (GATE B1), ela entra aqui e nas demais peças ao mesmo tempo.
 - Mudanças de 15/10 frente à versão de 13/10: título "Modo GTO no ar" / "GTO Mode is live" (antes "Novo na Aura: Modo GTO" / "New on Aura: GTO Mode"); a frase do plano diz "incluso no plano Individual (preço) por tempo limitado", em negrito (revisão de 15/10); no EN, "The app's status bar guides each click until GTO is there" (antes "…you, click by click, until GTO is there") para caber no teto.
-- Conferência da contagem: copiar o texto de cada bloco (sem as cercas) para um arquivo sem quebra de linha final e rodar `python -c "import sys;print(len(open(sys.argv[1],encoding='utf-8').read()))" arquivo.txt`. Se o Windows gravar `\r\n`, a contagem sobe 1 por linha: normalizar para `\n`. Parcial da contagem manual (PT): título 20, parágrafo de cobertura 240, exemplo 265, uso 117, pré-flop 84, convite 43, plano 139, rodapé 26, CTA 135 (sem URL: 23 + 112).
+- Conferência da contagem: copiar o texto de cada bloco (sem as cercas) para um arquivo sem quebra de linha final e rodar `python -c "import sys;print(len(open(sys.argv[1],encoding='utf-8').read()))" arquivo.txt`. Se o Windows gravar `\r\n`, a contagem sobe 1 por linha: normalizar para `\n`. Parcial da contagem manual (PT): título 20, parágrafo de cobertura 240, exemplo 265, uso 117, pré-flop 84, convite 43, plano 122, rodapé 26, CTA 135 (sem URL: 23 + 112).
