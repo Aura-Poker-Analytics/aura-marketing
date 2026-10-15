@@ -39,10 +39,10 @@
   "scale_max": null,
   "_scale_max": "Teto do eixo das barras (ex.: 50). null = automatico (1,06 x o maior valor, arredondado para cima em 5). As barras sempre partem do zero.",
   "email_image": {
-    "pt": "bars",
-    "en": "print"
+    "pt": "mockup",
+    "en": "mockup"
   },
-  "_email_image": "Por idioma. 'print' = captura de producao enquadrada (prints/prod/postflop-<lang>.png); 'bars' = as duas barras renderizadas pela build com N2/N3 no formato do idioma. PT usa 'bars' porque o app mistura 46.0% e 38,8% na captura em PT.",
+  "_email_image": "Por idioma. 'mockup' (atual) = janela do app com a captura real da grade do Field vs GTO (fvg.*, a mesma do slide 3) + cartao renderizado com as barras field x GTO do c-bet de 33% (N2/N3, no formato do idioma). 'print' = captura de producao enquadrada; 'bars' = so as barras.",
   "textos_com_numero": {
     "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
     "c4_apoio_en": "CO RFI at 40bb: the field opens less than GTO.",

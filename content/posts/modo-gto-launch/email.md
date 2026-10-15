@@ -1,6 +1,6 @@
 # E-mail: lançamento do Modo GTO (GTO no flop, turn e river, com as aberturas do agressor)
 
-Status: rascunho sem marcadores abertos; não publicado. Não enviado, e nada foi criado no Resend. Versão de 15/10/2026 (anuncia "no ar" e a inclusão do GTO no Individual por tempo limitado, decisão do Rafael via HUB), números fechados em 14/10.
+Status: rascunho sem marcadores abertos; não publicado. Não enviado, e nada foi criado no Resend. Versão de 15/10/2026 (anuncia "no ar" e a inclusão do GTO no Individual por tempo limitado, decisão do Rafael via HUB), números fechados em 14/10. **O Rafael aprovou, direto, em 15/10, o assunto e o corpo do e-mail (PT e EN); o corpo não muda.**
 Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10): field folda 46,0%, GTO folda 38,8%. A cobertura segue `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (14/10). Um exemplo só (CO × BB) e uma comparação só (field contra GTO). Sem número de escala, sem pré-flop concreto, sem contagem de mãos, sem o exemplo de abertura.
 **Só enviar depois do teste logado do Rafael, do P-61 no ar (Modo GTO aberto ao Individual), da conferência do preço (29 / 150) no Stripe pelo Rafael, do GATE B1 (data interna a honrar e reconciliação da landing publicada, sessão do aura-landing), do GATE A2 (frase da conta grátis), da hospedagem das imagens (aura-landing#17) e da versão de 13/10 em produção.** O botão leva à landing, mas o texto promete o módulo.
 
@@ -8,11 +8,9 @@ Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificad
 
 ## PT
 
-**Assunto (2 opções)**
-1. Modo GTO no ar
-2. O GTO no flop, turn e river, ao lado do field
+**Assunto (aprovado pelo Rafael em 15/10):** O GTO no flop, turn e river, ao lado do field
 
-**Recomendado: a 1.** Anuncia o lançamento pelo nome do módulo, curto, e deixa o "por tempo limitado" para o preheader e para a frase sob o botão. A 2 fica como alternativa se o Rafael preferir abrir pela descrição do que o módulo faz.
+Este é o assunto de envio e o `<title>` do HTML. Alternativa **não usada** (descartada na aprovação): "Modo GTO no ar".
 
 **Preheader:** Incluso no plano Individual, por tempo limitado. O GTO no flop, turn e river, ao lado do field.
 
@@ -34,11 +32,9 @@ Sob o botão: O Modo GTO está incluso no plano Individual (R$ 150/mês) por tem
 
 ## EN
 
-**Subject (2 options)**
-1. GTO Mode is live
-2. GTO on the flop, turn and river, next to the field
+**Subject (approved by Rafael on 15/10):** GTO on the flop, turn and river, next to the field
 
-**Recommended: 1.** It announces the launch by the module's name, short, and leaves the "for a limited time" for the preheader and the line under the button. Option 2 stays as the alternative if Rafael prefers to open with what the module does.
+This is the sending subject and the HTML `<title>`. **Unused** alternative (dropped at approval): "GTO Mode is live".
 
 **Preheader:** Included in the Individual plan, for a limited time. GTO on the flop, turn and river, next to the field.
 
@@ -60,9 +56,9 @@ Under the button: GTO Mode is included in the Individual plan (US$ 29/month) for
 
 ## Nota técnica
 
-- **Imagem:** `email/modo-gto-pt.png` e `email/modo-gto-en.png` (1200 px, geradas pela build). EN: captura recortada do card de 33% do app (`_ops/golive-gto-2026-10-04/prints/prod/postflop-en.png`: 46.0%, GTO 38.8% (37.1–40.4), Overfold +5.6 pp). PT: as duas barras renderizadas pela build (46,0% / 38,8% / faixa 37,1–40,4), porque o app em PT mistura 46.0% e 38,8% (bug do front). A captura vem do front no SHA de produção de 08/10 (aura-novofront 429c093) lendo a API local com os snapshots do go-live, não da conta de produção; os mesmos números foram confirmados em produção em 14/10, e o teste logado do Rafael os confere antes do envio. Sem selo de versão, e-mail ou nick. **Hospedar em `https://www.aurapoker.com/email/` antes do envio (aura-landing#17).**
+- **Imagem (versão de 15/10):** `email/modo-gto-pt.png` e `email/modo-gto-en.png` (1200 px, geradas pela build) agora levam um **mockup de produto**: a janela do app com a grade 13×13 do Field vs GTO (neutra de idioma) e um cartão com as barras field × GTO do c-bet de 33% renderizadas pela build, com formato por idioma: PT 46,0% × 38,8%, EN 46.0% × 38.8%, faixa 37,1–40,4% (as mesmas do exemplo (a); o texto do e-mail continua citando só 46,0% × 38,8%). Substitui a captura recortada do card (EN) e as duas barras soltas (PT). A grade é um mockup, não uma captura de conta; sem números do Field vs GTO no e-mail além do exemplo do c-bet, e sem selo de versão, e-mail ou nick. Os números do exemplo foram confirmados em produção em 14/10, e o teste logado do Rafael os confere antes do envio. **Hospedar em `https://www.aurapoker.com/email/` antes do envio (aura-landing#17).**
 - **Logo:** `https://www.aura.poker/email/aura-logo.png` (já hospedado).
-- **Link do CTA (sempre a landing, nunca o app/login; `www.aurapoker.com` com www):**
+- **Link do CTA (botão para a landing, nunca o app/login; `www.aurapoker.com` com www):**
   - PT: https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content=pt
   - EN: https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content=en
   - Só o logo continua hospedado em `https://www.aura.poker/email/`; não é link de destino.

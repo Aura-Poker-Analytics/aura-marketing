@@ -21,6 +21,7 @@ from PIL import Image, ImageDraw, ImageFont
 from playwright.sync_api import sync_playwright
 
 import lib
+import build as B
 from lib import ASSETS, EMAIL, POST, SRC, Ex, chart_svg, find_print, fnum, has_text, pct, ph_email
 
 BG_MAIL = (11, 18, 32)  # #0b1220
@@ -33,7 +34,7 @@ FONTB = "C:/Windows/Fonts/segoeuib.ttf"
 
 CP = {
     "pt": dict(
-        lang_attr="pt-BR", subject="Modo GTO no ar", h1="Modo GTO no ar",
+        lang_attr="pt-BR", subject="O GTO no flop, turn e river, ao lado do field", h1="Modo GTO no ar",
         tagline="O GTO e o field na mesma tela.",
         pre="Incluso no plano Individual, por tempo limitado. O GTO no flop, turn e river, ao lado do field.",
         btn="Conhecer o Modo GTO",
@@ -44,11 +45,11 @@ CP = {
         draft="RASCUNHO · NÃO ENVIAR · falta: ",
     ),
     "en": dict(
-        lang_attr="en", subject="GTO Mode is live", h1="GTO Mode is live",
+        lang_attr="en", subject="GTO on the flop, turn and river, next to the field", h1="GTO Mode is live",
         tagline="GTO and the field on the same screen.",
         pre="Included in the Individual plan, for a limited time. GTO on the flop, turn and river, next to the field.",
         btn="See GTO Mode",
-        alt="GTO Mode in Postflop Analysis: the field number and the GTO number with the GTO range, side by side, in the same spot.",
+        alt="Aura window showing the Field vs GTO hand grid and the field and GTO fold bars for the same spot.",
         f1="You received this email because you created an account on Aura Poker Analytics.",
         f2='Don\'t want emails like this anymore? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Unsubscribe</a> · Questions? Find us on <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
         f3="Reach us:",
@@ -144,11 +145,92 @@ def bars_image(lang, n, pw):
     return Image.open(tmp).convert("RGB")
 
 
+CARD_L = {"pt": ("Fold contra c-bet · Field × GTO", "Faixa GTO", "Field", "GTO"),
+          "en": ("Fold vs c-bet · Field × GTO", "GTO range", "Field", "GTO")}
+MW, MH = 1200, 940
+
+
+def mockup_html(lang, n):
+    """Mockup do e-mail: janela do app com a captura real da grade 13x13 (neutra de idioma, anel no AA) e, sobreposto no canto
+    inferior direito e saindo da janela, um cartao renderizado com as barras field x GTO do c-bet de 33% e a faixa."""
+    f = n.get("fvg") or {}
+    cap = B.fvg_capture(n)
+    box = f.get("grid_box")
+    fn, cw, ch = cap
+    WW = 800
+    ih = round(WW * ch / cw)
+    c = f.get("crop") or [0, 0, 1, 1]
+    gx0, gx1 = (box[0] - c[0]) / (c[2] - c[0]), (box[2] - c[0]) / (c[2] - c[0])
+    gy0, gy1 = (box[1] - c[1]) / (c[3] - c[1]), (box[3] - c[1]) / (c[3] - c[1])
+    cw_, chh = (gx1 - gx0) * WW / 13, (gy1 - gy0) * ih / 13
+    cx, cy = gx0 * WW + cw_ / 2, gy0 * ih + chh / 2
+    rw, rh = cw_ * 1.22, chh * 1.22
+    ex = Ex(n, lang)
+    lab, rng_lab, f_lab, g_lab = CARD_L[lang]
+    top = max(ex.n2, ex.hi, ex.c) * 1.12
+    sc = lambda v: v / top * 100
+    rng = f"{fnum(ex.lo, lang, n)}\u2013{fnum(ex.hi, lang, n)}"
+    return f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="base.css"><style>
+html, body {{ width: {MW}px; background: #0b1220; }}
+#m {{ position: relative; width: {MW}px; height: {MH}px; overflow: hidden; background:
+  radial-gradient(520px 440px at 36% 46%, rgba(251,191,36,.30), transparent 100%),
+  radial-gradient(480px 360px at 80% 84%, rgba(1,90,107,.40), transparent 100%), #0b1220; font-family: Montserrat, sans-serif; }}
+.win {{ position: absolute; left: 70px; top: 70px; width: {WW}px; transform: rotate(-1.5deg); border-radius: 26px; overflow: hidden; background: #0B1220;
+  border: 2px solid rgba(251,191,36,.45); box-shadow: 0 40px 90px rgba(0,0,0,.65), 0 0 0 10px rgba(251,191,36,.07); }}
+.win .bar {{ height: 40px; background: #111A2E; display: flex; align-items: center; gap: 10px; padding-left: 18px; border-bottom: 1px solid rgba(148,163,184,.2); }}
+.win .bar i {{ width: 13px; height: 13px; border-radius: 50%; background: rgba(148,163,184,.45); }}
+.gi {{ position: relative; width: {WW}px; height: {ih}px; }} .gi img {{ display: block; width: {WW}px; }}
+.ring {{ position: absolute; left: {cx - rw / 2:.0f}px; top: {cy - rh / 2:.0f}px; width: {rw:.0f}px; height: {rh:.0f}px; border: 5px solid #FBBF24; border-radius: 26%; box-shadow: 0 0 0 3px rgba(15,21,38,.55), 0 0 26px rgba(251,191,36,.9); }}
+.card {{ position: absolute; right: 34px; bottom: 40px; width: 590px; background: #111A2E; border: 2px solid rgba(148,163,184,.35); border-radius: 26px; padding: 28px 30px 26px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7); transform: rotate(-1.5deg); }}
+.card .t {{ font-size: 26px; font-weight: 700; color: #A9B6C8; letter-spacing: .02em; margin-bottom: 20px; }}
+.row {{ display: flex; align-items: center; gap: 16px; margin-top: 14px; }}
+.row .n {{ width: 96px; font-size: 26px; font-weight: 800; color: #CBD5E1; letter-spacing: .08em; text-transform: uppercase; }}
+.track {{ position: relative; flex: 1; height: 34px; background: rgba(30,41,59,.9); border-radius: 999px; }}
+.fill {{ position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; }}
+.ff {{ background: linear-gradient(90deg, #015A6B, #0E8AA3); box-shadow: inset 0 0 0 2px rgba(103,232,249,.35); }}
+.fg {{ background: rgba(1,90,107,.55); box-shadow: inset 0 0 0 3px #5EC9DB; }}
+.band {{ position: absolute; top: -9px; bottom: -9px; background: rgba(203,213,225,.22); border: 2px dashed rgba(226,232,240,.85); border-radius: 8px; }}
+.row .v {{ width: 128px; text-align: right; font-size: 40px; font-weight: 900; color: #fff; }}
+.leg {{ display: flex; align-items: center; gap: 12px; margin-top: 24px; font-size: 24px; font-weight: 600; color: #CBD5E1; }}
+.leg i {{ width: 38px; height: 22px; border-radius: 5px; background: rgba(203,213,225,.38); border: 2px dashed rgba(226,232,240,.95); }}
+</style></head><body><div id="m">
+<div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="gi"><img src="assets/{fn}"><div class="ring"></div></div></div>
+<div class="card"><div class="t">{lab}</div>
+<div class="row"><span class="n">{f_lab}</span><div class="track"><div class="fill ff" style="width:{sc(ex.n2):.1f}%"></div></div><span class="v">{pct(ex.n2, lang, n)}</span></div>
+<div class="row"><span class="n">{g_lab}</span><div class="track"><div class="fill fg" style="width:{sc(ex.c):.1f}%"></div><div class="band" style="left:{sc(ex.lo):.1f}%;width:{sc(ex.hi) - sc(ex.lo):.1f}%"></div></div><span class="v">{pct(ex.c, lang, n)}</span></div>
+<div class="leg"><i></i>{rng_lab} {rng}</div></div>
+</div></body></html>"""
+
+
+def mockup_image(lang, n, pw):
+    f = SRC / f"_email-mockup-{lang}.html"
+    f.write_text(mockup_html(lang, n), encoding="utf-8")
+    pg = pw.new_page(viewport={"width": MW, "height": MH}, device_scale_factor=1)
+    pg.goto(f.as_uri())
+    pg.evaluate("document.fonts.ready")
+    pg.wait_for_timeout(300)
+    tmp = ASSETS / f"_email-mockup-{lang}.png"
+    pg.locator("#m").screenshot(path=str(tmp))
+    pg.close()
+    return Image.open(tmp).convert("RGB")
+
+
 def slot_image(lang, n, pw):
     """Retorna (imagem PIL, pendente: bool, motivos)."""
     mode = n.get("email_image", "print")
     if isinstance(mode, dict):                      # por idioma: {"pt": "bars", "en": "print"}
         mode = mode.get(lang, "print")
+    if mode == "mockup":
+        ex = Ex(n, lang)
+        miss = ex.missing()
+        if not B.find_print("field-vs-gto-sb-rfi-60bb"):
+            miss.append("print:field-vs-gto-sb-rfi-60bb")
+        if not (n.get("fvg") or {}).get("grid_box"):
+            miss.append("fvg.grid_box")
+        if miss:
+            return placeholder_image(lang), True, [f"imagem:{m}" for m in miss]
+        return mockup_image(lang, n, pw), False, []
     if mode == "bars":
         ex = Ex(n, lang)
         miss = ex.missing()
@@ -266,8 +348,7 @@ def main():
             dst = EMAIL / f"{stem}.png"
             other = EMAIL / (f"modo-gto-{lang}.png" if pending else f"modo-gto-{lang}-DRAFT.png")
             other.unlink(missing_ok=True)
-            q = im.quantize(colors=256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.FLOYDSTEINBERG)
-            q.save(dst, optimize=True)
+            im.save(dst, optimize=True)
             chk = Image.open(dst)
             hd = round(chk.height * 552 / chk.width)
             print(dst.name, chk.size, chk.mode, round(dst.stat().st_size / 1024), "KB", "(provisoria)" if pending else "")
