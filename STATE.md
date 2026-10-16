@@ -1,6 +1,6 @@
 # STATE.md — aura-marketing
 
-Atualizado em: 2026-10-06 · por: sessão `aura · Field Ranges · pacote de lançamento` · branch de trabalho: feature/launch-field-ranges
+Atualizado em: 2026-10-15 · por: sessão `aura-marketing · Modo GTO pacote` (branch `feature/launch-modo-gto`) e, antes, `aura · Field Ranges · pacote de lançamento`
 
 Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de tarefa atualiza este arquivo antes de fechar. "Em andamento" tem no máximo dois itens.
 
@@ -8,6 +8,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 - Pacote de lançamento do Field Ranges (Beta), sem publicar: Discord PT/EN, Instagram (feed, story, carrossel de 6) PT/EN, mockups e texto da landing em `content/posts/field-ranges-launch/` (revisão de marca em 4 rodadas, OK com ressalvas na final; HUB aprovou o pacote em 3acf1ae).
 
 ## 2. Em andamento (máx. 2)
+- **Pacote Modo GTO (versão 15/10)** · branch `feature/launch-modo-gto` · onde parou: [PR #4](https://github.com/Aura-Poker-Analytics/aura-marketing/pull/4) com OK formal do revisor, nada publicado; carrossel de lançamento (7 slides EN, com o slide Field vs GTO, "GTO Mode is live", incluso no Individual por tempo limitado), story da capa PT, feed, e-mail PT/EN e textos em `content/posts/modo-gto-launch/` · próximo passo: gates do Rafael/HUB (P-61 conferido logado, Stripe 29/150, teste logado, hospedagem das imagens do e-mail no aura-landing#17, reconciliação da landing em sessão própria, data interna do "tempo limitado", oferta em dólar para o público BR) e depois postar/enviar · sessão pode ser arquivada
 - **Pacote Field Ranges** · branch `feature/launch-field-ranges` · onde parou: PR #2 aberto (3acf1ae), nada publicado, pacote fechado do lado da sessão · próximo passo: merge do PR #2 e postagens são do Rafael; a landing lê os mockups deste worktree (não remover até o merge); só o @aurapokeranalytics a confirmar · doc: `content/posts/field-ranges-launch/copy.md`
 
 ## 3. Bloqueado ou na mão do PO

@@ -1,0 +1,148 @@
+{
+  "_leia-me": [
+    "Fonte unica de TODO numero das artes e do e-mail do Modo GTO. Nada numerico mora no HTML.",
+    "Campo null ou string vazia = pendente: a build escreve o marcador [[N..]] bem visivel e nomeia a saida com -DRAFT.",
+    "Preencha e rode: python build.py && python build_email.py (em instagram/src). Sem editar HTML.",
+    "Percentuais sao numeros puros (34.1, nao '34,1%'); a build formata por idioma (PT 34,1% / EN 34.1%).",
+    "N2, N3 e N4 tem de vir do MESMO spot (N1) e da mesma leitura da tela. Fonte: numeros-verificados.md ou a tela de producao."
+  ],
+  "N1": {
+    "_doc": "Spot do exemplo. pt/en = linha de apoio curta das artes. email_pt/email_en = contexto completo do e-mail (email.md). Fonte: numeros-verificados.md, exemplo (a).",
+    "pt": "CO × BB · K-high two-tone · c-bet de 33%",
+    "en": "CO × BB · K-high two-tone · 33% c-bet",
+    "email_pt": "CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%",
+    "email_en": "CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet"
+  },
+  "N2": 46.0,
+  "_N2": "% de fold do field contra o c-bet no spot N1 (numero, ex.: 34.1).",
+  "N3": {
+    "_doc": "Fold GTO no mesmo spot: valor central e a faixa GTO (de-a). Os tres sao obrigatorios.",
+    "center": 38.8,
+    "from": 37.1,
+    "to": 40.4
+  },
+  "N4": 5.6,
+  "_N4": "Distancia do field ao TOPO da faixa GTO (como a tela mostra: Overfold +5,6 pp), nao ao centro. So texto: e-mail e legendas, nunca em arte. null = a build calcula N2 - N3.to (field acima da faixa) ou N3.from - N2 (abaixo); dentro da faixa nao ha distancia e o e-mail pede a leitura. Preencha so para fixar o numero exato da tela.",
+  "N5": {
+    "_doc": "Pre-flop: celula do CO no RFI, destacada na captura do slide 5 (preflop-en.png). Valores como a captura mostra (arredondados em inteiro). Aparece SO dentro da captura; aqui fica o registro.",
+    "cell": "CO RFI",
+    "gto": 37,
+    "field": 32,
+    "deviation": -5
+  },
+  "N6": {
+    "_doc": "SEM USO desde 15/10: a nota da landing nao cita mais numero de escala (copy.md). Nenhuma arte nem o e-mail usa. Mantido vazio.",
+    "pt": "",
+    "en": ""
+  },
+  "decimals": 1,
+  "scale_max": null,
+  "_scale_max": "Teto do eixo das barras (ex.: 50). null = automatico (1,06 x o maior valor, arredondado para cima em 5). As barras sempre partem do zero.",
+  "email_image": {
+    "pt": "mockup",
+    "en": "mockup"
+  },
+  "_email_image": "Por idioma. 'mockup' (atual) = janela do app com a captura real da grade do Field vs GTO (fvg.*, a mesma do slide 3) + cartao renderizado com as barras field x GTO do c-bet de 33% (N2/N3, no formato do idioma). 'print' = captura de producao enquadrada; 'bars' = so as barras.",
+  "textos_com_numero": {
+    "_doc": "Textos fixos do copy.md que carregam numero. Mantidos aqui para o HTML nao ter numero.",
+    "c4_apoio_en": "CO RFI at 40bb: the field opens less than GTO.",
+    "email_corpo_pt": "Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet e third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.",
+    "email_corpo_en": "Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet and third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.",
+    "email_preflop_pt": "No pré-flop, o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.",
+    "email_preflop_en": "Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.",
+    "email_under_pt": "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis inclui uma amostra do GTO. Poker é jogo de habilidade e estudo. 18+.",
+    "email_under_en": "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account includes a sample of GTO. Poker is a game of skill and study. 18+.",
+    "c1_apoio_en": "Included in Individual (US$ 29/month) for a limited time.",
+    "c3_apoio_en": "Second barrel: inside the range. Delayed c-bet: above.",
+    "c5_titulo_en": "GTO Mode is included in Individual",
+    "c5_apoio_en": "For a limited time.",
+    "story_apoio_pt": "Incluso no plano Individual (R$ 150/mês) por tempo limitado.",
+    "story_grafico_pt": "CO × BB · c-bet de 33% · exemplo",
+    "c5_numero_en": "US$ 29/month"
+  },
+  "verificados": {
+    "_doc": "Verificados em producao: numeros-verificados.md (08/10) e numeros-verificados-lancamento.md (14/10). Nao entram sozinhos em nenhuma arte; so registro.",
+    "fonte": "aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md; aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md",
+    "situacoes_preflop_com_gto_no_flop": 28,
+    "confrontos_de_posicao": 10,
+    "stacks_flop_bb": [
+      25,
+      40,
+      60
+    ],
+    "flops_resolvidos": "mais de 2.100 (2.172 spots de flop em 28 situacoes em producao, snapshot 20261015)",
+    "nos_turn_e_river": "quase 7 milhoes (6.980.568)",
+    "decisoes_preflop": 225,
+    "stacks_preflop_bb": [
+      10,
+      14,
+      17,
+      25,
+      40,
+      60
+    ],
+    "rfi_co_40bb_pct": 37,
+    "rfi_btn_40bb_pct": 51,
+    "cobertura_14_10": "flop: reacao ao c-bet e ao raise; turn e river: aberturas do agressor (second barrel, delayed c-bet, third barrel) e reacoes",
+    "preco_individual": {
+      "en": "US$ 29/month",
+      "pt": "R$ 150/mês",
+      "regra": "so as strings dos slides, ligadas a inclusao por tempo limitado; sem data, sem desconto semestral/anual, sem preco travado"
+    }
+  },
+  "N6A": "Turn Delayed CBet",
+  "_N6A": "Registro do exemplo de abertura (Turn Delayed CBet). Desde 15/10 NAO ha slide de barras para ele: o slide 4 usa as capturas second-barrel.png e turn-delayed-cbet.png. Frequencia de APOSTA do agressor, nao de fold.",
+  "N7": "CO × BB · two-tone · turn",
+  "_N7": "Registro: spot resumido do exemplo de abertura (a arte usa o micro-rotulo fixo 'CO × BB · two-tone flop · any turn' no slide 4). Contexto completo em numeros-verificados-lancamento.md: CO x BB, 40bb (30.1-60), SRP, flop two-tone, turn qualquer, Regular, ultimos 2 anos.",
+  "N8": 51.7,
+  "N9": {
+    "_doc": "GTO da abertura (Bet frequency) e faixa GTO.",
+    "center": 44.1,
+    "from": 37.8,
+    "to": 50.3
+  },
+  "N10": 1.4,
+  "_N10": "Distancia do field ao TOPO da faixa GTO (51.7 - 50.3). Leitura: ACIMA. So registro: a arte mostra o numero dentro da captura turn-delayed-cbet.png (slide 4), nao ha gap desenhado.",
+  "N11": {
+    "_doc": "Second Barrel (turn), mesmo recorte do N7. Leitura: DENTRO da faixa, sem gap. Fonte: numeros-verificados-lancamento.md (14/10). Aparece nas artes so dentro da captura second-barrel.png.",
+    "action": "Second Barrel",
+    "field": 54.2,
+    "center": 57.2,
+    "from": 50.8,
+    "to": 63.5,
+    "reading": "inside"
+  },
+  "fvg": {
+    "_doc": "Slide 3 do carrossel (Field vs GTO, Field Ranges). Captura: aura-main/_ops/golive-p53-2026-10-15/prints-mkt/field-vs-gto-sb-rfi-60bb.png (2803x1591; API local do P-53, conta paga de teste; SB, RFI, 60bb/faixa 50bb+). Fonte dos numeros: _ops/golive-p53-2026-10-15/numeros-verificados.md.",
+    "marks_label": "Marks by action:",
+    "marks": {
+      "RFI": 132,
+      "limp": 148,
+      "fold": 74,
+      "_fonte": "SB RFI 60bb, medido em producao. As contagens se sobrepoem (uma mao pode ter marca em mais de uma acao), por isso o rotulo 'by action'; o app chama a acao de RFI, nao de raise."
+    },
+    "grid_box": [
+      0.0248,
+      0.0445,
+      0.4683,
+      0.8252
+    ],
+    "_grid_box": "[x0,y0,x1,y1] em fracao da captura INTEIRA (nao recortada), so a grade 13x13; o anel do AA e desenhado na celula (0,0), canto superior esquerdo, sobre o contorno ambar que o app ja poe.",
+    "crop": [
+      0.0,
+      0.0,
+      0.49,
+      0.84
+    ],
+    "_crop": "[x0,y0,x1,y1] em fracao da captura: so a grade (sem o painel do AA e sem a legenda), para a grade ficar legivel no celular. O painel do AA mostra os deltas (+20,9 / -21,6): NAO entram no slide.",
+    "_AA": {
+      "gto_raise": "56.5%",
+      "gto_limp": "43.5%",
+      "field_raise": "77.4% (+20.9 pp)",
+      "field_limp": "21.9% (-21.6 pp)",
+      "_nota": "Referencia (numeros-verificados.md); a tela mostra arredondado (77/56/+20.9; 22/44/-21.6). Nenhum destes aparece escrito no slide."
+    },
+    "spot_label": "SB open (RFI) · 50bb+",
+    "_spot_label": "Rotulo do grafico (nao e linha de apoio). Sem filtros de torneio/buy-in/etapa (a tela esta em todos) e sem contagem de maos."
+  }
+}
