@@ -63,7 +63,7 @@
   "verificados": {
     "_doc": "Verificados em producao: numeros-verificados.md (08/10) e numeros-verificados-lancamento.md (14/10). Nao entram sozinhos em nenhuma arte; so registro.",
     "fonte": "aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md; aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md",
-    "situacoes_preflop_com_gto_no_flop": 30,
+    "situacoes_preflop_com_gto_no_flop": 28,
     "confrontos_de_posicao": 10,
     "stacks_flop_bb": [
       25,
