@@ -34,6 +34,7 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 11. **GATE A2: frase da conta grátis (correção do Rafael, 15/10).** A frase anterior sobre o que o Grátis mantém estava errada: "a gente habilitou uma amostra do GTO na grátis". A frase nova é PT "A conta grátis inclui uma amostra do GTO." / EN "The free account includes a sample of GTO." (feed PT e EN, legenda do carrossel, Discord, landing, e-mail). Fato no código: aura-api#91, `GtoTrialTeaser`, "Grátis com produto" (15/10): o plano Grátis vê o GTO real de UM spot do flop, só a reação ao c-bet, e fora desse spot segue o cadeado. **Nenhuma peça nomeia o spot, diz "GTO completo" nem cita faixa para o Grátis.** O teste logado do Rafael confere a amostra do GTO na conta Grátis (um spot do flop, reação ao c-bet) e que o resto fica trancado. Se não confirmar, a frase sai de todas as peças. Nenhuma peça cita mais a "comparação com o MDF" como o que o Grátis tem.
 12. **GATE P-53: Field vs GTO (slide 3 e legenda do carrossel).** O Field vs GTO está no ar desde 15/10 (P-53), mas o teste logado do Rafael (`roteiro-conferencia-rafael.md`) precisa conferir as marcas 132 / 148 / 74 do SB open (RFI) a 50bb+ antes de qualquer post. Ressalvas: (a) a visão compara só spots com GTO, e a cobertura do Field Ranges × GTO é parcial: nenhuma peça fala em "todos os spots"; (b) o limiar das marcas (10 pp, `FieldRangesGtoMinSeverity=3`, com n ≥ 90 e o GTO fora do intervalo do field) pode mudar com o pin do GTO ou com a reagregação do field, e os números mudam junto (com 5 pp seriam outros); (c) as contagens se sobrepõem, porque uma mão pode ter marca em mais de uma ação; (d) a captura do slide 3 só vale se mostrar 132 / 148 / 74 e o AA com anel, sem o painel do AA; (e) **o teste logado do Rafael confere 132 / 148 / 74 com os mesmos filtros da captura** (todos os torneios, buy-ins e etapas, período padrão da tela) **e anota quais filtros usou**; a legenda diz "SB open at 50bb+ (GTO at 60bb)", e a definição de marca ("10 pp or more away from GTO") e o código de cores (laranja: o field abre a mão mais que o GTO; azul: menos; números = diferença em pp) vêm da tela e do P-53.
 13. **E-mail aprovado pelo Rafael (direto, 15/10).** O assunto (PT "O GTO no flop, turn e river, ao lado do field", EN "GTO on the flop, turn and river, next to the field") e o corpo do e-mail estão aprovados; o corpo não muda. O assunto de envio e o `<title>` do HTML usam esse texto. A imagem agora é um mockup de produto (ver `email.md`). A aprovação não dispensa os gates de envio (P-61, Stripe, GATE B1, GATE A2, hospedagem das imagens, GATE P-53).
+14. **GATE de cobertura: "mais de 2.100 spots" (16/10, resolvido pelo lado seguro pela HUB).** Os números vêm do snapshot `20261008` da `tbl_gto_reference` (contagem de spots distintos, definição da HUB): 30 situações (10 pares × 25/40/60bb), 61–79 spots por situação, 2.330 no total. O levantamento de produção de 14/10 (`numeros-verificados-lancamento.md`) listava 28 situações de flop servidas (72 células no total) e 22 de turn/river, e a produção não foi conferida. **O piso "mais de 2.100 spots" vale para 28 ou 30 situações** (pior caso, com as 2 maiores células fora: 2.172). **Nenhuma peça cita "30 situações".** **Subir para "mais de 2.300" só depois que a HUB conferir `LoadPostflopGtoAvailability` na produção** (spots por célula: 79 na maioria; as menores: `co_bb@60` = 62 e `btn_bb@60` = 61). Ainda: (b) a HUB põe uma linha no `numeros-verificados` com a definição de spot (par × stack × textura do flop) e a data do snapshot; (c) a data "atualizado em 8 de outubro" muda a cada novo snapshot publicado, e as peças com data precisam acompanhar; (d) **ritmo:** só "a cobertura cresce a cada atualização"; nada de "toda semana", "todo mês", "frequentemente" nem cadência (o histórico de promoções é irregular). Sem os 6.980.568 nós, as 225 decisões nem contagem de linhas.
 
 ## Decisões registradas
 - **Cobertura (texto final, HUB 14/10).** PT: "GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel)." EN: "GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel)." Nas legendas curtas e no e-mail, versão curta: "no flop, turn e river" e "inclusive as aberturas do agressor no turn e no river", com a lista só "second barrel, delayed c-bet e third barrel" quando houver lista (EN "on the flop, turn and river" e "including the aggressor's openings on the turn and river"; "second barrel, delayed c-bet and third barrel").
@@ -98,6 +99,21 @@ Observação: para o botão da landing mantive `utm_source=landing`, como no Fie
 ## Rodapé
 - **Artes:** só `@aurapokeranalytics · 18+`, pequeno.
 - **Legendas, landing e e-mail:** PT "Ferramenta de estudo. 18+." / EN "Study tool. 18+." (na landing, também "A Aura não é site de apostas e não oferece jogo.").
+
+## Proposta de 16/10: quantos spots o Modo GTO cobre (pedido do Rafael via HUB)
+Status: **DECIDIDO pelo Rafael (16/10): a cobertura entra SÓ na legenda do carrossel.** Nada de cobertura na arte (slide 7 fica como estava), no e-mail, no Discord nem na landing.
+
+**Números e definição (HUB, 16/10; banco analítico local, snapshot `20261008`, só leitura):**
+- "Spot" aqui = a seleção do Postflop com número GTO: par de posições × stack × textura do flop (turn e river pelo mesmo caminho). No banco local, o snapshot `20261008` tem 2.330 spots de flop com GTO (61–79 por situação de pré-flop). O doc de produção de 14/10 diz que a tela serve menos situações do que a tabela e a produção não foi conferida; no pior caso (as 2 maiores células fora) são 2.172 spots.
+- **Texto público (HUB, 16/10, lado seguro): "mais de 2.100 spots"** (EN "more than 2,100 spots"), com "atualizado em 8 de outubro" / "updated October 8". **Sem "30 situações" em peça nenhuma**: só o spot.
+- **Ritmo:** só "a cobertura cresce a cada atualização" / "coverage grows with every update". Nada de "toda semana", "todo mês", "frequentemente" nem cadência.
+- Fonte: banco analítico local, `tbl_gto_reference` `20261008` (contagem de spots distintos, HUB 16/10) e `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md`; o piso 2.100 vale para 28 ou 30 situações. **Pendência 14.**
+
+**Onde entra (decisão do Rafael, 16/10): só a legenda do carrossel.**
+- **Legenda do carrossel EN (aplicada, parágrafo antes de "Open a spot you play…"):** "GTO Mode covers more than 2,100 flop spots, plus the turn and river. Coverage grows with every update. Updated October 8."
+- **Legenda PT (se for usada no feed PT, não aplicada):** "O Modo GTO cobre mais de 2.100 spots de flop, além do turn e do river. A cobertura cresce a cada atualização. Atualizado em 8 de outubro."
+- A data "Updated October 8" muda a cada novo snapshot publicado; a legenda tem de acompanhar antes de postar.
+- **Fora, por decisão do Rafael:** slide 7 e demais artes, e-mail, Discord e landing. As propostas de linha para essas peças (slide 7 "2,100+ spots…", e-mail, landing, Discord opções A e B) foram retiradas e não valem.
 
 ---
 
@@ -198,6 +214,8 @@ Opening: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tour
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
 
+GTO Mode covers more than 2,100 flop spots, plus the turn and river. Coverage grows with every update. Updated October 8.
+
 Open a spot you play, look at the gap and pick what to study.
 
 GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account includes a sample of GTO.
@@ -238,7 +256,7 @@ EN:
 
 Nota de rodapé da seção (PT): "Um spot, não a média do field. Ferramenta de estudo · 18+. A Aura não é site de apostas e não oferece jogo."
 Footnote (EN): "One spot, not the field average. Study tool · 18+. Aura is not a betting site and does not offer gambling."
-(Sem números de escala no rodapé: a escala de 08/10 descrevia a cobertura antiga e não foi atualizada.)
+(Sem números de escala no rodapé: a escala de 08/10 descrevia a cobertura antiga e não foi atualizada. Cobertura de 16/10 só na legenda do carrossel, decisão do Rafael.)
 
 CTA: PT "Conhecer o Modo GTO" / EN "See GTO Mode".
 Frase sob o CTA, PT: "O Modo GTO está incluso no plano Individual (R$ 150/mês) por tempo limitado. A conta grátis inclui uma amostra do GTO." / EN: "GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account includes a sample of GTO."
@@ -289,5 +307,8 @@ Texto, assunto (aprovado pelo Rafael em 15/10: "O GTO no flop, turn e river, ao 
 | GTO aposta e faixa | 44,1%, faixa 37,8–50,3% (EN 44.1%, 37.8–50.3%) | idem | Slide 4 (barra e faixa); legenda do carrossel |
 | Diferença da abertura | 1,4 pp acima do topo da faixa (EN 1.4 pp above the top of the range) | idem | Slide 4 (gap desenhado, sem número na arte); legenda do carrossel |
 | Cobertura | Texto da seção "Decisões registradas" | idem | Legendas, landing, Discord, e-mail, slide 4 |
+| Spots de flop com GTO (piso seguro) | texto: **"mais de 2.100 spots"** (EN "more than 2,100 spots"). Base: 2.330 spots distintos (par de posições × stack × textura do flop) no banco local, 61–79 por situação; pior caso (2 maiores células fora) 2.172; o piso vale para a tela servir todas as situações da tabela ou só parte delas | `tbl_gto_reference` `20261008`, contagem de spots distintos (HUB, 16/10); `golive-gto-2026-10-04/numeros-verificados.md` (2.330 flops). **Pendência 14** | Só a legenda do carrossel (decisão do Rafael, 16/10). Só o spot: nenhuma peça cita situações de pré-flop |
+| Data da cobertura | atualizado em 8 de outubro (EN: October 8) | snapshot `20261008` | Só a legenda do carrossel |
+| Ritmo da cobertura | só "a cobertura cresce a cada atualização" / "coverage grows with every update" | HUB, 16/10 (histórico irregular: 11 snapshots desde agosto, 930 → 2.330 spots de flop) | Só a legenda do carrossel. **Nunca** "toda semana", "todo mês", "frequentemente"; o histórico não vai em peça nenhuma |
 
-Não usados, por instrução da fonte e da HUB: a contagem de mãos do exemplo de abertura (80 mil), as 197 mil do Second Barrel, as 10.216 mãos e as 23,8 milhões de oportunidades; contagens de linhas e a escala de 08/10 (30 situações, 2.330 flops, 6.980.568 nós, 225 decisões); o Probe (faixa larga) como exemplo; o candidato SB × BB 3-bet (amostra pequena); RFI do BTN a 40bb (51%), disponível para peças de sustentação; os números do AA do Field vs GTO (56,5 / 43,5 / 77,4 / 21,9 / +20,9 / −21,6 / 27.832) fora da captura.
+Não usados, por instrução da fonte e da HUB: a contagem de mãos do exemplo de abertura (80 mil), as 197 mil do Second Barrel, as 10.216 mãos e as 23,8 milhões de oportunidades; contagens de linhas, os 6.980.568 nós e as 225 decisões (da "escala de 08/10", só volta o spot, como "mais de 2.100 spots", pela decisão da HUB de 16/10; as "30 situações" e os 2.330 exatos ficam fora); o Probe (faixa larga) como exemplo; o candidato SB × BB 3-bet (amostra pequena); RFI do BTN a 40bb (51%), disponível para peças de sustentação; os números do AA do Field vs GTO (56,5 / 43,5 / 77,4 / 21,9 / +20,9 / −21,6 / 27.832) fora da captura.
