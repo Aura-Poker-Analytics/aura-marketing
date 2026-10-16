@@ -70,7 +70,7 @@
       40,
       60
     ],
-    "flops_resolvidos": "mais de 2.300 (2.330)",
+    "flops_resolvidos": "mais de 2.100 (piso; 2.330 no banco local, Pendencia 14)",
     "nos_turn_e_river": "quase 7 milhoes (6.980.568)",
     "decisoes_preflop": 225,
     "stacks_preflop_bb": [
