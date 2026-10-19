@@ -3,7 +3,7 @@ import csv, glob, re
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FIX = {"cstival.pokercoach": "cris.stival", "picharapoker_nivel1": "picharapoker"}  # @ de anuncio que nao existe; perfil real achado pelo agente
-RUIM = re.compile(r"homônimo|homonimo|n[aã]o [ée] (de )?poker|xadrez|chess grandmaster|corrida de cavalo|horse|ministério|ministerio|golpe|scam", re.I)
+RUIM = re.compile(r"homônimo|homonimo|n[aã]o [ée] (de )?poker|xadrez|chess grandmaster|corrida de cavalo|MMA|horse|ministério|ministerio|golpe|scam", re.I)
 PEND = re.compile(r"nao.pesquis|n[aã]o pesquis|pendente|só planilha|planilha", re.I)
 
 
