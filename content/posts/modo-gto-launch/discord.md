@@ -14,13 +14,13 @@ O CTA é "Conhecer o Modo GTO" / "See GTO Mode"; não promete o GTO de graça. A
 ```
 📊 **Modo GTO no ar**
 
-GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel). Ao lado do field, o número GTO e a faixa GTO.
+GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel). Ao lado do field, o número GTO.
 
 **Exemplo**
-CO × BB em pote simples, 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% e o GTO 38,8% (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. É um spot, não a média do field.
+CO × BB em pote simples, 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado. Contra o c-bet de 33%, o field folda 46,0% contra 38,8% do GTO: 7,2% acima. É um spot, não a média do field.
 
 **Como usar**
-Escolha o spot, clique em Apply e veja o field e o GTO juntos. A faixa de status do app guia cada clique até ter GTO.
+Escolha o spot, clique em Aplicar e veja o field e o GTO juntos.
 
 Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
@@ -36,13 +36,13 @@ Ferramenta de estudo. 18+.
 ```
 📊 **GTO Mode is live**
 
-GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Next to the field, the GTO number and the GTO range.
+GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Next to the field, the GTO number.
 
 **Example**
-CO × BB single-raised pot, 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% and GTO 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. This is one spot, not the field average.
+CO × BB single-raised pot, 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop. Facing a 33% c-bet, the field folds 46.0% vs 38.8% for GTO: 7.2% above. This is one spot, not the field average.
 
 **How to use it**
-Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides each click until GTO is there.
+Pick the spot, hit Apply and see the field and GTO together.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 

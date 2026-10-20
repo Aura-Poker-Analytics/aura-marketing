@@ -202,15 +202,15 @@ O carrossel é só em EN e a legenda também: não há legenda PT do carrossel n
 ```
 GTO Mode is live. Included in the Individual plan for a limited time.
 
-See where the field breaks from GTO: next to the field frequency, the GTO number and the GTO range.
+See where the field breaks from GTO: next to the field frequency, the GTO number.
 
-Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
+Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Pick the spot, hit Apply and see the field and GTO together.
 
-Response: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. Check it on your board.
+Response: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above. Check it on your board.
 
-Field vs GTO shows, hand by hand, where the field's preflop strays from GTO. A mark means the field is 10 pp or more away from GTO. In the SB open at 50bb+ (GTO at 60bb): 132 hands marked on RFI, 148 on limp, 74 on fold. Orange: the field opens the hand more than GTO; blue: less. It compares only the spots that have a GTO reference.
+Field vs GTO shows, hand by hand, where the field's preflop strays from GTO. A mark means the field is 10% or more away from GTO. In the SB open at 50bb+ (GTO at 60bb): 132 hands marked on RFI, 148 on limp, 74 on fold. Orange: the field opens the hand more than GTO; blue: less. It compares only the spots that have a GTO reference.
 
-Opening: same CO × BB SRP filters, two-tone flop, any turn. After the flop checks through, the CO bets the turn (delayed c-bet): the field bets 51.7% and GTO 44.1% (range 37.8–50.3%), 1.4 pp above the top of the range. The second barrel in the same spot is inside the range: field 54.2%, GTO 57.2% (range 50.8–63.5%). These are spots, not the field average.
+Opening: same CO × BB SRP filters, two-tone flop, any turn. After the flop checks through, the CO bets the turn (delayed c-bet): the field bets 51.7% vs 44.1% for GTO: 7.6% above. The second barrel in the same spot: field 54.2% vs 57.2% for GTO, 3.0% below. These are spots, not the field average.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
 

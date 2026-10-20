@@ -70,10 +70,12 @@ def example_html(lang, n):
     else:
         n1 = ex.s_n1()
     c = pct(ex.c, lang, n) if ex.c is not None else ph_email("N3")
+    # regra de 19/10: a diferenca simples em %, nao em pontos
+    gap = pct(round(ex.n2 - ex.c, 1), lang, n) if (ex.n2 is not None and ex.c is not None) else ph_email("N2")
     if lang == "pt":
-        html = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {c} do GTO. É um spot, não a média do field. Confira no seu board."
+        html = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {c} do GTO: {gap} acima. É um spot, não a média do field. Confira no seu board."
     else:
-        html = f"Example: {n1}. The field folds {ex.s_n2()} against GTO's {c}. This is one spot, not the field average. Check it on your board."
+        html = f"Example: {n1}. The field folds {ex.s_n2()} vs {c} for GTO: {gap} above. This is one spot, not the field average. Check it on your board."
     return html, miss
 
 
@@ -167,7 +169,7 @@ def mockup_html(lang, n):
     spot = f"Field vs GTO · {spot}"
     ex = Ex(n, lang)
     lab, rng_lab, f_lab, g_lab = CARD_L[lang]
-    top = max(ex.n2, ex.hi, ex.c) * 1.12
+    top = max(ex.n2, ex.c) * 1.12
     sc = lambda v: v / top * 100
     rng = f"{fnum(ex.lo, lang, n)}\u2013{fnum(ex.hi, lang, n)}%"
     return f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="base.css"><style>
@@ -199,8 +201,8 @@ html, body {{ width: {MW}px; background: #0b1220; }}
 <div class="win"><div class="bar"><i></i><i></i><i></i><span>{spot}</span></div><div class="gi"><img src="assets/{fn}"><div class="ring"></div></div></div>
 <div class="card"><div class="t">{lab}</div>
 <div class="row"><span class="n">{f_lab}</span><div class="track"><div class="fill ff" style="width:{sc(ex.n2):.1f}%"></div></div><span class="v">{pct(ex.n2, lang, n)}</span></div>
-<div class="row"><span class="n">{g_lab}</span><div class="track"><div class="fill fg" style="width:{sc(ex.c):.1f}%"></div><div class="band" style="left:{sc(ex.lo):.1f}%;width:{sc(ex.hi) - sc(ex.lo):.1f}%"></div></div><span class="v">{pct(ex.c, lang, n)}</span></div>
-<div class="leg"><i></i>{rng_lab} {rng}</div></div>
+<div class="row"><span class="n">{g_lab}</span><div class="track"><div class="fill fg" style="width:{sc(ex.c):.1f}%"></div></div><span class="v">{pct(ex.c, lang, n)}</span></div>
+</div>
 </div></body></html>"""
 
 
@@ -261,10 +263,10 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
     if exa.chart_ready:
         if lang == "pt":
             alt = (f"Janela do app com a grade de mãos do Field vs GTO no pré-flop (SB, RFI, 50bb+) e, sobreposto, o cartão do exemplo do e-mail: "
-                   f"fold contra c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}, faixa GTO {fnum(exa.lo, lang, n)}–{fnum(exa.hi, lang, n)}%.")
+                   f"fold contra c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}.")
         else:
             alt = (f"App window with the Field vs GTO preflop hand grid (SB, RFI, 50bb+) and, overlaid, the e-mail's example card: "
-                   f"fold vs c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}, GTO range {fnum(exa.lo, lang, n)}–{fnum(exa.hi, lang, n)}%.")
+                   f"fold vs c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}.")
     else:
         alt = "[[alt]]"
     url = lib.LANDING.format(lang=lang)
