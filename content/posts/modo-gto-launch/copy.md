@@ -162,11 +162,11 @@ PT:
 ```
 O GTO folda 38,8%. O field folda 46,0%. Mesmo spot.
 
-O Modo GTO está no ar. Ao lado da frequência do field, o número GTO e a faixa GTO.
+O Modo GTO está no ar. Ao lado da frequência do field, o número GTO.
 
-Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
+Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO: 7,2% acima. É um spot, não a média do field. Confira no seu board.
 
-Pós-flop: o GTO no flop, turn e river, inclusive as aberturas do agressor no turn e no river. Escolha o spot, clique em Apply e veja o field e o GTO juntos. A faixa de status do app guia cada clique até ter GTO.
+Pós-flop: o GTO no flop, turn e river, inclusive as aberturas do agressor no turn e no river. Escolha o spot, clique em Aplicar e veja o field e o GTO juntos.
 
 Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
@@ -180,11 +180,11 @@ EN:
 ```
 GTO folds 38.8%. The field folds 46.0%. Same spot.
 
-GTO Mode is live. Next to the field frequency, the GTO number and the GTO range.
+GTO Mode is live. Next to the field frequency, the GTO number.
 
-Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
+Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above. This is one spot, not the field average. Check it on your board.
 
-Postflop: GTO on the flop, turn and river, including the aggressor's openings on the turn and river. Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
+Postflop: GTO on the flop, turn and river, including the aggressor's openings on the turn and river. Pick the spot, hit Apply and see the field and GTO together.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
@@ -201,9 +201,9 @@ A legenda é bilíngue (Rafael, 20/10: "sempre postamos bilíngue"): PT primeiro
 🇧🇷
 O Modo GTO está no ar. Incluso no plano Individual (R$ 150/mês) por tempo limitado.
 
-GTO no flop, no turn e no river, ao lado da frequência do field. No flop, a reação ao c-bet e ao raise; no turn e no river, também second barrel, delayed c-bet, probe e third barrel.
+GTO no flop, no turn e no river, ao lado da frequência do field. No flop, a reação ao c-bet e ao raise; no turn e no river, também second barrel, delayed c-bet, probe no turn e third barrel.
 
-Exemplo: CO × BB em SRP, 30–60bb, flop K-high two-tone, contra um c-bet de 33%. O field folda 46,0% contra 38,8% do GTO: 7,2% acima.
+Exemplo: CO × BB em SRP, 30–60bb, torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra um c-bet de 33%. O field folda 46,0% contra 38,8% do GTO: 7,2% acima. É um spot, não a média do field.
 
 No pré-flop, o Field vs GTO marca mão a mão onde o field foge do GTO: no open do SB com 50bb+, 132 mãos no RFI, 148 no limp e 74 no fold.
 
@@ -214,9 +214,9 @@ Link na bio. Ferramenta de estudo. 18+.
 🇺🇸
 GTO Mode is live. Included in the Individual plan (US$ 29/month) for a limited time.
 
-GTO on the flop, turn and river, next to the field frequency. On the flop, the response to the c-bet and the raise; on the turn and river, also second barrel, delayed c-bet, probe and third barrel.
+GTO on the flop, turn and river, next to the field frequency. On the flop, the response to the c-bet and the raise; on the turn and river, also second barrel, delayed c-bet, turn probe and third barrel.
 
-Example: CO × BB SRP, 30–60bb, K-high two-tone flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above.
+Example: CO × BB SRP, 30–60bb, Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above. This is one spot, not the field average.
 
 Preflop, Field vs GTO marks hand by hand where the field strays from GTO: in the SB open at 50bb+, 132 hands on RFI, 148 on limp and 74 on fold.
 
