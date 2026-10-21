@@ -3,7 +3,7 @@
 Status: pacote final para aprovação do Rafael; não publicado. **Versão de 15/10**, depois do retorno do Rafael sobre o aura-marketing#4 (via HUB): "sim leva" para o "por tempo limitado" e pedido de um carrossel mais apelativo, de grande lançamento: foi lançado e a inclusão no plano é temporária. Números fechados em 14/10 (antes: 08/10). Publicar só depois dos gates em Pendências (P-61, teste logado, Stripe, hospedagem das imagens do e-mail, **GATE B1** (data interna a honrar e reconciliação da landing) e **GATE A2** (a amostra do GTO na conta grátis) e **conferência da data da cobertura** (Pendência 14: a legenda "Updated October 15" acompanha o snapshot publicado)). Revisão de 15/10: o revisor deu NÃO OK ao carrossel de lançamento, e o Rafael decidiu (via HUB) que **a inclusão do GTO no Individual é a temporária**; este texto é a correção (preço = o do plano, o temporário é a inclusão; carrossel só com legenda EN).
 @aurapokeranalytics: a confirmar pelo Rafael. URLs com UTM prontas na tabela abaixo.
 Fonte dos números: `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (origin/main `e17fc8e`, 14/10), para a cobertura, o pré-flop e o exemplo de abertura; o exemplo CO × BB e o pré-flop seguem iguais aos de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10). Os números usados estão mapeados em "Números usados" no fim. **Nenhum marcador `[[...]]` resta no pacote.**
-Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel de 7 slides só em EN), landing e e-mail (em `email.md`).
+Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, story da capa em PT, carrossel de 7 slides com arte em EN e legenda bilíngue), landing e e-mail (em `email.md`).
 
 > **Regra de texto das artes (Rafael, 08/10): "muita informação, muito texto; não pode ter tanto texto em nenhum post".** Cada arte tem no máximo UM título curto (~6 palavras) e, se precisar, UMA linha de apoio (~10 palavras). A imagem fala: barras field × GTO lado a lado, com os números. O detalhe vai para a legenda. Em toda arte só ficam o `@aurapokeranalytics` e o `18+`, pequenos. O link é o sticker/link na bio, não texto de arte. A frase do plano (GTO incluso no Individual com preço, por tempo limitado, e conta grátis) fica na legenda, no Discord, na landing e no e-mail; nas artes, o plano com o preço aparece só na capa do carrossel (apoio), no slide 6 (título, número gigante e apoio) e no story da capa PT (apoio), sempre com a moeda do idioma (EN "US$ 29/month", PT "R$ 150/mês"). O preço é o do plano Individual; o que é temporário é a inclusão do GTO, e isso é dito sem promessa de preço travado, de que quem assina agora mantém o GTO, de preço futuro ou de data. Nas artes não entram contagem de mãos nem "amostra"; nas legendas e no e-mail também ficam de fora.
 
@@ -40,7 +40,7 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 - **Cobertura (texto final, HUB 14/10).** PT: "GTO no flop, no turn e no river. No flop, a reação ao c-bet e ao raise. No turn e no river, também a frequência de aposta do agressor (second barrel, delayed c-bet, probe no turn, third barrel)." EN: "GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel)." Nas legendas curtas e no e-mail, versão curta: "no flop, turn e river" e "inclusive as aberturas do agressor no turn e no river", com a lista só "second barrel, delayed c-bet e third barrel" quando houver lista (EN "on the flop, turn and river" e "including the aggressor's openings on the turn and river"; "second barrel, delayed c-bet and third barrel").
 - **Capa de lançamento (15/10, substitui a "capa com duas linhas" de 08/10).** A capa do carrossel ("GTO Mode is live") e a do story PT ("Modo GTO no ar") têm só título e UMA linha de apoio, que diz o plano com o preço e "por tempo limitado" ("Included in Individual (US$ 29/month) for a limited time." / "Incluso no plano Individual (R$ 150/mês) por tempo limitado."). A capa EN leva a pílula LIVE e a do story PT a pílula NO AR: são marcas de lançamento, não selo de desconto. Sai a micro-legenda do spot; não há mais exceção à regra de uma linha. No story PT, o spot vai como rótulo do gráfico ("CO × BB · c-bet de 33% · exemplo"), que não é uma segunda linha de apoio.
 - **Preço = plano; o temporário é a inclusão do GTO (decisão do Rafael via HUB, 15/10).** US$ 29 / R$ 150 é o preço normal do Individual. O preço aparece só na capa do carrossel, no slide 6 e no story da capa PT, com a moeda do idioma. Em cada arte, "limited time" / "por tempo limitado" aparece UMA vez. Nenhuma arte leva selo de oferta ou de desconto; as pílulas LIVE (carrossel) e NO AR (story PT) só marcam o lançamento. Sem data, sem "últimas horas", sem preço travado, sem promessa de que quem assina agora mantém o GTO, sem preço futuro, sem desconto semestral/anual. **Nota interna: o termo comercial anterior fica reservado ao plano próprio e não aparece em nenhuma peça deste pacote.**
-- **Carrossel só com legenda EN (revisão de 15/10).** A legenda PT do carrossel saiu: a PT fica no feed PT e no story, e a legenda do carrossel não mistura moedas.
+- **Legenda do carrossel bilíngue (20/10, Rafael: "sempre postamos bilíngue").** PT primeiro, EN logo depois, com a moeda de cada língua (R$ 150 / US$ 29); substitui a decisão de 15/10 de legenda só EN. Cabe nos 2.200 caracteres do Instagram (1.392).
 - **Carrossel de 7 slides, só em EN (15/10).** 1 capa de lançamento; 2 o exemplo do c-bet de 33% (Overfold); 3 Field vs GTO, mão a mão (Field Ranges, SB open a 50bb+); 4 turn e river com dois spots lado a lado (Second Barrel dentro da faixa, Turn Delayed CBet acima do topo); 5 pré-flop; 6 incluso no Individual (US$ 29/month); 7 CTA. Cada slide: título curto e no máximo UMA linha de apoio; a imagem fala.
 - **Slide 3 (Field vs GTO) mostra só as marcas (15/10).** Mostra as marcas por ação (132 RFI · 148 limp · 74 fold) e o AA com anel; o painel do AA com os números (GTO raise 56,5% / limp 43,5%; field 77,4% / 21,9%) fica fora do recorte, e nenhuma peça cita os números do AA fora da captura. "Limp" fica em inglês nas duas línguas. A cobertura do Field Ranges × GTO é parcial: o texto não promete todos os spots.
 - **Slide 4 usa o Second Barrel como contraste (15/10).** O Second Barrel (54,2% / 57,2%, faixa 50,8–63,5, dentro da faixa) e o Turn Delayed CBet (51,7% / 44,1%, faixa 37,8–50,3, 1,4 pp acima do topo) vêm do mesmo recorte largo (28 classes de board; `numeros-verificados-lancamento.md`, 14/10), onde o arquivo permite o Second Barrel "só como contraste". Não usar o Probe (faixa larga) nem a célula de um board só.
@@ -55,12 +55,12 @@ Peças deste pacote: Discord (também em `discord.md`), Instagram (feed, story, 
 - **Pré-flop:** "o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb" (pré-flop `20261007`).
 - **Field vs GTO (Field Ranges, P-53, no ar desde 15/10):** mão a mão, onde o pré-flop do field se afasta do GTO; marca por ação quando o desvio é de pelo menos 10 pp, com n ≥ 90 e o GTO fora do intervalo do field. Compara só spots com GTO (cobertura parcial): nenhuma peça diz "todos os spots". Exemplo das peças: SB open (RFI) a 50bb+, com 132 mãos marcadas no raise (RFI), 148 no limp e 74 no fold. "Limp" em inglês nas duas línguas. Sem BETA nas peças.
 - **Filtro do exemplo nas peças:** "torneios Regular" (EN "Regular tournaments") e "últimos 2 anos" (EN "last 2 years"), sem a palavra vanilla.
-- **Plano e conta Grátis:** frase única da Pendência 2 (o GTO está incluso no plano Individual, com o preço do plano, por tempo limitado; o temporário é a inclusão). Vive na legenda do feed, na legenda do carrossel (só EN), no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só a capa do carrossel, o slide 6 e a capa do story PT. A parte da conta grátis é o GATE A2. CTAs de texto: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". O slide 7 do carrossel usa "Get GTO Mode" (pedido do Rafael via HUB), que não promete gratuidade: a conta grátis inclui só uma amostra do GTO. O único preço citado é o do plano Individual, com a moeda nunca trocada.
+- **Plano e conta Grátis:** frase única da Pendência 2 (o GTO está incluso no plano Individual, com o preço do plano, por tempo limitado; o temporário é a inclusão). Vive na legenda do feed, na legenda do carrossel (bilíngue), no Discord, na landing (sob o CTA) e no e-mail (sob o botão); na arte, só a capa do carrossel, o slide 6 e a capa do story PT. A parte da conta grátis é o GATE A2. CTAs de texto: "Conhecer o Modo GTO" / "See GTO Mode"; nenhum diz "grátis". O slide 7 do carrossel usa "Get GTO Mode" (pedido do Rafael via HUB), que não promete gratuidade: a conta grátis inclui só uma amostra do GTO. O único preço citado é o do plano Individual, com a moeda nunca trocada.
 - **Escopo da referência:** a ressalva de torneios vanilla fica só na Metodologia do app (pedido do Rafael em 06/10). Nenhuma peça a repete; "Regular" aparece só como filtro do spot.
 - **"Spot"** é a situação ou a decisão, nunca contagem de linhas.
 - **Formato dos números:** vírgula em PT (46,0%), ponto em EN (46.0%).
 - **Nome em inglês:** "GTO Mode".
-- **Carrossel só em EN;** a capa tem story PT-BR 1080x1920 ("Modo GTO no ar", incluso no Individual em R$). Não há story EN da capa.
+- **Arte do carrossel só em EN (legenda bilíngue);** a capa tem story PT-BR 1080x1920 ("Modo GTO no ar", incluso no Individual em R$). Não há story EN da capa.
 
 ## O exemplo (reação ao c-bet; exemplo (a))
 Filtro da tela: Postflop · SRP · RFI CO, caller BB · stack 30.1–60bb (GTO a 40bb) · torneio Regular · flop K-high, two-tone, sem par, desconectado · reação do BB ao c-bet de 33%.
@@ -89,7 +89,7 @@ Regra: Discord leva ao app (`https://www.aura.poker/`); Instagram e e-mail levam
 | Feed (link na bio) | PT e EN | landing | instagram | feed | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=feed |
 | Story (sticker de link) | PT e EN | landing | instagram | story | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=story |
 | Story da capa do carrossel (sticker de link) | PT | landing | instagram | story-capa-pt | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=story-capa-pt |
-| Carrossel de 7 slides, só EN (link na bio) | EN (legenda só EN) | landing | instagram | carrossel-en | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=carrossel-en |
+| Carrossel de 7 slides, só EN (link na bio) | EN (arte) · legenda PT + EN | landing | instagram | carrossel-en | https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=modo-gto-launch&utm_content=carrossel-en |
 | Landing (botão de CTA, para o cadastro no app) | PT e EN | app | landing | modo-gto (utm_medium=website) | https://www.aura.poker/Login?tab=signup&utm_source=landing&utm_medium=website&utm_campaign=modo-gto-launch&utm_content=modo-gto |
 | E-mail PT | PT | landing | email | pt | https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content=pt |
 | E-mail EN | EN | landing | email | en | https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=modo-gto-launch&utm_content=en |
@@ -110,9 +110,7 @@ Status: **DECIDIDO pelo Rafael (16/10): a cobertura entra SÓ na legenda do carr
 - Fonte: `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md`, seção "Cobertura de spots de flop" (consulta no banco analítico e conferência da HUB na Azure, snapshot `20261015`). **Item 14 das Pendências.**
 
 **Onde entra (decisão do Rafael, 16/10): só a legenda do carrossel.**
-- **Legenda do carrossel EN (aplicada, parágrafo antes de "Open a spot you play…"):** "GTO Mode covers more than 2,100 flop spots, plus the turn and river. Coverage grows with every update. Updated October 15."
-- **Legenda PT (se for usada no feed PT, não aplicada):** "O Modo GTO cobre mais de 2.100 spots de flop, além do turn e do river. A cobertura cresce a cada atualização. Atualizado em 15 de outubro."
-- A data "Updated October 15" muda a cada novo snapshot publicado; a legenda tem de acompanhar antes de postar.
+- **Legenda bilíngue (20/10, texto da HUB):** PT "Mais de 2.100 spots de flop, mais turn e river." / EN "2,100+ flop spots, plus turn and river." Sem data e sem frase de ritmo na legenda curta (a versão longa de 16/10, com "Updated October 15" e "Coverage grows with every update", deixou de ir ao Instagram). Se a data voltar, tem de acompanhar o snapshot servido.
 - **Fora, por decisão do Rafael:** slide 7 e demais artes, e-mail, Discord e landing. As propostas de linha para essas peças (slide 7 "2,100+ spots…", e-mail, landing, Discord opções A e B) foram retiradas e não valem.
 
 ---
@@ -164,11 +162,11 @@ PT:
 ```
 O GTO folda 38,8%. O field folda 46,0%. Mesmo spot.
 
-O Modo GTO está no ar. Ao lado da frequência do field, o número GTO e a faixa GTO.
+O Modo GTO está no ar. Ao lado da frequência do field, o número GTO.
 
-Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO (faixa 37,1–40,4%): 5,6 pp acima do topo da faixa. Aqui o field folda mais do que o GTO. É um spot, não a média do field. Confira no seu board.
+Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO: 7,2% acima. É um spot, não a média do field. Confira no seu board.
 
-Pós-flop: o GTO no flop, turn e river, inclusive as aberturas do agressor no turn e no river. Escolha o spot, clique em Apply e veja o field e o GTO juntos. A faixa de status do app guia cada clique até ter GTO.
+Pós-flop: o GTO no flop, turn e river, inclusive as aberturas do agressor no turn e no river. Escolha o spot, clique em Aplicar e veja o field e o GTO juntos.
 
 Pré-flop: o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
@@ -182,11 +180,11 @@ EN:
 ```
 GTO folds 38.8%. The field folds 46.0%. Same spot.
 
-GTO Mode is live. Next to the field frequency, the GTO number and the GTO range.
+GTO Mode is live. Next to the field frequency, the GTO number.
 
-Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. This is one spot, not the field average. Check it on your board.
+Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above. This is one spot, not the field average. Check it on your board.
 
-Postflop: GTO on the flop, turn and river, including the aggressor's openings on the turn and river. Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
+Postflop: GTO on the flop, turn and river, including the aggressor's openings on the turn and river. Pick the spot, hit Apply and see the field and GTO together.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
@@ -197,30 +195,34 @@ See GTO Mode, link in bio. Study tool. 18+.
 #poker #pokerMTT #pokerestudo #aurapoker
 ```
 
-### Legenda do carrossel (só EN)
-O carrossel é só em EN e a legenda também: não há legenda PT do carrossel nem mistura de moedas. A versão PT vive no feed PT (legenda acima) e no story da capa PT (sem legenda; se o Rafael quiser, usa a do feed PT).
+### Legenda do carrossel (bilíngue: PT e logo depois EN)
+A legenda é bilíngue (Rafael, 20/10: "sempre postamos bilíngue"): PT primeiro, EN logo depois, cada língua com a sua moeda, cabendo nos 2.200 caracteres do Instagram (texto da HUB, `_ops/lancamento-modo-gto/textos-prontos.md`, seção "Legenda do carrossel para postar"). A arte do carrossel segue só em EN.
 ```
-GTO Mode is live. Included in the Individual plan for a limited time.
+🇧🇷
+O Modo GTO está no ar. Incluso no plano Individual (R$ 150/mês) por tempo limitado.
 
-See where the field breaks from GTO: next to the field frequency, the GTO number and the GTO range.
+GTO no flop, no turn e no river, ao lado da frequência do field. No flop, a reação ao c-bet e ao raise; no turn e no river, também second barrel, delayed c-bet, probe no turn e third barrel.
 
-Postflop: GTO on the flop, turn and river. On the flop, the response to the c-bet and to the raise. On the turn and river, also the aggressor's betting frequency (second barrel, delayed c-bet, turn probe, third barrel). Pick the spot, hit Apply and see the field and GTO together. The app's status bar guides you, click by click, until GTO is there.
+Exemplo: CO × BB em SRP, 30–60bb, torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra um c-bet de 33%. O field folda 46,0% contra 38,8% do GTO: 7,2% acima. É um spot, não a média do field.
 
-Response: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8% (range 37.1–40.4%): 5.6 pp above the top of the range. Here the field folds more than GTO does. Check it on your board.
+No pré-flop, o Field vs GTO marca mão a mão onde o field foge do GTO: no open do SB com 50bb+, 132 mãos no RFI, 148 no limp e 74 no fold.
 
-Field vs GTO shows, hand by hand, where the field's preflop strays from GTO. A mark means the field is 10 pp or more away from GTO. In the SB open at 50bb+ (GTO at 60bb): 132 hands marked on RFI, 148 on limp, 74 on fold. Orange: the field opens the hand more than GTO; blue: less. It compares only the spots that have a GTO reference.
+Mais de 2.100 spots de flop, mais turn e river. A conta grátis inclui uma amostra do GTO.
 
-Opening: same CO × BB SRP filters, two-tone flop, any turn. After the flop checks through, the CO bets the turn (delayed c-bet): the field bets 51.7% and GTO 44.1% (range 37.8–50.3%), 1.4 pp above the top of the range. The second barrel in the same spot is inside the range: field 54.2%, GTO 57.2% (range 50.8–63.5%). These are spots, not the field average.
+Link na bio. Ferramenta de estudo. 18+.
 
-Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb. CO RFI at 30–50bb (GTO at 40bb), Regular tournaments, last 2 years: the field opens 31.6% and GTO opens 37.0%.
+🇺🇸
+GTO Mode is live. Included in the Individual plan (US$ 29/month) for a limited time.
 
-GTO Mode covers more than 2,100 flop spots, plus the turn and river. Coverage grows with every update. Updated October 15.
+GTO on the flop, turn and river, next to the field frequency. On the flop, the response to the c-bet and the raise; on the turn and river, also second barrel, delayed c-bet, turn probe and third barrel.
 
-Open a spot you play, look at the gap and pick what to study.
+Example: CO × BB SRP, 30–60bb, Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above. This is one spot, not the field average.
 
-GTO Mode is included in the Individual plan (US$ 29/month) for a limited time. The free account includes a sample of GTO.
+Preflop, Field vs GTO marks hand by hand where the field strays from GTO: in the SB open at 50bb+, 132 hands on RFI, 148 on limp and 74 on fold.
 
-Get GTO Mode, link in bio. Save it for study. Study tool. 18+.
+2,100+ flop spots, plus turn and river. The free account includes a sample of GTO.
+
+Link in bio. Study tool. 18+.
 
 #poker #pokerMTT #pokerestudo #aurapoker
 ```

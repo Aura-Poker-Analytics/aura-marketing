@@ -1,4 +1,6 @@
-# E-mail: lançamento do Modo GTO (GTO no flop, turn e river, com as aberturas do agressor)
+# E-mail: lançamento do Modo GTO
+
+**21/10: o Rafael reprovou o texto abaixo ("as aberturas do agressor", frase da barra de status) e escolheu a versão A de `email-versoes-wow.md` ("A · a promessa e um spot"). O texto vigente é o da versão A, em PT e EN, e é o que a build gera em `email-pt.html` / `email-en.html` (assunto "O GTO do flop ao river, ao lado do field" / "GTO from flop to river, next to the field"; preheader "Modo GTO no ar. Incluso no plano Individual por tempo limitado." / "GTO Mode is live. Included in the Individual plan for a limited time."). O rascunho `c8135c95-…` no Resend foi atualizado com esse HTML em 21/10 e **ENVIADO às 19:59Z de 21/10 ao segmento General**, com o "envia o email pra todo mundo" do Rafael digitado na sessão; imagens do aura-landing#25 no ar e conferidas por sha256 antes do envio. A versão EN não foi enviada (não existe lista EN). Prints em `email/prints/`. O que segue abaixo é o histórico da versão de 15/10.**
 
 Status: rascunho sem marcadores abertos; não publicado. Não enviado, e nada foi criado no Resend. Versão de 15/10/2026 (anuncia "no ar" e a inclusão do GTO no Individual por tempo limitado, decisão do Rafael via HUB), números fechados em 14/10. **O Rafael aprovou, direto, em 15/10, o assunto e o corpo do e-mail (PT e EN); o corpo não muda.**
 Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10): field folda 46,0%, GTO folda 38,8%. A cobertura segue `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (14/10). Um exemplo só (CO × BB) e uma comparação só (field contra GTO). Sem número de escala, sem pré-flop concreto, sem contagem de mãos, sem o exemplo de abertura.
@@ -19,9 +21,9 @@ Este é o assunto de envio e o `<title>` do HTML. Alternativa **não usada** (de
 Modo GTO no ar
 O GTO e o field na mesma tela.
 
-Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet e third barrel): o número GTO e a faixa GTO ao lado da frequência do field. Escolha o spot, clique em Apply e veja os dois juntos. A faixa de status do app guia cada clique até ter GTO.
+Agora no flop, turn e river, inclusive as aberturas do agressor no turn e no river (second barrel, delayed c-bet e third barrel): o número GTO ao lado da frequência do field. Escolha o spot, clique em Aplicar e veja os dois juntos.
 
-Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO. É um spot, não a média do field. Confira no seu board.
+Exemplo: CO × BB em pote simples (SRP), 30–60bb (GTO a 40bb), torneios Regular, últimos 2 anos, flop K-high two-tone, sem par, desconectado, contra o c-bet de 33%. O field folda 46,0% contra 38,8% do GTO: 7,2% acima. É um spot, não a média do field. Confira no seu board.
 
 No pré-flop, o GTO e o desvio nas células cobertas, inclusive o RFI de CO e BTN a 40bb.
 
@@ -43,9 +45,9 @@ This is the sending subject and the HTML `<title>`. **Unused** alternative (drop
 GTO Mode is live
 GTO and the field on the same screen.
 
-Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet and third barrel): the GTO number and the GTO range next to the field frequency. Pick the spot, hit Apply and see both together. The app's status bar guides you, click by click, until GTO is there.
+Now on the flop, turn and river, including the aggressor's openings on the turn and river (second barrel, delayed c-bet and third barrel): the GTO number next to the field frequency. Pick the spot, hit Apply and see both together.
 
-Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% against GTO's 38.8%. This is one spot, not the field average. Check it on your board.
+Example: CO × BB single-raised pot (SRP), 30–60bb (GTO at 40bb), Regular tournaments, last 2 years, K-high two-tone, unpaired, disconnected flop, facing a 33% c-bet. The field folds 46.0% vs 38.8% for GTO: 7.2% above. This is one spot, not the field average. Check it on your board.
 
 Preflop: the GTO and the deviation in the covered cells, including the CO and BTN RFI at 40bb.
 
@@ -69,3 +71,5 @@ Under the button: GTO Mode is included in the Individual plan (US$ 29/month) for
 - **Fora do e-mail:** plano Modo GTO à parte, plano Top, desconto semestral/anual e qualquer promoção.
 - **Reply-to:** o e-mail não pede resposta; o remetente segue o padrão anterior (`manager@aurapoker.com` como reply-to). Confirmar antes do envio.
 - **Não enviado.** Envio e lista são do Rafael.
+
+**Mudanças de 20/10 (regra de 19/10, pedido da HUB):** a diferença entra em % simples ("7,2% acima"), a faixa GTO sai do texto e da imagem (o cartão do mockup só traz os dois números), o botão do app em PT é "Aplicar" e a frase que ensinava a usar a barra de status saiu. Imagens novas no aura-landing#25 (têm de estar no ar antes do envio).

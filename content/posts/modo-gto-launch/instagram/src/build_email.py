@@ -34,9 +34,9 @@ FONTB = "C:/Windows/Fonts/segoeuib.ttf"
 
 CP = {
     "pt": dict(
-        lang_attr="pt-BR", subject="O GTO no flop, turn e river, ao lado do field", h1="Modo GTO no ar",
-        tagline="O GTO e o field na mesma tela.",
-        pre="Incluso no plano Individual, por tempo limitado. O GTO no flop, turn e river, ao lado do field.",
+        lang_attr="pt-BR", subject="O GTO do flop ao river, ao lado do field", h1="Modo GTO no ar",
+        tagline="O GTO do flop ao river, ao lado do field.",
+        pre="Modo GTO no ar. Incluso no plano Individual por tempo limitado.",
         btn="Conhecer o Modo GTO",
         f1="Você recebeu este e-mail porque criou uma conta na Aura Poker Analytics.",
         f2='Não quer mais e-mails como este? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Descadastrar</a> · Dúvidas no <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
@@ -44,9 +44,9 @@ CP = {
         draft="RASCUNHO · NÃO ENVIAR · falta: ",
     ),
     "en": dict(
-        lang_attr="en", subject="GTO on the flop, turn and river, next to the field", h1="GTO Mode is live",
-        tagline="GTO and the field on the same screen.",
-        pre="Included in the Individual plan, for a limited time. GTO on the flop, turn and river, next to the field.",
+        lang_attr="en", subject="GTO from flop to river, next to the field", h1="GTO Mode is live",
+        tagline="GTO from flop to river, next to the field.",
+        pre="GTO Mode is live. Included in the Individual plan for a limited time.",
         btn="See GTO Mode",
         f1="You received this email because you created an account on Aura Poker Analytics.",
         f2='Don\'t want emails like this anymore? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Unsubscribe</a> · Questions? Find us on <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
@@ -58,7 +58,7 @@ CP = {
 
 # ---------------------------------------------------------------- texto do exemplo (email.md)
 def example_html(lang, n):
-    """Paragrafo do exemplo, na redacao de email.md (14/10): so field e GTO, sem faixa nem gap no texto."""
+    """Paragrafo do exemplo, na redacao da versao A (21/10, escolha do Rafael): os dois numeros, a diferenca simples e a acao."""
     ex = Ex(n, lang, mark=ph_email)
     miss = ex.missing(with_n1=True)
     long_n1 = ((n.get("N1") or {}).get(f"email_{lang}") or "").strip()      # contexto completo do spot (email.md)
@@ -70,10 +70,12 @@ def example_html(lang, n):
     else:
         n1 = ex.s_n1()
     c = pct(ex.c, lang, n) if ex.c is not None else ph_email("N3")
+    # regra de 19/10: a diferenca simples em %, nao em pontos
+    gap = pct(round(ex.n2 - ex.c, 1), lang, n) if (ex.n2 is not None and ex.c is not None) else ph_email("N2")
     if lang == "pt":
-        html = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {c} do GTO. É um spot, não a média do field. Confira no seu board."
+        html = f"{n1}: o field folda {ex.s_n2()}, o GTO folda {c}. {gap} acima. Nesse flop, c-bet mais."
     else:
-        html = f"Example: {n1}. The field folds {ex.s_n2()} against GTO's {c}. This is one spot, not the field average. Check it on your board."
+        html = f"{n1}: the field folds {ex.s_n2()}, GTO folds {c}. {gap} above. On this flop, c-bet more."
     return html, miss
 
 
@@ -167,7 +169,7 @@ def mockup_html(lang, n):
     spot = f"Field vs GTO · {spot}"
     ex = Ex(n, lang)
     lab, rng_lab, f_lab, g_lab = CARD_L[lang]
-    top = max(ex.n2, ex.hi, ex.c) * 1.12
+    top = max(ex.n2, ex.c) * 1.12
     sc = lambda v: v / top * 100
     rng = f"{fnum(ex.lo, lang, n)}\u2013{fnum(ex.hi, lang, n)}%"
     return f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="base.css"><style>
@@ -199,8 +201,8 @@ html, body {{ width: {MW}px; background: #0b1220; }}
 <div class="win"><div class="bar"><i></i><i></i><i></i><span>{spot}</span></div><div class="gi"><img src="assets/{fn}"><div class="ring"></div></div></div>
 <div class="card"><div class="t">{lab}</div>
 <div class="row"><span class="n">{f_lab}</span><div class="track"><div class="fill ff" style="width:{sc(ex.n2):.1f}%"></div></div><span class="v">{pct(ex.n2, lang, n)}</span></div>
-<div class="row"><span class="n">{g_lab}</span><div class="track"><div class="fill fg" style="width:{sc(ex.c):.1f}%"></div><div class="band" style="left:{sc(ex.lo):.1f}%;width:{sc(ex.hi) - sc(ex.lo):.1f}%"></div></div><span class="v">{pct(ex.c, lang, n)}</span></div>
-<div class="leg"><i></i>{rng_lab} {rng}</div></div>
+<div class="row"><span class="n">{g_lab}</span><div class="track"><div class="fill fg" style="width:{sc(ex.c):.1f}%"></div></div><span class="v">{pct(ex.c, lang, n)}</span></div>
+</div>
 </div></body></html>"""
 
 
@@ -254,17 +256,17 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
             miss.append(f"{key}_{lang}")
             return ph_email(f"{key}_{lang}")
         return H.escape(v)
-    corpo, preflop, under = tx("email_corpo"), tx("email_preflop"), tx("email_under")
+    corpo, preflop, under = tx("email_corpo"), tx("email_fecho"), tx("email_under")
     draft = bool(miss)
     exa = Ex(n, lang)
     spot_alt = (n.get("fvg") or {}).get("spot_alt") or {}
     if exa.chart_ready:
         if lang == "pt":
             alt = (f"Janela do app com a grade de mãos do Field vs GTO no pré-flop (SB, RFI, 50bb+) e, sobreposto, o cartão do exemplo do e-mail: "
-                   f"fold contra c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}, faixa GTO {fnum(exa.lo, lang, n)}–{fnum(exa.hi, lang, n)}%.")
+                   f"fold contra c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}.")
         else:
             alt = (f"App window with the Field vs GTO preflop hand grid (SB, RFI, 50bb+) and, overlaid, the e-mail's example card: "
-                   f"fold vs c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}, GTO range {fnum(exa.lo, lang, n)}–{fnum(exa.hi, lang, n)}%.")
+                   f"fold vs c-bet, field {pct(exa.n2, lang, n)}, GTO {pct(exa.c, lang, n)}.")
     else:
         alt = "[[alt]]"
     url = lib.LANDING.format(lang=lang)
