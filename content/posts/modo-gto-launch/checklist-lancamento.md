@@ -2,7 +2,7 @@
 
 Pacote: `content/posts/modo-gto-launch/` · PR [aura-marketing#4](https://github.com/Aura-Poker-Analytics/aura-marketing/pull/4) mesclado; ajustes em [#7](https://github.com/Aura-Poker-Analytics/aura-marketing/pull/7).
 
-**21/10, 19:59Z: e-mail PT ENVIADO pelo Resend** (broadcast `c8135c95-1656-42ad-bbc3-74eadab62158`, segmento General `3c97a861-…`, versão A escolhida pelo Rafael, "envia o email pra todo mundo" digitado na sessão). Antes do envio: aura-landing#25 mesclado (SWA run 39666083468 success) e as duas imagens conferidas no site por sha256 iguais às do pacote. Sem teste prévio a rafreis2 (o Rafael mandou enviar direto). Números de entrega no reporte à HUB. Gates 6, 7 e 8 fechados por isso; o resto da tabela abaixo é o estado de 20/10.
+**21/10, 19:59Z: e-mail PT ENVIADO pelo Resend** (broadcast `c8135c95-1656-42ad-bbc3-74eadab62158`, segmento General `3c97a861-…`, versão A escolhida pelo Rafael, "envia o email pra todo mundo" digitado na sessão). Antes do envio: aura-landing#25 mesclado (SWA run 39666083468 success) e as duas imagens conferidas no site por sha256 iguais às do pacote. Sem teste prévio a rafreis2 (o Rafael mandou enviar direto). Entrega lida às 20:04Z (4 min depois): 253 enviados, 250 entregues, 1 bounce transitório, 2 suprimidos pelo Resend (segmento de 255), 2 ainda em trânsito; 0 reclamações, 0 descadastros. Gates 6, 7 e 8 fechados por isso; o resto da tabela abaixo é o estado de 20/10.
 Legenda: ✅ feito e conferido hoje · ⏳ falta · 👤 só o Rafael.
 
 ## O que já está feito (conferido hoje, sem o Rafael)
