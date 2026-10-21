@@ -34,9 +34,9 @@ FONTB = "C:/Windows/Fonts/segoeuib.ttf"
 
 CP = {
     "pt": dict(
-        lang_attr="pt-BR", subject="O GTO no flop, turn e river, ao lado do field", h1="Modo GTO no ar",
-        tagline="O GTO e o field na mesma tela.",
-        pre="Incluso no plano Individual, por tempo limitado. O GTO no flop, turn e river, ao lado do field.",
+        lang_attr="pt-BR", subject="O GTO do flop ao river, ao lado do field", h1="Modo GTO no ar",
+        tagline="O GTO do flop ao river, ao lado do field.",
+        pre="Modo GTO no ar. Incluso no plano Individual por tempo limitado.",
         btn="Conhecer o Modo GTO",
         f1="Você recebeu este e-mail porque criou uma conta na Aura Poker Analytics.",
         f2='Não quer mais e-mails como este? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Descadastrar</a> · Dúvidas no <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
@@ -44,9 +44,9 @@ CP = {
         draft="RASCUNHO · NÃO ENVIAR · falta: ",
     ),
     "en": dict(
-        lang_attr="en", subject="GTO on the flop, turn and river, next to the field", h1="GTO Mode is live",
-        tagline="GTO and the field on the same screen.",
-        pre="Included in the Individual plan, for a limited time. GTO on the flop, turn and river, next to the field.",
+        lang_attr="en", subject="GTO from flop to river, next to the field", h1="GTO Mode is live",
+        tagline="GTO from flop to river, next to the field.",
+        pre="GTO Mode is live. Included in the Individual plan for a limited time.",
         btn="See GTO Mode",
         f1="You received this email because you created an account on Aura Poker Analytics.",
         f2='Don\'t want emails like this anymore? <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#aab6c8; text-decoration:underline;">Unsubscribe</a> · Questions? Find us on <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a>.',
@@ -58,7 +58,7 @@ CP = {
 
 # ---------------------------------------------------------------- texto do exemplo (email.md)
 def example_html(lang, n):
-    """Paragrafo do exemplo, na redacao de email.md (14/10): so field e GTO, sem faixa nem gap no texto."""
+    """Paragrafo do exemplo, na redacao da versao A (21/10, escolha do Rafael): os dois numeros, a diferenca simples e a acao."""
     ex = Ex(n, lang, mark=ph_email)
     miss = ex.missing(with_n1=True)
     long_n1 = ((n.get("N1") or {}).get(f"email_{lang}") or "").strip()      # contexto completo do spot (email.md)
@@ -73,9 +73,9 @@ def example_html(lang, n):
     # regra de 19/10: a diferenca simples em %, nao em pontos
     gap = pct(round(ex.n2 - ex.c, 1), lang, n) if (ex.n2 is not None and ex.c is not None) else ph_email("N2")
     if lang == "pt":
-        html = f"Exemplo: {n1}. O field folda {ex.s_n2()} contra {c} do GTO: {gap} acima. É um spot, não a média do field. Confira no seu board."
+        html = f"{n1}: o field folda {ex.s_n2()}, o GTO folda {c}. {gap} acima. Nesse flop, c-bet mais."
     else:
-        html = f"Example: {n1}. The field folds {ex.s_n2()} vs {c} for GTO: {gap} above. This is one spot, not the field average. Check it on your board."
+        html = f"{n1}: the field folds {ex.s_n2()}, GTO folds {c}. {gap} above. On this flop, c-bet more."
     return html, miss
 
 
@@ -256,7 +256,7 @@ def render(lang, n, img_name, img_h, draft_miss, preview):
             miss.append(f"{key}_{lang}")
             return ph_email(f"{key}_{lang}")
         return H.escape(v)
-    corpo, preflop, under = tx("email_corpo"), tx("email_preflop"), tx("email_under")
+    corpo, preflop, under = tx("email_corpo"), tx("email_fecho"), tx("email_under")
     draft = bool(miss)
     exa = Ex(n, lang)
     spot_alt = (n.get("fvg") or {}).get("spot_alt") or {}

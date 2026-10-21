@@ -1,4 +1,6 @@
-# E-mail: lançamento do Modo GTO (GTO no flop, turn e river, com as aberturas do agressor)
+# E-mail: lançamento do Modo GTO
+
+**21/10: o Rafael reprovou o texto abaixo ("as aberturas do agressor", frase da barra de status) e escolheu a versão A de `email-versoes-wow.md` ("A · a promessa e um spot"). O texto vigente é o da versão A, em PT e EN, e é o que a build gera em `email-pt.html` / `email-en.html` (assunto "O GTO do flop ao river, ao lado do field" / "GTO from flop to river, next to the field"; preheader "Modo GTO no ar. Incluso no plano Individual por tempo limitado." / "GTO Mode is live. Included in the Individual plan for a limited time."). O rascunho `c8135c95-…` no Resend foi atualizado com esse HTML em 21/10; nada enviado. Prints em `email/prints/`. O que segue abaixo é o histórico da versão de 15/10.**
 
 Status: rascunho sem marcadores abertos; não publicado. Não enviado, e nada foi criado no Resend. Versão de 15/10/2026 (anuncia "no ar" e a inclusão do GTO no Individual por tempo limitado, decisão do Rafael via HUB), números fechados em 14/10. **O Rafael aprovou, direto, em 15/10, o assunto e o corpo do e-mail (PT e EN); o corpo não muda.**
 Números: exemplo (a) de `aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md` (08/10): field folda 46,0%, GTO folda 38,8%. A cobertura segue `aura-main/_ops/golive-gto-2026-10-14/numeros-verificados-lancamento.md` (14/10). Um exemplo só (CO × BB) e uma comparação só (field contra GTO). Sem número de escala, sem pré-flop concreto, sem contagem de mãos, sem o exemplo de abertura.
