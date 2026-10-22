@@ -2,7 +2,7 @@
 
 Fonte única dos números do lançamento do **Field Hotspots** (ex-Pool vs GTO), que está no ar em www.aura.poker desde 22/10/2026. A sessão de marketing usa só os números daqui. Número que não está aqui não vai para post, e-mail nem landing.
 
-Como foi medido: cada número abaixo vem de uma consulta SQL, que vai junto. As consultas rodaram no Postgres LOCAL. Os totais (Q1, Q2, Q3 e Q6) também rodaram, só em leitura, no banco servido em produção (Azure `aura_database`), e bateram 1:1: 6.212 / 1.049 / 21.333.719 / 688 / 8 / 1. Snapshot do ranking: `20261015`, faixa GTO v5, regra de liberação `pvg-release-v1`.
+Como foi medido: cada número abaixo vem de uma consulta SQL, que vai junto. As consultas rodaram no Postgres LOCAL. Os totais (Q1, Q2, Q3 e Q6) também rodaram, só em leitura, no banco servido em produção (Azure `aura_database`), e bateram 1:1: 6.212 / 1.049 / 21.333.719 / 688 / 8 / 1. Snapshot do ranking: `20261015`, refeito em 22/10 sobre a referência GTO `20261022` (a mesma que o Modo GTO serve desde o FLOP-PUB; os números deste arquivo não mudaram, conferido coluna a coluna), faixa GTO v5, regra de liberação `pvg-release-v1`.
 
 Regras de texto: vírgula decimal em PT; desvio em "%" ("19,7% abaixo do GTO"), nunca "pp" nem "pontos"; termos de poker em inglês (c-bet, overfold, overdefend, value); "a Aura".
 
