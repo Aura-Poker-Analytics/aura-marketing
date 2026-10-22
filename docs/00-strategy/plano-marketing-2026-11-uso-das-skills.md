@@ -1,6 +1,6 @@
 # Plano de marketing da Aura (nov/2026): como as skills serão usadas
 
-**Criado em:** 22/10/2026 · **Sessão:** `aura · plano de marketing · grill-me` · **Estado:** fase 0 fechada em 22/10 ([entendimento-compartilhado-2026-11.md](entendimento-compartilhado-2026-11.md)); fase 1 em andamento
+**Criado em:** 22/10/2026 · **Sessão:** `aura · plano de marketing · grill-me` · **Estado:** fase 0 fechada em 22/10 ([entendimento-compartilhado-2026-11.md](entendimento-compartilhado-2026-11.md)); fase 1 fechada em 22/10 ([diagnóstico](../03-analytics/diagnostico-funil-2026-11.md), [contexto](../../.agents/product-marketing.md)); a seguir: reconquista (02/11), medição e conversão
 
 Este documento é o roteiro de método: em que ordem cada skill entra, o que lê, o que entrega e onde grava. O plano de marketing em si sai das fases 0 a 3 e vai para `plano-marketing-2026-11.md`, nesta mesma pasta.
 
