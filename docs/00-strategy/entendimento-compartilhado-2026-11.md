@@ -92,4 +92,34 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 | Q18 | B2B por três caminhos: **(a) pacote de contas por volume, (c) relatório do field por encomenda e (d) licença ou comissão para coaches.** Head coaches que já assinam a Aura são a porta de entrada: gremistaak, Paulo Moraes, Ganso, entre outros. | Rafael: "Q18 a) c) e d). Temos alguns head coaches que ja assinam a plataforma. Como o gremistaak, paulo moraes, ganso, etc." |
 | Q19 | O Rafael olhou a segunda conta de anúncios. O impulsionamento foi feito pelo botão do Instagram, e ele acha que isso não deixa rastro no Meta Ads. | Rafael |
 
-### Rodada 4 (22/10): em andamento
+### Rodada 4 (22/10): decidida
+
+| # | Decisão | Fonte |
+| --- | --- | --- |
+| Q17 | **Meta: 45 pagantes ativos em 31/01/2027** (saindo de 16). Alvo esticado: 60. Abaixo de 30, reabre a conversa de pivô. | Rafael: "Restante ok" |
+| Q20 | Coaches: conta paga grátis enquanto parceiro, 30% recorrente por 12 meses sobre os assinantes do cupom, 7 dias de teste para o aluno; em troca, uso em aula e depoimento. O Rafael faz o primeiro contato; eu preparo a proposta de uma página. **Sem kit de aula.** Controle manual por cupom do Stripe até 10 coaches. | Rafael: "o kit de aula nao precisa. restante ok" |
+| Q21 | Relatório do field por encomenda: os 10 maiores desvios do field contra o GTO no buy-in e nas salas do time, entregue em 5 dias úteis. O primeiro é grátis para o time de um coach parceiro; depois, R$ 800. | Rafael: "Restante ok" |
+| Q22 | Pacote de contas: 25% a partir de 5 contas e 35% a partir de 10, fatura única do Stripe, sem desenvolvimento no app. Conta para a comissão do coach. | Rafael: "Restante ok" |
+| Q23 | **Campo opcional de Instagram no cadastro da Aura**, para mapear contas com muitos seguidores (candidatos a parceiro). | Rafael: "acho legal termos um campo opcional de instagram no cadastro da aura tambem pra mapearmos contas com muitos seguidores." |
+
+### Rodada 5 (22/10): confirmação
+
+## Síntese do entendimento (para confirmar)
+
+**Meta:** de 16 para 45 pagantes ativos até 31/01/2027 (60 esticado; abaixo de 30 reabre o pivô).
+
+**Mercados:** aquisição B2C em inglês (Reino Unido, Canadá, Alemanha, Holanda, Áustria, nórdicos). O Brasil entra pelos coaches e pelo B2B, e o B2C brasileiro fica só com e-mail para a base e stories em PT.
+
+**Frentes, em ordem de início:**
+
+1. **Medição** (semanas 1–2): `begin_checkout` e `purchase` no ar (21–22/10), conferir; `purchase` pelo servidor; `fbp`/`fbc` no cadastro; pendências do GA4 com o Rafael; campo opcional de Instagram no cadastro (sessão no app).
+2. **Reconquista** (disparo em 02/11, com o Pool vs GTO): sequência para os ~32 ex-pagantes do Stripe e os do Woo, com 50% no primeiro mês e validade de 14 dias. O envio é do Rafael.
+3. **Coaches** (a partir da semana 1): proposta de uma página; o Rafael contata gremistaak, Paulo Moraes, Ganso e outros. Os mesmos termos valem para coaches em inglês.
+4. **B2B:** pacote de contas por volume e relatório do field por encomenda (o primeiro grátis para o time de um coach).
+5. **Conversão:** formulário de cadastro (dois terços desistem) e ativação até o paywall.
+6. **Pago** (só depois da medição): R$ 1.500 em 60 dias, divididos em R$ 1.050 para a DISC02-EU reeditada, R$ 300 de remarketing e R$ 150 na célula "Esportes" em inglês. A configuração não muda por 14 dias e o corte é por custo por assinante.
+7. **Orgânico em inglês:** feed em inglês, X/Twitter, Reddit e shorts, a partir de 2 ou 3 vídeos por semana do Rafael.
+
+**Fica com o Rafael:** envio de e-mail, verba, publicação, preço e cupons, o contato com os coaches e a migration do campo de Instagram no AuraBusiness.
+
+**Pendências de produto fora do plano:** aposentar o Team Mode (landing, app, STATE do aura-main); campo de Instagram no cadastro (aura-novofront, aura_api e migration no AuraBusiness).
