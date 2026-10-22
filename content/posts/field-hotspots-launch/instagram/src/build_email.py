@@ -17,7 +17,7 @@ from lib import ASSETS, EMAIL, EMAIL_IMG_BASE, POST, SRC, is_num, pct, ph_email,
 CP = {
     "pt": dict(
         lang_attr="pt-BR", subject="UTG vs BB, 25bb: o field defende demais", h1="Field Hotspots no ar",
-        tagline="Onde o field mais se afasta do GTO, spot a spot.",
+        tagline="8 spots de desvio forte do field, spot a spot.",
         pre="Field Hotspots no ar. Dois spots novos toda segunda.", btn="Abrir o Field Hotspots",
         under="Primeira troca de spots: segunda, 02/11. Poker é jogo de habilidade e estudo. 18+.",
         f1="Você recebe este e-mail porque tem uma conta ou lista de espera da Aura.",
@@ -27,7 +27,7 @@ CP = {
     ),
     "en": dict(
         lang_attr="en", subject="UTG vs BB, 25bb: the field overdefends", h1="Field Hotspots is live",
-        tagline="Where the field strays most from GTO, spot by spot.",
+        tagline="8 strong field deviations from GTO, spot by spot.",
         pre="Field Hotspots is live. Two new spots every Monday.", btn="Open Field Hotspots",
         under="First spot swap: Monday, Nov 2. Poker is a game of skill and study. 18+.",
         f1="You are receiving this email because you have an Aura account or waitlist spot.",
@@ -43,7 +43,7 @@ def body_paras(lang, n):
     word = "abaixo" if lang == "pt" else "below"
     if lang == "pt":
         return [
-            "Os spots pós-flop de MTT em que o field mais erra, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar.",
+            "Os spots pós-flop de MTT em que o field tem desvio forte do GTO, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar.",
             f"UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥ (A-high two-tone, OESD possível). Contra o c-bet de 50%, o field folda {f} e o GTO folda {g}: {d} {word}. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.",
             "O Modo GTO libera 8 spots. O Grátis vê 1. Toda segunda, 2 saem e 2 entram, e o que sai não volta igual. O reg do lado pode estar vendo.",
         ]

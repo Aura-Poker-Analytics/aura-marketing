@@ -8,8 +8,8 @@ Telas de referência: `aura-novofront/_ops/validacao-prints/169/paid-1280-3-fiel
 **Números:** todos vêm de `content/posts/field-hotspots-launch/numeros-verificados.md` (22/10/2026). Nenhum marcador `[NUM]` resta no pacote; cada número está mapeado à linha da fonte em "Números usados", no fim. PT com vírgula, EN com ponto; desvio em %, nunca "pp".
 
 ## Mensagem central
-- PT: Os maiores hotspots do field, discriminados e a um clique: onde ele mais se afasta do GTO, em qual size de c-bet, e o que fazer com isso.
-- EN: The field's biggest hotspots, itemized and one click away: where it strays most from GTO, at which c-bet size, and what to do about it.
+- PT: Os hotspots de desvio forte do field, discriminados e a um clique: onde ele se afasta do GTO, em qual size de c-bet, e o que fazer com isso.
+- EN: The field's strong-deviation hotspots, itemized and one click away: where it strays from GTO, at which c-bet size, and what to do about it.
 
 Estrutura de toda peça: **um spot concreto** (UTG vs BB, 25bb, SRP, flop A-high two-tone com OESD possível, Overdefend), **a ação** ("O BB defende demais contra c-bet. Blefe menos e aposte mais por value.", texto da própria caixa "Como explorar") e **um CTA**.
 
@@ -31,7 +31,7 @@ Direção dele: "Tem que ter um apelo que damos os maiores hotspots do field dis
 8. **Capturas de tela nas artes:** as telas de 22/10 mostram números (fold, GTO, diferença, mil mãos, faixa). Só entram na arte se o `numeros-verificados.md` os cobrir; senão usar o mockup renderizado com os valores confirmados, ou borrar.
 9. **Preço e plano:** nenhuma peça cita preço. O trancado da tela diz "+7 spots liberados no Modo GTO", e as peças usam "Modo GTO" assim. Conferir se há texto do plano a acrescentar ("incluso no Individual") ou se isso fica fora.
 10. **"Deixando fichas na mesa": decisão do Rafael.** A frase "Quem não sabe onde o field erra pode estar deixando fichas na mesa" (legendas do feed, PT e EN) é a direção de fearmongering que ele pediu. O brand-kit veta promessa de lucro; a frase não promete ganho (diz "pode estar deixando"), mas o revisor de marca deve saber que ela fica por decisão dele.
-11. **Confirmar que os 8 do lançamento são os de maior desvio.** A ordem de liberação põe os fortes primeiro (regra `pvg-release-v1`: "Desvio forte" = 5% ou mais fora da faixa do GTO, depois "Desvio claro" = 2% a 5%). As peças dizem "os maiores hotspots do field" e "onde o field mais se afasta do GTO"; antes de publicar, a sessão dona do módulo confirma que os 8 spots da janela de lançamento são, de fato, os de maior desvio do catálogo.
+11. **Fechada (22/10, HUB): os 8 liberados não são os 8 maiores desvios** (posições 4, 7, 9, 16, 18, 20, 24 e 49 de 1.049, pela regra de liberação). Todas as peças trocaram "os maiores" / "mais se afasta" por "desvio forte" (5% ou mais fora da faixa do GTO).
 
 ## Regras de texto das artes (padrão Rafael, 08/10)
 Cada arte tem **um título curto (até ~6 palavras) e no máximo uma linha de apoio (até ~10 palavras)**. A imagem fala. Em toda arte, só ficam o logo, `@aurapokeranalytics · 18+` pequeno e, nos slides, o indicador "n / 7". Título em caixa alta bold, apoio em sentence case. O link é o sticker ou o link na bio, não texto de arte. Cores semânticas: fold `#015A6B`, call `#348A5D`, raise `#AD2C34`; a diferença field × GTO em âmbar. Nenhuma arte mostra contagem de mãos nem preço.
@@ -68,12 +68,12 @@ Observação: feed e story têm uma URL por idioma (no Modo GTO era uma só), pa
 - EN: New · Field Hotspots
 
 ## Título
-- PT: Os maiores hotspots do field, spot a spot.
-- EN: The field's biggest hotspots, spot by spot.
+- PT: 8 spots de desvio forte do field, spot a spot.
+- EN: 8 strong field deviations from GTO, spot by spot.
 
 ## Subtítulo
-- PT: O Field Hotspots lista os spots pós-flop em que o field real de MTT mais se afasta do GTO, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar. Item próprio no menu do topo.
-- EN: Field Hotspots lists the postflop spots where the real MTT field strays most from GTO, already itemized: positions, stack, flop, c-bet size and the action to exploit it. Its own item in the top menu.
+- PT: O Field Hotspots lista os spots pós-flop em que o field real de MTT tem desvio forte do GTO, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar. Item próprio no menu do topo.
+- EN: Field Hotspots lists the postflop spots where the real MTT field deviates strongly from GTO, already itemized: positions, stack, flop, c-bet size and the action to exploit it. Its own item in the top menu.
 
 ## 3 bullets
 PT:
@@ -115,8 +115,8 @@ Cada arte: **um título (até ~6 palavras) e uma linha de apoio (até ~10 palavr
 | Feed | 1080x1350 | EN | Know where the field leaks? | Field Hotspots: new spots every Monday. | Mesmas barras (Field 53.8%, GTO 73.5%, 50% c-bet), gap em âmbar, rótulo OVERDEFEND; rótulo "UTG vs BB · 25bb · A-high two-tone" |
 | Story | 1080x1920 | PT | O BB defende demais aqui | Field Hotspots: o que sai na segunda não volta igual. | As mesmas barras com a diferença 19,7% abaixo em âmbar (EN 19.7% below); o flop A♠ 3♠ 6♥; sticker de link "Abrir o Field Hotspots" |
 | Story | 1080x1920 | EN | The BB overdefends here | Field Hotspots: what leaves on Monday doesn't come back the same. | Mesma imagem do story PT; sticker de link "Open Field Hotspots" |
-| Story da capa | 1080x1920 | PT | Field Hotspots no ar | Onde o field mais se afasta do GTO, spot a spot. | Pílula NOVO; a barra do menu do topo com o item Field Hotspots e o selo NEW em destaque, e a lista de spots com os rótulos Overfold e Overdefend (sem números, ou só os confirmados); sticker de link "Abrir o Field Hotspots" |
-| Carrossel 1 (capa) | 1080x1350 | EN | Field Hotspots is live | The field's biggest GTO deviations, spot by spot. | Pílula NEW; janela do produto com a lista de spots e o item Field Hotspots NEW no menu do topo |
+| Story da capa | 1080x1920 | PT | Field Hotspots no ar | 8 spots de desvio forte do field. | Pílula NOVO; a barra do menu do topo com o item Field Hotspots e o selo NEW em destaque, e a lista de spots com os rótulos Overfold e Overdefend (sem números, ou só os confirmados); sticker de link "Abrir o Field Hotspots" |
+| Carrossel 1 (capa) | 1080x1350 | EN | Field Hotspots is live | 8 strong field deviations from GTO, spot by spot. | Pílula NEW; janela do produto com a lista de spots e o item Field Hotspots NEW no menu do topo |
 | Carrossel 2 (o que é) | 1080x1350 | EN | Postflop spots. Field vs GTO. | Position pair, stack, pot type, flop texture. | Lista de 3 a 4 cards de spot (par de posições, stack, SRP, textura, rótulo Overfold/Overdefend), sem números |
 | Carrossel 3 (um spot) | 1080x1350 | EN | One spot, fully broken down | UTG vs BB · 25bb · SRP · A-high two-tone flop | O spot da semana: os 3 boards de exemplo (A♠ 3♠ 6♥, 6♠ A♣ 7♣, 7♣ A♥ 5♥), o rótulo OVERDEFEND, no c-bet de 50%, field 53,8% contra GTO 73,5%, a diferença 19,7% abaixo, e as abas Fold, Call, Raise com os 3 sizes (barras de fold, field × GTO: 33% 45,1% × 52,5%; 50% 53,8% × 73,5%; 65% 59,4% × 76,3%; EN com ponto) |
 | Carrossel 4 (como explorar) | 1080x1350 | EN | How to exploit it | BB overdefends. Bluff less, bet more for value. | A caixa "Como explorar" em âmbar, com o texto da tela (EN exato: "The BB defends too much against the c-bet. Bluff less and bet more for value."; PT: "O BB defende demais contra c-bet. Blefe menos e aposte mais por value."), sobre o flop A♠ 3♠ 6♥ e o rótulo OVERDEFEND. Sem mãos exemplificadas |
@@ -173,5 +173,5 @@ Não usados de propósito: faixas do GTO (50,9–54,2; 67,5–79,5; 70,3–82,3)
 
 ## Condições do revisor de marca (parecer final OK COM RESSALVAS, 22/10)
 - **D: outros spots nas artes.** O carrossel 1 e 2 e o story da capa mostram, sem números, os rótulos de outros spots da janela de 22/10 (BTN vs BB 40bb, BTN vs SB 40bb, UTG vs BB 40bb), lidos da tela. Eles não estão no `numeros-verificados.md` e saem a partir de 02/11 (o lote de abertura sai 2 por semana). Publicar antes de 02/11; depois disso, trocar esses cards.
-- Decisões do Rafael: "fichas na mesa" (Pendência 10), "os maiores" (Pendência 11), rodapé de amostra do brand-kit × regra sem bastidor.
+- Decisões do Rafael: "fichas na mesa" (Pendência 10), rodapé de amostra do brand-kit × regra sem bastidor.
 - Discord recontado com `len()`: PT 902, EN 897 caracteres (teto 1.200).

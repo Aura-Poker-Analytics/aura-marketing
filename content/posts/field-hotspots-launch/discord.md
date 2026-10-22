@@ -12,7 +12,7 @@ Tom: diagnóstico + ação; FOMO só com fato (rotação, 1 de 8) e "pode". Sem 
 ```
 📊 **Field Hotspots no ar**
 
-Os spots pós-flop em que o field de MTT mais se afasta do GTO, já discriminados: posições, stack, tipo de pote, textura do flop, Overfold ou Overdefend, e o detalhe por size de c-bet (33%, 50%, 65%) em Fold, Call e Raise. Item próprio no menu do topo.
+Os spots pós-flop em que o field de MTT tem desvio forte do GTO, já discriminados: posições, stack, tipo de pote, textura do flop, Overfold ou Overdefend, e o detalhe por size de c-bet (33%, 50%, 65%) em Fold, Call e Raise. Item próprio no menu do topo.
 
 **Exemplo desta semana**
 UTG vs BB, 25bb, SRP, flop A-high two-tone com OESD possível. Contra o c-bet de 50%, o BB folda 53,8% contra 73,5% do GTO: overdefend. **Blefe menos e aposte mais por value.**
@@ -30,7 +30,7 @@ Ferramenta de estudo. 18+.
 ```
 📊 **Field Hotspots is live**
 
-The postflop spots where the MTT field strays most from GTO, already itemized: positions, stack, pot type, flop texture, Overfold or Overdefend, and the detail by c-bet size (33%, 50%, 65%) on Fold, Call and Raise. Its own item in the top menu.
+The postflop spots where the MTT field deviates strongly from GTO, already itemized: positions, stack, pot type, flop texture, Overfold or Overdefend, and the detail by c-bet size (33%, 50%, 65%) on Fold, Call and Raise. Its own item in the top menu.
 
 **This week's example**
 UTG vs BB, 25bb, SRP, A-high two-tone flop with a possible OESD. Facing a 50% c-bet, the BB folds 53.8% vs 73.5% for GTO: overdefend. **Bluff less and bet more for value.**

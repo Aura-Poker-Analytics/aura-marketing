@@ -15,7 +15,7 @@ Arte EN: título "Know where the field leaks?" / apoio "Field Hotspots: new spot
 ```
 Você sabe onde o field erra? O reg do lado pode saber.
 
-O Field Hotspots está no ar: os spots pós-flop em que o field de MTT mais se afasta do GTO, cada um discriminado, no menu do topo.
+O Field Hotspots está no ar: os spots pós-flop em que o field de MTT tem desvio forte do GTO, cada um discriminado, no menu do topo.
 
 Exemplo desta semana: UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥ (A-high two-tone, OESD possível). Contra o c-bet de 50%, o BB folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. Overdefend. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
@@ -32,7 +32,7 @@ Abrir o Field Hotspots, link na bio. Ferramenta de estudo. 18+.
 ```
 Do you know where the field leaks? The reg next to you might.
 
-Field Hotspots is live: the postflop spots where the MTT field strays most from GTO, each one itemized, in the top menu.
+Field Hotspots is live: the postflop spots where the MTT field deviates strongly from GTO, each one itemized, in the top menu.
 
 This week's example: UTG vs BB, 25bb, SRP, A♠ 3♠ 6♥ flop (A-high two-tone, possible OESD). Facing a 50% c-bet, the BB folds 53.8% and GTO folds 73.5%: 19.7% below. Overdefend. The BB defends too much against the c-bet. Bluff less and bet more for value.
 
@@ -53,9 +53,9 @@ Slides (arte, `copy.md`): 1 "Field Hotspots is live" · 2 "Postflop spots. Field
 
 ```
 🇧🇷
-Os maiores hotspots do field, discriminados. Você sabe onde ele erra?
+Hotspots de desvio forte do field, discriminados. Você sabe onde ele erra?
 
-O Field Hotspots está no ar: os spots pós-flop em que o field de MTT mais se afasta do GTO, com posições, stack, tipo de pote, textura do flop, Overfold ou Overdefend, field × GTO por size de c-bet (33%, 50%, 65%) e a caixa Como explorar.
+O Field Hotspots está no ar: os spots pós-flop em que o field de MTT tem desvio forte do GTO, com posições, stack, tipo de pote, textura do flop, Overfold ou Overdefend, field × GTO por size de c-bet (33%, 50%, 65%) e a caixa Como explorar.
 
 Exemplo desta semana: UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥. Contra o c-bet de 50%, o BB folda 53,8% contra 73,5% do GTO, 19,7% abaixo: overdefend. Blefe menos e aposte mais por value.
 
@@ -64,9 +64,9 @@ O Modo GTO libera 8 spots; o Grátis vê 1. Toda segunda, 2 saem e 2 entram (pri
 Link na bio. Ferramenta de estudo. 18+.
 
 🇺🇸
-The field's biggest hotspots, itemized. Do you know where it leaks?
+The field's strong deviations from GTO, itemized. Do you know where it leaks?
 
-Field Hotspots is live: the postflop spots where the MTT field strays most from GTO, with positions, stack, pot type, flop texture, Overfold or Overdefend, field vs GTO by c-bet size (33%, 50%, 65%) and the How to exploit box.
+Field Hotspots is live: the postflop spots where the MTT field deviates strongly from GTO, with positions, stack, pot type, flop texture, Overfold or Overdefend, field vs GTO by c-bet size (33%, 50%, 65%) and the How to exploit box.
 
 This week's example: UTG vs BB, 25bb, SRP, A♠ 3♠ 6♥ flop. Facing a 50% c-bet, the BB folds 53.8% vs 73.5% for GTO, 19.7% below: overdefend. Bluff less and bet more for value.
 
@@ -96,7 +96,7 @@ Os stories não levam legenda; o texto é o da arte (título e apoio, em `copy.m
 - Enquete opcional: "Does your BB overdefend against c-bets?" Opções: **Yes** / **Depends**.
 
 ### Story da capa do carrossel (PT)
-- Arte: título "Field Hotspots no ar" / apoio "Onde o field mais se afasta do GTO, spot a spot."
+- Arte: título "Field Hotspots no ar" / apoio "8 spots de desvio forte do field."
 - Sticker de link (texto): **Abrir o Field Hotspots**
 - URL: https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=story-capa-pt
 - Sticker de contagem regressiva: **não usar** (a regra é não inventar escassez; a rotação é toda segunda, mas não há "prazo" a contar).

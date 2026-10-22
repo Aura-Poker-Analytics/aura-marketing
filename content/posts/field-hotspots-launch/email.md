@@ -7,7 +7,7 @@ Números de `numeros-verificados.md` (mapa em `copy.md`); nenhum `[NUM]` resta. 
 
 ## PT
 
-**Assunto, opção 1:** Field Hotspots: onde o field mais erra
+**Assunto, opção 1:** Field Hotspots: onde o field erra
 **Assunto, opção 2:** UTG vs BB, 25bb: o field defende demais
 **Recomendado: opção 2.** Tem spot e diagnóstico no assunto (tom de reg), e a opção 1 fica para a linha de abertura.
 **Preheader:** Field Hotspots no ar. Dois spots novos toda segunda.
@@ -15,9 +15,9 @@ Números de `numeros-verificados.md` (mapa em `copy.md`); nenhum `[NUM]` resta. 
 **Corpo (texto)**
 
 Field Hotspots no ar
-Onde o field mais se afasta do GTO, spot a spot.
+8 spots de desvio forte do field, spot a spot.
 
-Os spots pós-flop de MTT em que o field mais erra, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar.
+Os spots pós-flop de MTT em que o field tem desvio forte do GTO, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar.
 
 UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥ (A-high two-tone, OESD possível). Contra o c-bet de 50%, o field folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
@@ -39,7 +39,7 @@ Sob o botão: Primeira troca de spots: segunda, 02/11. Poker é jogo de habilida
 **Body (text)**
 
 Field Hotspots is live
-Where the field strays most from GTO, spot by spot.
+8 strong field deviations from GTO, spot by spot.
 
 The postflop MTT spots where the field leaks most, already itemized: positions, stack, flop, c-bet size and the action to exploit it.
 
