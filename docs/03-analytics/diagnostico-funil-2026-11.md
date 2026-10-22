@@ -96,7 +96,15 @@ O Preflop é a porta de entrada. Os módulos de GTO (Modo GTO, Field Ranges com 
 | M7 | Pixel: `CompleteRegistration` sem `fbp`/`fbc`; qualidade de correspondência entre 5 e 6,1 | O Meta não liga cadastro ao clique | `fbp`, `fbc` e `external_id` no evento, mais o envio pelo servidor (CAPI) | sessão aura-novofront / aura_api |
 | M8 | Dimensão de usuário `aura_user_id` não criada | Não dá para ligar GA4 ao pagante | Criar a dimensão no GA4 | Rafael (pendência do STATE) |
 
-## 6. O que muda no plano
+## 6. Decisões do Rafael sobre o diagnóstico (22/10)
+
+| # | Decisão | Fonte |
+| --- | --- | --- |
+| D1 | **Portugal entra como mercado prioritário**, junto com Reino Unido, Canadá, Alemanha, Holanda, Áustria e nórdicos | Rafael: "1 sim" |
+| D2 | **A reconquista aponta para a landing**, que foi muito reformulada e deve causar impacto. Por isso, o `cta_click` da landing tem de estar medido antes de 02/11. | Rafael: "mas tivemos uma reformulação grande da landing, entao talvez seria bom pra causar WOW?" |
+| D3 | **Conversão e medição antes do pago**, com sessões paralelas para o conserto | Rafael: "3 sim fique a vontade pra rodar subagentes pro conserto." |
+
+## 7. O que muda no plano
 
 1. **A fase 3 (conversão) sobe de prioridade e passa à frente do pago.** O primeiro trabalho é a passagem da landing ao cadastro (V1) e a captura de e-mail no celular para continuar no desktop (V2). Comprar tráfego antes disso repete os 1.288 visitantes pagos com 8 cadastros.
 2. **A medição (M1, M2, M4, M7) é pré-requisito da verba**, como decidido na Q3.
