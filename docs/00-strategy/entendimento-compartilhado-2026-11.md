@@ -104,7 +104,13 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 
 ### Rodada 5 (22/10): confirmação
 
-## Síntese do entendimento (para confirmar)
+| # | Decisão | Fonte |
+| --- | --- | --- |
+| Q24 | Campo de Instagram opcional, **fora do formulário de cadastro**: no onboarding ou em "Minha conta", com o propósito dito ("para conectarmos você com coaches e a comunidade"). Sessão própria no aura-novofront e no aura_api; a migration aditiva no AuraBusiness é do Rafael. | Rafael: "sim" |
+
+**Fase 0 fechada em 22/10/2026.** O Rafael confirmou o entendimento compartilhado abaixo ("sim").
+
+## Síntese do entendimento (confirmada em 22/10)
 
 **Meta:** de 16 para 45 pagantes ativos até 31/01/2027 (60 esticado; abaixo de 30 reabre o pivô).
 

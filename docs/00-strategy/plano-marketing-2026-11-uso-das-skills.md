@@ -1,6 +1,6 @@
 # Plano de marketing da Aura (nov/2026): como as skills serão usadas
 
-**Criado em:** 22/10/2026 · **Sessão:** `aura · plano de marketing · grill-me` · **Estado:** fase 0 (entrevista) em andamento
+**Criado em:** 22/10/2026 · **Sessão:** `aura · plano de marketing · grill-me` · **Estado:** fase 0 fechada em 22/10 ([entendimento-compartilhado-2026-11.md](entendimento-compartilhado-2026-11.md)); fase 1 em andamento
 
 Este documento é o roteiro de método: em que ordem cada skill entra, o que lê, o que entrega e onde grava. O plano de marketing em si sai das fases 0 a 3 e vai para `plano-marketing-2026-11.md`, nesta mesma pasta.
 
@@ -33,6 +33,22 @@ Este documento é o roteiro de método: em que ordem cada skill entra, o que lê
 | 7. Conteúdo | O que publicar no Instagram e no Discord? | `lote-posts` (repo), agentes `aura-copywriter`, `aura-fabrica-posts`, `aura-revisor-marca` | Pilares do plano, brand-kit | Calendário e lotes de posts |
 
 As fases 3 e 4 podem correr em paralelo depois da fase 1. A fase 6 só começa depois das fases 2 e 3, porque anúncio sobre um funil que não converte e não mede só repete o histórico.
+
+## Skills que entraram depois da fase 0
+
+| Skill | Fase | Uso |
+| --- | --- | --- |
+| `product-marketing` | 1 | Base de contexto (produto, público, posicionamento) que as outras skills leem |
+| `customer-research` | 1 e 6 | Entrevistas com os coaches e os pagantes atuais |
+| `community-marketing` | 6 | Programa de coaches e Discord |
+| `content-strategy`, `social` | 7 | Pilares e calendário em inglês para Instagram, X, Reddit e shorts |
+| `marketing-plan` | fecho | Monta o `plano-marketing-2026-11.md` a partir dos documentos das fases |
+
+## Mudanças depois da fase 0
+
+- A fase 4 começa antes da fase 3: a reconquista dos ex-pagantes sai em 02/11, junto com o Pool vs GTO.
+- A fase 6 ganha duas frentes sem verba, que começam já na semana 1: o programa de coaches e o B2B (pacote de contas e relatório do field).
+- O mercado de aquisição B2C passa a ser o inglês.
 
 ## Como cada fase fecha
 
