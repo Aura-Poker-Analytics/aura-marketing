@@ -84,4 +84,12 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 
 **Fora do escopo do plano, registrado para o produto:** aposentar o Team Mode afeta a landing (card "Team, fale conosco"), o app e o `STATE.md` do aura-main (§1 lista o Team Mode em produção). Isso precisa de uma sessão própria no aura-main e no aura-landing.
 
-### Rodada 3 (22/10): em andamento
+### Rodada 3 (22/10): decidida, Q17 sem resposta
+
+| # | Decisão | Fonte |
+| --- | --- | --- |
+| Q17 | Meta proposta: 45 ativos (60 esticado), saindo de 16. **Sem resposta**, reperguntada na rodada 4. | (aberta) |
+| Q18 | B2B por três caminhos: **(a) pacote de contas por volume, (c) relatório do field por encomenda e (d) licença ou comissão para coaches.** Head coaches que já assinam a Aura são a porta de entrada: gremistaak, Paulo Moraes, Ganso, entre outros. | Rafael: "Q18 a) c) e d). Temos alguns head coaches que ja assinam a plataforma. Como o gremistaak, paulo moraes, ganso, etc." |
+| Q19 | O Rafael olhou a segunda conta de anúncios. O impulsionamento foi feito pelo botão do Instagram, e ele acha que isso não deixa rastro no Meta Ads. | Rafael |
+
+### Rodada 4 (22/10): em andamento
