@@ -111,3 +111,18 @@ O Preflop é a porta de entrada. Os módulos de GTO (Modo GTO, Field Ranges com 
 3. **Portugal entra como candidato a mercado prioritário.** Decisão do Rafael na abertura da fase 2.
 4. **A reconquista segue para 02/11, em PT.** Dos 31 ex-pagantes, 30 são do Brasil e 29 pagaram em BRL. A versão em inglês fica para 1 pessoa (Portugal paga em USD, mas fala português: mandar PT com preço em USD, ou só PT).
 5. O e-mail aponta para a landing (regra), e a landing é o maior vazamento (V1). Para os ex-pagantes, que já têm login, vale abrir uma exceção e mandar o CTA direto para o app. **Decisão do Rafael.**
+
+## 8. Consertos abertos em 22/10 (sessões paralelas, PRs em rascunho, sem merge)
+
+| Falha | PR | O que faz |
+| --- | --- | --- |
+| M1, M5, M7 e caminhos duplicados | [aura-novofront#185](https://github.com/Aura-Poker-Analytics/aura-novofront/pull/185) | Prova que `begin_checkout` e `purchase` disparam (o zero era falta de checkout); garante que saiam antes do salto de página; `form_start` uma vez por tentativa; `fbp`, `fbc` e `external_id` com hash no `CompleteRegistration`; normaliza `/Login` e `/preflop` |
+| M2 e V2 | [aura-landing#26](https://github.com/Aura-Poker-Analytics/aura-landing/pull/26) | `cta_click` em todo CTA para o app; linker entre domínios no gtag; captura de e-mail no celular atrás de `VITE_MOBILE_EMAIL_CAPTURE` (desligada) |
+| Compra pelo servidor | [aura-api#120](https://github.com/Aura-Poker-Analytics/aura-api/pull/120) | `invoice.paid` → `purchase` no GA4 (Measurement Protocol) e `Subscribe` na CAPI da Meta, desligados por padrão |
+
+**Pendências do Rafael para esses PRs entrarem:**
+- App settings da API: `Ga4__Enabled`, `Ga4__MeasurementId`, `Ga4__ApiSecret`, `Meta__SubscribeFromInvoiceEnabled` e `Meta__AccessToken` (se faltar).
+- Evento `invoice.paid` no webhook do Stripe.
+- No GA4, registrar `cta_id`, `cta_destination` e `cta_lang` como dimensões de evento.
+- Decidir a dupla contagem da primeira compra no GA4 (navegador e servidor). Recomendação da sessão da API: tirar do `purchase` do navegador a marcação de evento-chave.
+- A captura no celular só deve ser ligada com uma automação no Resend que de fato mande o link.
