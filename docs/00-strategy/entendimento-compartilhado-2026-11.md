@@ -66,4 +66,22 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 | Q6 | Escopo: só a Aura. Os lançamentos (Pool vs GTO em 02/11, Modo GTO) entram como ganchos. | Rafael: de acordo |
 | Q7 | Plano segue, com gatilho novo: se a meta da Q1 não for atingida em 31/01/2027, reabrir a conversa de concierge/B2B. O canal de parceiros testa o B2B em paralelo. | Rafael: de acordo |
 
-### Rodada 2 (22/10): em andamento
+### Rodada 2 (22/10): decidida, com três pontos reabertos
+
+| # | Decisão | Fonte |
+| --- | --- | --- |
+| Q8 | Países em inglês primeiro: Reino Unido, Canadá, Alemanha, Holanda, Áustria e nórdicos. Fora os EUA. Espanhol depois. | Rafael: "Restante gostei muito!" |
+| Q9 | **O Team Mode como ferramenta será aposentado** (o time sobe os próprios dados). O B2B continua, mas por outro caminho (rodada 3). | Rafael: "vamos aposentar o team mode como ferramenta (em que o time upa seus dados etc). pensar em outra estratégia pra entrar pelo B2B...?" |
+| Q10 | Conta única @aurapokeranalytics, feed em inglês e stories em PT. Revisão em 90 dias. | Rafael: de acordo |
+| Q11 | Preço mantido nos 90 dias. Teste de 7 dias do pago só com cupom de parceiro. | Rafael: de acordo |
+| Q12 | Orgânico em inglês: coaches com comissão de 30%, X/Twitter, Reddit (r/poker, r/MTT) e shorts no YouTube. Sem 2+2. | Rafael: de acordo |
+| Q13 | Verba: R$ 1.050 na DISC02-EU reeditada, R$ 300 em remarketing e R$ 150 na célula "Esportes". | Rafael: de acordo (a célula depende da Q14) |
+| Q14 | Os posts do impulsionamento antigo foram achados no histórico do Instagram. O público aparece só como "pessoas que você escolhe por meio de direcionamento", sem detalhe. | Rafael |
+| Q15 | 25 ativos em 14 semanas é **"excessivamente conservador"**. Meta refeita na rodada 3. | Rafael |
+| Q16 | Reconquista dos ex-pagantes como primeira ação: 50% no primeiro mês, válida por 14 dias, disparo junto com o Pool vs GTO em 02/11. | Rafael: de acordo |
+
+**Base corrigida pelo Rafael (22/10):** além das 9 do Stripe, há **5 assinantes no WooCommerce** (frente fechada para entradas novas) e **2 no NOWPayments**. Total de **16 pagantes ativos**.
+
+**Fora do escopo do plano, registrado para o produto:** aposentar o Team Mode afeta a landing (card "Team, fale conosco"), o app e o `STATE.md` do aura-main (§1 lista o Team Mode em produção). Isso precisa de uma sessão própria no aura-main e no aura-landing.
+
+### Rodada 3 (22/10): em andamento
