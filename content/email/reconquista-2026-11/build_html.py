@@ -1,20 +1,16 @@
 """Gera o HTML dos e-mails da reconquista 2026-11 no template base da Aura (v2, content/email/_template/).
 
 Uso: python -I content/email/reconquista-2026-11/build_html.py  (escreve e1.html a e4.html nesta pasta)
-Os helpers (row, para, panel, bullets, gto_card, email) vêm de _template/build_followup.py: lemos o arquivo só até
-a definição de REASON, para não gerar os followups do Grátis como efeito colateral.
+Os componentes vêm de _template/components.py (importar não gera nada).
 O e-mail 2 só sai depois da conferência logada do Rafael (gate R4 em sequencia.md).
 Envio em batch transacional do Resend: descadastro por List-Unsubscribe no cabeçalho e mailto no rodapé (BATCH_UNSUB).
 """
 import pathlib
+import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
-TEMPLATE = HERE.parent / "_template" / "build_followup.py"
-src = TEMPLATE.read_text(encoding="utf-8")
-T = {"__file__": str(TEMPLATE)}
-exec(compile(src[: src.index("\nREASON =")], str(TEMPLATE), "exec"), T)
-row, para, panel, bullets, gto_card, email = (T[k] for k in ("row", "para", "panel", "bullets", "gto_card", "email"))
-LANDING, BATCH_UNSUB, INK3, GOLD_TXT = T["LANDING"], T["BATCH_UNSUB"], T["INK3"], T["GOLD_TXT"]
+sys.path.insert(0, str(HERE.parent / "_template"))
+from components import BATCH_UNSUB, GOLD_TXT, INK3, LANDING, bullets, email, gto_card, panel, para, row  # noqa: E402
 
 CAMPAIGN = "reconquista-2026-11"
 REASON = "Você recebeu este e-mail porque já foi assinante da Aura Poker Analytics."
@@ -63,7 +59,8 @@ e2 = mail(
             context="Flop A-high two-tone, sem par, com OESD possível. Fold do BB contra c-bet de 50%.",
             field="53,8", gto="73,5", band="faixa GTO de 67,5% a 79,5%",
             verdict="<strong>Como explorar:</strong> o BB defende demais contra c-bet. Blefe menos e aposte mais por value.",
-        ).replace(">Modo GTO</p>", ">Field Exploits</p>", 1), pad="0 40px 24px 40px"),
+            label="Field Exploits",
+        ), pad="0 40px 24px 40px"),
         row(para(f'O código <strong style="color:{GOLD_TXT};">VOLTA</strong> vale até 16/11: o primeiro mês do Individual mensal sai por R$ 30.')),
         row(FINE),
     ],
