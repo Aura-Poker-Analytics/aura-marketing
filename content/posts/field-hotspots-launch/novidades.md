@@ -1,0 +1,101 @@
+# Field Hotspots: item do painel de Novidades (sino do app)
+
+Status: **não publicado**; rascunho de 23/10/2026. Branch `feature/field-hotspots-novidades`, sem commit.
+Números: só os de `numeros-verificados.md` (mesma pasta) e `copy.md`. Aqui entram 8, 50%, 53,8% e 73,5% (spot UTG vs BB, 25bb, "Números usados" do `copy.md`). O 6,9 mi+ e o "mais de 1.000" ficam de fora: o card não comporta.
+
+## 1. Como o painel funciona e idioma
+
+- É a notificação do tipo changelog do sino (`aura-novofront` `src/components/notifications/NotificationBell.tsx`). A API `POST /notifications/changelog` (`aura_api`) recebe `requesterUserId`, `title`, `body` e `actionUrl` e grava a mesma notificação para todas as contas ativas. Só superusuário publica (`NotificationService.CreateChangelogBroadcastAsync`).
+- Não há campo de idioma: um título e um corpo para todo mundo. O cabeçalho do painel é fixo em PT ("Notificações"). Publicar PT e EN separados manda os dois para todos, porque a deduplicação é por título e corpo.
+- O card mostra o título em uma linha (`text-sm`) e o corpo em `text-xs`, num popover de ~22rem: título até ~45 caracteres, corpo de 1 a 2 linhas (até ~140).
+- `actionUrl` relativo abre dentro do app: usar `/hotspot`.
+
+**Recomendação de idioma:** publicar **um item, em PT**. A base é brasileira e o painel já é PT. A versão EN (seção 3) fica registrada só como alternativa, para o caso de a base EN crescer ou de o painel ganhar idioma.
+
+## 2. Item PT (publicar este)
+
+**Título (41 caracteres):**
+
+```
+Field Hotspots: os spots mais exploráveis
+```
+
+**Corpo, versão A: sem a frase do plano (128 caracteres). Usar se o deploy de aura-api#122 e aura-novofront#186 NÃO tiver saído:**
+
+```
+Lista pronta. UTG vs BB, 25bb, c-bet de 50%: o field folda 53,8%, o GTO 73,5%. Blefe menos, aposte mais por value. Abra a lista.
+```
+
+**Corpo, versão B: com o plano (132 caracteres). Usar só DEPOIS do deploy de aura-api#122 e aura-novofront#186:**
+
+```
+UTG vs BB, 25bb, c-bet de 50%: o field folda 53,8%, o GTO 73,5%. Blefe menos, aposte mais por value. O plano Individual libera os 8.
+```
+
+**actionUrl (8 caracteres; rota do módulo em aura-novofront src/lib/moduleRoutes.ts, `hotspot: "/hotspot"`, abre dentro do app):**
+
+```
+/hotspot
+```
+
+| Campo | Caracteres | Limite do card |
+|---|---|---|
+| Título | 41 | ~45 |
+| Corpo A (sem plano) | 128 | ~140 |
+| Corpo B (com plano) | 132 | ~140 |
+| actionUrl | 8 | n/a |
+
+Notas:
+- O exemplo é o spot da semana de 22/10 (UTG vs BB, 25bb, SRP, flop A-high two-tone; a ação do "Como explorar" encurtada da tela por limite do card ("Blefe menos, aposte mais por value."; na tela: "O BB defende demais contra c-bet. Blefe menos e aposte mais por value.")). A 1.ª troca é em 02/11. Publicar antes, ou trocar exemplo e números pelo spot vigente.
+- A versão B não tem o "Abra a lista" por falta de espaço: o clique no card já abre `/hotspot`. A versão A mantém o verbo porque cabe.
+- Sem "Beta", "pp", "top 8", "os maiores", contador ou prazo. "Spots mais exploráveis" vem da narrativa aprovada; o corpo não liga os 8 spots a nenhum total de pontos de decisão.
+- Contagens feitas à mão, caractere a caractere (sem ferramenta de contagem na sessão). Recontar com `len()` antes de colar.
+
+## 3. Item EN (alternativa, não publicar junto com o PT)
+
+**Título (42 caracteres):**
+
+```
+Field Hotspots: the most exploitable spots
+```
+
+**Corpo, versão A: sem plano (121 caracteres):**
+
+```
+Ready-made list. UTG vs BB, 25bb, 50% c-bet: field folds 53.8%, GTO 73.5%. Bluff less, bet more for value. Open the list.
+```
+
+**Corpo, versão B: com plano (124 caracteres), só depois do deploy de aura-api#122 e aura-novofront#186:**
+
+```
+UTG vs BB, 25bb, 50% c-bet: field folds 53.8%, GTO 73.5%. Bluff less, bet more for value. The Individual plan unlocks all 8.
+```
+
+**actionUrl:** `/hotspot`
+
+| Campo | Caracteres | Limite do card |
+|---|---|---|
+| Título | 42 | ~45 |
+| Corpo A | 121 | ~140 |
+| Corpo B | 124 | ~140 |
+
+## 4. Payload de exemplo do POST
+
+`POST /notifications/changelog`, versão PT, corpo A (trocar o `body` pelo B depois do deploy). `requesterUserId` é placeholder; nenhum id real vai para este arquivo.
+
+```json
+{
+  "requesterUserId": "<id do superusuário>",
+  "title": "Field Hotspots: os spots mais exploráveis",
+  "body": "Lista pronta. UTG vs BB, 25bb, c-bet de 50%: o field folda 53,8%, o GTO 73,5%. Blefe menos, aposte mais por value. Abra a lista.",
+  "actionUrl": "/hotspot"
+}
+```
+
+## 5. Quando publicar
+
+- **Só o Rafael publica**, e só quando estas duas coisas estiverem feitas: flag do Field Hotspots ligada e o olho logado dele conferido (pago vê 8 spots, Grátis vê 1 e 7 trancados).
+- No **mesmo dia** do Discord (`discord.md`) e do e-mail (`email.md`), para o sino não anunciar antes do restante.
+- Escolher o corpo pela data: A antes do deploy de aura-api#122 e aura-novofront#186, B depois. Não publicar os dois: a deduplicação é por título e corpo, e cada versão vira uma notificação nova para todas as contas ativas.
+- Não há edição nem retirada previstas para o item depois de enviado (a API grava para todas as contas); por isso a conferência de caracteres, de número e do deploy vem antes.
+- Ninguém publica pela sessão: nem agente de marketing, nem a HUB. Este arquivo só entrega o texto.
