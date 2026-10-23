@@ -7,7 +7,8 @@ Regras do template (docs/00-strategy/followup-cadastrados-gratis.md §10):
 - só tabelas e estilo inline; o <style> do head só ajusta o celular (Gmail e Apple aceitam, Outlook ignora sem quebrar);
 - Montserrat quando o cliente carrega webfont (Apple Mail, iOS), Arial nos outros;
 - paleta da landing (.theme-a): fundo #0F1526, cartão #13192E, painel #1C2B47, borda #2F435C, dourado #D4A418;
-- imagens só de URL pública que responde 200 (www.aura.poker/email e www.aurapoker.com/email).
+- imagens só de URL pública que responde 200 (www.aurapoker.com/assets/logos para a logo, www.aurapoker.com/email e www.aura.poker/email);
+- cabeçalho = a logo oficial em PNG (nunca o ícone com a palavra montada em texto).
 """
 import pathlib
 
@@ -21,6 +22,9 @@ FONT = "Montserrat,Arial,Helvetica,sans-serif"
 LANDING = "https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign={c}&utm_content={k}"
 BATCH_UNSUB = "mailto:manager@aurapoker.com?subject=Descadastrar"  # o batch leva também List-Unsubscribe (P4)
 BROADCAST_UNSUB = "{{{RESEND_UNSUBSCRIBE_URL}}}"
+# logo oficial (o "A" e a palavra AURA em dourado, igual ao cabeçalho da landing); PNG 1011x209 servido pela landing desde o
+# primeiro commit (aura-landing public/assets/logos). Exibida a 160x33, ou seja, com mais de 6x de resolução para tela retina.
+LOGO = "https://www.aurapoker.com/assets/logos/Ativo%2078@2x.png"
 
 
 def para(text, size=16, color=INK2, mb=16, weight=400):
@@ -154,10 +158,7 @@ def email(*, title, preview, headline, sub, blocks, cta, cta_url, note, unsub, r
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{NIGHT}" style="background-color:{NIGHT};">
 <tr><td align="center" style="padding:28px 10px 36px 10px;">
 <table role="presentation" class="shell" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="{DECK}" style="width:600px; max-width:600px; background-color:{DECK}; border:1px solid {RAIL}; border-radius:14px;">
-{row(f"""<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-<td style="padding-right:10px; vertical-align:middle;"><img src="https://www.aura.poker/email/aura-logo.png" width="35" height="28" alt="Aura" style="display:block; border:0;"></td>
-<td style="vertical-align:middle; font-family:{FONT}; font-size:17px; font-weight:800; letter-spacing:5px; color:{INK};">AURA</td>
-</tr></table>""", pad="30px 40px 0 40px")}
+{row(f'<a href="https://www.aurapoker.com/" style="text-decoration:none;"><img src="{LOGO}" width="160" height="33" alt="Aura" style="display:block; width:160px; height:33px; border:0;"></a>', pad="30px 40px 0 40px")}
 {row(f"""<h1 class="h1" style="margin:0; font-family:{FONT}; font-size:30px; line-height:36px; font-weight:800; color:{INK};">{headline}</h1>
 <p style="margin:12px 0 0 0; font-family:{FONT}; font-size:17px; line-height:1.5; color:{INK2};">{sub}</p>""", pad="30px 40px 26px 40px")}
 {body}
