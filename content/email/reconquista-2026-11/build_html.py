@@ -18,7 +18,6 @@ OFFER = (f'Para quem já assinou, o primeiro mês do plano Individual mensal sai
          f'de R$ 150 por R$ 30, com o código <strong style="color:{GOLD_TXT};">VOLTA</strong> no checkout. Vale até 16/11.')
 FINE = para("O código VOLTA vale uma vez, no primeiro mês do plano Individual, até 16/11. "
             "Modo GTO incluso no plano Individual por tempo limitado.", size=14, color=INK3, mb=8)
-SIGN = para("Rafael<br>Fundador da Aura", size=15)
 DRAFT = "RASCUNHO {k} · reconquista dos ex-pagantes · batch transacional · não enviar sem a frase do Rafael · content/email/reconquista-2026-11/sequencia.md"
 
 
@@ -43,7 +42,7 @@ e1 = mail(
         row(FINE),
     ],
     cta="Ver a nova Aura",
-    note=SIGN,
+    note="",
 )
 
 e2 = mail(
@@ -65,7 +64,7 @@ e2 = mail(
         row(FINE),
     ],
     cta="Ver os 8 spots",
-    note=SIGN,
+    note="",
 )
 
 e3 = mail(
@@ -80,7 +79,7 @@ e3 = mail(
         row(FINE),
     ],
     cta="Ver os spots novos",
-    note=SIGN,
+    note="",
 )
 
 e4 = mail(
@@ -95,7 +94,7 @@ e4 = mail(
         row(FINE),
     ],
     cta="Voltar para a Aura",
-    note=SIGN,
+    note="",
 )
 
 for name, html in [("e1.html", e1), ("e2.html", e2), ("e3.html", e3), ("e4.html", e4)]:
