@@ -49,3 +49,28 @@ Para cada item, proponha: remover, esconder por flag ou trocar o texto (o card d
 
 Pronto quando: o inventário estiver em aura-context/docs/08-planning/team-mode-aposentadoria/00-inventario.md, commitado numa branch docs/team-mode-inventario, e a mensagem à HUB trouxer a contagem de itens por repo e se há cliente ativo no modo time.
 ```
+
+## 3. aura · Field Exploits · um card por spot, stacks dentro
+
+Pedido do Rafael (23/10): "o field exploits tem spots exatamente iguais em que só alteram os stacksizes, eles tem que fazer parte do mesmo card.. e o detalhamento por stack depois de selecionar o card."
+
+**Pasta:** `aura-main` (front em `aura-novofront`, API em `aura_api`, calendário em `aura-database/scripts/pool_vs_gto/exploit/`) · **Modelo:** Opus esforço médio (decisão de agrupamento entre banco, API e front) · **Branch:** `feat/field-exploits-card-por-spot`, a partir da main de cada repo
+
+Primeira mensagem:
+
+```
+Modelo: Opus, esforço médio. Renomeie esta sessão com set_session_title para "aura · Field Exploits card por spot · desenho".
+
+Pedido do Rafael, 23/10: no Field Exploits, spots iguais que só mudam o stack (mesmo par, mesmo pote, mesma classe de flop, mesma ação e tamanho) têm de virar um card só. O detalhe por stack aparece depois de selecionar o card.
+
+Antes de codar, meça e proponha:
+1. Na janela atual (tbl_pool_vs_gto_release × tbl_pool_vs_gto_rank, Azure aura_database, só leitura), quais dos 8 spots são o mesmo spot em stacks diferentes, e quantos cards sobram.
+2. A regra de janela (release_rule.py: WINDOW = 8, PER_WEEK = 2, um spot por célula par × stack) passa a contar card ou spot? O Grátis (1 spot) vê o card inteiro ou só um stack?
+3. O desenho do card agrupado e do detalhe por stack, em PT e EN, com print.
+
+Mande a proposta à HUB antes de implementar. Depois: PRs em rascunho nos repos que mudarem, gates verdes, nada publicado (o merge do front publica).
+
+Atenção ao marketing: os e-mails da reconquista (aura-marketing, content/email/reconquista-2026-11/) dizem "8 spots" e "toda segunda entram 2 novos". Se a contagem mudar, avise a sessão do plano de marketing antes de 26/10.
+
+Pronto quando: proposta aprovada pela HUB, PRs abertos com prints, STATE.md do aura-main atualizado e reporte à HUB com os links.
+```
