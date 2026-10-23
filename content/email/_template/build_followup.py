@@ -87,6 +87,38 @@ def bullets(items):
     return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{out}</table>'
 
 
+FOLD, FOLD_GTO, TRACK = "#38ACC4", "#7FD3E3", "#0F1526"
+
+
+def gto_card(spot, context, field, gto, band, verdict):
+    """Quadro field x GTO de um spot, em tabela (sem imagem hospedada). Números só de numeros-verificados."""
+    def bar(label, pct, color, value, sub=""):
+        w = max(1, min(99, round(float(pct.replace(",", ".")))))
+        subrow = f'<p style="margin:4px 0 0 0; font-family:{FONT}; font-size:12px; color:{INK3};">{sub}</p>' if sub else ""
+        return f'''<tr>
+  <td width="58" valign="top" style="padding:10px 0; font-family:{FONT}; font-size:13px; font-weight:700; color:{INK2};">{label}</td>
+  <td valign="top" style="padding:13px 12px 10px 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-radius:6px;"><tr>
+      <td width="{w}%" height="12" bgcolor="{color}" style="height:12px; line-height:12px; font-size:0; background-color:{color}; border-radius:6px 0 0 6px;">&nbsp;</td>
+      <td height="12" bgcolor="{TRACK}" style="height:12px; line-height:12px; font-size:0; background-color:{TRACK}; border-radius:0 6px 6px 0;">&nbsp;</td>
+    </tr></table>{subrow}
+  </td>
+  <td width="76" align="right" valign="top" style="padding:6px 0; font-family:{FONT}; font-size:22px; font-weight:800; color:{INK};">{value}</td></tr>'''
+    return f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:{FELT}; border:1px solid {RAIL}; border-radius:10px;">
+<tr><td style="padding:18px 20px 6px 20px; font-family:{FONT};">
+  <p style="margin:0 0 4px 0; font-size:12px; font-weight:700; color:{GOLD_TXT};">Modo GTO</p>
+  <p style="margin:0 0 4px 0; font-size:16px; font-weight:700; line-height:1.4; color:{INK};">{spot}</p>
+  <p style="margin:0; font-size:14px; line-height:1.5; color:{INK2};">{context}</p>
+</td></tr>
+<tr><td style="padding:8px 20px 4px 20px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+{bar("Field", field, FOLD, field + "%")}
+{bar("GTO", gto, FOLD_GTO, gto + "%", sub=band)}
+</table></td></tr>
+<tr><td style="padding:10px 20px 18px 20px; border-top:1px solid {RAIL}; font-family:{FONT}; font-size:14px; line-height:1.5; color:{INK};">{verdict}</td></tr>
+</table>'''
+
+
 def image(src, alt, url, w=520):
     return (f'<a href="{url}" style="text-decoration:none;"><img src="{src}" width="{w}" alt="{alt}" '
             f'style="display:block; width:100%; max-width:{w}px; height:auto; border:0; border-radius:10px;"></a>')
@@ -191,11 +223,15 @@ r1 = email(
     title="Desde o seu último login, a Aura ganhou o GTO",
     preview="O field e a faixa GTO lado a lado. A amostra já está aberta no seu Grátis.",
     headline="A Aura agora mostra o GTO ao lado do field.",
-    sub="Seu login é o mesmo, e a amostra já está aberta no seu Grátis.",
+    sub="Seu login é o mesmo. Um spot do que mudou:",
     blocks=[
-        row(image("https://www.aurapoker.com/email/modo-gto-pt.png",
-                  "Modo GTO: fold contra c-bet, field 46,0% e GTO 38,8%, ao lado da grade Field vs GTO do open do SB",
-                  LANDING.format(c="reativacao-gratis", k="r1-a-img")), pad="0 40px 24px 40px"),
+        # números: aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md, exemplo (a), medido em 08/10 e reconferido em 13/10
+        row(gto_card(
+            spot="CO vs BB, single raised pot, 30 a 60 big blinds",
+            context="Flop K-high two-tone. Fold do BB contra c-bet de 33%.",
+            field="46,0", gto="38,8", band="faixa GTO de 37,1% a 40,4%",
+            verdict="<strong>Overfold:</strong> o field folda 7,2% acima do GTO.",
+        ), pad="0 40px 24px 40px"),
     ],
     cta="Ver a nova Aura",
     cta_url=LANDING.format(c="reativacao-gratis", k="r1-a"),
