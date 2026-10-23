@@ -14,6 +14,7 @@
 | Objetivo | Assinatura do Individual com o código da oferta. Meta do plano: 8 a 10 reconquistados. |
 | Oferta | 80% de desconto no primeiro mês do plano Individual mensal (R$ 150 → R$ 30; US$ 29 → US$ 5,80), código `VOLTA`, de 26/10 a 16/11 |
 | E-mails | 4: seg. 26/10, qui. 29/10, seg. 02/11 e dom. 16/11, às 10h de Brasília |
+| Nome | O app só mostra "Field Exploits" depois do aura-novofront#187 (rascunho em 23/10, hoje a tela diz "Field Hotspots"). Se o #187 não estiver no ar na segunda, trocar o nome nos e-mails por "Field Hotspots". |
 | Idioma | PT para os 31 (Portugal fala português). Os e-mails não citam preço em moeda, para servir a quem paga em BRL e em USD. |
 | Saída | Assinou (checar Stripe, Woo e NOWPayments antes de cada envio), descadastrou ou deu bounce |
 | Remetente | `Aura Poker Analytics <news@news.aurapoker.com>`, reply-to `manager@aurapoker.com` (padrão dos envios anteriores). Assinatura: ver decisão R2. |
@@ -31,7 +32,7 @@
 ## E-mail 1: o que mudou (seg. 26/10, 10h)
 
 **Assunto:** Desde que você saiu, a Aura ganhou o GTO
-**Preview:** O Field Exploits mostra os spots onde o field mais erra contra o GTO. Para quem já assinou, 80% de desconto no primeiro mês até 16/11.
+**Preview:** O Field Exploits mostra spots em que o field se afasta forte do GTO. Para quem já assinou, 80% de desconto no primeiro mês até 16/11.
 
 ---
 
@@ -41,7 +42,7 @@ Hoje a Aura mostra o GTO ao lado do field:
 
 - **Modo GTO:** o número e a faixa GTO ao lado do que o field faz, no flop, turn e river.
 - **Field Ranges:** o range que o field abre e defende, mão a mão, comparado ao GTO.
-- **Field Exploits:** 8 spots onde o field mais se afasta do GTO, cada um com o exploit pronto para usar. Toda segunda entram 2 novos.
+- **Field Exploits:** 8 spots em que o field se afasta forte do GTO, em pares e stacks diferentes, cada um com o exploit pronto para usar. Toda segunda entram 2 novos.
 
 Para quem já assinou, o primeiro mês do plano Individual mensal sai com **80% de desconto**, de R$ 150 por R$ 30, com o código **VOLTA** no checkout. Vale até 16/11.
 
@@ -56,7 +57,7 @@ Fundador da Aura
 
 ## E-mail 2: um spot desta semana (qui. 29/10, 10h)
 
-**Assunto:** O spot onde o field mais se afasta do GTO esta semana
+**Assunto:** Um spot em que o field erra contra o GTO esta semana
 **Preview:** Um dos 8 spots do Field Exploits, com o número do field, o do GTO e o exploit.
 
 > ⛔ Gate R4: os números entram só depois de conferidos logado no Field Exploits (já no ar; um dos 8 spots que valem até 29/10). O texto abaixo é a forma; os `[...]` são preenchidos com os números da tela.
