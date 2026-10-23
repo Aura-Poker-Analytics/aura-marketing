@@ -17,9 +17,9 @@ FONT = "Montserrat,Arial,Helvetica,sans-serif"
 LANDING = "https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign={c}&utm_content={k}"
 BATCH_UNSUB = "mailto:manager@aurapoker.com?subject=Descadastrar"  # o batch leva também List-Unsubscribe (P4)
 BROADCAST_UNSUB = "{{{RESEND_UNSUBSCRIBE_URL}}}"
-# logo oficial (o "A" e a palavra AURA em dourado, igual ao cabeçalho da landing); PNG 1011x209 servido pela landing desde o
-# primeiro commit (aura-landing public/assets/logos). Exibida a 160x33, ou seja, com mais de 6x de resolução para tela retina.
-LOGO = "https://www.aurapoker.com/assets/logos/Ativo%2078@2x.png"
+# logo oficial (o "A" e a palavra AURA em dourado, igual ao cabeçalho da landing), PNG @2x hospedado com as outras
+# imagens de e-mail (aura-landing#27, public/email/aura-logo@2x.png). Exibida a 160x33.
+LOGO = "https://www.aurapoker.com/email/aura-logo@2x.png"
 
 
 def para(text, size=16, color=INK2, mb=16, weight=400):
@@ -87,6 +87,15 @@ def bullets(items):
 
 
 FOLD, FOLD_GTO, TRACK = "#38ACC4", "#7FD3E3", "#0F1526"
+
+
+def code_box(code, offer, validity):
+    """Cupom: o código em destaque, a oferta e a validade. Sem imagem."""
+    return f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:{FELT}; border:1px dashed {GOLD}; border-radius:10px;">
+<tr><td align="center" style="padding:22px 20px 8px 20px; font-family:{FONT}; font-size:14px; line-height:1.5; color:{INK2};">{offer}</td></tr>
+<tr><td align="center" style="padding:4px 20px 6px 20px; font-family:{FONT}; font-size:28px; font-weight:800; letter-spacing:3px; color:{GOLD_TXT};">{code}</td></tr>
+<tr><td align="center" style="padding:0 20px 20px 20px; font-family:{FONT}; font-size:13px; color:{INK3};">{validity}</td></tr>
+</table>'''
 
 
 def gto_card(spot, context, field, gto, band, verdict, label="Modo GTO"):
