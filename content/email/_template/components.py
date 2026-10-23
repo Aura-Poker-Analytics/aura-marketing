@@ -89,6 +89,15 @@ def bullets(items):
 FOLD, FOLD_GTO, TRACK = "#38ACC4", "#7FD3E3", "#0F1526"
 
 
+def code_box(code, offer, validity):
+    """Cupom: o código em destaque, a oferta e a validade. Sem imagem."""
+    return f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:{FELT}; border:1px dashed {GOLD}; border-radius:10px;">
+<tr><td align="center" style="padding:22px 20px 8px 20px; font-family:{FONT}; font-size:14px; line-height:1.5; color:{INK2};">{offer}</td></tr>
+<tr><td align="center" style="padding:4px 20px 6px 20px; font-family:{FONT}; font-size:28px; font-weight:800; letter-spacing:3px; color:{GOLD_TXT};">{code}</td></tr>
+<tr><td align="center" style="padding:0 20px 20px 20px; font-family:{FONT}; font-size:13px; color:{INK3};">{validity}</td></tr>
+</table>'''
+
+
 def gto_card(spot, context, field, gto, band, verdict, label="Modo GTO"):
     """Quadro field x GTO de um spot, em tabela (sem imagem hospedada). Números só de numeros-verificados."""
     def bar(label, pct, color, value, sub=""):

@@ -85,6 +85,43 @@ r1 = email(
     draft_note="RASCUNHO R1 v2 · variante A do teste A/B (variante B no doc §6) · segmento S4 (Grátis inativo) · broadcast em lote, fora da reconquista · exclui pagantes e ex-pagantes · não enviar sem a frase do Rafael · doc §4.4",
 )
 
-for name, html in [("followup-a1-boas-vindas.html", a1), ("followup-u1-paywall.html", u1), ("followup-r1-reativacao.html", r1)]:
+# Cupom de ativação (R4 aprovada pelo Rafael em 23/10 e ampliada): [CÓDIGO] e [DATA] são preenchidos por lote,
+# com o promotion code criado pelo Rafael no Stripe (spec no doc §12). Quem cai no controle de 20% recebe a versão sem cupom.
+OFERTA = "30% no primeiro mês do plano Individual mensal: R$ 105 em vez de R$ 150, ou US$ 20 em vez de US$ 29."
+
+u2 = email(
+    title="30% no seu primeiro mês do Individual, até [DATA]",
+    preview="O spot que você abriu, com 30% de desconto no primeiro mês. Código válido até [DATA].",
+    headline="O spot que você abriu, com 30% no primeiro mês.",
+    sub="Use o código no checkout do plano Individual:",
+    blocks=[
+        row(code_box("[CÓDIGO]", OFERTA, "Válido até [DATA], uma vez por conta."), pad="0 40px 24px 40px"),
+    ],
+    cta="Usar meu código",
+    cta_url=LANDING.format(c="upgrade", k="u2-cupom") + "#planos",
+    note=para("Algo te travou? Responda este e-mail.", size=15),
+    unsub=BATCH_UNSUB,
+    reason=REASON,
+    draft_note="RASCUNHO U2 com cupom · segmento S3 (bateu no paywall e não assinou em 72 h) · 80% do lote; os 20% do controle recebem o U2 sem cupom · [CÓDIGO] e [DATA] por lote · não enviar sem o vai da HUB · doc §4.3 e §12",
+)
+
+r2 = email(
+    title="Volte para a Aura com 30% no primeiro mês, até [DATA]",
+    preview="O Modo GTO e o Field Exploits esperam por você. 30% no primeiro mês do Individual, até [DATA].",
+    headline="Volte com 30% no primeiro mês.",
+    sub="Seu login é o mesmo. O código vale no checkout do plano Individual:",
+    blocks=[
+        row(code_box("[CÓDIGO]", OFERTA, "Válido até [DATA], uma vez por conta."), pad="0 40px 24px 40px"),
+    ],
+    cta="Usar meu código",
+    cta_url=LANDING.format(c="reativacao-gratis", k="r2-cupom") + "#planos",
+    note=para("Parou por algum motivo? Responda com uma linha.", size=15),
+    unsub=BROADCAST_UNSUB,
+    reason=REASON,
+    draft_note="RASCUNHO R2 com cupom · segmento S4 (Grátis, nunca bateu no paywall, sem login 5 dias depois do R1) · 80% do lote; os 20% do controle recebem o R2 sem cupom (spot da semana) · [CÓDIGO] e [DATA] por lote · não enviar sem o vai da HUB · doc §4.4 e §12",
+)
+
+for name, html in [("followup-a1-boas-vindas.html", a1), ("followup-u1-paywall.html", u1), ("followup-r1-reativacao.html", r1),
+                   ("followup-u2-cupom.html", u2), ("followup-r2-cupom.html", r2)]:
     (OUT / name).write_text(html, encoding="utf-8")
     print(name, len(html))

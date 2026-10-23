@@ -181,7 +181,7 @@ Convenções de todos os e-mails:
 | ID | Quando | Canal | Assunto | Ideia do corpo | CTA | Métrica |
 | --- | --- | --- | --- | --- | --- | --- |
 | **U1** ✏️ | até 24 h do `gate_hit` (lote: últimos 7 dias) | e-mail | O spot que você abriu continua do outro lado do cadeado | O que o Individual abre, ligado ao que o Grátis tranca (buy-ins acima de US$ 22, KO e Mystery, todas as etapas, turn e river, Modo GTO com os 4 números, exploit novo por semana); preço mensal e a âncora do anual | **Ver planos** → landing `#planos`, `u1` | `upgrade_click` → `begin_checkout` → `purchase` por `utm_content` |
-| U2 | +3 dias (72 h), sem assinatura | e-mail | Seu primeiro mês do Individual por R$ 105 (ou US$ 20), até [data] | O mesmo quadro Grátis × Individual do U1, mais o código pessoal do cupom de ativação (§12) e a data de validade. Quem cai no grupo de controle recebe o U2 sem cupom | **Usar meu código** → landing `#planos`, `u2` | resgate do código; assinatura em 14 dias, cupom × controle |
+| U2 | +3 dias (72 h), sem assinatura | e-mail | 30% no seu primeiro mês do Individual, até [DATA] (rascunho `followup-u2-cupom.html`) | O mesmo quadro Grátis × Individual do U1, mais o código pessoal do cupom de ativação (§12) e a data de validade. Quem cai no grupo de controle recebe o U2 sem cupom | **Usar meu código** → landing `#planos`, `u2` | resgate do código; assinatura em 14 dias, cupom × controle |
 | U3 | +7 dias, sem assinatura | e-mail | Uma pergunta antes de você decidir | Pesquisa de uma pergunta ("o que falta para assinar?": preço, tempo, não sei usar, o dado não é do meu jogo, outro) com resposta por link ou por e-mail | link da pesquisa | respostas; assinatura em 14 dias |
 
 Quando a Aura IA estiver no ar: **U-IA**, no gatilho "cota de 5 perguntas batida", assunto "Suas 5 perguntas do mês acabaram", CTA para planos (100 por mês no Individual).
@@ -193,7 +193,7 @@ Quando a Aura IA estiver no ar: **U-IA**, no gatilho "cota de 5 perguntas batida
 | ID | Quando | Canal | Assunto | Ideia do corpo | CTA | Métrica |
 | --- | --- | --- | --- | --- | --- | --- |
 | **R1** ✏️ | D0 do lote (≥ 7 dias depois do e-mail de lançamento do Field Exploits) | e-mail | Desde o seu último login, a Aura ganhou o GTO | Novidade: Modo GTO (field e faixa GTO no flop, turn e river), Field Ranges com GTO, Field Exploits. O que o Grátis abre de cada um, hoje | **Ver a nova Aura** → landing, `r1-a` / `r1-b` (teste A/B, §6) | login em 7 dias por variante |
-| R2 | +5 dias, sem login | e-mail | O spot da semana no Field Exploits | Um spot com número e o exploit; "é um spot, não a média do field" | **Ver o spot** → `r2` | login em 7 dias |
+| R2 | +5 dias, sem login | e-mail | Volte para a Aura com 30% no primeiro mês, até [DATA] (80% do lote, `followup-r2-cupom.html`); o controle de 20% recebe "O spot da semana no Field Exploits" | Cupom de ativação (§12, gatilho B) para quem nunca bateu no paywall; no controle, um spot com número e o exploit | **Usar meu código** → landing `#planos`, `r2-cupom` (controle: `r2`) | login em 7 dias e assinatura em 14 dias, cupom × controle |
 | R3 | +12 dias, sem login | e-mail | Continuo te mandando dicas de estudo? | "Fica ou sai": um clique para continuar, um para sair; pergunta opcional de por que parou | dois links: ficar (landing, `r3-fica`) e sair (descadastro) | descadastro; respostas; limpeza |
 
 ### 4.5 Captura no celular (fora dos 4 segmentos, depende do aura-landing#26)
@@ -265,7 +265,7 @@ Ligação com a meta do plano (45 pagantes em 31/01/2027, saindo de 16): este pl
 | R1 | Ligar Open e Click Tracking no `news.aurapoker.com` | **Sim.** Sem isso nenhum e-mail deste plano pode ser comparado |
 | R2 | Envio dos lotes (R1 com teste A/B, A1 e U1 semanais) e, depois, ligar as automações | Aprovar a fase 1 em lote; a fase 2 vai automação por automação |
 | R3 | CTA dos e-mails de ativação (A1–A3, G1): a regra manda para a landing, mas o usuário já tem conta e a landing perde ~70% na passagem para o app (V1 do diagnóstico de 22/10) | Manter a landing nos rascunhos, como manda a regra, e abrir exceção só para a ativação (CTA direto ao app com UTM), igual à exceção proposta para os ex-pagantes |
-| R4 | Oferta para o Grátis (reaberta na rodada 2) | **Cupom de ativação de 30% no primeiro mês**, só no gatilho "bateu no paywall e não assinou em 72 h", validade de 7 dias, uso único, uma vez por conta, só no Stripe, com grupo de controle. Proposta completa na §12. Criar o cupom é do Rafael |
+| R4 ✅ aprovada e ampliada (23/10) | Oferta para o Grátis (reaberta na rodada 2) | **Cupom de ativação de 30% no primeiro mês**, só no gatilho "bateu no paywall e não assinou em 72 h", validade de 7 dias, uso único, uma vez por conta, só no Stripe, com grupo de controle. Proposta completa na §12. Criar o cupom é do Rafael |
 | R5 | Liberar o segmento "Board Selection leads" (setembro) para virar "Grátis" no Resend | Sim |
 | R6 | Assinatura pessoal ("Rafael, fundador da Aura") nos e-mails do Grátis | Sim, igual à reconquista |
 
@@ -296,39 +296,59 @@ São os três primeiros da fase 1, um por alavanca (ativação, upgrade, reativa
 - `aura-main/STATE.md` e `_ops/perguntas-po-2026-10-23.md`.
 - Rodada 2: notas `followup-r2-gratis-codigo.md` (código de `origin/main`, aura-api `9fda00f` e aura-novofront `54086c0`, 23/10) na pasta de notas da HUB.
 
-## 12. Cupom para ativar o Grátis (proposta; criar o cupom é do Rafael)
+## 12. Cupom para ativar o Grátis (aprovado em 23/10; criar o cupom é do Rafael)
 
-O Rafael perguntou: "nao vai usar cupom pra ativar os gratis depois de uns dias? com descontos?". A R4 da rodada 1 ("nenhum desconto em 90 dias") fica reaberta com esta proposta.
+**Decisão do Rafael (23/10, repassada pela HUB):** "FOLLOWUP R4 tambem enviamos o cupom pra quem nao bate no paywall mas nao volta a acessar. restante ok." A R4 está aprovada e ampliada para dois gatilhos.
 
-**Recomendação:** sim, mas num gatilho só, o mais quente do funil, e medido contra um grupo de controle.
+| Campo | Gatilho A: bateu no paywall | Gatilho B: não voltou (ampliação do Rafael) |
+| --- | --- | --- |
+| Quem | Grátis que bateu no paywall (`gate_hit`) e não assinou em 72 h | Grátis que **nunca** bateu no paywall, recebeu o R1 (reativação) e não fez login em 5 dias. Na prática, 19 ou mais dias sem login |
+| E-mail | **U2 com cupom** (`content/email/followup-u2-cupom.html`) | **R2 com cupom** (`content/email/followup-r2-cupom.html`), que substitui o R2 "spot da semana" para 80% do lote |
+| Por que nesse ponto | é o sinal de compra mais quente do funil | o R1 dá valor sem desconto primeiro; o cupom só vai para quem o R1 não trouxe de volta, para não ensinar a base a esperar desconto |
+| Controle | 20% sorteados recebem o U2 sem cupom | 20% sorteados recebem o R2 sem cupom (o spot da semana) |
+| Frequência | uma vez por conta, para sempre (um cupom de ativação por conta, A ou B) | idem |
+| Métrica | assinatura em 14 dias, cupom × controle | login em 7 dias e assinatura em 14 dias, cupom × controle |
 
-| Campo | Proposta |
+**Oferta (igual nos dois):** 30% no primeiro mês do Individual mensal, como valor fixo: R$ 45 de desconto (paga R$ 105) ou US$ 9 (paga US$ 20). Validade de 7 dias a partir do envio. Fica bem abaixo do cupom da reconquista que já existe no Stripe ("Reconquista: 80% no primeiro mês", R$ 120 de desconto, máximo de 40), para não premiar quem cancela.
+
+**Guardrails:**
+- se mais de 60% das assinaturas novas em 8 semanas usarem cupom, cortar ou reduzir;
+- retenção no segundo mês: com cupom × sem cupom;
+- código nunca em público (procurar o prefixo no Discord e nas redes).
+
+**Canal:** só o Stripe, que aceita código no checkout (`AllowPromotionCodes = true`). O NOWPayments (cripto) não tem campo de cupom, e o WooCommerce não é o checkout do app.
+
+### 12.1 Especificação para o Rafael criar no Stripe (live, conta AURA ANALYTICS)
+
+Lido no Stripe live em 23/10, só leitura: produto Individual `prod_Uq1tafUe0H12h4` ("AURA Plano Individual"). Cupons que já existem: `8YS32mA8` (reconquista, R$ 120, uso máximo 40), `AURA80` e `discount_80`.
+
+**1 cupom, criado uma vez:**
+
+| Campo | Valor |
 | --- | --- |
-| Gatilho | Bateu no paywall (`gate_hit`) e não assinou em 72 h. Entra no e-mail U2 (§4.3). Uma vez por conta, para sempre. Um segundo gatilho, "14 dias depois da primeira análise, com 3 ou mais dias de uso e sem paywall", só entra se o primeiro der resultado |
-| Desconto | 30% no primeiro mês do Individual mensal: **R$ 45 de desconto (paga R$ 105) ou US$ 9 (paga US$ 20)**. Valor fixo em cada moeda (`amount_off` com `currency_options`, `duration=once`), e não porcentagem, pelo mesmo motivo da reconquista: 30% num anual daria R$ 388 de desconto. Fica abaixo dos 50% da reconquista, para não premiar quem cancela |
-| Validade | 7 dias a partir do envio, com a data escrita no assunto |
-| Uso | Código pessoal de uso único (promotion code com `max_redemptions=1` e `expires_at`), com o prefixo `ATIVA-` |
-| Canal | **Só o Stripe**, que já aceita código no checkout (`AllowPromotionCodes = true`, `BillingService.cs:129`). O NOWPayments (cripto) não tem campo de cupom e vende só semestral e anual. O WooCommerce não é checkout do app e está fechado para entradas novas. Quem paga em cripto fica fora do cupom; o e-mail não cita meio de pagamento |
-| Controle | 20% dos elegíveis, sorteados, recebem o U2 sem cupom |
-| Métrica principal | Assinatura em 14 dias depois do `gate_hit`, com cupom × controle |
-| Guardrails | Parte das assinaturas novas que usam cupom (acima de 60% em 8 semanas, cortar ou reduzir); retenção no segundo mês dos que entraram com cupom contra os sem cupom; nenhum código em público (procurar `ATIVA-` no Discord e nas redes) |
+| Nome | `Ativação Grátis: 30% no primeiro mês` |
+| ID | `ATIVACAO30` |
+| Tipo | valor fixo (`amount_off`), não porcentagem: porcentagem num anual daria R$ 388 de desconto |
+| Valor | `amount_off = 4500`, `currency = brl`; `currency_options.usd.amount_off = 900` |
+| Duração | `duration = once` (só a primeira fatura) |
+| Produto | `applies_to.products = [prod_Uq1tafUe0H12h4]` |
+| Limite total | `max_redemptions = 200` (teto de segurança) |
+| Metadata | `campanha = ativacao-gratis-2026-11` |
 
-**Números do funil por trás da proposta (GA4 e Stripe, §1.1):**
-- 23 contas bateram no paywall em 90 dias, cerca de 8 por mês. Dessas, 9 clicaram em upgrade (39%).
-- Entram cerca de 3 assinaturas novas por mês, de todas as origens.
-- Estimativa: dos ~8 por mês no paywall, ~6 não assinam em 72 h; ~5 recebem o cupom e ~1 fica no controle. Se 25% dos que recebem o cupom assinarem, são **+1 a 2 assinaturas por mês**, a R$ 45 ou US$ 9 de desconto cada, só no primeiro mês.
-- Com esse volume o teste não fecha significância em 8 semanas (são cerca de 40 elegíveis). A leitura é direcional: se o grupo com cupom não superar o controle com folga em 8 semanas, o cupom sai.
+**1 promotion code por lote e por gatilho** (fase 1, envio em lote):
 
-**O risco de ensinar o aluno a esperar desconto**, e como a proposta o contém:
-1. O gatilho é um comportamento (bater no paywall), não o calendário. Não existe "o desconto do dia 7" que se espalhe.
-2. Uma vez por conta, código pessoal, uso único e 7 dias de prazo. Não dá para repassar nem esperar o próximo.
-3. O cupom nunca aparece na landing, nas redes nem no Discord. O preço de tabela continua o mesmo (Q11).
-4. O desconto é menor que o da reconquista (30% contra 50%), para não premiar quem cancela para voltar com desconto.
-5. O guardrail de 60% de assinaturas com cupom mede se a base está aprendendo a esperar.
+| Campo | Valor |
+| --- | --- |
+| Código | `ATIVA` + dia e mês do envio para o gatilho A (ex.: `ATIVA0411`); `VOLTE` + dia e mês para o gatilho B (ex.: `VOLTE1111`). Prefixos diferentes medem cada gatilho no Stripe |
+| Cupom | `ATIVACAO30` |
+| Restrição | `restrictions.first_time_transaction = true` (só quem nunca pagou: exclui ex-pagantes e assinantes) |
+| Limite | `max_redemptions` = tamanho do lote com cupom (os 80%) |
+| Validade | `expires_at` = envio + 7 dias, 23:59 de Brasília |
+| Metadata | `gatilho = A` ou `B`, `lote = <data>` |
 
-**Alternativa descartada: liberar o Individual por N dias.** Não existe trial no app (não há `trial_ends_at`, e o Grátis nunca expira). O único caminho hoje seria um UPDATE manual no AuraBusiness, conta a conta, que é escrita no banco de produção e decisão do Rafael. Ele só volta à mesa como feature (sessão no aura_api e no aura-novofront).
+Por que código por lote, e não código pessoal, nesta fase: com o envio em lote e sem automação, um código pessoal pede um promotion code por pessoa, criado no Stripe a cada lote. O código por lote, com limite do tamanho do lote, 7 dias e a restrição de primeira compra, dá quase a mesma proteção com uma ação do Rafael por lote. Quando a automação da fase 2 existir, o código passa a ser pessoal (`max_redemptions = 1`), criado pela automação.
 
-**O que fica com o Rafael:** criar o cupom e os códigos no Stripe (dinheiro), aprovar o U2 com cupom e o grupo de controle.
+**O que o Rafael faz:** criar o cupom `ATIVACAO30` uma vez e, antes de cada lote, o promotion code daquele lote. A sessão de envio preenche `[CÓDIGO]` e `[DATA]` nos e-mails com esses valores.
 
 ## 13. O que o Grátis vê hoje (conferido no código, rodada 2)
 
@@ -361,7 +381,23 @@ Sim. O Grátis vê 1 dos 8 spots do Field Exploits do Individual, inteiro: o nú
 
 **Ponto de produto (não é de marketing):** a grade por size do spot grátis é trancada só no navegador; a API manda os números ao Grátis. Trancar de verdade é mudança na API (sessão no aura_api, se o Rafael quiser).
 
+## 14. Execução do envio (rodada 3, 23/10)
+
+Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência logada do spot, (d) descadastro e supressão, (e) 1º lote só com o vai da HUB.
+
+| Passo | Estado em 23/10 | Detalhe |
+| --- | --- | --- |
+| R1 tracking | ⛔ não persistiu | `update-domain` do Resend com `openTracking` e `clickTracking` responde sucesso, mas o domínio `news.aurapoker.com` segue com os dois desligados (duas tentativas, relido). O login do Resend no Chrome do Rafael é de outro time (doublecheck.poker). Falta um clique do Rafael no time da Aura: Domains › news.aurapoker.com › Configuration |
+| R5 segmento | ✅ renomeado | "Board Selection 09/2026 — leads (174)" virou "Grátis" (id `eab79cc8-…`), sem apagar contato. ⚠️ O conteúdo ainda são os 174 leads de setembro, não os Grátis |
+| (a) rascunho | ✅ | broadcast "RASCUNHO · R1 reativação Grátis (A) · NÃO ENVIAR" (`f185d44e-…`), no segmento Grátis, não enviada |
+| (b) teste | ✅ | A1, U1 e R1 enviados só para o e-mail do Rafael, com assunto `[TESTE …]`. Os três chegaram na caixa de entrada do Gmail (não no spam), com a logo oficial e o layout certo no Gmail web |
+| (c) spot logado | ⛔ bloqueado | o app abre na tela de login no Chrome do Rafael; a sessão não digita senha. Falta o Rafael entrar e conferir o CO vs BB, flop K-high two-tone, c-bet de 33% (field 46,0%, GTO 38,8%, faixa 37,1–40,4%) |
+| (d) supressão | ✅ parcial | 2 endereços suprimidos no Resend, os dois por bounce, nenhuma reclamação. O descadastro dos lotes em batch usa `List-Unsubscribe` mailto; o da broadcast usa o link do Resend |
+| (e) 1º lote | ⛔ sem tamanho | o lote do R1 (Grátis sem login há 14+ dias, sem pagantes e sem ex-pagantes) só sai do AuraBusiness, que não tem ferramenta de leitura nesta sessão (o MCP `postgres-azure-analytics` aponta para um host que não existe). Caminhos: consertar o host do MCP (o banco de usuários é o AuraBusiness, no servidor `aura-production`) ou o Rafael exportar os e-mails pelo SQL 5.3 |
+
 ## Changelog
+
+- Rodada 3 (23/10): decisões R1 a R6 do Rafael; R4 ampliada (gatilho B, quem não volta); rascunhos U2 e R2 com cupom; spec do cupom no Stripe (§12.1); tracking e segmento no Resend (§14).
 
 - Rodada 2 (23/10): template v2 com prints; R4 reaberta com o cupom de ativação (§12); auditoria do Grátis no código e frases corrigidas (§13); G1 trocado por conferência logada; U2 com cupom.
 - Rodada 1 (23/10): diagnóstico, segmentos, sequências, teste A/B e rascunhos A1, U1 e R1 (aura-marketing#12).
