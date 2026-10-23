@@ -17,9 +17,9 @@ FONT = "Montserrat,Arial,Helvetica,sans-serif"
 LANDING = "https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign={c}&utm_content={k}"
 BATCH_UNSUB = "mailto:manager@aurapoker.com?subject=Descadastrar"  # o batch leva também List-Unsubscribe (P4)
 BROADCAST_UNSUB = "{{{RESEND_UNSUBSCRIBE_URL}}}"
-# logo oficial (o "A" e a palavra AURA em dourado, igual ao cabeçalho da landing); PNG 1011x209 servido pela landing desde o
-# primeiro commit (aura-landing public/assets/logos). Exibida a 160x33, ou seja, com mais de 6x de resolução para tela retina.
-LOGO = "https://www.aurapoker.com/assets/logos/Ativo%2078@2x.png"
+# logo oficial (o "A" e a palavra AURA em dourado, igual ao cabeçalho da landing), PNG @2x hospedado com as outras
+# imagens de e-mail (aura-landing#27, public/email/aura-logo@2x.png). Exibida a 160x33.
+LOGO = "https://www.aurapoker.com/email/aura-logo@2x.png"
 
 
 def para(text, size=16, color=INK2, mb=16, weight=400):

@@ -7,7 +7,7 @@ Regras do template (docs/00-strategy/followup-cadastrados-gratis.md §10):
 - só tabelas e estilo inline; o <style> do head só ajusta o celular (Gmail e Apple aceitam, Outlook ignora sem quebrar);
 - Montserrat quando o cliente carrega webfont (Apple Mail, iOS), Arial nos outros;
 - paleta da landing (.theme-a): fundo #0F1526, cartão #13192E, painel #1C2B47, borda #2F435C, dourado #D4A418;
-- imagens só de URL pública que responde 200 (www.aurapoker.com/assets/logos para a logo, www.aurapoker.com/email e www.aura.poker/email);
+- imagens só de URL pública que responde 200 (www.aurapoker.com/email, inclusive a logo, e www.aura.poker/email);
 - cabeçalho = a logo oficial em PNG (nunca o ícone com a palavra montada em texto).
 """
 import pathlib
