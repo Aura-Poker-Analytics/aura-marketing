@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Envio de DMs Aura</title>
+<style>
+:root{--bg:#fff;--fg:#14161a;--mut:#5b6270;--bd:#d9dde3;--ac:#2457d6;--ok:#12805c;--card:#f6f7f9;--bad:#b3261e}
+@media(prefers-color-scheme:dark){:root{--bg:#101215;--fg:#eceef2;--mut:#a3aab6;--bd:#2c313a;--ac:#7aa2ff;--ok:#4cc79a;--card:#171a1f;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:0 0 4px}
+.mut{color:var(--mut)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;align-items:center}
+select,input[type=search]{padding:6px 8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--fg)}
+.card{border:1px solid var(--bd);background:var(--card);border-radius:10px;padding:12px;margin:10px 0}
+.card.sent{opacity:.55}
+.top{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.tag{font-size:12px;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mut)}
+textarea{width:100%;min-height:130px;margin:8px 0;padding:8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit;box-sizing:border-box}
+button,a.btn{padding:6px 12px;border:1px solid var(--ac);border-radius:6px;background:transparent;color:var(--ac);cursor:pointer;text-decoration:none;font:inherit}
+button.p{background:var(--ac);color:#fff}
+.ok{color:var(--ok)}.warn{color:var(--bad);font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1>Envio de DMs da Aura</h1>
+<p class="mut">Nada é enviado daqui. Copie a mensagem, abra a DM e envie você mesmo. Ritmo seguro: até 30 por dia, com textos diferentes entre si (edite antes de copiar). Troque <b>[seu nome]</b> antes de enviar.</p>
+<div class="bar">
+  <input id="q" type="search" placeholder="buscar @ ou nome">
+  <select id="fl"><option value="">idioma: todos</option><option>pt</option><option>es</option><option>en</option></select>
+  <select id="fp"><option value="">papel: todos</option><option>dono_de_time</option><option>coach</option><option>escola</option><option>jogador_influencer</option><option>midia</option><option>ferramenta_site</option><option>indef</option></select>
+  <select id="f5"><option value="">seguidores: todos</option><option value="sim">≥ 5 mil (estimado)</option><option value="?">sem contagem</option></select>
+  <label><input type="checkbox" id="hs"> esconder enviados</label>
+  <span id="cnt" class="mut"></span>
+</div>
+<div id="list"></div>
+<script>
+const D = __DATA__;
+let S = {};
+try { S = JSON.parse(localStorage.getItem('aura_dm_sent') || '{}'); } catch (e) {}
+const today = new Date().toISOString().slice(0, 10);
+const $ = s => document.querySelector(s);
+const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function save() { try { localStorage.setItem('aura_dm_sent', JSON.stringify(S)); } catch (e) {} }
+function sentToday() { return Object.values(S).filter(v => v === today).length; }
+function render() {
+  const q = $('#q').value.toLowerCase(), fl = $('#fl').value, fp = $('#fp').value, f5 = $('#f5').value, hs = $('#hs').checked;
+  let n = 0;
+  const L = $('#list');
+  L.innerHTML = '';
+  for (const d of D) {
+    if (q && !(d.handle + ' ' + d.nome).toLowerCase().includes(q)) continue;
+    if (fl && d.lang !== fl) continue;
+    if (fp && d.papel !== fp) continue;
+    if (f5 && d.passa !== f5) continue;
+    if (hs && S[d.id]) continue;
+    n++;
+    if (n > 150) continue;
+    const c = document.createElement('div');
+    c.className = 'card' + (S[d.id] ? ' sent' : '');
+    c.innerHTML =
+      '<div class="top"><b>@' + esc(d.handle) + '</b><span>' + esc(d.nome) + '</span>' +
+      '<span class="tag">' + esc(d.papel) + '</span><span class="tag">' + esc(d.lang) + '</span>' +
+      (d.curso ? '<span class="tag">vende curso</span>' : '') +
+      (d.seg ? '<span class="tag">' + esc(d.seg) + '</span>' : '') +
+      (d.sala ? '<span class="tag">' + esc(d.sala) + '</span>' : '') +
+      (d.pesquisado === 'nao' ? '<span class="tag warn">papel não verificado</span>' : '') + '</div>' +
+      '<textarea></textarea>' +
+      '<div class="top"><button class="p">Copiar</button>' +
+      '<a class="btn" target="_blank" rel="noopener" href="' + esc(d.dm) + '">Abrir DM</a>' +
+      '<a class="btn" target="_blank" rel="noopener" href="' + esc(d.url) + '">Perfil</a>' +
+      (d.email ? '<a class="btn" href="mailto:' + esc(d.email) + '">E-mail</a>' : '') +
+      (d.link ? '<a class="btn" target="_blank" rel="noopener" href="' + esc(d.link) + '">Site</a>' : '') +
+      '<label><input type="checkbox" ' + (S[d.id] ? 'checked' : '') + '> enviado ' + (S[d.id] || '') + '</label></div>';
+    const ta = c.querySelector('textarea');
+    ta.value = d.msg;
+    const btn = c.querySelector('button');
+    btn.onclick = async () => {
+      try { await navigator.clipboard.writeText(ta.value); } catch (e) { ta.select(); document.execCommand('copy'); }
+      btn.textContent = 'Copiado';
+    };
+    c.querySelector('input').onchange = e => {
+      if (e.target.checked) S[d.id] = today; else delete S[d.id];
+      save(); render();
+    };
+    L.appendChild(c);
+  }
+  $('#cnt').innerHTML = n + ' perfis · enviados hoje: <b class="' + (sentToday() >= 30 ? 'warn' : 'ok') + '">' + sentToday() + '/30</b>' + (n > 150 ? ' · mostrando os 150 primeiros (use os filtros)' : '');
+}
+['#q', '#fl', '#fp', '#f5', '#hs'].forEach(s => $(s).addEventListener('input', render));
+render();
+</script>
+</main>
+</body>
+</html>
