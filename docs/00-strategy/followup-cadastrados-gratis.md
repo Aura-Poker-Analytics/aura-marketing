@@ -282,6 +282,7 @@ São os três primeiros da fase 1, um por alavanca (ativação, upgrade, reativa
 **Template v2 (rodada 2, 23/10).** O Rafael achou o template antigo "horrível". O novo é gerado por `content/email/_template/build_followup.py` (`python -I content/email/_template/build_followup.py`); os HTML não se editam à mão.
 - **Identidade:** a paleta dark da landing (`aura-landing/src/styles/globals.css`, `.theme-a`): fundo `#0F1526`, cartão `#13192E`, painel `#1C2B47`, borda `#2F435C`, texto `#F5F6F8` / `#C3C7D1` / `#9AA0AE`, dourado `#D4A418` no botão. Montserrat, a fonte da landing, onde o cliente carrega webfont (Apple Mail, iOS); Arial nos demais.
 - **Uma peça forte por e-mail**, no lugar da lista de ♠: no A1, o caminho de três passos até o primeiro spot; no U1, o quadro Grátis × Individual linha a linha; no R1, a tela do Modo GTO já publicada (`www.aurapoker.com/email/modo-gto-pt.png`).
+- **Pouco texto (corte de 23/10, pedido da HUB no gosto do Rafael):** cada e-mail tem só título, uma frase, a peça visual, o botão e uma linha de pergunta. No A1, cada passo tem um subtítulo de no máximo uma linha. O U1 ficou com 5 linhas no quadro e uma linha de preço. O R1 é título, frase e imagem. A linha "Modo GTO incluso no plano Individual por tempo limitado" repete, palavra por palavra, o que a landing mostra hoje (conferido no ar em 23/10). O parágrafo do Field Exploits saiu do A1; ele fica para o A2.
 - **Compatibilidade:** só tabelas e estilo inline. O `<style>` do head só ajusta o celular (padding, título e botão de largura cheia), e o Outlook o ignora sem quebrar. As imagens vêm de URLs públicas que respondem 200 (conferido em 23/10). Prints feitos no Chrome headless; o de 390 px é de um iframe com 390 px exatos.
 - **Pendente antes do envio:** teste real no Gmail (web e app) e no Outlook, com um envio de teste para um endereço interno (é envio, então só com a frase do Rafael); versão EN; tirar o comentário de rascunho da linha 2.
 
@@ -354,7 +355,7 @@ Sim. O Grátis vê 1 dos 8 spots do Field Exploits do Individual, inteiro: o nú
 | --- | --- | --- | --- |
 | A1 | "O Spot da semana, um dos spots em que o field mais se afasta do GTO, também fica aberto no Grátis" | "Toda semana, um dos 8 spots do plano Individual fica aberto no Grátis, inteiro: o número do field, o do GTO e como explorar" | o spot grátis é o do calendário (`free_week`), não necessariamente o de maior desvio |
 | A1 | "Essa reação fica aberta no Grátis" | "Essa reação fica aberta no Grátis, no flop, no turn e no river" | as ações 1, 4 e 7 estão livres |
-| U1 | sem a linha do Field Exploits (gate G1) | "Field Exploits: 1 spot da semana / os 8 spots da semana" | o Individual já vê os 8 (PRs mesclados em 23/10) |
+| U1 | sem a linha do Field Exploits (gate G1) | "Field Exploits: 1 spot / os 8 da semana" | o Individual já vê os 8 (PRs mesclados em 23/10) |
 | R1 | "o open do CO no Field Ranges" | "o open do CO e a reação do BB", ao lado do GTO | o Grátis vê as duas, com a comparação GTO |
 | §1.3 | "o Individual vê o Grátis no Field Exploits" | "o Individual vê os 8 spots" | mudou com os PRs de 23/10 |
 
