@@ -381,6 +381,20 @@ Sim. O Grátis vê 1 dos 8 spots do Field Exploits do Individual, inteiro: o nú
 
 **Ponto de produto (não é de marketing):** a grade por size do spot grátis é trancada só no navegador; a API manda os números ao Grátis. Trancar de verdade é mudança na API (sessão no aura_api, se o Rafael quiser).
 
+## 14. Execução do envio (rodada 3, 23/10)
+
+Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência logada do spot, (d) descadastro e supressão, (e) 1º lote só com o vai da HUB.
+
+| Passo | Estado em 23/10 | Detalhe |
+| --- | --- | --- |
+| R1 tracking | ⛔ não persistiu | `update-domain` do Resend com `openTracking` e `clickTracking` responde sucesso, mas o domínio `news.aurapoker.com` segue com os dois desligados (duas tentativas, relido). O login do Resend no Chrome do Rafael é de outro time (doublecheck.poker). Falta um clique do Rafael no time da Aura: Domains › news.aurapoker.com › Configuration |
+| R5 segmento | ✅ renomeado | "Board Selection 09/2026 — leads (174)" virou "Grátis" (id `eab79cc8-…`), sem apagar contato. ⚠️ O conteúdo ainda são os 174 leads de setembro, não os Grátis |
+| (a) rascunho | ✅ | broadcast "RASCUNHO · R1 reativação Grátis (A) · NÃO ENVIAR" (`f185d44e-…`), no segmento Grátis, não enviada |
+| (b) teste | ✅ | A1, U1 e R1 enviados só para o e-mail do Rafael, com assunto `[TESTE …]`. Os três chegaram na caixa de entrada do Gmail (não no spam), com a logo oficial e o layout certo no Gmail web |
+| (c) spot logado | ⛔ bloqueado | o app abre na tela de login no Chrome do Rafael; a sessão não digita senha. Falta o Rafael entrar e conferir o CO vs BB, flop K-high two-tone, c-bet de 33% (field 46,0%, GTO 38,8%, faixa 37,1–40,4%) |
+| (d) supressão | ✅ parcial | 2 endereços suprimidos no Resend, os dois por bounce, nenhuma reclamação. O descadastro dos lotes em batch usa `List-Unsubscribe` mailto; o da broadcast usa o link do Resend |
+| (e) 1º lote | ⛔ sem tamanho | o lote do R1 (Grátis sem login há 14+ dias, sem pagantes e sem ex-pagantes) só sai do AuraBusiness, que não tem ferramenta de leitura nesta sessão (o MCP `postgres-azure-analytics` aponta para um host que não existe). Caminhos: consertar o host do MCP (o banco de usuários é o AuraBusiness, no servidor `aura-production`) ou o Rafael exportar os e-mails pelo SQL 5.3 |
+
 ## Changelog
 
 - Rodada 3 (23/10): decisões R1 a R6 do Rafael; R4 ampliada (gatilho B, quem não volta); rascunhos U2 e R2 com cupom; spec do cupom no Stripe (§12.1); tracking e segmento no Resend (§14).
