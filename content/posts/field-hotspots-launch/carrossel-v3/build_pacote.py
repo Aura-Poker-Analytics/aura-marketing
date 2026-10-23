@@ -1,0 +1,261 @@
+"""Field Hotspots - resto do pacote no visual e na narrativa do carrossel V3.
+
+Gera: instagram/feed-pt.png, feed-en.png (1080x1350), story-pt.png, story-en.png, story-capa-pt.png (1080x1920)
+      e email/field-hotspots-pt.png, -en.png (card do spot, 1200 px de largura).
+HTML-fonte em carrossel-v3/src/. Espelho das artes de Instagram em instagram/output/field-hotspots-launch/.
+Reusa CSS, textura de celulas, barras field x GTO e cartas de build.py (carrossel V3). Numeros so de ../numeros-verificados.md
+e _ops/home-painel-v2/numeros.md (6.9M+). Os 7 cards trancados sao formas borradas, sem texto de spot.
+Nao gera o HTML do e-mail (so a imagem).
+
+Uso: python build_pacote.py            (renderiza tudo e roda o QA)
+     python build_pacote.py --only feed-pt,story-en
+"""
+import re
+import shutil
+import sys
+
+from PIL import Image
+from playwright.sync_api import sync_playwright
+
+import build as B
+from build import CSS, FIT_JS, HERE, LOCK, SRC, bar_block, card_el, dots, title
+
+POST = HERE.parent
+IG = POST / "instagram"
+EMAIL = POST / "email"
+MIRROR = B.ROOT / "instagram/output/field-hotspots-launch"
+
+T = {
+    "pt": dict(
+        dev="DESVIO FORTE", od="OVERDEFEND", fold=lambda p: f"Fold vs c-bet de {p}", below="abaixo",
+        v50=("53,8%", "73,5%", "19,7% abaixo"), v33=("45,1%", "52,5%", "7,4% abaixo"), v65=("59,4%", "76,3%", "16,9% abaixo"),
+        locked="TRANCADOS", exflop="FLOP DE EXEMPLO", how="Como explorar",
+        howtx='O BB defende demais contra c-bet. <u>Blefe menos</u> e <u>aposte mais por value.</u>',
+    ),
+    "en": dict(
+        dev="STRONG DEVIATION", od="OVERDEFEND", fold=lambda p: f"Fold vs {p} c-bet", below="below",
+        v50=("53.8%", "73.5%", "19.7% below"), v33=("45.1%", "52.5%", "7.4% below"), v65=("59.4%", "76.3%", "16.9% below"),
+        locked="LOCKED", exflop="EXAMPLE FLOP", how="How to exploit",
+        howtx='The BB defends too much against the <span style="white-space:nowrap">c-bet.</span> <u style="white-space:nowrap">Bluff less</u> and <u style="white-space:nowrap">bet more for value.</u>',
+    ),
+}
+EXTRA = "u{text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:7px}"
+RANGES = {"33": (50.9, 54.2, 45.1, 52.5), "50": (67.5, 79.5, 53.8, 73.5), "65": (70.3, 82.3, 59.4, 76.3)}
+
+
+def bar(lang, p, compact=False):
+    t = T[lang]
+    v = t[f"v{p}"]
+    lo, hi, f, g = RANGES[p]
+    return bar_block(t["fold"](f"{p}%"), v[2], v[0], v[1], lo, hi, f, g)
+
+
+def shell(body, h, extra="", top=60):
+    cls = "h1350" if h == 1350 else "h1920"
+    return f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../../instagram/src/base.css"><style>{CSS}{EXTRA}.page{{padding-top:{top}px}}{extra}</style></head>
+<body><div class="page {cls}">
+<div class="vignette"></div>
+<header><div class="lockup"><span class="icon" data-icon></span><span class="wm" data-wordmark></span></div></header>
+{body}
+<footer><div class="handle"><span class="icon" data-icon></span><span>@aurapokeranalytics</span></div><span class="age">18+</span></footer>
+</div><script src="../../instagram/src/common.js"></script>{FIT_JS}</body></html>"""
+
+
+def locked_rows(n, h, chip=None, widths=(330, 270, 380, 300, 350, 260, 320), gap=8):
+    out = []
+    for i in range(n):
+        c = f'<span class="cf">{chip}</span>' if chip else ""
+        out.append(f'<div class="lk" style="height:{h}px"><span class="bl" style="width:{widths[i % len(widths)]}px"></span>{c}{LOCK}</div>')
+    return f'<div style="display:flex;flex-direction:column;gap:{gap}px">' + "".join(out) + "</div>"
+
+
+def open_card(lang, big=True):
+    t = T[lang]
+    v = t["v50"]
+    return f"""<div class="oc"><div class="r1"><span class="pair">UTG vs BB</span><span class="st">25bb · SRP</span></div>
+<div class="chips"><span class="chip-f">{t['dev']}</span><span class="od">{t['od']}</span></div>
+<div style="margin-top:18px">{bar_block(t['fold']('50%'), v[2], v[0], v[1], 67.5, 79.5, 53.8, 73.5)}</div></div>"""
+
+
+# ------------------------------------------------------------------ feeds
+def feed_pt():
+    body = f"""<div class="glowb" style="left:-300px;bottom:-200px;width:1100px;height:900px"></div>
+<div class="abs" style="top:132px">{open_card('pt')}<div style="margin-top:14px">{locked_rows(7, 50, 'DESVIO FORTE')}</div></div>
+<div class="abs bt">{title('Os spots mais exploráveis<br>do field.<br><em>Prontos.</em>', 74)}
+<div class="ss" style="font-size:32px;margin-top:16px;white-space:nowrap" data-fitline>Field Hotspots: a lista ranqueada, pronta pra você.</div></div>"""
+    return shell(body, 1350)
+
+
+def feed_en():
+    t = T["en"]
+    flop = "".join(card_el(r, s, 56) for r, s in (("A", "♠"), ("3", "♠"), ("6", "♥")))
+    blocks = "".join(f'<div style="margin-top:{0 if i == 0 else 16}px">{bar("en", p)}</div>' for i, p in enumerate(("33", "50", "65")))
+    cells = "".join(f'<div class="lk" style="height:46px;padding:0 18px;gap:12px"><span class="bl" style="width:{w}px"></span>{LOCK}</div>' for w in (150, 120, 170, 130, 160, 110, 140))
+    cells += '<div class="lk" style="height:46px;justify-content:center;border-style:solid;border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.08)"><span style="font-size:22px;font-weight:800;letter-spacing:.08em;color:#FBBF24">7 LOCKED</span></div>'
+    body = f"""<div class="glowb" style="left:-300px;bottom:-260px;width:1100px;height:900px"></div>
+<div class="abs" style="top:132px"><div class="oc" style="padding:22px 28px 26px">
+ <div style="display:flex;justify-content:space-between;align-items:center"><div><div class="r1"><span class="pair" style="font-size:46px">UTG vs BB</span><span class="st" style="font-size:26px">25bb · SRP</span></div>
+ <div class="chips" style="margin-top:10px"><span class="chip-f">{t['dev']}</span><span class="od">{t['od']}</span></div></div>
+ <div style="display:flex;gap:8px">{flop}</div></div>
+ <div style="margin-top:20px">{blocks}</div></div>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">{cells}</div></div>
+<div class="abs bt">{title('The most exploitable<br>spots in the field.<br><em>Ready.</em>', 74)}
+<div class="ss" style="font-size:34px;margin-top:16px">Field Hotspots: a ranked list, built for you.</div></div>"""
+    return shell(body, 1350, ".hb .lab{font-size:24px}.hb .track{height:20px;margin-top:10px}.hb .lab.sm{margin-top:2px}")
+
+
+# ------------------------------------------------------------------ stories
+def funnel(lang):
+    pt = lang == "pt"
+    spots = "1.000+ spots de flop" if pt else "1,000+ flop spots"
+    rk = "ranqueados contra o GTO" if pt else "ranked against GTO"
+    hands = "mãos do field" if pt else "field hands"
+    hands_n = "21 mi+" if pt else "21M+"
+    top = ""  # fundo liso: sem a textura de pontos do quadro dos 6,9 mi+
+    on = "background:linear-gradient(135deg,#FCD34D,#D97706);box-shadow:0 0 30px rgba(251,191,36,.7);border:2px solid #FDE68A"
+    off = "border:2px solid rgba(251,191,36,.7);background:rgba(251,191,36,.10)"
+    tiles = "".join(f'<div style="width:66px;height:84px;border-radius:14px;{off}"></div>' for i in range(8))
+    poly = """<svg width="912" height="190" viewBox="0 0 912 190" style="display:block"><defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBBF24" stop-opacity=".30"/><stop offset="1" stop-color="#FBBF24" stop-opacity=".07"/></linearGradient></defs><polygon points="1,0 911,0 772,190 140,190" fill="url(#fg)" stroke="rgba(251,191,36,.55)" stroke-width="2" stroke-linejoin="round"/></svg>"""
+    return f"""<div style="position:relative;height:150px;border-radius:22px;overflow:hidden;border:2px solid rgba(148,163,184,.25);background:#0B1220">{top}
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="background:rgba(2,6,23,.86);border:2px solid rgba(251,191,36,.5);border-radius:18px;padding:8px 28px;font-size:44px;font-weight:900;color:#fff;white-space:nowrap"><span style="color:#FBBF24">{spots.split(' ')[0]}</span> {' '.join(spots.split(' ')[1:])}</div></div></div>
+<div style="position:relative;margin-top:-1px">{poly}<div style="position:absolute;left:190px;right:190px;top:22px;text-align:center;font-size:28px;font-weight:700;line-height:1.3;color:#fff">{rk}<br><span style="color:#FBBF24;font-weight:900;font-size:36px">{hands_n}</span> {hands}</div></div>
+<div style="display:flex;justify-content:center;gap:14px;margin-top:8px">{tiles}</div>"""
+
+
+def story_num(lang):
+    pt = lang == "pt"
+    num = "6,9 mi+" if pt else "6.9M+"
+    ttl = "pontos de decisão GTO." if pt else "GTO decision points."
+    sub = "A lista dos spots de flop mais exploráveis está pronta." if pt else "The list of the most exploitable flop spots is ready."
+    w, h = 912, 470
+    tex = dots(w, h, 16, 11, seed=11, hot=0.06, fade=(w / 2, h / 2 - 30, (400, 190)))
+    chips = "".join(f'<span class="chip-f" style="background:rgba(2,6,23,.78)">{x}</span>' for x in ("FLOP", "TURN", "RIVER"))
+    body = f"""<div class="glowb" style="left:-100px;top:200px;width:1300px;height:900px"></div>
+<div class="abs" style="top:290px;height:{h}px"><div style="position:absolute;inset:0">{tex}</div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+<div style="width:100%;text-align:center"><div class="t" data-max="250" style="line-height:.95;display:inline-block;text-transform:none"><em>{num}</em></div></div>
+<div class="chips" style="margin:0">{chips}</div></div></div>
+<div class="abs" style="top:790px">{title(ttl.upper().replace('.', '.'), 70)}</div>
+<div class="abs" style="top:890px">{funnel(lang)}</div>
+<div class="abs" style="top:1372px"><div class="ss" style="font-size:38px;margin-top:0;text-wrap:balance">{sub}</div></div>"""
+    return shell(body, 1920, top=190)
+
+
+def story_capa_pt():
+    t = T["pt"]
+    body = f"""<div class="glowb" style="left:-300px;bottom:100px;width:1100px;height:900px"></div>
+<div class="abs" style="top:290px">{open_card('pt')}<div style="margin-top:14px">{locked_rows(7, 62, 'DESVIO FORTE', gap=10)}</div></div>
+<div class="abs" style="top:1130px">{title('Os spots mais exploráveis<br>do field.<br><em>Prontos.</em>', 74)}
+<div class="ss" style="font-size:36px;margin-top:18px">Field Hotspots no menu do topo.</div></div>"""
+    return shell(body, 1920, top=190)
+
+
+# ------------------------------------------------------------------ e-mail (imagem do card, 1200 px)
+def email_card(lang):
+    t = T[lang]
+    flop = "".join(card_el(r, s, 72) for r, s in (("A", "♠"), ("3", "♠"), ("6", "♥")))
+    blocks = "".join(
+        f'<div style="margin-top:{0 if i == 0 else 26}px;{"padding:18px 22px 22px;margin-left:-22px;margin-right:-22px;border-radius:20px;background:rgba(251,191,36,.07);border:2px solid rgba(251,191,36,.35)" if p == "50" else ""}">{bar(lang, p)}</div>'
+        for i, p in enumerate(("33", "50", "65")))
+    return f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../../instagram/src/base.css"><style>{CSS}{EXTRA}
+html,body{{width:1200px;background:#020617}} body{{padding:0}}
+#m{{width:1200px;padding:40px;background:radial-gradient(1000px 600px at 50% -10%,rgba(34,53,89,.6),transparent 62%),radial-gradient(900px 600px at 50% 115%,rgba(212,164,24,.14),transparent 60%),#020617}}
+.hb .lab{{font-size:32px}} .hb .track{{height:32px;margin-top:14px}} .hb .lab.sm{{margin-top:8px}} .chip-f,.od{{font-size:26px}}
+</style></head><body><div id="m"><div class="oc" style="padding:36px 40px 44px">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+ <div><div class="r1"><span class="pair" style="font-size:68px">UTG vs BB</span><span class="st" style="font-size:34px">25bb · SRP</span></div>
+ <div class="chips" style="margin-top:16px"><span class="chip-f">{t['dev']}</span><span class="od">{t['od']}</span></div></div>
+ <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px"><div style="display:flex;gap:10px;align-items:flex-start">{flop}</div><span style="font-size:24px;font-weight:700;color:#94A3B8;letter-spacing:.06em">{t['exflop']}</span></div></div>
+<div style="margin-top:34px">{blocks}</div>
+<div style="margin-top:36px;background:linear-gradient(160deg,#FDE68A 0%,#FBBF24 48%,#F59E0B 100%);border-radius:26px;padding:32px 38px 38px">
+ <div style="font-size:26px;font-weight:900;letter-spacing:.16em;color:#0F1526;text-transform:uppercase">{t['how']}</div>
+ <div style="margin-top:14px;font-size:46px;font-weight:800;line-height:1.2;color:#0F1526">{t['howtx']}</div></div>
+</div></div></body></html>"""
+
+
+JOBS = {
+    "feed-pt": (feed_pt, 1350, IG), "feed-en": (feed_en, 1350, IG),
+    "story-pt": (lambda: story_num("pt"), 1920, IG), "story-en": (lambda: story_num("en"), 1920, IG),
+    "story-capa-pt": (story_capa_pt, 1920, IG),
+}
+BANNED = ["beta", "ponte", "pool vs gto", "overlay", "solver", "wizard", "pool", "campo", "early bird", "mdf", "top 8", "os maiores", "biggest", "pp "]
+
+QA_JS = """() => {
+  const page = document.querySelector('.page');
+  const foot = document.querySelector('footer').getBoundingClientRect();
+  const issues = [];
+  const blocks = [...document.querySelectorAll('.abs')].map(e => e.getBoundingClientRect());
+  blocks.sort((a, b) => a.top - b.top);
+  for (let i = 1; i < blocks.length; i++) if (blocks[i].top < blocks[i-1].bottom - 1) issues.push('blocos sobrepostos ' + Math.round(blocks[i-1].bottom) + '>' + Math.round(blocks[i].top));
+  for (const b of blocks) if (b.bottom > foot.top - 4) issues.push('bloco invade o rodape ' + Math.round(b.bottom) + '>' + Math.round(foot.top));
+  document.querySelectorAll('.page *').forEach(e => { const r = e.getBoundingClientRect(); if (r.width && (r.right > 1081 || r.left < -1) && !e.closest('.glowb') && !e.closest('.vignette')) issues.push('fora da pagina: ' + e.className.toString().slice(0, 20)); });
+  document.querySelectorAll('.t,[data-fitline]').forEach(e => { if (e.scrollWidth > e.parentElement.clientWidth + 1) issues.push('texto cortado: ' + e.textContent.slice(0, 24)); });
+  const last = blocks[blocks.length - 1];
+  return {issues, lastBottom: Math.round(last.bottom), footTop: Math.round(foot.top), text: document.body.innerText};
+}"""
+
+if __name__ == "__main__":
+    only = None
+    if "--only" in sys.argv:
+        only = set(sys.argv[sys.argv.index("--only") + 1].split(","))
+    problems = []
+    MIRROR.mkdir(parents=True, exist_ok=True)
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        for name, (fn, h, outdir) in JOBS.items():
+            if only and name not in only:
+                continue
+            f = SRC / f"{name}.html"
+            f.write_text(fn(), encoding="utf-8")
+            pg = b.new_page(viewport={"width": 1080, "height": h}, device_scale_factor=1)
+            pg.goto(f.as_uri())
+            pg.wait_for_selector("body[data-ready='1']")
+            pg.wait_for_timeout(400)
+            png = outdir / f"{name}.png"
+            pg.screenshot(path=str(png))
+            r = pg.evaluate(QA_JS)
+            pg.close()
+            shutil.copy2(png, MIRROR / png.name)
+            im = Image.open(png)
+            if im.size != (1080, h):
+                problems.append(f"{name}: tamanho {im.size}")
+            problems += [f"{name}: {i}" for i in r["issues"]]
+            low = r["text"].lower()
+            problems += [f"{name}: palavra proibida '{w}'" for w in BANNED if re.search(r"\b" + re.escape(w.strip()) + (r"\b" if w.endswith(" ") else ""), low)]
+            print("ok", name, im.size, "ultimo bloco", r["lastBottom"], "rodape", r["footTop"])
+        for lang in ("pt", "en"):
+            name = f"email-{lang}"
+            if only and name not in only:
+                continue
+            f = SRC / f"{name}.html"
+            f.write_text(email_card(lang), encoding="utf-8")
+            pg = b.new_page(viewport={"width": 1200, "height": 900}, device_scale_factor=1)
+            pg.goto(f.as_uri())
+            pg.evaluate("document.fonts.ready")
+            pg.wait_for_timeout(400)
+            png = EMAIL / f"field-hotspots-{lang}.png"
+            pg.locator("#m").screenshot(path=str(png))
+            txt = pg.evaluate("document.body.innerText").lower()
+            pg.close()
+            im = Image.open(png)
+            if im.size[0] != 1200:
+                problems.append(f"{name}: largura {im.size[0]}")
+            problems += [f"{name}: palavra proibida '{w}'" for w in BANNED if re.search(r"\b" + re.escape(w.strip()) + r"\b", txt)]
+            print("ok", png.name, im.size)
+        b.close()
+    import email_html as E
+    for lang in ("pt", "en"):
+        if only and f"email-{lang}" not in only:
+            continue
+        im = Image.open(EMAIL / f"field-hotspots-{lang}.png")
+        hd = round(im.height * 530 / im.width)
+        htmls = {}
+        for kind, preview in (("final", False), ("preview", True)):
+            htmls[kind] = E.email_html(lang, hd, preview)
+            (POST / (f"email-{lang}.preview.html" if preview else f"email-{lang}.html")).write_text(htmls[kind], encoding="utf-8")
+        problems += E.qa(lang, htmls, BANNED)
+        print(f"ok email-{lang}.html + .preview.html (imagem 530x{hd})")
+    print("QA:", "sem problemas" if not problems else "")
+    for x in problems:
+        print("  PROBLEMA:", x)
+    sys.exit(1 if problems else 0)

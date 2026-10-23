@@ -1,6 +1,6 @@
 # STATE.md — aura-marketing
 
-Atualizado em: 2026-10-15 · por: sessão `aura-marketing · Modo GTO pacote` (branch `feature/launch-modo-gto`) e, antes, `aura · Field Ranges · pacote de lançamento`
+Atualizado em: 2026-10-22 · por: sessão `aura-marketing · lançamento Field Hotspots · pacote` (branch `feature/launch-field-hotspots`) e, antes, `aura-marketing · Modo GTO pacote` (branch `feature/launch-modo-gto`) e, antes, `aura · Field Ranges · pacote de lançamento`
 
 Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de tarefa atualiza este arquivo antes de fechar. "Em andamento" tem no máximo dois itens.
 
@@ -8,6 +8,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 - Pacote de lançamento do Field Ranges (Beta), sem publicar: Discord PT/EN, Instagram (feed, story, carrossel de 6) PT/EN, mockups e texto da landing em `content/posts/field-ranges-launch/` (revisão de marca em 4 rodadas, OK com ressalvas na final; HUB aprovou o pacote em 3acf1ae).
 
 ## 2. Em andamento (máx. 2)
+- **Pacote Field Hotspots (22–23/10, P-82)** · branch `feature/launch-field-hotspots` · onde parou: pacote REFEITO em 23/10 depois do "refaça tudo" do Rafael (parecido com o Modo GTO); narrativa única "a lista pronta dos spots mais exploráveis, entre os 6,9 mi+ pontos de decisão GTO da Aura", mesma identidade, composição nova; carrossel EN de 7 aprovado pelo Rafael; feed, stories, e-mail e textos no mesmo visual, gerados por `content/posts/field-hotspots-launch/carrossel-v3/build_pacote.py`; revisor OK COM RESSALVAS, correções aplicadas · próximo passo: deploy de aura-api#122/aura-novofront#186 (frase do plano Individual), landing no ar com a seção e os PNGs do e-mail, olho logado, publicar antes de 02/11; postar e enviar são do Rafael · sessão pode ser arquivada depois do merge
 - **Pacote Modo GTO (versão 15/10)** · branch `feature/launch-modo-gto` · onde parou: [PR #4](https://github.com/Aura-Poker-Analytics/aura-marketing/pull/4) com OK formal do revisor, nada publicado; carrossel de lançamento (7 slides EN, com o slide Field vs GTO, "GTO Mode is live", incluso no Individual por tempo limitado), story da capa PT, feed, e-mail PT/EN e textos em `content/posts/modo-gto-launch/` · próximo passo: gates do Rafael/HUB (P-61 conferido logado, Stripe 29/150, teste logado, hospedagem das imagens do e-mail no aura-landing#17, reconciliação da landing em sessão própria, data interna do "tempo limitado", oferta em dólar para o público BR) e depois postar/enviar · sessão pode ser arquivada
 - **Pacote Field Ranges** · branch `feature/launch-field-ranges` · onde parou: PR #2 aberto (3acf1ae), nada publicado, pacote fechado do lado da sessão · próximo passo: merge do PR #2 e postagens são do Rafael; a landing lê os mockups deste worktree (não remover até o merge); só o @aurapokeranalytics a confirmar · doc: `content/posts/field-ranges-launch/copy.md`
 

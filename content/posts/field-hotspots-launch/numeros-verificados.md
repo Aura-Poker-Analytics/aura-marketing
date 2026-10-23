@@ -1,0 +1,112 @@
+# Field Hotspots: números verificados para o lançamento (22/10/2026)
+
+Fonte única dos números do lançamento do **Field Hotspots** (ex-Pool vs GTO), que está no ar em www.aura.poker desde 22/10/2026. A sessão de marketing usa só os números daqui. Número que não está aqui não vai para post, e-mail nem landing.
+
+Como foi medido: cada número abaixo vem de uma consulta SQL, que vai junto. As consultas rodaram no Postgres LOCAL. Os totais (Q1, Q2, Q3 e Q6) também rodaram, só em leitura, no banco servido em produção (Azure `aura_database`), e bateram 1:1: 6.212 / 1.049 / 21.333.719 / 688 / 8 / 1. Snapshot do ranking: `20261015`, refeito em 22/10 sobre a referência GTO `20261022` (a mesma que o Modo GTO serve desde o FLOP-PUB; os números deste arquivo não mudaram, conferido coluna a coluna), faixa GTO v5, regra de liberação `pvg-release-v1`.
+
+Regras de texto: vírgula decimal em PT; desvio em "%" ("19,7% abaixo do GTO"), nunca "pp" nem "pontos"; termos de poker em inglês (c-bet, overfold, overdefend, value); "a Aura".
+
+## 1. O que está no ar
+
+| Número | Valor | Como dizer |
+| --- | --- | --- |
+| Spots liberados hoje para o assinante (plano Modo GTO) | **8** | "8 spots liberados" (a tela mostra "8 SPOTS LIBERADOS") |
+| Spots no Grátis | **1** | "1 spot da semana grátis" |
+| Entram por semana | **2** | "2 spots novos toda segunda" |
+| Saem por semana | **2** | a janela fica sempre em 8 |
+| Primeira troca | **seg. 02/11/2026** | depois, toda segunda |
+| Quanto tempo cada spot semanal fica no ar | **4 semanas** (28 dias) | |
+| Spots no ranking (desvio do field contra o GTO medido) | **1.049** | "mais de 1.000 spots de flop ranqueados" |
+| Spots com desvio forte ou claro (entram na rotação) | **688** (335 fortes, 353 claros) | "desvio forte" = 5% ou mais fora da faixa do GTO; "desvio claro" = 2% a 5% |
+| Mãos do field medidas no ranking | **21.333.719** | "mais de 21 milhões de mãos do field" |
+| Mãos do field nos 8 spots de hoje (no tamanho de c-bet que a tela destaca) | **182.372** | |
+| Cobertura | 10 pares de posição (SRP e 3-bet pot), stacks de 25, 40 e 60bb, flop | |
+
+Cuidados:
+- O catálogo de 688 cobre anos de rotação semanal. **Não** prometer "688 spots" nem uma data final: o produto entrega 8 por vez e 2 novos por semana.
+- "Spot" = um par de posições × um stack × uma classe de flop (carta alta, naipes, par, conectividade).
+- O Grátis vê o spot da semana numa rota própria. O restante é do plano Modo GTO.
+
+## 2. Exemplo concreto: o 1.º spot (também o spot Grátis de hoje)
+
+**UTG vs BB, 25bb, SRP: UTG dá c-bet no flop e o BB responde. Flop A-high, two-tone, unpaired, OESD possible.** Força: **desvio forte**. Direção: **overdefend** (o BB folda menos do que o GTO).
+
+| c-bet | Fold do field | Fold do GTO (faixa) | Desvio | Mãos do field |
+| --- | --- | --- | --- | --- |
+| 33% do pote | 45,1% | 52,5% (50,9–54,2) | 7,4% abaixo | 41.087 |
+| **50% do pote (o que a tela destaca)** | **53,8%** | **73,5% (67,5–79,5)** | **19,7% abaixo; 13,7% fora da faixa** | **15.674** |
+| 65% do pote | 59,4% | 76,3% (70,3–82,3) | 16,9% abaixo | 3.276 |
+
+Linha da tela: "Field 53,8% · GTO 73,5% · 19,7% abaixo" e "15,7 mil mãos".
+
+**Como explorar** (texto que a tela mostra):
+- PT: "O BB defende demais contra c-bet. Blefe menos e aposte mais por value."
+- EN: "The BB defends too much against the c-bet. Bluff less and bet more for value."
+
+Os 3 boards que a tela mostra para essa classe (A♠3♠6♥, 6♠A♣7♣, 7♣A♥5♥) são exemplos da classe, não o spot inteiro.
+
+## 3. Consultas
+
+Todas sobre `snapshot_date = '20261015'`.
+
+```sql
+-- Q1: linhas do ranking (spot × tamanho de c-bet) e spots ranqueados (uma manchete por spot)
+select count(*), count(*) filter (where is_headline)
+from tbl_pool_vs_gto_rank where snapshot_date = '20261015';
+-- 6212 | 1049
+
+-- Q2: catálogo da rotação por força
+select count(*), count(*) filter (where strength = 'forte'), count(*) filter (where strength = 'claro')
+from tbl_pool_vs_gto_release where snapshot_date = '20261015';
+-- 688 | 335 | 353
+
+-- Q3: janela de hoje e spot Grátis
+select count(*), count(*) filter (where free_week)
+from tbl_pool_vs_gto_release
+where snapshot_date = '20261015' and release_date <= date '2026-10-22' and retire_date > date '2026-10-22';
+-- 8 | 1
+
+-- Q4: entradas, saídas e tamanho da janela nas próximas segundas
+with d as (select generate_series(date '2026-11-02', date '2026-12-07', interval '7 day')::date d)
+select d,
+  (select count(*) from tbl_pool_vs_gto_release r where r.snapshot_date = '20261015' and r.release_date = d),
+  (select count(*) from tbl_pool_vs_gto_release r where r.snapshot_date = '20261015' and r.retire_date = d),
+  (select count(*) from tbl_pool_vs_gto_release r where r.snapshot_date = '20261015' and r.release_date <= d and r.retire_date > d)
+from d;
+-- cada segunda de 02/11 a 07/12: 2 | 2 | 8
+
+-- Q4b: permanência (dias) de cada spot
+select retire_date - release_date, count(*) from tbl_pool_vs_gto_release where snapshot_date = '20261015' group by 1;
+-- 28 dias: 680 spots; o lote de abertura sai 2 por semana (11, 18, 25 e 32 dias)
+
+-- Q5: o 1.º spot e seus tamanhos
+select release_seq, solver_pair, stack_bb, strength, free_week from tbl_pool_vs_gto_release
+where snapshot_date = '20261015' and release_seq = 1;
+-- 1 | utg_bb | 25 | forte | t
+select size_label, pool_n, pool_fold, gto_fold, gto_fold_lo, gto_fold_hi, direction, is_headline
+from tbl_pool_vs_gto_rank
+where snapshot_date = '20261015' and solver_pair = 'utg_bb' and stack_bb = 25
+  and boardflophighcard = 6 and boardtone = 3 and pairedflop = 1 and board_connectedness_fl = 1
+order by actionsize;
+-- bet_33 41087 0,451 0,525 0,509 0,542 overdefend f
+-- bet_50 15674 0,538 0,735 0,675 0,795 overdefend t
+-- bet_65  3276 0,594 0,763 0,703 0,823 overdefend f
+
+-- Q6: mãos do field no ranking
+select sum(pool_n) from tbl_pool_vs_gto_rank where snapshot_date = '20261015';
+-- 21333719
+
+-- Q6b: mãos nos 8 spots de hoje (tamanho destacado)
+select sum(k.pool_n)
+from tbl_pool_vs_gto_release r
+join tbl_pool_vs_gto_rank k
+  on k.snapshot_date = r.snapshot_date and k.solver_pair = r.solver_pair and k.stack_bb = r.stack_bb
+ and k.boardflophighcard = r.boardflophighcard and k.boardtone = r.boardtone and k.pairedflop = r.pairedflop
+ and k.board_connectedness_fl = r.board_connectedness_fl and k.is_headline
+where r.snapshot_date = '20261015' and r.release_date <= date '2026-10-22' and r.retire_date > date '2026-10-22';
+-- 182372
+```
+
+O texto do "Como explorar" vem do livro de frases versionado `pvg-exploit-phrases-v2`, no aura-database: `scripts/pool_vs_gto/exploit/out/20261015/pool_vs_gto_exploit_phrases_20261015.json`, chave `utg_bb@25:6311`.
+
+Registro do lançamento: `aura-main/_ops/pool-vs-gto-v1/publicar-2026-10-21.md` (front `466bf89`, bundle `index-BSpaQ_UL.js`).

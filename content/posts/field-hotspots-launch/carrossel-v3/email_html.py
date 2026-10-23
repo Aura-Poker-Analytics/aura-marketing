@@ -1,0 +1,169 @@
+"""Field Hotspots - HTML de envio do e-mail (Resend, 600 px, tabelas e estilos inline) e QA.
+
+Texto: ../email.md (blocos "Corpo (copiar)", PT e EN), assunto recomendado = opcao 1. Imagem: ../email/field-hotspots-<lang>.png
+(gerada por build_pacote.py). O HTML de envio aponta para https://www.aurapoker.com/email/ (hospedagem no aura-landing, outra frente);
+o .preview.html usa o caminho relativo email/. Chamado por build_pacote.py.
+"""
+import html as H
+import re
+from pathlib import Path
+
+POST = Path(__file__).resolve().parents[1]
+EMAIL = POST / "email"
+IMG_BASE = "https://www.aurapoker.com/email/"
+LANDING = "https://www.aurapoker.com?utm_source=email&utm_medium=email&utm_campaign=field-hotspots-launch&utm_content={lang}"
+UNSUB = "{{{RESEND_UNSUBSCRIBE_URL}}}"
+
+EM = {
+    "pt": dict(
+        lang_attr="pt-BR", subject="A lista dos spots mais exploráveis do field está pronta",
+        pre="Ranqueamos mais de 1.000 spots de flop contra o GTO. A lista dos mais exploráveis está pronta.",
+        title="Os spots mais exploráveis do field. Prontos.",
+        p1="A Aura cobre 6,9 mi+ pontos de decisão GTO (flop, turn e river). Ninguém estuda todos. Ranqueamos mais de 1.000 spots de flop contra o GTO, com mais de 21 milhões de mãos do field, e a lista dos mais exploráveis está pronta.",
+        spot_h="UTG vs BB · 25bb · SRP · flop A-high two-tone",
+        spot_1="Contra c-bet de 50%, o BB folda 53,8%. O GTO folda 73,5%: 19,7% abaixo. Overdefend.",
+        spot_l="Como explorar:", spot_2="o BB defende demais contra c-bet. Blefe menos e aposte mais por value.",
+        p2="Grátis vê 1 spot. O plano Individual libera os 8. Toda segunda, 2 entram e 2 saem.",
+        btn="Abrir a lista", under="1.ª troca de spots: segunda, 02/11. Ferramenta de estudo. 18+.",
+        f1="Você recebe este e-mail porque tem uma conta ou lista de espera da Aura.", unsub="Cancelar inscrição",
+        f2="Ferramenta de estudo. 18+.", f3="Fale com a gente:",
+        alt="Card do Field Hotspots para o spot UTG vs BB a 25bb em SRP, flop A-high two-tone: fold do field contra o do GTO, rótulo Overdefend e a caixa Como explorar: blefe menos e aposte mais por value.",
+    ),
+    "en": dict(
+        lang_attr="en", subject="The list of the field's most exploitable spots is ready",
+        pre="We ranked 1,000+ flop spots against GTO. The list of the most exploitable is ready.",
+        title="The most exploitable spots in the field. Ready.",
+        p1="Aura covers 6.9M+ GTO decision points (flop, turn and river). Nobody studies all of them. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the list of the most exploitable is ready.",
+        spot_h="UTG vs BB · 25bb · SRP · A-high two-tone flop",
+        spot_1="Facing a 50% c-bet, the BB folds 53.8%. GTO folds 73.5%: 19.7% below. Overdefend.",
+        spot_l="How to exploit it:", spot_2="the BB defends too much against the c-bet. Bluff less and bet more for value.",
+        p2="Free sees 1 spot. The Individual plan unlocks all 8. Every Monday, 2 in and 2 out.",
+        btn="Get the list", under="First spot swap: Monday, Nov 2. Study tool. 18+.",
+        f1="You are receiving this email because you have an Aura account or waitlist spot.", unsub="Unsubscribe",
+        f2="Study tool. 18+.", f3="Reach us:",
+        alt="Field Hotspots card for the UTG vs BB spot at 25bb in an SRP, A-high two-tone flop: field fold against GTO fold, an Overdefend label and the How to exploit box: bluff less and bet more for value.",
+    ),
+}
+
+TPL = """<!DOCTYPE html>
+<html lang="@lang_attr@" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="dark light">
+  <meta name="supported-color-schemes" content="dark light">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>@subject@</title>
+</head>
+<body style="margin:0; padding:0; width:100%; background-color:#070a12; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#070a12; opacity:0;">@pre@</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#070a12;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:#0b1220; border:1px solid #1e293b; border-radius:14px; overflow:hidden;">
+          <tr><td bgcolor="#D4A418" style="height:3px; line-height:3px; font-size:0; background-color:#D4A418;">&nbsp;</td></tr>
+          <tr>
+            <td style="padding-top:26px; padding-right:34px; padding-bottom:6px; padding-left:34px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td style="padding-right:10px; vertical-align:middle; width:50px;"><img src="https://www.aura.poker/email/aura-logo.png" width="40" height="32" border="0" alt="Aura" style="display:block; border:0; outline:none; text-decoration:none;"></td>
+                <td style="vertical-align:middle;"><span style="font-family:Arial,Helvetica,sans-serif; font-weight:bold; font-size:20px; letter-spacing:6px; color:#e6ebf2;">AURA</span></td>
+              </tr></table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:14px; padding-right:34px; padding-bottom:0; padding-left:34px; font-family:Arial,Helvetica,sans-serif;">
+              <h1 style="margin:0; font-size:28px; line-height:1.25; color:#e6ebf2; font-weight:bold;">@title@</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:16px; padding-right:34px; padding-bottom:4px; padding-left:34px; font-family:Arial,Helvetica,sans-serif; color:#c3ccd9; font-size:15px; line-height:1.65;">
+              <p style="margin:0 0 14px 0;">@p1@</p>
+              <p style="margin:0 0 4px 0; color:#e6ebf2; font-weight:bold;">@spot_h@</p>
+              <p style="margin:0 0 6px 0;">@spot_1@</p>
+              <p style="margin:0 0 6px 0;"><span style="color:#D4A418; font-weight:bold;">@spot_l@</span> @spot_2@</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:8px; padding-right:34px; padding-bottom:4px; padding-left:34px;" align="center">
+              <img src="@src@" width="530" height="@img_h@" alt="@alt@" style="display:block; width:100%; max-width:530px; height:auto; border:0; outline:none; text-decoration:none;">
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:14px; padding-right:34px; padding-bottom:0; padding-left:34px; font-family:Arial,Helvetica,sans-serif; color:#c3ccd9; font-size:15px; line-height:1.65;">
+              <p style="margin:0;">@p2@</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:22px; padding-right:34px; padding-bottom:6px; padding-left:34px;" align="center">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" bgcolor="#D4A418" style="border-radius:10px; background-color:#D4A418;">
+                  <a href="@url@" style="display:inline-block; padding-top:14px; padding-bottom:14px; padding-left:34px; padding-right:34px; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:bold; color:#0b1220; text-decoration:none; border-radius:10px;">@btn@</a>
+                </td>
+              </tr></table>
+              <p style="margin:12px 0 0 0; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#9aa7ba;">@under@</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:24px; padding-right:34px; padding-bottom:30px; padding-left:34px; border-top:1px solid #1e293b; background-color:#040711;">
+              <p style="margin:0 0 6px 0; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:1.6; color:#8a97ab;">@f1@</p>
+              <p style="margin:0 0 6px 0; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:1.6; color:#8a97ab;"><a href="@unsub_url@" style="color:#aab6c8; text-decoration:underline;">@unsub@</a>. @f2@</p>
+              <p style="margin:0 0 6px 0; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:1.6; color:#8a97ab;">@f3@ <a href="https://discord.gg/wYquSmUtAK" style="color:#aab6c8; text-decoration:underline;">Discord</a> · <a href="https://wa.me/554188083135" style="color:#aab6c8; text-decoration:underline;">WhatsApp</a> · <a href="https://www.youtube.com/@aurapokeranalytics" style="color:#aab6c8; text-decoration:underline;">YouTube</a></p>
+              <p style="margin:12px 0 0 0; font-family:Arial,Helvetica,sans-serif; font-size:11px; letter-spacing:1px; color:#8a97ab;">AURA POKER ANALYTICS — © 2026 · 18+</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+"""
+
+
+def email_html(lang, img_h, preview):
+    c = dict(EM[lang])
+    c["subject"] = H.escape(c["subject"])
+    c["alt"] = H.escape(c["alt"])
+    c["src"] = f"email/field-hotspots-{lang}.png" if preview else f"{IMG_BASE}field-hotspots-{lang}.png"
+    c["url"] = LANDING.format(lang=lang).replace("&", "&amp;")
+    c["unsub_url"] = UNSUB
+    c["img_h"] = str(img_h)
+    out = TPL
+    for k, v in c.items():
+        out = out.replace(f"@{k}@", v)
+    return out
+
+
+ALLOWED = {"6,9", "6.9", "1.000", "1,000", "21", "53,8", "53.8", "73,5", "73.5", "19,7", "19.7", "25", "50", "8", "1", "2", "02", "11", "18", "2026"}
+
+
+def qa(lang, htmls, banned):
+    out = []
+    for kind, h in htmls.items():
+        tag = f"email-{lang}.{kind}" if kind == "preview" else f"email-{lang}"
+        text = H.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<style.*?</style>", "", h, flags=re.S)))
+        if re.search(r"RASCUNHO|DRAFT|\[NUM\]", h):
+            out.append(f"{tag}: faixa/marcador de rascunho")
+        if H.escape(EM[lang]["subject"]) not in h:
+            out.append(f"{tag}: assunto ausente")
+        if LANDING.format(lang=lang).replace("&", "&amp;") not in h:
+            out.append(f"{tag}: UTM do CTA ausente")
+        if f'href="{UNSUB}"' not in h:
+            out.append(f"{tag}: descadastro ausente")
+        want = f"email/field-hotspots-{lang}.png" if kind == "preview" else f"{IMG_BASE}field-hotspots-{lang}.png"
+        if f'src="{want}"' not in h:
+            out.append(f"{tag}: imagem {want} ausente")
+        if "app.aura.poker" in h or "/login" in h.lower():
+            out.append(f"{tag}: link para o app")
+        for k in ("p1", "spot_h", "spot_1", "spot_l", "spot_2", "p2", "btn", "under", "title", "pre"):
+            if H.escape(EM[lang][k], quote=False) not in h and EM[lang][k] not in h:
+                out.append(f"{tag}: campo {k} ausente")
+        for w in banned:
+            if re.search(r"\b" + re.escape(w.strip()) + r"\b", text.lower()):
+                out.append(f"{tag}: palavra proibida '{w}'")
+        body = re.sub(r"https?://\S+", " ", text)
+        for m in set(re.findall(r"\d+(?:[.,]\d+)*", body)):
+            if m not in ALLOWED:
+                out.append(f"{tag}: numero fora do numeros-verificados.md: {m}")
+    return out
