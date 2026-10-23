@@ -18,3 +18,7 @@ desktop.ini
 .env.*
 *.pem
 credentials.json
+
+# Python
+__pycache__/
+*.pyc
