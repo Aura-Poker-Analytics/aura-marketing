@@ -1,5 +1,9 @@
 # Recapturar os mockups do Field Hotspots
 
+**Estado em 23/10 (pacote refeito):** nenhuma arte do pacote usa print da tela. O carrossel (`carrossel-v3/`), o feed, os stories, o story da capa e o e-mail são reconstruídos em HTML por `carrossel-v3/build_pacote.py`. Os recortes desta pasta ficam só como insumo para a seção da landing (sessão no aura-landing). **Pendência:** se a landing usar recorte, recapturar logado de www.aura.poker/hotspot, em EN e com device scale 2, depois do deploy do aura-novofront#186 (o texto do cadeado muda). Os recortes mobile do pago e do Grátis eram byte a byte iguais e viraram um arquivo só (`mobile-spot-sem-numeros.png`, `mobile-menu-hotspots-new.png`).
+
+## Histórico (pacote de 22/10, substituído)
+
 As artes usam prints da validação do aura-novofront#169 (22/10, ambiente de teste, contas de teste "P" e "F"):
 `aura-novofront/_ops/validacao-prints/169/`. Quando o merge estiver no ar, recapturar de **www.aura.poker/hotspot** (pago e Grátis, 1280 e 390; e **em EN**, ver abaixo), colocar os novos prints na mesma pasta de validação (ou ajustar `RAW` em `instagram/src/make_mockups.py`) com os mesmos nomes e rodar `python make_mockups.py` e `python build.py` em `instagram/src`.
 
@@ -14,8 +18,7 @@ Regra: nenhum número estatístico da tela aparece nas artes. Os prints originai
 | lista-paga-sem-numeros.png | paid-1280-3 | coluna dos spots, números das linhas cobertos |
 | lista-gratis-sem-numeros.png | free-1280-3 | 1 spot + 2 linhas trancadas, números cobertos |
 | janela-capa-sem-numeros.png | paid-1280-3 | menu + lista + cabeçalho do detalhe, números cobertos |
-| mobile-pago-spot-sem-numeros.png, mobile-pago-menu-hotspots-new.png | paid-390-3 | card do spot (linha de números coberta); barra inferior com Hotspots NEW |
-| mobile-gratis-spot-sem-numeros.png, mobile-gratis-menu-hotspots-new.png | free-390-3 | idem, conta Grátis |
+| mobile-spot-sem-numeros.png, mobile-menu-hotspots-new.png | paid-390-3 | card do spot (linha de números coberta); barra inferior com Hotspots NEW |
 
 Os prints `-4-field-hotspots-full` são byte a byte iguais aos `-3`; só os `-3` são usados. A 7ª linha da lista não entra no recorte (o recorte termina na 6ª).
 
