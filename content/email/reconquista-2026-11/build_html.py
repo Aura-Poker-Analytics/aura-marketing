@@ -1,7 +1,7 @@
 """Gera o HTML dos e-mails da reconquista 2026-11 no template de marca do Modo GTO.
 
-Uso: python build_html.py  (escreve e1.html, e3.html e e4.html nesta pasta)
-O e-mail 2 sai depois que o Rafael passar os números do spot (gate R4 em sequencia.md).
+Uso: python build_html.py  (escreve e1.html a e4.html nesta pasta)
+O e-mail 2 só sai depois da conferência logada do Rafael (gate R4 em sequencia.md).
 Envio em batch transacional do Resend: o descadastro vai no cabeçalho List-Unsubscribe
 e no rodapé por resposta "sair" (batch não gera link de descadastro por contato).
 """
@@ -94,6 +94,22 @@ EMAILS = {
             SIGN,
         ],
         cta="Ver a nova Aura", content="e1",
+    ),
+    "e2": dict(
+        subject="Um spot em que o field erra contra o GTO esta semana",
+        preview="Um dos 8 spots do Field Exploits, com o número do field, o do GTO e o exploit.",
+        h1="Um spot desta semana",
+        tagline="O field folda 53,8%. O GTO folda 73,5%.",
+        body=[
+            P.format("Um dos 8 spots do Field Exploits desta semana:"),
+            LI.format("<strong style=\"color:#e6ebf2;\">UTG contra BB, 25bb, pote simples (SRP), flop A-high two-tone, sem par, com OESD possível. O UTG dá c-bet de 50%.</strong>"),
+            P.format("O field folda <strong style=\"color:#e6ebf2;\">53,8%</strong>. O GTO folda <strong style=\"color:#e6ebf2;\">73,5%</strong> (faixa 67,5–79,5%)."),
+            P.format("<strong style=\"color:#D4A418;\">Como explorar:</strong> o BB defende demais contra c-bet. Blefe menos e aposte mais por value."),
+            P.format("É um spot, não a média do field. Os outros 7 estão no app."),
+            P.format("O código <strong style=\"color:#D4A418;\">VOLTA</strong> vale até 16/11: o primeiro mês do Individual mensal sai por R$ 30."),
+            SIGN,
+        ],
+        cta="Ver os 8 spots", content="e2",
     ),
     "e3": dict(
         subject="2 spots novos hoje, e uma pergunta rápida",

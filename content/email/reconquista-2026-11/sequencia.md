@@ -27,7 +27,7 @@
 | R1 | Cupom no Stripe | ✅ Feito em 23/10 (Rafael: "só no mensal o desconto valido pra 1 mes"). Cupom `8YS32mA8`: R$ 120 / US$ 23,20 fixos, uma cobrança, só no produto Individual, 40 usos, até 16/11 23:59. Código `VOLTA` (`promo_1UTnpAIsnKTRWBVcpVEV4Nm5`). O Stripe não limita cupom por preço: no semestral e no anual o desconto também é de R$ 120. |
 | R2 | Quem assina | "Rafael, fundador da Aura" no lugar de "Equipe Aura". Ex-pagantes respondem mais a uma pessoa, e o e-mail 3 pede resposta. |
 | R3 | Como enviar | Batch transacional do Resend com `List-Unsubscribe` (como em 30/09), sem criar segmento: o plano do Resend limita a 3 segmentos. A lista fica fora do git. |
-| R4 | E-mail 2 | O spot do e-mail 2 sai dos 8 spots no ar na semana de 26/10, com números conferidos por você logado, no mesmo padrão dos `numeros-verificados`. Sem isso, o e-mail 2 não sai. |
+| R4 | E-mail 2 | ✅ Números preenchidos em 23/10 a partir do `numeros-verificados.md` do Field Exploits (spot `utg_bb@25`, c-bet de 50%). Falta só a conferência logada do Rafael antes de 29/10. |
 
 ## E-mail 1: o que mudou (seg. 26/10, 10h)
 
@@ -60,17 +60,17 @@ Fundador da Aura
 **Assunto:** Um spot em que o field erra contra o GTO esta semana
 **Preview:** Um dos 8 spots do Field Exploits, com o número do field, o do GTO e o exploit.
 
-> ⛔ Gate R4: os números entram só depois de conferidos logado no Field Exploits (já no ar; um dos 8 spots que valem até 29/10). O texto abaixo é a forma; os `[...]` são preenchidos com os números da tela.
+> Números verificados (HUB, 23/10): `content/posts/field-exploits-launch/numeros-verificados.md` na main do aura-marketing, linhas 32 e 86–92 (`tbl_pool_vs_gto_rank` × `tbl_pool_vs_gto_release`, snapshot 20261015; ranking refeito sobre 20261022 com conteúdo idêntico). Spot `utg_bb@25`, `bet_50`, que também é o spot do Grátis. A janela vale até a troca de 02/11. Sem contagem de mãos no e-mail (regra de 08/10). ⛔ Gate R4: o Rafael confere logado antes do envio.
 
 ---
 
 Um dos 8 spots do Field Exploits desta semana:
 
-**[situação: posições, pote, stack, textura do flop, ação]**
+**UTG contra BB, 25bb, pote simples (SRP), flop A-high two-tone, sem par, com OESD possível. O UTG dá c-bet de 50%.**
 
-O field [folda / paga / aposta] **[X]%**. O GTO [folda / paga / aposta] **[Y]%** (faixa [a]–[b]%).
+O field folda **53,8%**. O GTO folda **73,5%** (faixa 67,5–79,5%).
 
-**Como explorar:** [frase do exploit da tela, no tom "When villain calls, bluff less and bet mostly for value on the flop."]
+**Como explorar:** o BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
 É um spot, não a média do field. Os outros 7 estão no app.
 
