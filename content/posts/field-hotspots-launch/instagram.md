@@ -1,80 +1,82 @@
 # Instagram: lançamento do Field Hotspots
 
-Status: rascunho; **não publicado**. Versão de 22/10/2026. @aurapokeranalytics: a confirmar pelo Rafael. Os textos das artes (título e apoio) estão em `copy.md`, seção (b). Aqui ficam as legendas e os textos dos stickers.
-Gancho na 1.ª linha de toda legenda (a primeira linha é o que aparece antes do "mais"). Até 5 hashtags. Todos os números vêm de `numeros-verificados.md` (mapa em `copy.md`, "Números usados"); nenhum `[NUM]` resta.
-Só postar depois do merge do Field Hotspots, e do olho logado do Rafael; publicar antes de 02/11 ou trocar o exemplo (ver `copy.md`, Pendências).
+Status: rascunho de 23/10/2026; **não publicado**. @aurapokeranalytics: a confirmar pelo Rafael. Os textos das artes (título e apoio) estão em `copy.md`, seção (b). Aqui ficam as legendas e os textos dos stickers.
+Narrativa de toda legenda: 6,9 mi+ pontos de decisão cobertos, nós achamos os mais exploráveis, a lista está pronta, abra e explore. Gancho na 1.ª linha (é o que aparece antes do "mais"). Até 5 hashtags. Números de `numeros-verificados.md` e do 6,9 mi+ de `_ops/home-painel-v2/numeros.md` (mapa em `copy.md`, "Números usados").
+Só postar com o "pode publicar" do Rafael. A frase "O plano Individual libera os 8" só vale depois do deploy de aura-api#122 e aura-novofront#186 (`copy.md`, Pendência 2); sem o deploy, trocar por "Grátis vê 1." / "Free sees 1.". Publicar antes de 02/11 ou trocar o exemplo (`copy.md`, Pendência 3).
 
 ---
 
 ## Legenda do feed (1080x1350)
 
-Arte PT: título "Você sabe onde o field erra?" / apoio "Field Hotspots: spots novos toda segunda."
-Arte EN: título "Know where the field leaks?" / apoio "Field Hotspots: new spots every Monday."
+Arte PT: título "Os spots mais exploráveis do field. Prontos." / apoio "Field Hotspots: a lista ranqueada, pronta pra você."
+Arte EN: título "The most exploitable spots in the field. Ready." / apoio "Field Hotspots: a ranked list, built for you."
 
 ### PT
 ```
-Você sabe onde o field erra? O reg do lado pode saber.
+Os spots mais exploráveis do field. Prontos.
 
-O Field Hotspots está no ar: os spots pós-flop em que o field de MTT tem desvio forte do GTO, cada um discriminado, no menu do topo.
+A Aura cobre 6,9 mi+ pontos de decisão GTO (flop, turn e river). Ninguém estuda todos. Ranqueamos mais de 1.000 spots de flop contra o GTO, com mais de 21 milhões de mãos do field, e os de desvio forte viraram uma lista pronta: o Field Hotspots.
 
-Exemplo desta semana: UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥ (A-high two-tone, OESD possível). Contra o c-bet de 50%, o BB folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. Overdefend. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.
+Um spot da lista: UTG vs BB, 25bb, SRP, flop A-high two-tone. Contra c-bet de 50%, o BB folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. Overdefend. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
-Cada spot traz posições, stack, tipo de pote, textura do flop, o detalhe por size de c-bet (33%, 50%, 65%) em Fold, Call e Raise e a caixa Como explorar.
+Grátis vê 1. O plano Individual libera os 8. Toda segunda, 2 entram e 2 saem (1.ª troca: 02/11).
 
-O Modo GTO libera 8 spots. O Grátis vê 1, o spot da semana. Toda segunda, 2 saem e 2 entram (primeira troca: 02/11), e o que sai não volta igual. Quem não sabe onde o field erra pode estar deixando fichas na mesa.
-
-Abrir o Field Hotspots, link na bio. Ferramenta de estudo. 18+.
+Abrir a lista: link na bio. Ferramenta de estudo. 18+.
 
 #poker #pokerMTT #pokerestudo #pokerstrategy #aurapoker
 ```
 
 ### EN
 ```
-Do you know where the field leaks? The reg next to you might.
+The most exploitable spots in the field. Ready.
 
-Field Hotspots is live: the postflop spots where the MTT field deviates strongly from GTO, each one itemized, in the top menu.
+Aura covers 6.9M+ GTO decision points (flop, turn and river). Nobody studies all of them. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the strong-deviation ones are now a ready list: Field Hotspots.
 
-This week's example: UTG vs BB, 25bb, SRP, A♠ 3♠ 6♥ flop (A-high two-tone, possible OESD). Facing a 50% c-bet, the BB folds 53.8% and GTO folds 73.5%: 19.7% below. Overdefend. The BB defends too much against the c-bet. Bluff less and bet more for value.
+One spot from the list: UTG vs BB, 25bb, SRP, A-high two-tone flop. Facing a 50% c-bet, the BB folds 53.8% and GTO folds 73.5%: 19.7% below. Overdefend. The BB defends too much against the c-bet. Bluff less and bet more for value.
 
-Every spot comes with positions, stack, pot type, flop texture, the detail by c-bet size (33%, 50%, 65%) on Fold, Call and Raise, and the How to exploit box.
+Free sees 1. The Individual plan unlocks all 8. Every Monday, 2 in and 2 out (first swap: Nov 2).
 
-GTO Mode unlocks 8 spots. Free sees 1, the spot of the week. Every Monday, 2 leave and 2 come in (first swap: Nov 2), and what leaves doesn't come back the same. If you don't know where the field leaks, you might be leaving chips on the table.
-
-Open Field Hotspots, link in bio. Study tool. 18+.
+Get the list: link in bio. Study tool. 18+.
 
 #poker #MTT #pokerstrategy #pokerstudy #aurapoker
 ```
 
 ---
 
-## Legenda do carrossel (7 slides, arte em EN; legenda bilíngue, PT e logo depois EN)
+## Legenda do carrossel (7 slides, arte em EN)
 
-Slides (arte, `copy.md`): 1 "Field Hotspots is live" · 2 "Postflop spots. Field vs GTO." · 3 "One spot, fully broken down" · 4 "How to exploit it" · 5 "Free sees 1. GTO Mode sees 8." · 6 "Spots leave every Monday" · 7 "See this week's hotspots".
+Slides (arte, `copy.md`): 1 "The most exploitable spots in the field. Ready." · 2 "6.9M+ GTO decision points. Nobody studies all of them." · 3 "We ranked them for you. 1,000+ flop spots vs GTO, 21M+ field hands." · 4 "One spot, fully broken down." · 5 "How to exploit it." · 6 "New spots every Monday. 2 in, 2 out. First swap: Nov 2." · 7 "Get the list. Free sees 1. The Individual plan unlocks all 8."
 
+Base: a legenda EN aprovada em `carrossel-v3/legenda-en.md`, sem alteração. A versão PT vem logo abaixo. Para postar as duas numa legenda só, usar um conjunto de hashtags (máximo 5).
+
+### EN (aprovada)
 ```
-🇧🇷
-Hotspots de desvio forte do field, discriminados. Você sabe onde ele erra?
+A ready-made list of the field's most exploitable spots. Field Hotspots is live.
 
-O Field Hotspots está no ar: os spots pós-flop em que o field de MTT tem desvio forte do GTO, com posições, stack, tipo de pote, textura do flop, Overfold ou Overdefend, field × GTO por size de c-bet (33%, 50%, 65%) e a caixa Como explorar.
+Aura covers 6.9M+ GTO decision points. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the strong deviations are now one list, each spot broken down by c-bet size.
 
-Exemplo desta semana: UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥. Contra o c-bet de 50%, o BB folda 53,8% contra 73,5% do GTO, 19,7% abaixo: overdefend. Blefe menos e aposte mais por value.
+Example: UTG vs BB, 25bb, SRP, A-high two-tone flop. Facing a 50% c-bet, the BB folds 53.8% and GTO folds 73.5%: 19.7% below. The BB defends too much against the c-bet. Bluff less and bet more for value.
 
-O Modo GTO libera 8 spots; o Grátis vê 1. Toda segunda, 2 saem e 2 entram (primeira troca: 02/11), e o que sai não volta igual. O reg do lado pode estar vendo.
+2 spots in, 2 out every Monday (first swap: Mon, Nov 2). Free sees 1. The Individual plan unlocks all 8.
 
-Link na bio. Ferramenta de estudo. 18+.
+Get the list: link in bio. Study tool. 18+.
 
-🇺🇸
-The field's strong deviations from GTO, itemized. Do you know where it leaks?
+#poker #MTT #pokerstrategy #pokerstudy #aurapoker
+```
 
-Field Hotspots is live: the postflop spots where the MTT field deviates strongly from GTO, with positions, stack, pot type, flop texture, Overfold or Overdefend, field vs GTO by c-bet size (33%, 50%, 65%) and the How to exploit box.
+### PT (versão da legenda aprovada)
+```
+Uma lista pronta dos spots mais exploráveis do field. O Field Hotspots está no ar.
 
-This week's example: UTG vs BB, 25bb, SRP, A♠ 3♠ 6♥ flop. Facing a 50% c-bet, the BB folds 53.8% vs 73.5% for GTO, 19.7% below: overdefend. Bluff less and bet more for value.
+A Aura cobre 6,9 mi+ pontos de decisão GTO. Ranqueamos mais de 1.000 spots de flop contra o GTO, com mais de 21 milhões de mãos do field, e os spots de desvio forte viraram uma lista só, cada um aberto por size de c-bet.
 
-GTO Mode unlocks 8 spots; Free sees 1. Every Monday, 2 leave and 2 come in (first swap: Nov 2), and what leaves doesn't come back the same. The reg next to you might be looking.
+Exemplo: UTG vs BB, 25bb, SRP, flop A-high two-tone. Contra c-bet de 50%, o BB folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
-Link in bio. Study tool. 18+.
+Toda segunda, 2 spots entram e 2 saem (1.ª troca: seg. 02/11). Grátis vê 1. O plano Individual libera os 8.
 
-#poker #pokerMTT #pokerstrategy #pokerstudy #aurapoker
+Abrir a lista: link na bio. Ferramenta de estudo. 18+.
+
+#poker #pokerMTT #pokerestudo #pokerstrategy #aurapoker
 ```
 
 ---
@@ -84,23 +86,24 @@ Link in bio. Study tool. 18+.
 Os stories não levam legenda; o texto é o da arte (título e apoio, em `copy.md`) mais o sticker.
 
 ### Story PT
-- Arte: título "O BB defende demais aqui" / apoio "Field Hotspots: o que sai na segunda não volta igual."
-- Sticker de link (texto): **Abrir o Field Hotspots**
+- Arte: título "6,9 mi+ pontos de decisão GTO." / apoio "A lista dos spots de flop mais exploráveis está pronta."
+- Sticker de link (texto): **Abrir a lista**
 - URL: https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=story-pt
 - Enquete opcional (sticker, fora da arte): "Seu BB defende demais contra c-bet?" Opções: **Sim** / **Depende**.
 
 ### Story EN
-- Arte: título "The BB overdefends here" / apoio "Field Hotspots: what leaves on Monday doesn't come back the same."
-- Sticker de link (texto): **Open Field Hotspots**
+- Arte: título "6.9M+ GTO decision points." / apoio "The list of the most exploitable flop spots is ready."
+- Sticker de link (texto): **Get the list**
 - URL: https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=story-en
 - Enquete opcional: "Does your BB overdefend against c-bets?" Opções: **Yes** / **Depends**.
 
 ### Story da capa do carrossel (PT)
-- Arte: título "Field Hotspots no ar" / apoio "8 spots de desvio forte do field."
-- Sticker de link (texto): **Abrir o Field Hotspots**
+- Arte: título "Os spots mais exploráveis do field. Prontos." / apoio "Field Hotspots no menu do topo."
+- Sticker de link (texto): **Abrir a lista**
 - URL: https://www.aurapoker.com/?utm_source=instagram&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=story-capa-pt
-- Sticker de contagem regressiva: **não usar** (a regra é não inventar escassez; a rotação é toda segunda, mas não há "prazo" a contar).
+- Sticker de contagem regressiva: **não usar** (a regra é não inventar escassez).
 
 Notas:
-- O exemplo (UTG vs BB, 25bb, Overdefend) e a ação ("blefe menos, aposte mais por value") estão nos stories PT e EN; o story da capa leva o gancho de lançamento, o menu do topo com NEW e a lista de spots.
-- Hashtags: no padrão dos anteriores. PT: #poker #pokerMTT #pokerestudo #pokerstrategy #aurapoker. EN: #poker #MTT #pokerstrategy #pokerstudy #aurapoker. Carrossel bilíngue: #poker #pokerMTT #pokerstrategy #pokerstudy #aurapoker.
+- O exemplo UTG vs BB (Overdefend) e a ação ("blefe menos, aposte mais por value") estão nas legendas e no carrossel; os stories carregam a cobertura (6,9 mi+) e a lista pronta.
+- Os 6,9 mi+ são a cobertura da Aura em flop, turn e river; o ranking e os 8 spots são só de flop. Nenhuma peça liga um ao outro.
+- Hashtags: PT #poker #pokerMTT #pokerestudo #pokerstrategy #aurapoker. EN #poker #MTT #pokerstrategy #pokerstudy #aurapoker.

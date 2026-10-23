@@ -7,7 +7,7 @@ Slides (arte): 1 "The most exploitable spots in the field. Ready." · 2 "6.9M+ G
 ```
 A ready-made list of the field's most exploitable spots. Field Hotspots is live.
 
-Aura covers 6.9M+ GTO decision points. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the strongest deviations are now one list, each spot broken down by c-bet size.
+Aura covers 6.9M+ GTO decision points. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the strong deviations are now one list, each spot broken down by c-bet size.
 
 Example: UTG vs BB, 25bb, SRP, A-high two-tone flop. Facing a 50% c-bet, the BB folds 53.8% and GTO folds 73.5%: 19.7% below. The BB defends too much against the c-bet. Bluff less and bet more for value.
 

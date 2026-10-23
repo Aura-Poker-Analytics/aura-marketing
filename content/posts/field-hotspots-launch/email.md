@@ -1,54 +1,79 @@
 # E-mail: lançamento do Field Hotspots
 
-Status: rascunho; **não enviado**, nada criado no Resend. Versão de 22/10/2026. Formato curto, no padrão da versão A de `content/posts/modo-gto-launch/email-versoes-wow.md`: promessa em uma frase, um spot concreto com a ação, FOMO só com fato, botão para a landing. Sem frase que explica a interface, sem bastidor, sem "pp", "a Aura" no feminino, "field" e nunca "pool".
-Números de `numeros-verificados.md` (mapa em `copy.md`); nenhum `[NUM]` resta. **Só enviar depois** do merge do Field Hotspots (aura-novofront#169), do olho logado do Rafael e, de preferência, antes da primeira troca de spots (02/11), porque o exemplo é o spot da semana de 22/10 (ver `copy.md`, Pendência 2). Envio e lista são do Rafael.
+Status: rascunho de 23/10/2026; **não enviado**, nada criado no Resend. Narrativa: milhões de pontos de decisão cobertos, nós achamos os mais exploráveis, a lista está pronta, abra e explore. Formato curto: uma promessa, um spot concreto com a ação, um botão para a landing. Sem frase que explica a interface, sem bastidor, "a Aura" no feminino, "field" e nunca "pool".
+Números de `numeros-verificados.md` e do 6,9 mi+ de `_ops/home-painel-v2/numeros.md` (mapa em `copy.md`, "Números usados"). **Só enviar depois** do "pode publicar" do Rafael, do deploy de aura-api#122 e aura-novofront#186 (a frase do plano Individual, `copy.md` Pendência 2; sem o deploy, trocar por "Grátis vê 1.") e, de preferência, antes da 1.ª troca de spots (02/11), porque o exemplo é o spot da semana de 22/10 (`copy.md`, Pendência 3). Envio e lista são do Rafael.
+
+A outra frente monta o HTML a partir dos blocos "Corpo (copiar)" abaixo. Cada bloco traz os campos na ordem em que aparecem no e-mail: título, subtítulo, parágrafos, botão, texto sob o botão e rodapé.
 
 ---
 
 ## PT
 
-**Assunto, opção 1:** Field Hotspots: onde o field erra
-**Assunto, opção 2:** UTG vs BB, 25bb: o field defende demais
-**Recomendado: opção 2.** Tem spot e diagnóstico no assunto (tom de reg), e a opção 1 fica para a linha de abertura.
-**Preheader:** Field Hotspots no ar. Dois spots novos toda segunda.
+**Assunto, opção 1:** A lista dos spots mais exploráveis do field está pronta
+**Assunto, opção 2:** UTG vs BB, 25bb: o BB folda 19,7% abaixo do GTO
+**Recomendado: opção 1.** Carrega a narrativa (lista pronta dos mais exploráveis); a opção 2 fica como variante de teste A/B, com o spot no assunto.
+**Preheader:** Ranqueamos mais de 1.000 spots de flop contra o GTO. A lista dos mais exploráveis está pronta.
 
-**Corpo (texto)**
+**Corpo (copiar)**
+```
+TÍTULO
+Os spots mais exploráveis do field. Prontos.
 
-Field Hotspots no ar
-8 spots de desvio forte do field, spot a spot.
+PARÁGRAFO 1
+A Aura cobre 6,9 mi+ pontos de decisão GTO (flop, turn e river). Ninguém estuda todos. Ranqueamos mais de 1.000 spots de flop contra o GTO, com mais de 21 milhões de mãos do field, e a lista dos mais exploráveis está pronta.
 
-Os spots pós-flop de MTT em que o field tem desvio forte do GTO, já discriminados: posições, stack, flop, size de c-bet e a ação para explorar.
+SPOT
+UTG vs BB · 25bb · SRP · flop A-high two-tone
+Contra c-bet de 50%, o BB folda 53,8%. O GTO folda 73,5%: 19,7% abaixo. Overdefend.
+Como explorar: o BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
-UTG vs BB, 25bb, SRP, flop A♠ 3♠ 6♥ (A-high two-tone, OESD possível). Contra o c-bet de 50%, o field folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. O BB defende demais contra c-bet. Blefe menos e aposte mais por value.
+PARÁGRAFO 2
+Grátis vê 1 spot. O plano Individual libera os 8. Toda segunda, 2 entram e 2 saem.
 
-O Modo GTO libera 8 spots. O Grátis vê 1. Toda segunda, 2 saem e 2 entram, e o que sai não volta igual. O reg do lado pode estar vendo.
+BOTÃO
+Abrir a lista
 
-Botão: Abrir o Field Hotspots
-Sob o botão: Primeira troca de spots: segunda, 02/11. Poker é jogo de habilidade e estudo. 18+.
+SOB O BOTÃO
+1.ª troca de spots: segunda, 02/11. Ferramenta de estudo. 18+.
+
+RODAPÉ
+Você recebe este e-mail porque tem uma conta ou lista de espera da Aura. Cancelar inscrição: {{{RESEND_UNSUBSCRIBE_URL}}}. Ferramenta de estudo. 18+.
+```
 
 ---
 
 ## EN
 
-**Subject, option 1:** Field Hotspots: where the field leaks most
-**Subject, option 2:** UTG vs BB, 25bb: the field overdefends
-**Recommended: option 2.** Spot and diagnosis in the subject (reg-to-reg tone); option 1 becomes the opening line.
+**Subject, option 1:** The list of the field's most exploitable spots is ready
+**Subject, option 2:** UTG vs BB, 25bb: the BB folds 19.7% below GTO
+**Recommended: option 1.** It carries the narrative (a ready list of the most exploitable); option 2 is the A/B variant with the spot in the subject.
+**Preheader:** We ranked 1,000+ flop spots against GTO. The list of the most exploitable is ready.
 
-**Preheader:** Field Hotspots is live. Two new spots every Monday.
+**Body (copy)**
+```
+TITLE
+The most exploitable spots in the field. Ready.
 
-**Body (text)**
+PARAGRAPH 1
+Aura covers 6.9M+ GTO decision points (flop, turn and river). Nobody studies all of them. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the list of the most exploitable is ready.
 
-Field Hotspots is live
-8 strong field deviations from GTO, spot by spot.
+SPOT
+UTG vs BB · 25bb · SRP · A-high two-tone flop
+Facing a 50% c-bet, the BB folds 53.8%. GTO folds 73.5%: 19.7% below. Overdefend.
+How to exploit it: the BB defends too much against the c-bet. Bluff less and bet more for value.
 
-The postflop MTT spots where the field leaks most, already itemized: positions, stack, flop, c-bet size and the action to exploit it.
+PARAGRAPH 2
+Free sees 1 spot. The Individual plan unlocks all 8. Every Monday, 2 in and 2 out.
 
-UTG vs BB, 25bb, SRP, A♠ 3♠ 6♥ flop (A-high two-tone, possible OESD). Facing a 50% c-bet, the field folds 53.8% and GTO folds 73.5%: 19.7% below. The BB defends too much against the c-bet. Bluff less and bet more for value.
+BUTTON
+Get the list
 
-GTO Mode unlocks 8 spots. Free sees 1. Every Monday, 2 leave and 2 come in, and what leaves doesn't come back the same. The reg next to you might be looking.
+UNDER THE BUTTON
+First spot swap: Monday, Nov 2. Study tool. 18+.
 
-Button: Open Field Hotspots
-Under the button: First spot swap: Monday, Nov 2. Poker is a game of skill and study. 18+.
+FOOTER
+You are receiving this email because you have an Aura account or waitlist spot. Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}. Study tool. 18+.
+```
 
 ---
 
@@ -58,20 +83,11 @@ Under the button: First spot swap: Monday, Nov 2. Poker is a game of skill and s
   - PT: https://www.aurapoker.com?utm_source=email&utm_medium=email&utm_campaign=field-hotspots-launch&utm_content=pt
   - EN: https://www.aurapoker.com?utm_source=email&utm_medium=email&utm_campaign=field-hotspots-launch&utm_content=en
 - **Descadastro:** placeholder `{{{RESEND_UNSUBSCRIBE_URL}}}` no rodapé, substituído pelo Resend no envio.
-  - Rodapé PT: "Você recebe este e-mail porque tem uma conta ou lista de espera da Aura. Cancelar inscrição: {{{RESEND_UNSUBSCRIBE_URL}}}. Ferramenta de estudo. 18+."
-  - Footer EN: "You are receiving this email because you have an Aura account or waitlist spot. Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}. Study tool. 18+."
-- **Imagem (opcional, 600px, mockup do produto):** o card do spot da semana (UTG vs BB, 25bb, rótulo Overdefend, barras Field × GTO com N1 e N2, caixa Como explorar), renderizado pela build com os números confirmados, no formato do idioma (PT com vírgula, EN com ponto). Sem lista de 8 spots e sem números fora do `numeros-verificados.md`. **Alt text:** PT "Card do Field Hotspots para o spot UTG vs BB a 25bb em SRP, flop A-high two-tone: fold do field contra o do GTO, rótulo Overdefend e a caixa Como explorar: blefe menos e aposte mais por value." / EN "Field Hotspots card for the UTG vs BB spot at 25bb in an SRP, A-high two-tone flop: field fold against GTO fold, an Overdefend label and the How to exploit box: bluff less and bet more for value."
-- **Layout:** 600px, tabelas, estilos inline, preheader oculto, botão âmbar `#D4A418`, linha de canais (Discord, WhatsApp, YouTube) e 18+ no rodapé, igual ao e-mail do Modo GTO.
-- **Botão:** "Abrir o Field Hotspots" / "Open Field Hotspots". A frase sob o botão não cita preço; só a data da primeira troca, que é fato do calendário (segunda, 02/11).
-- **FOMO usado, todo verdadeiro:** 8 spots no Modo GTO contra 1 no Grátis; rotação semanal (2 entram, 2 saem; o que sai não volta igual, fato confirmado na regra `pvg-release-v1`, Pendência 3 do `copy.md`); "o reg do lado pode estar vendo" (com "pode"). Fora: contador, "só X vagas", afirmação de que outros jogadores usam a Aura.
+- **Imagem (opcional, 600px, mockup do produto):** o card do spot da semana (UTG vs BB, 25bb, rótulo Overdefend, barras Field × GTO com 53,8% e 73,5%, caixa Como explorar), no formato do idioma (PT com vírgula, EN com ponto). Sem lista de 8 spots e sem números fora do `numeros-verificados.md`. **Alt text:** PT "Card do Field Hotspots para o spot UTG vs BB a 25bb em SRP, flop A-high two-tone: fold do field contra o do GTO, rótulo Overdefend e a caixa Como explorar: blefe menos e aposte mais por value." / EN "Field Hotspots card for the UTG vs BB spot at 25bb in an SRP, A-high two-tone flop: field fold against GTO fold, an Overdefend label and the How to exploit box: bluff less and bet more for value."
+- **Layout:** 600px, tabelas, estilos inline, preheader oculto, botão âmbar `#D4A418`, linha de canais (Discord, WhatsApp, YouTube) e 18+ no rodapé, igual ao e-mail anterior.
+- **Botão:** "Abrir a lista" / "Get the list". A frase sob o botão não cita preço; só a data da 1.ª troca, que é fato do calendário (segunda, 02/11).
+- **Os 6,9 mi+ são a cobertura da Aura** (flop, turn e river); o ranking e os 8 spots são só de flop. O texto não diz que os 8 saíram dos 6,9 mi+, nem "top 8" nem "os maiores".
+- **Fora:** contador, "só X vagas", afirmação de que outros jogadores usam a Aura, promessa de ganho, "Beta".
 - **Reply-to:** o e-mail não pede resposta; manter `manager@aurapoker.com` como nos anteriores. Confirmar antes do envio.
+- **Hospedagem das imagens (aura-landing):** o HTML de envio referencia `https://www.aurapoker.com/email/field-hotspots-pt.png` e `.../field-hotspots-en.png`; os PNGs precisam estar versionados em `public/email/` do aura-landing e no ar, conferidos por sha256, antes de qualquer envio. É da outra frente.
 - **Não enviado.** Envio e lista são do Rafael.
-
----
-
-## Build e hospedagem das imagens (22/10, fábrica de posts)
-
-- `email-pt.html` e `email-en.html` (envio) e `.preview.html` (caminho relativo `email/`) saem de `instagram/src/build_email.py`, no padrão do Modo GTO. Assunto recomendado (opção 2) em `<title>`; preheader oculto; CTA com os UTMs da nota técnica; descadastro `{{{RESEND_UNSUBSCRIBE_URL}}}`. `numbers.json` foi preenchido em 22/10 com `numeros-verificados.md` §2 (53,8% / 73,5% / 19,7% abaixo), então o HTML e a imagem saem sem `[NUM]`, sem faixa de rascunho e sem `[DRAFT]` no `<title>`; se algum número voltar a faltar, o marcador vermelho e a faixa "RASCUNHO · NÃO ENVIAR" reaparecem.
-- Imagens: `email/field-hotspots-pt.png` e `email/field-hotspots-en.png` (1200 px, card do spot renderizado pela build, sem print da tela e sem lista de 8 spots).
-- **Pendência de hospedagem (aura-landing):** o HTML de envio referencia `https://www.aurapoker.com/email/field-hotspots-pt.png` e `.../field-hotspots-en.png`, o mesmo esquema do Modo GTO (`modo-gto-pt.png`, aura-landing#25). Os dois PNGs precisam ser versionados em `public/email/` do aura-landing e estar no ar, conferidos por sha256, antes de qualquer envio. Hoje essas URLs não existem. Os PNGs de `email/` já foram gerados com os números verificados.
-- Antes do envio: conferir `instagram/src/numbers.json` contra o `numeros-verificados.md`, rodar `python build_email.py && python qa.py`, hospedar as imagens e só então criar o rascunho no Resend (envio e lista são do Rafael).

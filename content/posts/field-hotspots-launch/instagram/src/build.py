@@ -28,11 +28,6 @@ from lib import ASSETS, FLOPS, LOCK, MIRROR, MOCK, OUT, SRC, TPL, board, card, c
 
 # ---------------------------------------------------------------- textos (copy.md, secao "Textos das artes")
 ART = {
-    "feed-pt": dict(lang="pt", size=(1080, 1350), kind="feed", t="Você sabe onde<br>o field <em>erra?</em>", s="Field Hotspots: spots novos toda segunda.", ts=92, num=("N1", "N2", "N3")),
-    "feed-en": dict(lang="en", size=(1080, 1350), kind="feed", t="Know where<br>the field <em>leaks?</em>", s="Field Hotspots: new spots every Monday.", ts=80, num=("N1", "N2", "N3")),
-    "story-pt": dict(lang="pt", size=(1080, 1920), kind="story", t="O BB defende<br><em>demais aqui</em>", s="Field Hotspots: o que sai na segunda não volta igual.", ts=104, num=("N1", "N2", "N3")),
-    "story-en": dict(lang="en", size=(1080, 1920), kind="story", t="The BB<br><em>overdefends</em><br>here", s="Field Hotspots: what leaves on Monday doesn't come back the same.", ts=104, num=("N1", "N2", "N3")),
-    "story-capa-pt": dict(lang="pt", size=(1080, 1920), kind="storycapa", t="Field Hotspots<br><em>no ar</em>", s="8 spots de desvio forte do field.", ts=84, num=()),
     "carrossel-en-01": dict(lang="en", size=(1080, 1350), kind="c1", idx=1, t="Field Hotspots<br>is <em>live</em>", s="8 strong field deviations from GTO, spot by spot.", ts=84, num=()),
     "carrossel-en-02": dict(lang="en", size=(1080, 1350), kind="c2", idx=2, t="Postflop spots.<br><em>Field vs GTO.</em>", s="Position pair, stack, pot type, flop texture.", ts=80, num=()),
     "carrossel-en-03": dict(lang="en", size=(1080, 1350), kind="c3", idx=3, t="One spot,<br><em>fully broken down</em>", s="UTG vs BB · 25bb · SRP · A-high two-tone flop", ts=70, num=("N1", "N2", "N3", "N4", "N5")),

@@ -1,52 +1,55 @@
 # Discord: lançamento do Field Hotspots
 
-Status: rascunho; **não publicado**. Versão de 22/10/2026. Números de `numeros-verificados.md`, sem `[NUM]`. Só postar depois do merge do Field Hotspots (aura-novofront#169) e do olho logado do Rafael (ver `copy.md`, Pendências).
-**Tamanho do texto final, com os números (contado linha a linha, URL inclusa, emoji = 1 caractere, `\n` = 1): PT 901, EN 896; com cada emoji contado como 2 (UTF-16), 904 e 899. Teto de 1.200 respeitado com cerca de 300 caracteres de folga.** Esta sessão não tem shell para rodar `len()`; a contagem é manual (linha a linha: PT 26+251+24+175+177+63+26+147 mais 12 quebras; EN 28+244+23+172+199+58+16+144 mais 12 quebras). Recontar com `len()` antes de postar. 3 emojis funcionais por post: 📊 título, 🔎 convite, 👉 CTA.
-Destino: landing (`https://www.aurapoker.com/`), com UTM `utm_campaign=field-hotspots-launch`, uma URL por idioma. (O Modo GTO levava o Discord ao app; aqui o destino é a landing, como pedido.)
-Tom: diagnóstico + ação; FOMO só com fato (rotação, 1 de 8) e "pode". Sem preço, sem Beta.
+Status: rascunho de 23/10/2026; **não publicado**. Narrativa: milhões de pontos de decisão cobertos, nós achamos os mais exploráveis, a lista está pronta, abra e explore. Números de `numeros-verificados.md` e do 6,9 mi+ de `_ops/home-painel-v2/numeros.md` (mapa em `copy.md`, "Números usados"). Só postar depois do "pode publicar" do Rafael (`copy.md`, Pendências). A frase do plano Individual só vale depois do deploy de aura-api#122 e aura-novofront#186 (Pendência 2).
+Destino: landing (`https://www.aurapoker.com/`), com UTM `utm_campaign=field-hotspots-launch`, uma URL por idioma.
+Tamanho: ver "Contagem" no fim (estimada à mão; recontar com `len()`). Emojis funcionais: 3 por post (📊 título, 💬 convite de feedback, 👉 CTA).
 
 ---
 
 ## PT
 
 ```
-📊 **Field Hotspots no ar**
+📊 **Field Hotspots no ar: a lista pronta dos spots mais exploráveis do field.**
 
-Os spots pós-flop em que o field de MTT tem desvio forte do GTO, já discriminados: posições, stack, tipo de pote, textura do flop, Overfold ou Overdefend, e o detalhe por size de c-bet (33%, 50%, 65%) em Fold, Call e Raise. Item próprio no menu do topo.
+A Aura cobre **6,9 mi+ pontos de decisão GTO** (flop, turn e river). Ninguém estuda todos. Ranqueamos mais de 1.000 spots de flop contra o GTO, com mais de 21 milhões de mãos do field, e a lista dos mais exploráveis está pronta.
 
-**Exemplo desta semana**
-UTG vs BB, 25bb, SRP, flop A-high two-tone com OESD possível. Contra o c-bet de 50%, o BB folda 53,8% contra 73,5% do GTO: overdefend. **Blefe menos e aposte mais por value.**
+**Exemplo:** UTG vs BB, 25bb, SRP, flop A-high two-tone. Contra c-bet de 50%, o BB folda 53,8% e o GTO folda 73,5%: 19,7% abaixo. Overdefend.
+**Como explorar:** o BB defende demais contra c-bet. Blefe menos e aposte mais por value.
 
-O Modo GTO libera 8 spots. O Grátis vê 1, o spot da semana. Toda segunda, 2 saem e 2 entram (primeira troca: 02/11), e o que sai não volta igual. O reg do lado pode estar vendo.
+Grátis vê 1. O plano Individual libera os 8. Toda segunda, 2 entram e 2 saem (1.ª troca: 02/11).
 
-🔎 Qual desses spots você mais enfrenta? Responde aqui no canal.
+💬 Abriu a lista? Conta aqui qual spot você ataca primeiro e o que ainda falta nela.
 
 Ferramenta de estudo. 18+.
-👉 Abrir o Field Hotspots: https://www.aurapoker.com/?utm_source=discord&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=discord-pt
+👉 **Abrir a lista:** https://www.aurapoker.com/?utm_source=discord&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=discord-pt
 ```
 
 ## EN
 
 ```
-📊 **Field Hotspots is live**
+📊 **Field Hotspots is live: a ready-made list of the field's most exploitable spots.**
 
-The postflop spots where the MTT field deviates strongly from GTO, already itemized: positions, stack, pot type, flop texture, Overfold or Overdefend, and the detail by c-bet size (33%, 50%, 65%) on Fold, Call and Raise. Its own item in the top menu.
+Aura covers **6.9M+ GTO decision points** (flop, turn and river). Nobody studies all of them. We ranked 1,000+ flop spots against GTO using 21M+ field hands, and the list of the most exploitable is ready.
 
-**This week's example**
-UTG vs BB, 25bb, SRP, A-high two-tone flop with a possible OESD. Facing a 50% c-bet, the BB folds 53.8% vs 73.5% for GTO: overdefend. **Bluff less and bet more for value.**
+**Example:** UTG vs BB, 25bb, SRP, A-high two-tone flop. Facing a 50% c-bet, the BB folds 53.8% and GTO folds 73.5%: 19.7% below. Overdefend.
+**How to exploit it:** the BB defends too much against the c-bet. Bluff less and bet more for value.
 
-GTO Mode unlocks 8 spots. Free sees 1, the spot of the week. Every Monday, 2 leave and 2 come in (first swap: Nov 2), and what leaves doesn't come back the same. The reg next to you might be looking.
+Free sees 1. The Individual plan unlocks all 8. Every Monday, 2 in and 2 out (first swap: Nov 2).
 
-🔎 Which of these spots do you face the most? Tell us here.
+💬 Opened the list? Tell us which spot you hit first and what's still missing.
 
 Study tool. 18+.
-👉 Open Field Hotspots: https://www.aurapoker.com/?utm_source=discord&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=discord-en
+👉 **Get the list:** https://www.aurapoker.com/?utm_source=discord&utm_medium=social&utm_campaign=field-hotspots-launch&utm_content=discord-en
 ```
 
 ---
 
 ## Notas
-- Um exemplo só (o spot da semana, Overdefend), com a ação. A diferença (N3) fica de fora do Discord para caber; entra no feed, nos stories e no e-mail.
-- Os números do Discord são o fold do field (53,8%) e o do GTO (73,5%) no c-bet de 50% (ver "Números usados" em `copy.md`). Nada de contagem de mãos, faixa, preço, "688 spots" ou data além de 02/11.
-- O convite final é uma pergunta de engajamento ("Qual desses spots você mais enfrenta?" / "Which of these spots do you face the most?"), sem a palavra Beta (a tela mostra NEW, não Beta).
-- Se a primeira troca (02/11) passar antes da publicação, trocar o exemplo pelo spot da semana vigente (ver `copy.md`, Pendência 2).
+- Um exemplo só (UTG vs BB, Overdefend) e a ação da caixa "Como explorar". A diferença de cada size (33% e 65%) fica fora para caber; está no carrossel.
+- Os 6,9 mi+ são a cobertura da Aura (flop, turn e river); o ranking é de flop. O texto não diz que os 8 saíram dos 6,9 mi+.
+- O convite final pede feedback sobre a lista (sem a palavra Beta, porque a tela mostra NEW).
+- Sem preço, sem contador, sem "top 8" e sem afirmação sobre quem mais usa a Aura.
+- Se a 1.ª troca (02/11) passar antes da publicação, trocar o exemplo pelo spot da semana vigente (`copy.md`, Pendência 3).
+
+## Contagem
+**Estimada à mão, linha a linha (esta sessão não tinha shell para rodar `len()`):** PT cerca de 896 caracteres, EN cerca de 870 (URL inclusa, `\n` = 1, emoji = 1). Teto de 1.200 com cerca de 300 de folga, então o erro de contagem não muda o resultado. Recontar com `len()` antes de postar. Emojis: 3 por post (📊, 💬, 👉).
