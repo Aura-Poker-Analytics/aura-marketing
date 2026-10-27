@@ -52,4 +52,4 @@ Convergência: navy+gold (1.0) ≈ slate+amber (2.0). **Em posts:** fundo slate-
 - Sem promessa de lucro, sem dinheiro/luxo clickbait.
 - Sem dados/nomes de clientes ou jogadores; sem email/conta em screenshot.
 - Sem comparativo nominal com concorrentes ("solvers mostram o equilíbrio; a Aura mostra o pool" — sem citar marca).
-- Todo número de post: fonte verificada na hora + rodapé de amostra; senão "ilustrativo" ou não publica.
+- Todo número de post: fonte verificada na hora (id no `numeros-verificados.md`), sem texto de bastidor como tamanho de amostra; senão "ilustrativo" ou não publica.
