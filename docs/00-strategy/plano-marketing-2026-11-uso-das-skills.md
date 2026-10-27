@@ -46,7 +46,7 @@ As fases 3 e 4 podem correr em paralelo depois da fase 1. A fase 6 só começa d
 
 ## Mudanças depois da fase 0
 
-- A fase 4 começa antes da fase 3: a reconquista dos ex-pagantes sai em 02/11, junto com o Pool vs GTO.
+- A fase 4 começa antes da fase 3: a reconquista dos ex-pagantes sai em 02/11, junto com o Field Exploits.
 - A fase 6 ganha duas frentes sem verba, que começam já na semana 1: o programa de coaches e o B2B (pacote de contas e relatório do field).
 - O mercado de aquisição B2C passa a ser o inglês.
 

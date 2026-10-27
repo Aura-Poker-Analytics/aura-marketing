@@ -63,7 +63,7 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 | Q3 | Verba nova só depois do rastreio consertado. Teto de R$ 1.500 nos 60 dias, com corte por custo por assinante. A divisão entre células é refeita na rodada 2 por causa da Q2. | Rafael: de acordo |
 | Q4 | 3 h/semana do Rafael: 1 h para aprovar lotes e 2 h para gravar 2 ou 3 vídeos curtos. Sem lives no início. | Rafael: de acordo |
 | Q5 | Parcerias com coaches e times, com cupom ou comissão por assinante, mais o Discord próprio. YouTube longo depois dos 90 dias. | Rafael: de acordo |
-| Q6 | Escopo: só a Aura. Os lançamentos (Pool vs GTO em 02/11, Modo GTO) entram como ganchos. | Rafael: de acordo |
+| Q6 | Escopo: só a Aura. Os lançamentos (Field Exploits em 02/11, Modo GTO) entram como ganchos. | Rafael: de acordo |
 | Q7 | Plano segue, com gatilho novo: se a meta da Q1 não for atingida em 31/01/2027, reabrir a conversa de concierge/B2B. O canal de parceiros testa o B2B em paralelo. | Rafael: de acordo |
 
 ### Rodada 2 (22/10): decidida, com três pontos reabertos
@@ -78,7 +78,7 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 | Q13 | Verba: R$ 1.050 na DISC02-EU reeditada, R$ 300 em remarketing e R$ 150 na célula "Esportes". | Rafael: de acordo (a célula depende da Q14) |
 | Q14 | Os posts do impulsionamento antigo foram achados no histórico do Instagram. O público aparece só como "pessoas que você escolhe por meio de direcionamento", sem detalhe. | Rafael |
 | Q15 | 25 ativos em 14 semanas é **"excessivamente conservador"**. Meta refeita na rodada 3. | Rafael |
-| Q16 | Reconquista dos ex-pagantes como primeira ação: 50% no primeiro mês, válida por 14 dias, disparo junto com o Pool vs GTO em 02/11. | Rafael: de acordo |
+| Q16 | Reconquista dos ex-pagantes como primeira ação: 50% no primeiro mês, válida por 14 dias, disparo junto com o Field Exploits em 02/11. | Rafael: de acordo |
 
 **Base corrigida pelo Rafael (22/10):** além das 9 do Stripe, há **5 assinantes no WooCommerce** (frente fechada para entradas novas) e **2 no NOWPayments**. Total de **16 pagantes ativos**.
 
@@ -119,7 +119,7 @@ Registro da fase 0 (entrevista). Fatos levantados por subagentes, só leitura; d
 **Frentes, em ordem de início:**
 
 1. **Medição** (semanas 1–2): `begin_checkout` e `purchase` no ar (21–22/10), conferir; `purchase` pelo servidor; `fbp`/`fbc` no cadastro; pendências do GA4 com o Rafael; campo opcional de Instagram no cadastro (sessão no app).
-2. **Reconquista** (disparo em 02/11, com o Pool vs GTO): sequência para os ~32 ex-pagantes do Stripe e os do Woo, com 50% no primeiro mês e validade de 14 dias. O envio é do Rafael.
+2. **Reconquista** (disparo em 02/11, com o Field Exploits): sequência para os ~32 ex-pagantes do Stripe e os do Woo, com 50% no primeiro mês e validade de 14 dias. O envio é do Rafael.
 3. **Coaches** (a partir da semana 1): proposta de uma página; o Rafael contata gremistaak, Paulo Moraes, Ganso e outros. Os mesmos termos valem para coaches em inglês.
 4. **B2B:** pacote de contas por volume e relatório do field por encomenda (o primeiro grátis para o time de um coach).
 5. **Conversão:** formulário de cadastro (dois terços desistem) e ativação até o paywall.
