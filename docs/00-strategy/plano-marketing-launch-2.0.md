@@ -18,7 +18,7 @@ KPI norte = **contas free atribuídas via UTM** (fundo do funil na AuraBusiness)
 
 **ICP:** grinder de MTT intermediário-avançado que já estuda (solver/curso). Não precisa ser convencido a estudar — precisa ser convencido de que *estudar o field > decorar o equilíbrio*.
 
-**Mercados:** BR (base atual: 710 users, 100% BR) + EN (mesma persona, fora do BR).
+**Mercados:** BR (base atual 100% BR) + EN (mesma persona, fora do BR).
 
 **Decisão de conta/idioma:** manter **@aurapokeranalytics** e torná-la bilíngue.
 - Arte em EN (vocabulário de poker é inglês: BTN, c-bet, MDF — lê nativo pro BR).
