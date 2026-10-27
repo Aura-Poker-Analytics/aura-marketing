@@ -8,7 +8,7 @@
 ## A. Estratégico (horizonte 90 dias)
 
 **Posicionamento:** *Solvers te mostram o equilíbrio. A Aura te mostra o adversário.*
-Ferramenta do jogador explorador — dados reais de bilhões de mãos do pool, não teoria.
+Ferramenta do jogador explorador — dados reais de centenas de milhões de mãos (frase da D5), do field, não teoria.
 Tagline de launch (herdada da apresentação de marca 2024): **"O MESMO JOGO — NOVAS INFORMAÇÕES."**
 
 **Objetivo do trimestre:** funil mensurável IG → landing → **plano free** → assinatura.
@@ -16,7 +16,7 @@ KPI norte = **contas free atribuídas via UTM** (fundo do funil na AuraBusiness)
 
 **Oferta (mudança 2026-07-04):** não existe mais trial 7d. O antigo trial vira **plano free permanente** com travas de usabilidade (demo). Isso melhora o CTA de IG: fricção menor ("crie sua conta grátis", sem relógio), e o upgrade acontece dentro do produto quando o usuário bate nas travas.
 
-**ICP:** grinder de MTT intermediário-avançado que já estuda (solver/curso). Não precisa ser convencido a estudar — precisa ser convencido de que *estudar o pool > decorar o equilíbrio*.
+**ICP:** grinder de MTT intermediário-avançado que já estuda (solver/curso). Não precisa ser convencido a estudar — precisa ser convencido de que *estudar o field > decorar o equilíbrio*.
 
 **Mercados:** BR (base atual: 710 users, 100% BR) + EN (mesma persona, fora do BR).
 
@@ -26,7 +26,7 @@ KPI norte = **contas free atribuídas via UTM** (fundo do funil na AuraBusiness)
 - Regra de revisão: se em 90 dias a audiência EN < ~15% E EN for prioridade comercial, criar @ EN dedicado com o acervo já validado. Separar depois é barato; fundir é impossível.
 - Risco monitorado: Meta distribui por geografia da base (BR-pesada) → alcance EN cresce devagar no início. Mitigação: hashtags EN, colabs EN, Reels com áudio EN.
 
-**Vantagem competitiva de conteúdo:** ninguém mais posta "o pool folda X% aqui" com amostra de milhões — concorrente posta range de solver. Cada stat post é demo do produto disfarçada de conteúdo.
+**Vantagem competitiva de conteúdo:** ninguém mais posta "o field folda X% aqui" — concorrente posta range de solver. Cada stat post é demo do produto disfarçada de conteúdo.
 
 ## B. Tático
 
@@ -35,8 +35,8 @@ KPI norte = **contas free atribuídas via UTM** (fundo do funil na AuraBusiness)
 **Pilares:**
 | # | Pilar | Peso | Formato principal |
 |---|---|---|---|
-| P1 | "O pool erra assim" — stat real + leitura exploratória | 30% | stat card 1080×1350 + story |
-| P3 | Conceito em 60s — MDF, overfold, pool vs GTO | 25% | carrossel 5–7 slides |
+| P1 | "O field erra assim" — stat real + leitura exploratória | 30% | stat card 1080×1350 + story |
+| P3 | Conceito em 60s — MDF, overfold, field vs GTO | 25% | carrossel 5–7 slides |
 | P2 | Feature spotlight — tela real + o que responde | 20% | card ou carrossel de 3 |
 | P4 | Bastidores/launch — countdown, changelog humano | 15% | card + stories |
 | P5 | Sessão de estudo com a Aura (proto prova-social) | 10% | carrossel 6–8 |
