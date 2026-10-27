@@ -7,8 +7,8 @@
 
 ## 1. O pivot (decisão do PO, 2026-07-06)
 
-**Fora (por ora):** posts "o pool desvia do MDF/solver" como regra (antigo P1). Sem números de solver
-validados no produto, o comparativo é frágil. Volta quando o overlay solver×pool sair (roadmap P6).
+**Fora (por ora):** posts "o field desvia do MDF/solver" como regra (antigo P1). Sem números de solver
+validados no produto, o comparativo é frágil. Volta quando o overlay solver×field sair (roadmap P6).
 
 **Dentro:** vender a **Aura 2.0 em si** — módulos, filtros, o que o usuário consegue responder,
 prints/vídeos da ferramenta, apelo comercial direto. O produto é a estrela; o dado aparece
@@ -17,12 +17,12 @@ prints/vídeos da ferramenta, apelo comercial direto. O produto é a estrela; o 
 ## 2. Mensagem-mestra do launch
 
 > **Solvers te mostram o equilíbrio. A Aura te mostra o adversário.**
-> Aura 2.0: a estratégia real do field de MTT, medida em bilhões de mãos — filtrada por posição,
+> Aura 2.0: a estratégia real do field de MTT, medida em centenas de milhões de mãos — filtrada por posição,
 > stack, buy-in e estágio do torneio. Conta grátis, sem cartão.
 
 Hierarquia de argumentos (usar nessa ordem):
 1. **Categoria nova** — não é tracker, não é solver: é inteligência do FIELD.
-2. **Escala** — bilhões de mãos de MTT real (nunca citar sites não cobertos; sem prometer GG).
+2. **Escala** — centenas de milhões de mãos de MTT real (nunca citar sites não cobertos; sem prometer GG).
 3. **Acionável** — filtros que respondem perguntas de estudo reais em cliques.
 4. **Grátis** — plano free permanente (Hotspot vitrine + preflop limitado), upgrade quando bater nas travas.
 
