@@ -1,7 +1,7 @@
 # Brand Kit Aura — consolidado (2026-07)
 
 Fonte da verdade única de marca para marketing. Consolida os 3 PDFs da raiz de `aura-main`
-(*Apresentação de Marca Aura* 2024, *Cores-Aura*, *Orientações-Aura*) + os tokens dark da UI 2.0 (beta.aura.poker).
+(*Apresentação de Marca Aura* 2024, *Cores-Aura*, *Orientações-Aura*) + os tokens dark da UI 2.0 (beta.aura.poker, URL interna, nunca em peça).
 
 ## Essência
 - **Símbolo:** a *aura* (arco circular) circundando a *seta* (progresso), com o *naipe de espadas* em espaço negativo; a forma também lê como a letra **A**.
@@ -51,5 +51,5 @@ Convergência: navy+gold (1.0) ≈ slate+amber (2.0). **Em posts:** fundo slate-
 - 18+ onde couber; poker = jogo de habilidade/estudo.
 - Sem promessa de lucro, sem dinheiro/luxo clickbait.
 - Sem dados/nomes de clientes ou jogadores; sem email/conta em screenshot.
-- Sem comparativo nominal com concorrentes ("solvers mostram o equilíbrio; a Aura mostra o pool" — sem citar marca).
+- Sem comparativo nominal com concorrentes ("solvers mostram o equilíbrio; a Aura mostra o field" — sem citar marca).
 - Todo número de post: fonte verificada na hora (id no `numeros-verificados.md`), sem texto de bastidor como tamanho de amostra; senão "ilustrativo" ou não publica.
