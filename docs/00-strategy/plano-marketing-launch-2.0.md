@@ -78,7 +78,7 @@ seg: QG propõe semana → Rafael aprova → fábrica produz → Rafael revisa e
 - [ ] 18+ visível onde couber
 - [ ] Nenhum nome/dado de cliente ou jogador identificável; nenhum email/conta em screenshot
 - [ ] Sem comparativo nominal com concorrente
-- [ ] Número verificado na fonte + rodapé de amostra ("dados: Aura · amostra de X mãos")
+- [ ] Número verificado na fonte (id no `numeros-verificados.md`), sem tamanho de amostra visível ao usuário
 
 ## Pendências
 - [ ] Confirmação final do Rafael: conta bilíngue na @aurapokeranalytics
