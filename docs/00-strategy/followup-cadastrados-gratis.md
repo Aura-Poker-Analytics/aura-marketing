@@ -391,8 +391,9 @@ Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência l
 | R5 segmento | ✅ renomeado | "Board Selection 09/2026 — leads (174)" virou "Grátis" (id `eab79cc8-…`), sem apagar contato. ⚠️ O conteúdo ainda são os 174 leads de setembro, não os Grátis |
 | (a) rascunho | ✅ | broadcast "RASCUNHO · R1 reativação Grátis (A) · NÃO ENVIAR" (`f185d44e-…`), no segmento Grátis, não enviada |
 | (b) teste | ✅ | A1, U1 e R1 enviados só para o e-mail do Rafael, com assunto `[TESTE …]`. Os três chegaram na caixa de entrada do Gmail (não no spam), com a logo oficial e o layout certo no Gmail web |
-| (c) spot logado | ⛔ bloqueado | o app abre na tela de login no Chrome do Rafael; a sessão não digita senha. Falta o Rafael entrar e conferir o CO vs BB, flop K-high two-tone, c-bet de 33% (field 46,0%, GTO 38,8%, faixa 37,1–40,4%) |
+| (c) spot logado | ✅ conferido em 27/10 | com a conta dos agentes (`aura_agent_login.py`, regra do CLAUDE.md de 23/10), nas mesmas chamadas da tela (`LoadPostFlop` e `LoadPostflopGtoNumbers`, corpo do exemplo (a) de `_ops/golive-gto-2026-10-04/numeros-verificados.md`). Field: fold do BB contra c-bet de 33% = **46,0%** em **10.216 mãos**. GTO: **38,78%**, faixa **37,13% a 40,43%**. O R1 diz 46,0%, 38,8% e 37,1% a 40,4%: bate. O Chrome do Rafael seguia na tela de login |
 | (d) supressão | ✅ parcial | 2 endereços suprimidos no Resend, os dois por bounce, nenhuma reclamação. O descadastro dos lotes em batch usa `List-Unsubscribe` mailto; o da broadcast usa o link do Resend |
+| Cupom | ⚠️ não usar | o `ATIVACAO30` foi criado em 27/10 com `duration=forever` (a spec pede `once`); o Rafael vai refazer. Nenhum e-mail usa o cupom até lá |
 | (e) 1º lote | ⛔ sem tamanho | o lote do R1 (Grátis sem login há 14+ dias, sem pagantes e sem ex-pagantes) só sai do AuraBusiness, que não tem ferramenta de leitura nesta sessão (o MCP `postgres-azure-analytics` aponta para um host que não existe). Caminhos: consertar o host do MCP (o banco de usuários é o AuraBusiness, no servidor `aura-production`) ou o Rafael exportar os e-mails pelo SQL 5.3 |
 
 ## Changelog
