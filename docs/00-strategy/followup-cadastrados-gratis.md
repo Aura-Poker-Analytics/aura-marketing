@@ -327,7 +327,7 @@ Lido no Stripe live em 23/10, só leitura: produto Individual `prod_Uq1tafUe0H12
 | Campo | Valor |
 | --- | --- |
 | Nome | `Ativação Grátis: 30% no primeiro mês` |
-| ID | `ATIVACAO30` |
+| ID | **`Ph7y2HU9`** (gerado pelo Stripe; "ATIVACAO30" ficou só como nome) |
 | Tipo | valor fixo (`amount_off`), não porcentagem: porcentagem num anual daria R$ 388 de desconto |
 | Valor | `amount_off = 4500`, `currency = brl`; `currency_options.usd.amount_off = 900` |
 | Duração | `duration = once` (só a primeira fatura) |
@@ -340,7 +340,7 @@ Lido no Stripe live em 23/10, só leitura: produto Individual `prod_Uq1tafUe0H12
 | Campo | Valor |
 | --- | --- |
 | Código | `ATIVA` + dia e mês do envio para o gatilho A (ex.: `ATIVA0411`); `VOLTE` + dia e mês para o gatilho B (ex.: `VOLTE1111`). Prefixos diferentes medem cada gatilho no Stripe |
-| Cupom | `ATIVACAO30` |
+| Cupom | `Ph7y2HU9` (todo promotion code dos lotes aponta para este ID) |
 | Restrição | `restrictions.first_time_transaction = true` (só quem nunca pagou: exclui ex-pagantes e assinantes) |
 | Limite | `max_redemptions` = tamanho do lote com cupom (os 80%) |
 | Validade | `expires_at` = envio + 7 dias, 23:59 de Brasília |
@@ -348,7 +348,7 @@ Lido no Stripe live em 23/10, só leitura: produto Individual `prod_Uq1tafUe0H12
 
 Por que código por lote, e não código pessoal, nesta fase: com o envio em lote e sem automação, um código pessoal pede um promotion code por pessoa, criado no Stripe a cada lote. O código por lote, com limite do tamanho do lote, 7 dias e a restrição de primeira compra, dá quase a mesma proteção com uma ação do Rafael por lote. Quando a automação da fase 2 existir, o código passa a ser pessoal (`max_redemptions = 1`), criado pela automação.
 
-**O que o Rafael faz:** criar o cupom `ATIVACAO30` uma vez e, antes de cada lote, o promotion code daquele lote. A sessão de envio preenche `[CÓDIGO]` e `[DATA]` nos e-mails com esses valores.
+**O que o Rafael faz:** o cupom já existe (`Ph7y2HU9`, criado em 27/10, conferido pela HUB no Stripe live: `once`, R$ 45 / US$ 9, só no Individual, até 200 resgates, 0 usos; falta só a metadata `campanha=ativacao-gratis-2026-11`, cosmética). Antes de cada lote, ele cria o promotion code daquele lote. A sessão de envio preenche `[CÓDIGO]` e `[DATA]` nos e-mails com esses valores.
 
 ## 13. O que o Grátis vê hoje (conferido no código, rodada 2)
 
@@ -393,7 +393,7 @@ Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência l
 | (b) teste | ✅ | A1, U1 e R1 enviados só para o e-mail do Rafael, com assunto `[TESTE …]`. Os três chegaram na caixa de entrada do Gmail (não no spam), com a logo oficial e o layout certo no Gmail web |
 | (c) spot logado | ✅ conferido em 27/10 | com a conta dos agentes (`aura_agent_login.py`, regra do CLAUDE.md de 23/10), nas mesmas chamadas da tela (`LoadPostFlop` e `LoadPostflopGtoNumbers`, corpo do exemplo (a) de `_ops/golive-gto-2026-10-04/numeros-verificados.md`). Field: fold do BB contra c-bet de 33% = **46,0%** em **10.216 mãos**. GTO: **38,78%**, faixa **37,13% a 40,43%**. O R1 diz 46,0%, 38,8% e 37,1% a 40,4%: bate. O Chrome do Rafael seguia na tela de login |
 | (d) supressão | ✅ parcial | 2 endereços suprimidos no Resend, os dois por bounce, nenhuma reclamação. O descadastro dos lotes em batch usa `List-Unsubscribe` mailto; o da broadcast usa o link do Resend |
-| Cupom | ⚠️ não usar | o `ATIVACAO30` foi criado em 27/10 com `duration=forever` (a spec pede `once`); o Rafael vai refazer. Nenhum e-mail usa o cupom até lá |
+| Cupom | ✅ pronto (27/10) | refeito pelo Rafael e conferido pela HUB no Stripe live: ID `Ph7y2HU9`, `duration=once`, R$ 45 / US$ 9, só no produto Individual, `max_redemptions=200`, 0 usos. A primeira versão (`forever`) foi descartada. Falta só a metadata, que é cosmética. Os promotion codes de cada lote (`ATIVAddmm` / `VOLTEddmm`) apontam para `Ph7y2HU9` |
 | (e) 1º lote | ⛔ sem tamanho | o lote do R1 (Grátis sem login há 14+ dias, sem pagantes e sem ex-pagantes) só sai do AuraBusiness, que não tem ferramenta de leitura nesta sessão (o MCP `postgres-azure-analytics` aponta para um host que não existe). Caminhos: consertar o host do MCP (o banco de usuários é o AuraBusiness, no servidor `aura-production`) ou o Rafael exportar os e-mails pelo SQL 5.3 |
 
 ## Changelog
