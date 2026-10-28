@@ -1,0 +1,243 @@
+{
+  "schema": "casa-poker/banned_terms@1",
+  "atualizado": "2026-10-27",
+  "dono": "HUB (termos dos coaches entram pela voz-grinder)",
+  "nota": "Dado semanal, versionado por commit do casa-poker, sem tag (plano do time de agentes §2.1). Parte dos P1 a P27 da voz-grinder (_ops/voz-grinder/skill/references/proibidos.md, 27/10). O vocabulário estável (keep_en, verbos 'dá call', number_format, 'a Aura') mora no lastro, tag contract/vocab-v1. 'padroes' vazio = só o juiz pega. contextos: mao (texto de uma mão do PRUMO), paragrafo (parágrafo de leak), tela (i18n e texto de app), copy (marketing, landing, e-mail), lancamento (copy de lançamento). '*' = todos. nivel: erro bloqueia, aviso só reporta. idiomas: pt, en ou *.",
+  "regras": [
+    {
+      "id": "P1",
+      "rubrica": "R1",
+      "descricao": "\"pp\", \"pts\" ou \"p.p.\" como unidade da diferença; \"±\"; conta de IC em texto",
+      "fonte": "Rafael 19/10 (\"4%\" e não \"pontos\")",
+      "verificador_produto": "GUARD (narrative_example_hand.py:74), lint:brand",
+      "sugestao": "diferença em \"%\": \"4%\", não \"4 pts\"",
+      "contextos": ["*"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": [
+        "\\d(?:[\\d.,]*\\d)?\\s*(?:pp|p\\.\\s?p\\.?|pts?|percentage points?)(?![\\w])",
+        "\\}\\}\\s*(?:pp|p\\.\\s?p\\.?|pts?)(?![\\w])",
+        "±",
+        "\\bIC\\s*(?:de\\s*)?\\d"
+      ]
+    },
+    {
+      "id": "P1-pontos",
+      "rubrica": "R1",
+      "descricao": "\"pontos\" ou \"points\" como unidade da diferença. Exceção: o Field Trends da Aura segue \"pontos\" (Rafael, 27/10, recusou a M2b: \"segue pontos\")",
+      "fonte": "Rafael 19/10 (PRUMO: \"4%\" e não \"±4 pontos\"); exceção do Rafael 27/10",
+      "verificador_produto": "lint:brand (PRUMO)",
+      "sugestao": "diferença em \"%\"; antes de trocar unidade numa tela nova, perguntar ao Rafael",
+      "contextos": ["*"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "excecoes_caminho": ["(?i)field-?trends"],
+      "padroes": [
+        "\\d(?:[\\d.,]*\\d)?\\s*(?:pontos?(?:\\s+percentua(?:l|is))?|points?)(?![\\w])",
+        "\\}\\}\\s*(?:pontos?|points?)(?![\\w])",
+        "(?<![\\w])pontos percentuais(?![\\w])"
+      ]
+    },
+    {
+      "id": "P2",
+      "rubrica": "R4",
+      "descricao": "3ª pessoa: \"o aluno\", \"o jogador\", \"o herói\"",
+      "fonte": "Rafael/HUB 23/10 (26 mãos no gui)",
+      "verificador_produto": "THIRD_PERSON",
+      "sugestao": "2ª pessoa: \"você\", \"o seu check\"",
+      "contextos": ["mao", "paragrafo"],
+      "idiomas": ["pt"],
+      "nivel": "erro",
+      "padroes": ["\\b(?:o|do|ao|pelo) (?:aluno|jogador|her[óo]i)\\b"]
+    },
+    {
+      "id": "P3",
+      "rubrica": "R4",
+      "descricao": "Bastidor: método e infraestrutura no texto ao jogador",
+      "fonte": "Rafael 06/10, 16/10, 19/10 (\"ponte\" proibida, memória palavra-ponte-proibida)",
+      "verificador_produto": "BACKSTAGE, GUARD, lint-vocab (parcial)",
+      "sugestao": "tirar a frase; o método vai para o ⓘ ou a Metodologia",
+      "contextos": ["*"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": [
+        "\\b(?:representante|calibra[çc][ãa]o|corpus|baseline|snapshot|bucket|kernel|lastro|ponte|cache)s?\\b",
+        "\\bcusto da m[ãa]o\\b"
+      ]
+    },
+    {
+      "id": "P3-mao",
+      "rubrica": "R4",
+      "descricao": "Bastidor só no texto da mão e do parágrafo: \"solver\", \"método\", \"Wizard\", \"grão\"",
+      "fonte": "Rafael 06/10, 16/10",
+      "verificador_produto": "BACKSTAGE",
+      "sugestao": "falar do GTO, não da ferramenta",
+      "contextos": ["mao", "paragrafo"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": ["\\b(?:solver|m[ée]todo|wizard|gr[ãa]o)s?\\b"]
+    },
+    {
+      "id": "P4",
+      "rubrica": "R4",
+      "descricao": "Limitação técnica e selo de desconfiança: \"não há dado\", \"sem referência\", \"n baixo\", \"leia com desconfiança\", \"ainda em calibração\"",
+      "fonte": "Rafael 06/10 (\"jamais vai ser mostrado\"), 19/10; HUB 25/10 (92o)",
+      "verificador_produto": "LIMITATION (parcial)",
+      "sugestao": "tratar no dado; nada de aviso ao jogador",
+      "contextos": ["*"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": [
+        "\\bn[ãa]o h[áa] (?:dados?|refer[êe]ncia|tend[êe]ncia)\\b",
+        "\\bsem refer[êe]ncia\\b",
+        "\\bn[ãa]o d[áa] para (?:dizer|comparar)\\b",
+        "\\bfalta(?:m)? dados?\\b",
+        "\\bn baixo\\b",
+        "\\bleia com desconfian[çc]a\\b",
+        "\\bainda em calibra[çc][ãa]o\\b",
+        "\\bleitura n[ãa]o d[áa] veredito\\b",
+        "\\bamostra (?:pequena|insuficiente|baixa)\\b",
+        "\\b(?:low|small) sample\\b"
+      ]
+    },
+    {
+      "id": "P5",
+      "rubrica": "R5",
+      "descricao": "Comentário que desqualifica a própria mão de exemplo",
+      "fonte": "HUB 24/10 (leak 09 e 13 do gui)",
+      "verificador_produto": "META_EXAMPLE (parcial)",
+      "sugestao": "a mão mostra o desvio sem comentar que é exemplo",
+      "contextos": ["*"],
+      "idiomas": ["pt"],
+      "nivel": "erro",
+      "padroes": [
+        "\\bbom exemplo\\b",
+        "\\bcaso mais claro\\b",
+        "\\bn[ãa]o [ée] a m[ãa]o mais clara\\b",
+        "\\bmostra (?:bem )?o (?:problema|ponto)\\b",
+        "\\bjustamente a jogada\\b"
+      ]
+    },
+    {
+      "id": "P6",
+      "rubrica": "R9",
+      "descricao": "Mistura ou empate tratados como erro (\"foi um erro\" com EV empatado; \"a estratégia do GTO aqui é outra\" com o GTO fazendo a sua ação em ≥ 30%)",
+      "fonte": "HUB 24/10 (54s 49/51)",
+      "verificador_produto": "S1 por código",
+      "sugestao": "conferir o fato f_s1; o regex só avisa, quem decide é o juiz",
+      "contextos": ["mao", "paragrafo"],
+      "idiomas": ["pt"],
+      "nivel": "aviso",
+      "padroes": ["\\bestrat[ée]gia do GTO (?:aqui )?[ée] outra\\b", "\\bfoi um erro\\b"]
+    },
+    {
+      "id": "P7",
+      "rubrica": "R2",
+      "descricao": "\"plano GTO\": não existe plano GTO; Modo GTO e Field Exploits são do plano Individual",
+      "fonte": "Rafael 23/10 (CLAUDE.md da raiz)",
+      "verificador_produto": "teste da landing",
+      "sugestao": "\"plano Individual\" (que inclui o Modo GTO)",
+      "contextos": ["*"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": ["\\bplanos? (?:do )?(?:Modo )?GTO\\b", "\\bGTO (?:plan|tier)\\b", "\\bplano Modo GTO\\b"]
+    },
+    {
+      "id": "P8",
+      "rubrica": "R3",
+      "descricao": "Número que diverge do topo (outra casa decimal, outro arredondamento) ou que não está nos fatos",
+      "fonte": "Rafael 21/10 (n = 42 × 79); HUB 24/10 (74% × 73,8%)",
+      "verificador_produto": "num_bad (parcial)",
+      "sugestao": "casa-lint numeros com o numeros-verificados (R3 e R7)",
+      "contextos": ["*"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": []
+    },
+    {
+      "id": "P9",
+      "rubrica": "R4",
+      "descricao": "\"leak\", \"sentido\", \"em excesso\" dentro do texto da mão (fato em prosa)",
+      "fonte": "Rafael 20/10",
+      "verificador_produto": "GUARD/BACKSTAGE (parcial)",
+      "sugestao": "dizer a ação e o custo; o leak é o título da seção",
+      "contextos": ["mao"],
+      "idiomas": ["pt"],
+      "nivel": "erro",
+      "padroes": ["\\bleaks?\\b", "\\bsentido\\b", "\\bem excesso\\b"]
+    },
+    {
+      "id": "P10",
+      "rubrica": "R6",
+      "descricao": "PT no lugar do termo EN: \"paga\", \"c-bet atrasada\", \"cbeta\", \"3-beta\", \"3-betou\", \"fecha straight\"",
+      "fonte": "Rafael 01/10, 16/10, 21/10",
+      "verificador_produto": "GUARD (\"paga\", \"aposta\", \"rua\")",
+      "sugestao": "\"dá call\", \"delayed c-bet\", \"dá c-bet\", \"dá 3-bet\", \"completa straight\" (contract/vocab-v1, verbs_screen_ptbr)",
+      "contextos": ["*"],
+      "idiomas": ["pt"],
+      "nivel": "erro",
+      "padroes": [
+        "\\bc-?bets? atrasad[ao]s?\\b",
+        "\\bcbet(?:a|ou|ar|ando)\\b",
+        "\\b[34]-?bet(?:a|ou|ar|ando)\\b",
+        "\\bfecha(?:m|r)? (?:straight|flush)\\b",
+        "\\baposta de continua[çc][ãa]o\\b"
+      ]
+    },
+    {
+      "id": "P10-mao",
+      "rubrica": "R6",
+      "descricao": "\"paga\", \"aposta\", \"rua\" no texto de poker ao jogador (fora do texto de poker, \"paga\" pode ser dinheiro)",
+      "fonte": "Rafael 01/10, 16/10",
+      "verificador_produto": "GUARD",
+      "sugestao": "\"dá call\", \"dá bet\", \"street\"",
+      "contextos": ["mao", "paragrafo", "tela"],
+      "idiomas": ["pt"],
+      "nivel": "erro",
+      "padroes": ["\\bpag(?:a|ou|ar|ando)\\b", "\\baposta(?:s|r|ou)?\\b", "\\bruas?\\b"]
+    },
+    {
+      "id": "G1",
+      "rubrica": "R6",
+      "descricao": "Gênero da marca: \"o Aura\", \"do Aura\", \"no Aura\", \"o AURA\"",
+      "fonte": "Rafael 19/10 (memória aura-feminino); contract/vocab-v1 brand_gender",
+      "verificador_produto": "(nenhum)",
+      "sugestao": "\"a Aura\", \"da Aura\", \"na Aura\"",
+      "contextos": ["*"],
+      "idiomas": ["pt"],
+      "nivel": "erro",
+      "padroes": ["\\b(?:[Oo]|[Dd]o|[Nn]o|[Pp]elo|[Aa]o)\\s+(?:Aura|AURA)\\b"],
+      "maiusculas": true
+    },
+    {
+      "id": "B1",
+      "rubrica": "R4",
+      "descricao": "\"Beta\" em copy de lançamento",
+      "fonte": "memória email-cta-landing (06/10)",
+      "verificador_produto": "teste da landing",
+      "sugestao": "lançar sem Beta",
+      "contextos": ["lancamento", "copy"],
+      "idiomas": ["*"],
+      "nivel": "erro",
+      "padroes": ["\\b[Bb]eta\\b"],
+      "maiusculas": true
+    },
+    {"id": "P11", "rubrica": "R9", "descricao": "Imperativo e conselho no texto da mão (\"folde menos\", \"você deveria\"), salvo a frase de contexto da regra 9", "fonte": "guia v3.1 (19/10); regra 9 de 26/10", "verificador_produto": "forbidden_phrase, imperative", "contextos": ["mao", "paragrafo"], "idiomas": ["pt"], "nivel": "aviso", "padroes": ["\\bfolde menos\\b", "\\bisso custa EV\\b"]},
+    {"id": "P12", "rubrica": "R4", "descricao": "Intenção do field: \"percebeu\", \"se ajustou\", \"te explora\"", "fonte": "Rafael 16/10", "verificador_produto": "lint-vocab (tela)", "contextos": ["*"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\b(?:quem )?te explora\\b", "\\bse ajustou\\b"]},
+    {"id": "P13", "rubrica": "R4", "descricao": "Frase de ligação: \"veja como\", \"abaixo você\", \"nesta seção\", \"confira\"", "fonte": "Rafael 20/10", "verificador_produto": "lint-vocab (tela)", "contextos": ["mao", "paragrafo", "tela"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\bveja como\\b", "\\babaixo voc[êe]\\b", "\\bnesta se[çc][ãa]o\\b"]},
+    {"id": "P14", "rubrica": "R9", "descricao": "Justificativa ou reforço no fim", "fonte": "Rafael 08/10", "verificador_produto": "(nenhum)", "contextos": ["*"], "idiomas": ["*"], "nivel": "aviso", "padroes": []},
+    {"id": "P15", "rubrica": "R9", "descricao": "Lista recitada com \"e … e … e\"; recitar a árvore inteira", "fonte": "HUB 24/10; Rafael 16/10", "verificador_produto": "equal_group", "contextos": ["mao", "paragrafo"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P16", "rubrica": "R9", "descricao": "Repetir \"ação de maior EV\", \"referência\", \"melhor ação\" duas vezes", "fonte": "Rafael rodada 2 (16/10)", "verificador_produto": "(nenhum)", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P17", "rubrica": "R9", "descricao": "Frase sem antecedente (\"Ele dá limp…\", \"Isso…\")", "fonte": "HUB 23/10", "verificador_produto": "DANGLING", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P18", "rubrica": "R4", "descricao": "\"Contra você, o field…\" (ator deduzido)", "fonte": "Rafael 16/10 rodada 4", "verificador_produto": "parágrafo", "contextos": ["*"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\bcontra voc[êe], o field\\b"]},
+    {"id": "P19", "rubrica": "R9", "descricao": "Generalização que nenhum fato traz", "fonte": "VERIF 25/10", "verificador_produto": "SENSE (LLM)", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P20", "rubrica": "R9", "descricao": "Blocker virando conclusão", "fonte": "VERIF 25/10", "verificador_produto": "SENSE (LLM)", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P21", "rubrica": "R6", "descricao": "\"com a categoria\", \"pesa X%\", \"cai em/no/na\", \"grupo\"", "fonte": "Rafael 26/10 (rótulos às cegas)", "verificador_produto": "PRUMO #284/#286: VOICE_WORD, GROUP_WORD", "contextos": ["mao", "paragrafo"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\bcom a categoria\\b", "\\bpesa \\d", "\\bgrupos?\\b"]},
+    {"id": "P22", "rubrica": "R6", "descricao": "\"0%\"/\"100%\" no lugar de \"nunca\"/\"sempre\" na frequência", "fonte": "Rafael 26/10", "verificador_produto": "PRUMO #284: FREQ_EXTREME", "contextos": ["mao", "paragrafo"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["(?<![\\d,.])(?:0|100)% das vezes"]},
+    {"id": "P23", "rubrica": "R6", "descricao": "\"em value médio\" (o certo é \"com\")", "fonte": "Rafael 26/10", "verificador_produto": "PRUMO #284: VOICE_WORD", "contextos": ["mao", "paragrafo"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\bem value m[ée]dio\\b"]},
+    {"id": "P24", "rubrica": "R9", "descricao": "draw, outs ou semi-blefe em mão de river", "fonte": "Rafael 26/10", "verificador_produto": "PRUMO #284: RIVER_DRAW", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P25", "rubrica": "R9", "descricao": "frase com mais de 2 categorias ou mais de 3 números", "fonte": "Rafael 26/10", "verificador_produto": "PRUMO #284: voice_problems", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "aviso", "padroes": []},
+    {"id": "P26", "rubrica": "R4", "descricao": "\"vizinha(s)\", \"escada\" antes das mãos ao redor", "fonte": "Rafael 26/10", "verificador_produto": "PRUMO #286: NEIGHBOR_WORD", "contextos": ["mao"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\bvizinhas?\\b", "\\bescada\\b"]},
+    {"id": "P27", "rubrica": "R6", "descricao": "fatia \"do excesso\"/\"do desvio\" no lugar de \"N% dos seus <ação> que desviam do GTO\"", "fonte": "Rafael 26/10 (LEITURA-PADRAO)", "verificador_produto": "PRUMO #286: SHARE_OF_DEVIATION", "contextos": ["paragrafo"], "idiomas": ["pt"], "nivel": "erro", "padroes": ["\\bdo (?:excesso|desvio)\\b"]}
+  ]
+}
