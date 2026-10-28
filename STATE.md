@@ -29,7 +29,7 @@ Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de t
 | Contrato | Fornecedor | Como consome (tabela, pacote, arquivo) | Risco atual |
 | --- | --- | --- | --- |
 | Números verificados do Field Ranges | aura-main | cópia de `_ops/field-ranges-launch/numeros-verificados.md` | números mudam se as folhas forem refeitas |
-| `banned_terms.json` + `casa_lint.py` (M5, 28/10) | casa-poker (commit `2f1c239`) | cópia em `casa/` com sha256 no `casa/casa.lock.json`; atualizar só por `/mudar-contrato` da HUB | dado desatualizado reprova o CI |
+| `banned_terms.json` + `casa_lint.py` (M5, 28/10) | casa-poker (dados no commit `2f1c239`; `casa_lint.py` no commit `344a1b4`, sha256 `8c57d063…`) | cópia em `casa/` com sha256 no `casa/casa.lock.json`; atualizar só por `/mudar-contrato` da HUB | dado desatualizado reprova o CI |
 | Telas do app | aura-novofront (#69 `bcc593f`) | capturas de http://localhost:5302 em `mockups/raw/` | a UI pode mudar antes do lançamento |
 
 ## 6. Próxima sessão
