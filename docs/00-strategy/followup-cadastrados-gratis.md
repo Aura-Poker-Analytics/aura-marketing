@@ -232,6 +232,8 @@ A1, U1 e R1 ganham versão EN antes do primeiro lote que inclua cadastro de fora
 | Duração | um envio, leitura em 7 dias, sem espiar antes |
 | Registro | resultado em `.agents/product-marketing.md` → Learnings, com status `watch` até a repetição |
 
+**Decisão da HUB (28/10): o R1 sai sem A/B, só com a variante A.** O lote tem 185 pessoas, que não decidem nada, e dividir o segmento exigiria uma 4ª vaga, que o plano do Resend não tem (limite de 3 segmentos). O assunto B fica para o **R2**, que testa o mesmo ângulo: "[posição] vs [posição], c-bet no flop: o field folda [X]%, o GTO [Y]%", com o spot do R1 (CO vs BB, 46,0% e 38,8%) ou o spot da semana, conferido logado antes do envio.
+
 ICE dos candidatos: R1 assunto (I 6, C 5, E 9 = 6,7) > U1 com e sem preço no corpo (I 7, C 4, E 4 = 5,0) > A1 CTA direto ao app × landing (I 6, C 6, E 3 = 5,0; pouco volume).
 
 ## 7. Métricas e metas
@@ -394,9 +396,13 @@ Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência l
 | (c) spot logado | ✅ conferido em 27/10 | com a conta dos agentes (`aura_agent_login.py`, regra do CLAUDE.md de 23/10), nas mesmas chamadas da tela (`LoadPostFlop` e `LoadPostflopGtoNumbers`, corpo do exemplo (a) de `_ops/golive-gto-2026-10-04/numeros-verificados.md`). Field: fold do BB contra c-bet de 33% = **46,0%** em **10.216 mãos**. GTO: **38,78%**, faixa **37,13% a 40,43%**. O R1 diz 46,0%, 38,8% e 37,1% a 40,4%: bate. O Chrome do Rafael seguia na tela de login |
 | (d) supressão | ✅ parcial | 2 endereços suprimidos no Resend, os dois por bounce, nenhuma reclamação. O descadastro dos lotes em batch usa `List-Unsubscribe` mailto; o da broadcast usa o link do Resend |
 | Cupom | ✅ pronto (27/10) | refeito pelo Rafael e conferido pela HUB no Stripe live: ID `Ph7y2HU9`, `duration=once`, R$ 45 / US$ 9, só no produto Individual, `max_redemptions=200`, 0 usos. A primeira versão (`forever`) foi descartada. Falta só a metadata, que é cosmética. Os promotion codes de cada lote (`ATIVAddmm` / `VOLTEddmm`) apontam para `Ph7y2HU9` |
-| (e) 1º lote | ⛔ sem tamanho | o lote do R1 (Grátis sem login há 14+ dias, sem pagantes e sem ex-pagantes) só sai do AuraBusiness, que não tem ferramenta de leitura nesta sessão (o MCP `postgres-azure-analytics` aponta para um host que não existe). Caminhos: consertar o host do MCP (o banco de usuários é o AuraBusiness, no servidor `aura-production`) ou o Rafael exportar os e-mails pelo SQL 5.3 |
+| Lote (28/10) | ✅ 185 | lido pelo MCP só de leitura `postgres-azure-business` (contagens, nenhum e-mail em arquivo). Filtro: trial, conta ativa, sem superuser, sem `@aurapoker.com`, nenhum sinal de pagamento, sem login há 14 dias ou nunca logou = **199** (40 nunca logaram). Fora: 1 suprimido, 2 descadastrados, 10 endereços descartáveis ou inválidos e uma conta interna provável = **185** |
+| Segmentos (28/10) | ✅ | "Grátis" recebeu os 43 do lote que faltavam (217 contatos, nenhum apagado), mas guarda 29 contatos antigos fora do lote (21 não trial, 6 com pagamento), então não serve para o R1. Como o plano do Resend tem só 3 segmentos, "Field Ranges — não receberam (192)" virou **"R1 Grátis inativo 28/10"** (`65da31a5-…`) com os 185. Os 48 que não eram do lote saíram do segmento e seguem em General; os ids antigos foram salvos fora do git |
+| (e) 1º lote | ⏳ pronto, espera o "sim" | rascunho `f185d44e-…` aponta para `65da31a5-…`, variante A, logo no caminho estável `/email/aura-logo@2x.png`. Sai com o "sim" do Rafael digitado na sessão do followup. Tracking no painel do Resend segue com o Rafael |
 
 ## Changelog
+
+- 28/10: lote do R1 lido no AuraBusiness (185 elegíveis); segmento "R1 Grátis inativo 28/10"; rascunho apontado para ele com a logo estável; R1 sem A/B, assunto B passa para o R2 (§6, §14).
 
 - Rodada 3 (23/10): decisões R1 a R6 do Rafael; R4 ampliada (gatilho B, quem não volta); rascunhos U2 e R2 com cupom; spec do cupom no Stripe (§12.1); tracking e segmento no Resend (§14).
 
