@@ -398,9 +398,12 @@ Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência l
 | Cupom | ✅ pronto (27/10) | refeito pelo Rafael e conferido pela HUB no Stripe live: ID `Ph7y2HU9`, `duration=once`, R$ 45 / US$ 9, só no produto Individual, `max_redemptions=200`, 0 usos. A primeira versão (`forever`) foi descartada. Falta só a metadata, que é cosmética. Os promotion codes de cada lote (`ATIVAddmm` / `VOLTEddmm`) apontam para `Ph7y2HU9` |
 | Lote (28/10) | ✅ 185 | lido pelo MCP só de leitura `postgres-azure-business` (contagens, nenhum e-mail em arquivo). Filtro: trial, conta ativa, sem superuser, sem `@aurapoker.com`, nenhum sinal de pagamento, sem login há 14 dias ou nunca logou = **199** (40 nunca logaram). Fora: 1 suprimido, 2 descadastrados, 10 endereços descartáveis ou inválidos e uma conta interna provável = **185** |
 | Segmentos (28/10) | ✅ | "Grátis" recebeu os 43 do lote que faltavam (217 contatos, nenhum apagado), mas guarda 29 contatos antigos fora do lote (21 não trial, 6 com pagamento), então não serve para o R1. Como o plano do Resend tem só 3 segmentos, "Field Ranges — não receberam (192)" virou **"R1 Grátis inativo 28/10"** (`65da31a5-…`) com os 185. Os 48 que não eram do lote saíram do segmento e seguem em General; os ids antigos foram salvos fora do git |
-| (e) 1º lote | ⏳ pronto, espera o "sim" | rascunho `f185d44e-…` aponta para `65da31a5-…`, variante A, logo no caminho estável `/email/aura-logo@2x.png`. Sai com o "sim" do Rafael digitado na sessão do followup. Tracking no painel do Resend segue com o Rafael |
+| (e) 1º lote | ✅ enviado em 28/10 | o Rafael digitou "Sim, pode enviar" na sessão do followup e a broadcast `f185d44e-…` saiu para o segmento `65da31a5-…` (185), variante A, com a logo no caminho estável. O tracking de abertura e clique foi ligado pelo Rafael antes do envio e conferido pela API. Leitura em 7 dias (04/11): login por `tbl_login_event`, clique no Resend e `utm_content=r1-a` no GA4 |
+| R2 | ⏳ 02/11 | gatilho B (§12): Grátis do lote que não fez login em 5 dias depois do R1 recebe o R2 com cupom (80%) ou sem (controle de 20%), com o assunto B do §6 |
 
 ## Changelog
+
+- 28/10: R1 enviado a 185 (broadcast `f185d44e`), com o "sim" do Rafael e o tracking ligado; R2 previsto para 02/11 (§14).
 
 - 28/10: lote do R1 lido no AuraBusiness (185 elegíveis); segmento "R1 Grátis inativo 28/10"; rascunho apontado para ele com a logo estável; R1 sem A/B, assunto B passa para o R2 (§6, §14).
 
