@@ -19,6 +19,8 @@ from build import ART
 SRC = Path(__file__).resolve().parent
 OUT = lib.OUT
 POST = lib.POST
+sys.path.insert(0, str(Path(__file__).resolve().parents[5] / "casa"))
+import casa_banned  # termos da casa (casa/dados/banned_terms.json), junto com a lista local abaixo
 BANNED = ["overlay", "solver", "beta", "wizard", "pool", "campo", "gtowizard", "piosolver", "monkersolver"]
 JS = """() => {
   const out = {issues: []};
@@ -89,6 +91,8 @@ with sync_playwright() as p:
         if not suffix and r["ph"]:
             bad(f"{png.name}: arte final com marcador pendente")
         vis = r["text"].lower()
+        for a_ in casa_banned.achados(r["text"], "en" if png.stem.endswith("en") else "pt"):
+            print("AVISO casa-lint", png.name, a_)
         for w_ in BANNED:
             if re.search(rf"\b{w_}\b", vis):
                 bad(f"{png.name}: palavra proibida '{w_}'")

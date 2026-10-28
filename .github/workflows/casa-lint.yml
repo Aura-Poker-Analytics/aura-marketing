@@ -1,0 +1,25 @@
+name: casa-lint
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  casa-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Hash da cópia da casa
+        run: python -X utf8 -I scripts/casa-lint-ci.py --so-hash
+      - name: casa-lint no diff do PR
+        if: github.event_name == 'pull_request'
+        run: python -X utf8 -I scripts/casa-lint-ci.py --base "origin/${{ github.base_ref }}"
+      - name: casa-lint (baseline, só aviso)
+        if: github.event_name == 'push'
+        run: python -X utf8 -I scripts/casa-lint-ci.py

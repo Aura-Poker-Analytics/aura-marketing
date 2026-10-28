@@ -1,0 +1,11 @@
+{
+  "repo": "rafreis/casa-poker",
+  "commit": "2f1c2394e6304a98ca63d06f838aeb64c3526f27",
+  "dados": {
+    "banned_terms.json": {"sha256": "c5c8bf13112ab98fc0fde1dfd21b636d2170ae4a2bf17c105dcd93fb87b8b357"}
+  },
+  "casa_lint": {
+    "casa_lint.py": {"sha256": "8c57d063be4540348138176d8dccffe801fe2099aba0277a5fef4f4e7fd76534"}
+  },
+  "nota": "Copia de _ops/validacao/casa.lock (27/10/2026), so o que este repo usa. Quem atualiza e a HUB, por /mudar-contrato; nunca editar a mao."
+}
