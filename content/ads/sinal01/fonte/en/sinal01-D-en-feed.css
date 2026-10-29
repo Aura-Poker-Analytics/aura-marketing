@@ -23,6 +23,7 @@ h1{font-size:86px;letter-spacing:-.005em}
 .zoom .ctx{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:30px;font-weight:700;color:#CBD5E1}
 .zoom .ctx .tg{display:inline-flex;align-items:center;gap:10px;font-size:26px;font-weight:800;letter-spacing:.08em;color:#FF9AA0;border:2px solid rgba(255,154,160,.5);background:rgba(173,44,52,.25);border-radius:12px;padding:8px 16px}
 .zoom .ctx .tg i{width:26px;height:26px;display:block}
+.zoom .cl{font-size:30px;font-weight:700;color:#FBBF24;margin-top:14px}
 .zoom .tt{font-size:80px;font-weight:900;text-transform:uppercase;line-height:1.04;margin-top:26px}
 .zoom .tt .hl{color:#F0626B}
 .nw{white-space:nowrap}

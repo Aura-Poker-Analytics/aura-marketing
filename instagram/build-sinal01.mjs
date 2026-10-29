@@ -4,11 +4,12 @@
  *   node instagram/build-sinal01.mjs --html   # so gera os HTML
  *
  * Copy: content/ads/sinal01/copy-sinal01.md. Numeros: numeros-verificados.md do field-exploits-launch
- * (UTG vs BB 25bb, c-bet 50%, field fold 53,8% x GTO 73,5% faixa 67,5-79,5, 13,7% abaixo da faixa).
+ * (BTN vs SB 25bb, flop A-high rainbow, c-bet 33%, field fold 41,5% x GTO 25,0% faixa 19,0-31,0, 10,5% acima da faixa, n = 9.937 maos;
+ * fonte: docs/02-paid/sinal01-spots-fortes.md linha 1 e content/ads/sinal01/numeros/spots_all.csv).
  * Regras duras: sem carta, ficha, dinheiro, mesa, dados; visual = tela do app reconstruida + tipografia.
  * Os 4 angulos mudam de proposito cor, composicao e mockup (Andromeda agrupa criativos parecidos):
  *   A dark navy + amber, card do spot com regua   B claro + azul, lista ranqueada com palavra riscada
- *   C teal + menta, dois celulares (cadastro + spot gratis)   D quase preto + coral, close tipografico
+ *   C teal + menta, dois celulares (cadastro + spot de exemplo)   D quase preto + coral, close tipografico
  * Story: ~250 px livres em cima e embaixo (zona da UI do Instagram).
  */
 import fs from 'fs';
@@ -41,25 +42,25 @@ const CHECK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 const T = {
   pt: {
     lang: 'pt-BR', dec: ',', foot: 'Ferramenta de estudo',
-    badge: 'NOVO MÓDULO', strong: 'DESVIO FORTE', over: 'OVERDEFEND',
-    foldVs: 'Fold contra c-bet de 50%', field: 'Field', gto: 'GTO',
-    below: 'abaixo da faixa do GTO', how: 'Como explorar', howTxt: 'Blefe menos, vá de value.',
-    rangeLbl: 'faixa do GTO', sub25: '25bb · SRP',
+    badge: 'NOVO MÓDULO', strong: 'DESVIO FORTE', over: 'OVERFOLD',
+    foldVs: 'Fold contra c-bet de 33%', field: 'Field', gto: 'GTO',
+    below: 'acima da faixa do GTO', how: 'Como explorar', howTxt: 'C-bet mais vezes, inclusive sem mão.',
+    rangeLbl: 'faixa do GTO', sub25: '25bb · SRP', cls: 'flop A-high rainbow', n: '9.937 mãos',
     A: { h: '<span class="hl">Field Exploits:</span><br>onde o field erra', s: 'Spot a spot. E como explorar.' },
-    B: { h: 'Você não precisa<br>de <s>mais vídeo</s>', s: 'Precisa saber <b>o que estudar primeiro.</b>', list: 'Spots do field', row: '25bb · Flop · c-bet de 50%' },
-    C: { h: 'Comece <span class="hl">grátis.</span><br>Sem cartão.', s: 'Um spot do field por semana.', create: 'Criar conta', btn: 'Criar conta grátis', nocard: 'Sem cartão', free: 'GRÁTIS', week: 'Exemplo de spot' },
-    D: { h: 'Spot lido<br>em segundos', s: 'Sem horas de solver. Com ajuste pronto.', ctx: 'UTG vs BB · 25bb · Flop', title: 'O BB <span class="hl">defende demais</span> contra <span class="nw">c-bet</span>' },
+    B: { h: 'Você não precisa<br>de <s>mais vídeo</s>', s: 'Precisa saber <b>o que estudar primeiro.</b>', list: 'Spots do field', row: '25bb · flop A-high rainbow<br>c-bet de 33%' },
+    C: { h: 'Comece <span class="hl">grátis.</span><br>Sem cartão.', s: 'Veja onde o field erra.', create: 'Criar conta', btn: 'Criar conta grátis', nocard: 'Sem cartão', week: 'Exemplo de spot' },
+    D: { h: 'Spot lido<br>em segundos', s: 'Sem horas de solver. Com ajuste pronto.', ctx: 'BTN vs SB · 25bb · c-bet de 33%', title: 'O SB <span class="hl">folda demais</span> <span class="nw">contra c-bet</span> <span class="nw">de 33%</span>' },
   },
   en: {
     lang: 'en', dec: '.', foot: 'Study tool',
-    badge: 'NEW MODULE', strong: 'STRONG DEVIATION', over: 'OVERDEFEND',
-    foldVs: 'Fold vs 50% c-bet', field: 'Field', gto: 'GTO',
-    below: 'below the GTO range', how: 'How to exploit', howTxt: 'Bluff less, go for value.',
-    rangeLbl: 'GTO range', sub25: '25bb · SRP',
+    badge: 'NEW MODULE', strong: 'STRONG DEVIATION', over: 'OVERFOLD',
+    foldVs: 'Fold vs 33% c-bet', field: 'Field', gto: 'GTO',
+    below: 'above the GTO range', how: 'How to exploit', howTxt: 'C-bet more often, even with air.',
+    rangeLbl: 'GTO range', sub25: '25bb · SRP', cls: 'A-high rainbow flop', n: '9,937 hands',
     A: { h: 'Where the <span class="hl">field</span><br>gets it wrong', s: 'Spot by spot, and how to exploit it.' },
-    B: { h: 'You don\u2019t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', list: 'Field spots', row: '25bb · Flop · 50% c-bet' },
-    C: { h: 'Start <span class="hl">free.</span><br>No card needed.', s: 'One field spot, every week.', create: 'Create account', btn: 'Create free account', nocard: 'No card needed', free: 'FREE', week: 'Example spot' },
-    D: { h: 'Your spot,<br>read in seconds', s: 'Not hours in a solver.', ctx: 'UTG vs BB · 25bb · Flop', title: 'The BB <span class="hl">defends too much</span> vs the <span class="nw">c-bet</span>' },
+    B: { h: 'You don\u2019t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', list: 'Field spots', row: '25bb · A-high rainbow flop<br>33% c-bet' },
+    C: { h: 'Start <span class="hl">free.</span><br>No card needed.', s: 'See where the field errs.', create: 'Create account', btn: 'Create free account', nocard: 'No card needed', week: 'Example spot' },
+    D: { h: 'Your spot,<br>read in seconds', s: 'Not hours in a solver.', ctx: 'BTN vs SB · 25bb · 33% c-bet', title: 'The SB <span class="hl">folds too much</span> vs the <span class="nw">33% c-bet</span>' },
   },
 };
 const num = (lang, s) => s.replace('.', T[lang].dec);
@@ -93,8 +94,10 @@ const spotCss = `
 .spot .ttl{display:flex;align-items:baseline;gap:1.3em;flex-wrap:wrap}
 .spot .ttl b{font-size:6.2em;font-weight:800;letter-spacing:-.01em}
 .spot .ttl span{font-size:3em;font-weight:600;color:#CBD5E1}
-.spot .lbl{font-size:3em;font-weight:600;color:#CBD5E1;margin-top:.5em}
-.spot .nums{display:flex;justify-content:space-between;align-items:flex-end;margin-top:.5em}
+.spot .cls{font-size:3em;font-weight:700;color:#FBBF24;margin-top:.4em}
+.spot .nn{font-size:.82em;font-weight:600;color:#94A3B8}
+.spot .lbl{font-size:3em;font-weight:600;color:#CBD5E1;margin-top:.3em}
+.spot .nums{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1em}
 .spot .nums div{display:flex;flex-direction:column}
 .spot .nums .k{font-size:2.8em;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .spot .nums .v{font-size:9.6em;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -112,7 +115,7 @@ const spotCss = `
 .spot .how{margin-top:1.6em;border-top:2px solid rgba(148,163,184,.25);padding-top:1.3em}
 .spot .how .k{font-size:2.4em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FBBF24}
 .spot .how .t{font-size:3.9em;font-weight:700;margin-top:.25em;line-height:1.15}
-.track .fill{width:53.8%}.track .gap{left:53.8%;width:13.7%}.track .band{left:67.5%;width:12%}.track .tick{left:73.5%}
+.track .fill{width:41.5%}.track .gap{left:31%;width:10.5%}.track .band{left:19%;width:12%}.track .tick{left:25%}
 `;
 function rulerHtml(lang, withLabels = true) {
   const t = T[lang];
@@ -122,16 +125,17 @@ function rulerHtml(lang, withLabels = true) {
     <div class="band"></div>
     <div class="tick"></div>
   </div>
-  ${withLabels ? `<div class="rl"><span class="a">${num(lang, '13.7')}% ${t.below}</span></div>` : ''}`;
+  ${withLabels ? `<div class="rl"><span class="a">${num(lang, '10.5')}% ${t.below}</span></div>` : ''}`;
 }
-function spotCard(lang, { base = 10, free = false } = {}) {
+function spotCard(lang, { base = 10, withN = false } = {}) {
   const t = T[lang];
   return `<div class="spot" style="font-size:${base}px">
     <div class="hd"><div class="mod"><i>${ICON_SVG}</i>Field Exploits</div><span class="chip">${t.strong}</span></div>
-    <div class="ttl"><b>UTG vs BB</b><span>${t.sub25}</span></div>
+    <div class="ttl"><b>BTN vs SB</b><span>${t.sub25}</span></div>
+    <div class="cls">${t.cls}${withN ? `<span class="nn"><span class="sp"> · </span>${t.n}</span>` : ''}</div>
     <div class="lbl">${t.foldVs}</div>
-    <div class="nums"><div class="f"><span class="k">${t.field}</span><span class="v">${num(lang, '53.8')}%</span></div>
-      <div class="g"><span class="k">${t.gto}</span><span class="v">${num(lang, '73.5')}%</span></div></div>
+    <div class="nums"><div class="f"><span class="k">${t.field}</span><span class="v">${num(lang, '41.5')}%</span></div>
+      <div class="g"><span class="k">${t.gto}</span><span class="v">${num(lang, '25.0')}%</span></div></div>
     ${rulerHtml(lang)}
     <span class="over">${t.over}</span>
     <div class="how"><div class="k">${t.how}</div><div class="t">${t.howTxt}</div></div>
@@ -151,7 +155,7 @@ h1{font-size:${big ? 84 : 70}px}.hl{color:#FBBF24}
 ${spotCss}`;
   return page(lang, fmt, css, `
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div><span class="badge">${t.badge}</span></div>
-  <div class="main">${spotCard(lang, { base: big ? 10.2 : 9.2 })}
+  <div class="main">${spotCard(lang, { base: big ? 10.2 : 9.2, withN: true })}
     <div><h1>${t.A.h}</h1><p class="sup">${t.A.s}</p></div></div>`);
 }
 
@@ -188,7 +192,7 @@ h1 s::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:${b
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div><span class="badge">${T[lang].badge}</span></div>
   <div class="main"><div><h1>${t.B.h}</h1><p class="sup">${t.B.s}</p></div>
     <div class="list"><div class="lh"><span class="m"><i>${ICON_SVG}</i>Field Exploits</span><span class="c">${t.B.list}</span></div>
-      <div class="row top1"><div><div class="p">UTG vs BB</div><div class="q">${t.B.row}</div></div>
+      <div class="row top1"><div><div class="p">BTN vs SB</div><div class="q">${t.B.row}</div></div>
         <div class="tag"><i>${ARROW_UP}</i>${t.over}</div></div>
       ${rows}</div></div>`);
 }
@@ -196,7 +200,7 @@ h1 s::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:${b
 /* ---------- C: teal + menta, dois celulares ---------- */
 function pageC(lang, fmt) {
   const t = T[lang], big = fmt === 'story';
-  const ph = big ? 790 : 770, pw = big ? 430 : 410;
+  const ph = big ? 870 : 770, pw = big ? 430 : 410;
   const css = `
 ${spotCss}
 body{background:radial-gradient(1000px 760px at 50% 108%,rgba(127,227,174,.22),transparent 62%),linear-gradient(170deg,#04323B 0%,#02171C 100%);color:#fff}
@@ -221,15 +225,19 @@ h1{font-size:${big ? 84 : 78}px}.hl{color:#7FE3AE}
 .fs .h{display:flex;align-items:center;justify-content:space-between}
 .fs .h .m{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#FBBF24}
 .fs .h .m i{width:36px;height:27px;display:block}.fs .h .m i svg{width:100%;height:100%}
-.fs .h .fr{font-size:23px;font-weight:900;letter-spacing:.1em;color:#04323B;background:#7FE3AE;border-radius:10px;padding:6px 12px}
 .fs .wk{font-size:26px;font-weight:700;color:#CBD5E1;margin:22px 0 14px}
 .fs .spot{font-size:8px;padding:2.6em 2.4em 2.4em;border-radius:2.4em;box-shadow:none}
 .fs .spot .hd{display:none}
 .fs .spot .how{display:none}
-.fs .spot .nums{flex-direction:column;gap:.3em}
+.fs .spot .nn .sp{display:none}
+.fs .spot .nn{display:block;font-size:.8em;margin-top:.1em}
+.fs .spot .lbl{font-size:2.6em}
+.fs .spot .ttl b{font-size:5.4em}
+.fs .spot .nums{flex-direction:column;align-items:stretch;gap:.3em}
 .fs .spot .nums div{flex-direction:row;justify-content:space-between;align-items:baseline;gap:.8em}
 .fs .spot .nums .v{font-size:7.4em}
-.fs .spot .rl{font-size:2.9em}
+.fs .spot .track{margin-top:1.5em}
+.fs .spot .rl{font-size:2.5em}
 .fs .spot .over{margin-top:.9em}
 .fs .lockrow{display:flex;align-items:center;justify-content:space-between;border:2px dashed #475569;border-radius:20px;padding:20px 22px;margin-top:14px}
 .fs .lockrow i.b{display:block;height:20px;border-radius:10px;background:#64748B;filter:blur(3px)}
@@ -244,9 +252,9 @@ h1{font-size:${big ? 84 : 78}px}.hl{color:#7FE3AE}
         <div class="btn">${t.C.btn}</div>
         <div class="nc"><i>${CHECK}</i>${t.C.nocard}</div></div></div>
       <div class="phone r"><span class="notch"></span><div class="fs">
-        <div class="h"><span class="m"><i>${ICON_SVG}</i>Field Exploits</span><span class="fr">${t.C.free}</span></div>
+        <div class="h"><span class="m"><i>${ICON_SVG}</i>Field Exploits</span></div>
         <div class="wk">${t.C.week}</div>
-        ${spotCard(lang, { base: 8 })}
+        ${spotCard(lang, { base: 8, withN: true })}
         ${big ? `<div class="lockrow"><i class="b" style="width:200px"></i><i class="k">${LOCK_SVG}</i></div>` : ''}</div></div>
     </div></div>`);
 }
@@ -264,6 +272,7 @@ h1{font-size:${big ? 96 : 86}px;letter-spacing:-.005em}
 .zoom .ctx{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:30px;font-weight:700;color:#CBD5E1}
 .zoom .ctx .tg{display:inline-flex;align-items:center;gap:10px;font-size:26px;font-weight:800;letter-spacing:.08em;color:#FF9AA0;border:2px solid rgba(255,154,160,.5);background:rgba(173,44,52,.25);border-radius:12px;padding:8px 16px}
 .zoom .ctx .tg i{width:26px;height:26px;display:block}
+.zoom .cl{font-size:30px;font-weight:700;color:#FBBF24;margin-top:14px}
 .zoom .tt{font-size:${big ? 90 : 80}px;font-weight:900;text-transform:uppercase;line-height:1.04;margin-top:${big ? 34 : 26}px}
 .zoom .tt .hl{color:#F0626B}
 .nw{white-space:nowrap}
@@ -274,6 +283,7 @@ h1{font-size:${big ? 96 : 86}px;letter-spacing:-.005em}
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div></div>
   <div class="main"><div><h1>${t.D.h}</h1><p class="sup">${t.D.s}</p></div>
     <div class="zoom"><div class="ctx"><span>${t.D.ctx}</span><span class="tg"><i>${ARROW_UP}</i>${t.over}</span></div>
+      <div class="cl">${t.cls}</div>
       <div class="tt">${t.D.title}</div>
       <div class="how"><div class="k">${t.how}</div><div class="tx">${t.howTxt}</div></div></div></div>`);
 }
