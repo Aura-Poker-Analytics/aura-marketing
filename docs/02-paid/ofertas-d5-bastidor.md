@@ -23,4 +23,4 @@ Peças: `content/emails/ofertas-d5/{volta-paradas,anual-fe}.md` e `en/`. Nada en
 - Anual: assunto 1 (preço e prazo claros).
 
 ## Lint
-`casa-lint-ci.py` e `casa_lint.py vocab` NÃO foram executados: esta sessão não tinha shell. Conferência manual por busca nos padrões de `banned_terms.json` (Beta, plano GTO, pool, overlay, bastidor, pp/pts, "o Aura", ponto decimal no PT): 0 achados nos arquivos PT; no EN só o ponto decimal, que é correto em `en/`. Rodar o lint antes de commitar.
+Lint rodado em 29/10 sobre as quatro copies e este bastidor: `casa_lint.py vocab` com 0 erro e `casa-lint-ci.py --base origin/main` com 0 erro no diff.
