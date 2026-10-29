@@ -23,8 +23,10 @@ h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005
 .spot .ttl{display:flex;align-items:baseline;gap:1.3em;flex-wrap:wrap}
 .spot .ttl b{font-size:6.2em;font-weight:800;letter-spacing:-.01em}
 .spot .ttl span{font-size:3em;font-weight:600;color:#CBD5E1}
-.spot .lbl{font-size:3em;font-weight:600;color:#CBD5E1;margin-top:.5em}
-.spot .nums{display:flex;justify-content:space-between;align-items:flex-end;margin-top:.5em}
+.spot .cls{font-size:3em;font-weight:700;color:#FBBF24;margin-top:.4em}
+.spot .nn{font-size:.82em;font-weight:600;color:#94A3B8}
+.spot .lbl{font-size:3em;font-weight:600;color:#CBD5E1;margin-top:.3em}
+.spot .nums{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1em}
 .spot .nums div{display:flex;flex-direction:column}
 .spot .nums .k{font-size:2.8em;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .spot .nums .v{font-size:9.6em;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -42,7 +44,7 @@ h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005
 .spot .how{margin-top:1.6em;border-top:2px solid rgba(148,163,184,.25);padding-top:1.3em}
 .spot .how .k{font-size:2.4em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FBBF24}
 .spot .how .t{font-size:3.9em;font-weight:700;margin-top:.25em;line-height:1.15}
-.track .fill{width:53.8%}.track .gap{left:53.8%;width:13.7%}.track .band{left:67.5%;width:12%}.track .tick{left:73.5%}
+.track .fill{width:41.5%}.track .gap{left:31%;width:10.5%}.track .band{left:19%;width:12%}.track .tick{left:25%}
 
 body{background:radial-gradient(1000px 760px at 50% 108%,rgba(127,227,174,.22),transparent 62%),linear-gradient(170deg,#04323B 0%,#02171C 100%);color:#fff}
 .brand{color:#fff}
@@ -66,15 +68,19 @@ h1{font-size:78px}.hl{color:#7FE3AE}
 .fs .h{display:flex;align-items:center;justify-content:space-between}
 .fs .h .m{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#FBBF24}
 .fs .h .m i{width:36px;height:27px;display:block}.fs .h .m i svg{width:100%;height:100%}
-.fs .h .fr{font-size:23px;font-weight:900;letter-spacing:.1em;color:#04323B;background:#7FE3AE;border-radius:10px;padding:6px 12px}
 .fs .wk{font-size:26px;font-weight:700;color:#CBD5E1;margin:22px 0 14px}
 .fs .spot{font-size:8px;padding:2.6em 2.4em 2.4em;border-radius:2.4em;box-shadow:none}
 .fs .spot .hd{display:none}
 .fs .spot .how{display:none}
-.fs .spot .nums{flex-direction:column;gap:.3em}
+.fs .spot .nn .sp{display:none}
+.fs .spot .nn{display:block;font-size:.8em;margin-top:.1em}
+.fs .spot .lbl{font-size:2.6em}
+.fs .spot .ttl b{font-size:5.4em}
+.fs .spot .nums{flex-direction:column;align-items:stretch;gap:.3em}
 .fs .spot .nums div{flex-direction:row;justify-content:space-between;align-items:baseline;gap:.8em}
 .fs .spot .nums .v{font-size:7.4em}
-.fs .spot .rl{font-size:2.9em}
+.fs .spot .track{margin-top:1.5em}
+.fs .spot .rl{font-size:2.5em}
 .fs .spot .over{margin-top:.9em}
 .fs .lockrow{display:flex;align-items:center;justify-content:space-between;border:2px dashed #475569;border-radius:20px;padding:20px 22px;margin-top:14px}
 .fs .lockrow i.b{display:block;height:20px;border-radius:10px;background:#64748B;filter:blur(3px)}

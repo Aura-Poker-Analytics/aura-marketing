@@ -12,11 +12,11 @@ Público: grinder de MTT que já estuda e quer exploit pronto, por spot.
 | --- | --- | --- |
 | Art headline | Where the field gets it wrong | 6 words |
 | Art support line | Spot by spot, and how to exploit it. | 8 words |
-| Primary text | UTG vs BB, 25bb: the BB folds 53.8% vs a 50% c-bet. GTO folds 73.5%. Bluff less, go for value. See the full spot. | 113 |
+| Primary text | BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5% vs a 33% c-bet. GTO: 25.0%. C-bet more often. | 102 |
 | Ad headline | Where the field gets it wrong | 29 |
 | Description | Field Exploits · New module | 27 |
 | CTA | Learn More | |
-| Visual | Spot card in the app (field fold marker vs green GTO range bar, "How to exploit" line) with a NEW MODULE badge in the corner. | |
+| Visual | Spot card in the app (BTN vs SB, 25bb, A-high rainbow flop, 9,937 hands; field fold bar 41.5% vs the green GTO range 19.0 to 31.0, hatched stretch up to the field, "How to exploit" line) with a NEW MODULE badge in the corner. | |
 
 ---
 
@@ -30,11 +30,11 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 | --- | --- | --- |
 | Art headline | You don't need more videos | 5 words |
 | Art support line | You need to know what to study first. | 8 words |
-| Primary text | Another course won't fix your leak. Aura shows where the field errs most: UTG vs BB 25bb, 50% c-bet. See the spot. | 118 |
+| Primary text | Another course won't fix your leak. BTN vs SB, 25bb, A-high rainbow flop: the SB folds too much vs a 33% c-bet. | 111 |
 | Ad headline | Study the right spot first | 26 |
 | Description | Where the field errs most | 25 |
 | CTA | Learn More | |
-| Visual | Field spot list in the app, UTG vs BB 25bb highlighted with an Overdefend tag. | |
+| Visual | Field spot list in the app, BTN vs SB 25bb highlighted with an Overfold tag. | |
 
 ---
 
@@ -42,19 +42,19 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 
 Público: quem ainda não conhece a Aura e quer testar sem compromisso.
 
-Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada módulo (product-truth §6 e §9; STATE.md). No Field Exploits, o Grátis vê 1 spot da semana (numeros-verificados §1). A copy diz só "grátis, sem cartão" e "1 spot por semana". Não promete módulo completo no Grátis.
+Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada módulo (product-truth §6 e §9; STATE.md). A copy diz só "grátis, sem cartão". Não promete módulo completo no Grátis, nem diz qual spot do Field Exploits o Grátis abre: o spot do mockup é exemplo.
 
 ### C / EN
 
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
 | Art headline | Start free. No card needed. | 5 words |
-| Art support line | One field spot, every week. | 5 words |
-| Primary text | Start free, no card. See where the field errs: UTG vs BB 25bb, the BB defends too much vs the c-bet. Try it. | 108 |
+| Art support line | See where the field errs. | 5 words |
+| Primary text | Start free, no card. BTN vs SB, 25bb, A-high rainbow flop: the SB folds too much vs the c-bet. Try it. | 102 |
 | Ad headline | Start free, no card needed | 26 |
-| Description | 1 field spot every week | 23 |
+| Description | Free account, no card | 21 |
 | CTA | Sign Up | |
-| Visual | Simple sign-up screen next to the free spot card open in the app (no email or account visible). | |
+| Visual | Simple sign-up screen next to a Field Exploits example spot screen (label "Example spot", no free badge, no email or account visible). | |
 
 ---
 
@@ -68,10 +68,10 @@ Público: quem trava no tempo de estudo e quer chegar rápido à decisão.
 | --- | --- | --- |
 | Art headline | Your spot, read in seconds | 5 words |
 | Art support line | Not hours in a solver. | 5 words |
-| Primary text | Hours in a solver per spot? UTG vs BB 25bb: the BB folds 13.7% below the GTO range. Bluff less. See the spot. | 120 |
+| Primary text | Hours in a solver per spot? BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5%, GTO 25.0%. C-bet more often. | 114 |
 | Ad headline | Read the spot in seconds | 24 |
 | Description | What to change in your play | 27 |
 | CTA | Learn More | |
-| Visual | Close-up of the detail title ("The BB defends too much vs the c-bet") and the "How to exploit" line, nothing else around it. | |
+| Visual | Close-up of the detail title ("The SB folds too much vs the 33% c-bet") and the "How to exploit" line, nothing else around it. | |
 
 ---
