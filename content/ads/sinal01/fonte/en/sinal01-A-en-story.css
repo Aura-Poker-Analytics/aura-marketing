@@ -1,0 +1,51 @@
+
+@font-face{font-family:"Montserrat";src:url("file:///C:/Users/Rafael/Documents/GitHub/aura-main/_wt-mkt-sinal01/instagram/templates/fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:"Montserrat","Segoe UI",sans-serif;position:relative;display:flex;flex-direction:column;
+  padding:250px 72px 250px;-webkit-font-smoothing:antialiased}
+.top{display:flex;align-items:center;justify-content:space-between;height:64px;flex:none}
+.brand{display:flex;align-items:center;gap:16px;height:100%}
+.brand .ic{width:58px;height:44px}.brand .wm{width:132px}
+.brand svg{width:100%;height:100%;display:block}
+.foot{display:flex;align-items:center;justify-content:space-between;flex:none;height:56px;font-size:26px;font-weight:600;letter-spacing:.02em}
+.age{font-weight:800;font-size:26px;border:3px solid currentColor;border-radius:11px;padding:4px 12px}
+.main{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:48px 0 40px}
+h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005em}
+.sup{font-weight:500;line-height:1.3}
+
+body{background:radial-gradient(1100px 800px at 85% -8%,rgba(212,164,24,.20),transparent 60%),radial-gradient(900px 700px at 0% 105%,rgba(34,53,89,.55),transparent 60%),#020617;color:#fff}
+.brand{color:#D4A418}
+.badge{font-size:26px;font-weight:900;letter-spacing:.14em;color:#0F1526;background:linear-gradient(180deg,#FCD34D,#F59E0B);border-radius:12px;padding:12px 22px}
+h1{font-size:84px}.hl{color:#FBBF24}
+.sup{font-size:42px;color:#E2E8F0;margin-top:20px}
+.foot{color:#94A3B8}
+
+.spot{background:#0F172A;border:2px solid rgba(251,191,36,.55);border-radius:2.8em;padding:3.6em 3.8em 3.4em;color:#fff;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.spot .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.2em}
+.spot .mod{display:flex;align-items:center;gap:.9em;font-size:2.4em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FBBF24}
+.spot .mod i{width:1.5em;height:1.15em;display:block}.spot .mod i svg{width:100%;height:100%}
+.spot .chip{font-size:2.2em;font-weight:800;letter-spacing:.08em;color:#FBBF24;border:2px solid rgba(251,191,36,.6);border-radius:.5em;padding:.3em .7em;background:rgba(251,191,36,.08)}
+.spot .ttl{display:flex;align-items:baseline;gap:1.3em;flex-wrap:wrap}
+.spot .ttl b{font-size:6.2em;font-weight:800;letter-spacing:-.01em}
+.spot .ttl span{font-size:3em;font-weight:600;color:#CBD5E1}
+.spot .lbl{font-size:3em;font-weight:600;color:#CBD5E1;margin-top:.5em}
+.spot .nums{display:flex;justify-content:space-between;align-items:flex-end;margin-top:.5em}
+.spot .nums div{display:flex;flex-direction:column}
+.spot .nums .k{font-size:2.8em;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.spot .nums .v{font-size:9.6em;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.spot .nums .f .k,.spot .nums .f .v{color:#34C9E6}
+.spot .nums .g{align-items:flex-end}
+.spot .nums .g .k,.spot .nums .g .v{color:#5FDB9C}
+.spot .track{position:relative;height:3.4em;border-radius:1.7em;background:#1E293B;margin-top:.7em}
+.spot .fill{position:absolute;left:0;top:0;bottom:0;border-radius:1.7em 0 0 1.7em;background:linear-gradient(90deg,#0C7F99,#34C9E6)}
+.spot .gap{position:absolute;top:.45em;bottom:.45em;background:repeating-linear-gradient(135deg,rgba(251,191,36,.95) 0 .5em,rgba(251,191,36,.25) .5em 1em)}
+.spot .band{position:absolute;top:-.5em;bottom:-.5em;border:.18em solid #5FDB9C;border-radius:.6em;background:rgba(95,219,156,.22)}
+.spot .tick{position:absolute;top:-.9em;bottom:-.9em;width:.4em;margin-left:-.2em;border-radius:.2em;background:#5FDB9C}
+.spot .rl{display:flex;justify-content:space-between;margin-top:1.1em;font-size:2.8em;font-weight:700}
+.spot .rl .a{color:#FBBF24}.spot .rl .b{color:#5FDB9C}
+.spot .over{display:inline-flex;align-items:center;gap:.5em;font-size:2.4em;font-weight:800;letter-spacing:.1em;color:#FCA5A5;border:2px solid rgba(252,165,165,.5);background:rgba(173,44,52,.28);border-radius:.5em;padding:.3em .7em;margin-top:1em;align-self:flex-start}
+.spot .how{margin-top:1.6em;border-top:2px solid rgba(148,163,184,.25);padding-top:1.3em}
+.spot .how .k{font-size:2.4em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FBBF24}
+.spot .how .t{font-size:3.9em;font-weight:700;margin-top:.25em;line-height:1.15}
+.track .fill{width:53.8%}.track .gap{left:53.8%;width:13.7%}.track .band{left:67.5%;width:12%}.track .tick{left:73.5%}
