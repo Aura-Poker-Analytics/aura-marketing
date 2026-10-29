@@ -1,0 +1,31 @@
+
+@font-face{font-family:"Montserrat";src:url("file:///C:/Users/Rafael/Documents/GitHub/aura-main/_wt-mkt-sinal01/instagram/templates/fonts/Montserrat-Variable-latin.woff2") format("woff2");font-weight:100 900;font-display:block}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{font-family:"Montserrat","Segoe UI",sans-serif;position:relative;display:flex;flex-direction:column;
+  padding:60px 72px 56px;-webkit-font-smoothing:antialiased}
+.top{display:flex;align-items:center;justify-content:space-between;height:64px;flex:none}
+.brand{display:flex;align-items:center;gap:16px;height:100%}
+.brand .ic{width:58px;height:44px}.brand .wm{width:132px}
+.brand svg{width:100%;height:100%;display:block}
+.foot{display:flex;align-items:center;justify-content:space-between;flex:none;height:56px;font-size:26px;font-weight:600;letter-spacing:.02em}
+.age{font-weight:800;font-size:26px;border:3px solid currentColor;border-radius:11px;padding:4px 12px}
+.main{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding:18px 0 14px}
+h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005em}
+.sup{font-weight:500;line-height:1.3}
+
+body{background:radial-gradient(900px 700px at 0% 100%,rgba(240,98,107,.20),transparent 62%),#090B10;color:#fff}
+.brand{color:#fff}
+h1{font-size:86px;letter-spacing:-.005em}
+.sup{font-size:40px;color:#CBD5E1;margin-top:20px}
+.foot{color:#94A3B8}
+.zoom{margin:0 -72px;background:#10151F;border-top:2px solid #2A2F3C;border-bottom:2px solid #2A2F3C;padding:44px 72px 46px}
+.zoom .ctx{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:30px;font-weight:700;color:#CBD5E1}
+.zoom .ctx .tg{display:inline-flex;align-items:center;gap:10px;font-size:26px;font-weight:800;letter-spacing:.08em;color:#FF9AA0;border:2px solid rgba(255,154,160,.5);background:rgba(173,44,52,.25);border-radius:12px;padding:8px 16px}
+.zoom .ctx .tg i{width:26px;height:26px;display:block}
+.zoom .tt{font-size:80px;font-weight:900;text-transform:uppercase;line-height:1.04;margin-top:26px}
+.zoom .tt .hl{color:#F0626B}
+.nw{white-space:nowrap}
+.zoom .how{margin-top:30px;border-left:12px solid #F0626B;background:rgba(240,98,107,.10);border-radius:0 20px 20px 0;padding:22px 30px}
+.zoom .how .k{font-size:26px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FF9AA0}
+.zoom .how .tx{font-size:52px;font-weight:800;line-height:1.12;margin-top:8px}

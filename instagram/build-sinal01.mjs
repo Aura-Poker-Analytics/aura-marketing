@@ -20,13 +20,15 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TPL = path.join(ROOT, 'instagram/templates');
 const ART = path.join(ROOT, 'content/ads/sinal01/art');
 const OUT2 = path.join(ROOT, 'instagram/output/sinal01');
+/* HTML-fonte e CSS por idioma (o casa-lint le en/ como ingles); o CSS fica em .css, fora do lint de texto */
+const SRC = path.join(ROOT, 'content/ads/sinal01/fonte');
 const CHROME = process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const ONLY_HTML = process.argv.includes('--html');
 fs.mkdirSync(ART, { recursive: true });
 fs.mkdirSync(OUT2, { recursive: true });
 
 /* logos oficiais: extraidos do template existente (nada retipado) */
-const tplSrc = fs.readFileSync(path.join(TPL, 'solver-vs-field.html'), 'utf8');
+const tplSrc = fs.readFileSync(path.join(TPL, 'carrossel-capa.html'), 'utf8');
 const ICON = /const ICON_PATHS = `([\s\S]*?)`;/.exec(tplSrc)[1];
 const LETTERS = /const AURA_LETTERS = `([\s\S]*?)`;/.exec(tplSrc)[1];
 const ICON_SVG = `<svg viewBox="0 0 60 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${ICON}</svg>`;
@@ -110,14 +112,15 @@ const spotCss = `
 .spot .how{margin-top:1.6em;border-top:2px solid rgba(148,163,184,.25);padding-top:1.3em}
 .spot .how .k{font-size:2.4em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FBBF24}
 .spot .how .t{font-size:3.9em;font-weight:700;margin-top:.25em;line-height:1.15}
+.track .fill{width:53.8%}.track .gap{left:53.8%;width:13.7%}.track .band{left:67.5%;width:12%}.track .tick{left:73.5%}
 `;
 function rulerHtml(lang, withLabels = true) {
   const t = T[lang];
   return `<div class="track">
-    <div class="fill" style="width:53.8%"></div>
-    <div class="gap" style="left:53.8%;width:13.7%"></div>
-    <div class="band" style="left:67.5%;width:12%"></div>
-    <div class="tick" style="left:73.5%"></div>
+    <div class="fill"></div>
+    <div class="gap"></div>
+    <div class="band"></div>
+    <div class="tick"></div>
   </div>
   ${withLabels ? `<div class="rl"><span class="a">${num(lang, '13.7')}% ${t.below}</span></div>` : ''}`;
 }
@@ -278,7 +281,7 @@ h1{font-size:${big ? 96 : 86}px;letter-spacing:-.005em}
 function page(lang, fmt, css, body) {
   const t = T[lang];
   return `<!DOCTYPE html>
-<html lang="${t.lang}"><head><meta charset="UTF-8"><title>SINAL01 ${lang} ${fmt}</title>
+<html lang="${t.lang}"><head><meta charset="UTF-8">
 <style>${baseCss(fmt)}${css}</style></head><body>
 ${body}
 <div class="foot"><span>${t.foot}</span><span class="age">18+</span></div>
@@ -289,10 +292,15 @@ const PAGES = { A: pageA, B: pageB, C: pageC, D: pageD };
 const jobs = [];
 for (const ang of Object.keys(PAGES)) for (const lang of ['pt', 'en']) for (const fmt of ['feed', 'story']) {
   const name = `sinal01-${ang}-${lang}-${fmt}`;
-  fs.writeFileSync(path.join(ART, `${name}.html`), PAGES[ang](lang, fmt));
-  jobs.push({ name, fmt });
+  const dir = path.join(SRC, lang);
+  fs.mkdirSync(dir, { recursive: true });
+  const full = PAGES[ang](lang, fmt);
+  const css = /<style>([\s\S]*?)<\/style>/.exec(full)[1];
+  fs.writeFileSync(path.join(dir, `${name}.css`), css);
+  fs.writeFileSync(path.join(dir, `${name}.html`), full.replace(/<style>[\s\S]*?<\/style>/, `<link rel="stylesheet" href="${name}.css">`));
+  jobs.push({ name, fmt, dir });
 }
-console.log(`${jobs.length} HTML gerados em ${ART}`);
+console.log(`${jobs.length} HTML gerados em ${SRC}`);
 if (ONLY_HTML) process.exit(0);
 
 for (const j of jobs) {
@@ -300,7 +308,7 @@ for (const j of jobs) {
   const H = j.fmt === 'story' ? 1920 : 1350;
   execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--allow-file-access-from-files',
     `--window-size=1080,${H}`, '--force-device-scale-factor=1', '--virtual-time-budget=3000',
-    `--screenshot=${png}`, pathToFileURL(path.join(ART, `${j.name}.html`)).href], { stdio: 'ignore' });
+    `--screenshot=${png}`, pathToFileURL(path.join(j.dir, `${j.name}.html`)).href], { stdio: 'ignore' });
   fs.copyFileSync(png, path.join(OUT2, `${j.name}.png`));
   console.log('ok', j.name);
 }
