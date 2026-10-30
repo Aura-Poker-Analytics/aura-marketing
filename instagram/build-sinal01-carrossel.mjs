@@ -48,7 +48,7 @@ const T = {
     c7: { chip: 'Field Trends', h: 'O que <span class="hl">mudou</span> no field', p: 'Trimestre a trimestre: mudou ou oscilou?' },
     c8: { chip: 'Node-by-Node', h: 'A árvore da mão, <span class="hl">nó a nó</span>', p: 'De quem é a vez e a frequência de cada ação.', acts: ['Check', 'Donk', 'C-bet'] },
     c9: { chip: 'Plano Individual', h: 'Todos os módulos, <span class="hl">um login</span>',
-      mods: ['Preflop Analysis', 'Postflop Analysis', 'Field Ranges', 'Field Exploits', 'Field Trends', 'Node-by-Node', 'Aura IA'] },
+      mods: ['Preflop Analysis', 'Postflop Analysis', 'Field Ranges', 'Field Exploits', 'Field Trends', 'Node-by-Node'] },
     c10: { h: 'Comece grátis.<br><span class="hl">Sem cartão.</span>', btn: 'Criar conta grátis', foot: 'Ferramenta de estudo · 18+' },
   },
   en: {
@@ -62,7 +62,7 @@ const T = {
     c7: { chip: 'Field Trends', h: 'What <span class="hl">changed</span> in the field', p: 'Real change or normal variation?' },
     c8: { chip: 'Node-by-Node', h: 'The hand tree, <span class="hl">node by node</span>', p: 'Whose turn it is and how often each action.', acts: ['Check', 'Donk', 'C-bet'] },
     c9: { chip: 'Individual plan', h: 'Every module, <span class="hl">one login</span>',
-      mods: ['Preflop Analysis', 'Postflop Analysis', 'Field Ranges', 'Field Exploits', 'Field Trends', 'Node-by-Node', 'Aura IA'] },
+      mods: ['Preflop Analysis', 'Postflop Analysis', 'Field Ranges', 'Field Exploits', 'Field Trends', 'Node-by-Node'] },
     c10: { h: 'Start free.<br><span class="hl">No credit card.</span>', btn: 'Create free account', foot: 'Study tool · 18+' },
   },
 };
@@ -130,13 +130,14 @@ p.ctx{font-size:30px;font-weight:700;line-height:1.3;color:#CBD5E1;margin-top:26
 .pr.w1 i{width:26%}.pr.w2 i{width:38%}.pr.w3 i{width:54%}.pr.w4 i{width:76%}.pr.w5 i{width:64%}.pr.w6 i{width:44%}
 
 /* 06 grade */
-.duo{display:flex;gap:24px;margin-top:16px}
+.duo{display:flex;gap:20px;margin:16px -34px 0}
 .duo .g{flex:1;display:flex;flex-direction:column;gap:18px}
-.duo .gl{font-size:44px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.duo .gl{font-size:52px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .duo .g.fld .gl{color:#34C9E6}.duo .g.gt .gl{color:#5FDB9C}
-.gridw{display:grid;width:100%;grid-template-columns:repeat(13,1fr);gap:3px}
-.gridw i{display:block;aspect-ratio:1/1;border-radius:4px;opacity:.55}
-.gridw i.d{opacity:1;box-shadow:inset 0 0 0 4px #FBBF24}
+.gridw{display:grid;width:100%;grid-template-columns:repeat(6,1fr);gap:5px}
+.gridw i{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:10px;font-style:normal;font-size:30px;font-weight:800;color:#fff;opacity:.28}
+.gridw i.d{opacity:1;box-shadow:inset 0 0 0 5px #FBBF24}
+.gridw i.d.f{background:#2A6F8F}
 .gridw i.r{background:#AD2C34}.gridw i.f{background:#16384A}.gridw i.m{background:linear-gradient(90deg,#AD2C34 0 55%,#16384A 55% 100%)}
 
 /* 07 tendencia e 08 arvore */
@@ -259,17 +260,22 @@ function c06(lang) {
     if (hi === 3) return lo === 4 ? 'm' : 'f';
     return 'f';
   };
-  /* diferencas plausiveis: o field abre mais offsuit fraca e folda suited que o GTO joga (mesmas celulas destacadas nos dois) */
-  const fieldRaise = [[6, 0], [7, 0], [5, 1], [6, 1], [4, 2], [5, 2], [5, 3], [6, 4]];
-  const fieldFold = [[2, 6], [3, 6], [4, 7], [1, 8]];
-  const diff = new Set([...fieldRaise, ...fieldFold].map(([i, j]) => i * 13 + j));
+  /* recorte A..9 (6x6) com o mesmo bloco nos dois grids; notacao padrao: par na diagonal, suited acima, offsuit abaixo.
+     diferencas plausiveis: o field abre mais offsuit fraca e folda suited que o GTO joga (mesmas celulas destacadas nos dois) */
+  const N6 = 6, R = 'AKQJT9';
+  const fieldRaise = [[5, 0], [5, 1], [4, 1], [5, 2], [4, 2], [5, 3], [4, 3], [5, 4]];
+  const fieldFold = [[1, 5], [2, 5], [3, 5], [2, 4]];
+  const has = (list, i, j) => list.some(([x, y]) => x === i && y === j);
   const grid = (isField) => {
     let cells = '';
-    for (let i = 0; i < 13; i++) for (let j = 0; j < 13; j++) {
-      const d = diff.has(i * 13 + j);
+    for (let i = 0; i < N6; i++) for (let j = 0; j < N6; j++) {
+      const raise = has(fieldRaise, i, j), fold = has(fieldFold, i, j), d = raise || fold;
       let k = kind(i, j);
-      if (isField && d) k = fieldRaise.some(([x, y]) => x === i && y === j) ? 'r' : 'f';
-      cells += `<i class="${k}${d ? ' d' : ''}"></i>`;
+      if (isField && raise) k = 'r';
+      if (isField && fold) k = 'f';
+      const hi = Math.min(i, j), lo = Math.max(i, j);
+      const name = R[hi] + R[lo] + (i === j ? '' : i < j ? 's' : 'o');
+      cells += `<i class="${k}${d ? ' d' : ''}">${name}</i>`;
     }
     return `<div class="gridw">${cells}</div>`;
   };

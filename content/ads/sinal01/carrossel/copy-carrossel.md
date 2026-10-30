@@ -24,10 +24,10 @@ Visual da capa: fundo navy, título em caps, logo da Aura. Sem visual extra, sem
 | 3 | GTO ao lado de cada spot | Visual: 6,9 mi+ com a legenda "pontos de decisão GTO, do flop ao river". | Modo GTO: o número grande e nada mais. Chip "Modo GTO". |
 | 4 | Ação e reação | C-bet, barrel e raise do field, e como reagem. | Postflop Analysis: só as 3 barras de reação (Fold, Call, Raise), sem valor. Chip único "Exemplo · Postflop Analysis". Barras Fold 52, Call 34, Raise 14 (largura relativa, somam 100), sem número. |
 | 5 | Preflop, posição a posição | RFI, 3-bet e squeeze por buy-in e etapa. | Preflop Analysis: uma coluna de posições (UTG a BB) com barras sem valor. Chip único "Exemplo · Preflop Analysis". Sem barra de RFI no BB: a coluna vai de UTG a SB. |
-| 6 | Ranges do field, mão a mão | Em âmbar: onde o field difere do GTO. | Field Ranges: dois grids 13x13 lado a lado, "Field" e "GTO"; as mãos que diferem têm borda âmbar e as iguais ficam apagadas; sem legenda. Chip único "Exemplo · Field Ranges". |
+| 6 | Ranges do field, mão a mão | Em âmbar: onde o field difere do GTO. | Field Ranges: dois grids lado a lado, "Field" e "GTO", com o mesmo recorte 6x6 (A a 9) da grade 13x13 e o nome de cada mão (par na diagonal, suited acima, offsuit abaixo); as 12 mãos que diferem têm cor cheia e borda âmbar, as iguais ficam a 28% de opacidade; sem legenda. Chip único "Exemplo · Field Ranges". |
 | 7 | O que mudou no field | Trimestre a trimestre: mudou ou oscilou? | Field Trends: uma linha com a faixa de variação normal, sem legenda. Chip único "Exemplo · Field Trends". |
 | 8 | A árvore da mão, nó a nó | De quem é a vez e a frequência de cada ação. | Node-by-Node: árvore simples com Check, Donk e C-bet, sem número e sem filtro de textura. Chip único "Exemplo · Node-by-Node". |
-| 9 | Todos os módulos, um login | (sem linha de apoio) | Lista dos 7 módulos: Preflop Analysis, Postflop Analysis, Field Ranges, Field Exploits, Field Trends, Node-by-Node, Aura IA. Chip "Plano Individual". |
+| 9 | Todos os módulos, um login | (sem linha de apoio) | Lista dos 6 módulos: Preflop Analysis, Postflop Analysis, Field Ranges, Field Exploits, Field Trends, Node-by-Node. Chip "Plano Individual". |
 
 Regra de todos os cartões: título curto, no máximo 1 linha de apoio, 1 visual grande, no máximo 1 selo ou rótulo (o chip do módulo no topo; nos cartões 4 a 8 o chip junta exemplo e módulo, ex.: "Exemplo · Field Ranges"). Sem rodapé de dados.
 
