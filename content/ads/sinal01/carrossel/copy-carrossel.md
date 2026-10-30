@@ -20,7 +20,7 @@ Visual da capa: fundo navy, título em caps, logo da Aura. Sem visual extra, sem
 
 | Cartão | Título | Linha de apoio | Visual do cartão |
 | --- | --- | --- | --- |
-| 2 | O SB folda demais contra c-bet | Contexto: BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%. Dois números grandes: Field 41,5% e GTO 25,0%. Ação: C-bet for auto-profit! (em inglês nos dois idiomas) | Field Exploits: só os dois números lado a lado, sem barra, rótulo de overfold, contagem de mãos ou legenda. Chip "Novo · Field Exploits" (único rótulo). |
+| 2 | O SB folda demais contra c-bet | Contexto: BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%. Dois números grandes: Field 41,5% e GTO 25,0%. Ação: C-bet para ter auto-profit! (no EN: C-bet for auto-profit!) | Field Exploits: só os dois números lado a lado, sem barra, rótulo de overfold, contagem de mãos ou legenda. Chip "Novo · Field Exploits" (único rótulo). |
 | 3 | GTO ao lado de cada spot | Visual: 6,9 mi+ com a legenda "pontos de decisão GTO, do flop ao river". | Modo GTO: o número grande e nada mais. Chip "Modo GTO". |
 | 4 | Ação e reação | C-bet, barrel e raise do field, e como reagem. | Postflop Analysis: só as 3 barras de reação (Fold, Call, Raise), sem valor. Chip único "Exemplo · Postflop Analysis". Barras Fold 52, Call 34, Raise 14 (largura relativa, somam 100), sem número. |
 | 5 | Preflop, posição a posição | RFI, 3-bet e squeeze por buy-in e etapa. | Preflop Analysis: uma coluna de posições (UTG a BB) com barras sem valor. Chip único "Exemplo · Preflop Analysis". Sem barra de RFI no BB: a coluna vai de UTG a SB. |

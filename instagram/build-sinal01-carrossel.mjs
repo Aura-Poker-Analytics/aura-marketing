@@ -40,7 +40,7 @@ const T = {
   pt: {
     lang: 'pt-BR', dec: ',', url: 'www.aurapoker.com', ill: 'Exemplo ilustrativo',
     c1: { a: 'O solver mostra o equilíbrio.', b: 'A Aura mostra o field.', s: 'Do preflop ao river, ao lado do GTO.' },
-    c2: { chip: 'Novo · Field Exploits', h: 'O SB folda <span class="hl">demais</span> contra c-bet', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%', field: 'Field', gto: 'GTO', act: 'C-bet for auto-profit!' },
+    c2: { chip: 'Novo · Field Exploits', h: 'O SB folda <span class="hl">demais</span> contra c-bet', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%', field: 'Field', gto: 'GTO', act: 'C-bet para ter auto-profit!' },
     c3: { chip: 'Modo GTO', h: 'GTO ao lado de <span class="hl">cada spot</span>', big: '6,9 mi+', cap: 'pontos de decisão GTO, do flop ao river' },
     c4: { chip: 'Postflop Analysis', h: 'Ação e <span class="hl">reação</span>', p: 'C-bet, barrel e raise do field, e como reagem.', r: ['Fold', 'Call', 'Raise'] },
     c5: { chip: 'Preflop Analysis', h: 'Preflop, <span class="hl">posição a posição</span>', p: 'RFI, 3-bet e squeeze por buy-in e etapa.' },

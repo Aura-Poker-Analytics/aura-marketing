@@ -16,7 +16,7 @@ Público: grinder de MTT que já estuda e quer exploit pronto, por spot.
 | Headline do anúncio | Onde o field erra no flop | 25 |
 | Descrição | Field Exploits · Novo módulo | 28 |
 | CTA | Learn More | |
-| Visual | Chip "Novo · Field Exploits" (único rótulo) e 18+ pequeno no canto inferior direito. Dois números grandes lado a lado, Field 41,5% e GTO 25,0%, e a linha de ação "C-bet for auto-profit!" (em inglês nos dois idiomas). Sem barra, sem contagem de mãos, sem legenda. | |
+| Visual | Chip "Novo · Field Exploits" (único rótulo) e 18+ pequeno no canto inferior direito. Dois números grandes lado a lado, Field 41,5% e GTO 25,0%, e a linha de ação "C-bet para ter auto-profit!". Sem barra, sem contagem de mãos, sem legenda. | |
 
 ## B) MÉTODO, NÃO MAIS CONTEÚDO
 
@@ -32,7 +32,7 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 | Headline do anúncio | Estude o spot certo primeiro | 28 |
 | Descrição | Onde o field mais erra | 22 |
 | CTA | Learn More | |
-| Visual | Um card grande "BTN vs SB · 25bb · flop A-high rainbow" com o rótulo "Folda demais" em vermelho. 18+ discreto no topo à direita. Sem chip e sem lista. | |
+| Visual | Um card grande com o chip "Field Exploits" (ícone da Aura) no topo, "BTN vs SB", "25bb · flop A-high rainbow" e o rótulo vermelho "Folda demais" (variável `tag` no dicionário T da build). 18+ discreto no topo à direita. Sem lista, sem seta. | |
 
 ## C) ENTRADA GRÁTIS
 
@@ -50,7 +50,7 @@ Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada mód
 | Headline do anúncio | Comece grátis, sem cartão | 25 |
 | Descrição | Conta grátis, sem cartão | 24 |
 | CTA | Sign Up | |
-| Visual | Um celular só, centralizado e com respiro abaixo do apoio, com a tela de criar conta e o botão "Criar conta grátis". 18+ discreto no topo à direita. Sem segundo celular, sem "Sem cartão" repetido, sem e-mail ou conta visível. | |
+| Visual | Dois celulares lado a lado: à esquerda o cadastro ("Criar conta" e o botão "Criar conta grátis"); à direita um card enxuto do Field Exploits (chip "Field Exploits", "BTN vs SB · 25bb", FIELD 41,5% e GTO 25,0% grandes). Sem contagem de mãos, sem "acima da faixa", sem Overfold, sem barra. 18+ discreto no topo à direita. | |
 
 ## D) SEU ERRO EM SEGUNDOS
 
@@ -60,10 +60,10 @@ Público: quem trava no tempo de estudo e quer chegar rápido à decisão.
 
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
-| Headline da arte | O SB folda demais contra c-bet | 6 palavras |
-| Apoio da arte | Seu spot, lido em segundos (kicker pequeno acima do título) | 5 palavras |
+| Headline da arte | O SB folda demais contra a c-bet do BTN | 9 palavras |
+| Apoio da arte | Seu spot, lido em segundos (kicker pequeno); diferença "+17% a mais que o GTO" (41,5 − 25,0 = 16,5, arredondado) | |
 | Primary text | Horas no solver por spot? BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5%, o GTO 25,0%. C-bet mais vezes. | 112 |
 | Headline do anúncio | Leia o spot em segundos | 23 |
 | Descrição | O que muda na sua decisão | 26 |
 | CTA | Learn More | |
-| Visual | Kicker pequeno "Seu spot, lido em segundos", título único grande "O SB folda demais contra c-bet" e, embaixo, a ação "C-bet for auto-profit!". 18+ discreto no topo à direita. Sem segundo título, sem contexto empilhado, sem selo de desvio. | |
+| Visual | Kicker pequeno "Seu spot, lido em segundos"; o título "O SB folda demais contra a c-bet do BTN" e o "+17%" (com "a mais que o GTO") dominam; embaixo, a ação "C-bet para ter auto-profit!" em tamanho menor. 18+ discreto no topo à direita. Sem contexto empilhado, sem selo de desvio. | |

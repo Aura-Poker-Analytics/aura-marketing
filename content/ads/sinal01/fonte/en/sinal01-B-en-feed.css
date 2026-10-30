@@ -23,5 +23,7 @@ h1 s::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:10p
 .card{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#fff;border:4px solid #223559;border-radius:48px;box-shadow:0 30px 70px rgba(15,21,38,.18);padding:120px 60px}
 .card .p{font-size:104px;font-weight:800;line-height:1.05;color:#0F1526;letter-spacing:-.01em}
 .card .q{font-size:46px;font-weight:600;line-height:1.25;color:#475569;margin-top:20px}
+.card .fe{display:inline-flex;align-items:center;gap:14px;margin-bottom:30px;padding:10px 22px;border:2px solid #223559;border-radius:14px;color:#223559;font-size:30px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.card .fe i{display:block;width:44px;height:33px}.card .fe i svg{width:100%;height:100%}
 .card .tag{display:inline-block;margin-top:34px;padding:16px 34px;border-radius:999px;background:#FBE4E5;color:#8E1F27;font-size:46px;font-weight:800;letter-spacing:.01em}
 .age{color:#475569}
