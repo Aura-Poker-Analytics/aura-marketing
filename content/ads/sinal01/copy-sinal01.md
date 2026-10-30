@@ -10,13 +10,13 @@ Público: grinder de MTT que já estuda e quer exploit pronto, por spot.
 
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
-| Headline da arte | Field Exploits: onde o field erra | 6 palavras |
-| Apoio da arte | Spot a spot. E como explorar. | 6 palavras |
+| Headline da arte | Onde o field erra | 4 palavras |
+| Contexto da arte | BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33% | |
 | Primary text | BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5% contra c-bet de 33%. GTO: 25,0%. C-bet mais vezes. | 105 |
 | Headline do anúncio | Onde o field erra no flop | 25 |
 | Descrição | Field Exploits · Novo módulo | 28 |
 | CTA | Learn More | |
-| Visual | Card do spot no app (BTN vs SB, 25bb, flop A-high rainbow, 9.937 mãos; régua Field 41,5% vs faixa do GTO 19,0 a 31,0 em verde, trecho hachurado até o field, linha "Como explorar") com selo NOVO MÓDULO no canto. | |
+| Visual | Chip "Novo · Field Exploits" (único rótulo) e 18+ pequeno no canto inferior direito. Dois números grandes lado a lado, Field 41,5% e GTO 25,0%, e a linha de ação "C-bet for auto-profit!" (em inglês nos dois idiomas). Sem barra, sem contagem de mãos, sem legenda. | |
 
 ## B) MÉTODO, NÃO MAIS CONTEÚDO
 
@@ -32,13 +32,13 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 | Headline do anúncio | Estude o spot certo primeiro | 28 |
 | Descrição | Onde o field mais erra | 22 |
 | CTA | Learn More | |
-| Visual | Lista de spots do field no app, com o BTN vs SB 25bb destacado e a seta Overfold ao lado. | |
+| Visual | Um card grande "BTN vs SB · 25bb · flop A-high rainbow" com o rótulo "Folda demais" em vermelho. 18+ discreto no topo à direita. Sem chip e sem lista. | |
 
 ## C) ENTRADA GRÁTIS
 
 Público: quem ainda não conhece a Aura e quer testar sem compromisso.
 
-Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada módulo (product-truth §6 e §9; STATE.md). A copy diz só "grátis, sem cartão". Não promete módulo completo no Grátis, nem diz qual spot do Field Exploits o Grátis abre: o spot do mockup é exemplo.
+Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada módulo (product-truth §6 e §9; STATE.md). A copy diz só "grátis, sem cartão" e não promete módulo completo no Grátis.
 
 ### C / PT-BR
 
@@ -50,7 +50,7 @@ Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada mód
 | Headline do anúncio | Comece grátis, sem cartão | 25 |
 | Descrição | Conta grátis, sem cartão | 24 |
 | CTA | Sign Up | |
-| Visual | Tela de cadastro simples ao lado da tela de um spot de exemplo do Field Exploits (rótulo "Exemplo de spot", sem selo de grátis, sem e-mail ou conta visível). | |
+| Visual | Um celular só, centralizado e com respiro abaixo do apoio, com a tela de criar conta e o botão "Criar conta grátis". 18+ discreto no topo à direita. Sem segundo celular, sem "Sem cartão" repetido, sem e-mail ou conta visível. | |
 
 ## D) SEU ERRO EM SEGUNDOS
 
@@ -60,10 +60,10 @@ Público: quem trava no tempo de estudo e quer chegar rápido à decisão.
 
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
-| Headline da arte | Spot lido em segundos | 4 palavras |
-| Apoio da arte | Sem horas de solver. Com ajuste pronto. | 7 palavras |
+| Headline da arte | O SB folda demais contra c-bet | 6 palavras |
+| Apoio da arte | Seu spot, lido em segundos (kicker pequeno acima do título) | 5 palavras |
 | Primary text | Horas no solver por spot? BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5%, o GTO 25,0%. C-bet mais vezes. | 112 |
 | Headline do anúncio | Leia o spot em segundos | 23 |
 | Descrição | O que muda na sua decisão | 26 |
 | CTA | Learn More | |
-| Visual | Close no título do detalhe ("O SB folda demais contra c-bet de 33%") e na linha "Como explorar", sem mais nada em volta. | |
+| Visual | Kicker pequeno "Seu spot, lido em segundos", título único grande "O SB folda demais contra c-bet" e, embaixo, a ação "C-bet for auto-profit!". 18+ discreto no topo à direita. Sem segundo título, sem contexto empilhado, sem selo de desvio. | |
