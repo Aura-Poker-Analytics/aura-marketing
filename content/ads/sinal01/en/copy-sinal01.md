@@ -11,12 +11,12 @@ Público: grinder de MTT que já estuda e quer exploit pronto, por spot.
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
 | Art headline | Where the field gets it wrong | 6 words |
-| Art support line | Spot by spot, and how to exploit it. | 8 words |
+| Art context line | BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet | |
 | Primary text | BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5% vs a 33% c-bet. GTO: 25.0%. C-bet more often. | 102 |
 | Ad headline | Where the field gets it wrong | 29 |
 | Description | Field Exploits · New module | 27 |
 | CTA | Learn More | |
-| Visual | Spot card in the app (BTN vs SB, 25bb, A-high rainbow flop, 9,937 hands; field fold bar 41.5% vs the green GTO range 19.0 to 31.0, hatched stretch up to the field, "How to exploit" line) with a NEW MODULE badge in the corner. | |
+| Visual | "New · Field Exploits" chip (the only label) and a small 18+ at the bottom right. Two big numbers side by side, Field 41.5% and GTO 25.0%, and the action line "C-bet for auto-profit!" (English in both languages). No bar, no hand count, no legend. | |
 
 ---
 
@@ -34,7 +34,7 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 | Ad headline | Study the right spot first | 26 |
 | Description | Where the field errs most | 25 |
 | CTA | Learn More | |
-| Visual | Field spot list in the app, BTN vs SB 25bb highlighted with an Overfold tag. | |
+| Visual | One large card "BTN vs SB · 25bb · A-high rainbow flop" with a simple highlight arrow. Discreet 18+ at the top right. No chip, no list, no deviation tag. | |
 
 ---
 
@@ -42,19 +42,19 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 
 Público: quem ainda não conhece a Aura e quer testar sem compromisso.
 
-Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada módulo (product-truth §6 e §9; STATE.md). A copy diz só "grátis, sem cartão". Não promete módulo completo no Grátis, nem diz qual spot do Field Exploits o Grátis abre: o spot do mockup é exemplo.
+Checado no repo: o plano Grátis existe, sem cartão, e dá preview de cada módulo (product-truth §6 e §9; STATE.md). A copy diz só "grátis, sem cartão" e não promete módulo completo no Grátis.
 
 ### C / EN
 
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
-| Art headline | Start free. No card needed. | 5 words |
+| Art headline | Start free. No credit card. | 5 words |
 | Art support line | See where the field errs. | 5 words |
-| Primary text | Start free, no card. BTN vs SB, 25bb, A-high rainbow flop: the SB folds too much vs the c-bet. Try it. | 102 |
-| Ad headline | Start free, no card needed | 26 |
-| Description | Free account, no card | 21 |
+| Primary text | Start free, no credit card. BTN vs SB, 25bb, A-high rainbow flop: the SB folds too much vs the c-bet. Try it. | 109 |
+| Ad headline | Start free, no credit card | 26 |
+| Description | Free account, no credit card | 28 |
 | CTA | Sign Up | |
-| Visual | Simple sign-up screen next to a Field Exploits example spot screen (label "Example spot", no free badge, no email or account visible). | |
+| Visual | A single phone, centered with breathing room below the support line, showing the create-account screen and the "Create free account" button. Discreet 18+ at the top right. No second phone, no repeated "no credit card", no email or account visible. | |
 
 ---
 
@@ -66,12 +66,12 @@ Público: quem trava no tempo de estudo e quer chegar rápido à decisão.
 
 | Campo | Texto | Caracteres |
 | --- | --- | --- |
-| Art headline | Your spot, read in seconds | 5 words |
-| Art support line | Not hours in a solver. | 5 words |
+| Art headline | The SB folds too much vs c-bet | 7 words |
+| Art support line | Your spot, read in seconds (small kicker above the title) | 5 words |
 | Primary text | Hours in a solver per spot? BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5%, GTO 25.0%. C-bet more often. | 114 |
 | Ad headline | Read the spot in seconds | 24 |
 | Description | What to change in your play | 27 |
 | CTA | Learn More | |
-| Visual | Close-up of the detail title ("The SB folds too much vs the 33% c-bet") and the "How to exploit" line, nothing else around it. | |
+| Visual | Small kicker "Your spot, read in seconds", one big title "The SB folds too much vs c-bet" and, below, the action "C-bet for auto-profit!". Discreet 18+ at the top right. No second title, no stacked context, no deviation tag. | |
 
 ---

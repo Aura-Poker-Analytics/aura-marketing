@@ -8,32 +8,21 @@ body{font-family:"Montserrat","Segoe UI",sans-serif;position:relative;display:fl
 .brand{display:flex;align-items:center;gap:16px;height:100%}
 .brand .ic{width:58px;height:44px}.brand .wm{width:132px}
 .brand svg{width:100%;height:100%;display:block}
-.foot{display:flex;align-items:center;justify-content:space-between;flex:none;height:56px;font-size:26px;font-weight:600;letter-spacing:.02em}
-.age{font-weight:800;font-size:26px;border:3px solid currentColor;border-radius:11px;padding:4px 12px}
-.main{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:48px 0 40px}
-h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005em}
+.age{font-weight:800;font-size:24px;border:2px solid currentColor;border-radius:10px;padding:5px 12px;opacity:.8}
+.foot{display:flex;justify-content:flex-end;flex:none;height:44px;margin-top:10px}
+.main{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:0px;padding:48px 0 40px}
+h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005em;text-wrap:balance}
 .sup{font-weight:500;line-height:1.3}
 
 body{background:linear-gradient(180deg,#F4F6FA 0%,#DCE4EF 100%);color:#0F1526}
 .brand{color:#0F1526}
-.badge{font-size:24px;font-weight:800;letter-spacing:.12em;color:#fff;background:#223559;border-radius:12px;padding:10px 20px}
 h1{font-size:92px;color:#0F1526}
 h1 s{text-decoration:none;position:relative;color:#223559;white-space:nowrap}
 h1 s::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:12px;background:#AD2C34;border-radius:6px;transform:rotate(-2deg)}
 .sup{font-size:44px;color:#2F435C;margin-top:22px}.sup b{color:#0F1526;font-weight:800}
-.foot{color:#475569}
-.list{background:#fff;border-radius:34px;box-shadow:0 30px 70px rgba(15,21,38,.18),0 2px 0 rgba(15,21,38,.06);padding:34px 36px 30px;width:100%}
-.list .lh{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-.list .lh .m{display:flex;align-items:center;gap:14px;font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#223559}
-.list .lh .m i{width:38px;height:29px;display:block;color:#223559}.list .lh .m i svg{width:100%;height:100%}
-.list .lh .c{font-size:24px;font-weight:700;color:#475569}
-.row{display:flex;align-items:center;justify-content:space-between;border-radius:22px;padding:22px 26px;margin-top:12px}
-.row.top1{background:#EEF3FA;border:3px solid #223559;padding:30px 30px;margin-top:0}
-.row.top1 .p{font-size:58px;font-weight:800;line-height:1.05;color:#0F1526}
-.row.top1 .q{font-size:30px;font-weight:600;color:#475569;margin-top:8px}
-.row.top1 .tag{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:800;letter-spacing:.06em;color:#8E1F27;background:#FBE4E5;border-radius:14px;padding:14px 20px}
-.row.top1 .tag i{width:30px;height:30px;display:block}
-.row.ghost{border:2px dashed #CBD5E1;filter:blur(4.5px)}
-.row.ghost .gb{display:flex;flex-direction:column;gap:12px}
-.row.ghost .gb i{display:block;height:26px;border-radius:13px;background:#475569}.row.ghost .gb i.s{height:18px;background:#94A3B8}
-.row.ghost .gr{display:block;width:180px;height:34px;border-radius:17px;background:#C9768B}
+.card{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#fff;border:4px solid #223559;border-radius:48px;box-shadow:0 30px 70px rgba(15,21,38,.18);padding:110px 60px}
+.card .p{font-size:112px;font-weight:800;line-height:1.05;color:#0F1526;letter-spacing:-.01em}
+.card .q{font-size:46px;font-weight:600;line-height:1.25;color:#475569;margin-top:20px}
+.card .ar{flex:none;width:150px;height:150px;border-radius:50%;background:#FBE4E5;color:#8E1F27;display:flex;align-items:center;justify-content:center}
+.card .ar svg{width:84px;height:84px}
+.age{color:#475569}
