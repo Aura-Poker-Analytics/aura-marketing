@@ -18,14 +18,23 @@ body{background:radial-gradient(1000px 760px at 50% 108%,rgba(127,227,174,.22),t
 .brand{color:#fff}
 h1{font-size:88px}.hl{color:#7FE3AE}
 .sup{font-size:44px;color:#D5F5E3;margin-top:20px}
-.stage{display:flex;justify-content:center;flex:none;margin-top:0px}
-.phone{position:relative;width:560px;height:1040px;border-radius:64px;background:#0F172A;border:10px solid #0B1220;box-shadow:0 0 0 2px #2B3A52,0 40px 80px rgba(0,0,0,.55);overflow:hidden;padding:34px 34px}
-.notch{position:absolute;top:12px;left:50%;width:120px;height:10px;margin-left:-60px;border-radius:6px;background:#1E293B}
+.stage{display:flex;justify-content:space-between;align-items:flex-start;flex:none;margin:0 -6px}
+.phone{position:relative;width:446px;height:980px;border-radius:60px;background:#0F172A;border:10px solid #0B1220;box-shadow:0 0 0 2px #2B3A52,0 40px 80px rgba(0,0,0,.55);overflow:hidden;padding:30px 28px}
+.phone.r{margin-top:60px}
+.notch{position:absolute;top:12px;left:50%;width:110px;height:10px;margin-left:-55px;border-radius:6px;background:#1E293B}
 .su{display:flex;flex-direction:column;height:100%;padding-top:34px}
-.su .lg{color:#D4A418;width:84px;height:63px}.su .lg svg{width:100%;height:100%}
-.su h2{font-size:40px;font-weight:800;margin-top:44px}
-.su .in{height:96px;border-radius:20px;background:#1E293B;border:2px solid #334155;margin-top:28px;display:flex;align-items:center;padding:0 26px}
+.su .lg{color:#D4A418;width:76px;height:57px}.su .lg svg{width:100%;height:100%}
+.su h2{font-size:38px;font-weight:800;margin-top:40px}
+.su .in{height:92px;border-radius:20px;background:#1E293B;border:2px solid #334155;margin-top:26px;display:flex;align-items:center;padding:0 24px}
 .su .in i{display:block;height:18px;border-radius:9px;background:#64748B}
 .su .in.a i{width:46%}.su .in.b i{width:30%}.su .in.c i{width:38%}
-.su .btn{margin-top:54px;height:108px;border-radius:24px;background:linear-gradient(180deg,#FCD34D,#F59E0B);color:#0F1526;font-size:31px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.su .btn{margin-top:50px;height:104px;border-radius:22px;background:linear-gradient(180deg,#FCD34D,#F59E0B);color:#0F1526;font-size:29px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center}
+.fx{display:flex;flex-direction:column;height:100%;padding-top:34px}
+.fx .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;font-size:25px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#FBBF24;border:2px solid rgba(251,191,36,.6);border-radius:12px;padding:9px 16px;background:rgba(251,191,36,.08)}
+.fx .chip i{display:block;width:34px;height:26px}.fx .chip i svg{width:100%;height:100%}
+.fx .sp{font-size:36px;font-weight:800;margin-top:44px;color:#fff}
+.fx .n{display:flex;flex-direction:column;margin-top:56px}
+.fx .n .k{font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.fx .n .v{font-size:108px;font-weight:800;line-height:1.02;letter-spacing:-.03em}
+.fx .n.f .k,.fx .n.f .v{color:#34C9E6}.fx .n.g .k,.fx .n.g .v{color:#5FDB9C}
 .age{color:#A9D6C2}

@@ -16,10 +16,13 @@ h1{font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:.005
 
 body{background:radial-gradient(900px 700px at 0% 100%,rgba(240,98,107,.20),transparent 62%),#090B10;color:#fff}
 .brand{color:#fff}
-.main{align-items:flex-start}
-.kick{font-size:40px;font-weight:700;letter-spacing:.02em;color:#FF9AA0}
+.main{align-items:flex-start;gap:0px}
+.kick{font-size:34px;font-weight:700;letter-spacing:.02em;color:#FF9AA0}
 .nw{white-space:nowrap}
-.tt{font-size:100px;font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:-.005em;margin-top:-30px}
+.tt{font-size:84px;font-weight:900;text-transform:uppercase;line-height:1.05;letter-spacing:-.005em;text-wrap:balance}
 .tt .hl{color:#F0626B}
-.act{border-left:12px solid #F0626B;background:rgba(240,98,107,.10);border-radius:0 20px 20px 0;padding:32px 36px;font-size:62px;font-weight:800;line-height:1.12}
+.dl{display:flex;flex-direction:column}
+.dl .v{font-size:250px;font-weight:900;line-height:.95;letter-spacing:-.04em;color:#F0626B}
+.dl .s{font-size:52px;font-weight:700;color:#E2E8F0;margin-top:10px}
+.act{border-left:10px solid #F0626B;background:rgba(240,98,107,.10);border-radius:0 16px 16px 0;padding:24px 30px;font-size:44px;font-weight:800;line-height:1.12}
 .age{color:#94A3B8}

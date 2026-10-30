@@ -35,18 +35,20 @@ const WORD_SVG = `<svg viewBox="1 204 594 129" fill="currentColor" xmlns="http:/
 /* ---------- textos (copy-sinal01.md) ---------- */
 const T = {
   pt: {
-    lang: 'pt-BR', dec: ',', field: 'Field', gto: 'GTO', action: 'C-bet for auto-profit!',
+    lang: 'pt-BR', dec: ',', field: 'Field', gto: 'GTO', action: 'C-bet para ter auto-profit!', fe: 'Field Exploits',
     A: { chip: 'Novo · Field Exploits', h: 'Onde o field <span class="hl">erra</span>', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%' },
     B: { h: 'Você não precisa<br>de <s>mais vídeo</s>', s: 'Precisa saber <b>o que estudar primeiro.</b>', l1: 'BTN vs SB', l2: '25bb · flop A-high rainbow', tag: 'Folda demais' },
     C: { h: 'Comece <span class="hl">grátis.</span><br>Sem cartão.', s: 'Veja onde o field erra.', create: 'Criar conta', btn: 'Criar conta grátis' },
-    D: { k: 'Seu spot, lido em segundos', title: 'O SB <span class="hl">folda demais</span> contra <span class="nw">c-bet</span>' },
+    C2: { chip: 'Field Exploits', l1: 'BTN vs SB · 25bb' },
+    D: { k: 'Seu spot, lido em segundos', title: 'O SB <span class="hl">folda demais</span> contra a c-bet do <span class="nw">BTN</span>', delta: '+17%', dsub: 'a mais que o GTO' },
   },
   en: {
-    lang: 'en', dec: '.', field: 'Field', gto: 'GTO', action: 'C-bet for auto-profit!',
+    lang: 'en', dec: '.', field: 'Field', gto: 'GTO', action: 'C-bet for auto-profit!', fe: 'Field Exploits',
     A: { chip: 'New · Field Exploits', h: 'Where the field<br>gets it <span class="hl">wrong</span>', ctx: 'BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet' },
-    B: { h: 'You don’t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', l1: 'BTN vs SB', l2: '25bb · A-high rainbow flop', tag: 'Overfolds' },
+    B: { h: 'You don’t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', l1: 'BTN vs SB', l2: '25bb · A-high rainbow flop', tag: 'Overfold' },
     C: { h: 'Start <span class="hl">free.</span><br>No credit card.', s: 'See where the field errs.', create: 'Create account', btn: 'Create free account' },
-    D: { k: 'Your spot, read in seconds', title: 'The SB <span class="hl">folds too much</span> vs <span class="nw">c-bet</span>' },
+    C2: { chip: 'Field Exploits', l1: 'BTN vs SB · 25bb' },
+    D: { k: 'Your spot, read in seconds', title: 'The SB <span class="hl">folds too much</span> vs the <span class="nw">BTN c-bet</span>', delta: '+17%', dsub: 'more than GTO' },
   },
 };
 const num = (lang, s) => s.replace('.', T[lang].dec);
@@ -107,59 +109,81 @@ h1 s::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:${b
 .card{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#fff;border:4px solid #223559;border-radius:48px;box-shadow:0 30px 70px rgba(15,21,38,.18);padding:${big ? '110px 60px' : '120px 60px'}}
 .card .p{font-size:${big ? 112 : 104}px;font-weight:800;line-height:1.05;color:#0F1526;letter-spacing:-.01em}
 .card .q{font-size:46px;font-weight:600;line-height:1.25;color:#475569;margin-top:20px}
+.card .fe{display:inline-flex;align-items:center;gap:14px;margin-bottom:30px;padding:10px 22px;border:2px solid #223559;border-radius:14px;color:#223559;font-size:30px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.card .fe i{display:block;width:44px;height:33px}.card .fe i svg{width:100%;height:100%}
 .card .tag{display:inline-block;margin-top:34px;padding:16px 34px;border-radius:999px;background:#FBE4E5;color:#8E1F27;font-size:${big ? 50 : 46}px;font-weight:800;letter-spacing:.01em}
 .age{color:#475569}`;
   return page(lang, fmt, css, `
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div><span class="age">18+</span></div>
   <div class="main"><div><h1>${t.B.h}</h1><p class="sup">${t.B.s}</p></div>
-    <div class="card"><div><div class="p">${t.B.l1}</div><div class="q">${t.B.l2}</div><span class="tag">${t.B.tag}</span></div></div></div>`);
+    <div class="card"><div><div class="fe"><i>${ICON_SVG}</i>${t.fe}</div><div class="p">${t.B.l1}</div><div class="q">${t.B.l2}</div><span class="tag">${t.B.tag}</span></div></div></div>`);
 }
 
-/* ---------- C: verde-escuro + menta, um celular ---------- */
+/* ---------- C: verde-escuro + menta, dois celulares limpos (cadastro + card Field Exploits enxuto) ---------- */
 function pageC(lang, fmt) {
   const t = T[lang], big = fmt === 'story';
-  const ph = big ? 1040 : 730, pw = big ? 560 : 452;
+  const ph = big ? 980 : 690, pw = 446;
   const css = `
 body{background:radial-gradient(1000px 760px at 50% 108%,rgba(127,227,174,.22),transparent 62%),linear-gradient(170deg,#04323B 0%,#02171C 100%);color:#fff}
 .brand{color:#fff}
 h1{font-size:${big ? 88 : 80}px}.hl{color:#7FE3AE}
 .sup{font-size:${big ? 44 : 40}px;color:#D5F5E3;margin-top:20px}
-.stage{display:flex;justify-content:center;flex:none;margin-top:${big ? 0 : 20}px}
-.phone{position:relative;width:${pw}px;height:${ph}px;border-radius:64px;background:#0F172A;border:10px solid #0B1220;box-shadow:0 0 0 2px #2B3A52,0 40px 80px rgba(0,0,0,.55);overflow:hidden;padding:34px 34px}
-.notch{position:absolute;top:12px;left:50%;width:120px;height:10px;margin-left:-60px;border-radius:6px;background:#1E293B}
+.stage{display:flex;justify-content:space-between;align-items:flex-start;flex:none;margin:${big ? '0 -6px' : '20px -6px 0'}}
+.phone{position:relative;width:${pw}px;height:${ph}px;border-radius:60px;background:#0F172A;border:10px solid #0B1220;box-shadow:0 0 0 2px #2B3A52,0 40px 80px rgba(0,0,0,.55);overflow:hidden;padding:30px 28px}
+.phone.r{margin-top:${big ? 60 : 44}px}
+.notch{position:absolute;top:12px;left:50%;width:110px;height:10px;margin-left:-55px;border-radius:6px;background:#1E293B}
 .su{display:flex;flex-direction:column;height:100%;padding-top:34px}
-.su .lg{color:#D4A418;width:84px;height:63px}.su .lg svg{width:100%;height:100%}
-.su h2{font-size:40px;font-weight:800;margin-top:${big ? 44 : 30}px}
-.su .in{height:${big ? 96 : 84}px;border-radius:20px;background:#1E293B;border:2px solid #334155;margin-top:${big ? 28 : 20}px;display:flex;align-items:center;padding:0 26px}
+.su .lg{color:#D4A418;width:76px;height:57px}.su .lg svg{width:100%;height:100%}
+.su h2{font-size:38px;font-weight:800;margin-top:${big ? 40 : 28}px}
+.su .in{height:${big ? 92 : 80}px;border-radius:20px;background:#1E293B;border:2px solid #334155;margin-top:${big ? 26 : 18}px;display:flex;align-items:center;padding:0 24px}
 .su .in i{display:block;height:18px;border-radius:9px;background:#64748B}
 .su .in.a i{width:46%}.su .in.b i{width:30%}.su .in.c i{width:38%}
-.su .btn{margin-top:${big ? 54 : 40}px;height:${big ? 108 : 96}px;border-radius:24px;background:linear-gradient(180deg,#FCD34D,#F59E0B);color:#0F1526;font-size:31px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.su .btn{margin-top:${big ? 50 : 36}px;height:${big ? 104 : 92}px;border-radius:22px;background:linear-gradient(180deg,#FCD34D,#F59E0B);color:#0F1526;font-size:29px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center}
+.fx{display:flex;flex-direction:column;height:100%;padding-top:34px}
+.fx .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;font-size:25px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#FBBF24;border:2px solid rgba(251,191,36,.6);border-radius:12px;padding:9px 16px;background:rgba(251,191,36,.08)}
+.fx .chip i{display:block;width:34px;height:26px}.fx .chip i svg{width:100%;height:100%}
+.fx .sp{font-size:36px;font-weight:800;margin-top:${big ? 44 : 30}px;color:#fff}
+.fx .n{display:flex;flex-direction:column;margin-top:${big ? 56 : 44}px}
+.fx .n .k{font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.fx .n .v{font-size:108px;font-weight:800;line-height:1.02;letter-spacing:-.03em}
+.fx .n.f .k,.fx .n.f .v{color:#34C9E6}.fx .n.g .k,.fx .n.g .v{color:#5FDB9C}
 .age{color:#A9D6C2}`;
   return page(lang, fmt, css, `
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div><span class="age">18+</span></div>
   <div class="main"><div><h1>${t.C.h}</h1><p class="sup">${t.C.s}</p></div>
-    <div class="stage"><div class="phone"><span class="notch"></span><div class="su">
-      <span class="lg">${ICON_SVG}</span><h2>${t.C.create}</h2>
-      <div class="in a"><i></i></div><div class="in b"><i></i></div><div class="in c"><i></i></div>
-      <div class="btn">${t.C.btn}</div></div></div></div></div>`);
+    <div class="stage">
+      <div class="phone l"><span class="notch"></span><div class="su">
+        <span class="lg">${ICON_SVG}</span><h2>${t.C.create}</h2>
+        <div class="in a"><i></i></div><div class="in b"><i></i></div><div class="in c"><i></i></div>
+        <div class="btn">${t.C.btn}</div></div></div>
+      <div class="phone r"><span class="notch"></span><div class="fx">
+        <span class="chip"><i>${ICON_SVG}</i>${t.C2.chip}</span><div class="sp">${t.C2.l1}</div>
+        <div class="n f"><span class="k">${t.field}</span><span class="v">${num(lang, '41.5')}%</span></div>
+        <div class="n g"><span class="k">${t.gto}</span><span class="v">${num(lang, '25.0')}%</span></div></div></div>
+    </div></div>`);
 }
 
-/* ---------- D: grafite + coral, kicker + titulo unico + acao ---------- */
+/* ---------- D: grafite + coral, titulo + diferenca grande; kicker e acao menores ---------- */
 function pageD(lang, fmt) {
   const t = T[lang], big = fmt === 'story';
   const css = `
 body{background:radial-gradient(900px 700px at 0% 100%,rgba(240,98,107,.20),transparent 62%),#090B10;color:#fff}
 .brand{color:#fff}
-.main{align-items:flex-start}
-.kick{font-size:${big ? 40 : 38}px;font-weight:700;letter-spacing:.02em;color:#FF9AA0}
+.main{align-items:flex-start;gap:${big ? 0 : 44}px}
+.kick{font-size:${big ? 34 : 32}px;font-weight:700;letter-spacing:.02em;color:#FF9AA0}
 .nw{white-space:nowrap}
-.tt{font-size:${big ? 100 : 88}px;font-weight:900;text-transform:uppercase;line-height:1.04;letter-spacing:-.005em;margin-top:-30px}
+.tt{font-size:${big ? 84 : 72}px;font-weight:900;text-transform:uppercase;line-height:1.05;letter-spacing:-.005em;text-wrap:balance}
 .tt .hl{color:#F0626B}
-.act{border-left:12px solid #F0626B;background:rgba(240,98,107,.10);border-radius:0 20px 20px 0;padding:${big ? '32px 36px' : '30px 36px'};font-size:${big ? 62 : 60}px;font-weight:800;line-height:1.12}
+.dl{display:flex;flex-direction:column}
+.dl .v{font-size:${big ? 250 : 220}px;font-weight:900;line-height:.95;letter-spacing:-.04em;color:#F0626B}
+.dl .s{font-size:${big ? 52 : 46}px;font-weight:700;color:#E2E8F0;margin-top:10px}
+.act{border-left:10px solid #F0626B;background:rgba(240,98,107,.10);border-radius:0 16px 16px 0;padding:${big ? '24px 30px' : '20px 28px'};font-size:${big ? 44 : 42}px;font-weight:800;line-height:1.12}
 .age{color:#94A3B8}`;
   return page(lang, fmt, css, `
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div><span class="age">18+</span></div>
-  <div class="main"><div class="kick">${t.D.k}</div><div class="tt">${t.D.title}</div><div class="act">${t.action}</div></div>`);
+  <div class="main"><div class="kick">${t.D.k}</div><div class="tt">${t.D.title}</div>
+    <div class="dl"><span class="v">${t.D.delta}</span><span class="s">${t.D.dsub}</span></div>
+    <div class="act">${t.action}</div></div>`);
 }
 
 function page(lang, fmt, css, body, foot = '') {
