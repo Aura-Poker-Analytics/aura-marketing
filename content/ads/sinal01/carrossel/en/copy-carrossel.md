@@ -20,14 +20,14 @@ Cover visual: navy background, caps headline, Aura logo. No extra visual, no car
 
 | Card | Title | Support line | Card visual |
 | --- | --- | --- | --- |
-| 2 | The SB folds too much vs c-bet | Context: BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet. Two big numbers: Field 41.5% and GTO 25.0%. Action: C-bet more, even with air. | Field Exploits: only the two numbers side by side, no bar, overfold label, hand count or legend. "New · Field Exploits" chip (the only label). |
+| 2 | The SB folds too much vs c-bet | Context: BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet. Two big numbers: Field 41.5% and GTO 25.0%. Action: C-bet for auto-profit! | Field Exploits: only the two numbers side by side, no bar, overfold label, hand count or legend. "New · Field Exploits" chip (the only label). |
 | 3 | GTO next to every spot | Visual: 6.9M+ with the caption "GTO decision points, flop to river". | GTO Mode: the big number and nothing else. "GTO Mode" chip. |
 | 4 | Action and reaction | C-bet, barrel, raise, and how they respond. | Postflop Analysis: only the 3 reaction bars (Fold, Call, Raise), no values. Single chip "Example · Postflop Analysis". Bars Fold 52, Call 34, Raise 14 (relative width, sum 100), no visible number. |
 | 5 | Preflop, position by position | RFI, 3-bet and squeeze by buy-in and stage. | Preflop Analysis: one column of positions (UTG to BB) with value-free bars. Single chip "Example · Preflop Analysis". No RFI bar for the BB: the column runs UTG to SB. |
-| 6 | Field ranges, hand by hand | 90 preflop spots on the grid. | Field Ranges: large 13x13 grid, no color legend. Single chip "Example · Field Ranges". |
+| 6 | Field ranges, hand by hand | In amber: where the field differs from GTO. | Field Ranges: two 13x13 grids side by side, "Field" and "GTO"; hands that differ get an amber border and the equal ones are dimmed; no legend. Single chip "Example · Field Ranges". |
 | 7 | What changed in the field | Real change or normal variation? | Field Trends: one line with the normal variation band, no legend. Single chip "Example · Field Trends". |
 | 8 | The hand tree, node by node | Whose turn it is and how often each action. | Node-by-Node: simple tree with Check, Donk and C-bet, no number and no texture filter. Single chip "Example · Node-by-Node". |
-| 9 | Every module, one login | (no support line) | List of the 7 modules: Preflop Analysis, Postflop Analysis, GTO Mode, Field Exploits, Field Ranges, Field Trends, Node-by-Node. "Individual plan" chip. |
+| 9 | Every module, one login | (no support line) | List of the 7 modules: Preflop Analysis, Postflop Analysis, Field Ranges, Field Exploits, Field Trends, Node-by-Node, Aura IA. "Individual plan" chip. |
 
 Rule for every card: short title, at most 1 support line, 1 big visual, at most 1 badge or label (the module chip at the top; on cards 4 to 8 the chip joins example and module, e.g. "Example · Field Ranges"). No data footer.
 
