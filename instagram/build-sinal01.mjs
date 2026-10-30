@@ -31,21 +31,20 @@ const ICON = /const ICON_PATHS = `([\s\S]*?)`;/.exec(tplSrc)[1];
 const LETTERS = /const AURA_LETTERS = `([\s\S]*?)`;/.exec(tplSrc)[1];
 const ICON_SVG = `<svg viewBox="0 0 60 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${ICON}</svg>`;
 const WORD_SVG = `<svg viewBox="1 204 594 129" fill="currentColor" xmlns="http://www.w3.org/2000/svg">${LETTERS}</svg>`;
-const ARROW_UP = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5M5 12l7-7 7 7"/></svg>`;
 
 /* ---------- textos (copy-sinal01.md) ---------- */
 const T = {
   pt: {
     lang: 'pt-BR', dec: ',', field: 'Field', gto: 'GTO', action: 'C-bet for auto-profit!',
     A: { chip: 'Novo · Field Exploits', h: 'Onde o field <span class="hl">erra</span>', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%' },
-    B: { h: 'Você não precisa<br>de <s>mais vídeo</s>', s: 'Precisa saber <b>o que estudar primeiro.</b>', l1: 'BTN vs SB', l2: '25bb · flop A-high rainbow' },
+    B: { h: 'Você não precisa<br>de <s>mais vídeo</s>', s: 'Precisa saber <b>o que estudar primeiro.</b>', l1: 'BTN vs SB', l2: '25bb · flop A-high rainbow', tag: 'Folda demais' },
     C: { h: 'Comece <span class="hl">grátis.</span><br>Sem cartão.', s: 'Veja onde o field erra.', create: 'Criar conta', btn: 'Criar conta grátis' },
     D: { k: 'Seu spot, lido em segundos', title: 'O SB <span class="hl">folda demais</span> contra <span class="nw">c-bet</span>' },
   },
   en: {
     lang: 'en', dec: '.', field: 'Field', gto: 'GTO', action: 'C-bet for auto-profit!',
     A: { chip: 'New · Field Exploits', h: 'Where the field<br>gets it <span class="hl">wrong</span>', ctx: 'BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet' },
-    B: { h: 'You don’t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', l1: 'BTN vs SB', l2: '25bb · A-high rainbow flop' },
+    B: { h: 'You don’t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', l1: 'BTN vs SB', l2: '25bb · A-high rainbow flop', tag: 'Overfolds' },
     C: { h: 'Start <span class="hl">free.</span><br>No credit card.', s: 'See where the field errs.', create: 'Create account', btn: 'Create free account' },
     D: { k: 'Your spot, read in seconds', title: 'The SB <span class="hl">folds too much</span> vs <span class="nw">c-bet</span>' },
   },
@@ -95,7 +94,7 @@ h1{font-size:${big ? 92 : 84}px}.hl{color:#FBBF24}
     <div class="act">${t.action}</div></div>`, 'bottom');
 }
 
-/* ---------- B: claro + azul, um card grande com seta ---------- */
+/* ---------- B: claro + azul, um card grande com rótulo ---------- */
 function pageB(lang, fmt) {
   const t = T[lang], big = fmt === 'story';
   const css = `
@@ -108,13 +107,12 @@ h1 s::after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:${b
 .card{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#fff;border:4px solid #223559;border-radius:48px;box-shadow:0 30px 70px rgba(15,21,38,.18);padding:${big ? '110px 60px' : '120px 60px'}}
 .card .p{font-size:${big ? 112 : 104}px;font-weight:800;line-height:1.05;color:#0F1526;letter-spacing:-.01em}
 .card .q{font-size:46px;font-weight:600;line-height:1.25;color:#475569;margin-top:20px}
-.card .ar{flex:none;width:150px;height:150px;border-radius:50%;background:#FBE4E5;color:#8E1F27;display:flex;align-items:center;justify-content:center}
-.card .ar svg{width:84px;height:84px}
+.card .tag{display:inline-block;margin-top:34px;padding:16px 34px;border-radius:999px;background:#FBE4E5;color:#8E1F27;font-size:${big ? 50 : 46}px;font-weight:800;letter-spacing:.01em}
 .age{color:#475569}`;
   return page(lang, fmt, css, `
   <div class="top"><div class="brand"><span class="ic">${ICON_SVG}</span><span class="wm">${WORD_SVG}</span></div><span class="age">18+</span></div>
   <div class="main"><div><h1>${t.B.h}</h1><p class="sup">${t.B.s}</p></div>
-    <div class="card"><div><div class="p">${t.B.l1}</div><div class="q">${t.B.l2}</div></div><span class="ar">${ARROW_UP}</span></div></div>`);
+    <div class="card"><div><div class="p">${t.B.l1}</div><div class="q">${t.B.l2}</div><span class="tag">${t.B.tag}</span></div></div></div>`);
 }
 
 /* ---------- C: verde-escuro + menta, um celular ---------- */

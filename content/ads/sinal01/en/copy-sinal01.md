@@ -34,7 +34,7 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 | Ad headline | Study the right spot first | 26 |
 | Description | Where the field errs most | 25 |
 | CTA | Learn More | |
-| Visual | One large card "BTN vs SB · 25bb · A-high rainbow flop" with a simple highlight arrow. Discreet 18+ at the top right. No chip, no list, no deviation tag. | |
+| Visual | One large card "BTN vs SB · 25bb · A-high rainbow flop" with the label "Overfolds" in red. Discreet 18+ at the top right. No chip, no list. | |
 
 ---
 

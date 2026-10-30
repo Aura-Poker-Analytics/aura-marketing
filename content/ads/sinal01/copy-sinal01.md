@@ -32,7 +32,7 @@ Público: quem já acumulou vídeo e curso e não sabe por onde começar.
 | Headline do anúncio | Estude o spot certo primeiro | 28 |
 | Descrição | Onde o field mais erra | 22 |
 | CTA | Learn More | |
-| Visual | Um card grande "BTN vs SB · 25bb · flop A-high rainbow" com uma seta de destaque. 18+ discreto no topo à direita. Sem chip, sem lista, sem tag de desvio. | |
+| Visual | Um card grande "BTN vs SB · 25bb · flop A-high rainbow" com o rótulo "Folda demais" em vermelho. 18+ discreto no topo à direita. Sem chip e sem lista. | |
 
 ## C) ENTRADA GRÁTIS
 
