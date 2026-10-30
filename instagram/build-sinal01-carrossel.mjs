@@ -40,29 +40,29 @@ const T = {
   pt: {
     lang: 'pt-BR', dec: ',', url: 'www.aurapoker.com', ill: 'Exemplo ilustrativo',
     c1: { a: 'O solver mostra o equilíbrio.', b: 'A Aura mostra o field.', s: 'Do preflop ao river, ao lado do GTO.' },
-    c2: { chip: 'Novo · Field Exploits', h: 'O SB folda <span class="hl">demais</span> contra c-bet', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%', field: 'Field', gto: 'GTO', act: 'C-bet mais vezes, inclusive sem mão.' },
+    c2: { chip: 'Novo · Field Exploits', h: 'O SB folda <span class="hl">demais</span> contra c-bet', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%', field: 'Field', gto: 'GTO', act: 'C-bet for auto-profit!' },
     c3: { chip: 'Modo GTO', h: 'GTO ao lado de <span class="hl">cada spot</span>', big: '6,9 mi+', cap: 'pontos de decisão GTO, do flop ao river' },
     c4: { chip: 'Postflop Analysis', h: 'Ação e <span class="hl">reação</span>', p: 'C-bet, barrel e raise do field, e como reagem.', r: ['Fold', 'Call', 'Raise'] },
     c5: { chip: 'Preflop Analysis', h: 'Preflop, <span class="hl">posição a posição</span>', p: 'RFI, 3-bet e squeeze por buy-in e etapa.' },
-    c6: { chip: 'Field Ranges', h: 'Ranges do field, <span class="hl">mão a mão</span>', p: '90 situações preflop na grade.' },
+    c6: { chip: 'Field Ranges', h: 'Ranges do field, <span class="hl">mão a mão</span>', p: 'Em âmbar: onde o field difere do GTO.', gtoL: 'GTO' },
     c7: { chip: 'Field Trends', h: 'O que <span class="hl">mudou</span> no field', p: 'Trimestre a trimestre: mudou ou oscilou?' },
     c8: { chip: 'Node-by-Node', h: 'A árvore da mão, <span class="hl">nó a nó</span>', p: 'De quem é a vez e a frequência de cada ação.', acts: ['Check', 'Donk', 'C-bet'] },
     c9: { chip: 'Plano Individual', h: 'Todos os módulos, <span class="hl">um login</span>',
-      mods: ['Preflop Analysis', 'Postflop Analysis', 'Modo GTO', 'Field Exploits', 'Field Ranges', 'Field Trends', 'Node-by-Node'] },
+      mods: ['Preflop Analysis', 'Postflop Analysis', 'Field Ranges', 'Field Exploits', 'Field Trends', 'Node-by-Node'] },
     c10: { h: 'Comece grátis.<br><span class="hl">Sem cartão.</span>', btn: 'Criar conta grátis', foot: 'Ferramenta de estudo · 18+' },
   },
   en: {
     lang: 'en', dec: '.', url: 'www.aurapoker.com', ill: 'Illustrative example',
     c1: { a: 'The solver shows equilibrium.', b: 'Aura shows the field.', s: 'Preflop to river, next to GTO.' },
-    c2: { chip: 'New · Field Exploits', h: 'The SB folds <span class="hl">too much</span> vs c-bet', ctx: 'BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet', field: 'Field', gto: 'GTO', act: 'C-bet more, even with air.' },
+    c2: { chip: 'New · Field Exploits', h: 'The SB folds <span class="hl">too much</span> vs c-bet', ctx: 'BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet', field: 'Field', gto: 'GTO', act: 'C-bet for auto-profit!' },
     c3: { chip: 'GTO Mode', h: 'GTO next to <span class="hl">every spot</span>', big: '6.9M+', cap: 'GTO decision points, flop to river' },
     c4: { chip: 'Postflop Analysis', h: 'Action and <span class="hl">reaction</span>', p: 'C-bet, barrel, raise, and how they respond.', r: ['Fold', 'Call', 'Raise'] },
     c5: { chip: 'Preflop Analysis', h: 'Preflop, <span class="hl">position by position</span>', p: 'RFI, 3-bet and squeeze by buy-in and stage.' },
-    c6: { chip: 'Field Ranges', h: 'Field ranges, <span class="hl">hand by hand</span>', p: '90 preflop spots on the grid.' },
+    c6: { chip: 'Field Ranges', h: 'Field ranges, <span class="hl">hand by hand</span>', p: 'In amber: where the field differs from GTO.', gtoL: 'GTO' },
     c7: { chip: 'Field Trends', h: 'What <span class="hl">changed</span> in the field', p: 'Real change or normal variation?' },
     c8: { chip: 'Node-by-Node', h: 'The hand tree, <span class="hl">node by node</span>', p: 'Whose turn it is and how often each action.', acts: ['Check', 'Donk', 'C-bet'] },
     c9: { chip: 'Individual plan', h: 'Every module, <span class="hl">one login</span>',
-      mods: ['Preflop Analysis', 'Postflop Analysis', 'GTO Mode', 'Field Exploits', 'Field Ranges', 'Field Trends', 'Node-by-Node'] },
+      mods: ['Preflop Analysis', 'Postflop Analysis', 'Field Ranges', 'Field Exploits', 'Field Trends', 'Node-by-Node'] },
     c10: { h: 'Start free.<br><span class="hl">No credit card.</span>', btn: 'Create free account', foot: 'Study tool · 18+' },
   },
 };
@@ -130,8 +130,14 @@ p.ctx{font-size:30px;font-weight:700;line-height:1.3;color:#CBD5E1;margin-top:26
 .pr.w1 i{width:26%}.pr.w2 i{width:38%}.pr.w3 i{width:54%}.pr.w4 i{width:76%}.pr.w5 i{width:64%}.pr.w6 i{width:44%}
 
 /* 06 grade */
-.gridw{display:grid;width:730px;margin:20px auto 0;grid-template-columns:repeat(13,1fr);gap:4px}
-.gridw i{display:block;aspect-ratio:1/1;border-radius:6px}
+.duo{display:flex;gap:20px;margin:16px -34px 0}
+.duo .g{flex:1;display:flex;flex-direction:column;gap:18px}
+.duo .gl{font-size:52px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.duo .g.fld .gl{color:#34C9E6}.duo .g.gt .gl{color:#5FDB9C}
+.gridw{display:grid;width:100%;grid-template-columns:repeat(6,1fr);gap:5px}
+.gridw i{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:10px;font-style:normal;font-size:30px;font-weight:800;color:#fff;opacity:.28}
+.gridw i.d{opacity:1;box-shadow:inset 0 0 0 5px #FBBF24}
+.gridw i.d.f{background:#2A6F8F}
 .gridw i.r{background:#AD2C34}.gridw i.f{background:#16384A}.gridw i.m{background:linear-gradient(90deg,#AD2C34 0 55%,#16384A 55% 100%)}
 
 /* 07 tendencia e 08 arvore */
@@ -254,9 +260,27 @@ function c06(lang) {
     if (hi === 3) return lo === 4 ? 'm' : 'f';
     return 'f';
   };
-  let cells = '';
-  for (let i = 0; i < 13; i++) for (let j = 0; j < 13; j++) cells += `<i class="${kind(i, j)}"></i>`;
-  return card(lang, 6, { right: exChip(lang, c.chip), h: c.h, p: c.p, vis: `<div class="gridw">${cells}</div>` });
+  /* recorte A..9 (6x6) com o mesmo bloco nos dois grids; notacao padrao: par na diagonal, suited acima, offsuit abaixo.
+     diferencas plausiveis: o field abre mais offsuit fraca e folda suited que o GTO joga (mesmas celulas destacadas nos dois) */
+  const N6 = 6, R = 'AKQJT9';
+  const fieldRaise = [[5, 0], [5, 1], [4, 1], [5, 2], [4, 2], [5, 3], [4, 3], [5, 4]];
+  const fieldFold = [[1, 5], [2, 5], [3, 5], [2, 4]];
+  const has = (list, i, j) => list.some(([x, y]) => x === i && y === j);
+  const grid = (isField) => {
+    let cells = '';
+    for (let i = 0; i < N6; i++) for (let j = 0; j < N6; j++) {
+      const raise = has(fieldRaise, i, j), fold = has(fieldFold, i, j), d = raise || fold;
+      let k = kind(i, j);
+      if (isField && raise) k = 'r';
+      if (isField && fold) k = 'f';
+      const hi = Math.min(i, j), lo = Math.max(i, j);
+      const name = R[hi] + R[lo] + (i === j ? '' : i < j ? 's' : 'o');
+      cells += `<i class="${k}${d ? ' d' : ''}">${name}</i>`;
+    }
+    return `<div class="gridw">${cells}</div>`;
+  };
+  return card(lang, 6, { right: exChip(lang, c.chip), h: c.h, p: c.p,
+    vis: `<div class="duo"><div class="g fld"><span class="gl">${t.c2.field}</span>${grid(true)}</div><div class="g gt"><span class="gl">${c.gtoL}</span>${grid(false)}</div></div>` });
 }
 /* 07 */
 function c07(lang) {
