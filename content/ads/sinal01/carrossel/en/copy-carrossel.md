@@ -2,7 +2,7 @@
 
 Ad carousel for UK, CA, DE, NL and AT, 10 cards at 1080x1350. Destination: www.aurapoker.com. The Portuguese version is in `../copy-carrossel.md`.
 
-Audience: MTT grinders who already study and want to know where the field errs, spot by spot, next to GTO.
+Audience: MTT grinders who already study and want to know where the field leaks, spot by spot, next to GTO.
 
 Reading order: card 1 hooks, card 2 shows the hand, cards 3 to 8 show one module each, card 9 pulls it together, card 10 asks for the free account.
 
@@ -20,7 +20,7 @@ Cover visual: navy background, caps headline, Aura logo. No extra visual, no car
 
 | Card | Title | Support line | Card visual |
 | --- | --- | --- | --- |
-| 2 | The SB folds too much vs c-bet | Context: BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet. Two big numbers: Field 41.5% and GTO 25.0%. Action: C-bet for auto-profit! | Field Exploits: only the two numbers side by side, no bar, overfold label, hand count or legend. "New · Field Exploits" chip (the only label). |
+| 2 | The SB folds too much vs c-bet | Context: BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet. Two big numbers: Field 41.5% and GTO 25.0%. Action: C-bet way more to print! | Field Exploits: only the two numbers side by side, no bar, overfold label, hand count or legend. "New · Field Exploits" chip (the only label). |
 | 3 | GTO next to every spot | Visual: 6.9M+ with the caption "GTO decision points, flop to river". | GTO Mode: the big number and nothing else. "GTO Mode" chip. |
 | 4 | Action and reaction | C-bet, barrel, raise, and how they respond. | Postflop Analysis: only the 3 reaction bars (Fold, Call, Raise), no values. Single chip "Example · Postflop Analysis". Bars Fold 52, Call 34, Raise 14 (relative width, sum 100), no visible number. |
 | 5 | Preflop, position by position | RFI, 3-bet and squeeze by buy-in and stage. | Preflop Analysis: one column of positions (UTG to BB) with value-free bars. Single chip "Example · Preflop Analysis". No RFI bar for the BB: the column runs UTG to SB. |
