@@ -12,11 +12,11 @@ Público: grinder de MTT que já estuda e quer exploit pronto, por spot.
 | --- | --- | --- |
 | Art headline | Where the field gets it wrong | 6 words |
 | Art context line | BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet | |
-| Primary text | BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5% vs a 33% c-bet. GTO: 25.0%. C-bet way more to print! | 109 |
+| Primary text | BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5% vs a 33% c-bet. GTO: 25.0%. C-bet way more! | 100 |
 | Ad headline | Where the field gets it wrong | 29 |
 | Description | Field Exploits · New module | 27 |
 | CTA | Learn More | |
-| Visual | "New · Field Exploits" chip (the only label) and a small 18+ at the bottom right. Two big numbers side by side, Field 41.5% and GTO 25.0%, and the action line "C-bet way more to print!". No bar, no hand count, no legend. | |
+| Visual | "New · Field Exploits" chip (the only label) and a small 18+ at the bottom right. Two big numbers side by side, Field 41.5% and GTO 25.0%, and the action line "C-bet way more!". No bar, no hand count, no legend. | |
 
 ---
 
@@ -68,10 +68,10 @@ Público: quem trava no tempo de estudo e quer chegar rápido à decisão.
 | --- | --- | --- |
 | Art headline | The SB folds too much vs the BTN c-bet | 9 words |
 | Art support line | Your spot, read in seconds (small kicker); difference "+17% more than GTO" (41.5 − 25.0 = 16.5, rounded) | |
-| Primary text | Hours in a solver per spot? BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5%, GTO 25.0%. C-bet way more to print! | 121 |
+| Primary text | Hours in a solver per spot? BTN vs SB, 25bb, A-high rainbow flop: the SB folds 41.5%, GTO 25.0%. C-bet way more! | 112 |
 | Ad headline | Read the spot in seconds | 24 |
 | Description | What to change in your play | 27 |
 | CTA | Learn More | |
-| Visual | Small kicker "Your spot, read in seconds"; the title "The SB folds too much vs the BTN c-bet" and the "+17%" (with "more than GTO") dominate; below, the action "C-bet way more to print!" smaller. Discreet 18+ at the top right. No stacked context, no deviation tag. | |
+| Visual | Small kicker "Your spot, read in seconds"; the title "The SB folds too much vs the BTN c-bet" and the "+17%" (with "more than GTO") dominate; below, the action "C-bet way more!" smaller. Discreet 18+ at the top right. No stacked context, no deviation tag. | |
 
 ---
