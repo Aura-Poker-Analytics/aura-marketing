@@ -12,11 +12,11 @@ Público: grinder de MTT que já estuda e quer exploit pronto, por spot.
 | --- | --- | --- |
 | Headline da arte | Onde o field erra | 4 palavras |
 | Contexto da arte | BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33% | |
-| Primary text | BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5% contra c-bet de 33%. GTO: 25,0%. C-bet muito mais para imprimir! | 119 |
+| Primary text | BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5% contra c-bet de 33%. GTO: 25,0%. C-bet muito mais! | 105 |
 | Headline do anúncio | Onde o field erra no flop | 25 |
 | Descrição | Field Exploits · Novo módulo | 28 |
 | CTA | Learn More | |
-| Visual | Chip "Novo · Field Exploits" (único rótulo) e 18+ pequeno no canto inferior direito. Dois números grandes lado a lado, Field 41,5% e GTO 25,0%, e a linha de ação "C-bet muito mais para imprimir!". Sem barra, sem contagem de mãos, sem legenda. | |
+| Visual | Chip "Novo · Field Exploits" (único rótulo) e 18+ pequeno no canto inferior direito. Dois números grandes lado a lado, Field 41,5% e GTO 25,0%, e a linha de ação "C-bet muito mais!". Sem barra, sem contagem de mãos, sem legenda. | |
 
 ## B) MÉTODO, NÃO MAIS CONTEÚDO
 
@@ -62,8 +62,8 @@ Público: quem trava no tempo de estudo e quer chegar rápido à decisão.
 | --- | --- | --- |
 | Headline da arte | O SB folda demais contra a c-bet do BTN | 9 palavras |
 | Apoio da arte | Seu spot, lido em segundos (kicker pequeno); diferença "+17% a mais que o GTO" (41,5 − 25,0 = 16,5, arredondado) | |
-| Primary text | Horas no solver por spot? BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5%, o GTO 25,0%. C-bet muito mais para imprimir! | 126 |
+| Primary text | Horas no solver por spot? BTN vs SB, 25bb, flop A-high rainbow: o SB folda 41,5%, o GTO 25,0%. C-bet muito mais! | 112 |
 | Headline do anúncio | Leia o spot em segundos | 23 |
 | Descrição | O que muda na sua decisão | 26 |
 | CTA | Learn More | |
-| Visual | Kicker pequeno "Seu spot, lido em segundos"; o título "O SB folda demais contra a c-bet do BTN" e o "+17%" (com "a mais que o GTO") dominam; embaixo, a ação "C-bet muito mais para imprimir!" em tamanho menor. 18+ discreto no topo à direita. Sem contexto empilhado, sem selo de desvio. | |
+| Visual | Kicker pequeno "Seu spot, lido em segundos"; o título "O SB folda demais contra a c-bet do BTN" e o "+17%" (com "a mais que o GTO") dominam; embaixo, a ação "C-bet muito mais!" em tamanho menor. 18+ discreto no topo à direita. Sem contexto empilhado, sem selo de desvio. | |
