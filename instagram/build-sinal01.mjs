@@ -35,7 +35,7 @@ const WORD_SVG = `<svg viewBox="1 204 594 129" fill="currentColor" xmlns="http:/
 /* ---------- textos (copy-sinal01.md) ---------- */
 const T = {
   pt: {
-    lang: 'pt-BR', dec: ',', field: 'Field', gto: 'GTO', action: 'C-bet para ter auto-profit!', fe: 'Field Exploits',
+    lang: 'pt-BR', dec: ',', field: 'Field', gto: 'GTO', action: 'C-bet muito mais para imprimir!', fe: 'Field Exploits',
     A: { chip: 'Novo · Field Exploits', h: 'Onde o field <span class="hl">erra</span>', ctx: 'BTN vs SB · 25bb · flop A-high rainbow · c-bet de 33%' },
     B: { h: 'Você não precisa<br>de <s>mais vídeo</s>', s: 'Precisa saber <b>o que estudar primeiro.</b>', l1: 'BTN vs SB', l2: '25bb · flop A-high rainbow', tag: 'Folda demais' },
     C: { h: 'Comece <span class="hl">grátis.</span><br>Sem cartão.', s: 'Veja onde o field erra.', create: 'Criar conta', btn: 'Criar conta grátis' },
@@ -43,10 +43,10 @@ const T = {
     D: { k: 'Seu spot, lido em segundos', title: 'O SB <span class="hl">folda demais</span> contra a c-bet do <span class="nw">BTN</span>', delta: '+17%', dsub: 'a mais que o GTO' },
   },
   en: {
-    lang: 'en', dec: '.', field: 'Field', gto: 'GTO', action: 'C-bet for auto-profit!', fe: 'Field Exploits',
+    lang: 'en', dec: '.', field: 'Field', gto: 'GTO', action: 'C-bet way more to print!', fe: 'Field Exploits',
     A: { chip: 'New · Field Exploits', h: 'Where the field<br>gets it <span class="hl">wrong</span>', ctx: 'BTN vs SB · 25bb · A-high rainbow flop · 33% c-bet' },
     B: { h: 'You don’t need<br><s>more videos</s>', s: 'You need to know <b>what to study first.</b>', l1: 'BTN vs SB', l2: '25bb · A-high rainbow flop', tag: 'Overfold' },
-    C: { h: 'Start <span class="hl">free.</span><br>No credit card.', s: 'See where the field errs.', create: 'Create account', btn: 'Create free account' },
+    C: { h: 'Start <span class="hl">free.</span><br>No credit card.', s: 'See where the field leaks.', create: 'Create account', btn: 'Create free account' },
     C2: { chip: 'Field Exploits', l1: 'BTN vs SB · 25bb' },
     D: { k: 'Your spot, read in seconds', title: 'The SB <span class="hl">folds too much</span> vs the <span class="nw">BTN c-bet</span>', delta: '+17%', dsub: 'more than GTO' },
   },
