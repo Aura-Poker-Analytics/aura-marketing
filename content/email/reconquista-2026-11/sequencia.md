@@ -152,3 +152,5 @@ Rafael
 Resgates (Stripe live, lido pela HUB em 02/11 depois do e3): `VOLTA` 0, `VOLTA70` 0.
 
 **e4 refeito (decisão do Rafael, 02/11: "e3 sai, 70% no e4").** O e4 passa a ser um e-mail novo com as novidades dos últimos 60 dias, o mesmo bloco do R2 do followup, e o `VOLTA70` (70% por 3 meses no Individual, até 30/11). Ele diz que o `VOLTA70` substitui o `VOLTA`. A data proposta é seg. 09/11, 10h, conforme `_ops/email-calendario-2026-11.md`. Ele sai só para quem não assinou e só com o sim do Rafael nesta sessão. O `e4-limpo` antigo (o VOLTA vence hoje) foi descartado.
+
+**e4 agendado (02/11, com o "sim" do Rafael digitado na sessão da reconquista).** Texto do aura-marketing#61 (merge d02e712), assunto "A Aura mudou muito desde que você saiu. Volte com 70% por 3 meses". 28 de 28 agendados no Resend para seg. 09/11 13:00Z (10h BRT); excluídos 0 (Stripe live sem assinatura ativa, Woo sem pedido pago em 35 dias, Resend sem supressão na lista). Ids em `_ops/reativacao-157/reconquista-2026-11/e4-agendados.csv` (fora do git). Seg. 09/11 às 9h BRT a HUB aciona a reconferência (pendente-E4-RECHECK-0911): quem assinar até lá tem o e-mail cancelado antes das 10h.
