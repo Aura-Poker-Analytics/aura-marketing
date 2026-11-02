@@ -1,3 +1,6 @@
+<!-- gerado por casa-poker/sync/gerar-product-marketing.py · produto aura · fonte brand/product-marketing.md @ 19136ff · sha 746192ea8dfa -->
+<!-- Não edite aqui: edite a fonte e rode de novo. Os 3 caminhos (.agents/product-marketing.md, .claude/product-marketing.md, .claude/product-marketing-context.md) têm o mesmo conteúdo, porque cada skill de marketing procura num deles. -->
+
 # Product Marketing Context — Aura Poker Analytics
 
 **Document version:** v2
@@ -17,7 +20,7 @@
 - Grátis: sem cartão, com amostra de cada módulo e uma amostra do GTO.
 - Individual: R$ 150/mês ou US$ 29/mês; US$ 149 por semestre; US$ 259 ou R$ 1.295 por ano.
 - O Modo GTO está incluso no Individual por tempo limitado.
-- Planos GTO e Top estão criados no Stripe, sem lançamento.
+- Há produtos técnicos GTO e Top no Stripe, sem lançamento; não são planos à venda (só o Individual).
 - **Team Mode será aposentado** (decisão de 22/10). O B2B passa a ser o pacote de contas por volume e o relatório por encomenda.
 
 **Módulos no ar:** Preflop Analysis, Postflop Analysis (com showdown value), Hotspot, Node-by-Node, Field Ranges (com Field vs GTO), Field Trends, Modo GTO (flop, turn e river) e Pool vs GTO (a flag liga em 02/11: 8 spots novos em 02/11 e mais 8 em 09/11; o Grátis vê 1).
@@ -89,13 +92,12 @@
 **Problem (verbatim):** nenhum coletado. Fonte prevista: entrevistas com coaches e pagantes, e comentários do Paulo "Galator" (19/10), que geraram o projeto de legibilidade.
 **Words to use:** termos de poker em inglês nas duas línguas (c-bet, delayed c-bet, RFI, 3-bet, overfold, overdefend, field, spot, range); "a Aura" (feminino); em PT, porcentagem com vírgula.
 **Words to avoid:**
-- "ponte" (proibida em qualquer lugar);
 - "pp" na tela (usar "%");
 - "solver" e "size" em texto PT do app;
 - "pool" no lugar de "field" em copy;
-- jargão de bastidor (snapshot, cube, n mínimo);
-- selo de desconfiança ("leia com desconfiança");
-- "c-bet atrasada" (usar "delayed c-bet");
+- jargão de bastidor (cube, n mínimo e o resto da lista em `casa/dados/banned_terms.json`);
+- selo de desconfiança no texto ao jogador;
+- tradução de termo de poker (c-bet e delayed c-bet ficam em inglês);
 - promessa de lucro, EV ou winrate.
 
 **Glossary:**
@@ -126,7 +128,7 @@
 ## Proof Points
 **Metrics:**
 - "Mais de 400 mil torneios" (landing, nota de metodologia).
-- "Mais de 2.100 spots de flop" com GTO (snapshot de 15/10; a data acompanha o snapshot).
+- "Mais de 2.100 spots de flop" com GTO (base de 15/10; a data acompanha a base).
 - Números de spot só a partir dos `numeros-verificados` do aura-main.
 
 **Customers:** 16 pagantes ativos (22/10). Head coaches assinantes: gremistaak, Paulo Moraes, Ganso. 🔴 Nenhum autorizou ainda o uso do nome; pedir junto com a proposta de parceria.
@@ -191,3 +193,16 @@
 ## Changelog
 - v2 (2026-10-22) — Reposicionamento: a Aura agora mostra o GTO ao lado do field (Modo GTO, Field vs GTO, Pool vs GTO), o que derruba o "não compara com GTO" da v1. Mercado B2C passa a ser o inglês; Brasil via coaches e B2B; Team Mode aposentado. Metas de 22/10, pagantes medidos, "500M+ mãos" retirado das provas, seção Paid Ads e Learnings criadas.
 - v1 (2026-07-29) — Contexto inicial da thread Mídia Paga (branch `feature/descoberta-reels-v2`), com três lacunas críticas: objeções, switching dynamics e linguagem do cliente.
+
+## Regras da casa (vencem o resto deste arquivo)
+
+Fonte: `casa-poker/plugins/casa/skills/casa-conhecimento` (skill `casa:casa-conhecimento`). Se esta seção e o texto acima discordarem, vale esta seção.
+
+- Número só com fonte no `numeros-verificados.md` da campanha, com o mesmo arredondamento. Tamanho da base: "centenas de milhões de mãos" / "hundreds of millions of hands"; nunca "400K+", "500M+" ou "bilhões".
+- Diferença em "%", nunca "pp", "pts" ou "pontos" (exceção: o Field Trends da Aura segue "pontos").
+- Não existe plano à venda com o nome GTO: o Modo GTO e o Field Exploits fazem parte do plano Individual.
+- Termos de poker em inglês dentro do PT (range, c-bet, 3-bet, fold, call, ITM); "a Aura"; "field", nunca "pool"; vírgula decimal em PT.
+- Sem bastidor (amostra, calibração, job, versão, "API", limitação técnica), sem "Beta", sem promessa de ganho, sem tom de guru ou de cassino.
+- CTA de e-mail e de anúncio para a landing do produto, com UTM próprio.
+- Envio de e-mail, publicação, gasto, preço e oferta são do Rafael (playbook `casa:campanha`).
+- Confira o texto com `python ~/.claude/casa/casa_lint.py vocab --contexto copy <arquivo>` e `numeros`.
