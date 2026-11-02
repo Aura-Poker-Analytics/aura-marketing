@@ -140,3 +140,17 @@ Rafael
 7. Aprovado pelo Rafael em 23/10 ("Restante aprovado"), com o lançamento na seg. 26/10.
 5. A landing está no ar com o `cta_click` (aura-landing#26).
 6. Primeiro um envio de teste para o Rafael, depois o envio real, em levas: 2 e depois os demais.
+
+## Resultados (lidos no Resend, sem dado pessoal)
+
+| E-mail | Data | Enviados | Entregues | Aberturas | Cliques | Bounces e reclamações |
+| --- | --- | --- | --- | --- | --- | --- |
+| e1 | 26/10 | 28 | 28 | — | — | 0 |
+| e2 | 29/10 | 3 (25 cancelados por regra) | 3 | 0 | 0 | 0 |
+| e3 | 02/11 10h | 28 | 28 | 2 (lido 02/11 ~10h30, um piso) | 0 | 0 |
+
+Resgates (Stripe live, lido pela HUB em 02/11 depois do e3): `VOLTA` 0, `VOLTA70` 0.
+
+**e4 refeito (decisão do Rafael, 02/11: "e3 sai, 70% no e4").** O e4 passa a ser um e-mail novo com as novidades dos últimos 60 dias, o mesmo bloco do R2 do followup, e o `VOLTA70` (70% por 3 meses no Individual, até 30/11). Ele diz que o `VOLTA70` substitui o `VOLTA`. A data proposta é seg. 09/11, 10h, conforme `_ops/email-calendario-2026-11.md`. Ele sai só para quem não assinou e só com o sim do Rafael nesta sessão. O `e4-limpo` antigo (o VOLTA vence hoje) foi descartado.
+
+**e4 agendado (02/11, com o "sim" do Rafael digitado na sessão da reconquista).** Texto do aura-marketing#61 (merge d02e712), assunto "A Aura mudou muito desde que você saiu. Volte com 70% por 3 meses". 28 de 28 agendados no Resend para seg. 09/11 13:00Z (10h BRT); excluídos 0 (Stripe live sem assinatura ativa, Woo sem pedido pago em 35 dias, Resend sem supressão na lista). Ids em `_ops/reativacao-157/reconquista-2026-11/e4-agendados.csv` (fora do git). Seg. 09/11 às 9h BRT a HUB aciona a reconferência (pendente-E4-RECHECK-0911): quem assinar até lá tem o e-mail cancelado antes das 10h.
