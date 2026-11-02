@@ -5,7 +5,8 @@ Uso, a partir de outro script em content/email/:
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "_template"))  # ajuste ao caminho do script
     from components import *
 
-Peças: para, row, button, panel, steps, compare, bullets, gto_card (rótulo em `label`, padrão "Modo GTO"), image e email.
+Peças: para, row, button, panel, steps, compare, bullets, code_box, gto_card (rótulo em `label`, padrão "Modo GTO"),
+novidades (bloco das novidades dos últimos 60 dias, lista em NOVIDADES_60D), image e email.
 Regras do template: ver o docstring de build_followup.py e a §10 de docs/00-strategy/followup-cadastrados-gratis.md.
 """
 
@@ -131,6 +132,38 @@ def gto_card(spot, context, field, gto, band, verdict, label="Modo GTO"):
 </table></td></tr>
 <tr><td style="padding:10px 20px 18px 20px; border-top:1px solid {RAIL}; font-family:{FONT}; font-size:14px; line-height:1.5; color:{INK};">{verdict}</td></tr>
 </table>'''
+
+
+# Novidades dos últimos 60 dias (set–out/2026), um bloco só para o R2 do followup e o e4 da reconquista
+# (_ops/email-calendario-2026-11.md). Cada item conferido como "no ar" no ECOSYSTEM.md e no STATE do aura-main em 02/11.
+NOVIDADES_60D = [
+    ("Modo GTO", "A faixa GTO ao lado do field em todas as ações do flop, do turn e do river."),
+    ("GTO pré-flop abaixo de 20bb", "O GTO de abertura e de resposta também com stack curto, antes da bolha."),
+    ("Field Exploits", "Os spots em que o field mais se afasta do GTO, já ranqueados, agora com turn e river. Toda segunda, 2 entram e 2 saem."),
+    ("Field Ranges", "O range do field mão a mão contra o GTO, com Copy Range para levar ao seu estudo."),
+    ("Field Trends", "Como o field mudou em cada stat, agora também no pré-flop."),
+    ("Showdown com a grade de mãos", "As mãos que o field mostra no showdown em cada ação, na grade 13x13."),
+    ("Tela inicial em painel", "A entrada da Aura virou um painel, com o que há de novo à vista."),
+    ("Postflop mais rápido", "As telas do Postflop carregam bem mais rápido."),
+]
+
+
+def novidades(items=NOVIDADES_60D, title="O que entrou na Aura nos últimos 60 dias", note=""):
+    """Lista de novidades com o selo NOVO, dentro de um painel. note = linha final (ex.: o que o Grátis vê)."""
+    out = ""
+    for i, (name, text) in enumerate(items):
+        border = "" if i == len(items) - 1 else f"border-bottom:1px solid {RAIL};"
+        out += f'''<tr>
+  <td width="58" valign="top" style="padding:15px 0; {border}">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="{GOLD}" style="padding:3px 7px; border-radius:4px; background-color:{GOLD}; font-family:{FONT}; font-size:10px; font-weight:800; letter-spacing:1px; color:{ON_GOLD};">NOVO</td></tr></table>
+  </td>
+  <td valign="top" style="padding:13px 0; {border} font-family:{FONT};">
+    <p style="margin:0 0 3px 0; font-size:16px; font-weight:700; line-height:1.4; color:{INK};">{name}</p>
+    <p style="margin:0; font-size:14px; line-height:1.55; color:{INK2};">{text}</p>
+  </td></tr>'''
+    foot = (f'<tr><td colspan="2" style="padding:12px 0 6px 0; border-top:1px solid {RAIL}; font-family:{FONT}; '
+            f'font-size:13px; line-height:1.5; color:{INK3};">{note}</td></tr>') if note else ""
+    return panel(f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{out}{foot}</table>', title=title)
 
 
 def image(src, alt, url, w=520):

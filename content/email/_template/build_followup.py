@@ -105,50 +105,45 @@ u2 = email(
     draft_note="RASCUNHO U2 com cupom · segmento S3 (bateu no paywall e não assinou em 72 h) · 80% do lote; os 20% do controle recebem o U2 sem cupom · [CÓDIGO] e [DATA] por lote · não enviar sem o vai da HUB · doc §4.3 e §12",
 )
 
-# lote do R2 de 02/11/2026: promotion code do lote (aponta para o cupom Ph7y2HU9, criado pelo Rafael no Stripe) e validade = envio + 7 dias
-R2_CODIGO, R2_DATA = "VOLTE0211", "09/11"
-# só em reais: o cupom Ph7y2HU9 é R$ 45 fixo, sem preço em dólar (o dólar entra no redesenho por país)
-R2_OFERTA = "30% no primeiro mês do plano Individual mensal: R$ 105 em vez de R$ 150."
+# R2 refeito em 02/11 (pedido do Rafael via HUB): VOLTE50, 50% por 3 meses (cupom R6eSQeTK, R$ 75 x3, só 1.ª compra, até 30/11),
+# com o bloco das novidades dos últimos 60 dias. Só em reais (o dólar entra no redesenho por país). O controle (20%) recebe
+# o mesmo e-mail sem o código, para o teste medir só o efeito do cupom.
+R2_CODIGO, R2_DATA = "VOLTE50", "30/11"
+R2_OFERTA = "50% nos 3 primeiros meses do plano Individual mensal: R$ 75 por mês em vez de R$ 150."
+R2_NOTA_GRATIS = "Tudo isso está no plano Individual. No Grátis você vê uma amostra de cada tela."
+R2_TITULO = "A Aura mudou muito em 60 dias"
 
 r2 = email(
-    title=f"Volte para a Aura com 30% no primeiro mês, até {R2_DATA}",
-    preview=f"O Modo GTO e o Field Exploits esperam por você. 30% no primeiro mês do Individual, até {R2_DATA}.",
-    headline="Volte com 30% no primeiro mês.",
-    sub="Seu login é o mesmo. O código vale no checkout do plano Individual:",
+    title=f"{R2_TITULO}. Volte com 50% por 3 meses",
+    preview=f"Modo GTO no turn e no river, Field Exploits, Field Ranges e mais. Código {R2_CODIGO} até {R2_DATA}.",
+    headline="A Aura que você viu ficou para trás.",
+    sub=f"Em 60 dias entraram 8 novidades. E até {R2_DATA} você volta com 50% nos 3 primeiros meses:",
     blocks=[
-        row(code_box(R2_CODIGO, R2_OFERTA,f"Válido até {R2_DATA}, uma vez por conta."), pad="0 40px 24px 40px"),
+        row(novidades(note=R2_NOTA_GRATIS), pad="0 40px 24px 40px"),
+        row(code_box(R2_CODIGO, R2_OFERTA, f"Válido até {R2_DATA}, só na primeira assinatura."), pad="0 40px 24px 40px"),
     ],
     cta="Usar meu código",
     cta_url=LANDING.format(c="reativacao-gratis", k="r2-cupom") + "#planos",
     note=para("Parou por algum motivo? Responda com uma linha.", size=15),
     unsub=BROADCAST_UNSUB,
     reason=REASON,
-    draft_note="RASCUNHO R2 com cupom · segmento S4 (Grátis, nunca bateu no paywall, sem login 5 dias depois do R1) · 80% do lote; os 20% do controle recebem o R2 sem cupom (spot da semana) · [CÓDIGO] e [DATA] por lote · não enviar sem o vai da HUB · doc §4.4 e §12",
+    draft_note="RASCUNHO R2 com cupom VOLTE50 · 80% do lote do R2 (Grátis antigo sem login depois do R1, sem ex-pagante nem assinatura parada) · não enviar sem o sim do Rafael · doc §4.4 e §12 · _ops/email-calendario-2026-11.md",
 )
 
-# Controle do R2 (20% do lote): sem cupom, um spot da semana com o assunto B do §6 (número no assunto).
 r2_controle = email(
-    title="CO no RFI: o field abre 31,6%, o GTO abre 37%",
-    preview="O open do CO fica aberto no seu Grátis, com o GTO ao lado.",
-    headline="O field abre de menos no CO.",
-    sub="O spot da semana. Fica aberto no seu Grátis, com o GTO ao lado:",
+    title=R2_TITULO,
+    preview="Modo GTO no turn e no river, Field Exploits, Field Ranges e mais. Seu login é o mesmo.",
+    headline="A Aura que você viu ficou para trás.",
+    sub="Em 60 dias entraram 8 novidades. Seu login é o mesmo:",
     blocks=[
-        # números: aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md, exemplo (b), reconferido logado em 01/11
-        # (LoadPreFlop: co 31,6%, sampleCO 23.784.954; LoadPreflopGtoReference stackBin 5: RFI do CO 37)
-        row(gto_card(
-            spot="CO, open raise (RFI), 30 a 50 big blinds",
-            context="Torneios Vanilla. Com que frequência o CO abre quando a mesa folda até ele.",
-            field="31,6", gto="37,0", band="",
-            verdict="<strong>Underopen:</strong> o field abre 5,4% a menos que o GTO no CO.",
-            label="Spot da semana",
-        ), pad="0 40px 24px 40px"),
+        row(novidades(note=R2_NOTA_GRATIS), pad="0 40px 24px 40px"),
     ],
-    cta="Ver o spot na Aura",
+    cta="Ver a nova Aura",
     cta_url=LANDING.format(c="reativacao-gratis", k="r2-controle"),
     note=para("Parou por algum motivo? Responda com uma linha.", size=15),
     unsub=BROADCAST_UNSUB,
     reason=REASON,
-    draft_note="RASCUNHO R2 controle · 20% do lote do R2 · sem cupom · não enviar sem o sim do Rafael · doc §4.4, §6 e §12",
+    draft_note="RASCUNHO R2 controle · 20% do lote do R2 · o mesmo e-mail sem o código · não enviar sem o sim do Rafael · doc §4.4, §6 e §12",
 )
 
 for name, html in [("followup-a1-boas-vindas.html", a1), ("followup-u1-paywall.html", u1), ("followup-r1-reativacao.html", r1),
