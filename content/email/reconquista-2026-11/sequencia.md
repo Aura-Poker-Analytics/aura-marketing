@@ -140,3 +140,15 @@ Rafael
 7. Aprovado pelo Rafael em 23/10 ("Restante aprovado"), com o lançamento na seg. 26/10.
 5. A landing está no ar com o `cta_click` (aura-landing#26).
 6. Primeiro um envio de teste para o Rafael, depois o envio real, em levas: 2 e depois os demais.
+
+## Resultados (lidos no Resend, sem dado pessoal)
+
+| E-mail | Data | Enviados | Entregues | Aberturas | Cliques | Bounces e reclamações |
+| --- | --- | --- | --- | --- | --- | --- |
+| e1 | 26/10 | 28 | 28 | — | — | 0 |
+| e2 | 29/10 | 3 (25 cancelados por regra) | 3 | 0 | 0 | 0 |
+| e3 | 02/11 10h | 28 | 28 | 2 (lido 02/11 ~10h30, um piso) | 0 | 0 |
+
+Os resgates do `VOLTA` estavam em 0 até 01/11; a leitura de 02/11 fica pendente porque a ferramenta do Stripe falhou.
+
+**e4 refeito (decisão do Rafael, 02/11: "e3 sai, 70% no e4").** O e4 passa a ser um e-mail novo com as novidades dos últimos 60 dias, o mesmo bloco do R2 do followup, e o `VOLTA70` (70% por 3 meses no Individual, até 30/11). Ele diz que o `VOLTA70` substitui o `VOLTA`. A data proposta é seg. 09/11, 10h, conforme `_ops/email-calendario-2026-11.md`. Ele sai só para quem não assinou e só com o sim do Rafael nesta sessão. O `e4-limpo` antigo (o VOLTA vence hoje) foi descartado.
