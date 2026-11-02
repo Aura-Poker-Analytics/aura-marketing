@@ -107,6 +107,8 @@ u2 = email(
 
 # lote do R2 de 02/11/2026: promotion code do lote (aponta para o cupom Ph7y2HU9, criado pelo Rafael no Stripe) e validade = envio + 7 dias
 R2_CODIGO, R2_DATA = "VOLTE0211", "09/11"
+# só em reais: o cupom Ph7y2HU9 é R$ 45 fixo, sem preço em dólar (o dólar entra no redesenho por país)
+R2_OFERTA = "30% no primeiro mês do plano Individual mensal: R$ 105 em vez de R$ 150."
 
 r2 = email(
     title=f"Volte para a Aura com 30% no primeiro mês, até {R2_DATA}",
@@ -114,7 +116,7 @@ r2 = email(
     headline="Volte com 30% no primeiro mês.",
     sub="Seu login é o mesmo. O código vale no checkout do plano Individual:",
     blocks=[
-        row(code_box(R2_CODIGO, OFERTA, f"Válido até {R2_DATA}, uma vez por conta."), pad="0 40px 24px 40px"),
+        row(code_box(R2_CODIGO, R2_OFERTA,f"Válido até {R2_DATA}, uma vez por conta."), pad="0 40px 24px 40px"),
     ],
     cta="Usar meu código",
     cta_url=LANDING.format(c="reativacao-gratis", k="r2-cupom") + "#planos",
