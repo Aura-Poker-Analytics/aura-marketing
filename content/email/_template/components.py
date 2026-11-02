@@ -148,14 +148,14 @@ NOVIDADES_60D = [
 ]
 
 
-def novidades(items=NOVIDADES_60D, title="O que entrou na Aura nos últimos 60 dias", note=""):
-    """Lista de novidades com o selo NOVO, dentro de um painel. note = linha final (ex.: o que o Grátis vê)."""
+def novidades(items=NOVIDADES_60D, title="O que entrou na Aura nos últimos 60 dias", note="", badge="NOVO"):
+    """Lista de novidades com o selo (NOVO; NEW em inglês), dentro de um painel. note = linha final (ex.: o que o Grátis vê)."""
     out = ""
     for i, (name, text) in enumerate(items):
         border = "" if i == len(items) - 1 else f"border-bottom:1px solid {RAIL};"
         out += f'''<tr>
   <td width="58" valign="top" style="padding:15px 0; {border}">
-    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="{GOLD}" style="padding:3px 7px; border-radius:4px; background-color:{GOLD}; font-family:{FONT}; font-size:10px; font-weight:800; letter-spacing:1px; color:{ON_GOLD};">NOVO</td></tr></table>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="{GOLD}" style="padding:3px 7px; border-radius:4px; background-color:{GOLD}; font-family:{FONT}; font-size:10px; font-weight:800; letter-spacing:1px; color:{ON_GOLD};">{badge}</td></tr></table>
   </td>
   <td valign="top" style="padding:13px 0; {border} font-family:{FONT};">
     <p style="margin:0 0 3px 0; font-size:16px; font-weight:700; line-height:1.4; color:{INK};">{name}</p>
