@@ -105,13 +105,16 @@ u2 = email(
     draft_note="RASCUNHO U2 com cupom · segmento S3 (bateu no paywall e não assinou em 72 h) · 80% do lote; os 20% do controle recebem o U2 sem cupom · [CÓDIGO] e [DATA] por lote · não enviar sem o vai da HUB · doc §4.3 e §12",
 )
 
+# lote do R2 de 02/11/2026: promotion code do lote (aponta para o cupom Ph7y2HU9, criado pelo Rafael no Stripe) e validade = envio + 7 dias
+R2_CODIGO, R2_DATA = "VOLTE0211", "09/11"
+
 r2 = email(
-    title="Volte para a Aura com 30% no primeiro mês, até [DATA]",
-    preview="O Modo GTO e o Field Exploits esperam por você. 30% no primeiro mês do Individual, até [DATA].",
+    title=f"Volte para a Aura com 30% no primeiro mês, até {R2_DATA}",
+    preview=f"O Modo GTO e o Field Exploits esperam por você. 30% no primeiro mês do Individual, até {R2_DATA}.",
     headline="Volte com 30% no primeiro mês.",
     sub="Seu login é o mesmo. O código vale no checkout do plano Individual:",
     blocks=[
-        row(code_box("[CÓDIGO]", OFERTA, "Válido até [DATA], uma vez por conta."), pad="0 40px 24px 40px"),
+        row(code_box(R2_CODIGO, OFERTA, f"Válido até {R2_DATA}, uma vez por conta."), pad="0 40px 24px 40px"),
     ],
     cta="Usar meu código",
     cta_url=LANDING.format(c="reativacao-gratis", k="r2-cupom") + "#planos",
@@ -121,7 +124,32 @@ r2 = email(
     draft_note="RASCUNHO R2 com cupom · segmento S4 (Grátis, nunca bateu no paywall, sem login 5 dias depois do R1) · 80% do lote; os 20% do controle recebem o R2 sem cupom (spot da semana) · [CÓDIGO] e [DATA] por lote · não enviar sem o vai da HUB · doc §4.4 e §12",
 )
 
+# Controle do R2 (20% do lote): sem cupom, um spot da semana com o assunto B do §6 (número no assunto).
+r2_controle = email(
+    title="CO no RFI: o field abre 31,6%, o GTO abre 37%",
+    preview="O open do CO fica aberto no seu Grátis, com o GTO ao lado.",
+    headline="O field abre de menos no CO.",
+    sub="O spot da semana. Fica aberto no seu Grátis, com o GTO ao lado:",
+    blocks=[
+        # números: aura-main/_ops/golive-gto-2026-10-04/numeros-verificados.md, exemplo (b), reconferido logado em 01/11
+        # (LoadPreFlop: co 31,6%, sampleCO 23.784.954; LoadPreflopGtoReference stackBin 5: RFI do CO 37)
+        row(gto_card(
+            spot="CO, open raise (RFI), 30 a 50 big blinds",
+            context="Torneios Vanilla. Com que frequência o CO abre quando a mesa folda até ele.",
+            field="31,6", gto="37,0", band="",
+            verdict="<strong>Underopen:</strong> o field abre 5,4% a menos que o GTO no CO.",
+            label="Spot da semana",
+        ), pad="0 40px 24px 40px"),
+    ],
+    cta="Ver o spot na Aura",
+    cta_url=LANDING.format(c="reativacao-gratis", k="r2-controle"),
+    note=para("Parou por algum motivo? Responda com uma linha.", size=15),
+    unsub=BROADCAST_UNSUB,
+    reason=REASON,
+    draft_note="RASCUNHO R2 controle · 20% do lote do R2 · sem cupom · não enviar sem o sim do Rafael · doc §4.4, §6 e §12",
+)
+
 for name, html in [("followup-a1-boas-vindas.html", a1), ("followup-u1-paywall.html", u1), ("followup-r1-reativacao.html", r1),
-                   ("followup-u2-cupom.html", u2), ("followup-r2-cupom.html", r2)]:
+                   ("followup-u2-cupom.html", u2), ("followup-r2-cupom.html", r2), ("followup-r2-controle.html", r2_controle)]:
     (OUT / name).write_text(html, encoding="utf-8")
     print(name, len(html))
