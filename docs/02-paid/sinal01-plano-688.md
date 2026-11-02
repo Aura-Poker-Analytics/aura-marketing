@@ -32,3 +32,15 @@ A troca da fase 1 para a 2 vai à HUB com os números antes de qualquer mudança
 - BR: A `120250256109470327` · B `120250256086060327` · C `120250256086390327` · D `120250256109810327` · Carrossel `120250256090350327`
 - EN: A `120250256110910327` · B `120250256088250327` · C `120250256088460327` · D `120250256111040327` · Carousel `120250255898570327`
 - UTM: `utm_source=meta&utm_medium=paid&utm_campaign=aura-sinal01&utm_content=<a|b|c|d|carrossel>-<br|en>`, destino www.aurapoker.com/?lang=pt|en.
+
+## Troca de criativos (01/11)
+Frase final trocada por "C-bet muito mais!" / "C-bet way more!" depois da reprovação do Carrossel BR v3 por "imprimir" (PR #54). Os antigos só saem quando o substituto está ACTIVE.
+
+| Anúncio | Novo | Estado em 01/11 | Antigo |
+| --- | --- | --- | --- |
+| C EN | `120250282314060327` (v3) | ACTIVE | `120250256088460327` arquivado em 01/11 |
+| Carousel EN | `120250282314910327` (v2, ainda com a frase antiga no slide 2) | ACTIVE | `120250255898570327` arquivado em 01/11 |
+| A BR, D BR, A EN, D EN | v3 `120250282311830327`, `…312010327`, `…313030327`, `…313620327` (frase antiga) | PENDING_REVIEW | seguem no ar |
+| Carrossel BR | v3 `120250282312370327` | DISAPPROVED ("imprimir") | segue no ar |
+
+Próximo: com as 6 artes novas subidas pelo cartão, criar A e D BR/EN, Carrossel BR e Carousel EN v3, ativar e arquivar os v3 e os antigos assim que os novos estiverem ACTIVE.
