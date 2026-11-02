@@ -1,0 +1,31 @@
+A Aura mudou muito desde que você saiu.
+
+Em 60 dias entraram 8 novidades. E até 30/11 você volta com 70% nos 3 primeiros meses.
+
+O que entrou na Aura nos últimos 60 dias:
+- Modo GTO: A faixa GTO ao lado do field em todas as ações do flop, do turn e do river.
+- GTO pré-flop abaixo de 20bb: O GTO pré-flop também com stack curto, abaixo de 20bb, nos spots já cobertos.
+- Field Exploits: Os spots em que o field mais se afasta do GTO, já ranqueados, agora com turn e river. Toda segunda, 2 entram e 2 saem.
+- Field Ranges: O range do field mão a mão contra o GTO, com Copy Range para levar ao seu estudo.
+- Field Trends: Como o field mudou em cada stat, agora também no pré-flop.
+- Showdown com a grade de mãos: As mãos que o field mostra no showdown em cada ação, na grade 13x13.
+- Tela inicial em painel: A entrada da Aura virou um painel, com o que há de novo à vista.
+- Postflop mais rápido: As telas do Postflop carregam bem mais rápido.
+
+Tudo isso está no plano Individual.
+
+Código: VOLTA70
+70% nos 3 primeiros meses do plano Individual mensal: R$ 45 por mês em vez de R$ 150.
+Válido até 30/11, no plano Individual.
+
+O VOLTA70 substitui o código VOLTA dos e-mails anteriores: vale mais e por mais tempo.
+
+Usar meu código: https://www.aurapoker.com/?utm_source=email&utm_medium=email&utm_campaign=reconquista-2026-11&utm_content=e4-volta70#planos
+
+Se algo te fez sair, responda com uma linha. Eu leio todas.
+
+Rafael
+Fundador da Aura
+
+Você recebeu este e-mail porque já assinou a Aura Poker Analytics.
+Descadastrar: mailto:manager@aurapoker.com?subject=Descadastrar
