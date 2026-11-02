@@ -47,7 +47,7 @@ Lacunas que o banco não responde, e o que fazer:
 - **Venezuela (id 378):** veio pelo criativo `b-br` (PT). Recomendação: PT; o Rafael pode mudar para EN.
 - **Dois cadastros de bio (379, 384)** são orgânicos: a mesma escada serve, mas não contam como Meta pago.
 
-Segmento: o plano do Resend tem 3 segmentos e todos estão em uso. Os dois rascunhos ficaram apontados para "R1 Grátis inativo 28/10", que **já recebeu o R1 e não deve receber nada**: o nome das broadcasts diz "NÃO ENVIAR". Depois do sim, o segmento é reaproveitado (esvaziado e rebatizado "Meta lote 01/11") com os contatos do lote; criar contato é escrita no Resend e só acontece com o sim.
+Segmento: o plano do Resend tem 3 segmentos e todos estão em uso. Os dois rascunhos A1 ficaram presos ao segmento `65da31a5` ("R1 Grátis inativo 28/10") só porque a broadcast exige um segmento; o nome diz "NÃO ENVIAR". **Esse segmento guarda os 147 do cupom do R2 do follow-up e não pode ser esvaziado, rebatizado nem usado pelo A1** (correção de 02/11, pedido da HUB). O A1 precisa de segmento próprio com os 18 do lote. Quando o R2 tiver saído, a HUB combina qual dos 3 segmentos é liberado; só então os rascunhos são religados a ele. Criar contato é escrita no Resend e só acontece com o sim do Rafael digitado nesta sessão.
 
 ## 3. Rotina semanal que monta o lote (proposta, nada criado)
 
