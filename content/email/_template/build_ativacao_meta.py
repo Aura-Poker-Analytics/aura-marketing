@@ -43,7 +43,7 @@ emails["a1-pt"] = email(
     cta_url=landing("ativacao-meta", "a1"),
     note=para("Qual buy-in você mais joga? Responda com uma linha.", size=15),
     unsub=UNSUB["pt"], reason=REASON["pt"],
-    draft_note=f"A1 PT · D0/D1 · cadastrados da Meta em português · {SEND}",
+    draft_note=f"A1 em português · D0/D1 · cadastrados da Meta em português · {SEND}",
 )
 
 # ---------------------------------------------------------------- A1 EN (D0/D1)
@@ -80,7 +80,7 @@ emails["a2-pt"] = email(
     cta_url=landing("ativacao-meta", "a2"),
     note=para("Abriu e travou em algum ponto? Responda este e-mail.", size=15),
     unsub=UNSUB["pt"], reason=REASON["pt"],
-    draft_note=f"A2 PT · D2, só quem não fez a primeira análise · preencher [SPOT] com o free_week da semana, conferido logado (G2), antes do envio · {SEND}",
+    draft_note=f"A2 em português · D2, só quem não fez a primeira análise · preencher [SPOT] com o free_week da semana, conferido logado (G2), antes do envio · {SEND}",
 )
 emails["a2-en"] = email(
     lang="en",
@@ -113,7 +113,7 @@ emails["a3-pt"] = email(
     cta=None, cta_url="",
     note=para(f'Me conta numa linha o que travou. Eu leio e respondo. <a href="{landing("ativacao-meta", "a3")}" style="color:{GOLD_TXT};">Abrir a Aura</a>', size=15),
     unsub=UNSUB["pt"], reason=REASON["pt"],
-    draft_note=f"A3 PT · D5, só quem não fez a primeira análise · link simples, sem botão grande · {SEND}",
+    draft_note=f"A3 em português · D5, só quem não fez a primeira análise · link simples, sem botão grande · {SEND}",
 )
 emails["a3-en"] = email(
     lang="en",
@@ -168,7 +168,7 @@ emails["u2-pt"] = email(
     cta_url=landing("upgrade-meta", "u2-cupom", "#planos"),
     note=para("Algo te travou? Responda este e-mail.", size=15),
     unsub=UNSUB["pt"], reason=REASON["pt"],
-    draft_note=f"U2 PT · só quem bateu no paywall e não assinou em 72 h (80% cupom, 20% controle sem cupom) · cupom Ph7y2HU9, promotion code ATIVAddmm criado pelo Rafael · {SEND}",
+    draft_note=f"U2 em português · só quem bateu no paywall e não assinou em 72 h (80% cupom, 20% controle sem cupom) · cupom Ph7y2HU9, promotion code ATIVAddmm criado pelo Rafael · {SEND}",
 )
 emails["u2-en"] = email(
     lang="en",
