@@ -62,10 +62,16 @@ def steps(items):
     return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{rows}</table>'
 
 
-def compare(rows_):
+I18N = {
+    "pt": {"html": "pt-BR", "free": "Grátis", "role": "Fundador da Aura", "unsub": "Descadastrar", "chat": "Dúvidas no"},
+    "en": {"html": "en", "free": "Free", "role": "Founder of Aura", "unsub": "Unsubscribe", "chat": "Questions? Join us on"},
+}
+
+
+def compare(rows_, lang="pt"):
     head = f'''<tr>
   <td style="padding:14px 0 10px 0; font-family:{FONT}; font-size:12px; color:{INK3};">&nbsp;</td>
-  <td width="30%" style="padding:14px 8px 10px 8px; font-family:{FONT}; font-size:13px; font-weight:700; color:{INK3};">Grátis</td>
+  <td width="30%" style="padding:14px 8px 10px 8px; font-family:{FONT}; font-size:13px; font-weight:700; color:{INK3};">{I18N[lang]["free"]}</td>
   <td width="34%" style="padding:14px 0 10px 8px; font-family:{FONT}; font-size:13px; font-weight:800; color:{GOLD_TXT};">Individual</td></tr>'''
     body = ""
     for label, free, paid in rows_:
@@ -132,11 +138,14 @@ def image(src, alt, url, w=520):
             f'style="display:block; width:100%; max-width:{w}px; height:auto; border:0; border-radius:10px;"></a>')
 
 
-def email(*, title, preview, headline, sub, blocks, cta, cta_url, note, unsub, reason, draft_note):
+def email(*, title, preview, headline, sub, blocks, cta, cta_url, note, unsub, reason, draft_note, lang="pt"):
+    """cta=None omite o botão (e-mail pessoal, link no texto). lang: pt ou en."""
+    t = I18N[lang]
     body = "\n".join(blocks)
+    cta_row = row(button(cta, cta_url), pad="6px 40px 30px 40px") if cta else ""
     return f'''<!DOCTYPE html>
 <!-- {draft_note} -->
-<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="{t['html']}" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -166,11 +175,11 @@ def email(*, title, preview, headline, sub, blocks, cta, cta_url, note, unsub, r
 {row(f"""<h1 class="h1" style="margin:0; font-family:{FONT}; font-size:30px; line-height:36px; font-weight:800; color:{INK};">{headline}</h1>
 <p style="margin:12px 0 0 0; font-family:{FONT}; font-size:17px; line-height:1.5; color:{INK2};">{sub}</p>""", pad="30px 40px 26px 40px")}
 {body}
-{row(button(cta, cta_url), pad="6px 40px 30px 40px")}
-{row(note + para(f'Rafael<br><span style="color:{INK3}; font-weight:400;">Fundador da Aura</span>', size=15, color=INK, mb=0, weight=700), pad="24px 40px 32px 40px; border-top:1px solid " + RAIL)}
+{cta_row}
+{row(note + para(f'Rafael<br><span style="color:{INK3}; font-weight:400;">{t["role"]}</span>', size=15, color=INK, mb=0, weight=700), pad="24px 40px 32px 40px; border-top:1px solid " + RAIL)}
 <tr><td class="px" bgcolor="{NIGHT}" style="padding:22px 40px 26px 40px; background-color:#0C1120; border-radius:0 0 14px 14px;">
 {para(reason, size=12, color=INK3, mb=6)}
-{para(f'<a href="{unsub}" style="color:{INK3}; text-decoration:underline;">Descadastrar</a> &nbsp;|&nbsp; Dúvidas no <a href="https://discord.gg/wYquSmUtAK" style="color:{INK3}; text-decoration:underline;">Discord</a>', size=12, color=INK3, mb=0)}
+{para(f'<a href="{unsub}" style="color:{INK3}; text-decoration:underline;">{t["unsub"]}</a> &nbsp;|&nbsp; {t["chat"]} <a href="https://discord.gg/wYquSmUtAK" style="color:{INK3}; text-decoration:underline;">Discord</a>', size=12, color=INK3, mb=0)}
 </td></tr>
 </table>
 </td></tr></table>
