@@ -2,7 +2,7 @@
 
 Uso: python -I content/email/_template/build_gratis_pais.py
 Saída: content/email/gratis-por-pais/{r2-en-cupom,r2-en-controle}.html
-Plano: docs/00-strategy/gratis-por-pais-plano.md (§4 e §8). Nada é enviado por este script.
+Plano: docs/00-strategy/gratis-por-pais-plano.md (§4 e §8). O VOLTE50 vale em BRL e em USD (currency_options). Nada é enviado por este script.
 """
 import pathlib
 import sys
@@ -44,19 +44,19 @@ emails = {}
 emails["r2-en-cupom"] = email(
     lang="en",
     title=f"{TITLE}. Come back for 50% off 3 months",
-    preview=f"GTO Mode on turn and river, Field Exploits, Field Ranges and more. Code [CODE] until {DATA}.",
+    preview=f"GTO Mode on turn and river, Field Exploits, Field Ranges and more. Code VOLTE50 until {DATA}.",
     headline="8 new things in Aura since you signed up.",
     sub=f"All in the last 60 days. And until {DATA} you can come back for 50% off your first 3 months:",
     blocks=[
         row(novidades(items=NOVIDADES_60D_EN, title="What's new in the last 60 days", note=NOTE_FREE, badge="NEW"), pad="0 40px 24px 40px"),
-        row(code_box("[CODE]", OFERTA, f"Valid until {DATA}, first subscription only."), pad="0 40px 24px 40px"),
+        row(code_box("VOLTE50", OFERTA, f"Valid until {DATA}, first subscription only."), pad="0 40px 24px 40px"),
     ],
     cta="Use my code",
     cta_url=landing("reativacao-gratis-en", "r2-cupom-en", "#planos"),
     note=para("Did you stop for a reason? Reply with one line.", size=15),
     unsub=BROADCAST_UNSUB,
     reason=REASON_EN,
-    draft_note=f"R2 EN com cupom · Grátis que não assina e não é BR/PT · [CODE] depende da ficha F1 (cupom em dólar) · 80% do lote; 20% recebem o controle · {SEND} · docs/00-strategy/gratis-por-pais-plano.md",
+    draft_note=f"R2 EN com cupom · Grátis que não assina e não é BR/PT · VOLTE50 vale em USD pelo currency_options do cupom R6eSQeTK · 80% do lote; 20% recebem o controle · {SEND} · docs/00-strategy/gratis-por-pais-plano.md",
 )
 
 emails["r2-en-controle"] = email(
@@ -73,7 +73,7 @@ emails["r2-en-controle"] = email(
     note=para("Did you stop for a reason? Reply with one line.", size=15),
     unsub=BROADCAST_UNSUB,
     reason=REASON_EN,
-    draft_note=f"R2 EN controle · 20% do lote, o mesmo e-mail sem código (também serve se a ficha F1 sair como B) · {SEND} · docs/00-strategy/gratis-por-pais-plano.md",
+    draft_note=f"R2 EN controle · 20% do lote, o mesmo e-mail sem código · {SEND} · docs/00-strategy/gratis-por-pais-plano.md",
 )
 
 for name, html in emails.items():

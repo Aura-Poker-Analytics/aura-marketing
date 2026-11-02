@@ -10,10 +10,10 @@
 2. **As outras fontes não salvam o estoque.** `ultima_lat/long` está preenchida em 77 de 244, mas todas valem 0,0. O domínio do e-mail diz `.br` em 6 de 244 (2,5%). O criativo da Meta prevê PT bem (11 de 12) e prevê mal o EN (4 de 6). O GA4 tem `ui_lang` em 90 de 493 logados (18,3%) e só em agregado. Não existe coluna de idioma nem de fuso.
 3. **Regra:** PT para BR, PT, AO, MZ e CV; EN para o resto; ES fica fora por falta de volume (1 cadastro VE em 35). **País vazio = PT.** Dos 35 com país, 26 são PT (74,3%).
 4. **O erro da regra do fallback custa 26% do estoque antigo, no pior caso** (se o estoque tiver a mesma mistura dos 35). Corrige-se com uma ficha técnica: gravar `lang` e `country` no cadastro e no login (o `lang` já é o P2 do plano de follow-up).
-5. **O país muda três coisas, não só o idioma:** a moeda da oferta (BR em BRL, resto em USD), o horário de envio e o código. O VOLTE50 existente **só vale em BRL** (`amount_off` 7500 em `brl`, lido no Stripe live): um leitor de EN que clica nele não tem desconto. Precisa de uma ficha de cupom em dólar (§6, F1).
+5. **O país muda três coisas, não só o idioma:** a moeda da oferta (BR em BRL, resto em USD), o horário de envio e o idioma do código. O VOLTE50 já cobre as duas moedas: o cupom `R6eSQeTK` tem `currency_options` com BRL 7500 e USD 1450 (lido no Stripe live com o campo expandido), então o EN usa o próprio VOLTE50.
 6. **A escada tem de ser reajustada ao calendário:** o A2 em D2 fere a regra de 1 e-mail a cada 3 dias. Passa a D3 e o A3 a D6 (§4).
 7. **Volume de EN é pequeno:** cerca de 1 a 2 cadastros EN por semana. Nenhum teste de idioma tem poder; a leitura é descritiva e mensal (§7).
-8. **Decisões do Rafael:** 4 fichas (§6). Sem elas a escada PT roda e a EN fica em rascunho.
+8. **Decisão do Rafael:** só a ficha F1 (gravar `lang` e `country` no cadastro e no login, §6). A oferta única (VOLTE50, 50% por 3 meses) já é decisão dele de 02/11. Sem a F1 a escada PT e a EN rodam com o fallback PT.
 
 ## 1. De onde vem o país e o idioma de cada Grátis
 
@@ -46,7 +46,7 @@ O tráfego do site em geral é bem mais internacional que o cadastro: no GA4 des
 | País do cadastro | Idioma do e-mail | Moeda da oferta | Observação |
 | --- | --- | --- | --- |
 | BR | PT | BRL | Brasil é 65,7% dos 35 com país (23) |
-| PT | PT | a confirmar | Idioma PT. A moeda que o checkout mostra a quem está em Portugal precisa de conferência (F1) |
+| PT | PT | a confirmar | Idioma PT. A moeda que o checkout mostra a quem está em Portugal precisa de conferência na primeira leitura |
 | AO, MZ, CV | PT | USD | Nenhum cadastro até hoje; a regra existe para não cair em EN por acidente |
 | GB, IE, US, CA, AU, NZ, DE, NL, nórdicos, IT, RU, VE e qualquer outro | EN | USD | A Aura só tem preço em BRL e USD |
 | vazio | **PT** | BRL | Fallback. 74,3% dos que têm país são PT, e o estoque antigo veio da comunidade brasileira |
@@ -79,8 +79,8 @@ Sempre excluídos: quem assinou (Stripe, Woo e NOWPayments conferidos antes de c
 | **A2** | A1 + 3 dias | **não fez análise** | O spot da semana no Field Exploits, aberto no Grátis | sem oferta | `a2-pt.html` | `a2-en.html` |
 | **A3** | A2 + 3 dias | **segue sem análise** | "Travou em algum passo?" | sem oferta | `a3-pt.html` | `a3-en.html` |
 | **U1** | até 24 h do `gate_hit`, respeitando os 3 dias | **bateu no limite** | O spot que você abriu continua do outro lado do cadeado | sem oferta | `followup-u1-paywall.html` | `ativacao-meta/u1-en.html` |
-| **U2** | 72 h depois do `gate_hit`, sem assinar | bateu no limite e não assinou | 50% nos 3 primeiros meses do Individual mensal | **BRL: `VOLTE50`. USD: código novo (F1)**; 20% de controle sem código | `ativacao-meta/u2-pt.html` (ajustar a oferta) | `ativacao-meta/u2-en.html` (ajustar) |
-| **R2** | 04/11, 10h BRT (calendário) | Grátis antigo, sem login depois do R1 | 8 novidades em 60 dias + o código | `VOLTE50` até 30/11, só 1.ª compra; 20% de controle | `followup-r2-cupom.html` | **EN novo** (§8), pronto só para quando o cupom em dólar existir |
+| **U2** | 72 h depois do `gate_hit`, sem assinar | bateu no limite e não assinou | 50% nos 3 primeiros meses do Individual mensal | **`VOLTE50` em BRL e em USD** (`currency_options`); 20% de controle sem código | `ativacao-meta/u2-pt.html` (ajustar a oferta) | `ativacao-meta/u2-en.html` (ajustar) |
+| **R2** | 04/11, 10h BRT (calendário) | Grátis antigo, sem login depois do R1 | 8 novidades em 60 dias + o código | `VOLTE50` até 30/11, só 1.ª compra; 20% de controle | `followup-r2-cupom.html` | **EN novo** (§8), com o `VOLTE50` em dólar |
 | **R3** | 27/11, 10h BRT (3 dias antes do vencimento) | R2 recebido, sem compra | "Seu código vence em 3 dias", sem repetir as novidades | o mesmo código | a escrever depois da leitura do R2 | idem |
 
 **Janela de envio por idioma.** PT às 10h de Brasília, como o calendário. EN às **15h de Brasília** (18h em Londres e Dublin, 13h em Nova York): o EN é majoritariamente Reino Unido e Irlanda, e 10h de Brasília cai às 13h lá, no meio do expediente. Hipótese a medir, não regra.
@@ -104,26 +104,17 @@ Não há cruzamento: os 18 do A1 se cadastraram depois do R1 (28/10); o R2 é do
 
 ## 6. Fichas ao Rafael (dinheiro e envio são dele)
 
-**F1. Cupom em dólar para a escada em EN**
-- O `VOLTE50` (`R6eSQeTK`) é `amount_off` 7500 **só em `brl`**, 3 meses, 184 usos, até 30/11. Em dólar ele não dá desconto nenhum.
-- A. Criar um cupom novo com `amount_off` BRL 7500 **e** USD 1450 (50% de US$ 29, o preço mensal do Individual em dólar), repetindo 3 meses, só 1.ª compra, até 30/11, com o código `BACK50` para o EN e o `VOLTE50` mantido para o PT. (Recomendado: o Stripe aceita um valor por moeda no mesmo cupom, então o checkout cobra na moeda do cliente.)
-- B. Mandar o EN sem código e só com as novidades (nenhum desconto em dólar).
-- C. Nada em EN até o dólar ter volume.
-- Recomendação: A, porque o EN do R2 e do U2 só mede alguma coisa com oferta. **Responder "CUPOM-USD sim" aceita A.** A conferência de qual moeda o checkout mostra para quem está em Portugal e no Reino Unido entra na criação.
+**Resolvido em 02/11 (HUB), sem ficha:**
+- **Cupom em dólar:** não é preciso criar nada. O `VOLTE50` (`R6eSQeTK`) vale em BRL (7500) e em USD (1450, 50% de US$ 29), 3 meses, só no Individual, até 30/11 (`currency_options`, lido no Stripe live). A primeira versão deste plano dizia que só valia em BRL: o conector que usei não mostra `currency_options`.
+- **Oferta única:** o Grátis que não assina tem uma oferta só, o `VOLTE50` (50% por 3 meses), no R2, no U2 e no R3. É a decisão do Rafael de 02/11; o 30% no 1.º mês (`Ph7y2HU9`) sai da escada do Grátis. Guardrail: se mais de 60% das assinaturas novas em 8 semanas usarem cupom, cortar ou reduzir.
 
-**F2. Uma oferta só para o Grátis que não assina**
-- Hoje há duas ofertas no mesmo público: `VOLTE50` (50% por 3 meses) no R2 do Grátis antigo, e o plano de 23/10 prevê `Ph7y2HU9` (30% no 1.º mês) no U2 dos novos. O calendário manda uma oferta por público.
-- A. Unificar em **50% por 3 meses** (BRL `VOLTE50`; USD conforme F1) no R2, no U2 e no R3. (Recomendado: um número só, e o Rafael já escolheu esse em 02/11.)
-- B. Manter 30% no 1.º mês para os novos e 50% por 3 meses para os antigos.
-- Guardrail de qualquer das duas: se mais de 60% das assinaturas novas em 8 semanas usarem cupom, cortar ou reduzir. **Responder "OFERTA-UNICA sim" aceita A.**
-
-**F3. Gravar `lang` e `country` no cadastro e no login**
+**F1. Gravar `lang` e `country` no cadastro e no login**
 - Hoje o país entra só no cadastro desde 09/2026. O estoque antigo (209) não tem. Um registro novo no login (país derivado do que o app já recebe) e um `lang` (idioma da interface) cobrem os que voltam. Sem isso, 26% do estoque antigo pode estar recebendo o idioma errado, no pior caso.
 - A. Pedir à sessão do app a gravação no login e no cadastro (a migration aditiva no AuraBusiness é do Rafael, como no P2). (Recomendado.)
 - B. Ficar com o fallback PT.
 - **Responder "LANG-COUNTRY sim" aceita A.**
 
-**F4. Envio** (o portão não muda): cada passo continua com o "sim" digitado, por envio. Nada deste plano autoriza envio.
+**Envio** (o portão não muda): cada passo continua com o "sim" digitado, por envio. Nada deste plano autoriza envio.
 
 ## 7. Métrica de sucesso por coorte e idioma (funil G0)
 
@@ -144,24 +135,24 @@ Funil: **cadastro → 1.ª análise → `gate_hit` → `upgrade_click` → `begi
 
 **Regra de decisão, escrita antes do número:**
 1. Se o EN chegar a ≥ 20 destinatários em 28 dias e **0** assinaturas, não se muda a oferta: abre-se uma ficha de investigação (copy, moeda, horário), sem cortar o EN.
-2. Se o resgate do código em dólar (F1) for 0 com ≥ 10 cliques de EN, a hipótese passa a ser preço em dólar, não idioma.
+2. Se o resgate do VOLTE50 em dólar for 0 com ≥ 10 cliques de EN, a hipótese passa a ser preço em dólar, não idioma.
 3. Se a taxa de descadastro de qualquer coorte passar de 1% em um envio, pausa e ficha.
 4. A leitura de D+3 e D+7 vai para o `resultado.md` da campanha; quem lê é o G1.
 
 ## 8. O primeiro e-mail EN da escada
 
-**R2 EN (para o público EN do Grátis que não assina):** reaproveita o `novidades()` do #60 com a lista em inglês, e uma caixa de código com o texto do cupom em dólar.
-- `content/email/gratis-por-pais/r2-en-cupom.html`: com o código (`[CODE]` até a F1 resolver).
-- `content/email/gratis-por-pais/r2-en-controle.html`: o mesmo e-mail sem código, para os 20% de controle ou para o caso de a F1 sair como B.
+**R2 EN (para o público EN do Grátis que não assina):** reaproveita o `novidades()` do #60 com a lista em inglês, e uma caixa com o VOLTE50 em dólar.
+- `content/email/gratis-por-pais/r2-en-cupom.html`: com o `VOLTE50` (US$ 14,50 por mês em vez de US$ 29).
+- `content/email/gratis-por-pais/r2-en-controle.html`: o mesmo e-mail sem código, para os 20% de controle.
 - Gerador: `content/email/_template/build_gratis_pais.py`. Prévia no navegador em 680 e 390 px e revisão do `casa:revisor` registradas em `content/email/gratis-por-pais/notas.md`.
-- Bloqueios: o código real, a validade e o sim do Rafael. O `[SPOT]` não existe aqui, porque o R2 usa as novidades.
+- Bloqueio: o sim do Rafael. O `[SPOT]` não existe aqui, porque o R2 usa as novidades.
 
 ## 9. O que fica de fora
 
 - ES, até 20 cadastros hispânicos em 30 dias.
 - A automação por gatilho (MKT-D4: depende da ficha de LGPD). O lote continua manual e semanal.
 - Qualquer contato, segmento ou cupom criado: tudo isso é "sim" do Rafael.
-- Backfill do país do estoque: depende da F3.
+- Backfill do país do estoque: depende da F1.
 
 ## 10. Consultas e fontes
 
