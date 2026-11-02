@@ -138,7 +138,7 @@ def gto_card(spot, context, field, gto, band, verdict, label="Modo GTO"):
 # (_ops/email-calendario-2026-11.md). Cada item conferido como "no ar" no ECOSYSTEM.md e no STATE do aura-main em 02/11.
 NOVIDADES_60D = [
     ("Modo GTO", "A faixa GTO ao lado do field em todas as ações do flop, do turn e do river."),
-    ("GTO pré-flop abaixo de 20bb", "O GTO de abertura e de resposta também com stack curto, antes da bolha."),
+    ("GTO pré-flop abaixo de 20bb", "O GTO pré-flop também com stack curto, abaixo de 20bb, nos spots já cobertos."),
     ("Field Exploits", "Os spots em que o field mais se afasta do GTO, já ranqueados, agora com turn e river. Toda segunda, 2 entram e 2 saem."),
     ("Field Ranges", "O range do field mão a mão contra o GTO, com Copy Range para levar ao seu estudo."),
     ("Field Trends", "Como o field mudou em cada stat, agora também no pré-flop."),
