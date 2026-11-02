@@ -8,12 +8,12 @@
 
 1. **O país está preenchido em 100% dos cadastros desde 09/2026 (35 de 35), mas em 0 dos 209 anteriores.** Na base Grátis inteira são 35 de 244 (14,3%). A pergunta "de onde vem o país" tem resposta para o fluxo novo; o estoque antigo continua sem resposta.
 2. **As outras fontes não salvam o estoque.** `ultima_lat/long` está preenchida em 77 de 244, mas todas valem 0,0. O domínio do e-mail diz `.br` em 6 de 244 (2,5%). O criativo da Meta prevê PT bem (11 de 12) e prevê mal o EN (4 de 6). O GA4 tem `ui_lang` em 90 de 493 logados (18,3%) e só em agregado. Não existe coluna de idioma nem de fuso.
-3. **Regra:** PT para BR, PT, AO, MZ e CV; EN para o resto; ES fica fora por falta de volume (1 cadastro VE em 35). **País vazio = PT.** Dos 35 com país, 26 são PT (74,3%).
-4. **O erro da regra do fallback custa 26% do estoque antigo, no pior caso** (se o estoque tiver a mesma mistura dos 35). Corrige-se com uma ficha técnica: gravar `lang` e `country` no cadastro e no login (o `lang` já é o P2 do plano de follow-up).
+3. **Regra (Rafael, 02/11: "é só deduzir a lingua pelo país. se nao for BR ou PT mandar em ingles"):** PT só para BR e PT; EN para todo o resto, AO, MZ e CV incluídos; ES fica fora. **País vazio = PT.** Dos 35 com país, 26 são PT (74,3%). O idioma sai do país no dia do envio e **não se grava idioma no cadastro**.
+4. **País vazio (209 do estoque antigo) fica em PT:** é a base antiga e brasileira, e se a mistura fosse igual à dos 35 com país, até 26% estariam no idioma errado. É um risco aceito pelo Rafael, sem trabalho de engenharia.
 5. **O país muda três coisas, não só o idioma:** a moeda da oferta (BR em BRL, resto em USD), o horário de envio e o idioma do código. O VOLTE50 já cobre as duas moedas: o cupom `R6eSQeTK` tem `currency_options` com BRL 7500 e USD 1450 (lido no Stripe live com o campo expandido), então o EN usa o próprio VOLTE50.
 6. **A escada tem de ser reajustada ao calendário:** o A2 em D2 fere a regra de 1 e-mail a cada 3 dias. Passa a D3 e o A3 a D6 (§4).
 7. **Volume de EN é pequeno:** cerca de 1 a 2 cadastros EN por semana. Nenhum teste de idioma tem poder; a leitura é descritiva e mensal (§7).
-8. **Decisão do Rafael:** só a ficha F1 (gravar `lang` e `country` no cadastro e no login, §6). A oferta única (VOLTE50, 50% por 3 meses) já é decisão dele de 02/11. Sem a F1 a escada PT e a EN rodam com o fallback PT.
+8. **Nenhuma ficha pendente deste plano.** A oferta única (VOLTE50, 50% por 3 meses, também em dólar) e a regra de idioma por país (sem gravar `lang`) são decisões do Rafael de 02/11.
 
 ## 1. De onde vem o país e o idioma de cada Grátis
 
@@ -31,9 +31,9 @@ Base: Grátis que não assina = `plan_tier = 'trial'`, sem cliente nem assinatur
 | GA4 por país | geo por IP | quase todo o tráfego, mas por visitante | Serve para dimensionar o público, não para escolher o e-mail de uma pessoa |
 | Moeda do checkout | BRL ou USD | só quem abriu checkout: 3 usuários desde 01/09 | Não cobre o Grátis |
 | Fuso | — | não existe coluna | Não |
-| `lang` no cadastro | — | não existe coluna (previsto como P2 em `followup-cadastrados-gratis.md` §11) | Falta: é o conserto |
+| `lang` no cadastro | — | não existe coluna | Decidido em 02/11: não se grava. O idioma sai do país no dia do envio |
 
-Como o país é distribuído nos 35 com dado: BR 23, GB 4, PT 3, VE 1, RU 1, AU 1, IT 1, DE 1. Em PT: 26 (74,3%). Em EN: 9 (25,7%).
+Como o país é distribuído nos 35 com dado: BR 23, GB 4, PT 3, VE 1, RU 1, AU 1, IT 1, DE 1. Em PT (BR e PT): 26 (74,3%). Em EN (o resto): 9 (25,7%).
 O tráfego do site em geral é bem mais internacional que o cadastro: no GA4 desde 01/08, os visitantes novos são 754 do Brasil em português, 274 dos EUA em inglês, 92 de Portugal e 40 do Reino Unido. Quem se cadastra é majoritariamente brasileiro; quem só visita não é.
 
 **Pontos cegos assumidos:**
@@ -47,10 +47,9 @@ O tráfego do site em geral é bem mais internacional que o cadastro: no GA4 des
 | --- | --- | --- | --- |
 | BR | PT | BRL | Brasil é 65,7% dos 35 com país (23) |
 | PT | PT | a confirmar | Idioma PT. A moeda que o checkout mostra a quem está em Portugal precisa de conferência na primeira leitura |
-| AO, MZ, CV | PT | USD | Nenhum cadastro até hoje; a regra existe para não cair em EN por acidente |
-| GB, IE, US, CA, AU, NZ, DE, NL, nórdicos, IT, RU, VE e qualquer outro | EN | USD | A Aura só tem preço em BRL e USD |
+| qualquer outro, AO, MZ e CV incluídos (GB, IE, US, CA, AU, NZ, DE, NL, nórdicos, IT, RU, VE...) | EN | USD | Regra do Rafael de 02/11. A Aura só tem preço em BRL e USD |
 | vazio | **PT** | BRL | Fallback. 74,3% dos que têm país são PT, e o estoque antigo veio da comunidade brasileira |
-| ES (MX, AR, CO, ES...) | **fora por ora** → EN | USD | Só abre com 20 cadastros hispânicos em 30 dias. Hoje: 1 (VE), que veio por criativo BR e vai em PT |
+| ES (MX, AR, CO, ES...) | **fora por ora** → EN | USD | Só abre com 20 cadastros hispânicos em 30 dias. Hoje: 1 (VE), que vai em EN pela regra |
 
 Exceções por pista, em ordem: (1) se o país existe, ele manda; (2) se o país é vazio e o criativo da Meta é `-en`, **não** muda: o criativo `-en` acerta pouco (4 de 6). Ou seja: **só o país muda o idioma.**
 
@@ -62,7 +61,7 @@ O calendário (`_ops/email-calendario-2026-11.md`) ordena os públicos assim: ex
 
 | Coorte | Quem | Hoje | Idioma | Porta |
 | --- | --- | --- | --- | --- |
-| **C1 Novo** | cadastro há até 14 dias | 18 da Meta (14 em português, 4 em inglês) | por país | A1 |
+| **C1 Novo** | cadastro há até 14 dias | 18 da Meta (13 em português, 5 em inglês) | por país | A1 |
 | **C2 Antigo** | cadastro há mais de 30 dias, sem login recente | 184 (147 cupom, 37 controle) | PT (sem país) | R2 de 04/11 |
 | **C3 Com uso** | fez ao menos 1 análise, no Grátis | não medido por pessoa (GA4: 55 usuários com `analyze_result` desde 01/09) | por país | espera `first_analysis_at` (P2) |
 | **C4 Bateu no paywall** | teve `gate_hit` | GA4: 25 usuários desde 01/09 | por país | U1 e U2 |
@@ -94,7 +93,7 @@ Sempre excluídos: quem assinou (Stripe, Woo e NOWPayments conferidos antes de c
 | Data | Envio | Quem | Idioma | Condição |
 | --- | --- | --- | --- | --- |
 | **04/11, 10h** | R2 com `VOLTE50` e as novidades (calendário) | 184 do Grátis antigo | PT (sem país) | sim do Rafael |
-| **A1: no dia do sim** | A1 | os 18 de 30/10 a 01/11 (14 em português, 4 em inglês), refeito no dia | por país | sim do Rafael; segmento próprio depois do R2 (a HUB combina) |
+| **A1: no dia do sim** | A1 | os 18 de 30/10 a 01/11 (13 em português, 5 em inglês), refeito no dia | por país | sim do Rafael; segmento próprio depois do R2 (a HUB combina) |
 | A1 + 3 | A2 | quem não analisou | por país | checagem no GA4 na véspera |
 | A1 + 6 | A3 | quem seguir sem análise | por país | idem |
 | 27/11, 10h | R3 | R2 sem compra | PT, e EN para quem já tiver país | leitura do R2 em D+3 (07/11) e D+7 (11/11) |
@@ -108,11 +107,7 @@ Não há cruzamento: os 18 do A1 se cadastraram depois do R1 (28/10); o R2 é do
 - **Cupom em dólar:** não é preciso criar nada. O `VOLTE50` (`R6eSQeTK`) vale em BRL (7500) e em USD (1450, 50% de US$ 29), 3 meses, só no Individual, até 30/11 (`currency_options`, lido no Stripe live). A primeira versão deste plano dizia que só valia em BRL: o conector que usei não mostra `currency_options`.
 - **Oferta única:** o Grátis que não assina tem uma oferta só, o `VOLTE50` (50% por 3 meses), no R2, no U2 e no R3. É a decisão do Rafael de 02/11; o 30% no 1.º mês (`Ph7y2HU9`) sai da escada do Grátis. Guardrail: se mais de 60% das assinaturas novas em 8 semanas usarem cupom, cortar ou reduzir.
 
-**F1. Gravar `lang` e `country` no cadastro e no login**
-- Hoje o país entra só no cadastro desde 09/2026. O estoque antigo (209) não tem. Um registro novo no login (país derivado do que o app já recebe) e um `lang` (idioma da interface) cobrem os que voltam. Sem isso, 26% do estoque antigo pode estar recebendo o idioma errado, no pior caso.
-- A. Pedir à sessão do app a gravação no login e no cadastro (a migration aditiva no AuraBusiness é do Rafael, como no P2). (Recomendado.)
-- B. Ficar com o fallback PT.
-- **Responder "LANG-COUNTRY sim" aceita A.**
+**LANG-COUNTRY (respondida pelo Rafael em 02/11, sem ficha):** "nao precisa. é só deduzir a lingua pelo país. se nao for BR ou PT mandar em ingles." Não se grava `lang` nem `country` novos: o idioma sai do `country` no dia do envio, PT só para BR e PT, EN para o resto, país vazio em PT. O estoque antigo sem país segue em PT.
 
 **Envio** (o portão não muda): cada passo continua com o "sim" digitado, por envio. Nada deste plano autoriza envio.
 
@@ -152,7 +147,7 @@ Funil: **cadastro → 1.ª análise → `gate_hit` → `upgrade_click` → `begi
 - ES, até 20 cadastros hispânicos em 30 dias.
 - A automação por gatilho (MKT-D4: depende da ficha de LGPD). O lote continua manual e semanal.
 - Qualquer contato, segmento ou cupom criado: tudo isso é "sim" do Rafael.
-- Backfill do país do estoque: depende da F1.
+- Backfill do país do estoque antigo: não será feito (decisão de 02/11).
 
 ## 10. Consultas e fontes
 

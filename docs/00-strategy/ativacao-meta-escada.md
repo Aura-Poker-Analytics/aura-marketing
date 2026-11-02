@@ -11,8 +11,8 @@ Origem: `tbl_user.utm_source` em `meta` ou `instagram` (SINAL01 pago e o link da
 | Passo | Quando | Gatilho (quem entra) | Assunto PT | Assunto EN | Arquivo | UTM (`campaign` / `content`) |
 | --- | --- | --- | --- | --- | --- | --- |
 | **A1** boas-vindas | D0 (lote de hoje: cadastro há até 7 dias) | todo cadastro da Meta ainda não contatado | Sua conta na Aura está pronta: comece pelo c-bet do flop | Your Aura account is ready: start with the flop c-bet | `ativacao-meta/a1-pt.html`, `a1-en.html` | `ativacao-meta` / `a1`, `a1-en` |
-| **A2** spot da semana | D2 | quem **não** fez a primeira análise (`analyze_result`) | O spot da semana no Field Exploits, aberto no seu Grátis | This week's Field Exploits spot, open on your Free plan | `a2-pt.html`, `a2-en.html` | `ativacao-meta` / `a2`, `a2-en` |
-| **A3** travou? | D5 | quem segue sem primeira análise | Travou em algum passo? | Stuck on a step? | `a3-pt.html`, `a3-en.html` | `ativacao-meta` / `a3`, `a3-en` |
+| **A2** spot da semana | A1 + 3 dias | quem **não** fez a primeira análise (`analyze_result`) | O spot da semana no Field Exploits, aberto no seu Grátis | This week's Field Exploits spot, open on your Free plan | `a2-pt.html`, `a2-en.html` | `ativacao-meta` / `a2`, `a2-en` |
+| **A3** travou? | A2 + 3 dias | quem segue sem primeira análise | Travou em algum passo? | Stuck on a step? | `a3-pt.html`, `a3-en.html` | `ativacao-meta` / `a3`, `a3-en` |
 | **U1** paywall | até 24 h do `gate_hit` | bateu no paywall | O spot que você abriu continua do outro lado do cadeado | The spot you opened is still behind the lock | `followup-u1-paywall.html`, `ativacao-meta/u1-en.html` | `upgrade-meta` / `u1`, `u1-en` |
 | **U2** cupom | 72 h depois do `gate_hit`, sem assinatura | só quem bateu no paywall e não assinou (80% com cupom `Ph7y2HU9`, 20% controle sem cupom) | 30% no seu primeiro mês do Individual, até [DATA] | 30% off your first month of Individual, until [DATE] | `ativacao-meta/u2-pt.html`, `u2-en.html` | `upgrade-meta` / `u2-cupom`, `u2-cupom-en` |
 
@@ -20,9 +20,9 @@ Ordem de envio e regras:
 1. **A1 para todos**, no mesmo dia. É o único passo que sai sem condição.
 2. **A2 e A3 só para quem não analisou.** Quem fez a primeira análise sai da escada de ativação e passa a ser lido como Grátis com uso (§4.2 do plano). Quem bateu no paywall vai direto ao U1, mesmo que esteja em A2 ou A3.
 3. **U2 só depois do U1 e só com `gate_hit`.** Hoje os 18 não têm `gate_hit` conhecido (§2), então **nenhum entra no U2**. Código do lote criado pelo Rafael no Stripe (`ATIVAddmm`, apontando para `Ph7y2HU9`, limite = tamanho do lote com cupom, 7 dias, `first_time_transaction`).
-4. **Um e-mail por pessoa por semana** (teto do MKT-D4): A1 → A2 no D2 e A3 no D5 já cabem se o A2 sair só para quem não analisou; se o Rafael preferir o teto estrito, A2 vai para o D7 e A3 para o D12. Recomendação: manter D2/D5 só porque cada passo tem gatilho de "sem análise" e a base é pequena; ele decide.
+4. **Um e-mail por pessoa por semana** (teto do MKT-D4): A1 → A2 em A1 + 3 dias e A3 em A2 + 3 dias cabem no mínimo de 3 dias do calendário se o A2 sair só para quem não analisou; se o Rafael preferir o teto estrito, A2 vai para o D7 e A3 para o D12. Recomendação: manter D2/D5 só porque cada passo tem gatilho de "sem análise" e a base é pequena; ele decide.
 5. **Saída:** descadastro, bounce, assinatura ou 3 envios sem abertura. Excluídos sempre: pagantes, superusuários, `@aurapoker.com`.
-6. **Idioma:** país BR, PT, AO, MZ → PT; os demais países do lote → EN (VE e outros hispânicos: ver §2).
+6. **Idioma (regra do Rafael, 02/11):** PT só para BR e PT; EN para todo o resto (AO, MZ, CV e VE incluídos); país vazio em PT. O idioma sai do país no dia do envio.
 
 Voz: grinder, termos de poker em inglês (field, c-bet, flop, spot, buy-in), "a Aura" no feminino em PT, assinatura do Rafael. O A1 pede uma resposta ("qual buy-in você mais joga?"): as respostas viram linguagem do cliente para o contexto de produto.
 
@@ -35,16 +35,16 @@ Leitura só de SELECT no `postgres-azure-business` em 01/11 (colunas `Id`, `crea
 | Resumo | Valor |
 | --- | --- |
 | Cadastros com `utm_source` meta ou instagram desde 30/10 | **18** (16 SINAL01 pago, 2 do link da bio, campanha `organico`) |
-| Idioma | **14 PT** (13 BR + 1 VE) e **4 EN** (GB 3, DE 1) |
+| Idioma | **13 em português** (todos BR) e **5 em inglês** (GB 3, DE 1, VE 1), pela regra de 02/11 |
 | Plano | 18 Grátis (`plan_tier = trial`), 0 pagantes, 0 com Stripe, 0 superusuários, 0 `@aurapoker.com` |
 | Voltaram depois do dia do cadastro | **0** (`ultimo_login` cai sempre no dia da criação) |
 | Receberam e-mail da Aura | **0** |
 | Passo de cada um (envio em 02/11) | A1 hoje para os 18. Idade no envio: 8 com D0 (cadastro 01/11), 9 com D1 (31/10), 1 com D2 (30/10) |
-| Próximo | A2 em 04/11 e A3 em 07/11, só para quem seguir sem análise |
+| Próximo | A2 três dias depois do A1 e A3 três dias depois do A2, só para quem seguir sem análise |
 
 Lacunas que o banco não responde, e o que fazer:
 - **Primeira análise e `gate_hit`** não estão em `tbl_user` (vêm do GA4 por `aura_user_id`, ou do `first_analysis_at` do P2, ainda não existe). Por isso A2/A3/U2 ficam condicionais e a checagem acontece na véspera de cada passo.
-- **Venezuela (id 378):** veio pelo criativo `b-br` (PT). Recomendação: PT; o Rafael pode mudar para EN.
+- **Venezuela (id 378):** veio pelo criativo `b-br`, mas a regra por país (02/11) manda EN.
 - **Dois cadastros de bio (379, 384)** são orgânicos: a mesma escada serve, mas não contam como Meta pago.
 
 Segmento: o plano do Resend tem 3 segmentos e todos estão em uso. Os dois rascunhos A1 ficaram presos ao segmento `65da31a5` ("R1 Grátis inativo 28/10") só porque a broadcast exige um segmento; o nome diz "NÃO ENVIAR". **Esse segmento guarda os 147 do cupom do R2 do follow-up e não pode ser esvaziado, rebatizado nem usado pelo A1** (correção de 02/11, pedido da HUB). O A1 precisa de segmento próprio com os 18 do lote. Quando o R2 tiver saído, a HUB combina qual dos 3 segmentos é liberado; só então os rascunhos são religados a ele. Criar contato é escrita no Resend e só acontece com o sim do Rafael digitado nesta sessão.
@@ -70,7 +70,20 @@ Dependência: o registro de quem já recebeu cada passo precisa de um lugar. Fas
 
 | # | Decisão | Recomendação |
 | --- | --- | --- |
-| 1 | Enviar o A1 hoje a 14 PT e 4 EN | Sim, em dois envios (PT e EN) |
-| 2 | VE em PT ou EN | PT |
-| 3 | A2 em D2 e A3 em D5, ou D7 e D12 pelo teto estrito | D2/D5, só para quem não analisou |
+| 1 | Enviar o A1 a 13 em português e 5 em inglês | Sim, em dois envios (PT e EN) |
+| 2 | VE em PT ou EN | Decidido: EN (regra do país, 02/11) |
+| 3 | A2 e A3 a cada 3 dias do último envio (calendário de 02/11) | Decidido: A1 + 3 e A2 + 3, só para quem não analisou |
 | 4 | Aprovar a rotina semanal como tarefa agendada local | Sim, só rascunho |
+
+## 5. Rascunhos no Resend (02/11)
+
+Seis broadcasts em rascunho (status `draft`), nomeadas "RASCUNHO · ... · NÃO ENVIAR", remetente `Aura Poker Analytics <news@news.aurapoker.com>`, reply-to `manager@aurapoker.com`, descadastro do Resend. Revisados pelo `casa:revisor` (OK, 02/11). **Todos presos ao segmento `65da31a5` ("R2 02/11 · cupom (147)")**, porque a broadcast exige um segmento e os 3 do plano estão em uso: **trocar o segmento antes de qualquer envio** (os 13 PT e os 5 EN do lote entram em segmento próprio, a combinar com a HUB depois do R2). Enviar exige o sim do Rafael digitado na sessão.
+
+| Passo | Idioma | Id | Observação |
+| --- | --- | --- | --- |
+| A1 | PT | `4cf1f6f7-1c8e-4806-871a-33f64c62542e` | pronto |
+| A1 | EN | `810c9e97-e3e4-451e-a6b9-661727c4193f` | texto atualizado em 02/11 |
+| A2 | PT | `84e80a38-8305-4174-a6c9-d0dc3dca522f` | preencher `[SPOT]` com o `free_week` conferido logado |
+| A2 | EN | `31866757-cfcd-4a72-9cf5-bfb2b346233e` | idem |
+| A3 | PT | `a6a44569-58b2-4a5b-be73-75c73ec4da2d` | pronto; conferir o recorte do Grátis (buy-ins até US$ 22) na véspera |
+| A3 | EN | `9fc2bc4d-0fdd-4058-a1a5-935174985f25` | idem |
