@@ -149,6 +149,6 @@ Rafael
 | e2 | 29/10 | 3 (25 cancelados por regra) | 3 | 0 | 0 | 0 |
 | e3 | 02/11 10h | 28 | 28 | 2 (lido 02/11 ~10h30, um piso) | 0 | 0 |
 
-Os resgates do `VOLTA` estavam em 0 até 01/11; a leitura de 02/11 fica pendente porque a ferramenta do Stripe falhou.
+Resgates (Stripe live, lido pela HUB em 02/11 depois do e3): `VOLTA` 0, `VOLTA70` 0.
 
 **e4 refeito (decisão do Rafael, 02/11: "e3 sai, 70% no e4").** O e4 passa a ser um e-mail novo com as novidades dos últimos 60 dias, o mesmo bloco do R2 do followup, e o `VOLTA70` (70% por 3 meses no Individual, até 30/11). Ele diz que o `VOLTA70` substitui o `VOLTA`. A data proposta é seg. 09/11, 10h, conforme `_ops/email-calendario-2026-11.md`. Ele sai só para quem não assinou e só com o sim do Rafael nesta sessão. O `e4-limpo` antigo (o VOLTA vence hoje) foi descartado.
