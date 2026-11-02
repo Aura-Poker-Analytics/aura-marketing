@@ -54,7 +54,7 @@ emails["a1-en"] = email(
     headline="Pick a spot. Aura shows what the field does there.",
     sub="And where the GTO range sits. Start with the spot open on your Free plan:",
     blocks=[row(panel(steps([
-        ("Open the IP c-bet on the flop in Postflop", "The reaction is free on the Free plan."),
+        ("Open the IP c-bet on the flop in Postflop", "This reaction is open on the Free plan."),
         ("Go to BTN vs BB, 30 to 60 big blinds", "See the field's fold by size, with the GTO range."),
         ("Filter the flop texture", "Check the number holds on your board."),
     ])), pad="0 40px 24px 40px")],
@@ -65,14 +65,14 @@ emails["a1-en"] = email(
     draft_note=f"A1 EN · D0/D1 · cadastrados da Meta em inglês · {SEND}",
 )
 
-# ---------------------------------------------------------------- A2 (D2, só sem primeira análise)
+# ---------------------------------------------------------------- A2 (A1 + 3 dias, só sem primeira análise)
 emails["a2-pt"] = email(
     title="O spot da semana no Field Exploits, aberto no seu Grátis",
     preview="Um spot real do plano Individual, inteiro: o número do field, o do GTO e como explorar.",
     headline="Um spot do plano Individual, aberto no seu Grátis.",
     sub="Toda semana, um dos 8 spots do Field Exploits fica aberto, inteiro. Nesta semana: <strong>[SPOT: posições e stack]</strong>.",
     blocks=[row(panel(bullets([
-        ("O número do field", "O que a mesa realmente faz nesse spot."),
+        ("O número do field", "O que o field faz nesse spot."),
         ("O número do GTO e a faixa", "Onde o field se afasta do GTO."),
         ("Como explorar", "O ajuste, em uma linha."),
     ])), pad="0 40px 24px 40px")],
@@ -80,7 +80,7 @@ emails["a2-pt"] = email(
     cta_url=landing("ativacao-meta", "a2"),
     note=para("Abriu e travou em algum ponto? Responda este e-mail.", size=15),
     unsub=UNSUB["pt"], reason=REASON["pt"],
-    draft_note=f"A2 em português · D2, só quem não fez a primeira análise · preencher [SPOT] com o free_week da semana, conferido logado (G2), antes do envio · {SEND}",
+    draft_note=f"A2 em português · A1 + 3 dias, só quem não fez a primeira análise · preencher [SPOT] com o free_week da semana, conferido logado (G2), antes do envio · {SEND}",
 )
 emails["a2-en"] = email(
     lang="en",
@@ -89,7 +89,7 @@ emails["a2-en"] = email(
     headline="An Individual-plan spot, open on your Free plan.",
     sub="Every week, one of the 8 Field Exploits spots is open in full. This week: <strong>[SPOT: positions and stack]</strong>.",
     blocks=[row(panel(bullets([
-        ("The field number", "What the table actually does in this spot."),
+        ("The field number", "What the field actually does in this spot."),
         ("The GTO number and the range", "Where the field drifts from GTO."),
         ("How to exploit it", "The adjustment, in one line."),
     ])), pad="0 40px 24px 40px")],
@@ -97,10 +97,10 @@ emails["a2-en"] = email(
     cta_url=landing("ativacao-meta", "a2-en"),
     note=para("Opened it and got stuck somewhere? Reply to this email.", size=15),
     unsub=UNSUB["en"], reason=REASON["en"],
-    draft_note=f"A2 EN · D2, only if no first analysis · fill [SPOT] with the week's free_week spot, checked logged in (G2), before sending · {SEND}",
+    draft_note=f"A2 EN · A1 + 3 dias, only if no first analysis · fill [SPOT] with the week's free_week spot, checked logged in (G2), before sending · {SEND}",
 )
 
-# ---------------------------------------------------------------- A3 (D5, "travou?", sem botão grande)
+# ---------------------------------------------------------------- A3 (A2 + 3 dias, "travou?", sem botão grande)
 emails["a3-pt"] = email(
     title="Travou em algum passo?",
     preview="Duas coisas costumam travar no começo. Se for outra, me conta.",
@@ -113,7 +113,7 @@ emails["a3-pt"] = email(
     cta=None, cta_url="",
     note=para(f'Me conta numa linha o que travou. Eu leio e respondo. <a href="{landing("ativacao-meta", "a3")}" style="color:{GOLD_TXT};">Abrir a Aura</a>', size=15),
     unsub=UNSUB["pt"], reason=REASON["pt"],
-    draft_note=f"A3 em português · D5, só quem não fez a primeira análise · link simples, sem botão grande · {SEND}",
+    draft_note=f"A3 em português · A2 + 3 dias, só quem não fez a primeira análise · link simples, sem botão grande · {SEND}",
 )
 emails["a3-en"] = email(
     lang="en",
@@ -122,13 +122,13 @@ emails["a3-en"] = email(
     headline="Stuck on a step?",
     sub="No pressure. Two things usually get in the way early on:",
     blocks=[row(panel(bullets([
-        ("A filter outside the Free scope", "Free covers buy-ins up to US$ 22, Vanilla, early and middle stages. Outside that you will see the lock."),
+        ("A filter outside the Free scope", "Free covers buy-ins up to $22, Vanilla, early and middle stages. Outside that you will see the lock."),
         ("Could not find the spot", "Start with the IP c-bet on the flop, in Postflop. It is open."),
     ])), pad="0 40px 24px 40px")],
     cta=None, cta_url="",
     note=para(f'Tell me in one line what got in the way. I read and reply. <a href="{landing("ativacao-meta", "a3-en")}" style="color:{GOLD_TXT};">Open Aura</a>', size=15),
     unsub=UNSUB["en"], reason=REASON["en"],
-    draft_note=f"A3 EN · D5, only if no first analysis · plain link, no big button · {SEND}",
+    draft_note=f"A3 EN · A2 + 3 dias, only if no first analysis · plain link, no big button · {SEND}",
 )
 
 # ---------------------------------------------------------------- U1 EN (o PT já existe em followup-u1-paywall.html)
@@ -140,7 +140,7 @@ emails["u1-en"] = email(
     sub="Here's what the lock hides:",
     blocks=[
         row(panel(compare([
-            ("Buy-ins", "up to US$ 22", "all"),
+            ("Buy-ins", "up to $22", "all"),
             ("Tournaments", "Vanilla", "Vanilla, KO and Mystery"),
             ("Stages", "early and middle", "all"),
             ("Node-by-Node", "flop", "flop, turn and river"),

@@ -4,7 +4,7 @@
 
 **O que é o PRUMO, em uma linha (para todos):** o jogador manda as mãos de MTT e recebe um relatório com onde cada decisão se afasta do GTO, o que o field faz contra esse desvio e o que corrigir primeiro.
 
-**Regras de todas as mensagens:** abrir com algo específico do alvo; dizer quem é e o que é em 2 frases; pedir **uma** coisa (permissão para mostrar um relatório de exemplo); fechar sem pressão. "Relatório de exemplo" só depois de o Rafael confirmar qual dos 3 relatórios prontos pode aparecer (têm mãos de alunos reais). Assinatura: Rafael, fundador da Aura.
+**Regras de todas as mensagens:** abrir com algo específico do alvo; dizer quem é e o que é em 2 frases; pedir **uma** coisa (permissão para mostrar um relatório de exemplo); fechar sem pressão. O relatório de exemplo é o do Ramon, anonimizado (decisão do Rafael, 02/11), **só depois do ok dele registrado em `ok-ramon.md`** (hoje pendente). Sem o ok, a DM oferece só a conversa. Assinatura: Rafael, fundador da Aura.
 
 Formato do tipo A (time ou stable, escrito para a conta do time), B (escola ou coach) e C (coach ligado a um time, só depois da onda do time).
 
@@ -140,6 +140,6 @@ O PRUMO faz esse corte: onde a decisão sai do GTO, o que o field faz contra ess
 ## Se responderem
 
 - **"Quanto custa?"** "Estou fechando o preço agora. Te aviso antes de abrir para todo mundo."
-- **"Manda o exemplo."** Só depois de o Rafael escolher qual relatório pode ser exibido e tirar nome e dado pessoal do aluno.
+- **"Manda o exemplo."** Só depois do ok do Ramon em `ok-ramon.md` e com nome e dado pessoal tirados.
 - **"Como vocês calculam?"** Resposta curta e honesta, sem entrar em método: o relatório compara cada decisão com a referência GTO e com o que o field faz no mesmo spot.
 - **Silêncio:** um único follow-up em 7 dias, de uma linha, depois para.

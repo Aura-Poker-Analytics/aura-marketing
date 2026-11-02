@@ -52,7 +52,7 @@ Os rascunhos de DM estão em `dms.md`, um por alvo.
 
 1. **Preço:** nenhum rascunho cita. Se perguntarem, a resposta é "estamos fechando; te aviso antes de todo mundo". Isso só vale depois da ficha de preço da HUB.
 2. **Promessa:** nada de resultado em dinheiro nem "mais ITM garantido". O que o PRUMO faz é mostrar onde cada decisão se afasta do GTO e o que o field faz.
-3. **Amostra de relatório:** os rascunhos oferecem mostrar um relatório de exemplo. Só vale se o Rafael confirmar quais dos 3 relatórios prontos podem ser exibidos (têm mãos de alunos reais).
+3. **Amostra de relatório:** o exemplo é o relatório do Ramon, anonimizado (decisão do Rafael, 02/11). Só vale depois do ok dele registrado em `ok-ramon.md` (pendente: o pedido sai pela conta do Rafael).
 4. **Patrocínio de sala:** Felipe de Paulo (PokerStars Brasil) e outros com sala declarada na bio podem ter cláusula de ferramenta. Perguntar antes de propor divulgação.
 5. **Um contato por organização** na primeira rodada.
 6. **Disparo:** o Rafael manda, pela conta dele, uma DM por dia no máximo por alvo novo; a Meta limita DMs frias e conta com bloqueio. Nada automatizado.
