@@ -44,3 +44,8 @@ Frase final trocada por "C-bet muito mais!" / "C-bet way more!" depois da reprov
 | Carrossel BR | v3 `120250282312370327` | DISAPPROVED ("imprimir") | segue no ar |
 
 Próximo: com as 6 artes novas subidas pelo cartão, criar A e D BR/EN, Carrossel BR e Carousel EN v3, ativar e arquivar os v3 e os antigos assim que os novos estiverem ACTIVE.
+
+### v4 no ar (03/11)
+Artes v4 subidas pelo cartão; anúncios criados e ativados, em revisão (IN_PROCESS) na leitura de 03/11:
+A BR v4 `120250314164020327` · D BR v4 `120250314167510327` · Carrossel BR v4 `120250314169870327` · A EN v4 `120250314172140327` · D EN v4 `120250314173660327` · Carousel EN v3 `120250314174950327`.
+Carrossel BR v3 (reprovado) arquivado em 03/11. Quando cada v4 ficar ACTIVE, saem o v3 e o antigo correspondentes (A/D BR e EN, Carrossel BR antigo, Carousel EN v2).
