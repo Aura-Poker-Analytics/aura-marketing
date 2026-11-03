@@ -1,10 +1,11 @@
 # STATE.md — aura-marketing
 
-Atualizado em: 2026-11-02 · por: sessão `aura-marketing · Grátis por país · plano` (branch `docs/gratis-por-pais`) e, antes, sessão `aura-marketing · ativação Meta e P1` (branch `feat/ativacao-meta-p1`) e, antes, `aura-marketing · followup cadastrados e Grátis · plano` (branch `feat/followup-cadastrados-gratis`) e, antes, sessão `aura-marketing · lançamento Field Hotspots · pacote` (branch `feature/launch-field-hotspots`) e, antes, `aura-marketing · Modo GTO pacote` (branch `feature/launch-modo-gto`) e, antes, `aura · Field Ranges · pacote de lançamento`
+Atualizado em: 2026-11-03 · por: sessão `aura-marketing · sistema de design da Aura` (branch `docs/sistema-de-design-aura`) e, antes, sessão `aura-marketing · Grátis por país · plano` (branch `docs/gratis-por-pais`) e, antes, sessão `aura-marketing · ativação Meta e P1` (branch `feat/ativacao-meta-p1`) e, antes, `aura-marketing · followup cadastrados e Grátis · plano` (branch `feat/followup-cadastrados-gratis`) e, antes, sessão `aura-marketing · lançamento Field Hotspots · pacote` (branch `feature/launch-field-hotspots`) e, antes, `aura-marketing · Modo GTO pacote` (branch `feature/launch-modo-gto`) e, antes, `aura · Field Ranges · pacote de lançamento`
 
 Regras: menos de 150 linhas. Aponta para docs, não os repete. Toda sessão de tarefa atualiza este arquivo antes de fechar. "Em andamento" tem no máximo dois itens.
 
 ## 1. Implementado
+- Sistema de design da Aura para artes fora dos templates (03/11, DESIGN-CASA item 2): artifact Design System https://claude.ai/artifact/2LCAHgMazd7SbeEXe3qZr9 (tokens navy/paper, Barlow Condensed + Montserrat + IBM Plex Mono, logos, 7 componentes `au-*` e 3 exemplos: feed, story, slide). Regras e fonte de cada token em `brand/sistema-de-design.md`; apontado no AGENTS.md. Nada publicado em rede social.
 - Pacote de lançamento do Field Ranges (Beta), sem publicar: Discord PT/EN, Instagram (feed, story, carrossel de 6) PT/EN, mockups e texto da landing em `content/posts/field-ranges-launch/` (revisão de marca em 4 rodadas, OK com ressalvas na final; HUB aprovou o pacote em 3acf1ae).
 
 ## 2. Em andamento (máx. 2)
