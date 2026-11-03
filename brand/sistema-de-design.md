@@ -14,7 +14,7 @@ Como um agente lê: Artifact `read` na URL acima com `path: "project/README.md"`
 1. Arte de template segue o template. Arte nova usa o sistema inteiro. Nunca misturar os dois dialetos (template: Montserrat 900, gradiente amber, pílulas; sistema: Barlow Condensed, navy e gold, cantos de 2px, números em mono).
 2. Tema `navy` é o padrão; `paper` só quando a peça pede fundo claro. No paper, `gold` só preenche; texto dourado é `gold-2`.
 3. Título em CAIXA ALTA, uma linha em destaque (`.g` gold ou `.o` vazado). Pouco texto: título, uma lede, um CTA.
-4. Número só com fonte verificada e `SourceNote` na arte. Field grande, GTO ao lado, diferença em "%" (nunca "pontos", "pts", "pp").
+4. Número só com fonte verificada e `SourceNote` na arte. Field grande, GTO ao lado. Diferença entre duas frequências: em pontos ("+13,3 pontos") ou os dois números lado a lado (field 52,5% · GTO 39,2%); nunca "+13,3%" (seria diferença relativa), nunca "pp" nem "pts". O "%" de diferença vale só na margem ± do PRUMO (decisão do Rafael, 27/10).
 5. "a Aura" (feminino), sem "Beta", sem "plano GTO", termos de poker em EN dentro do PT. Carrossel em EN; legenda leva o PT.
 6. Lockup no topo de toda arte, 18+ sempre. Logo gold sobre navy, navy sobre paper ou gold, branco só sobre navy.
 7. Toda arte é vista no navegador (e a 390 px) antes de ir à HUB.
@@ -73,4 +73,4 @@ Logos: `aura-symbol-*` e `aura-wordmark-*` usam os paths `ICON_PATHS` e `AURA_LE
 ## O que não tem fonte e foi decidido aqui
 
 - Zonas seguras do story (220/260 px), passo de 72px da grade de fundo, o arco `au-arc` (eco do arco do símbolo) e o tamanho 52px do lockup no topo.
-- Números dos exemplos: os do duel publicado na landing (SB contra 3-bet do BB, 30 a 50bb: field 52,5%, GTO 39,2%; 96,4 mi de mãos, 1,4 bi de decisões). A landing escreve a diferença como "+13,3 pontos", o que fere a regra R1 da casa; o sistema usa "+13,3%".
+- Números dos exemplos: os do duel publicado na landing (SB contra 3-bet do BB, 30 a 50bb: field 52,5%, GTO 39,2%; 96,4 mi de mãos, 1,4 bi de decisões). A diferença aparece como na landing: "+13,3 pontos" / "+13.3 points".
