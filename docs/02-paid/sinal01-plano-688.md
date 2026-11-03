@@ -49,3 +49,7 @@ Próximo: com as 6 artes novas subidas pelo cartão, criar A e D BR/EN, Carrosse
 Artes v4 subidas pelo cartão; anúncios criados e ativados, em revisão (IN_PROCESS) na leitura de 03/11:
 A BR v4 `120250314164020327` · D BR v4 `120250314167510327` · Carrossel BR v4 `120250314169870327` · A EN v4 `120250314172140327` · D EN v4 `120250314173660327` · Carousel EN v3 `120250314174950327`.
 Carrossel BR v3 (reprovado) arquivado em 03/11. Quando cada v4 ficar ACTIVE, saem o v3 e o antigo correspondentes (A/D BR e EN, Carrossel BR antigo, Carousel EN v2).
+
+### Troca concluída (03/11)
+Os 6 v4 ficaram ACTIVE em 03/11. Arquivados no mesmo dia: v3 de A/D BR e EN (`…311830327`, `…312010327`, `…313030327`, `…313620327`), Carousel EN v2 (`…314910327`) e os originais A BR, D BR, Carrossel BR, A EN e D EN (`…256109470327`, `…256109810327`, `…256090350327`, `…256110910327`, `…256111040327`).
+No ar (10, 5 por conjunto): BR = A v4, B, C, D v4, Carrossel v4 · EN = A v4, B, C v3, D v4, Carousel v3. Orçamento e spend_cap sem mudança.
