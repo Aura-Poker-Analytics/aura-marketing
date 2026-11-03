@@ -8,6 +8,7 @@ Repositório de **marketing e identidade de marca** do Aura Poker Analytics.
 
 1. `docs/00-strategy/plano-marketing-launch-2.0.md` — plano, pilares, calendário, compliance, regra de ouro dos números.
 2. `brand/brand-kit.md` — paleta, tipografia, logos, tom de voz, compliance visual.
+3. `brand/sistema-de-design.md` — sistema de design das artes fora dos templates (link do artifact, regras de uso, fonte de cada token). Leia antes de montar arte que não sai de `instagram/templates/`.
 
 ## Papéis das threads
 
