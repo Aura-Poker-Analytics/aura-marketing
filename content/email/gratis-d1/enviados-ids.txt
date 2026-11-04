@@ -1,0 +1,4 @@
+# Grátis D1: Ids do tbl_user que já receberam (nunca repetir). Só Ids e o id do e-mail no Resend, nunca o endereço.
+# Id	data (UTC)	idioma	id do e-mail no Resend	status
+399	2026-11-04 21:41	en	01a1a882-5088-7271-95a5-d674e84f301f	delivered
+400	2026-11-04 21:41	en	01a1a882-d03e-7012-81cb-5d08942f8e6b	delivered

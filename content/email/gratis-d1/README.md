@@ -25,9 +25,13 @@ A Q23 da Aura simples, aprovada pelo Rafael em 04/11/2026, pede um e-mail no dia
 3. Gere o HTML e tire o comentário `<!-- RASCUNHO … -->` da linha 2. Ele é nota interna e não vai ao jogador.
 4. Mande em batch transacional, um e-mail por conta:
    - remetente `Aura Poker Analytics <news@news.aurapoker.com>`, reply-to `manager@aurapoker.com`;
-   - cabeçalho `List-Unsubscribe` com mailto e one-click, como no envio de 30/09;
+   - cabeçalho `List-Unsubscribe` com o mailto (`<mailto:manager@aurapoker.com?subject=Unsubscribe>` em EN, `subject=Descadastrar` em PT);
    - PT para BR, PT, AO, MZ e país nulo; EN para os demais países.
 5. Grave os Ids enviados em `enviados-ids.txt`. Só Ids, nunca e-mail.
+
+## Envios
+
+- 04/11/2026, 21:41 UTC: 2 contas (Ids 399 e 400, as duas em EN), as duas com status delivered no Resend. Sim do Rafael: "GRATIS-D1 pode enviar", digitado na sessão do followup.
 
 ## Medição
 
@@ -39,4 +43,6 @@ A Q23 da Aura simples, aprovada pelo Rafael em 04/11/2026, pede um e-mail no dia
 ## Decisões (HUB, 04/11/2026)
 
 - **UTM:** `utm_source=email&utm_medium=email`, o padrão da casa (`LANDING` do template), em vez do `utm_source=resend` do brief. Assim o GA4 soma este e-mail com os outros na mesma origem.
+- **Fuso:** o `create_date` e o `ultimo_login` ficam em UTC no banco, mas o cliente da consulta mostra o horário 3 h adiantado. A janela do `publico.sql` é calculada dentro do SQL e está certa; não compare horários do resultado com o relógio.
+- **Descadastro no cabeçalho:** o `List-Unsubscribe` leva só o mailto, porque não há URL https de descadastro de um clique para o batch.
 - **Idioma pelo país:** o `tbl_user` não guarda o idioma do cadastro. BR, PT, AO, MZ e país nulo recebem PT; os demais países recebem EN.
