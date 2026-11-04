@@ -35,3 +35,8 @@ A Q23 da Aura simples, aprovada pelo Rafael em 04/11/2026, pede um e-mail no dia
 - 2º login em 48 h no AuraBusiness, comparado com a coorte da onda de 30/10 a 02/11, que não recebeu e-mail.
 - GA4 com `utm_campaign=gratis_d1` (`utm_content` d1-pt ou d1-en).
 - Primeira leitura depois de 30 envios ou 14 dias, o que vier antes.
+
+## Decisões (HUB, 04/11/2026)
+
+- **UTM:** `utm_source=email&utm_medium=email`, o padrão da casa (`LANDING` do template), em vez do `utm_source=resend` do brief. Assim o GA4 soma este e-mail com os outros na mesma origem.
+- **Idioma pelo país:** o `tbl_user` não guarda o idioma do cadastro. BR, PT, AO, MZ e país nulo recebem PT; os demais países recebem EN.
