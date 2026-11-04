@@ -8,15 +8,15 @@ A Q23 da Aura simples, aprovada pelo Rafael em 04/11/2026, pede um e-mail no dia
 
 - `publico.sql`: quem recebe hoje, lido no AuraBusiness.
 - `spot-da-semana.sql`: o número do card grátis da semana, lido no analytics prod.
-- `numeros-verificados.md`: a linha lida em cada semana.
-- `../_template/build_gratis_d1.py`: gera `d1-pt.html` e `d1-en.html`. O script para com erro quando o `SPOT` está fora da semana dele.
+- `docs/00-strategy/gratis-d1-numeros-verificados.md`: a linha lida em cada semana.
+- `../_template/build_gratis_d1.py`: gera `d1-pt.html` e `en/d1.html`. O script para com erro quando o `SPOT` está fora da semana dele.
 - `../previews/gratis-d1-{pt,en}-{680,390}.png`: as prévias.
 
 ## Envio (manual, com o sim do Rafael)
 
 1. Rode `spot-da-semana.sql`. Se a linha mudou desde a última semana:
    - atualize o `SPOT` e o `SPOT_SEMANA` no build;
-   - acrescente a linha no `numeros-verificados.md`;
+   - acrescente a linha no `docs/00-strategy/gratis-d1-numeros-verificados.md`;
    - passe o e-mail pelo casa:revisor.
 2. Rode `publico.sql`. Tire da lista:
    - os e-mails na supressão do Resend (`list-suppressions`);
