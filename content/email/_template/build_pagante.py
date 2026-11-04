@@ -30,7 +30,7 @@ p1 = email(
             verdict="<strong>Too passive:</strong> o field fica abaixo da faixa do GTO (27,7% contra 43,1% a 57,1%). Quando ele aposta, folde mais as mãos marginais.",
             label="Field Exploits · novo nesta semana",
         ), pad="0 40px 24px 40px"),
-        row(para("Entram spots novos toda segunda. Hoje são 8 liberados no seu plano.", size=14, color=INK3, mb=8)),
+        row(para("Entram spots novos toda segunda no seu Field Exploits.", size=14, color=INK3, mb=8)),
     ],
     cta="Ver os spots da semana",
     cta_url=LANDING.format(c="pagante-inativo", k="p1-exploits"),
