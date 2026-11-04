@@ -15,6 +15,7 @@ from components import *  # noqa: E402,F403
 
 OUT = pathlib.Path(__file__).resolve().parent.parent
 
+# regime e tipo (FE 1.2 via HUB, 04/11): GTO chipEV; field mistura Regular, KO e Mystery (ficha FE-REGIME)
 # números: tela /exploits em 04/11, BTN vs BB river delayed c-bet SRP, 60bb (snapshot 20261102, referência 20261022)
 p1 = email(
     title="Spot novo no seu Field Exploits: o BTN dá delayed c-bet de menos no river",
@@ -24,7 +25,7 @@ p1 = email(
     blocks=[
         row(gto_card(
             spot="BTN vs BB, single raised pot, 60 big blinds",
-            context="Flop 9-high ou menor, two-tone, sem par, com OESD possível, qualquer turn e river. [REGIME E TIPO DE TORNEIO A CONFIRMAR]",
+            context="Flop 9-high ou menor, two-tone, sem par, com OESD possível, qualquer turn e river. GTO chipEV · field de todos os tipos de torneio (Regular, KO e Mystery).",
             field="27,7", gto="50,1", band="faixa GTO de 43,1% a 57,1%",
             verdict="<strong>Too passive:</strong> o field fica abaixo da faixa do GTO (27,7% contra 43,1% a 57,1%). Quando ele aposta, folde mais as mãos marginais.",
             label="Field Exploits · novo nesta semana",
