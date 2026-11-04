@@ -1,5 +1,5 @@
 # P1 pagante sem login 14d, 04/11: Id de public.tbl_user (sem e-mail). Id<TAB>provedor<TAB>dias sem login<TAB>cancelou
-# confirmados (8; recomendação: tirar o 178, dono de Team que nunca logou)
+# confirmados (8); público final 7: o 178 (dono de Team que nunca logou) sai, decisão da HUB em 04/11
 55	stripe	14	n
 317	stripe	33	n
 325	stripe	37	n
