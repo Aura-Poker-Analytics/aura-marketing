@@ -1,0 +1,19 @@
+# P1 pagante sem login 14d, 04/11: Id de public.tbl_user (sem e-mail). Id<TAB>provedor<TAB>dias sem login<TAB>cancelou
+# confirmados (8); público final 7: o 178 (dono de Team que nunca logou) sai, decisão da HUB em 04/11
+55	stripe	14	n
+317	stripe	33	n
+325	stripe	37	n
+334	stripe	76	n
+338	stripe	14	n
+353	stripe	62	n
+178	woo	nunca	?
+286	woo	52	?
+# incertos (fora até confirmar)
+299	stripe	133	s	assinatura sem correspondente ativo no Stripe
+4	sem provedor	348	n	sem pedido Woo nem Stripe
+5	sem provedor	nunca	n	sem pedido Woo nem Stripe
+6	sem provedor	84	n	sem pedido Woo nem Stripe
+136	woo?	277	?	assento Team provavel
+137	woo?	132	?	assento Team provavel
+138	woo?	nunca	?	assento Team provavel
+140	woo?	335	?	assento Team provavel
