@@ -405,6 +405,7 @@ Ordem fixada pela HUB: (a) rascunho, (b) teste para o Rafael, (c) conferência l
 
 ## Changelog
 
+- 04/11, à tarde: os números do R1 e a primeira leitura do R2 foram para `followup-numeros-verificados.md`. R1 teve 2 logins e 0 assinaturas. O R2, poucas horas depois do envio, tinha 15 de 142 aberturas no cupom e 4 de 37 no controle, sem clique e sem uso do VOLTE50.
 - 04/11: leitura do R1 (34 aberturas, 1 clique, 0 descadastros); R2 enviado com o sim do Rafael: cupom `VOLTE50` a 145 e controle a 37 (§14).
 
 - 28/10: R1 enviado a 185 (broadcast `f185d44e`), com o "sim" do Rafael e o tracking ligado; R2 previsto para 02/11 (§14).
