@@ -27,5 +27,7 @@ Ajustes aplicados: 'umas 3 linhas'; saudação fora do fonte; a condição dos 1
 ## 09/11: versão final
 Versão com form descartada (escolha do Rafael: responder o e-mail). Assunto e primeira linha nas palavras dele: PT 'Seu feedback vale 30 dias de Aura completa, sem cartão' (54 caracteres, acima dos 50 da regra do assunto; é a frase dele) e EN 'Your feedback is worth 30 days of full Aura, no card needed' (59). Reply-to: manager@aurapoker.com. O Resend não recebe neste domínio (Receiving disabled, 0 inboxes).
 
-## Revisor, delta de 09/11: 1 ERRO aberto, decisão do Rafael
+## Revisor, delta de 09/11: 1 ERRO, resolvido como decisão do PO (Rafael)
 "Aura completa" (palavras dele) não é termo da casa e pode prometer mais que o plano Individual entrega; o corpo diz "plano Individual, com Modo GTO e Field Exploits". Alternativa que o revisor propõe, só a palavra muda: PT "Seu feedback vale 30 dias do plano Individual, sem cartão" e EN "Your feedback is worth 30 days of the Individual plan, no card needed". O PR mantém a frase do Rafael; **só ele troca ou mantém**. Ajustes informativos: assunto acima de 50 caracteres (PT 54, EN 59), e os 30 dias aparecem em assunto, headline e pré-cabeçalho.
+
+**Decisão do PO (Rafael, 09/11, via HUB): "Aura completa".** Fica a frase dele no assunto e no headline; o erro do revisor fica registrado como decisão do PO, não como pendência. Reply-to conferido por ele: "leio manager@aurapoker.com" (usar `manager@aurapoker.com`). Os dois bloqueios do envio estão resolvidos; resta a frase de envio digitada por ele nesta sessão.
