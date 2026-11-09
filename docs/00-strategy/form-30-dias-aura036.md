@@ -17,7 +17,11 @@ A diferença é 1 pessoa: a de Venezuela veio de anúncio em português, e a reg
 
 **Sobreposição com o A1:** 16 dos 32 estão no lote de 18 do A1 (que ainda não saiu) [medido: ids do `lote-2026-11-01.csv` × a lista dos 32, 09/11]. Pela regra do calendário (uma pessoa, uma sequência; 1 e-mail a cada 3 dias), **este e-mail do form entra no lugar do A1 para essas pessoas**: o A1 não foi enviado. Os outros 2 do lote (link da bio) seguem na escada normal. Quem recebe o form só entra no A2 e no A3 depois de 3 dias do form, e só se não respondeu. **Linha proposta para o `_ops/email-calendario-2026-11.md` (a HUB aplica; fica fora da pasta desta sessão):** na linha "Cadastros novos da Meta", trocar "A1 com o sim do Rafael" por "**AURA-036: e-mail de 30 dias na Aura (resposta ao e-mail ou form) no lugar do A1 para os 32 da SINAL01 (26 em português e 6 em inglês); o A1 segue só para os 2 do link da bio; A2 e A3 só 3 dias depois do pedido AURA-036 e só para quem não respondeu**".
 
-## 2. As duas versões: responder o e-mail, ou form
+## 2. Versão escolhida: responder o e-mail (o form foi descartado em 09/11)
+
+**O Rafael escolheu "Responder o e-mail" em 09/11.** Valem `resp-pt.html` e `resp-en.html`, com o assunto e a primeira linha nas palavras dele (PT 54 caracteres, acima dos 50 da regra; EN 59). Os arquivos `form-*.html` saíram do PR. O texto abaixo sobre o form fica só como registro.
+
+### 2.0 Como era a proposta das duas versões
 
 A HUB propôs (09/11) trocar o form por **"responda este e-mail"** com as mesmas perguntas: não depende de ferramenta nova e a resposta chega pelo e-mail de resposta do batch `[não conferido: o reply-to precisa ser uma caixa lida ou o inbound do Resend; hoje é manager@aurapoker.com]`. O Rafael escolhe. As duas peças estão prontas: `resp-pt.html` e `resp-en.html` (botão abre a resposta) e `form-pt.html` e `form-en.html` (botão para `[LINK DO FORM]`). Na versão por e-mail a soma de 150 caracteres é conferida lendo a resposta, sem planilha; o `Id` sai do remetente, por SELECT no dia, sem gravar e-mail em arquivo.
 
@@ -116,6 +120,10 @@ COMMIT;  -- conferir as linhas antes
 
 **Volta aos 30 dias (obrigatória, o app não volta sozinho):** o mesmo `UPDATE`, rodado em D+30 com os filtros extras `AND u.subscription_period_end <= now() AND u.stripe_subscription_id IS NULL AND u.stripe_customer_id IS NULL`. Quem assinou nesse meio tempo pelo Stripe **não é tocado** (tem `stripe_subscription_id`). **O checkout do Stripe não limpa o `billing_provider`** (`BillingService.cs`, conclusão do checkout só grava `stripe_customer_id` e os dados da assinatura), então um pagante vindo da cortesia continua com `billing_provider = 'cortesia-aura036'`: por isso a contagem de pagantes não pode excluir só `cortesia%` e a volta precisa dos dois filtros do Stripe. Agendar essa volta no dia da concessão (tarefa agendada, só com a frase do Rafael para rodar). **O agendamento é condição para conceder o primeiro mês:** sem ele a frase "ao fim a conta volta ao Grátis" do e-mail seria falsa.
 
+### 3.4b Passo antes da concessão: rótulo do `billing_provider` que não vaza na tela
+
+O front (`aura-novofront` na `main`) **só compara** `billingProvider` com `'nowpayments'` e `'stripe'` (`MinhaConta.tsx`, `CryptoSubscriptionPanel.tsx`) e nunca o escreve na tela `[medido: código, 09/11]`. O valor `cortesia-aura036` cai no ramo "assinante legado gerenciado" e não aparece. **Fica `cortesia-aura036`.** Reconferir na tela, com a conta dos agentes, junto com a frase do SQL, e se algum texto novo passar a exibir o campo, trocar por um valor neutro (ex.: `cortesia`).
+
 ### 3.5 Riscos e o que o código já responde
 
 Teste com a conta dos agentes **não feito**: ele exige um `UPDATE` no AuraBusiness. Esta sessão só tem leitura no banco, e escrita no AuraBusiness é da lista do Rafael (R-002). O que se pôde conferir lendo o `aura_api` (`BillingService.cs`), com `[medido: código, 09/11]`:
@@ -131,6 +139,12 @@ Teste com a conta dos agentes **não feito**: ele exige um `UPDATE` no AuraBusin
 Texto em `content/email/form-30dias/email.md` (PT e EN, pelo `casa:copywriter`; revisão do `casa:revisor` em `notas.md`). **Nenhum código de cupom, nenhum preço.** O botão leva ao form.
 **Exceção ao R-037 (CTA de e-mail na landing):** aqui o CTA é o form (versão A) ou a resposta ao e-mail (versão B, `mailto`, sem UTM; a medição vem da contagem de respostas), fora da landing; o link leva `utm_campaign=form-30dias&utm_content=<idioma>` para o GA4 ler o clique. Pedir à HUB que confirme a exceção.
 **Envio:** a broadcast do Resend exige um segmento, e o plano tem 3. O segmento `65da31a5` (liberado para a ativação Meta) é **um só** e não separa PT de EN. Recomendação: **envio por batch transacional** (padrão do R1 e do R3 da reconquista, com `List-Unsubscribe`), PT para 26 pessoas e EN para 6, com a mesma peça. Os dois rascunhos no Resend ficam apenas como prévia, nomeados "NÃO ENVIAR (envio por batch)". O envio é do Rafael, com o "sim" digitado nesta sessão (R-007).
+
+## 4b. Reply-to e o batch (preparação, nada enviado)
+
+- **Reply-to: `manager@aurapoker.com`**, o mesmo dos envios anteriores. **Conferido no Resend em 09/11:** o domínio `news.aurapoker.com` tem *Receiving disabled* e a conta tem **0 inboxes**, então as respostas **não** chegam pelo inbound do Resend. Elas dependem da caixa `manager@aurapoker.com` ser lida pelo Rafael `[não conferido: nenhuma ferramenta desta sessão lê essa caixa]`. Para o envio sair, o Rafael confirma que lê essa caixa, ou o Resend passa a receber (ligar *Receiving*, é mudança de DNS e configuração dele).
+- **Batch:** `send-batch-emails`, um e-mail por pessoa, 26 com `resp-pt` (assunto PT) e 6 com `resp-en` (assunto EN), remetente `Aura Poker Analytics <news@news.aurapoker.com>`, reply-to acima, `List-Unsubscribe`. Os e-mails dos 32 saem do `tbl_user` (SELECT por `Id`, país BR ou PT = PT, resto = EN) **só no momento do envio**, em memória, sem arquivo nem git. Antes: tirar quem já assinou ou descadastrou.
+- **Frase de envio, do Rafael nesta sessão:** "AURA-036 sim: enviar a pesquisa (versão resposta) aos 32 da SINAL01, 26 em português e 6 em inglês". Só com ela e com o reply-to conferido.
 
 ## 5. Ordem de execução (nada acontece antes das duas frases)
 

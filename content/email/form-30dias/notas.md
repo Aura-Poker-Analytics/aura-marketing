@@ -22,3 +22,10 @@ Não rodei `numeros`: não há numeros-verificados.md para esta peça e todos os
 
 ## Revisão do casa:revisor (09/11): OK, sem erro
 Ajustes aplicados: 'umas 3 linhas'; saudação fora do fonte; a condição dos 150 caracteres sobe para o parágrafo da oferta; o e-mail pede o e-mail da conta Aura; botão 'Responder o form (30 dias do Individual)'; frase de dúvida no fonte. UTM do form: `utm_campaign=form-30dias&utm_content=pt|en` (a primeira nota dizia 'sem UTM', corrigido). Aberto: trocar `[LINK DO FORM]` (bloqueia o envio) e a exceção do CTA, com a HUB.
+
+
+## 09/11: versão final
+Versão com form descartada (escolha do Rafael: responder o e-mail). Assunto e primeira linha nas palavras dele: PT 'Seu feedback vale 30 dias de Aura completa, sem cartão' (54 caracteres, acima dos 50 da regra do assunto; é a frase dele) e EN 'Your feedback is worth 30 days of full Aura, no card needed' (59). Reply-to: manager@aurapoker.com. O Resend não recebe neste domínio (Receiving disabled, 0 inboxes).
+
+## Revisor, delta de 09/11: 1 ERRO aberto, decisão do Rafael
+"Aura completa" (palavras dele) não é termo da casa e pode prometer mais que o plano Individual entrega; o corpo diz "plano Individual, com Modo GTO e Field Exploits". Alternativa que o revisor propõe, só a palavra muda: PT "Seu feedback vale 30 dias do plano Individual, sem cartão" e EN "Your feedback is worth 30 days of the Individual plan, no card needed". O PR mantém a frase do Rafael; **só ele troca ou mantém**. Ajustes informativos: assunto acima de 50 caracteres (PT 54, EN 59), e os 30 dias aparecem em assunto, headline e pré-cabeçalho.

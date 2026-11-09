@@ -1,58 +1,13 @@
-# PT
+# AURA-036: Seu feedback vale 30 dias de Aura (resposta ao e-mail)
 
-**Assunto:** 30 dias de Aura, sem cartão
+Versão escolhida pelo Rafael em 09/11 ("Responder o e-mail"). A versão com form foi descartada. Remetente `Aura Poker Analytics <news@news.aurapoker.com>`, reply-to `manager@aurapoker.com`. O botão abre a resposta com 1. 2. 3. 4. no corpo. Arquivos: `resp-pt.html` e `resp-en.html`.
 
-**Pré-cabeçalho:** Dois minutos de resposta, 30 dias do plano Individual.
+## PT (26: país BR e PT)
 
-**Corpo:**
-
-Você se cadastrou no Grátis da Aura e não assinou. Quero saber o que travou.
-
-Responda um form de 2 minutos, com 3 a 4 perguntas abertas: o que esperava da Aura, o que achou difícil ou confuso, o que faltou para assinar. As respostas decidem o que eu construo a seguir. Use o e-mail da sua conta Aura.
-
-Depois que você responder, eu libero 30 dias do plano Individual, com Modo GTO e Field Exploits. Sem cartão. Ao fim, a conta volta ao Grátis e nada é cobrado. Vale para resposta de verdade: pelo menos 150 caracteres somados, umas 3 linhas.
-
-Dúvida? Responda este e-mail.
-
-Rafael, fundador da Aura
-
-**Botão:** Responder o form (30 dias do Individual)
-
-**Link do botão:** [LINK DO FORM] com ?utm_campaign=form-30dias&utm_content=pt
-
----
-
-# EN
-
-**Subject:** 30 days of Aura, no card needed
-
-**Preheader:** A 2-minute form for 30 days of the Individual plan.
-
-**Body:**
-
-You signed up for Aura Free and didn't subscribe. I want to know what got in the way.
-
-Fill in a 2-minute form with 3 to 4 open questions: what you expected from Aura, what felt hard or confusing, what was missing to subscribe. Your answers decide what I build next. Use your Aura account email.
-
-Once you answer, I unlock 30 days of the Individual plan, including GTO Mode and Field Exploits. No credit card. After that your account goes back to Free and you're not charged. It applies to real answers: at least 150 characters in total, about 3 lines.
-
-Questions? Just reply to this email.
-
-Rafael, founder of Aura
-
-**Button:** Answer the form (30 days of Individual)
-
-**Button link:** [LINK DO FORM] with ?utm_campaign=form-30dias&utm_content=en
-
-
----
-
-# Versão B: responder este e-mail (sem form)
-
-Mesmo assunto, pré-cabeçalho trocado, mesma condição de 150 caracteres. O botão abre a resposta ao e-mail e as perguntas vão no corpo (arquivos `resp-pt.html` e `resp-en.html`).
-
-## PT
+**Assunto (palavras do Rafael):** Seu feedback vale 30 dias de Aura completa, sem cartão
 **Pré-cabeçalho:** Responda este e-mail em 2 minutos e eu libero 30 dias do plano Individual.
+
+Seu feedback vale 30 dias de Aura completa, sem cartão.
 
 Você se cadastrou no Grátis da Aura e não assinou. Quero saber o que travou.
 
@@ -68,8 +23,14 @@ Se você responder com pelo menos 150 caracteres somados (umas 3 linhas), eu lib
 **Botão:** Responder este e-mail (abre a resposta com 1. 2. 3. 4. no corpo)
 **Nota:** Dúvida? É só responder.
 
-## EN
+Rafael, fundador da Aura
+
+## EN (6: os demais países)
+
+**Subject (Rafael's words):** Your feedback is worth 30 days of full Aura, no card needed
 **Preheader:** Reply in 2 minutes and I'll unlock 30 days of the Individual plan.
+
+Your feedback is worth 30 days of full Aura, no card needed.
 
 You signed up for Aura Free and didn't subscribe. I want to know what got in the way.
 
@@ -84,3 +45,5 @@ If you reply with at least 150 characters in total (about 3 lines), I unlock 30 
 
 **Button:** Reply to this email (opens the reply with 1. 2. 3. 4. in the body)
 **Note:** Questions? Just reply.
+
+Rafael, founder of Aura
