@@ -1,34 +1,34 @@
 id,cadastro,pais,idioma,origem,criativo,idade_no_envio,passo,observacao
-320,2026-07-21,,pt,instagram-bio,launch20,D118,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-321,2026-07-21,,pt,instagram-bio,launch20,D118,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-322,2026-07-21,,pt,instagram-bio,launch20,D118,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-327,2026-07-30,,pt,meta-pago,disc-04-pioneiro,D109,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-336,2026-08-05,,pt,instagram-bio,organico,D103,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-341,2026-08-18,,pt,meta-pago,ativ01-launch,D90,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-342,2026-08-18,,pt,meta-pago,disc02-plataforma-mda-en,D90,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-347,2026-08-21,,pt,meta-pago,ativ01-launch,D87,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-349,2026-08-22,,pt,meta-pago,disc02-plataforma-mda-en,D86,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-352,2026-08-28,,pt,meta-pago,disc02-plataforma-mda-en,D80,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes; pais vazio=pt
-354,2026-09-02,PT,pt,meta-pago,disc02-classes-cbet-en,D75,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes
-355,2026-09-03,PT,pt,meta-pago,disc02-classes-cbet-en,D74,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes
-369,2026-10-21,BR,pt,instagram-bio,organico,D26,A1,cadastro antigo (jul-out): cruzar com Gratis do R2 e ex-pagante antes
-393,2026-11-02,BR,pt,meta-pago,b-br,D14,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-394,2026-11-02,BR,pt,meta-pago,c-br,D14,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-395,2026-11-03,BR,pt,meta-pago,c-br,D13,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-396,2026-11-03,BR,pt,meta-pago,b-br,D13,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-397,2026-11-03,BR,pt,meta-pago,b-br,D13,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
+320,2026-07-21,,pt,instagram-bio,launch20,D118,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+321,2026-07-21,,pt,instagram-bio,launch20,D118,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+322,2026-07-21,,pt,instagram-bio,launch20,D118,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+327,2026-07-30,,pt,meta-pago,disc-04-pioneiro,D109,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+336,2026-08-05,,pt,instagram-bio,organico,D103,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+341,2026-08-18,,pt,meta-pago,ativ01-launch,D90,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+342,2026-08-18,,pt,meta-pago,disc02-plataforma-mda-en,D90,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+347,2026-08-21,,pt,meta-pago,ativ01-launch,D87,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+349,2026-08-22,,pt,meta-pago,disc02-plataforma-mda-en,D86,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+352,2026-08-28,,pt,meta-pago,disc02-plataforma-mda-en,D80,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes; pais vazio=pt
+354,2026-09-02,PT,pt,meta-pago,disc02-classes-cbet-en,D75,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes
+355,2026-09-03,PT,pt,meta-pago,disc02-classes-cbet-en,D74,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes
+369,2026-10-21,BR,pt,instagram-bio,organico,D26,RETIDO,cadastro antigo (jul-out): fora ate cruzar com Gratis do R2 e ex-pagantes
+393,2026-11-02,BR,pt,meta-pago,b-br,D14,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+394,2026-11-02,BR,pt,meta-pago,c-br,D14,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+395,2026-11-03,BR,pt,meta-pago,c-br,D13,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+396,2026-11-03,BR,pt,meta-pago,b-br,D13,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+397,2026-11-03,BR,pt,meta-pago,b-br,D13,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
 398,2026-11-03,BR,pt,instagram-bio,organico,D13,A1,cruzar com Gratis D1 do dia seguinte antes
-399,2026-11-03,AT,en,meta-pago,c-en,D13,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-401,2026-11-04,BR,pt,meta-pago,b-br,D12,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-402,2026-11-04,BR,pt,meta-pago,b-br,D12,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-404,2026-11-05,BR,pt,meta-pago,c-br,D11,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-405,2026-11-05,BR,pt,meta-pago,b-br,D11,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-406,2026-11-05,BR,pt,meta-pago,b-br,D11,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-407,2026-11-06,BR,pt,meta-pago,c-br,D10,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-410,2026-11-07,BR,pt,meta-pago,c-br,D9,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-411,2026-11-09,BR,pt,meta-pago,c-br,D7,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-412,2026-11-09,BR,pt,meta-pago,b-br,D7,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
-413,2026-11-09,BR,pt,meta-pago,b-br,D7,A2,recebeu a pesquisa AURA-036 em 09/11 no lugar do A1 [inferido: SINAL01 ate 09/11]; conferir com a HUB se A2 12/11 e A3 15/11 sairam; conferir no GA4 na vespera (analyze_result por aura_user_id)
+399,2026-11-03,AT,en,meta-pago,c-en,D13,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2; recebeu Gratis D1 em 04/11
+401,2026-11-04,BR,pt,meta-pago,b-br,D12,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+402,2026-11-04,BR,pt,meta-pago,b-br,D12,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+404,2026-11-05,BR,pt,meta-pago,c-br,D11,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+405,2026-11-05,BR,pt,meta-pago,b-br,D11,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+406,2026-11-05,BR,pt,meta-pago,b-br,D11,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+407,2026-11-06,BR,pt,meta-pago,c-br,D10,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+410,2026-11-07,BR,pt,meta-pago,c-br,D9,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+411,2026-11-09,BR,pt,meta-pago,c-br,D7,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+412,2026-11-09,BR,pt,meta-pago,b-br,D7,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
+413,2026-11-09,BR,pt,meta-pago,b-br,D7,A2,recebeu a pesquisa AURA-036 em 09/11; A2 e A3 da pesquisa nao sairam [medido: Resend list-emails, ultimo envio 09/11]; excluir quem respondeu (cruzar manager@/form); conferir no GA4 na vespera (analyze_result por aura_user_id); A3 3 dias depois do A2
 414,2026-11-10,BR,pt,meta-pago,c-br,D6,A1,cruzar com Gratis D1 do dia seguinte antes
 417,2026-11-10,BR,pt,meta-pago,disc-03-categoria,D6,A1,cruzar com Gratis D1 do dia seguinte antes
 418,2026-11-13,BR,pt,instagram-bio,organico,D3,A1,cruzar com Gratis D1 do dia seguinte antes
